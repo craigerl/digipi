@@ -1,0 +1,70 @@
+Form: BC Initial Impact Assessment Form_Initial.html,BC Initial Impact Assessment Form_Viewer.html
+
+seqinc:
+To: <VAR vTO>
+Subj: //WL2K <VAR vPREC>/ Msg #<seqnum> <VAR vLOCATION> INITIAL IMPACT ASSESSMENT
+
+Msg: 
+Precedence: <VAR vPREC>
+Message Number: <seqnum>
+Base Call of Sender: <Callsign>
+Place of Origin: <VAR vLOCATION>, BC
+Time (local): <Time>
+Date (local): <Date>
+To Name: PREOC Operations
+Organization: EMBC
+
+====================================================================
+<VAR vTYPE> INITIAL IMPACT ASSESSMENT REPORT
+====================================================================
+
+1A) Is EOC activated? <VAR v1A>
+1B) EOC Activation Status? <VAR v1B>
+1C) State of Local Emergency Declared? <VAR v1C>
+1D) EOC Comments: <VAR v1D>
+1E) First Responders Functional? <VAR v1E>
+
+2) Priority Needs (3 only)
+   1) <VAR v8A>
+   2) <VAR v8B>
+   3) <VAR v8C>
+
+3A) Number of people displaced: <VAR v2A>
+3B) Number of people injured: <VAR v2B>
+3C) Number of fatalities: <VAR v2C>
+3D) Have people been evacuated? <VAR v2D>
+3E) Number of people evacuated: <VAR v2C>
+
+Critical Infrastructure Impacted
+______________________________________________
+
+4A) Water: - <VAR v3AI> - <VAR v3AC> (ETR) <VAR v3AE>
+4B) Sanitation: - <VAR v3BI> - <VAR v3BC> (ETR) <VAR v3BE>
+4C) Gas: - <VAR v3CI> - <VAR v3CC> (ETR) <VAR v3CE>
+4D) Electricity: - <VAR v3DI> - <VAR v3DC> (ETR) <VAR v3DE>
+4E) Telephone: - <VAR v3EI> - <VAR v3EC> (ETR) <VAR v3EE>
+4F) Internet: - <VAR v3FI> - <VAR v3FC> (ETR) <VAR v3FE>
+4G) Cellular Network: - <VAR v3GI> - <VAR v3GC> (ETR) <VAR v3GE>
+4H) Text Messaging: - <VAR v3HI> - <VAR v3HC> (ETR) <VAR v3HE>
+4I) SAT Phone: - <VAR v3II> - <VAR v3IC> (ETR) <VAR v3IE>
+4J) Amateur Radio Station Status: <VAR v3J> (ETR) <VAR v3K>
+Callsign: <VAR v3L>
+Winlink address: <VAR v3M>
+______________________________________________
+
+5A) If potable water system is unusable, estimated days remaining of water: <VAR v4A>
+5B) Estimated days remaining of food: <VAR v4B>
+5) Primary Transportation Route: <VAR v5>
+7) Medical - Hospitals/Clinics: <VAR v6>
+8A) Shelter - estimated % of homes uninhabitable: <VAR v7A>
+8B) Estimated percentage of Rapid Damage Assessment completed: <VAR v7B>
+9) Comments:
+<VAR v9>
+_____________________________________________________________________
+Report Originator: <VAR vORIG>
+Organization: <VAR vORIGORG>
+
+Sender Call or Tactical: <Msgsender>
+Message sent via the Winlink System
+Send reply to <Msgsender>@winlink.org
+HTML BC Initial Impact Assessment Form <var Version>

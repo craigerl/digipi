@@ -1,0 +1,193 @@
+Mid: 8R0AJJBACOYP
+Body: 2490
+Date: 2022/05/15 16:01
+From: NCALWLINKNET
+Mbo: KF6NPG
+Subject: NorCal Winlink Net Weekly Check in Reminder
+To: AA6CS
+To: AB6BR
+To: AC8ZU
+To: AD5DM
+To: AD6DM
+To: AE6J
+To: AE6LM
+To: AE6RF
+To: AE7TM
+To: AF6SC
+To: AF7OK
+To: AH0A
+To: AI4EW
+To: AI6D
+To: AI6JB
+To: AI6US
+To: AJ6KN
+To: AK7MG
+To: K2RDX
+To: K3OES
+To: K5VP
+To: K6ABJ
+To: K6BSY
+To: K6FVC
+To: K6HTN
+To: K6IXA
+To: K6JRO
+To: K6OGR
+To: K6OPA
+To: K6RGI
+To: K6SDR
+To: K6TJP
+To: K6TLH
+To: K6TUG
+To: K6VNR
+To: K7JGV
+To: K8EAF
+To: K8OEC
+To: K9WSF
+To: KA6GJN
+To: KB6EC
+To: KB6KY
+To: KB6YNO
+To: KB9STB
+To: KC3BEJ
+To: KC5VKG
+To: KC6EOC
+To: KC6NAT
+To: KC6UIS
+To: KC9AD
+To: KD4LEM
+To: KD4QNA
+To: KD6PJE
+To: KD7ISA
+To: KD9IFV
+To: KD9ANU
+To: KE6AFE
+To: KE6DQV
+To: KE7ADD
+To: KE8BSM
+To: KE8GRY
+To: KF6IDK
+To: KF6NPG
+To: KF6OBI
+To: KF6VAN
+To: KF7RSF
+To: KG6H
+To: KG9B
+To: KG6SJT
+To: KI6FAO
+To: KI6HOB
+To: KI6MOI
+To: KI6OID
+To: KI6OMU
+To: KJ6KEU
+To: KJ6KIZ
+To: KJ6LNH
+To: KJ6PYV
+To: KK7APK
+To: KK6CN
+To: KK6EVX
+To: KK6RJR
+To: KK6TND
+To: KK6YMJ
+To: KM6KDZ
+To: KM6IRY
+To: KM6JBI
+To: KM6LYW
+To: KM6RIW
+To: KM6TVV
+To: KM6ZVR
+To: KN4IOU
+To: KN6EZF
+To: KN6GRJ
+To: KN6GLG
+To: KO6GM
+To: KN6HTD
+To: KO6KL
+To: KO6XX
+To: KP4MD
+To: KS6M
+To: KS6Z
+To: KT2KT
+To: KU0HN
+To: KU5D
+To: KW4UJ
+To: KX7YT
+To: N0UYH
+To: N2GWK
+To: N4KBT
+To: N5BMU
+To: N6ADL
+To: N6ARP
+To: N6CKV
+To: N6CNY
+To: N6GEO
+To: N6MRP
+To: N6NKT
+To: N6QAD
+To: N6QJP
+To: N6RJX
+To: N6TBC
+To: N6TCE
+To: NB6S
+To: NC6J
+To: NV6W
+To: WO2H
+To: W2AFE
+To: W2ILT
+To: W4BJB
+To: W4GRJ
+To: W4MEX
+To: W4TBD
+To: W6ELA
+To: W6MSU
+To: W6NLP
+To: W6RT
+To: W6TST
+To: W6TUW
+To: W6UHF
+To: W6VG
+To: W6XCZ
+To: W7BPD
+To: W7OWO
+To: WA6PIC
+To: WA6RAH
+To: WA8RSA
+To: WB6FHN
+To: WB6MVT
+To: WB6RJH
+To: WB6RWU
+To: WH7DH
+To: WL7COO
+To: WM6T
+To: WW1ACE
+X-Filepath: /home/pi/.local/share/pat/mailbox/KM6LYW/in/8R0AJJBACOYP.b2f
+
+Good Morning Everyone,
+
+It's time again to check the sending/receiving capability of your Winlink station(s).  Send check ins to NCALWLINKNET@winlink.org anytime after receipt of this reminder thru 2359 hours Thursday, Pacific time.  All check ins will be acknowledged, typically within 48 hours. A complete list of check ins will be sent out on Saturday evening.  You may check in multiple times using a different session type or packet node/path each time.  
+
+A NEW NORCAL_WINLINKnet check in template is available online. Bulletins will be sent out when there are any change to the check in template.  Download the v8.1 "NorCal Check In" file from:
+
+https://winlink.org/content/forms_not_standard_library_auto_update_process_still_available
+
+At this time if you wish to use the older template, v7.9, for your check ins, and don't have GPS capabilities, you may do so.
+
+Extract the two files to your template folder here: C:\RMS Express\[Your Callsign]\Templates\
+Or if this is a shared system to this location: C:\RMS Express\Global Folders\Templates\
+
+For a list of NorCal Remote Message Stations (RMSs) and other packet stations visit:  http://ncpa.n0ary.org/
+
+Please use Winlink (WL2K, e.g. 145.01, 145.63), idle Emergency (EP, e.g. 144.91, 145.73), and Non-Allocated (NA) frequencies for your weekly check ins.  Please limit other frequencies (Keyboard, BBS, Mailbox) unless these are the only frequencies with an RMS available to you.  The considerate operator should always monitor the frequency for a couple of minutes of silence before transmitting.
+
+Please see the Nothern California Packet Association bandplan for appropriate frequency use: http://ncpa.n0ary.org/ncpabandplan.html
+
+Please note that it is now required to use a one-line format for check in.  If you do not use the template, then use the following one-line syntax in the body of the message:
+
+Callsign, First name, City, State abbreviation in CAPS (ie CA), session type, client program used if other than Winlink Express, thru gateway, and band used if by HF radio or frequency if by VHF/UHF.
+
+Please include or pass any traffic you are holding for the Net on the line after your check in.  Are there any hamcrams, exam sessions, elmering, or other Amateur Radio events in your area?  That makes for some great low-priority traffic to pratice passing, keeping it brief as possible but with the necessary details.
+
+------
+
+73, Lucian Thomas KF6NPG
+kf6npg@aol.com
+NORCALWINLINKNET NCS

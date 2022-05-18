@@ -1,0 +1,81 @@
+:macro INIT
+;; Linpac init script
+;; This script is called when LinPac is started
+
+;; Default connected port
+port radio
+
+;; Default unproto port
+unport radio
+
+;; Log errors
+errorlog error.log
+
+;; Color scheme - uncomment one to select
+;;color_default
+;;color_blue
+;;color_tnt
+
+;; Screen setup
+;; Normal mode - editor under QSO window
+statline 15
+chnline 20
+;; Uncomment this for editor above QSO window (Baycom-like)
+;; (and comment out lines for normal mode)
+;;swapedit
+;;statline 4
+;;chnline 20
+redraw
+
+;; Callsign setup
+mycall@1 KM6LYW
+mycall@2 KM6LYW
+mycall@3 KM6LYW
+mycall@4 KM6LYW
+mycall@5 KM6LYW
+mycall@6 KM6LYW
+mycall@7 KM6LYW
+mycall@8 KM6LYW
+;; Unproto calls destination (unsrc) and digi path (undest)
+unsrc LINPAC
+undest INFO
+
+;; Other settings
+cbell on
+knax on
+;; Required to be on or linpac won't accept any // commands from the remote user
+remote on
+infolevel 1
+
+;; Default QRG
+set QRG@0 "144.8125 MHz"
+
+;; Default encoding translation (for all channels) - controlled by terminal 0
+set DEF_ENC@0 iso1
+translate %DEF_ENC@0
+
+;; Default set of enabled remote commands
+set DEF_RCMD@0 "AB D E VER L RP B MH N RT YPUT W R WB RB A COMP CONV I H Q U CS SP SB"
+
+;; Paths
+set SAVE_PATH "./save"
+set MAIL_PATH "./mail"
+set USER_PATH "./user"
+set LOG_PATH "./log"
+
+;; Path to home BBS - the port name is REQUIRED - i.e. radio:OK0PAB OK0NMA
+set HOME_BBS "radio:KM6LYW-4 "
+set HOME_ADDR "KM6LYW.CRAIGER.ORG"
+
+;; Preferred size of 7plus blocks
+set BLOCK7P 5120
+
+;; ======================================================
+;; System settings - do not modify this if you don't know
+;; what you are doing
+;; ======================================================
+
+;; Automatic start of external protocols
+watch 0 "\r#BIN#" ":autobin"
+watch 0 "\x5\x1" ":yapp"
+watch 0 "\r go_" ":bsave"

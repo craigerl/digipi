@@ -1,0 +1,8 @@
+# /etc/ax25/nrports
+#
+# The format of this file is:
+#
+# name callsign alias paclen description
+#
+#netrom	OH2BNS-10 #LNODE	235	Switch Port
+netrom KX6XXX-4 #COOL  255     145.730 Linux Node

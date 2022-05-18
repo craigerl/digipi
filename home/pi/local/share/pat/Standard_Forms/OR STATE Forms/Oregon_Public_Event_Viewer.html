@@ -1,0 +1,168 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>{var MsgSender} - {var DateTime} - PUBLIC EVENT</title>
+
+<style type="text/css">
+@media print {
+
+#printPageButton {
+    display: none;
+  }
+  .form-control, .form-control.nobug {
+border: 0;
+outline: 0;
+box-shadow: none;
+font-size:12px;
+}
+.form-control.nobug {
+transition: none; /*-- THIS IS IMPORTANT -- */
+}
+ input {
+         outline: none !important;
+		box-shadow: none;
+		border: none;
+		}
+}
+body, td, th {
+font-family: Arial, Helvetica, sans-serif;
+}
+.zentriert {
+text-align: center;
+}
+input, select {
+padding: 1px;
+-moz-border-radius-topleft: 2px;
+-moz-border-radius-topright: 2px;
+-moz-border-radius-bottomright: 2px;
+-moz-border-radius-bottomleft: 2px;
+font-family: Arial, Helvetica, sans-serif;
+font-size: 12px;
+text-align: left;
+font-weight: normal;
+font-style: normal;
+}
+textarea {
+padding: 1px;
+-moz-border-radius-topleft: 2px;
+-moz-border-radius-topright: 2px;
+-moz-border-radius-bottomright: 2px;
+-moz-border-radius-bottomleft: 2px;
+font-family: Arial, Helvetica, sans-serif;
+font-size: 12px;
+font-weight: normal;
+font-style: normal;
+}
+.rechtsbuendig {
+text-align: right;
+}
+.SubmitBtn {
+text-align: right;
+}
+.version {
+font-size: 10px;
+color: #666666;
+position: relative;
+left: 0px;
+top: 3px;
+}
+.style2 {font-size: 16}
+</style></head>
+<body>
+<div style="text-align: center;">
+<form action="http://{FormServer}:{FormPort}" enctype="multipart/form-data" id="Oregon OEM Public Event" method="post" pbzloc="0" onsubmit="return confirm('To complete your form submission, click OK and close the open browser window. You will return to the new message window so you can post your message to the outbox');" style="font-family: Arial Black;">
+<table style="width: 1071px; height: 513px;" align="center" border="0">
+<tbody>
+<tr>
+<td>
+<table style="font-size: 14px; width: 877px; height: 538px;" border="3" bordercolor="#999999" cellpadding="2" cellspacing="0">
+<tbody>
+<tr>
+<td colspan="2" bgcolor="#dee9f9" style="height: 15%; vertical-align: top; text-align: justify; "><small><b><big>&nbsp;&nbsp;</big></b></small>
+  <input readonly="readonly" maxlength="14" size="15" name="Status" value="{var Status}" />
+<small><b><big>&nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp; </big></b><big><big><big>&nbsp;
+<span class="style2">OREGON
+</span></big></big> <span class="style2">&nbsp;
+&nbsp; &nbsp;<big><span style="font-style: italic;">Public
+Event</span></big></span></big></small><span class="style2" style="font-weight: bold; font-style: italic;">&nbsp;</span><span class="style2"><big><span style="font-style: italic;"> &nbsp; &nbsp; &nbsp;</span>
+</big><small>Vers 8.2</small></span></td>
+</tr>
+<tr>
+<td colspan="5" style="height: 88px; text-align: center; vertical-align: top;">
+<table style="text-align: left; width: 865px; height: 439px;" border="1" cellpadding="2" cellspacing="2">
+<tbody>
+<tr>
+<td style="text-align: center;"><div align="left"><br />
+      <em>&nbsp; &nbsp; 1. Agency/Group Requesting Assistance:&nbsp;</em><strong>{var Agency} &nbsp;</strong></div></td>
+</tr>
+<tr>
+<td style="vertical-align: middle; text-align: center; background-color: white;">&nbsp;
+  <div align="left"><em>&nbsp; &nbsp; 2. Person Requesting Services:</em>&nbsp;<strong>{var ReqPer} &nbsp;&nbsp;</strong></div></td>
+</tr>
+<tr><td style="text-align: center;"><div align="left"><br />
+        <em>&nbsp; &nbsp; 3. &nbsp;Position of Requester: </em><strong>&nbsp; {var ReqPos}</strong></div></td></tr><tr>
+<td style="text-align: center; background-color: white;"><div align="left"><br />
+      <em>&nbsp; &nbsp; 4. Name &amp; Description of Event:</em>
+      <strong>{var Event}</strong></div></td>
+</tr>
+<tr>
+<td style="text-align: center;">&nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp;&nbsp; &nbsp;
+<div align="left"><em>&nbsp; &nbsp; 5. Location of Event: </em><strong>&nbsp;{var Loc}&nbsp; &nbsp;
+</strong>&nbsp;
+&nbsp;&nbsp; &nbsp; &nbsp;
+&nbsp;&nbsp;&nbsp;
+</div></td>
+</tr>
+<tr>
+<td style="text-align: center; background-color: white;"><div align="left"><br />
+    <em>&nbsp; &nbsp; 6. Start
+  Date &amp; Time of Event: </em><strong>&nbsp;{var Time1}&nbsp;&nbsp;</strong><em>&nbsp; &nbsp; 7. Expected Event Duration:</em>&nbsp;<strong>{var Dur}&nbsp;&nbsp; &nbsp;</strong> &nbsp; &nbsp;&nbsp;
+</div></td>
+</tr>
+<tr>
+<td style="text-align: center; background-color: white;"><div align="left">      <em>&nbsp; &nbsp; <br />
+  &nbsp;&nbsp;&nbsp;&nbsp;8. Description of&nbsp;Support Services Provided: &nbsp;</em>&nbsp;<br />
+&nbsp;<br />
+  <strong><span style="width:700px; word-wrap:break-word; display:inline-block;">{var Services}&nbsp;</span>
+    </strong></div></td>
+</tr>
+<tr>
+  <td height="35" style="text-align: center; background-color: white;"> <div align="left"><em>&nbsp; &nbsp;  9. Number of Operators:</em>&nbsp;
+        <strong>{var Ops}</strong></div></td>
+</tr>
+<tr>
+<td style="text-align: center;"><div align="left"><em>&nbsp;&nbsp; <br />
+&nbsp;&nbsp;  10. Other Information or Comment</em>s: <br />
+  <br />
+  <strong><span style="width:750px; word-wrap:break-word; display:inline-block;">{var Comments}</span></strong><br />
+</div></td>
+</tr>
+<tr><td height="35" style="text-align: center;"><div align="left">        <em>&nbsp; &nbsp;11. Name &amp; Call of Person Submitting Report: </em><strong>&nbsp;{var Auth}</strong><em>&nbsp;  </em><em>&nbsp; </em><em> </em>&nbsp;<em>Call Sign:</em><strong>{var Call}&nbsp; &nbsp;</strong></div></td></tr><tr><td height="35" style="text-align: center;"><div align="left">        <em>&nbsp;&nbsp; 12. Position of Person Submitting Report:</em>&nbsp;
+        <strong>{var AuthPos}</strong></div></td></tr>
+</tbody>
+</table>
+<span style="font-style: italic;"></span></td>
+</tr>
+
+<tr>
+<td style="text-align: justify;" colspan="2"><small><span style="color: rgb(128, 0, 0);"><span style="font-size: 12px;">&nbsp;</span>&nbsp;</span></small><big><big></big></big><small><span style="color: rgb(128, 0, 0);"><span style="color: black;">&nbsp;
+</span></span></small>&nbsp;
+&nbsp; &nbsp; &nbsp; <small><span style="color: rgb(128, 0, 0);"><span style="color: black;"></span>&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;  &nbsp;</span>Winlink  Senders Call: <strong></strong><span style="color: rgb(128, 0, 0);"><strong>&nbsp;</strong></span></small><strong><small><span style="color: rgb(128, 0, 0);"><span style="color: black;">
+{var MsgSender}
+</span> &nbsp;</span></small></strong><small><span style="color: rgb(128, 0, 0);">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;</span>Report Filled at:<strong>{var DateTime} </strong>&nbsp; &nbsp; &nbsp; &nbsp;<span style="color: rgb(128, 0, 0);"> &nbsp;&nbsp;</span></small></td>
+</tr>
+</tbody>
+</table>
+<br />
+<small>&nbsp;</small></td>
+</tr>
+</tbody>
+</table>
+</form>
+</div>
+</body></html>

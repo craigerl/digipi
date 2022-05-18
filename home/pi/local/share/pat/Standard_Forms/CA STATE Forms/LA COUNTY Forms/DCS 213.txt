@@ -1,0 +1,28 @@
+Form: DCS 213_Initial.html,DCS 213_viewer.html
+ReplyTemplate: DCS 213_SendReply.0
+
+To: 
+Subject:DCS 213-<var  Priority>- <var Incident_Name>-<var Subjectline> - <var Mdate>
+SeqInc:
+Msg:
+DCS  GENERAL MESSAGE (DCS ICS213)
+Priority <var PRIORITY>
+Mode:<var f1> <var f2> <var f3> <var f4> <var f5> <var f6> <var f7> <var f8> <var f9> <var f10>
+Notify: 
+<var f11> <var f12> <var f13> <var f14> <var f15> <var f16> <var f17> <var f18> <var f19> <var f20> <var f21> <var f22> <var f23> <var f24> <var f25> <var f26> <var f27> <var f28> <var f29> <var f30> <var f31>
+
+Incident Name: <var Incident_Name>  
+To (Name and Position): <var To_Name>, <var To_position>
+From: <var From>, <var From_position>
+Subject: <var Subjectline>
+Date: <var Mdate>
+Time: <var mtime>
+Message:
+
+<var Message>
+
+
+------------------------------------
+Express Sending Station: <MsgSender>
+Senders Express Version: <ProgramVersion>
+Senders Template Version: <var Templateversion> 

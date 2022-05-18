@@ -1,0 +1,11 @@
+Obt-Message: XKB extension is not present on the server or too old
+Obt-Message: Xinerama extension is not present on the server
+Obt-Message: XRandR extension is not present on the server
+Openbox-Message: Requested key "Print" does not exist on the display
+Openbox-Message: Requested key "Print" does not exist on the display
+ObRender-Message: Cannot load image "/usr/share/qsstv/qsstv.png" from file "/usr/share/qsstv/qsstv.png"
+ObRender-Message: Cannot load image "/usr/local/share/gpsd/icons/gpsd-logo.png" from file "/usr/local/share/gpsd/icons/gpsd-logo.png"
+ObRender-Message: Cannot load image "/usr/local/share/gpsd/icons/gpsd-logo.png" from file "/usr/local/share/gpsd/icons/gpsd-logo.png"
+ObRender-Message: Cannot load image "/usr/share/qsstv/qsstv.png" from file "/usr/share/qsstv/qsstv.png"
+ObRender-Message: Cannot load image "/usr/local/share/gpsd/icons/gpsd-logo.png" from file "/usr/local/share/gpsd/icons/gpsd-logo.png"
+ObRender-Message: Cannot load image "/usr/local/share/gpsd/icons/gpsd-logo.png" from file "/usr/local/share/gpsd/icons/gpsd-logo.png"

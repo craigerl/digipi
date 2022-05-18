@@ -1,0 +1,71 @@
+Form: Incident_Status_Initial.html,Incident_Status_Viewer.html
+
+To:
+Subject:<var Title> INCIDENT STATUS - <var incidentname>, <var DateTimeReport> 
+Msg:
+<var Title> INCIDENT STATUS 
+
+REPORT INFORMATION: 
+
+1. Incident Name: <var incidentname>	
+2. WebEOC Incident (as applicable): <var WEBEOC>
+3. Incident Date/Time: <var IncDateTime>	
+4. Report Version: <var Rversion>
+
+5. Type of Incident (Check all that apply):
+
+Severe Storm/Flood <var f1>	
+Pre-Planned Event <var f4>	   
+HAZMAT <var f7>
+Severe Winter Weather <var f2>	 
+Dam/Levee <var f5>	  
+Utility Disruption <var f8>
+Public Health <var f3>	 
+Active threats/ Civil Disturbance  <var f6>    
+Fire  <var f10>	 
+Aircraft Disaster <var f11>    
+Earthquake <var f12>
+Other (Specify): <var f9>  <var Typeother>
+
+6. Situation Summary as of Time of Report:
+   <var SitSummary>
+
+7. Future Outlook/Goals/Needs/Issues:
+    <var Issues>
+
+8. County Emergency Operations Center (EOC) Status (Check one):
+
+9. Local Disaster Declaration Status
+  <var EOCStatus> <var DecDateTime>
+
+10. Number of Confirmed Incident Injuries: <var numInjuries>
+
+11. Number of Confirmed Incident Fatalities: <var numiFatalities>
+
+12. Number and Location(s) of Shelters Established:
+  <var Shelters> 
+
+13. Have Evacuations Been Implemented? 
+    <var Evac>
+
+14. Date/Time of Report:
+<var DateTimeReport>
+
+15. Report Submitted By: 
+<var Submittedby> 
+
+16. Contact Info:
+<var Contctinfo>
+
+------------------------
+Express Sending Station: <MsgSender>
+Senders Express Version: <ProgramVersion>
+Senders Template Version: <var Templateversion>
+
+
+
+
+
+
+
+

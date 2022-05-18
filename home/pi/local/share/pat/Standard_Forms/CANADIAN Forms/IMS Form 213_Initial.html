@@ -1,0 +1,1005 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>IMS Form 213</title>
+
+
+<style type="text/css">
+body, td, th {
+font-family: Arial,Helvetica,sans-serif;
+font-size: 12px;
+font-weight: inherit;
+}
+.zentriert {
+font-size: 12px;
+}
+input, select {
+padding: 1px;
+-moz-border-radius-topleft: 2px;
+-moz-border-radius-topright: 2px;
+-moz-border-radius-bottomright: 2px;
+-moz-border-radius-bottomleft: 2px;
+font-family: Arial,Helvetica,sans-serif;
+font-size: 12px;
+font-weight: inherit;
+}
+textarea {
+padding: 1px;
+-moz-border-radius-topleft: 2px;
+-moz-border-radius-topright: 2px;
+-moz-border-radius-bottomright: 2px;
+-moz-border-radius-bottomleft: 2px;
+font-family: Arial,Helvetica,sans-serif;
+font-size: 12px;
+font-weight: inherit;
+}
+.rechtsbuendig {
+font-size: 12px;
+}
+.SubmitBtn {
+font-size: 12px;
+}
+.version {
+color: #666666;
+position: relative;
+left: 0px;
+top: 3px;
+font-size: 12px;
+}
+h1, h2, h3, h4, h5, h6 {
+font-style: normal;
+font-weight: normal;
+}
+.FormReg {font-size: 11px; font-family:Arial, Helvetica, sans-serif}
+.formbold {font-size: 11px; font-weight: bold; font-family:Arial, Helvetica, sans-serif}
+.style2 {
+	font-size: 16px;
+	font-weight: bold;
+}
+.Kopfzeile {
+font-family: Arial, Helvetica, sans-serif;
+
+font-size: 12px;
+
+color: #000;
+
+text-align: center;
+
+background-color: #FFFFFF;
+}
+
+.dash {
+   border: 1px dashed #0033FF
+  
+}
+input[type=button] {
+
+  border: 2px solid #0f88f2;;
+   border-radius:.25rem;
+  
+  font-size: 14px;
+  padding: 2px 2px;
+ background-color: white;
+  text-decoration: none;
+  margin: 2px 2px;
+  cursor: pointer;
+}
+input[type=button2] {
+
+  border: 2px solid #0f88f2;;
+   border-radius:.25rem;
+  width:35px;
+  font-size: 10px;
+  font-weight: normal;
+  padding: 2px 2px;
+ background-color: white;
+  text-decoration: none;
+  margin: 2px 2px;
+  cursor: pointer;
+}
+input[type=submit] {
+ border: 2px solid green;
+  border-radius:.25rem;
+  background-color: white;
+ 
+  padding: 2px 2px;
+  font-size: 14px;
+   cursor: pointer;
+}
+input[type=reset] {
+ border: 2px solid red;
+ border-radius:.25rem;
+  background-color: white;
+ 
+  padding: 2px 2px;
+  font-size: 14px;
+   cursor: pointer;
+}
+input[type=regular] {
+ border: 2px solid #999999;
+  border-radius:.25rem;
+width:45px;
+  background-color: white;
+ 
+  padding: 2px 2px;
+  font-size: 12px;
+   cursor: pointer;
+}
+.style26 {font-size: 11px}
+.formtext1 {font-family: Arial, Helvetica, sans-serif;
+
+font-size: 11pt;
+
+font-weight: normal;
+
+margin: 10px;
+}
+.style3 {font-family: Calibri}
+.close {content:"X";}
+.pop-up {	position:absolute;
+	top:0;
+	left:-500em;
+}
+.popBox {	background:#ffffff;
+	position:absolute;
+	left:25%;
+	right:25%;
+	top:10%;
+	bottom:25%;
+	z-index:10;
+	border:1px solid #3a3a3a;
+
+/* CSS3 where available: rounded corners, drop-shadow, and fade in. */
+
+border-radius:.25rem;
+
+box-shadow:0 .5rem .5rem rgba(0,0,0,.5);
+	opacity:0;
+	transition: opacity 0.8s ease-out;
+}
+.popScroll {	position:absolute;
+	top: 1rem;
+	left: 1rem;
+	right: 1rem;
+	bottom: 1rem;
+	overflow-y: auto;
+
+*overflow-y: scroll;
+	padding-right: 0.5em;
+	visibility: hidden;
+}
+.style18 {color: #FF0000;
+	font-size: 10px;
+}
+.style18 {font-size: 10px}
+.style8 {font-size: 10px}
+</style><!-- ICS 213 Template-->
+
+<script>
+function RestoreTitle() {
+
+var RightNow = document.getElementById('FormTitle').value;
+
+//document.getElementById('Title').value = RightNow;
+document.getElementById('SubjectText').innerHTML = RightNow;
+store();
+}
+   function store(){
+ 	var formatted= document.getElementById("FormTitle");
+     localStorage.setItem("ims213", formatted.value);
+	 //alert (localStorage.getItem("ics205a"));
+    }
+
+	function getit() {
+	var storedValue = localStorage.getItem("ims213");
+	//alert(storedValue);
+	document.getElementById('FormTitle').value = storedValue;
+	RestoreTitle();
+	
+	}
+	function SetupTitle() {
+var myprompt = '';
+var myttemp = document.getElementById('FormTitle').value;
+var RightNow = prompt("Enter Agency/Group Title",   myprompt);
+if (RightNow.length == 0) { RightNow = myttemp}
+document.getElementById('FormTitle').value = RightNow;
+document.getElementById('SubjectText').innerHTML = RightNow;
+store();
+
+}
+
+var TimeLocal;
+var TimeUTC;
+function shortmonth(monthnum) {
+var monthname;
+shortmonths = ["JAN", "FEB", "MAR","APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"] ;
+monthname = shortmonths [monthnum];
+return monthname;
+}
+function findoffset(){
+var d = new Date()
+var gmtHours = -d.getTimezoneOffset()/60;
+var myoffset = '   (GMT ' + gmtHours+')';
+return myoffset;
+}
+
+function DateTime() {
+
+var txt;
+var myprompt;
+var d = new Date(),
+thisyear = d.getFullYear();
+thismonth= d.getMonth();
+thisday = d.getDate();
+var monname;
+h = (d.getHours()<10?'0':'') + d.getHours()
+m = (d.getMinutes()<10?'0':'') + d.getMinutes()
+var Localtime = h + ':'+m;
+var now = new Date();
+var utch = now.getUTCHours();
+if (utch < 10) { utch = '0'+utch};
+var utcs = now.getUTCMinutes();
+if (utcs < 10) { utcs = '0'+utcs};
+thismonth = thismonth + 1;
+if (thismonth < 10) { thismonth = '0'+thismonth};
+if (thisday < 10) { thisday = '0'+thisday};
+
+
+var myUTCtime = utch+""+utcs+"Z";
+var utcstr = d.toUTCString();
+var localt = d.toLocaleTimeString();
+var isostr = d.toISOString();
+monthname = shortmonth (thismonth);
+//thismonth = thismonth + 1;
+var UTCdate = d.getUTCDate();
+var UTCmon = d.getUTCMonth();
+var utcmonthname = shortmonth (UTCmon);
+var UTCmmdd =utcmonthname + " "+UTCdate;
+
+var Localdate =thisyear+'/'+ thismonth+'/'+thisday;
+var Rightnow =Localdate; //UTCmmdd
+//if (document.getElementById('tformat').checked) { Rightnow = UTCmmdd};
+document.getElementById('Date').value = Rightnow;
+var d = new Date()
+var gmtHours = -d.getTimezoneOffset()/60;
+var myoffset = '   (GMT ' + gmtHours+')';
+
+var Rightnow = Localtime+ myoffset; //myUTCtime
+//if (document.getElementById('tformat').checked) { Rightnow = myUTCtime};
+document.getElementById('Time').value = Rightnow;
+
+
+
+};
+function DateTime2() {
+
+var txt;
+var myprompt;
+var d = new Date(),
+thisyear = d.getFullYear();
+thismonth= d.getMonth();
+thisday = d.getDate();
+var monname;
+h = (d.getHours()<10?'0':'') + d.getHours()
+m = (d.getMinutes()<10?'0':'') + d.getMinutes()
+var Localtime = h +':'+ m;
+var now = new Date();
+var utch = now.getUTCHours();
+if (utch < 10) { utch = '0'+utch};
+var utcs = now.getUTCMinutes();
+if (utcs < 10) { utcs = '0'+utcs};
+var myUTCtime = utch+""+utcs+"Z";
+var utcstr = d.toUTCString();
+var localt = d.toLocaleTimeString();
+var isostr = d.toISOString();
+monthname = shortmonth (thismonth);
+thismonth = thismonth + 1;
+var UTCdate = d.getUTCDate();
+var UTCmon = d.getUTCMonth();
+var utcmonthname = shortmonth (UTCmon);
+var UTCmmdd =utcmonthname + " "+UTCdate;
+var Localdate = monthname+' '+thisday;
+var Rightnow =Localdate; //UTCmmdd
+if (document.getElementById('tformat').checked) { Rightnow = UTCmmdd};
+document.getElementById('Date').value = Rightnow;
+var Rightnow = Localtime; //myUTCtime
+if (document.getElementById('tformat').checked) { Rightnow = myUTCtime};
+document.getElementById('Time').value = Rightnow;
+
+};
+
+
+function wordcount(s) {
+s = s.replace(/(^\s*)|(\s*$)/gi,"");//exclude start and end white-space
+s = s.replace(/\n/g, " "); // Convert CR to spacing
+s = s.replace(/[ ]{2,}/gi," ");//2 or more space to 1
+cnt = s.split(' ').length; var ele = document.getElementById('check');
+ document.getElementById('Check').value= cnt;
+}
+
+function CheckText() {
+var MSGText = document.getElementById('Message').value;
+
+//wordcount(document.getElementById('Message').value)
+
+}
+
+function AutoGrowTextArea(textField)
+{
+if (textField.clientHeight < textField.scrollHeight)
+{
+textField.style.height = textField.scrollHeight + "px";
+if (textField.clientHeight < textField.scrollHeight)
+{
+textField.style.height = (textField.scrollHeight * 2 - textField.clientHeight) + "px";
+}
+}
+}
+function Countthelines(f) { var text1 = f
+var text2 = text1.replace(/\s+$/,"");
+var split2 = text2.split("\n"); var mytotal = split2.length * 17;
+if (mytotal < 150) {
+mytotal = 150;
+}
+var tstr = mytotal.toString();
+return tstr;
+}
+function newfix(f){
+var ThisText = document.getElementById(f).value;
+var makeit = Countthelines(ThisText);
+document.getElementById(f).style.height = makeit+"px"; }
+function Fixarea() {
+newfix("Message");
+// newfix("reply");
+AutoGrowTextArea(document.getElementById("Message"));
+// AutoGrowTextArea(document.getElementById("reply"));
+}
+function RWS(str){
+var text2 = str.replace(/\s+$/,"");
+return text2.trim();
+}
+
+</script>
+<script>
+
+function TimeNow(Timefld) {
+var txt;
+var now = new Date();
+var h = now.getUTCHours();
+if (h < 10) { h = "0"+h};
+var s = now.getUTCMinutes();
+if (s < 10) { s = "0"+s};
+var myprompt = h+s+"Z";
+var RightNow = prompt("Time:", myprompt);
+document.getElementById(Timefld).value = RightNow;
+}
+
+  /* Saves a text string as a blob file*/  
+function saveTextAsFile(fileNameToSaveAs, textToWrite) {
+var textToWrite = document.getElementById('parseme').value; 
+var fileNameToSaveAs = "IMS Form 213-R data " + DateforFile()+".txt";
+fileNameToSaveAs = prompt("", fileNameToSaveAs);
+
+
+  var ie = navigator.userAgent.match(/MSIE\s([\d.]+)/),
+      ie11 = navigator.userAgent.match(/Trident\/7.0/) && navigator.userAgent.match(/rv:11/),
+      ieEDGE = navigator.userAgent.match(/Edge/g),
+      ieVer=(ie ? ie[1] : (ie11 ? 11 : (ieEDGE ? 12 : -1)));
+
+  if (ie && ieVer<10) {
+    console.log("No blobs on IE ver<10");
+    return;
+  }
+
+  var textFileAsBlob = new Blob([textToWrite], {
+    type: 'text/plain'
+  });
+
+  if (ieVer>-1) {
+    window.navigator.msSaveBlob(textFileAsBlob, fileNameToSaveAs);
+
+  } else {
+    var downloadLink = document.createElement("a");
+    downloadLink.download = fileNameToSaveAs;
+    downloadLink.href = window.URL.createObjectURL(textFileAsBlob);
+    downloadLink.onclick = function(e) { document.body.removeChild(e.target); };
+    downloadLink.style.display = "none";
+    document.body.appendChild(downloadLink);
+    downloadLink.click();
+  }
+}
+
+
+
+
+
+function destroyClickedElement(event)
+{
+    document.body.removeChild(event.target);
+}
+
+function loadFileAsText()
+{
+
+    var fileToLoad = document.getElementById("fileToLoad").files[0];
+ 
+    var fileReader = new FileReader();
+    fileReader.onload = function(fileLoadedEvent) 
+    {
+        var textFromFileLoaded = fileLoadedEvent.target.result;
+        document.getElementById("inputTextToSave").value = textFromFileLoaded;
+    };
+    fileReader.readAsText(fileToLoad, "UTF-8");
+}
+
+
+function DateforFile(RightNow) {
+var txt;
+var d = new Date(),
+thisyear = d.getFullYear();
+thismonth= d.getMonth();
+thismonth = thismonth+1;
+if (thismonth < 10) { thismonth = "0" + thismonth}
+
+thisday = d.getDate();
+if (thisday < 10) { thisday = "0" + thisday}
+
+h = (d.getHours()<10?'0':'') + d.getHours()
+m = (d.getMinutes()<10?'0':'') + d.getMinutes()
+var myprompt = thisyear+ '-'+thismonth+'-'+thisday+' '+h + '_' + m ;
+return myprompt;
+}
+
+function isObject(arg) {
+  return Object.prototype.toString.call(arg)==='[object Object]';
+}
+
+function formDataToObject(elForm) {
+  if (!elForm instanceof Element) return;
+  var fields = elForm.querySelectorAll('input, select, textarea'),
+    o = {};
+  for (var i=0, imax=fields.length; i<imax; ++i) {
+    var field = fields[i],
+      sKey = field.name || field.id;
+    if (field.type==='button' || field.type==='image' || field.type==='submit' || !sKey) continue;
+    switch (field.type) {
+      case 'checkbox':
+        o[sKey] = +field.checked;
+        break;
+      case 'radio':
+        if (o[sKey]===undefined) o[sKey] = '';
+        if (field.checked) o[sKey] = field.value;
+        break;
+      case 'select-multiple':
+        var a = [];
+        for (var j=0, jmax=field.options.length; j<jmax; ++j) {
+          if (field.options[j].selected) a.push(field.options[j].value);
+        }
+        o[sKey] = a;
+        break;
+      default:
+        o[sKey] = field.value;
+    }
+  }
+ // alert('Form data:\n\n' + JSON.stringify(o, null, 2));
+ document.getElementById('parseme').value = JSON.stringify(o, null, 2);
+//  return o;
+}
+
+function populateForm(o) {
+
+o =  JSON.parse(document.getElementById('parseme').value);
+ //if (!isObject(o)) return;
+if (!isObject(o)) return;
+  for (var i in o) {
+    var el = document.getElementById(i) || document.querySelector('[name=' + i + ']');
+    if (el.type==='radio') el = document.querySelectorAll('[name=' + i + ']');
+    switch (typeof o[i]) {
+      case 'number':
+        el.checked = o[i];
+        break;
+      case 'object':
+        if (el.options && o[i] instanceof Array) {
+          for (var j=0, jmax=el.options.length; j<jmax; ++j) {
+            if (o[i].indexOf(el.options[j].value)>-1) el.options[j].selected = true;
+          }
+        }
+        break;
+      default:
+        if (el instanceof NodeList) {
+          for (var j=0, jmax=el.length; j<jmax; ++j) {
+            if (el[j].value===o[i]) el[j].checked = true;
+          }
+        } else {
+          el.value = o[i];
+        }
+    }
+  }
+  getit();
+
+     Fixfields();
+ RestoreTitle();
+
+
+}
+
+function Checkifinbrowser() {
+
+ var x= document.getElementById("testCall").value; 
+ var n = x.search("{Msg");
+ if (n>-1) { 
+ document.getElementById('Submit').style.visibility='hidden';
+document.getElementById("OrgStation").value = '';
+
+  alert('You are running this form outside of Winlink.\n \nWhen you have completed the form, SAVE the data and then give or send the SAVED data file to the radio operator. The operator will load the SAVED data into the correct form and send via winlink. ');
+ } else {document.getElementById('Submit').style.visibility='visible';  }
+ 
+ // document.getElementById('testlnkbtn').style.visibility='hidden';
+}
+
+
+function SaveData() {
+	
+			formDataToObject(document.getElementById('myform'))
+			saveTextAsFile();
+			
+			//saveTextAsFile();
+			}
+
+//-------
+ function readBlob(opt_startByte, opt_stopByte) {
+  
+    var files = document.getElementById('files').files;
+    if (!files.length) {
+      alert('Please select a file!');
+      return;
+    }
+
+    var file = files[0];
+    var start = parseInt(opt_startByte) || 0;
+    var stop = parseInt(opt_stopByte) || file.size - 1;
+
+    var reader = new FileReader();
+
+    // If we use onloadend, we need to check the readyState.
+    reader.onloadend = function(evt) {
+      if (evt.target.readyState == FileReader.DONE) { // DONE == 2
+        document.getElementById('byte_content').textContent = evt.target.result;
+        document.getElementById('byte_range').textContent = 
+            ['Read bytes: ', start + 1, ' - ', stop + 1,
+             ' of ', file.size, ' byte file'].join('');
+      }
+    };
+
+    var blob = file.slice(start, stop + 1);
+    reader.readAsBinaryString(blob);
+  }
+    	
+  window.onload = function () { 
+ 
+ //Check the support for the File API support 
+ if (window.File && window.FileReader && window.FileList && window.Blob) {
+    var fileSelected = document.getElementById('txtfiletoread');
+	
+    fileSelected.addEventListener('change', function (e) { 
+         //Set the extension for the file 
+         var fileExtension = /text.*/; 
+         //Get the file object 
+         var fileTobeRead = fileSelected.files[0];
+        //Check of the extension match 
+         if (fileTobeRead.type.match(fileExtension)) { 
+             //Initialize the FileReader object to read the 2file 
+			
+             var fileReader = new FileReader(); 
+             fileReader.onload = function (e) { 
+                 var fileContents = document.getElementById('filecontents'); 
+                
+				document.getElementById('parseme').value =fileReader.result;
+				populateForm(obj = document.getElementById('parseme').value);
+					 } 
+             fileReader.readAsText(fileTobeRead); 
+         } 
+         else { 
+             alert("Please select text file"); 
+         }
+ 
+    }, false);
+} 
+ else { 
+     alert("Files are not supported"); 
+ } 
+getit();
+  Checkifinbrowser();
+  DateTime();
+Fixfields();
+ }
+ 
+  function Fixfields() {
+AutoGrowTextArea(document.getElementById("Message"));
+
+//  AutoGrowTextArea(document.getElementById("Comm3"));
+}
+
+function SetDateTime(TType,TheFld, FocusFld) {
+
+//id="tformat" value="Local"
+var txt;
+
+var myprompt;
+
+var d = new Date(),
+
+thisyear = d.getFullYear();
+
+thismonth= d.getMonth();
+
+thisday = d.getDate();
+if (thisday < 10) { thisday = "0" + thisday}
+var monname;
+
+h = (d.getHours()<10?'0':'') + d.getHours()
+
+m = (d.getMinutes()<10?'0':'') + d.getMinutes()
+
+s = (d.getSeconds()<10?'0':'') + d.getSeconds();
+
+var now = new Date();
+
+var utch = now.getUTCHours();
+
+if (utch < 10) { utch = "0"+utch};
+
+var utcs = now.getUTCMinutes();
+
+if (utcs < 10) { utcs = "0"+utcs};
+
+var myUTCtime = utch+":"+utcs+"Z";
+
+var utcstr = d.toUTCString();
+
+var localt = d.toLocaleTimeString();
+
+var isostr = d.toISOString();
+var UTCyear = d.getUTCFullYear();
+//monthname = shortmonth (thismonth);
+var UTCmon = d.getUTCMonth();  
+var UTCmon = UTCmon+1;
+if (UTCmon < 10) { UTCmon = "0" + UTCmon}
+
+var UTCdate = d.getUTCDate();  
+thismonth = thismonth + 1;
+  if (thismonth < 10) { thismonth = "0" + thismonth}
+//if (thismonth < 10) { thismonth = "0" + thismonth}
+
+myUTCdate = UTCyear+'/'+UTCmon+'/'+UTCdate;
+switch (TType) {
+
+case 'hms' :
+
+myprompt = h + ':' + m + ':' + s;
+
+var RightNow = prompt("Time:", myprompt + findoffset());
+
+document.getElementById(TheFld).value = RightNow;
+
+break;
+
+case 'hm' :
+
+
+
+ var myprompt = h +':' + m;
+
+var RightNow = prompt("Time:", myprompt + findoffset());
+
+document.getElementById(TheFld).value = RightNow;
+
+break;
+
+case 'm-d-y': myprompt = thismonth+ '-' + thisday+ '-'+ thisyear;
+
+var RightNow = prompt("Date:", myprompt);
+
+document.getElementById(TheFld).value = RightNow;
+
+break;
+
+case 'm/d/y': myprompt = thismonth+ '/' + thisday+ '/'+ thisyear;
+
+var RightNow = prompt("Date:", myprompt);
+
+document.getElementById(TheFld).value = RightNow;
+
+break;
+
+case 'd mmm y': myprompt = thisday+ ' ' + monthname+ ' '+ thisyear;
+
+var RightNow = prompt("Date:", myprompt);
+
+document.getElementById(TheFld).value = RightNow;
+
+break;
+
+case 'mmm-d-y': myprompt = thismonth+'-'+thisday+ '-' + thisyear;
+
+var RightNow = prompt("Date:", myprompt+   findoffset());
+
+document.getElementById(TheFld).value = RightNow;
+
+break;
+
+case 'localampm': var myprompt = localt;
+
+var RightNow = prompt("Local time:", myprompt  + findoffset());
+
+document.getElementById(TheFld).value = RightNow;
+
+break;
+
+case 'fulldate': 
+
+var myprompt = thisyear+ '/'+thismonth+'/'+thisday;
+
+var RightNow = prompt("Date:", myprompt );
+
+document.getElementById(TheFld).value = RightNow;
+
+break;
+case 'autofulldate': 
+
+var myprompt = thisyear+ '/'+thismonth+'/'+thisday;
+
+var RightNow =myprompt;
+document.getElementById(TheFld).value = RightNow;
+
+break;
+
+case 'fulldatetime': 
+
+var myprompt = thisyear+'/'+thismonth+ '/'+thisday+' '+h  +':'+ m ;
+var RightNow = prompt("Date:", myprompt + findoffset());
+
+document.getElementById(TheFld).value = RightNow;
+}
+}
+
+
+//load="SetDateTime('autodate','Date');SetDateTime('autotime','Time'); SetDateTime('afulldatetime','DateTime')">
+
+</script></head>
+<body >
+<form  style="font-family: Arial;" pbzloc="3" onsubmit="return confirm('To complete your form submission, click OK and close the open browser window. You will return to the new message window so you can post your message to the outbox');" method="post" id="myform" enctype="multipart/form-data" action="http://{FormServer}:{FormPort}">
+  <b>
+  <span class="style18"> <input type="button2" value="Setup" onclick="SetupTitle()" /></span>
+  </b>&nbsp; <span class="style18">&nbsp;Click to add an agency or group name </span><span class="style8">&nbsp;</span> <span style="font-size: 12px;"></span>&nbsp;
+  <div id="pop1" class="pop-up">
+    <!-- The pop-up block -->
+    <div class="popBox">
+      <!-- If the content becomes larger than the pop-up this div will scroll the content -->
+      <div class="popScroll">
+        <!-- Test for help starts here -->
+        <p> </p>
+        <h2>ICS213 General Message</h2>
+        <p align="left"><strong>Introduction. </strong><br />
+            <br />
+        This is a radio delivery based ICS213 template. It is as close to a FEMA ICS213 as possible within the constraints of Winlink Express. <br />
+        <br />
+        <strong>READ:</strong><br />
+        <br />
+        This initial 213 HTML can be used outside of Winlink Express. So a non Express user can create an initial ICS213, SAVE the data, and then pass that SAVED data to the radio operator, The radio operator can LOAD that data file into their ICS213 to send on via Winlink. Any reply that comes to the radio operator, will have to be returned to the originator as a PDF, saved HTML, or just plain text. Outside of Express the ICS213 reply and view HTML features do not function, so the reply info below is not applicable. <br />
+        <br />
+        <strong> NOTE on printing. </strong><br />
+        <br />
+        Printing this form is dependent upon your selected printer and its settings. Various Web Browsers and and their viewing sizes are not all the same. Printing from a browsers print function may be different from the operating systems default print mode. Select what works for you, for both printing and viewing. You may print direct to the printer or save as a PDF, then print the PDF. For this form LANDSCAPE mode may print better than Portrait. <br />
+        </p>
+        <p align="left"><strong>Purpose. </strong><br />
+            <br />
+        The General Message (ICS213) is used by incident dispatchers or others to record incoming messages that cannot or should not be orally transmitted to the intended recipients. The ICS213 may be used by the Incident Command Post or other incident personnel to transmit messages (e.g., resource orders, incident name change, other coordination / information issues, to the Incident Communications Center for transmission via radio or telephone to the addressee. The form is used to send any message or notification to incident personnel that requires hard-copy delivery. A digital delivery is best for complex requests or instructions. This sent ICS213 has the message information in plain text within the message body so non-Express users can read, as they do not have the rendered HTML. <br />
+        </p>
+        <p align="left"> <strong>Preparation.<br />
+          </strong><br />
+        The ICS213 may be initiated by incident dispatchers or any other personnel on an incident. Amateur Radio communicators make use of the 213 for messages beyond the incident and for wider purposes than designed. This is a good use of this versatile form.<br />
+        <br />
+        To Reply you may type in the message as given or copy and paste the information from the sender, (if not you), by use of a USB Thumb Drive if so equipped. <br />
+        <br />
+        If you receive an ICS213 and need to REPLY, the message CANNOT be replied to from the viewed HTML as the entry boxes are locked. If needed you may print the inbound ICS 213 for delivery to obtain a response that can be typed in by you. Or obtain a plain text Reply from a USB Thumb Drive. <br />
+        <br />
+        To create the Reply 213 go to the message, double click the 213 in question and use the REPLY tab at the top. Now you may enter the response into the Reply box or copy and paste the response in. Then SUBMIT the completed ICS213 for Outbox posting. </p>
+        <p align="left"><strong>Notes:</strong><br />
+            <br />
+        A copy of the ICS213 should be sent to and maintained within the Documentation Unit. A copy of all your Express traffic is in your Sent Items folder. You may wish to create a Personal Folder for the event and move your desired traffic into it. Winlink Express has an Export/Import feature so you can save this folder on your desktop or elsewhere if desired. You can even send the folder to another Express user for them to import. </p>
+        <strong>More Information</strong><br />
+        <br />
+      You can save your completed form data to a text file. This will allow you to reload the ICS213 with ALL entered form data. You do this prior to submitting the form. Then you can open a new 213 and load the saved HTML form data. NOTE: Date and Times will be the previous entered, so change if needed. This is much like using FireFox and the addon Formlet. It will save the info as a text file with the Date and Time as a file name. Now you can use any browser, save your form (as many versions as you like), and then re-populate. <br />
+      <br />
+      Remember this template has two parts, the "INITIAL" template and the "REPLY" template. You can save either HTML and the saved file names will be different. Just load the correct saved data file or the repopulated information may not be correct.
+      <p></p>
+      </div>
+      <!-- The close pop-up link correctly positioned at the end of the content block -->
+      <a href="#links" class="close"><span>Back to links</span></a> </div>
+  </div>
+  <span class="SubmitBtn">
+  <input name="ShowDR" type="hidden" id="ShowDR" />
+  </span>
+  <table pbzloc="59" style="width: 1143px; height: 522px;" align="center" border="0">
+<tbody>
+<tr>
+<td pbzloc="5">
+<table width="874px"  border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><div align="center" class="style2">IMS Form 213-R <input name="FormTitle" type="hidden" id="FormTitle" /><br />
+	<span  id="SubjectText"><strong> </strong></span><br />
+    </div>
+	</td>
+  </tr>
+</table>
+<table style="width: 874px; height: 318px;" border="1" bordercolor="#333333" cellpadding="4" cellspacing="0">
+<tbody>
+<tr>
+<td valign="top" style="height: 35px;">
+  <table width="100%"  border="1" cellpadding="0" cellspacing="0" bordercolor="#3399FF">
+    <tr valign="top">
+      <td width="10%" bgcolor="#f8f8ff"><div align="center">Msg Number <br />
+              <input name="initialSeqNum" id="initialSeqNum" title="User Option. Overwrite if desired." value="{SeqNum}" size="10" maxlength="9" placeholder="User option" />
+      </div></td>
+      <td width="15%" bgcolor="#f8f8ff"><div align="center">Precedence<br />
+              <select id="Priority" name="Priority" pbzloc="4">
+                <option selected="selected" value="Routine">Routine</option>
+                <option value="Welfare">Welfare</option>
+                <option value="Priority">Priority</option>
+                <option value="Emergency">Emergency</option>
+              </select>
+      </div></td>
+      <td width="16%" bgcolor="#f8f8ff"><div align="center">Handling<br />
+<span class="style26">
+<select style="font-weight: normal;" name="HX" id="HX">
+  <option value="NONE" selected="selected">NONE</option>
+  <option value="IMMEDIATE">IMMEDIATE</option>
+  <option title = "Report date and time of delivery (TOD) to originating station." value="HXC">HXC</option>
+</select>
+</span></div></td>
+      <td width="12%" bgcolor="#f8f8ff"><div align="center">Station of Origin <br />
+              <input name="OrgStation" id="OrgStation" value="{MsgSender}" size="10" maxlength="10" />
+      </div></td>
+      <td width="18%" bgcolor="#f8f8ff"><div align="center">
+      </div>        <div align="center">Place of Origin <br />
+                <input maxlength="22" size="22" name="OrgLocation" />
+        </div></td>
+      <td width="14%" bgcolor="#f8f8ff"><div align="center">Time<br />
+              <input placeholder="Click for Time"  maxlength="15" size="15" name="Time" id="Time" />
+      </div></td>
+      <td width="15%" bgcolor="#f8f8ff"><div align="center">Date &nbsp;<br />
+              <input placeholder="Click for Date" maxlength="14" size="14" name="Date" id="Date" />
+              <br />
+              <br />
+              </div></td>
+    </tr>
+  </table>
+  <br /></td>
+</tr>
+<tr>
+<td style="text-align: center;" colspan="4"><div align="left">
+  <table width="100%"  border="1" cellspacing="0" cellpadding="6">
+    <tr>
+      <td width="18%" valign="top" bgcolor="#f8f8ff"><div align="center">General Message IMS-213<br />
+                <span style="font-weight: normal;">
+                <input name="loadbtn" type="button" id="loadbtn" onclick="document.getElementById('txtfiletoread').click();" value=" Load IMS 213-R data " />
+            </span></div></td>
+      <td width="42%" valign="top">1.&nbsp;Incident Name<br />
+            <input id="Incident_Name" maxlength="60" name="Incident_Name" required="required" size="50" type="text" onchange="javascript:this.value=this.value.toUpperCase();"  />
+      </strong></td>
+      <td width="40%" valign="top">2.&nbsp;Operational Period <br />
+          <input id="OpPeriod" maxlength="60" name="OpPeriod" required="required" size="50" type="text" />  <input type="file" id="txtfiletoread" accept=".txt"  style="display: none;"/>
+      </td>
+    </tr>
+  </table>
+  <strong style="font-weight: normal;"><br />
+        </strong>
+    
+</div></td>
+</tr>
+<tr>
+<td style="text-align: center;" colspan="2"><div align="left">
+  3. To (Name/Position):
+      <input id="To_Name" maxlength="60" name="To_Name" required="required" size="70" type="text" />
+</div></td>
+</tr>
+<tr>
+<td style="text-align: center;" colspan="2"><div align="left"><strong><span style="font-weight: normal;"><br />
+  4. From</span> </strong>(Name/Position): 
+  <input id="From_Name" maxlength="60" name="From_Name" required="required" size="70" type="text" />
+  
+</div></td>
+</tr>
+<tr>
+<td style="text-align: center;" colspan="3"><div align="left"><br />
+      5. Subject:&nbsp;      
+      <input id="Subjectline" maxlength="50" name="Subjectline" required="required" size="55" value="{MsgSubject}" type="text" />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6. Date/Time Prepared:&nbsp;
+<input value="" size="25" required="required" placeholder="Click for Date/Time"name="DateTime" maxlength="24" id="DateTime" onclick="SetDateTime('fulldatetime',this.id)"  title="Defaults to local date/time, you can overwrite it" />
+</div></td>
+</tr>
+<tr>
+<td colspan="4" style="height: 88px; vertical-align: top; text-align: center;"><div align="left">  <br />
+      7.
+  Message:&nbsp;<textarea name="parseme" cols="60" id="parseme" style="display: none;"></textarea><br />
+</div>
+  <div align="left">
+    <label>
+          &nbsp;
+          <textarea cols="120" id="Message" name="Message" rows="4" onkeyup="CheckText(this.value);AutoGrowTextArea(this)" onchange="this.value=RWS(this.value)"></textarea>
+    </label>
+  </div></td>
+</tr>
+<tr>
+<td colspan="4" valign="top" style="text-align: center;"><div align="left">
+  <table width="100%"  border="1" cellspacing="0" cellpadding="3">
+    <tr valign="top">
+      <td>8. Approved by<br /> 
+        &nbsp;
+        <input id="Approved_Name" maxlength="30" name="Approved_Name" required="required" size="35" /></td>
+      <td>9. Position/Contact info of Sender<br /> 
+        &nbsp;
+        <input id="Approved_PosTitle" maxlength="30" name="Approved_PosTitle" required="required" size="35" type="text" /></td>
+      <td>10. Date/Time Sent <br />
+        &nbsp;
+        <input name="DateTimeSent" type="text" id="DateTimeSent" onclick="SetDateTime('fulldatetime',this.id)" size="18" maxlength="18"  /></td>
+    </tr>
+    <tr valign="top">
+      <td colspan="3"><br />
+        <table width="100%"  border="1" cellpadding="2" cellspacing="0" bordercolor="#3399FF">
+          <tr valign="top" bgcolor="#f8f8ff">
+            <td width="20%" ><div align="center">RECEIVED FROM<br />
+                      
+                    <input style="text-transform: uppercase;" name="Rfrom" type="text" id="Rfrom" size="25" maxlength="23" onblur="this.value= this.value.toUpperCase();"/>
+                       <br />
+            </div></td>
+            <td width="11%">
+              <div align="center">TIME <br />
+                <input name="RTime"  id="RTime" onclick="SetDateTime('hm',this.id)"  size="12" maxlength="12" type="text" />
+</div>
+            </td>
+            <td width="8%"><div align="center">DATE<br />
+                <input  name="RDate"id="RDate"  onclick="SetDateTime('fulldate',this.id)" size="12" maxlength="12"  mtype="text />
+          <br />
+        </td>
+        <td width="11%" bgcolor="#FFFFFF" />
+</div></td>
+            <td width="22%"><div align="center">SENT TO <br />
+                      
+                    <input style="text-transform: uppercase;" name="SendTo" type="text" id="SendTo" size="25" maxlength="23" onblur="this.value= this.value.toUpperCase();" />
+                       <br />
+            </div></td>
+            <td width="14%"><div align="center">TIME <br />
+                <input name="SendTime" type="text" id="SendTime"onclick="SetDateTime('hm',this.id)" size="12" maxlength="12" />
+            </div></td>
+            <td width="14%"><div align="center"> DATE<br />
+                <input name="SendDate" type="text" id="SendDate"  onclick="SetDateTime('fulldate',this.id)"size="12" maxlength="12" />
+</div></td>
+          </tr>
+      </table></td></tr>
+  </table>
+  </div></td>
+</tr>
+<tr>
+<td colspan="4"><span class="FormReg"><span> <span style="font-family: Calibri;">
+  <span style="font-family: Calibri;">
+  <input name="savebtn" type=""multipbutton" id="savebtn"  onclick="SaveData()" value="Save IMS 213-R data" />
+  </span>&nbsp;
+  <input class="SubmitBtn" enctype=art/form-data" id="Submit" method="Post" name="Submit" pbzloc="4" size="8"  value="Submit" type="submit" />
+&nbsp;
+<input class="BtnFormat2" value="Reset Form " name="ResetForm" type="reset" />
+&nbsp; &nbsp; <span style="font-weight: normal;">&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<span class="formtext1"><span style="color: rgb(128, 0, 0);"><span style="color: black;"><span style="color: rgb(128, 0, 0);"><span style="font-family:  Arial, Helvetica, sans-serif;;"><span style="font-size: 12px;"><span style="font-family:  Arial, Helvetica, sans-serif;;"><span style="font-size: 12px;"><span style="font-family:  Arial, Helvetica, sans-serif;;"><span style="font-size: 12px;"><span style="font-family:  Arial, Helvetica, sans-serif;;"><span style="font-size: 12px;">
+<input name="testCall" type="hidden" id="testCall" value="{MsgSender}" size="14" maxlength="13" />
+</span></span></span></span></span></span></span></span></span></span></span>
+<input name="Templateversion" type="hidden" id="templateversion" value="IMS Form 213-R  v. 1.2" />
+<span class="formbold"><span style="font-family: Calibri;"><span style="font-family: Calibri;"><span><span style="font-family: Calibri;"><span style="font-weight: normal;"> v<span class="style3"> 1.2</span></span></span></span></span></span></span></span></span></span></span></span></td>
+</tr>
+</tbody>
+</table>
+<br />
+&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</form>
+</body></html>

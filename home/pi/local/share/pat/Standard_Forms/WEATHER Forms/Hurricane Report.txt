@@ -1,0 +1,52 @@
+Form: Hurricane Report Initial.html
+To: <var SendTo>
+Subject: Hurricane Report-<var MsgSender>-<var Date>-<var Time>-[<var Type>]
+Msg:
+As of UTC Time: <var Time>
+
+UTC Date: <var Date> 
+
+Report Status: [<var Type>]
+
+Radio Station Sending Call: <var MsgSender>
+
+Is Sending Station the Observing Party? <var Party>
+
+Reporting Observer Email: <var Email>
+
+Reporting Observer Phone Number: <var Phone>
+
+
+Geographic Area of Observed Event:
+
+City: <var City>
+
+County: <var County>
+
+State: <var State>
+
+Country: <var Country>
+
+Coordinates in decimal: <var Coordinates>
+
+Wind Measurements Were: <var Type1>
+
+Weather Instruments Used: <var Instruments>
+
+Wind Speed: <var Wind1> <var Speed>
+
+Gust Speed: <var Wind2> <var Speed2>
+
+Wind Direction: <var Direction>
+
+Barometric Pressure: <var Pressure> <var Pressure2>
+
+Event Comments:
+
+  <var Comments>
+  
+
+------------------------------------
+Express Sending Station: <MsgSender>
+Senders Express Version: <ProgramVersion> 
+Senders Template Version: <var Templateversion>

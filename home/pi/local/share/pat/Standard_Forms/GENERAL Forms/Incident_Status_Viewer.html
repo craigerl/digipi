@@ -1,0 +1,429 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<!-- Coded by KG6SJT  KG6SJT@gmail.com -->
+
+<title>INCIDENT STATUS REPORT</title>
+
+<style type="text/css">
+<!--
+
+k
+.classCenter { 
+   text-align: center; 
+} 
+input, select {
+    font-size:12px;
+}
+input, textarea {
+    font-size:12px;
+	font-family:Arial, Helvetica, sans-serif
+}
+1
+  }
+ 
+table, th,td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  }
+.style9 {font-size: 10px}
+.classCenter {   text-align: center; 
+}
+.FormReg {font-size: 12px; font-family:Arial, Helvetica, sans-serif}
+.formbold{font-size: 12px; font-weight: bold; font-family:Arial, Helvetica, sans-serif}
+.SubmitBtn {font-size: 12px;
+font-family: Arial,Helvetica,sans-serif;
+font-weight: inherit;
+}
+.formtext {font-family: Arial, Helvetica, sans-serif;
+font-size: 10pt;
+font-weight: normal;
+}
+  
+  
+-->
+</style>
+<style>
+/*
+body {color:#000; background:#fff; font:100%/1.5 arial,sans-serif;}
+h2 {margin-top:0}
+*/
+/* Styling applied to classes only */
+/* Pop-up content shifted off-screen when not in view.
+Still readable by screen-reader software.
+When targeted it fills the browser window.
+*/
+.pop-up {position:absolute; top:0; left:-500em;}
+.pop-up:target {position:static; left:0;}
+/* The pop-up itself */
+.popBox {
+background:#ffffff;
+/* alternatively fixed width / height and negative margins from 50% */
+position:absolute; left:30%; right:30%; top:30%; bottom:30%;
+z-index:10;
+border:1px solid #3a3a3a;
+/* CSS3 where available: rounded corners, drop-shadow, and fade in. */
+border-radius:.25rem;
+box-shadow:0 .5rem .5rem rgba(0,0,0,.5);
+opacity:0;
+transition: opacity 0.8s ease-out;
+}
+:target .popBox {position:fixed; opacity:1;}
+/* Light box properties */
+.lightbox {
+display:none;
+text-indent:-200em;
+background-color:rgba(0,0,0,.4);
+width:100%;
+height:100%;
+position:fixed;
+top:0;
+left:0;
+bottom:0;
+right:0;
+z-index:5;
+}
+:target .lightbox {display:block;}
+/* The pop-ups close link, moved via CSS to the top right of the pop-up */
+.close:link,
+.close:visited {
+position: absolute;
+top: -0.75em;
+right: -0.75em;
+display: block;
+width: 2em;
+height: 2em;
+line-height: 1.8;
+padding: 0;
+text-align: center;
+text-decoration: none;
+background-color: #000;
+border: 2px solid #fff;
+color: #fff;
+border-radius: 50%;
+box-shadow: 0 0 .5rem .5rem rba(0,0,0,.5);
+}
+.close:before {content:"X";}
+.close:hover,
+.close:active,
+.close:focus {
+box-shadow: 0 0 .5rem .5rem rba(255,0,0,.5);
+background-color: #c00;
+color: #fff;
+}
+.close span {
+text-indent: -200em;
+display: block;
+}
+/* The pop-up content div will scroll if it has too much content */
+.popScroll {
+	position:absolute;
+	top: 1rem;
+	left: 1rem;
+	right: 1rem;
+	bottom: 1rem;
+	overflow-y: auto;
+*overflow-y: scroll;
+	padding-right: 0.5em;
+	width: 2528px;
+}
+.popScroll h2 {margin-top:0}
+.style50 {font-size: 14}
+.formtext1 {font-family: Arial, Helvetica, sans-serif;
+font-size: 11pt;
+font-weight: normal;
+}
+.style13 {font-family: Arial, Helvetica, sans-serif}
+</style>
+<script>
+
+
+function Checktheboxes () {
+		
+ if (document.getElementById('f1').value == "YES") { document.getElementById('f1b').checked = true;};
+ if (document.getElementById('f2').value == "YES") { document.getElementById('f2b').checked = true;}; 
+ if (document.getElementById('f3').value == "YES") { document.getElementById('f3b').checked = true;};
+  if (document.getElementById('f4').value == "YES") { document.getElementById('f4b').checked = true;};
+ if (document.getElementById('f5').value == "YES") { document.getElementById('f5b').checked = true;};
+ if (document.getElementById('f6').value == "YES") { document.getElementById('f6b').checked = true;};
+ if (document.getElementById('f7').value == "YES") { document.getElementById('f7b').checked = true;};
+ if (document.getElementById('f8').value == "YES") { document.getElementById('f8b').checked = true;};
+  if (document.getElementById('f9').value == "YES") { document.getElementById('f9b').checked = true;};
+   if (document.getElementById('f10').value == "YES") { document.getElementById('f10b').checked = true;};
+    if (document.getElementById('f11').value == "YES") { document.getElementById('f11b').checked = true;};
+	if (document.getElementById('f12').value == "YES") { document.getElementById('f12b').checked = true;};
+  
+  // now the radiobuttons
+   thisbtn = document.getElementById('Evac').value;
+ document.getElementById('Evacbtn').value = document.getElementById('Evac').value;
+
+  
+}
+
+</script>
+
+</head>
+
+<body onload="Checktheboxes()">
+<form  style="font-family: Arial;" pbzloc="3" onsubmit="return confirm('To complete your form submission, click OK and close the open browser window. You will return to the new message window so you can post your message to the outbox');" method="post" id="myform" enctype="multipart/form-data" action="http://{FormServer}:{FormPort}">
+<div class="pop-up" id="pop1"><!-- The pop-up block -->
+<div class="popBox"><!-- If the content becomes larger than the pop-up this div will scroll the content -->
+<div class="popScroll"><!-- Test for help starts here -->
+<p> </p>
+<h2>RHCC SITUATION REPORT</h2>
+<table width="450"  border="1" cellspacing="0" cellpadding="2">
+  <tr bgcolor="#dee9f9">
+    <td width="10%"><div align="center" class="style1">NUMBER</div></td>
+    <td width="21%"><div align="center" class="style1">TITLE</div></td>
+    <td width="69%"><div align="center" class="style1">INSTRUCTIONS</div></td>
+  </tr>
+  <tr valign="top">
+    <td><span class="style2">1</span></td>
+    <td><span class="style2"> Incident Name</span></td>
+    <td><span class="style2">Enter the name assigned to the incident.</span></td>
+  </tr>
+  <tr valign="top">
+    <td><span class="style2">2a &amp; 2b</span></td>
+    <td><span class="style2">Operational Period</span></td>
+    <td><span class="style2">Enter the start date (m/d/y) and time (12 hour clock) and end date and time.</span></td>
+  </tr>
+  <tr valign="top">
+    <td><span class="style2">3a &amp; 3b</span></td>
+    <td><span class="style2">Facility Name &amp;<br>
+Type</span></td>
+    <td><span class="style2">Enter the name of the facility and type</span></td>
+  </tr>
+  <tr valign="top">
+    <td><span class="style2">4a , 4b, <br>
+  4c &amp; 4d</span></td>
+    <td><span class="style2">Contact Info</span></td>
+    <td><span class="style2">Contact name, phone, cell phone and email</span></td>
+  </tr>
+  <tr valign="top">
+    <td><span class="style2">5</span></td>
+    <td><span class="style2">Status</span></td>
+    <td><span class="style2"><strong>Normal</strong>: 100% operable with no limitations<br>
+        <strong>Modified</strong>: Operable or somewhat operable with limitations<br>
+        <strong>Limited</strong>: Partial functional some assistance needed<br>
+        <strong>Impaired</strong>: Major assistance needed<br>
+        <strong>Not functional</strong>: Major assistance needed<br>
+      <strong>Unknown</strong>: Not applicable, do not have info</span></td>
+  </tr>
+  <tr valign="top">
+    <td><span class="style2">6</span></td>
+    <td><span class="style2">Communications</span></td>
+    <td><span class="style2">Email, land line phone, fax, internet, cell phone, satellite phone, HEART amateur radio</span></td>
+  </tr>
+  <tr valign="top">
+    <td><span class="style2">7</span></td>
+    <td><span class="style2">Utilities</span></td>
+    <td><span class="style2">Power, water, sanitation, heating, A/C, ventilation</span></td>
+  </tr>
+  <tr valign="top">
+    <td><span class="style2">8</span></td>
+    <td><span class="style2">Evacuation</span></td>
+    <td><span class="style2">Evacuating: Partial evacuation, Total evacuation, Shelter in Place.</span></td>
+  </tr>
+  <tr valign="top">
+    <td><span class="style2">9</span></td>
+    <td><span class="style2">Impact/Casualties</span></td>
+    <td><span class="style2"><strong>Immediate (Red):</strong> Critical care<br>
+        <strong>Delayed (Yellow)</strong>: Moderate care<br>
+        <strong>Minor (Green)</strong>: Care not needed immediately<br>
+      <strong>Fatality (Black)</strong>: Deceased</span></td>
+  </tr>
+  <tr valign="top">
+    <td><span class="style2">10</span></td>
+    <td><span class="style2">Additional Information</span></td>
+    <td><span class="style2">Internal disaster plan activated?<br>
+Facility Command Center activated?<br>
+Emergency generator power in use?</span></td>
+  </tr>
+</table>
+<p>
+</p>
+</div>
+<!-- The close pop-up link correctly positioned at the end of the content block -->
+<a href="#links" class="close"><span>Back
+to links</span></a> </div>
+</div>
+<div align="right">
+  </div>
+<table width="950" height="734"  border="1" cellpadding="1" cellspacing="0" bordercolor="#000000">
+  <tr valign="top">
+    <td width="1730" height="37" valign="top" bgcolor="#dee9f9"><p align="center" class="formbold"><span class="FormReg style50">INCIDENT 
+      STATUS REPORT<br />
+      <span  id="SubjectText">{var Title}</span>    </span></p>
+ 
+      </tr>
+  
+  <tr valign="top" class="style9">
+    <td colspan="3">      <table width="100%"  border="1" cellspacing="0" cellpadding="4">
+      <tr class="FormReg">
+        <td width="44%" class="FormReg">1. Incident Name: {var incidentname}         </td>
+        <td width="56%">2. WebEOC Incident (as applicable): 
+          {var WEBEOC}</td>
+      </tr>
+      <tr class="FormReg">
+        <td>3. Incident Date/Time: <span class="formtext1">
+          {var IncDateTime}
+        </span></td>
+        <td>4. Report Version: {var Rversion}</td>
+      </tr>
+    </table>      
+      <table width="100%"  border="1" cellspacing="0" cellpadding="4">
+        <tr bgcolor="#dee9f9">
+          <td colspan="3" class="formbold">5. Type of Incident (Check all that apply):</td>
+          </tr>
+        <tr class="FormReg">
+          <td width="33%">  <input name="f1b" type="checkbox" id="f1b" value="YES"  onclick='return false' onkeydown='return false'  />
+            Severe Storm/Flood <span class="style13"><span style="font-weight: bold;">
+            <input name="f1" type="hidden" id="f1" value="{var f1}" />
+            </span></span></td>
+          <td width="33%"><span class="style13"><span style="font-weight: bold;">
+            <input name="f4b" type="checkbox" id="f4b" value="YES" onclick='return false' onkeydown='return false'  />
+          </span></span>
+          Pre-Planned Event <span class="style13"><span style="font-weight: bold;">
+          <input name="f4" type="hidden" id="f4" value="{var f4}" />
+          </span></span></td>
+          <td width="34%"><span class="style13"><span style="font-weight: bold;">
+            <input name="f7b" type="checkbox" id="f7b" value="YES" onclick='return false' onkeydown='return false'  />
+          </span></span>
+          HAZMAT <span class="style13"><span style="font-weight: bold;">
+          <input name="f7" type="hidden" id="f7" value="{var f7}" />
+          </span></span></td>
+        </tr>
+        <tr class="FormReg">
+          <td><span class="style13"><span style="font-weight: bold;">
+            <input name="f2b" type="checkbox" id="f2b" value="YES" onclick='return false' onkeydown='return false'  />
+          </span></span>
+          Severe Winter Weather <span class="style13"><span style="font-weight: bold;">
+          <input name="f2" type="hidden" id="f2" value="{var f2}" />
+          </span></span></td>
+          <td><span class="style13"><span style="font-weight: bold;">
+            <input name="f5b" type="checkbox" id="f5b" value="YES" onclick='return false' onkeydown='return false'  />
+          </span></span>
+          Dam/Levee <span class="style13"><span style="font-weight: bold;">
+          <input name="f5" type="hidden" id="f5" value="{var f5}" />
+          </span></span></td>
+          <td><span class="style13"><span style="font-weight: bold;">
+            <input name="f8b" type="checkbox" id="f8b" value="YES" onclick='return false' onkeydown='return false'  />
+          </span></span>Utility Disruption<span class="style13"><span style="font-weight: bold;">
+            <input name="f8" type="hidden" id="f8" value="{var f8}" />
+          </span></span></td>
+        </tr>
+        <tr class="FormReg">
+          <td><span class="style13"><span style="font-weight: bold;">
+            <input name="f3b" type="checkbox" id="f3b" value="YES" onclick='return false' onkeydown='return false'  />
+          </span></span>
+          Public Health <span class="style13"><span style="font-weight: bold;">
+          <input name="f3" type="hidden" id="f3" value="{var f3}" />
+          </span></span></td>
+          <td><span class="style13"><span style="font-weight: bold;">
+            <input name="f6b" type="checkbox" id="f6b" value="YES" onclick='return false' onkeydown='return false'  />
+          </span></span>Active threats/ Civil Disturbance<span class="style13"><span style="font-weight: bold;">
+            <input name="f6" type="hidden" id="f6" value="{var f6}" />
+          </span></span></td>
+          <td>
+            <span style="font-weight: bold;"><span style="font-weight: bold;">
+            <input name="f12b" type="checkbox" id="f12b" value="YES" onclick='return false' onkeydown='return false'  />
+            </span></span>Earthquake<span style="font-weight: bold;">            <span style="font-weight: bold;">
+            <input name="f12" type="hidden" id="f12" value="{var f12}" />
+                                    </span> </span>           </td>
+        </tr>
+        <tr class="FormReg">
+          <td><span class="style13"><span style="font-weight: bold;">
+            <input name="f10b" type="checkbox" id="f10b" value="YES" onclick='return false' onkeydown='return false'  />
+          </span></span>Fire <span class="style13"><span style="font-weight: bold;">
+          <input name="f10" type="hidden" id="f10" value="{var f10}" />
+          </span></span></td>
+          <td><span class="style13"><span style="font-weight: bold;">
+            <input name="f11b" type="checkbox" id="f11b" value="YES" onclick='return false' onkeydown='return false'  />
+          </span></span> Aircraft Disaster <span class="style13"><span style="font-weight: bold;">
+          <input name="f11" type="hidden" id="f11" value="{var f11}" />
+          </span></span></td>
+          <td>            <span class="style13"><span style="font-weight: bold;"><span style="font-weight: bold;">
+            <input name="f9b" type="checkbox" id="f9b" value="YES" onclick='return false' onkeydown='return false'  />
+            </span></span>Other (Specify):
+            <input name="f9" type="hidden" id="f9" value="{var f9}" />
+{var Typeother}  </span></td>
+        </tr>
+      </table>
+      <table width="100%"  border="1" cellspacing="0" cellpadding="4">
+        <tr>
+          <td><p class="FormReg">6. Situation Summary as of Time of Report:</p>
+            <p class="FormReg">
+              <span style="width:750px; margin: 10px;  word-wrap:break-word; display:inline-block;">{var SitSummary}</span>
+            </p></td>
+        </tr>
+        <tr>
+          <td><p class="FormReg">7. Future Outlook/Goals/Needs/Issues:</p>
+            <p class="FormReg">          <span style="width:750px; margin: 10px;  word-wrap:break-word; display:inline-block;">
+              {var Issues}</span>
+            </p></td>
+        </tr>
+      </table>
+      <table width="100%"  border="1" cellspacing="0" cellpadding="4">
+        <tr bgcolor="#dee9f9">
+          <td class="formbold">8. County Emergency Operations Center (EOC) Status (Check one):</td>
+          </tr>
+        <tr valign="top" class="FormReg">
+          <td>             {var EOCStatus}            <br />
+            Hours of Operation: 
+            {var hoursofop} {var hoursmonitor}            </td>
+          </tr>
+        <tr bgcolor="#dee9f9" class="FormReg">
+          <td class="formbold">9. Local Disaster Declaration Status (Check one):</td>
+          </tr>
+        <tr valign="top" class="FormReg">
+          <td>{var Declaration} &nbsp; &nbsp;{var DecDateTime}  </td>
+          </tr>
+      </table>
+      <table width="100%"  border="1" cellspacing="0" cellpadding="4">
+        <tr class="FormReg">
+          <td>10. Number of Confirmed Incident Injuries: 
+            {var numInjuries}</td>
+          <td>11. Number of Confirmed Incident Fatalities: 
+            {var numiFatalities}</td>
+        </tr>
+        <tr valign="top">
+          <td colspan="2"><p class="FormReg">12. Number and Location(s) of Shelters Established:</p>
+            <p class="FormReg"><span style="width:750px; margin: 10px;  word-wrap:break-word; display:inline-block;">{var Shelters} </span></p></td>
+          </tr>
+      </table>
+      <table width="100%"  border="1" cellspacing="0" cellpadding="4">
+        <tr bgcolor="#dee9f9">
+          <td colspan="3" class="formbold">13. Have Evacuations Been Implemented? </td>
+          </tr>
+        <tr valign="top" class="FormReg">
+          <td colspan="3"><p>{var Evac}<br />
+           <span style="width:750px; margin: 10px;  word-wrap:break-word; display:inline-block;"> {var Evacyes}</span> </p></td>
+          </tr>
+        <tr class="FormReg">
+          <td width="27%">14. Date/Time of Report:<br />
+            &nbsp;
+            <span class="formtext1">
+            {var DateTimeReport}</span><br /></td>
+          <td width="34%" valign="top">15. Report Submitted By: <br />
+            &nbsp;
+            {var Submittedby}           
+            <br /></td>
+          <td width="39%" valign="top" class="FormReg">16. Contact Info:<br />
+            &nbsp;
+            {var Contctinfo}</td>
+        </tr>
+      </table>
+     
+      </td>
+  </tr>
+  <tr valign="top" bgcolor="#FFFFFF">
+    <td><div align="left"></div>        <p class="FormReg"><span class="formbold"><small>&nbsp;<span style="color: rgb(128, 0, 0);"><span><span style="font-size: 12px;"></span></span></span>&nbsp;&nbsp;<span style="color: rgb(128, 0, 0);"><span><span style="font-size: 12px;"></span></span></span><span style="font-family: Calibri;"></span> </small>
+<input name="Templateversion" type="hidden" id="Templateversion" value="2.1" />
+Version 2.3</span></p>
+      </td>
+  </tr>
+  
+  
+</table>
+</form>
+</body>
+</html>

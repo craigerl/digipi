@@ -1,0 +1,126 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>RFI Display</title>
+<meta name="generator" content="WYSIWYG Web Builder 14 - http://www.wysiwygwebbuilder.com">
+<style>
+div#container
+{
+   width: 640px;
+   position: relative;
+   margin: 0 auto 0 auto;
+   text-align: left;
+}
+body
+{
+   background-color: #FFFFFF;
+   color: #000000;
+   font-family: Arial;
+   font-weight: normal;
+   font-size: 13px;
+   line-height: 1.1875;
+   margin: 0;
+   text-align: center;
+}
+a
+{
+   color: #0000FF;
+   text-decoration: underline;
+}
+a:visited
+{
+   color: #800080;
+}
+a:active
+{
+   color: #FF0000;
+}
+a:hover
+{
+   color: #0000FF;
+   text-decoration: underline;
+}
+input:focus, textarea:focus, select:focus
+{
+   outline: none;
+}
+h4, .h4
+{
+   font-family: Arial;
+   font-weight: bold;
+   font-size: 21px;
+   font-style: italic;
+   text-decoration: none;
+   color: #000000;
+   background-color: transparent;
+   margin: 0px 0px 0px 0px;
+   padding: 0px 0px 0px 0px;
+   display: inline;
+}
+#Line1
+{
+   border-color: #A0A0A0;
+   border-style: solid;
+   border-bottom-width: 12px;
+   border-top: 0px;
+   border-left: 0px;
+   border-right: 0px;
+   height: 0 !important;
+   line-height: 0px !important;
+   margin: 0;
+   padding: 0;
+}
+#wb_Text2 
+{
+   background-color: transparent;
+   background-image: none;
+   border: 0px solid #000000;
+   padding: 0;
+   margin: 0;
+   text-align: center;
+}
+#wb_Text2 div
+{
+   text-align: center;
+}
+#wb_Text1 
+{
+   background-color: transparent;
+   background-image: none;
+   border: 0px solid #000000;
+   padding: 0;
+   margin: 0;
+   text-align: left;
+}
+#wb_Text1 div
+{
+   text-align: left;
+}
+#wb_Text3 
+{
+   background-color: transparent;
+   background-image: none;
+   border: 0px solid #000000;
+   padding: 0;
+   margin: 0;
+   text-align: left;
+}
+#wb_Text3 div
+{
+   text-align: left;
+}
+</style>
+</head>
+<body>
+<div id="container">
+<hr id="Line1" style="position:absolute;left:0px;top:87px;width:640px;z-index:0;">
+<div id="wb_Text2" style="position:absolute;left:0px;top:15px;width:640px;height:53px;text-align:center;z-index:1;">
+<span style="color:#000000;font-family:Arial;font-size:32px;"><strong>Request For Information</strong></span><span style="color:#000000;font-family:Arial;font-size:13px;"><br>Hawaii County Civil Defense [ver 1.6]</span></div>
+<div id="wb_Text1" style="position:absolute;left:0px;top:99px;width:305px;height:320px;z-index:2;">
+<h4>Requested By:</h4><span style="color:#000000;font-family:Arial;font-size:13px;"> <br><strong><em>Name:</em></strong> {var RBFirst} {var RBLast}<br><strong><em>Address:</em></strong><br>{var RAdd1}<br>{var RAdd2}<br>{var RCity}, {var RZip}<br>{var RState}, {var RCountry}<br><strong><em>Cross Street / Landmark:</em></strong><br>{var Landmark}<br><br><strong><em>Phone:</em></strong> {var RPhone1}-{var RPhone2}-{var RPhone3}<br><strong><em>E-Mail:</em></strong> {var RMail}<br><br></span><h4>Call Taken by:</h4><span style="color:#000000;font-family:Arial;font-size:13px;"> <br><strong><em>Name:</em></strong> {var CLFirst} {var CLLast} <br><strong><em>Call:</em></strong> {var CLCall} <br><strong><em>Time:</em></strong> {var CLTime}<br><strong><em>Date:</em></strong> {var CLDate}<br><strong><em>E-Mail:</em></strong> {var CLMail}</span></div>
+<div id="wb_Text3" style="position:absolute;left:335px;top:99px;width:305px;height:240px;z-index:3;">
+<h4>Detail:</h4><span style="color:#000000;font-family:Arial;font-size:13px;"> <br>{var Detail}<br><br></span><h4>Priority:</h4><span style="color:#000000;font-family:Arial;font-size:13px;"> <br></span><h4>{var RPri}</h4><span style="color:#000000;font-family:Arial;font-size:13px;"><br><br></span><h4>EOC DETAILS:</h4><span style="color:#000000;font-family:Arial;font-size:13px;"><br><strong><em>Referred To:</em></strong> <br>{var Referred}<br><strong><em>Screened By:</em></strong> <br>{var SFirst} {var SLast}<br><strong><em>Administrative Email:</em></strong> <br>{var Admail}</span></div>
+</div>
+</body>
+</html>

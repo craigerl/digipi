@@ -1,0 +1,32 @@
+Form: PISRReport.html,PISRDisplay.html
+
+Subject: SITREP - Post Event - <var REvent>
+
+Msg:
+
+Event: <var REvent>
+
+Reported By: <Var RFirst> <var RLast>
+Address:
+<var Add1>
+<var Add2>
+<var RCity>, <var RState>, <var RZip> - <var RCountry>
+
+Contact: <var RNum1>-<var RNum2>-<var RNum3> - <var RMail>
+Grid: <var RGrid>
+District: <var RDist>
+Location <var RLoc>
+
+Weather:
+Rain: <var WRain> - <var WRainc>
+Wind: <var WWind> - <var WWinds>
+Surf: <var WSurf> - <var WSurfh>
+
+Critical:
+Flood: <var CFlood> - <var CFloodd>
+
+Comments: <var RCom>
+
+
+--
+Version <var form_version>

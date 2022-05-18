@@ -1,0 +1,65 @@
+Form: STAR_Form_TX_Send_Reply.html,STAR_Form_TX_Send_Reply_Viewer.html
+Def: MsgOriginalBody=<var MsgOriginalBody> 
+
+
+To: 
+Subject: STAR Form <var IncName>-<var ReqCnty>-<var ReqNum>
+<var MsgOriginalBody>
+Msg:
+FILL INFORMATION
+---------------------------------------
+
+UPDATING AGENCY FILL 1
+
+POC Name/Position: <var NameFill1>
+Phone(s): <var PhoneFill1>
+Email: <var EmailFill1>
+
+QTY Filled: <var QtyFill1>
+ETA: <var ETAFill1> 
+Est. Cost: <var CostFill1>
+
+Provider Notes: 
+<var NotesFill1>
+
+Name as Approved Signature: <var AppFill1>  
+Date & Time: <var TimeFill1>
+-----------------------------------------------------------------
+UPDATING AGENCY FILL 2
+
+POC Name/Positon: <var NameFill2>
+Phone(s): <var PhoneFill2>
+Email: <var EmailFill2>
+
+QTY Filled: <var QtyFill2>   
+ETA: <var ETAFill2>  
+Est. Cost: <var CostFill2>
+
+Provider Notes:
+<var NotesFill2>
+
+Name as Approved Signature: <var AppFill2>  
+Date & Time: <var TimeFill2>
+-----------------------------------------------------------------
+UPDATING AGENCY FILL 3
+
+POC Name/Positon: <var NameFill3>
+Phone(s): <var PhoneFill3>
+Email: <var EmailFill3>
+
+QTY Filled: <var QtyFill3>    
+ETA: <var ETAFill3>  
+Est. Cost: <var CostFill3>
+
+Provider Notes:
+<var NotesFill3>
+
+Name as Approved Signature: <var AppFill3>  
+Date & Time: <var TimeFill3>
+
+Additional Notes:
+<var AddNotes2>
+
+---------------------------------------------------------------------
+                     ORIGINAL STAR REQUEST BELOW
+---------------------------------------------------------------------

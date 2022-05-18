@@ -1,0 +1,65 @@
+11/09/21 10:27:29 Xvnc version TightVNC-1.3.9
+11/09/21 10:27:29 Copyright (C) 2000-2007 TightVNC Group
+11/09/21 10:27:29 Copyright (C) 1999 AT&T Laboratories Cambridge
+11/09/21 10:27:29 All Rights Reserved.
+11/09/21 10:27:29 See http://www.tightvnc.com/ for information on TightVNC
+11/09/21 10:27:29 Desktop name 'X' (digipi:1)
+11/09/21 10:27:29 Protocol versions supported: 3.3, 3.7, 3.8, 3.7t, 3.8t
+11/09/21 10:27:29 Listening for VNC connections on TCP port 5901
+Font directory '/usr/share/fonts/X11/Type1/' not found - ignoring
+Font directory '/usr/share/fonts/X11/75dpi/' not found - ignoring
+Font directory '/usr/share/fonts/X11/100dpi/' not found - ignoring
+xrdb: No such file or directory
+xrdb: can't open file '/home/pi/.Xresources'
+
+11/09/21 10:28:00 Got connection from client 127.0.0.1
+11/09/21 10:28:00 Using protocol version 3.8
+11/09/21 10:28:00 Enabling TightVNC protocol extensions
+11/09/21 10:28:00 Full-control authentication passed by 127.0.0.1
+11/09/21 10:28:00 Pixel format for client 127.0.0.1:
+11/09/21 10:28:00   32 bpp, depth 24, little endian
+11/09/21 10:28:00   true colour: max r 255 g 255 b 255, shift r 16 g 8 b 0
+11/09/21 10:28:00   no translation needed
+11/09/21 10:28:00 Using tight encoding for client 127.0.0.1
+11/09/21 10:28:00 rfbProcessClientNormalMessage: ignoring unknown encoding -260
+11/09/21 10:28:00 Using image quality level 6 for client 127.0.0.1
+11/09/21 10:28:00 Using compression level 2 for client 127.0.0.1
+11/09/21 10:28:00 rfbProcessClientNormalMessage: ignoring unknown encoding -223
+11/09/21 10:28:00 Enabling LastRect protocol extension for client 127.0.0.1
+11/09/21 10:28:00 rfbProcessClientNormalMessage: ignoring unknown encoding -258
+11/09/21 10:28:00 rfbProcessClientNormalMessage: ignoring unknown encoding -308
+11/09/21 10:28:00 rfbProcessClientNormalMessage: ignoring unknown encoding -309
+11/09/21 10:28:00 rfbProcessClientNormalMessage: ignoring unknown encoding -312
+11/09/21 10:28:00 rfbProcessClientNormalMessage: ignoring unknown encoding -313
+11/09/21 10:28:00 Enabling full-color cursor updates for client 127.0.0.1
+11/09/21 10:31:44 Client 127.0.0.1 gone
+11/09/21 10:31:44 Statistics:
+11/09/21 10:31:44   key events received 0, pointer events 497
+11/09/21 10:31:44   framebuffer updates 725, rectangles 5340, bytes 1681438
+11/09/21 10:31:44     LastRect markers 680, bytes 8160
+11/09/21 10:31:44     cursor shape updates 19, bytes 35300
+11/09/21 10:31:44     tight rectangles 4641, bytes 1637978
+11/09/21 10:31:44   raw bytes equivalent 69633864, compression ratio 42.512087
+
+11/09/21 10:31:58 Got connection from client 127.0.0.1
+11/09/21 10:31:58 Using protocol version 3.8
+11/09/21 10:31:58 Enabling TightVNC protocol extensions
+11/09/21 10:31:58 Full-control authentication passed by 127.0.0.1
+11/09/21 10:31:58 Pixel format for client 127.0.0.1:
+11/09/21 10:31:58   32 bpp, depth 24, little endian
+11/09/21 10:31:58   true colour: max r 255 g 255 b 255, shift r 16 g 8 b 0
+11/09/21 10:31:58   no translation needed
+11/09/21 10:31:58 Using tight encoding for client 127.0.0.1
+11/09/21 10:31:58 rfbProcessClientNormalMessage: ignoring unknown encoding -260
+11/09/21 10:31:58 Using image quality level 6 for client 127.0.0.1
+11/09/21 10:31:58 Using compression level 2 for client 127.0.0.1
+11/09/21 10:31:58 rfbProcessClientNormalMessage: ignoring unknown encoding -223
+11/09/21 10:31:58 Enabling LastRect protocol extension for client 127.0.0.1
+11/09/21 10:31:58 rfbProcessClientNormalMessage: ignoring unknown encoding -258
+11/09/21 10:31:58 rfbProcessClientNormalMessage: ignoring unknown encoding -308
+11/09/21 10:31:58 rfbProcessClientNormalMessage: ignoring unknown encoding -309
+11/09/21 10:31:58 rfbProcessClientNormalMessage: ignoring unknown encoding -312
+11/09/21 10:31:58 rfbProcessClientNormalMessage: ignoring unknown encoding -313
+11/09/21 10:31:58 Enabling full-color cursor updates for client 127.0.0.1
+mwm: I/O error on display:: :1
+

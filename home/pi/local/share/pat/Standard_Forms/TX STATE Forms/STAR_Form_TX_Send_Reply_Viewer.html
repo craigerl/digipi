@@ -1,0 +1,439 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>STAR Message Form-{var IncName}-{var ReqNum}</title>
+
+<style type="text/css">
+@media print {
+#printPageButton {
+    display: none;
+  }
+  .form-control, .form-control.nobug {
+border: 0;
+outline: 0;
+box-shadow: none;
+font-size:12px;
+}
+.form-control.nobug {
+transition: none; /*-- THIS IS IMPORTANT -- */
+}
+ input {
+         outline: none !important;
+		box-shadow: none;
+		border: none;
+		}
+}
+
+body, td, th {
+font-family: Arial,Helvetica,sans-serif;
+font-size: 12px;
+font-weight: inherit;
+}
+.zentriert {
+font-size: 12px;
+font-weight: inherit;
+}
+input, select {
+padding: 1px;
+-moz-border-radius-topleft: 2px;
+-moz-border-radius-topright: 2px;
+-moz-border-radius-bottomright: 2px;
+-moz-border-radius-bottomleft: 2px;
+font-family: Arial,Helvetica,sans-serif;
+font-size: 12px;
+font-weight: inherit;
+}
+textarea {
+padding: 1px;
+-moz-border-radius-topleft: 2px;
+-moz-border-radius-topright: 2px;
+-moz-border-radius-bottomright: 2px;
+-moz-border-radius-bottomleft: 2px;
+font-family: Arial,Helvetica,sans-serif;
+font-size: 12px;
+font-weight: inherit;
+}
+.rechtsbuendig {
+font-size: 12px;
+font-weight: inherit;
+}
+.SubmitBtn {
+font-size: 12px;
+font-weight: inherit;
+}
+.version {
+color: #666666;
+position: relative;
+left: 0px;
+top: 3px;
+font-size: 12px;
+font-weight: inherit;
+}
+</style></head>
+<body>
+<div style="text-align: center;">
+<form action="http://{FormServer}:{FormPort}" enctype="multipart/form-data" id="STAR Message Form Send Reply View" method="post" pbzloc="0" style="font-family: Arial Black;">
+<table style="width: 964px; height: 1599px;" align="center" border="0">
+<tbody>
+<tr>
+<td>
+<table style="font-size: 14px; width: 900px; height: 1499px;" border="3" bordercolor="#999999" cellpadding="4" cellspacing="2">
+<tbody>
+<tr>
+<td colspan="2" style="height: 15%; text-align: justify; background-color: rgb(153, 255, 255);"><small><b>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp;&nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;</b></small><small pbzloc="3"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b>&nbsp;<b pbzloc="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp; &nbsp; &nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;
+&nbsp;&nbsp;
+<big>STATE OF TEXAS ASSISTANCE REQUEST (STAR)</big></b><span style="font-size: 14px;"><big style="font-weight: bold;"><big>
+&nbsp; &nbsp;&nbsp;</big></big></span></small><small><b>&nbsp;&nbsp;&nbsp;</b></small>&nbsp;<big>&nbsp;<small>&nbsp;Vers 9</small></big><small><big>&nbsp;</big><span style="font-size: 12px;"><big style="font-weight: bold;"><big>&nbsp;&nbsp;&nbsp;&nbsp;</big></big></span></small></td>
+</tr>
+<tr>
+<td colspan="2" style="vertical-align: top; text-align: center; background-color: rgb(255, 255, 204);"><div align="left"><small><big><big>&nbsp; Incident Name&nbsp;</big></big></small><small><span style="font-size: 14px;"> &nbsp;&nbsp;</span><big>
+  <input style="color: rgb(204, 0, 0);" readonly="readonly" value="{var IncName}" id="To_Name" maxlength="40" name="IncName" size="50" /> 
+&nbsp;<big>&nbsp;Initial
+  Request Date/Time</big></big>&nbsp;</small><small>
+  </small><small>&nbsp;&nbsp;
+  <input readonly="readonly" maxlength="22" size="22" name="time" value="{var time}" />
+  </small><br />
+  <small> <big><big><br />
+  &nbsp; Requesting
+  County&nbsp; </big></big></small><small>
+  <input style="color: rgb(204, 0, 0);" readonly="readonly" value="{var ReqCnty}" id="To_Name" maxlength="40" name="ReqCnty" size="50" />
+  </small><small><big><big>&nbsp;
+&nbsp; &nbsp;Request #&nbsp; </big></big></small><small>
+  <input style="color: rgb(204, 0, 0);" readonly="readonly" value="{var ReqNum}" id="To_Name" maxlength="25" name="ReqNum" size="30" />
+  </small><br />
+  <big><br />
+  <small><big><big>&nbsp; </big></big></small>Is this
+  RR Tied to Another Request? &nbsp;
+  <input readonly="readonly" maxlength="18" size="18" name="OtherRR" value="{var OtherRR}" />
+  </big><small> &nbsp;&nbsp;</small><big>Other Tracking
+  Numbers&nbsp;</big>&nbsp;
+  <input readonly="readonly" value="{var OtherNum}" maxlength="35" size="40" name="OtherNum" />
+&nbsp;<small><big><big>&nbsp;</big></big></small></div></td>
+</tr>
+<tr>
+<td colspan="2" style="text-align: center; background-color: white;"><big><span style="color: rgb(204, 0, 0);"><br /><span style="color: rgb(0, 102, 0);">
+Requested Item Description</span></span></big>
+<table style="text-align: left; width: 880px; height: 152px;" border="1" cellpadding="2" cellspacing="2">
+<tbody>
+<tr>
+<td style="text-align: center; width: 8%;">Qty</td>
+<td style="text-align: center; width: 8%;">Unit</td>
+<td style="text-align: center; width: 26%;">Item
+Name</td>
+<td style="text-align: center;">Item
+Description</td>
+<td style="text-align: center; width: 5%;">Cost</td>
+<td style="text-align: center; width: 5px; color: rgb(0, 102, 0);">Demob?</td>
+</tr>
+<tr>
+<td style="text-align: center; background-color: white;"><input readonly="readonly" value="{var Qty}" maxlength="6" size="6" name="Qty" /></td>
+<td style="text-align: center; background-color: white;"><input readonly="readonly" value="{var Unit}" maxlength="6" size="6" name="Unit" /></td>
+<td style="text-align: center; background-color: white;"><input readonly="readonly" value="{var ItemName}" maxlength="30" size="35" name="ItemName" /></td>
+<td style="text-align: center; background-color: white;"><input readonly="readonly" value="{var ItemDes}" maxlength="55" size="62" name="ItemDes" /></td>
+<td style="text-align: center; background-color: white;"><input readonly="readonly" value="{var Cost}" maxlength="8" size="8" name="Cost" /></td>
+<td style="background-color: white;"><input readonly="readonly" maxlength="4" size="4" name="Demob" value="{var Demob}" /><br />
+</td>
+</tr>
+<tr>
+<td style="text-align: center;" colspan="6"><div align="left"><span style="color: black;"><small><big><big>&nbsp; </big></big></small>Justification
+  - Purpose for Request?</span> <br />
+&nbsp;&nbsp;
+<span style="width:750px; word-wrap:break-word; display:inline-block;">{var Justify}</span></div></td>
+</tr>
+<tr>
+<td style="text-align: center;" colspan="6"><div align="left"><small><big><big>&nbsp; </big></big></small>When is this Resource Needed? &nbsp;
+      <input readonly="readonly" value="{var Need}" maxlength="25" size="30" name="Need" />
+&nbsp; Estimated Needed Time Frame of Item?&nbsp;  <input value="{var Time}" readonly="readonly" maxlength="25" size="30" name="Time" />
+</div></td>
+</tr>
+</tbody>
+</table>
+<big><span style="color: rgb(204, 0, 0);"><br /><span style="color: rgb(0, 102, 0);">
+Delivery
+Information -
+Way Point Information</span></span></big><br />
+<table style="text-align: left; width: 878px; height: 129px;" border="1" cellpadding="2" cellspacing="2">
+<tbody>
+<tr>
+<td style="text-align: center;">Point
+of Contact Name</td>
+<td style="text-align: center;">Phone
+# (s)</td>
+<td style="text-align: center;">Facility
+Name</td>
+<td style="text-align: center;">Zip</td>
+</tr>
+<tr>
+<td style="text-align: center;"><input readonly="readonly" value="{var POC}" maxlength="35" size="40" name="POC" /></td>
+<td style="text-align: center;"><input readonly="readonly" value="{var POCPhone}" maxlength="35" size="40" name="POCPhone" /></td>
+<td style="text-align: center;"><input readonly="readonly" value="{var FacName}" maxlength="35" size="40" name="FacName" /></td>
+<td style="text-align: center;"><input readonly="readonly" value="{var FacZip}" maxlength="6" size="6" name="FacZip" /></td>
+</tr>
+<tr>
+<td colspan="4" style="text-align: center;">Facility Address &nbsp;<input readonly="readonly" value="{var FacAd}" maxlength="45" size="55" name="FacAd" />
+&nbsp; &nbsp;City &nbsp;<input readonly="readonly" value="{var FacCity}" maxlength="30" size="35" name="FacCity" /> &nbsp; State
+&nbsp;<input readonly="readonly" value="{var FacState}" maxlength="2" size="2" name="FacState" /></td>
+</tr>
+<tr>
+<td style="text-align: center;" colspan="4"><div align="left">Additional Instructions <br />
+&nbsp;{var FacIns}</div></td>
+</tr>
+</tbody>
+</table>
+<big style="color: rgb(0, 102, 0);"><br />
+Final
+Destination</big><br />
+<table style="text-align: left; width: 878px; height: 129px;" border="1" cellpadding="2" cellspacing="2">
+<tbody>
+<tr>
+<td style="text-align: center;">Point
+of Contact Name</td>
+<td style="text-align: center;">Phone
+# (s)</td>
+<td style="text-align: center;">Facility
+Name</td>
+<td style="text-align: center;">Zip</td>
+</tr>
+<tr>
+<td style="text-align: center;"><input readonly="readonly" value="{var POC1}" maxlength="35" size="40" name="POC1" /></td>
+<td style="text-align: center;"><input readonly="readonly" value="{var POCPhone1}" maxlength="35" size="40" name="POCPhone1" /></td>
+<td style="text-align: center;"><input readonly="readonly" value="{var FacName1}" maxlength="35" size="40" name="FacName1" /></td>
+<td style="text-align: center;"><input readonly="readonly" value="{var FacZip1}" maxlength="6" size="6" name="FacZip1" /></td>
+</tr>
+<tr>
+<td style="text-align: center;" colspan="4">&nbsp;&nbsp;&nbsp; &nbsp;<small><big><big>&nbsp; </big></big></small>
+  <div align="left"><small><big><big>&nbsp; </big></big></small>Facility Address 
+      <input readonly="readonly" value="{var FacAd1}" maxlength="45" size="55" name="FacAd1" />
+    &nbsp;
+&nbsp;City&nbsp;&nbsp;  <input readonly="readonly" value="{var FacCity1}" maxlength="30" size="35" name="FacCity1" />
+&nbsp;
+&nbsp;State&nbsp;  <input readonly="readonly" value="{var FacState1}" maxlength="2" size="2" name="FacState1" />
+  </div></td>
+</tr>
+<tr>
+<td style="text-align: center;" colspan="4">&nbsp;Additional Instructions &nbsp;<br />
+&nbsp;&nbsp;<input readonly="readonly" value="{var FacIns1}" maxlength="140" size="160" name="FacIns1" /></td>
+</tr>
+</tbody>
+</table>
+<big><span style="color: rgb(204, 0, 0);"><br /><span style="color: rgb(0, 102, 0);">
+Requester
+Information</span></span></big><br />
+<table style="text-align: left; width: 877px; height: 56px;" border="1" cellpadding="2" cellspacing="2">
+<tbody>
+<tr>
+<td style="text-align: center;">Requested
+by Position &nbsp;/ Name</td>
+<td style="text-align: center;">Email</td>
+<td style="text-align: center;">Phone
+# (s)</td>
+</tr>
+<tr>
+<td style="text-align: center;"><input readonly="readonly" value="{var ReqName}" maxlength="35" size="40" name="ReqName" /></td>
+<td style="text-align: center;"><input readonly="readonly" value="{var ReqEmail}" maxlength="45" size="50" name="ReqEmail" /></td>
+<td style="text-align: center;"><input readonly="readonly" value="{var ReqPhone}" maxlength="35" size="40" name="ReqPhone" /></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top" style="text-align: justify;"><big><span style="color: rgb(204, 0, 0);"><small><big><big>&nbsp; </big></big></small>Updating
+Agency</span> &nbsp;<span style="color: rgb(204, 0, 0); font-weight: bold;">
+</span><span style="color: rgb(204, 0, 0);">FILL
+1</span></big>
+<br style="color: rgb(204, 0, 0);" />
+<br />
+<small><big><big>&nbsp; </big></big></small>POC Name / Position &nbsp; &nbsp;
+<input readonly="readonly" value="{var NameFill1}" maxlength="35" size="40" name="NameFill1" />&nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; Qty Filled &nbsp; <input readonly="readonly" value="{var QtyFill1}" maxlength="6" size="6" name="QtyFill1" /><br />
+<br />
+<small><big><big>&nbsp; </big></big></small>Phone (s)&nbsp; &nbsp;
+<input readonly="readonly" value="{var PhoneFill1}" maxlength="35" size="40" name="PhoneFill1" />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp;&nbsp; &nbsp;ETA
+&nbsp;<input readonly="readonly" value="{var ETAFill1}" maxlength="25" size="25" name="ETAFill1" /><br />
+<br />
+<small><big><big>&nbsp; </big></big></small>Email &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+<input readonly="readonly" value="{var EmailFill1}" maxlength="45" size="50" name="EmailFill1" />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp;
+&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;Est. Cost &nbsp;<input readonly="readonly" value="{var CostFill1}" maxlength="10" size="10" name="CostFill1" /><br />
+<br />
+<small><big><big>&nbsp; </big></big></small>Provider Notes &nbsp; <input readonly="readonly" value="{var NotesFill1}" maxlength="120" size="140" name="NotesFill1" /><br />
+&nbsp;<br />
+<table style="text-align: left; width: 873px; height: 1px;" border="1" cellpadding="2" cellspacing="2">
+<tbody>
+<tr>
+<td colspan="3" align="undefined" valign="undefined">&nbsp; &nbsp;Approver Signature
+(Typed Name OK for
+Email) &nbsp;<input title="A name here indicates approval since this is a radio delivery form." readonly="readonly" value="{var AppFill1}" maxlength="32" size="38" name="AppFill1" /> &nbsp;&nbsp;
+Date &amp; Time &nbsp;<input readonly="readonly" value="{var TimeFill1}" maxlength="22" size="22" name="TimeFill1" /></td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+<tr>
+<td colspan="2" style="text-align: justify;"><big><span style="color: rgb(204, 0, 0);"><small><big><big>&nbsp; </big></big></small>Updating
+Agency</span> &nbsp;<span style="color: rgb(204, 0, 0);">
+FILL 2</span></big><br style="color: rgb(204, 0, 0);" />
+<br />
+<small><big><big>&nbsp; </big></big></small>POC Name / Position &nbsp; &nbsp;
+<input readonly="readonly" value="{var NameFill2}" maxlength="35" size="40" name="NameFill2" />&nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; Qty Filled &nbsp; <input readonly="readonly" value="{var QtyFill2}" maxlength="6" size="6" name="QtyFill2" /><br />
+<br />
+<small><big><big>&nbsp; </big></big></small>Phone (s)&nbsp; &nbsp;
+<input readonly="readonly" value="{var PhoneFill2}" maxlength="35" size="40" name="PhoneFill2" />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp;&nbsp; &nbsp;ETA
+&nbsp;<input readonly="readonly" value="{var ETAFill2}" maxlength="25" size="25" name="ETAFill2" /><br />
+<br />
+<small><big><big>&nbsp; </big></big></small>Email &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+<input readonly="readonly" value="{var EmailFill2}" maxlength="45" size="50" name="EmailFill2" />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp;
+&nbsp;&nbsp;Est. Cost&nbsp; &nbsp;<input readonly="readonly" value="{var CostFill2}" maxlength="10" size="10" name="CostFill2" /><br />
+<br />
+<small><big><big>&nbsp; </big></big></small>Provider Notes&nbsp; &nbsp;
+<input readonly="readonly" value="{var NotesFill2}" maxlength="120" size="140" name="NotesFill2" />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp;&nbsp; <br />
+<table style="text-align: left; width: 861px; height: 1px;" border="1" cellpadding="2" cellspacing="2">
+<tbody>
+<tr>
+<td style="text-align: center;" colspan="3">&nbsp;<small><big><big>&nbsp; </big></big></small>
+  <div align="left">Approver Name &nbsp;
+      <input title="A name here indicates approval since this is a radio delivery form." readonly="readonly" value="{var AppFill2}" maxlength="35" size="40" name="AppFill2" />
+&nbsp;&nbsp;
+  Date &amp; Time &nbsp;
+  <input readonly="readonly" value="{var TimeFill2}" maxlength="22" size="22" name="TimeFill2" />
+  </div></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr>
+<td colspan="2" style="text-align: justify; vertical-align: top;">
+<table style="font-size: 14px; width: 880px; height: 188px;" 2="" border="0" bordercolor="#999999" cellpadding="2">
+<tbody>
+<tr>
+<td colspan="2" style="text-align: justify;"><big><span style="color: rgb(204, 0, 0);"></span></big><big><span style="color: rgb(204, 0, 0);"><small><big><big>&nbsp; </big></big></small>Updating
+Agency</span> &nbsp;<span style="color: rgb(204, 0, 0);">
+FILL 3</span></big><br style="color: rgb(204, 0, 0);" />
+<big><span style="color: rgb(204, 0, 0);"></span><span style="color: rgb(204, 0, 0);"><br />
+&nbsp;</span></big><small><big><big>&nbsp; </big></big></small>
+<input readonly="readonly" value="{var AddNotes2}" maxlength="120" size="140" name="AddNotes2" /><br style="color: rgb(204, 0, 0);" />
+<br />
+<small><big><big>&nbsp; </big></big></small>POC Name / Position &nbsp; &nbsp;
+<input readonly="readonly" value="{var NameFill3}" maxlength="35" size="40" name="NameFill3" />&nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; Qty Filled &nbsp; <input readonly="readonly" value="{var QtyFill3}" maxlength="6" size="6" name="QtyFill3" /><br />
+<br />
+<small><big><big>&nbsp; </big></big></small>Phone (s)&nbsp; &nbsp;
+<input readonly="readonly" value="{var PhoneFill3}" maxlength="35" size="40" name="PhoneFill3" />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp;&nbsp; &nbsp;ETA
+&nbsp;<input readonly="readonly" value="{var ETAFill3}" maxlength="25" size="25" name="ETAFill3" /><br />
+<br />
+<small><big><big>&nbsp; </big></big></small>Email &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+<input readonly="readonly" value="{var EmailFill3}" maxlength="45" size="50" name="EmailFill3" />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp;
+&nbsp;&nbsp;Est. Cost&nbsp; &nbsp;<input readonly="readonly" value="{var CostFill3}" maxlength="10" size="10" name="CostFill3" /><br />
+<br />
+<small><big><big>&nbsp; </big></big></small>Provider Notes&nbsp; &nbsp;
+<input readonly="readonly" value="{var NotesFill3}" maxlength="120" size="140" name="NotesFill3" />
+&nbsp;&nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp;
+<table style="text-align: left; width: 861px; height: 1px;" border="1" cellpadding="2" cellspacing="2">
+<tbody>
+<tr>
+<td style="text-align: center;" colspan="3">&nbsp;
+  <div align="left"><small><big><big>&nbsp; </big></big></small>Approver Name &nbsp;
+      <input title="A name here indicates approval since this is a radio delivery form." readonly="readonly" value="{var AppFill3}" maxlength="35" size="40" name="AppFill3" />
+&nbsp;&nbsp;
+  Date &amp; Time&nbsp; &nbsp;
+  <input readonly="readonly" value="{var TimeFill3}" maxlength="22" size="22" name="TimeFill3" />
+  </div></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr>
+<td style="text-align: center;" colspan="2">&nbsp;
+  <div align="left"><small><big><big>&nbsp; </big></big></small>Additional
+    Notes <br />  
+    <br />
+    <small><big><big>&nbsp; </big></big></small><span style="width:750px; word-wrap:break-word; display:inline-block;">{var AddNotes2}</span> &nbsp;<big><big><br />
+    </big></big> &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
+&nbsp; &nbsp; </div></td>
+</tr>
+</tbody>
+</table>
+<br />
+<small>&nbsp;</small></td>
+</tr>
+</tbody>
+</table>
+</form>
+</div>
+</body></html>

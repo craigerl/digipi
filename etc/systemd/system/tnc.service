@@ -1,0 +1,16 @@
+[Unit]
+Description=tnc
+
+[Service]
+ExecStartPre=+systemctl stop fldigi sstv wsjtx ardop tnc300b digipeater node winlinkrms js8call
+ExecStart=/home/pi/direwolf.tnc.sh
+WorkingDirectory=/home/pi/
+StandardOutput=inherit
+StandardError=inherit
+Restart=no
+User=pi
+TimeoutStopSec=3
+
+
+[Install]
+WantedBy=multi-user.target

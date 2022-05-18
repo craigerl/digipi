@@ -1,0 +1,6 @@
+#!/bin/sh
+# $Id: start-rmsgw 176 2014-10-27 09:07:54Z eckertb $
+
+CONFIG_FILE=$1; shift
+
+exit 0

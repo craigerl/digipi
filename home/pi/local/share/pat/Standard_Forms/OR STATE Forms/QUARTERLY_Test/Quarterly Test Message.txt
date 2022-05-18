@@ -1,0 +1,21 @@
+To: TEST
+CC: 
+Subj: <Callsign> - <DateTime> - QUARTERLY TEST MESSAGE V2
+
+MSG:
+1. To: <Callsign>
+2. Position: County EOC or OES
+
+3. From: <Callsign>
+4. Position: County EOC or OES
+
+5. Subject: Quarterly Test of County EOC/OES Equipment
+6. Date/Time:   <DateTime>
+
+7. Message: This message will be immediately forwarded back to the call sign in the subject field by the Winlink system .
+The subject will be //WL2K Test Message.
+
+8. Name and call sign of operator:
+9. Position of operator:
+_______________________________________________________
+Oregon ARES/RACES: Quarterly Test Message V2 11/24/2018

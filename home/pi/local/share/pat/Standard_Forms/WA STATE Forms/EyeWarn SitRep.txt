@@ -1,0 +1,73 @@
+Form:EyeWarn_Form_Initial.html,EyeWarn_Form_Viewer.html
+
+To:
+Subject: EyeWarn Report-<var Prec>-<var Loc>
+	
+Msg:  
+IS THIS AN EXCERCISE MESSAGE? <var Excer>
+
+Precedence: <var Prec>
+--------------------------------------------
+
+To: EOC Situation Unit     Location: CRESA
+
+NCS: <var NCS>     Location: <var Loc>
+--------------------------------------------
+
+1. Date/Time: <var DateTime>
+2. Report Type: <Var RepType>
+3. Activation Type: <var ActType>
+4. Mission #: <var MissNum>
+
+5. Type of Incident: <var IncType>
+6. Total # of Zip codes Reporting: <var Zip>
+7. Total Check-ins: <var ChkIns>
+
+8. Questions:
+
+<var Questions>
+----------------------------------------------
+9. INFRASTRUCTURE DAMAGE
+
+B = Bridges:
+
+ <var Bridges>
+--------------
+C = Cell towers:
+
+ <var Cells>
+--------------
+H = Hospitals:
+
+ <Var Hospitals>
+--------------
+P = Power Lines/Towers: 
+
+<var Power>
+--------------
+R = Roads:
+
+ <var Roads>
+--------------
+S = Schools: 
+
+<var Schools>
+--------------
+10. Other Local Damage:
+<var Other>
+----------------------------------------------
+
+Relay Operator: <var RelayOp>   Rcvd: <var RcTime1>  Sent: <Var SentTime1>
+
+Radio Operator: <var RadioOp>   Rcvd: <var RcTime2>
+----------------------------------------------
+
+Note: If this form is relayed by VOICE RADIO, only say the line numbers and not their title.
+
+-----------------------
+Express Sender <var MsgSender>
+      
+www.eyewarn.net
+
+
+

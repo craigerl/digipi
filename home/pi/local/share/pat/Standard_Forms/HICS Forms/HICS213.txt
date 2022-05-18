@@ -1,0 +1,35 @@
+Form: HICS213_initial.html,HICS213_Initial_Viewer.html
+ReplyTemplate: HICS213_SendReply.0
+
+To: 
+Subject:HICS213: <var inc_name> - Msg# [<var SeqNum>]
+SeqInc:
+Msg:
+HICS213 GENERAL MESSAGE
+
+1. Incident Name: <var inc_name> - Msg# [<var SeqNum>]
+
+2. To (Name and Position): <var To_Name>
+
+3. From (Name and Position): <var fm_name>
+
+4. Subject: <var Subjectline>
+
+5. Date: <var Mdate>
+
+6. Time: <var mtime>
+
+7. Priority: [<var Priority>]
+
+8. Message: [<var ResponseReq>]
+
+<var Message>      
+
+9. Approved by: <var Approved_Name> 
+
+------------------------------------
+Express Sending Station: <MsgSender>
+Senders Express Version: <ProgramVersion>
+Senders Template Version: <var Templateversion>
+
+

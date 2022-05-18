@@ -1,0 +1,66 @@
+Form:ICS204_Initial.html,ICS204_Viewer.html
+
+To: 
+Subject: ICS 204 - <var Incident_Name> - <var PrepareDateTime>
+Msg:
+ICS 204 Assignment List
+<var FormTitle>
+
+1. Incident Name: <var Incident_Name>
+2. Operational Period: 
+   Date From: <var DateFrom>     Date To: <var DateTo>
+   Time From: <var TimeFrom>     Time To: <var TimeTo>
+
+3.
+Branch: <var branch>
+Division: <var Division>
+Group: <var Group>
+Staging Area: <var Staging>
+
+4. Operations Personnel: Name    Contact Number(s) 
+Operations Section Chief: <var opschief> 
+Branch Director: <var BranchDirector>
+Division/ Group Supervisor: <var DivSupervisor>
+ 
+
+5. Resources Assigned 
+Resource Identifier 	Leader   # of persons	Contact	Reporting Location/notes
+ - <var Resource1>	<var Leader1>	<var Cntpeople1>	<var Contact1>	<var location1>
+ - <var Resource2>	<var Leader2>	<var Cntpeople2>	<var Contact2>	<var location2>
+ - <var Resource3>	<var Leader3>	<var Cntpeople3>	<var Contact3>	<var location3>
+ - <var Resource4>	<var Leader4>	<var Cntpeople4>	<var Contact4>	<var location4>
+ - <var Resource5>	<var Leader5>	<var Cntpeople5>	<var Contact5>	<var location5>
+ - <var Resource6>	<var Leader6>	<var Cntpeople6>	<var Contact6>	<var location6>
+ - <var Resource7>	<var Leader7>	<var Cntpeople7>	<var Contact7>	<var location7>
+ - <var Resource8>	<var Leader8>	<var Cntpeople8>	<var Contact8>	<var location8>
+ - <var Resource9>	<var Leader9>	<var Cntpeople9>	<var Contact9>	<var location9>
+ - <var Resource10>	<var Leader10>	<var Cntpeople10>	<var Contact10>	<var location10>
+
+6. Work Assignments: 
+<var Workassign>
+
+7. Special Instructions: 
+<var SpecialINSTRUCTION>
+
+8. Communications (radio and/or phone contact numbers needed for this assignment):
+Name / Function	Primary Contact:
+ - <var Comm1a>	<var Comm1b>
+ - <var Comm2a>	<var Comm2b>
+ - <var Comm3a>	<var Comm3b>
+ - <var Comm4a>	<var Comm4b>
+
+9. Prepared by: <var PreparedName>  	Position/Title: <var PreparedTitle>  	Date/Time: <var PrepareDateTime>
+
+ICS 204 
+IAP Page: <var PageOf>
+
+-------------------------------------------------------------
+
+Express Sending Station: <MsgSender>
+Senders Express Version: <ProgramVersion>
+Senders Template Version: <var Templateversion>
+
+
+
+
+

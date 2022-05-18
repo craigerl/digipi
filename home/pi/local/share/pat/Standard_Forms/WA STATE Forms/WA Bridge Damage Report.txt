@@ -1,0 +1,38 @@
+Form:WA Bridge Damage initial.html,WA Bridge Damage Viewer.html
+Subject: Bridge: [ <var BridgeNum> ], <var bridgeStatus>, <var InspectDate>
+
+Msg:
+Washington State Department of Transportation
+
+Bridge Damage Report Form
+Status: <var bridgeStatus>
+Time: <var InspectTime>
+Date: <var InspectDate>
+
+ Region: <var Region>
+ Inspector's Name: <var Inspector>
+ Bridge Number:  <var BridgeNum>
+ Route:  <var Route>
+ County: <var County>
+ Location:  <var Location>
+ Remarks:  <var Remarks>
+-----
+Check box that corresponds with any problems below:
+Note:Only check a box if you are going to close the bridge.
+
+<var A1>  Bridge Approaches 
+<var A2> Wing Walls 
+<var A3> Bridge Abutments 
+<var A4> Bent Caps, and Columns
+<var A5> Bearings 
+<var A6> Beams or Girders 
+<var A7> Bridge Deck (top and underside) 
+<var A8> Hinge or Expansion Joints 
+<var A9> Hand Rail, Parapet, and Curb 
+<var A10> Utilities and Surrounding Areas 
+<var A11> Seismic Restraint Devices 
+
+---------------------------
+
+Winlink Express: <ProgramVersion>-<Callsign>
+<var Templateversion>

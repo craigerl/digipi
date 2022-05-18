@@ -1,0 +1,62 @@
+Form:ISNAP_WA_Initial.html,ISNAP_WA_Viewer.html
+Subject: ISNAP from <var Aff_Jur> @ <var Date>-<var Time> for Mission# <var Sta_Mis_Num>
+
+Msg:
+1. Time of incident: <var Date>-<var Time> 
+
+2. ISNAP Version: <var ISN_Ver> 
+
+3. Description: <var Inc_Typ>
+
+4. State Mission Number: <var Sta_Mis_Num>
+
+5. Affected Jurisdictions: <var Aff_Jur>
+
+6. Reporting Jurisdiction: <var Rep_Jur>
+
+7. Point of Contact: <var Poi_Con>
+
+8. EOC Status: <var EOC_Sta>
+
+9. County Status: <var CTY_Sta>
+
+10. Briefly describe the situation:
+
+<var Sit>
+--------------------------------
+
+15. Governmental Status: <var Selec1>
+16. Comments:
+<var Gvt_Cmt>
+
+18. Transportation Status: <var Selec2>
+19. Comments:
+<var Tran_Cmt>
+
+21. Utilities Status: <var Selec3>
+22. Comments: 
+<var Util_Cmt>
+
+24. Medical Status: <var Selec4>
+25. Comments:
+<var Med_Cmt>
+
+27. Communications Status: <var Selec5>
+28. Comments: 
+<var Comm_Cmt>
+
+30. Public Safety Status: <var Selec6>
+31. Comments: 
+<var PSaf_Cmt>
+
+33. Environment Status: <var Selec7>
+34. Comments: 
+<var Envi_Cmt>
+
+---------------------------------
+Note: All fields may not have had an entry. 
+If there are any questions contact <var Rep_Jur> immediately. 
+
+End Msg.
+Winlink Express: <ProgramVersion>-<Callsign>
+

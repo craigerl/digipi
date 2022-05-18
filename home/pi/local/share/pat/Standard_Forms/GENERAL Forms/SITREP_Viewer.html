@@ -1,0 +1,179 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>{MsgSender} - {DateTime} - SITREP</title>
+
+<style type="text/css">
+
+@media print {
+
+#printPageButton {
+    display: none;
+  }
+  .form-control, .form-control.nobug {
+border: 0;
+outline: 0;
+box-shadow: none;
+font-size:12px;
+}
+.form-control.nobug {
+transition: none; /*-- THIS IS IMPORTANT -- */
+}
+ input {
+         outline: none !important;
+		box-shadow: none;
+		border: none;
+		}
+}
+body, td, th {
+font-family: Arial, Helvetica, sans-serif;
+}
+.zentriert {
+text-align: center;
+}
+input, select {
+padding: 1px;
+-moz-border-radius-topleft: 2px;
+-moz-border-radius-topright: 2px;
+-moz-border-radius-bottomright: 2px;
+-moz-border-radius-bottomleft: 2px;
+font-family: Arial, Helvetica, sans-serif;
+font-size: 12px;
+text-align: left;
+font-weight: normal;
+font-style: normal;
+}
+textarea {
+padding: 1px;
+-moz-border-radius-topleft: 2px;
+-moz-border-radius-topright: 2px;
+-moz-border-radius-bottomright: 2px;
+-moz-border-radius-bottomleft: 2px;
+font-family: Arial, Helvetica, sans-serif;
+font-size: 12px;
+font-weight: normal;
+font-style: normal;
+}
+.rechtsbuendig {
+text-align: right;
+}
+.SubmitBtn {
+text-align: right;
+}
+.version {
+font-size: 10px;
+color: #666666;
+position: relative;
+left: 0px;
+top: 3px;
+}
+.style1 {font-weight: bold}
+.style5 {font-size: 11px}
+.style6 {font-size: 11; }
+.style7 {font-size: 18px}
+.style8 {color: #FF0000}
+.style9 {color: #2A5F00}
+.style11 {font-size: 11; font-weight: bold; }
+</style></head>
+<body>
+<div style="text-align: center;">
+<form action="http://{FormServer}:{FormPort}" enctype="multipart/form-data" id="Oregon OEM Sitrep" method="post" pbzloc="0" onsubmit="return confirm('To complete your form submission, click OK and close the open browser window. You will return to the new message window so you can post your message to the outbox');" style="font-family: Arial Black;">
+<table style="width: 1071px; height: 513px;" align="center" border="0">
+<tbody>
+<tr>
+<td>
+<table style="font-size: 14px; width: 870px; height: 596px;" border="3" bordercolor="#999999" cellpadding="2" cellspacing="0">
+<tbody>
+<tr>
+  <td height="32" valign="middle" bgcolor="#dcdef7" style="height: 20%; vertical-align: top; text-align: justify;"><div align="center"><span class="style11">Situation Report &nbsp;SITREP</span><span style="font-weight: bold;">&nbsp;</span><big><span style="font-style: italic;"> &nbsp;&nbsp;</span> </big><span class="style5"><small>Vers 8</small></span><span class="style7"><small><br />
+          <span class="style11" id="SubjectText">&nbsp;</span><strong>{var Title}</strong><span class="style1">&nbsp;</span>     <br /> 
+    <br />
+    &nbsp;<em><span class="style1"><span class="style6" id="SubjectText">
+    <input style="color: #FF0000;" readonly="readonly" maxlength="13" size="14" name="Status" value="{var Status}" />
+    <br />
+    </span></span></em></small></span></div></td>
+</tr>
+
+<tr>
+<td colspan="4" style="height: 88px; text-align: center; vertical-align: top;">
+<table style="text-align: left; width: 858px; height: 406px;" border="1" cellpadding="2" cellspacing="0">
+<tbody>
+<tr>
+<td height="50" bgcolor="#CCCCFF" style="vertical-align: middle; text-align: center; background-color: white;"><div align="left">
+  <p> <em>&nbsp; 
+    </em>1. To &nbsp;<span class="style8">{var To}</span>          <small style="font-style: italic;">&nbsp;
+&nbsp; &nbsp; &nbsp; </small>&nbsp;
+&nbsp; &nbsp;</p>
+  </div></td>
+</tr>
+<tr>
+<td style="text-align: center; background-color: white;"><div align="left"><br />
+      <em>&nbsp; </em>2. Event Name&nbsp;&nbsp;{var EveName} &nbsp;<br />
+&nbsp;&nbsp;</div></td>
+</tr>
+<tr>
+<td style="text-align: center; background-color: white;"><div align="left"><em><br />
+</em>&nbsp; 3<em>. </em> Event Type and Location with Brief Description<br />
+&nbsp; <br />
+ <span style="width:700px; word-wrap:break-word;margin: 10px;  display:inline-block;">{var Cat}</span><br />
+</div></td>
+</tr>
+<tr>
+<td style="text-align: center; background-color: white;"><div align="left"><br />
+&nbsp; 4. Current Situation Summary<br />
+  <br />
+  <span style="width:700px; word-wrap:break-word;margin: 10px;  display:inline-block;">{var Summary}</span><br />
+</div></td>
+</tr>
+<tr>
+<td style="text-align: center; background-color: white;"><div align="left"><br />
+&nbsp; 5. Current Operational Planned Actions<br />
+&nbsp;<br />
+  <span style="width:700px; word-wrap:break-word; margin: 10px; display:inline-block;">{var Summary2}</span>&nbsp;
+    </div></td>
+</tr>
+<tr>
+<td style="text-align: center;"><div align="left"><br />
+&nbsp; 6. Next
+  Operational Period Planned&nbsp;Actions<br />
+  <br />
+  <span style="width:700px; word-wrap:break-word; margin: 10px;  display:inline-block;">{var Summary3}</span><br />
+</div></td>
+</tr>
+<tr>
+<td style="text-align: center;"><div align="left"><br />
+&nbsp; 7. Efforts
+  by Other Agencies or Organizations<br />
+  <br />
+  <span style="width:700px; word-wrap:break-word;margin: 10px; display:inline-block;">{var Summary4}</span><br />
+</div></td>
+</tr>
+<tr>
+  <td bgcolor="#A0A0A4" style="text-align: center;">&nbsp;</td>
+</tr>
+<tr><td style="text-align: center;"><div align="left"><br />
+        <em>&nbsp; </em>8. &nbsp;Date and Time Approved:&nbsp;
+        {var AuthTime}</div></td>
+</tr>
+<tr><td style="text-align: center;"><div align="left"><br />
+&nbsp; 9. Authorizing Officials Name:&nbsp;{var Auth}&nbsp;&nbsp;<em>&nbsp; &nbsp;&nbsp; &nbsp; </em> Position or Title:&nbsp;{var AuthPos}</div></td>
+</tr>
+</tbody>
+</table>
+<span style="font-style: italic;">
+</span></td>
+</tr>
+<tr>
+  <td height="27" style="text-align: justify;"><div align="left"><small><span style="color: rgb(128, 0, 0);"><span style="font-size: 12px;">&nbsp;</span>&nbsp; <span style="color: black;">&nbsp;</span></span></small><small><span style="color: rgb(128, 0, 0);"><span class="style9"> Express Senders Call Sign</span> &nbsp;</span></small><small><span style="color: rgb(128, 0, 0);"><span style="color: black;">
+      <input readonly="readonly" maxlength="16" size="16" name="MsgSender" value="{var MsgSender}" />
+  </span></span></small><small><span style="color: rgb(128, 0, 0);"> &nbsp;</span></small></div></td>
+</tr>
+</tbody>
+</table>
+<br />
+<small>&nbsp;</small></td>
+</tr>
+</tbody>
+</table>
+</form>
+</div>
+</body></html>

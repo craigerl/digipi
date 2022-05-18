@@ -1,0 +1,148 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" /><title>HRM-{var To_Name}_{var SeqNum}_{var DateTime}</title>
+
+<style type="text/css">
+@media print {
+
+#printPageButton {
+    display: none;
+  }
+  .form-control, .form-control.nobug {
+border: 0;
+outline: 0;
+box-shadow: none;
+font-size:12px;
+}
+.form-control.nobug {
+transition: none; /*-- THIS IS IMPORTANT -- */
+}
+ input {
+         outline: none !important;
+		box-shadow: none;
+		border: none;
+		}
+}
+
+body, td, th {
+font-family: Arial,Helvetica,sans-serif;
+font-size: 12px;
+font-weight: inherit;
+}
+.zentriert {
+font-size: 12px;
+}
+input, select {
+padding: 1px;
+-moz-border-radius-topleft: 2px;
+-moz-border-radius-topright: 2px;
+-moz-border-radius-bottomright: 2px;
+-moz-border-radius-bottomleft: 2px;
+font-family: Arial,Helvetica,sans-serif;
+font-size: 12px;
+font-weight: inherit;
+}
+textarea {
+padding: 1px;
+-moz-border-radius-topleft: 2px;
+-moz-border-radius-topright: 2px;
+-moz-border-radius-bottomright: 2px;
+-moz-border-radius-bottomleft: 2px;
+font-family: Arial,Helvetica,sans-serif;
+font-size: 12px;
+font-weight: inherit;
+}
+.rechtsbuendig {
+font-size: 12px;
+}
+.SubmitBtn {
+font-size: 12px;
+}
+.version {
+color: #666666;
+position: relative;
+left: 0px;
+top: 3px;
+font-size: 12px;
+}
+.style17 {font-size: 14px; font-weight: bold; }
+</style><!-- HRM Message --></head>
+<body>
+<table style="font-family: Arial; width: 1117px; height: 546px;" align="center" border="0">
+<tbody>
+<tr>
+<td>&nbsp;
+<table style="width: 988px; height: 531px;" border="1" bordercolor="#999999" cellpadding="2" cellspacing="0">
+<tbody>
+<tr>
+<td colspan="2" valign="top" bgcolor="#dee9f9" style="text-align: center; vertical-align: middle;"><span class="style17">HALIFAX MESSAGE FORM</span></td>
+</tr>
+<tr>
+<td height="62" colspan="4" style="text-align: center;"><div align="left"><big><span style="color: rgb(0, 102, 0);"><br />
+  </span></big><strong><small><big style="font-weight: normal;"><big><span style="font-style: italic;"></span></big></big></small></strong><strong><small><big style="font-weight: normal;"><big><span style="font-style: italic;"></span></big></big></small></strong><big><span style="color: rgb(0, 102, 0);"> &nbsp; </span></big><big>ACTION
+  Precedence:&nbsp; &nbsp; </big><big>
+  <input readonly="readonly" maxlength="13" size="14" name="Status" value="{var Status}" />
+  </big><big>&nbsp; &nbsp;INFO Precedence:&nbsp; &nbsp;</big><big>
+  <input readonly="readonly" maxlength="13" size="14" name="Status1" value="{var Status1}" />
+  </big><big>&nbsp;&nbsp; Date-Time-Group&quot; &nbsp;</big><big>
+  <input readonly="readonly" maxlength="21" size="22" name="DateTime" value="{var ActivityDateTime1}" />
+&nbsp;&nbsp;&nbsp;<strong><small><big style="font-weight: normal;"><big><span style="font-style: italic;"></span></big></big></small></strong></big></div></td>
+</tr>
+<tr>
+<td height="58" colspan="2" style="text-align: center;"><div align="left"><strong><span style="font-weight: normal;"><br />
+          <big><span style="color: rgb(0, 102, 0);">&nbsp; </span></big><big></big>FROM: &nbsp; &nbsp; &nbsp;</span> </strong>
+      <input readonly="readonly" value="{var From_Name}" id="To_Name" maxlength="65" name="From_Name" required="required" size="75" />
+      <strong style="font-weight: normal;"></strong></div></td>
+</tr>
+<tr>
+<td height="56" colspan="4" style="text-align: center;"><div align="left"><strong style="font-weight: normal;"><br />
+        <big><span style="color: rgb(0, 102, 0);">&nbsp; </span></big><big></big>TO: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</strong><small><big>
+        </big>&nbsp; 
+        <input id="From_Name" maxlength="65" name="To_Name" readonly="readonly" size="75" value="{var To_Name}" />
+      </small></div></td>
+</tr>
+<tr>
+<td height="51" colspan="2" style="text-align: center;"><div align="left"><br />
+       <big><span style="color: rgb(0, 102, 0);">&nbsp; </span></big><big></big>INFO: &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;
+       <input readonly="readonly" value="{var Info}" id="From_Name" maxlength="90" name="Info" required="required" size="100" />
+&nbsp; &nbsp;&nbsp;</div></td>
+</tr>
+<tr>
+<td colspan="4" style="height: 70px; vertical-align: middle; text-align: center; background-color: white;"> <div align="left"> &nbsp; NUMBER:&nbsp;&nbsp;
+        <input readonly="readonly" value="{var MsgNum}" maxlength="9" size="10" name="MsgNum" />
+&nbsp; &nbsp;
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br />
+        <big><span style="width:750px; margin: 10px;   word-wrap:break-word; display:inline-block;">{var Message}</span></big><br />
+    </p>
+</div></td>
+</tr>
+<tr>
+<td colspan="4" bgcolor="#ffffe6" style="text-align: center; vertical-align: middle; "><div align="left">ORIGINATING
+  NAME:&nbsp; &nbsp;
+  <input readonly="readonly" value="{var Approved_Name}" id="Approved_Name" maxlength="45" name="Approved_Name" required="required" size="50" />
+&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></td>
+</tr>
+<tr>
+<td height="107" colspan="4" valign="top" bgcolor="#f8f8ff" style="text-align: center; "><div align="left">
+  <p><span style="color: rgb(153, 51, 0);"><span style="color: black; font-style: italic;">          <span style="color: rgb(153, 0, 0);">If this
+    is going to be&nbsp;hand delivered, fill out below first, then print</span></span></span>.<br />
+    <br />
+&nbsp; Time RX/TX&nbsp;  <input title="Type in prior to printing or saving, if used!" maxlength="10" size="10" name="TXRX" />
+&nbsp;
+    Time Delivered &nbsp; &nbsp;
+    <input title="Type in prior to printing or saving, if used!" maxlength="10" size="10" name="TXDEL" />
+&nbsp; Delivered To&nbsp;  <input title="Type in prior to printing or saving, if used!" maxlength="40" size="45" name="DEL" />
+&nbsp;&nbsp; Op. Initials &nbsp;
+    <input title="Type in prior to printing or saving, if used!" maxlength="5" size="6" name="SIG" />
+&nbsp;&nbsp;<span style="color: rgb(153, 51, 0);">&nbsp;</span></p>
+  <p align="right">Version 14.1&nbsp; </p>
+</div></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</body></html>

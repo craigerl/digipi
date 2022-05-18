@@ -1,0 +1,48 @@
+Form: Oregon_Public_Event_Initial.html,Oregon_Public_Event_Viewer.html
+
+To: <MsgTo>
+Cc: <MsgCc>
+
+Subject: OR Public Event - <var Event>
+	
+Msg:
+Status: <var Status>
+
+1. Agency/Group Requesting Services: <var Agency>
+2. Person Requesting Services: <var ReqPer>
+3. Positon of Requester <var ReqPos>
+
+4. Name & Description of Event: <var Event>
+5. Location of Event: <var Loc>
+6. Start Date/Time of Event: <var Time1>
+7. Expected Duration of Event: <var Dur>
+
+8. Description of Support Services Provided:
+
+<var Services>
+---------------------------------------------
+9. Number of Operators: [<var Ops>]
+
+10. Other Information or Comments:
+
+<var Comments>
+---------------------------------------------
+
+11. Name & Call of Person Submitting Report:
+    <var Auth>  [<var Call>]
+
+12. Position of Person Sumbitting Report:
+    <var AuthPos>
+---------------------------------------------
+
+Report Filled in Date/Time: <var DateTime>
+
+------------------------
+Express Sending Station: <MsgSender>
+Senders Express Version: <ProgramVersion>
+Senders Template Version: <var Templateversion>
+
+
+
+
+

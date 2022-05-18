@@ -1,0 +1,1290 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" /><title>SDG Hospital Status Report</title>
+
+<style type="text/css">
+<!--
+@media print {
+.form-control, .form-control.nobug {
+border: 0;
+outline: 0;
+box-shadow: none;
+font-size:14px;
+}
+.form-control.nobug {
+transition: none; /*-- THIS IS IMPORTANT -- */
+}
+input, textarea {
+outline: none !important;
+box-shadow: none;
+border: none;
+overflow: visible;
+font-family: Arial, Helvetica, sans-serif;
+font-size: 10px;
+}
+.formtext {
+font-family: Arial, Helvetica, sans-serif;
+font-size: 10pt;
+font-weight: normal;
+}
+}
+  input[type=button] {
+
+  border: 2px solid #0f88f2;;
+   border-radius:.25rem;
+  color: black;
+  padding: 2px 2px;
+ background-color: white;
+  text-decoration: none;
+  margin: 2px 2px;
+  cursor: pointer;
+}
+input[type=submit] {
+ border: 2px solid green;
+  border-radius:.25rem;
+  background-color: white;
+  color: black;
+  padding: 2px 2px;
+  font-size: 14px;
+   cursor: pointer;
+}
+input[type=reset] {
+ border: 2px solid red;
+ border-radius:.25rem;
+  background-color: white;
+  color: black;
+  padding: 2px 2px;
+  font-size: 14px;
+   cursor: pointer;
+}
+input[type=black1] {
+ border: 2px solid #999999;
+   width:225px;
+  border-radius:.25rem;
+
+  background-color: white;
+  color: black;
+  padding: 2px 2px;
+  font-size: 14px;
+   cursor: pointer;
+}
+
+</style>
+<script>
+function shortmonth(monthnum) {
+var monthname;
+shortmonths = ["JAN", "FEB", "MAR","APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"] ;
+monthname = shortmonths [monthnum];s
+return monthname; }
+</script>
+<script>
+function SetDateTime(TType,TheFld, FocusFld) {
+var txt;
+var myprompt;
+var d = new Date(),
+thisyear = d.getFullYear();
+thismonth= d.getMonth();
+thisday = d.getDate();
+var monname;
+h = (d.getHours()<10?'0':'') + d.getHours()
+m = (d.getMinutes()<10?'0':'') + d.getMinutes()
+s = (d.getSeconds()<10?'0':'') + d.getSeconds();
+var now = new Date();
+var utch = now.getUTCHours();
+if (utch < 10) { utch = "0"+utch};
+var utcs = now.getUTCMinutes();
+if (utcs < 10) { utcs = "0"+utcs};
+var myUTCtime = utch+":"+utcs+"Z";
+var utcstr = d.toUTCString();
+var localt = d.toLocaleTimeString();
+var isostr = d.toISOString();
+monthname = shortmonth (thismonth);
+thismonth = thismonth + 1;
+switch (TType) {
+case 'hms' :
+myprompt = h + ':' + m + ':' + s;
+var RightNow = prompt("Time:", myprompt);
+document.getElementById(TheFld).value = RightNow;
+break;
+case 'hm' :
+myprompt = h + ':' + m;
+var RightNow = prompt("Time:", myprompt);
+document.getElementById(TheFld).value = RightNow;
+break;
+case 'm-d-y': myprompt = thismonth+ '-' + thisday+ '-'+ thisyear;
+var RightNow = prompt("Date:", myprompt);
+document.getElementById(TheFld).value = RightNow;
+break;
+case 'm/d/y': myprompt = thismonth+ '/' + thisday+ '/'+ thisyear;
+var RightNow = prompt("Date:", myprompt);
+document.getElementById(TheFld).value = RightNow;
+break;
+case 'd mmm y': myprompt = thisday+ ' ' + monthname+ ' '+ thisyear;
+var RightNow = prompt("Date:", myprompt);
+document.getElementById(TheFld).value = RightNow;
+break;
+case 'mmm-d-y': myprompt = monthname+'-'+thisday+ '-' + thisyear;
+var RightNow = prompt("Date:", myprompt);
+document.getElementById(TheFld).value = RightNow;
+break;
+case 'localampm': var myprompt = localt;
+var RightNow = prompt("Local time:", myprompt);
+document.getElementById(TheFld).value = RightNow;
+break;
+case 'fulldate': var myprompt = thisyear+ '-'+thismonth+'-'+thisday;
+var RightNow = prompt("Date:", myprompt);
+document.getElementById(TheFld).value = RightNow;
+break;
+case 'fulldatetime': var myprompt = thisyear+'-'+thismonth+ '-'+thisday+' '+h + ':' + m ;
+var RightNow = prompt("Date time:", myprompt);
+document.getElementById(TheFld).value = RightNow;
+break;
+case 'autodate': var RightNow = thisyear+'-'+thismonth+ '-'+thisday ;
+//var RightNow = prompt("Date time:", myprompt);
+document.getElementById(TheFld).value = RightNow;
+break;
+case 'autotime': var RightNow = h + ':' + m ;
+//var RightNow = prompt("Date time:", myprompt);
+document.getElementById(TheFld).value = RightNow;
+break;
+case 'iso': var myprompt = isostr;
+var RightNow = prompt("Date time:", myprompt);
+document.getElementById(TheFld).value = RightNow;
+break;
+case 'utc': var myprompt = utcstr;
+var RightNow = prompt("Date time:", myprompt);
+document.getElementById(TheFld).value = RightNow;
+break;
+case 'zulu': var myprompt = isostr;
+myprompt = isostr.replace("T", " "); slen = myprompt.length;
+myprompt = myprompt.substr(0, slen-5)+'Z';
+var RightNow = prompt("Date time:", myprompt);
+document.getElementById(TheFld).value = RightNow;
+break;
+case 'UTChm': var myprompt = myUTCtime;
+var RightNow = prompt("Date time:", myprompt);
+document.getElementById(TheFld).value = RightNow;
+break;
+}
+// if(FocusFld !== null && FocusFld !== '') {document.getElementById(FocusFld).focus()} --/
+}; </script>
+<script>
+function Fixfields() {
+  AutoGrowTextArea(document.getElementById("sd1I"));
+    AutoGrowTextArea(document.getElementById("sd2B"));
+  AutoGrowTextArea(document.getElementById("sd4E"));
+	AutoGrowTextArea(document.getElementById("sd5I"));
+			AutoGrowTextArea(document.getElementById("sd6L"));
+		    AutoGrowTextArea(document.getElementById("sd7F"));
+		  AutoGrowTextArea(document.getElementById("sd8B"));
+		    AutoGrowTextArea(document.getElementById("sd9F"));
+		 AutoGrowTextArea(document.getElementById("sd9F"));
+		AutoGrowTextArea(document.getElementById("sd10E"));
+		AutoGrowTextArea(document.getElementById("sd11REMARKS"));
+		
+	//setcolors(){
+// if (document.getElementById('EventType').value == "ACTUAL INCIDENT") {document.getElementById('BLOCK0cell').style.background  = "#fccac7";}
+if ( document.querySelector('input[name="sd2A"]:checked').value == "NOT Functional"){ document.getElementById('sd2Acell').style.background = "#fccac7"; }
+if ( document.querySelector('input[name="sd2A"]:checked').value =="Partially Functional"){ document.getElementById('sd2Acell').style.background = "#ffcca3"; }
+//alert(document.querySelector('input[name="sd2A"]:checked').value);
+
+if ( document.querySelector('input[name="sd3A"]:checked').value == "Considering Evacuation"){ document.getElementById('sd3Acell').style.background = "#fccac7"; }
+if ( document.querySelector('input[name="sd3A"]:checked').value == "Deteriorating Operations"){ document.getElementById('sd3Acell').style.background = "#ffcca3"; }
+if ( document.querySelector('input[name="sd3A"]:checked').value == "Fully Functional"){ document.getElementById('sd3Acell').style.background = "#ffffff"; }
+
+if ( document.querySelector('input[name="sd4A"]:checked').value == "Total collapse"){ document.getElementById('sd4Acell').style.background = "#fccac7"; }
+if ( document.querySelector('input[name="sd4A"]:checked').value == "Structural damage"){ document.getElementById('sd4Acell').style.background = "#ffc"; }
+if ( document.querySelector('input[name="sd4A"]:checked').value == "Partial collapse"){ document.getElementById('sd4Acell').style.background = "#ffcca3"; }
+
+if ( document.querySelector('input[name="sd4C"]:checked').value == "YES"){ document.getElementById('sd4Bcell').style.background = "#fccac7"; }
+if ( document.querySelector('input[name="sd4C"]:checked').value == "YES"){ document.getElementById('sd4Ccell').style.background = "#fccac7"; }
+if ( document.querySelector('input[name="sd4C"]:checked').value == "YES"){ document.getElementById('sd4Dcell').style.background = "#fccac7"; }
+
+if ( document.querySelector('input[name="sd5A"]:checked').value == "NO"){ document.getElementById('sd5Acell').style.background = "#fccac7"; }
+if ( document.querySelector('input[name="sd5B"]:checked').value  == "NO"){ document.getElementById('sd5Bcell').style.background = "#fccac7"; }
+if ( document.querySelector('input[name="sd5C"]:checked').value == "NO"){ document.getElementById('sd5Ccell').style.background = "#fccac7"; }
+if ( document.querySelector('input[name="sd5D"]:checked').value == "NO"){ document.getElementById('sd5Dcell').style.background = "#fccac7"; }
+if ( document.querySelector('input[name="sd5E"]:checked').value == "NO"){ document.getElementById('sd5Ecell').style.background = "#fccac7"; }
+if ( document.querySelector('input[name="sd5F"]:checked').value == "NO"){ document.getElementById('sd5Fcell').style.background = "#fccac7"; }
+if ( document.querySelector('input[name="sd5G"]:checked').value == "NO"){ document.getElementById('sd5Gcell').style.background = "#fccac7"; }
+if ( document.querySelector('input[name="sd5H"]:checked').value == "NO"){ document.getElementById('sd5Hcell').style.background = "#fccac7"; }
+
+if ( document.querySelector('input[name="sd6A"]:checked').value == "NO"){ document.getElementById('sd6Acell').style.background = "#fccac7"; }
+if ( document.querySelector('input[name="sd6B"]:checked').value  == "NO"){ document.getElementById('sd6Bcell').style.background = "#fccac7"; }
+if ( document.querySelector('input[name="sd6C"]:checked').value == "NO"){ document.getElementById('sd6Ccell').style.background = "#fccac7"; }
+if ( document.querySelector('input[name="sd6D"]:checked').value == "NO"){ document.getElementById('sd6Dcell').style.background = "#fccac7"; }
+if ( document.querySelector('input[name="sd6D"]:checked').value == "NO"){ document.getElementById('sd6Ecell').style.background = "#fccac7"; }
+if ( document.querySelector('input[name="sd6F"]:checked').value == "NO"){ document.getElementById('sd6Fcell').style.background = "#fccac7"; }
+if ( document.querySelector('input[name="sd6G"]:checked').value == "NO"){ document.getElementById('sd6Gcell').style.background = "#fccac7"; }
+if ( document.querySelector('input[name="sd6H"]:checked').value  == "NO"){ document.getElementById('sd6Hcell').style.background = "#fccac7"; }
+if ( document.querySelector('input[name="sd6I"]:checked').value == "GENERATOR"){ document.getElementById('sd6Icell').style.background = "#fccac7"; }
+if ( document.querySelector('input[name="sd6J"]:checked').value == "NO"){ document.getElementById('sd6Jcell').style.background = "#fccac7"; }
+if ( document.querySelector('input[name="sd6K"]:checked').value == "Less than 48 hours"){ document.getElementById('sd6Kcell').style.background = "#ffcca3"; }
+if ( document.querySelector('input[name="sd6K"]:checked').value == "Less than 12 hours"){ document.getElementById('sd6Kcell').style.background = "#fccac7"; }
+
+if ( document.querySelector('input[name="sd7A"]:checked').value == "NO"){ document.getElementById('sd7Acell').style.background = "#fccac7"; }
+if ( document.querySelector('input[name="sd7B"]:checked').value == "NO"){ document.getElementById('sd7Bcell').style.background = "#fccac7"; }
+if ( document.querySelector('input[name="sd7C"]:checked').value == "NO"){ document.getElementById('sd7Ccell').style.background = "#fccac7"; }
+if ( document.querySelector('input[name="sd7D"]:checked').value == "NO"){ document.getElementById('sd7Dcell').style.background = "#fccac7"; }
+if ( document.querySelector('input[name="sd7E"]:checked').value  == "NO"){ document.getElementById('sd7Ecell').style.background = "#fccac7"; }
+
+if ( document.querySelector('input[name="sd8A"]:checked').value == "Up to 48 hours"){ document.getElementById('sd8Acell').style.background = "#ffcca3"; }
+if ( document.querySelector('input[name="sd8A"]:checked').value== "Up to 12 hours"){ document.getElementById('sd8Acell').style.background = "#fccac7"; }
+
+if (document.getElementById('EventType').value == "ACTUAL INCIDENT") {document.getElementById('BLOCK0cell').style.background  = "#fccac7";}
+if (document.getElementById('EventType').value == "ACTUAL INCIDENT") {document.getElementById('BLOCK12').style.background  = "#fccac7";}
+}
+function AutoGrowTextArea(textField)
+{
+if (textField.clientHeight < textField.scrollHeight)
+{
+textField.style.height = textField.scrollHeight + "px";
+if (textField.clientHeight < textField.scrollHeight)
+{
+textField.style.height = (textField.scrollHeight * 2 - textField.clientHeight) + "px";
+}
+}
+}
+function Countthelines(f) { var text1 = f
+var text2 = text1.replace(/\s+$/,"");
+var split2 = text2.split("\n"); var mytotal = split2.length * 17;
+if (mytotal < 150) {
+mytotal = 150;
+}
+var tstr = mytotal.toString();
+return tstr;
+}
+function newfix(f){
+var ThisText = document.getElementById(f).value;
+var makeit = Countthelines(ThisText);
+document.getElementById(f).style.height = makeit+"px"; }
+function Fixarea() {
+newfix("msg");
+newfix("reply");
+AutoGrowTextArea(document.getElementById("msg"));
+AutoGrowTextArea(document.getElementById("reply"));
+}
+function RWS(str){
+var text2 = str.replace(/\s+$/,"");
+return text2.trim();
+}
+</script>
+<style>
+<!--
+TD{ bgcolor="#ffffff" valign="top"}
+.SubmitBtn {font-size: 12px;
+font-family: Arial,Helvetica,sans-serif;
+font-weight: inherit;
+}
+</script>
+.style24 {font-family: Arial,Helvetica,sans-serif; font-size: 20px}
+</style>
+<style>
+/*
+body {color:#000; background:#fff; font:100%/1.5 arial,sans-serif;}
+h2 {margin-top:0}
+*/
+/* Styling applied to classes only */
+/* Pop-up content shifted off-screen when not in view.
+Still readable by screen-reader software.
+When targeted it fills the browser window.
+*/
+.pop-up {position:absolute; top:0; left:-500em;}
+.pop-up:target {position:static; left:0;}
+/* The pop-up itself */
+.popBox {
+background:#ffffff;
+/* alternatively fixed width / height and negative margins from 50% */
+position:absolute; left:30%; right:30%; top:20%; bottom:25%;
+z-index:10;
+border:1px solid #3a3a3a;
+/* CSS3 where available: rounded corners, drop-shadow, and fade in. */
+border-radius:.25rem;
+box-shadow:0 .5rem .5rem rgba(0,0,0,.5);
+opacity:0;
+transition: opacity 0.8s ease-out;
+}
+:target .popBox {position:fixed; opacity:1;}
+/* Light box properties */
+.lightbox {
+display:none;
+text-indent:-200em;
+background-color:rgba(0,0,0,.4);
+width:100%;
+height:100%;
+position:fixed;
+top:0;
+left:0;
+bottom:0;
+right:0;
+z-index:5;
+}
+:target .lightbox {display:block;}
+/* The pop-ups close link, moved via CSS to the top right of the pop-up */
+.close:link,
+.close:visited {
+position: absolute;
+top: -0.75em;
+right: -0.75em;
+display: block;
+width: 2em;
+height: 2em;
+line-height: 1.8;
+padding: 0;
+text-align: center;
+text-decoration: none;
+background-color: #000;
+border: 2px solid #fff;
+color: #fff;
+border-radius: 50%;
+box-shadow: 0 0 .5rem .5rem rba(0,0,0,.5);
+}
+.close:before {content:"X";}
+.close:hover,
+.close:active,
+.close:focus {
+box-shadow: 0 0 .5rem .5rem rba(255,0,0,.5);
+background-color: #c00;
+color: #fff;
+}
+.close span {
+text-indent: -200em;
+display: block;
+}
+/* The pop-up content div will scroll if it has too much content */
+.popScroll {
+position:absolute;
+top: 1rem;
+left: 1rem;
+right: 1rem;
+bottom: 1rem;
+overflow-y: auto;
+*overflow-y: scroll;
+padding-right: 0.5em;
+}
+.popScroll h2 {margin-top:0}
+.style6 {
+font-family: Arial, Helvetica, sans-serif;
+font-size: 20px;
+}
+.style8 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+}
+.style9 {font-size: 12px}
+.style13 {color: #000000}
+.formtext1 {font-family: Arial, Helvetica, sans-serif;
+font-size: 10pt;
+font-weight: normal;
+}
+.style17 {font-size: 14px}
+.style19 {color: #333333}
+.style20 {font-family: Arial, Helvetica, sans-serif; font-size: 10px; color: #333333; }
+</style>
+<script>
+function shortmonth(monthnum) {
+var monthname;
+shortmonths = ["JAN", "FEB", "MAR","APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"] ;
+monthname = shortmonths [monthnum];s
+return monthname; }
+</script>
+<script>
+function SetDateTime(TType,TheFld, FocusFld) {
+var txt;
+var myprompt;
+var d = new Date(),
+thisyear = d.getFullYear();
+thismonth= d.getMonth();
+thisday = d.getDate();
+var submonth = thismonth+1; ;
+if (submonth < 10) { submonth = "0"+submonth};
+var subday = thisday;
+
+if (thisday < 10) { thisday = "0"+thisday};
+var monname;
+h = (d.getHours()<10?'0':'') + d.getHours()
+m = (d.getMinutes()<10?'0':'') + d.getMinutes()
+s = (d.getSeconds()<10?'0':'') + d.getSeconds();
+var now = new Date();
+var utch = now.getUTCHours();
+if (utch < 10) { utch = "0"+utch};
+var utcs = now.getUTCMinutes();
+if (utcs < 10) { utcs = "0"+utcs};
+var myUTCtime = utch+":"+utcs+"Z";
+var utcstr = d.toUTCString();
+var localt = d.toLocaleTimeString();
+var isostr = d.toISOString();
+monthname = shortmonth (thismonth);
+thismonth = thismonth + 1;
+if (thismonth < 10) { thismonth = "0"+thismonth};
+switch (TType) {
+case 'hms' :
+myprompt = h + ':' + m ;
+var RightNow = prompt("Time:", myprompt);
+document.getElementById(TheFld).value = RightNow;
+break;
+case 'hm' :
+myprompt = h + ':' + m;
+var RightNow = prompt("Time:", myprompt);
+document.getElementById(TheFld).value = RightNow;
+break;
+case 'm-d-y': myprompt = thismonth+ '-' + thisday+ '-'+ thisyear;
+var RightNow = prompt("Date:", myprompt);
+document.getElementById(TheFld).value = RightNow;
+break;
+case 'm/d/y': myprompt = thismonth+ '/' + thisday+ '/'+ thisyear;
+var RightNow = prompt("Date:", myprompt);
+document.getElementById(TheFld).value = RightNow;
+break;
+case 'd mmm y': myprompt = thisday+ ' ' + monthname+ ' '+ thisyear;
+var RightNow = prompt("Date:", myprompt);
+document.getElementById(TheFld).value = RightNow;
+break;
+case 'mmm-d-y': myprompt = monthname+'-'+thisday+ '-' + thisyear;
+var RightNow = prompt("Date:", myprompt);
+document.getElementById(TheFld).value = RightNow;
+break;
+case 'localampm': var myprompt = localt;
+var RightNow = prompt("Local time:", myprompt);
+document.getElementById(TheFld).value = RightNow;
+break;
+case 'fulldate': var myprompt = thisyear+ '-'+thismonth+'-'+thisday;
+var RightNow = prompt("Date:", myprompt);
+document.getElementById(TheFld).value = RightNow;
+break;
+case 'fulldatetime': var myprompt = thisyear+'-'+thismonth+ '-'+thisday+' '+h + ':' + m ;
+var RightNow = prompt("Date time:", myprompt);
+document.getElementById(TheFld).value = RightNow;
+break;
+case 'autofulldatetime': var RightNow = thisyear+'-'+thismonth+ '-'+thisday+' '+h + ':' + m ;
+//var RightNow = prompt("Date time:", myprompt);
+document.getElementById(TheFld).value = RightNow;
+//var ORTimestamp = thisyear+submonth+subday+h+m+s;
+//document.getElementById('TimeStampOR').value = ORTimestamp; break;
+case 'iso': var myprompt = isostr;
+var RightNow = prompt("Date time:", myprompt);
+document.getElementById(TheFld).value = RightNow;
+break;
+case 'utc': var myprompt = utcstr;
+var RightNow = prompt("Date time:", myprompt);
+document.getElementById(TheFld).value = RightNow;
+break;
+case 'zulu': var myprompt = isostr;
+myprompt = isostr.replace("T", " "); slen = myprompt.length;
+myprompt = myprompt.substr(0, slen-5)+'Z';
+var RightNow = prompt("Date time:", myprompt);
+document.getElementById(TheFld).value = RightNow;
+break;
+case 'UTChm': var myprompt = myUTCtime;
+var RightNow = prompt("Date time:", myprompt);
+document.getElementById(TheFld).value = RightNow;
+break;
+}
+}
+function AutoGrowTextArea(textField)
+{
+if (textField.clientHeight < textField.scrollHeight)
+{
+textField.style.height = textField.scrollHeight + "px";
+if (textField.clientHeight < textField.scrollHeight)
+{
+textField.style.height = (textField.scrollHeight * 2 - textField.clientHeight) + "px";
+}
+}
+}
+function Countthelines(f) { var text1 = f
+var text2 = text1.replace(/\s+$/,"");
+var split2 = text2.split("\n"); var mytotal = split2.length * 17;
+if (mytotal < 150) {
+mytotal = 150;
+}
+var tstr = mytotal.toString();
+return tstr;
+}
+function newfix(f){
+var ThisText = document.getElementById(f).value;
+var makeit = Countthelines(ThisText);
+document.getElementById(f).style.height = makeit+"px"; }
+function Fixarea() {
+newfix("msg");
+newfix("reply");
+AutoGrowTextArea(document.getElementById("msg"));
+AutoGrowTextArea(document.getElementById("reply"));
+}
+function RWS(str){
+var text2 = str.replace(/\s+$/,"");
+return text2.trim();
+}
+
+function Flip(theid,working) {
+x1 = document.getElementById(theid).value;
+if (x1 == '' || x1 == '') { document.getElementById(theid).value = working} 
+else { document.getElementById(theid).value = '';}
+}
+
+function Flip2(obj, Which)
+{
+var that = obj;
+   if(document.getElementById(that.id).checked == true) {
+      document.getElementById('2Ab').checked = false; document.getElementById('2A').value = 'NO'
+      document.getElementById('2Bb').checked = false; document.getElementById('2B').value = 'NO'
+      document.getElementById('2Cb').checked = false;document.getElementById('2C').value = 'NO'
+      document.getElementById(that.id).checked = true; document.getElementById(Which).value = 'YES'
+   }
+}
+function Flip3(obj, Which)
+{
+var that = obj;
+   if(document.getElementById(that.id).checked == true) {
+      document.getElementById('3Ab').checked = false; document.getElementById('3A').value = ''
+      document.getElementById('3Bb').checked = false; document.getElementById('3B').value = ''
+      document.getElementById('3Cb').checked = false;document.getElementById('3C').value = ''
+      document.getElementById(that.id).checked = true; document.getElementById(Which).value = 'YES'
+   }
+}
+
+function setcolor(mfield, thevalaue)
+{
+var thefield = document.getElementById(mfield);
+document.getElementById(mfield).style.background  = "#ffffff";
+//thefield.style.background = "#329932";
+
+
+if (thevalaue =="NO") {document.getElementById(mfield).style.background = "#fccac7"; }
+ }
+
+
+function putEventType(TheType) {
+document.getElementById('BLOCK12').style.background  = "#ffffff";
+document.getElementById('EventType').value = TheType;
+if (TheType == "ACTUAL INCIDENT") {document.getElementById('BLOCK12').style.background  = "#fccac7";}
+}
+
+// Test auto collect
+
+function saveTextAsFile(fileNameToSaveAs, textToWrite) {
+var textToWrite = document.getElementById('parseme').value; 
+var fileNameToSaveAs = "SDG Hospital Status " + DateforFile()+".txt";
+fileNameToSaveAs = prompt("", fileNameToSaveAs);
+
+  /* Saves a text string as a blob file*/  
+  var ie = navigator.userAgent.match(/MSIE\s([\d.]+)/),
+      ie11 = navigator.userAgent.match(/Trident\/7.0/) && navigator.userAgent.match(/rv:11/),
+      ieEDGE = navigator.userAgent.match(/Edge/g),
+      ieVer=(ie ? ie[1] : (ie11 ? 11 : (ieEDGE ? 12 : -1)));
+
+  if (ie && ieVer<10) {
+    console.log("No blobs on IE ver<10");
+    return;
+  }
+
+  var textFileAsBlob = new Blob([textToWrite], {
+    type: 'text/plain'
+  });
+
+  if (ieVer>-1) {
+    window.navigator.msSaveBlob(textFileAsBlob, fileNameToSaveAs);
+
+  } else {
+    var downloadLink = document.createElement("a");
+    downloadLink.download = fileNameToSaveAs;
+    downloadLink.href = window.URL.createObjectURL(textFileAsBlob);
+    downloadLink.onclick = function(e) { document.body.removeChild(e.target); };
+    downloadLink.style.display = "none";
+    document.body.appendChild(downloadLink);
+    downloadLink.click();
+  }
+}
+
+
+
+
+
+function destroyClickedElement(event)
+{
+    document.body.removeChild(event.target);
+}
+
+function loadFileAsText()
+{
+
+    var fileToLoad = document.getElementById("fileToLoad").files[0];
+ 
+    var fileReader = new FileReader();
+    fileReader.onload = function(fileLoadedEvent) 
+    {
+        var textFromFileLoaded = fileLoadedEvent.target.result;
+        document.getElementById("inputTextToSave").value = textFromFileLoaded;
+    };
+    fileReader.readAsText(fileToLoad, "UTF-8");
+}
+
+
+function DateforFile(RightNow) {
+var txt;
+var d = new Date(),
+thisyear = d.getFullYear();
+thismonth= d.getMonth();
+thismonth = thismonth+1;
+if (thismonth < 10) { thismonth = "0" + thismonth}
+
+thisday = d.getDate();
+if (thisday < 10) { thisday = "0" + thisday}
+
+h = (d.getHours()<10?'0':'') + d.getHours()
+m = (d.getMinutes()<10?'0':'') + d.getMinutes()
+var myprompt = thisyear+ '-'+thismonth+'-'+thisday+' '+h + '_' + m ;
+return myprompt;
+}
+
+function isObject(arg) {
+  return Object.prototype.toString.call(arg)==='[object Object]';
+}
+
+function formDataToObject(elForm) {
+  if (!elForm instanceof Element) return;
+  var fields = elForm.querySelectorAll('input, select, textarea'),
+    o = {};
+  for (var i=0, imax=fields.length; i<imax; ++i) {
+    var field = fields[i],
+      sKey = field.name || field.id;
+    if (field.type==='button' || field.type==='image' || field.type==='submit' || !sKey) continue;
+    switch (field.type) {
+      case 'checkbox':
+        o[sKey] = +field.checked;
+        break;
+      case 'radio':
+        if (o[sKey]===undefined) o[sKey] = '';
+        if (field.checked) o[sKey] = field.value;
+        break;
+      case 'select-multiple':
+        var a = [];
+        for (var j=0, jmax=field.options.length; j<jmax; ++j) {
+          if (field.options[j].selected) a.push(field.options[j].value);
+        }
+        o[sKey] = a;
+        break;
+      default:
+        o[sKey] = field.value;
+    }
+  }
+ // alert('Form data:\n\n' + JSON.stringify(o, null, 2));
+ document.getElementById('parseme').value = JSON.stringify(o, null, 2);
+//  return o;
+}
+
+function populateForm(o) {
+
+o =  JSON.parse(document.getElementById('parseme').value);
+ //if (!isObject(o)) return;
+if (!isObject(o)) return;
+  for (var i in o) {
+    var el = document.getElementById(i) || document.querySelector('[name=' + i + ']');
+    if (el.type==='radio') el = document.querySelectorAll('[name=' + i + ']');
+    switch (typeof o[i]) {
+      case 'number':
+        el.checked = o[i];
+        break;
+      case 'object':
+        if (el.options && o[i] instanceof Array) {
+          for (var j=0, jmax=el.options.length; j<jmax; ++j) {
+            if (o[i].indexOf(el.options[j].value)>-1) el.options[j].selected = true;
+          }
+        }
+        break;
+      default:
+        if (el instanceof NodeList) {
+          for (var j=0, jmax=el.length; j<jmax; ++j) {
+            if (el[j].value===o[i]) el[j].checked = true;
+          }
+        } else {
+          el.value = o[i];
+        }
+    }
+  }
+    Fixfields();
+
+
+}
+
+function SaveData() {
+	
+			formDataToObject(document.getElementById('myform'))
+			saveTextAsFile();
+			
+			//saveTextAsFile();
+			}
+
+//-------
+ function readBlob(opt_startByte, opt_stopByte) {
+  
+    var files = document.getElementById('files').files;
+    if (!files.length) {
+      alert('Please select a file!');
+      return;
+    }
+
+    var file = files[0];
+    var start = parseInt(opt_startByte) || 0;
+    var stop = parseInt(opt_stopByte) || file.size - 1;
+
+    var reader = new FileReader();
+
+    // If we use onloadend, we need to check the readyState.
+    reader.onloadend = function(evt) {
+      if (evt.target.readyState == FileReader.DONE) { // DONE == 2
+        document.getElementById('byte_content').textContent = evt.target.result;
+        document.getElementById('byte_range').textContent = 
+            ['Read bytes: ', start + 1, ' - ', stop + 1,
+             ' of ', file.size, ' byte file'].join('');
+      }
+    };
+
+    var blob = file.slice(start, stop + 1);
+    reader.readAsBinaryString(blob);
+  }
+    	
+  window.onload = function () { 
+ 
+ //Check the support for the File API support 
+ if (window.File && window.FileReader && window.FileList && window.Blob) {
+    var fileSelected = document.getElementById('txtfiletoread');
+	
+    fileSelected.addEventListener('change', function (e) { 
+         //Set the extension for the file 
+         var fileExtension = /text.*/; 
+         //Get the file object 
+         var fileTobeRead = fileSelected.files[0];
+        //Check of the extension match 
+         if (fileTobeRead.type.match(fileExtension)) { 
+             //Initialize the FileReader object to read the 2file 
+			
+             var fileReader = new FileReader(); 
+             fileReader.onload = function (e) { 
+                 var fileContents = document.getElementById('filecontents'); 
+                
+				document.getElementById('parseme').value =fileReader.result;
+				populateForm(obj = document.getElementById('parseme').value);
+					 } 
+             fileReader.readAsText(fileTobeRead); 
+         } 
+         else { 
+             alert("Please select text file"); 
+         }
+ 
+    }, false);
+} 
+ else { 
+     alert("Files are not supported"); 
+ } 
+ Fixfields();
+ Checkifinbrowser();
+ }
+// function setcolors() {
+function Checkifinbrowser() {
+ var x= document.getElementById("testCall").value; 
+ var n = x.search("{Msg");
+ if (n>-1) { 
+ document.getElementById('Submit').style.visibility='hidden';
+  alert('You are running this form outside of Winlink.\n \nWhen you have completed the form, SAVE the data and then give or send the SAVED data file to the radio operator. The operator will load the SAVED data into the correct form and send via winlink. ');
+ } else {document.getElementById('Submit').style.visibility='visible';  }
+}
+</script>
+</head>
+<body >
+<form  style="font-family: Arial;" pbzloc="3" onsubmit="return confirm('To complete your form submission, click OK and close the open browser window. You will return to the new message window so you can post your message to the outbox');" method="post" id="myform" enctype="multipart/form-data" action="http://{FormServer}:{FormPort}">
+<div id="pop1" class="pop-up"><!-- The pop-up block -->
+
+<div class="popBox"><!-- If the content becomes larger than the pop-up this div will scroll the content -->
+
+<div class="popScroll"><!-- Test for help starts here -->
+
+<p> </p>
+
+
+
+
+
+<br />  <span class="formtext"> 
+Contact SDG staff on this forms use.
+
+
+<br />
+
+<br />
+
+* NOTE on printing:<br />
+
+<br />
+
+Printing this form is dependent upon your selected
+
+printer and its settings. Various Web Browsers and and their viewing
+
+sizes are not all the same. Printing from a browsers print function
+
+may be different from the operating systems default print mode.
+
+Select what works for you, for both printing and viewing.
+
+You may print direct to the printer as a HTML or save as a
+
+PDF then print the PDF. In some instances Landscape mode may print
+
+better than Portrait. <br /><br />
+More Information<br /><br />
+You can save your completed HTML to a text file. This will allow you to reload the Form
+with ALL entered form data. You do this prior to submitting the form. Then you can open a new Hospital Status Report and load the saved HTML form data. 
+NOTE: Date and Times will be the previous, so change if needed. This is much like using FireFox and the addon Formlet. It will save the info
+as a text file with the Date and Time as the text file name. Now you can use any browser, save your form, (as many versions as you like), and then re-populate.
+<br />
+<br />
+
+</span>
+</p>
+
+ <td width="0%"></p>
+
+</div>
+
+<!-- The close pop-up link correctly positioned at the end of the content block -->
+
+<a href="#links" class="close"><span>Back
+
+to links</span></a> </div>
+
+</div>
+  <table width="900"  border="1" cellpadding="3" cellspacing="0" style="width: 750px; height: 453px;">
+    <colgroup>
+    <col width="657" />
+    </colgroup>
+    <tbody>
+      <tr valign="top">
+        <td height="87" colspan="2"><div style="background-color: rgb(244, 246, 247);" align="center">
+          <p><span class="style6">SAN DIEGO HOSPITAL STATUS REPORT FORM - Essential Elements</span><small><big><b><big><span class="style6"><strong><small><big><small><big><span style="font-weight: normal;"><small><big><b><big><strong><small><big><small><big><b><big><strong><small><big><small><big><span style="font-weight: normal;"><small><big><b><big><strong><small><big><small><big><span style="font-weight: normal;"><small>&nbsp;&nbsp;</small></span></big></small></big></small></strong></big></b></big></small></span></big></small></big></small></strong></big></b></big></small></big></small></strong></big></b></big><span class="style17"><a href="#pop1"></a></span></small></span></big></small></big></small></strong></span></big></b></big></small><br />
+            <span class="style8"><span class="style9">San Diego County Health Care Disaster Coalition </span></span></p>
+          <p>
+  <input type="file" id="txtfiletoread" accept=".txt"  style="display: none;"/>
+&nbsp;&nbsp;&nbsp;&nbsp;<small><big><b><big><span class="style6"><strong><small><big><small><big><span style="font-weight: normal;"><small><big><b><big><strong><small><big><small><big><b><big><strong><small><big><small><big><span style="font-weight: normal;"><small><big><b><big><strong><small><big><small><big><span style="font-weight: normal;"><small>&nbsp;</small></span></big></small></big></small></strong></big></b></big></small></span></big></small></big></small></strong></big></b></big></small></big></small></strong></big></b></big></small></span></big></small></big></small></strong></span></big></b></big></small>  <span class="style8">
+              <span class="style19">Send this form to San Diego County EMS DOC via WebEOC; or fax to Public Health Preparedness &amp; Response Branch (PHPR) at 619-285-6531; <br />
+              or phone at 619-285-6433; </span></span><span class="style20">or via ARES-ACS, or messenger. </span></p>
+        </div></td>
+      </tr>
+      <tr valign="top">
+        <td height="35" colspan="2" class="formtext"><table width="100%"  border="1" cellpadding="3" cellspacing="0" bordercolor="#CCCCCC">
+            <tr valign="top">
+              <td colspan="2" nowrap="nowrap" class="formtext" id= "BLOCK0cell" ><p class="style9">BLOCK 0 &nbsp;&nbsp;&nbsp;
+                      <input name="BLOCK0" id="BLOCK0"type="radio" value="ACTUAL INCIDENT" onclick="putEventType('ACTUAL INCIDENT'); document.getElementById('BLOCK0').style.background = '#fccac7';"/>
+&nbsp;&nbsp;ACTUAL INCIDENT &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OR &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input name="BLOCK0" type="radio" value="THIS IS A DRILL " checked="checked" onclick="putEventType('THIS IS A DRILL'); document.getElementById('BLOCK0').style.background = '#FFFFFF';" />
+                THIS IS A DRILL </p>
+                  <p align="center">
+                    <input type="button" value=" Load SDG Hospital Status Data " onclick="document.getElementById('txtfiletoread').click();" />
+&nbsp;&nbsp;&nbsp;<small><big><b><big><span class="style6"><strong><small><big><small><big><span style="font-weight: normal;"><small><big><b><big><strong><small><big><small><big><b><big><strong><small><big><small><big><span style="font-weight: normal;"><small><big><b><big><strong><small><big><small><big><span style="font-weight: normal;"><small>&nbsp;</small></span></big></small></big></small></strong></big></b></big></small></span></big></small></big></small></strong></big></b></big></small></big></small></strong></big></b></big><span class="style17"><a href="#pop1"><big style="color: rgb(204, 0, 0);">Form Info</big></a></span></small></span></big></small></big></small></strong></span></big></b></big></small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </p></td>
+              <td colspan="2" nowrap="nowrap" class="formtext"><table width="99%"  border="0" cellspacing="0" cellpadding="0">
+                  <tr valign="top" class="style9">
+                    <td width="31%">[0A]&nbsp;&nbsp;Operational Period:&nbsp;&nbsp;&nbsp; </td>
+                    <td width="32%">Date From:
+                        <input name="sd0A" type="text" id="sd0A" size="14" placeholder="Click to Add Date" required onclick="SetDateTime('fulldate', 'sd0A')" />
+&nbsp;&nbsp;&nbsp;&nbsp;
+<p>Date To:&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input name="sd0B" type="text" id="sd0B" size="14" maxlength="12" required placeholder="Enter Date"  />
+&nbsp;</p></td>
+                    <td width="37%">Time From:
+                        <input name="sd0C" type="text" id="sd0C" size="14" placeholder="Click to Add Time" required onclick="SetDateTime('hm', 'sd0C')"/>
+                        <p>Time To:&nbsp;&nbsp;&nbsp;&nbsp;
+                            <input name="sd0D" type="text" id="sd0D" size="14" maxlength="12" required placeholder="Enter Time"  />
+                      </p></td>
+                  </tr>
+              </table></td>
+            </tr>
+            <tr valign="top" bgcolor="#F4F6F7">
+              <td colspan="4">BLOCK 1 FACILITY ID </td>
+            </tr>
+            <tr valign="top" class="style9">
+              <td width="17%" nowrap="nowrap">[1A] &nbsp; Facility Name</td>
+              <td width="33%" nowrap="nowrap"><input name="sd1A" type="text" id="sd1A" size="30" maxlength="28" required/></td>
+              <td nowrap="nowrap">[1B]&nbsp; Facility City or Neighborhood </td>
+              <td width="28%" nowrap="nowrap"><input name="sd1B" type="text" id="sd1B" size="30" maxlength="28" /></td>
+            </tr>
+            <tr valign="top" class="style9">
+              <td nowrap="nowrap" id = "sd1Ccell" bgcolor="#FFFFFF" >[1C] &nbsp; Facility Street Address</td>
+              <td nowrap="nowrap"><input name="sd1C" type="text" id="sd1C" size="45" maxlength="28" /></td>
+              <td width="22%" nowrap="nowrap">&nbsp;</td>
+              <td nowrap="nowrap">&nbsp;</td>
+            </tr>
+            <tr valign="top" class="style9">
+              <td nowrap="nowrap">[1D] &nbsp;&nbsp;IC Name</td>
+              <td nowrap="nowrap"><input name="sd1D" type="text" id="sd1D" size="30" maxlength="28" required/></td>
+              <td nowrap="nowrap">[1E]&nbsp; IC Phone </td>
+              <td nowrap="nowrap"><input name="sd1E" type="text" id="sd1E" size="30" maxlength="28" /></td>
+            </tr>
+            <tr valign="top" class="style9">
+              <td nowrap="nowrap">[1F] &nbsp;&nbsp;Other Contact Name</td>
+              <td nowrap="nowrap"><input name="sd1F" type="text" id="sd1F" size="30" maxlength="28" /></td>
+              <td nowrap="nowrap">[1G]&nbsp;&nbsp;Other Contact Phone</td>
+              <td nowrap="nowrap"><input name="sd1G" type="text" id="sd1G" size="30" maxlength="28" /></td>
+            </tr>
+            <tr valign="top" class="style9">
+              <td colspan="4">[1H] &nbsp; Communications&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  <input name="sd1HWwebeocB" type="checkbox" id="sd1HWwebeocB" value="WebEOC" onclick="Flip('sd1HWwebeoc', 'WebEOC')" />
+              WebEOC&nbsp;&nbsp;
+              <input name="sd1HWwebeoc" type="hidden" id="sd1HWwebeoc" size="8" />
+              <input name="sd1HRadioB" type="checkbox" id="sd1HRadioB" value="Commercial Radio" onclick="Flip('sd1HRadio', 'Commercial Radio')" />
+              Commercial Radio&nbsp;&nbsp;
+              <input name="sd1HRadio" type="hidden" id="sd1HRadio" size="8" />
+              <input name="sd1PhoneB" type="checkbox" id="sd1PhoneB" value="Phone" onclick="Flip('sd1Phone', 'Phone')" />
+              Phone&nbsp;&nbsp;&nbsp;
+              <input name="sd1Phone" type="hidden" id="sd1Phone" size="8" />
+              <input name="sd1HARESB" type="checkbox" id="sd1HARESB" value="ARES-ACS" onclick="Flip('sd1HARES', 'ARES-ACS')"/>
+              ARES-ACS&nbsp;&nbsp;&nbsp;
+              <input name="sd1HARES" type="hidden" id="sd1HARES" size="8" />
+              Other:
+              <input name="sd1HOther" type="text" id="sd1HOther" size="30" maxlength="28" /></td>
+            </tr>
+            <tr valign="top" class="formtext">
+              <td colspan="4">[1I] &nbsp;&nbsp;Remarks<br />
+                  <textarea name="sd1I" cols="130" rows="1" id="sd1I" onkeyup="AutoGrowTextArea(this)" onchange="this.value=RWS(this.value)"></textarea></td>
+            </tr>
+          </table>
+            <table width="100%"  border="1" cellpadding="3" cellspacing="0" bordercolor="#CCCCCC">
+              <tr valign="top" bgcolor="#CCCCCC" class="formtext">
+                <td width="44%" nowrap="nowrap" bgcolor="#F4F6F7">BLOCK 2 - CURRENT OPERATIONAL STATUS<em> ( Select One ) </em></td>
+                <td width="56%" colspan="2" nowrap="nowrap" bgcolor="#F4F6F7">BLOCK 3 NEXT OPERATIONAL PERIOD <em> ( Select One ) </em></td>
+              </tr>
+              <tr valign="top" class="style9">
+                <td nowrap="nowrap" id = "sd2Acell"  bgcolor="#FFFFFF">[2A] Current Operational Status <br />
+                    <input name="sd2A"type="radio" value="Fully Functional " checked="checked" onclick = "sd2Acell.style.background = '#ffffff'; "/>
+              Fully Functional &nbsp;&nbsp;
+              <input name="sd2A" id="sd2A" type="radio" value="Partially Functional" onclick = "sd2Acell.style.background = '#ffcca3'; "/>
+              Partially Functional &nbsp;&nbsp;
+              <input name="sd2A"id="sd2A" type="radio" value="NOT Functional" onclick = "sd2Acell.style.background = '#fccac7'; "/>
+              <span class="style13">NOT Functional</span></td>
+                <td colspan="2" nowrap="nowrap" id = "sd3Acell"  bgcolor="#FFFFFF">[3A] Next Operational Period<br />
+                    <input name="sd3A" id="sd3A"type="radio" value="Fully Functional" checked="checked" onclick = "sd3Acell.style.background = '#ffffff'; " />
+              Fully Functional&nbsp;&nbsp;
+              <input name="sd3A"id="sd3A" type="radio" value="Deteriorating Operations" onclick = "sd3Acell.style.background = '#ffcca3';" />
+              Deteriorating Operations&nbsp;&nbsp;
+              <input name="sd3A" id="sd3A" type="radio" value="Considering Evacuation"onclick = "sd3Acell.style.background = '#fccac7'; " />
+              Considering Evacuation</td>
+              </tr>
+              <tr valign="top" class="formtext">
+                <td colspan="3">[2B] Remarks<br />
+                    <textarea name="sd2B" cols="130" rows="1" id="sd2B" onkeyup="AutoGrowTextArea(this)" onchange="this.value=RWS(this.value)"></textarea>
+                </td>
+              </tr>
+          </table>
+            <table width="100%"  border="1" cellpadding="3" cellspacing="0" bordercolor="#CCCCCC">
+              <tr valign="top" bgcolor="#CCCCCC" class="formtext">
+                <td colspan="2" nowrap="nowrap" bgcolor="#F4F6F7">BLOCK 4 - DAMAGE ASSESSMENT<em> (<em>NO or YES) </em></em></td>
+                <td colspan="2" nowrap="nowrap" bgcolor="#F4F6F7">BLOCK 5 SERVICES-<em> (<em>YES or NO) </em></em></td>
+              </tr>
+              <tr valign="top"  bgcolor="#FFFFFF"class="formtext">
+                <td colspan="2" nowrap="nowrap"  bgcolor="#FFFFFF" class="style9" id = "sd4Acell">[4A]
+                    <input name="sd4A" id="sd4A"type="radio" value="No damage" checked="checked" onclick = "sd4Acell.style.background = '#ffffff'; "/>
+              No damage
+              <input name="sd4A" id="sd4A"type="radio" value="Structural damage" onclick = "sd4Acell.style.background = '#ffc'; "/>
+              Structural damage
+              <input name="sd4A" id="sd4A"type="radio" value="Partial collapse"  onclick = "sd4Acell.style.background = '#ffcca3'; "/>
+              Partial collapse
+              <input name="sd4A" id="sd4A"type="radio" value="Total collapse" onclick = "sd4Acell.style.background = '#fccac7'; "/>
+              Total collapse </td>
+                <td width="27%" nowrap="nowrap" class="style9" id = "sd5Acell">[5A] All services are available</td>
+                <td width="26%" nowrap="nowrap" class="style9"><input name="sd5A"   id="sd5A" type="radio" value="YES" checked="checked" onclick ="setcolor ('sd5Acell', this.value );"  />
+              YES &nbsp;&nbsp;
+              <input name="sd5A" id="sd5A" type="radio" value="NO"  onclick ="setcolor ('sd5Acell', this.value );" />
+              NO </td>
+              </tr>
+              <tr valign="top" class="formtext">
+                <td width="14%" nowrap="nowrap" bgcolor="#FFFFFF" class="style9" id = "sd4Bcell">[4B] Evacuating hospital </td>
+                <td width="33%" nowrap="nowrap" class="style9"><input name="sd4B" id="sd4B"type="radio" value="NO" checked="checked" onclick = "sd4Bcell.style.background = '#FFFFFF'; "/>
+              NO &nbsp;&nbsp;
+              <input name="sd4B" id="sd4B" type="radio" value="YES"  onclick = "sd4Bcell.style.background = '#fccac7'; "/>
+              YES</td>
+                <td nowrap="nowrap" class="style9" id = "sd5Bcell">[5B] Emergency Department functioning</td>
+                <td nowrap="nowrap" class="style9"><input name="sd5B" id="sd5B"type="radio" value="YES" checked="CHECKED" onclick ="setcolor ('sd5Bcell', this.value );"  />
+              YES &nbsp;&nbsp;
+              <input name="sd5B"  id="sd5B"  type="radio" value="NO" onclick ="setcolor ('sd5Bcell', this.value );"/>
+              NO </td>
+              </tr>
+              <tr valign="top" class="formtext">
+                <td nowrap="nowrap" bgcolor="#FFFFFF" class="style9" id = "sd4Ccell">[4C] Internal disaster</td>
+                <td nowrap="nowrap" class="style9"><input name="sd4C" id="sd4C"  type="radio" value="NO" checked="checked" onclick = "sd4Ccell.style.background = '#FFFFFF'; "//>
+              NO &nbsp;&nbsp;
+              <input name="sd4C"  id="sd4C"type="radio" value="YES" onclick = "sd4Ccell.style.background = '#fccac7'; "/>
+              YES&nbsp;&nbsp; </td>
+                <td nowrap="nowrap" class="style9" id = "sd5Ccell">[5C] Laboratory functioning</td>
+                <td nowrap="nowrap" class="style9"><input name="sd5C" id="sd5C" type="radio" value="YES" checked="CHECKED" onclick ="setcolor ('sd5Ccell', this.value );"/>
+              YES &nbsp;&nbsp;
+              <input name="sd5C"id="sd5C"  type="radio" value="NO" onclick ="setcolor ('sd5Ccell', this.value );"/>
+              NO </td>
+              </tr>
+              <tr valign="top" class="formtext">
+                <td nowrap="nowrap" bgcolor="#FFFFFF" class="style9"   id = "sd4Dcell">[4D] Flooding</td>
+                <td nowrap="nowrap" class="style9"><input name="sd4D" type="radio" value="NO" checked="checked" onclick = "sd4Dcell.style.background = '#FFFFFF';" />
+              NO &nbsp;&nbsp;
+              <input name="sd4D" id="sd4D" type="radio" value="YES" onclick = "sd4Dcell.style.background = '#fccac7';"/>
+              YES&nbsp;&nbsp; </td>
+                <td nowrap="nowrap" class="style9" id = "sd5Dcell">[5D] Operation Rooms functioning</td>
+                <td nowrap="nowrap" class="style9"><input name="sd5D" id="sd5D"type="radio" value="YES" checked="checked" onclick ="setcolor ('sd5Dcell', this.value );"/>
+              YES &nbsp;&nbsp;
+              <input name="sd5D" id="sd5D"type="radio" value="NO" onclick ="setcolor ('sd5Dcell', this.value );"/>
+              NO </td>
+              </tr>
+              <tr valign="top" class="formtext">
+                <td nowrap="nowrap">&nbsp;</td>
+                <td nowrap="nowrap">&nbsp;</td>
+                <td nowrap="nowrap" class="style9" id = "sd5Ecell">[5E] Pharmacy functioning</td>
+                <td nowrap="nowrap" class="style9"><input name="sd5E" id="sd5E"type="radio" value="YES" checked="checked" onclick ="setcolor ('sd5Ecell', this.value );"/>
+              YES &nbsp;&nbsp;
+              <input name="sd5E"  id="sd5E" type="radio" value="NO" onclick ="setcolor ('sd5Ecell', this.value );"/>
+              NO </td>
+              </tr>
+              <tr valign="top" class="formtext">
+                <td nowrap="nowrap">&nbsp;</td>
+                <td nowrap="nowrap">&nbsp;</td>
+                <td nowrap="nowrap" class="style9" id = "sd5Fcell">[5F] Radiology functioning</td>
+                <td nowrap="nowrap" class="style9"><input name="sd5F" id="sd5F"type="radio" value="YES" checked="checked" onclick ="setcolor ('sd5Fcell', this.value );"/>
+              YES &nbsp;&nbsp;
+              <input name="sd5F" id="sd5F"type="radio" value="NO" onclick ="setcolor ('sd5Fcell', this.value );"/>
+              NO </td>
+              </tr>
+              <tr valign="top" class="formtext">
+                <td height="24" nowrap="nowrap">&nbsp;</td>
+                <td nowrap="nowrap">&nbsp;</td>
+                <td nowrap="nowrap" class="style9" id = "sd5Gcell">[5G] Nutrition/Environmental functioning</td>
+                <td nowrap="nowrap" class="style9"><input name="sd5G" id="sd5G" type="radio" value="YES" checked="checked" onclick ="setcolor ('sd5Gcell', this.value );"/>
+              YES &nbsp;&nbsp;
+              <input name="sd5G"  id="sd5G"type="radio" value="NO" onclick ="setcolor ('sd5Gcell', this.value );"/>
+              NO </td>
+              </tr>
+              <tr valign="top" class="formtext">
+                <td colspan="2" rowspan="2" nowrap="nowrap" id = "sd4Ecell">[4E] Remarks<br />
+                    <textarea name="sd4E"  cols="70" rows="1" id="sd4E" onkeyup="AutoGrowTextArea(this)" onchange="this.value=RWS(this.value)"></textarea>
+                    <br /></td>
+                <td height="29" nowrap="nowrap" class="style9" id = "sd5Hcell">[5H] Behavioral Health Unit functioning</td>
+                <td nowrap="nowrap" class="style9"><input name="sd5H" id="sd5H" type="radio" value="YES" checked="checked" onclick ="setcolor ('sd5Hcell', this.value );"/>
+              YES &nbsp;&nbsp;
+              <input name="sd5H" id="sd5H" type="radio" value="NO"  onclick ="setcolor ('sd5Hcell', this.value );"/>
+              NO </td>
+              </tr>
+              <tr valign="top" class="formtext">
+                <td colspan="2" nowrap="nowrap" class="style9">[5I] Remarks<br />
+                    <textarea name="sd5I" cols="70" rows="1" id="sd5I" onkeyup="AutoGrowTextArea(this)" onchange="this.value=RWS(this.value)"></textarea>
+                </td>
+              </tr>
+          </table></td>
+      </tr>
+      <tr valign="top" class="formtext">
+        <td colspan="2"  height: 35px;"><table width="100%"  border="1" cellpadding="3" cellspacing="0" bordercolor="#CCCCCC">
+            <tr valign="top" bgcolor="#CCCCCC" class="formtext">
+              <td colspan="2" nowrap="nowrap" bgcolor="#F4F6F7">BLOCK 6 UTILITY STATUS <em>(YES or NO)</em></td>
+              <td colspan="2" nowrap="nowrap" bgcolor="#F4F6F7">BLOCK 7 SUPPLY LEVELS ADEQUATE</td>
+            </tr>
+            <tr valign="top" class="formtext">
+              <td width="18%" nowrap="nowrap" class="style9" id = "sd6Acell">[6A] All utilities normal</td>
+              <td width="31%" nowrap="nowrap" class="style9"><input name="sd6A" type="radio" value="YES" checked="checked" onclick ="setcolor ('sd6Acell', this.value );"  />
+              YES &nbsp;&nbsp;
+              <input name="sd6A" type="radio" value="NO" onclick ="setcolor ('sd6Acell', this.value );"  />
+              NO </td>
+              <td width="23%" nowrap="nowrap" class="style9" id="sd7Acell">[7A] Food / Water</td>
+              <td width="28%" nowrap="nowrap" class="style9"><input name="sd7A" type="radio" value="YES" checked="checked" onclick ="setcolor ('sd7Acell', this.value );"/>
+              YES &nbsp;&nbsp;
+              <input name="sd7A" type="radio" value="NO" onclick ="setcolor ('sd7Acell', this.value );"/>
+              NO </td>
+            </tr>
+            <tr valign="top" class="formtext">
+              <td nowrap="nowrap" class="style9" id ="sd6Bcell"  name ="sd6bcell">[6B] Elevator</td>
+              <td nowrap="nowrap" class="style9"><input name="sd6B" type="radio" value="YES" checked="checked" onclick ="setcolor ('sd6Bcell', this.value );" />
+              YES &nbsp;&nbsp;
+              <input name="sd6B" type="radio" value="NO" onclick ="setcolor ('sd6Bcell', this.value );"/>
+              NO </td>
+              <td nowrap="nowrap" class="style9" id="sd7Bcell">[7B] Linen / Laundry</td>
+              <td nowrap="nowrap" class="style9"><input name="sd7B" type="radio" value="YES" checked="checked" onclick ="setcolor ('sd7Bcell', this.value );"/>
+              YES &nbsp;&nbsp;
+              <input name="sd7B" type="radio" value="NO" onclick ="setcolor ('sd7Bcell', this.value );"/>
+              NO </td>
+            </tr>
+            <tr valign="top" class="formtext">
+              <td nowrap="nowrap" class="style9" id ="sd6Ccell">[6C] HVAC</td>
+              <td nowrap="nowrap" class="style9"><input name="sd6C" type="radio" value="YES" checked="checked" onclick ="setcolor ('sd6Ccell', this.value );" />
+              YES &nbsp;&nbsp;
+              <input name="sd6C" type="radio" value="NO" onclick ="setcolor ('sd6Ccell', this.value );"/>
+              NO </td>
+              <td nowrap="nowrap" class="style9" id="sd7Ccell">[7C] Medical / Surgical Supplies</td>
+              <td nowrap="nowrap" class="style9"><input name="sd7C" type="radio" value="YES" checked="checked" onclick ="setcolor ('sd7Ccell', this.value );" />
+              YES &nbsp;&nbsp;
+              <input name="sd7C" type="radio" value="NO" onclick ="setcolor ('sd7Ccell', this.value );" />
+              NO </td>
+            </tr>
+            <tr valign="top" class="formtext">
+              <td nowrap="nowrap" class="style9" id ="sd6Dcell">[6D] Information services (IT)</td>
+              <td nowrap="nowrap" class="style9"><input name="sd6D" type="radio" value="YES" checked="checked" onclick ="setcolor ('sd6Dcell', this.value );" />
+              YES &nbsp;&nbsp;
+              <input name="sd6D" type="radio" value="NO" onclick ="setcolor ('sd6Dcell', this.value );" />
+              NO </td>
+              <td nowrap="nowrap" class="style9" id="sd7Dcell">[7D] Pharmaceuticals</td>
+              <td nowrap="nowrap" class="style9"><input name="sd7D" type="radio" value="YES" checked="checked" onclick ="setcolor ('sd7Dcell', this.value );"/>
+              YES &nbsp;&nbsp;
+              <input name="sd7D" type="radio" value="NO"onclick ="setcolor ('sd7Dcell', this.value );" />
+              NO </td>
+            </tr>
+            <tr valign="top" class="formtext">
+              <td nowrap="nowrap" class="style9" id ="sd6Ecell">[6E] Natural gas</td>
+              <td nowrap="nowrap" class="style9"><input name="sd6E" type="radio" value="YES" checked="checked" onclick ="setcolor ('sd6Ecell', this.value );" />
+              YES &nbsp;&nbsp;
+              <input name="sd6E" type="radio" value="NO" onclick ="setcolor ('sd6Ecell', this.value );" />
+              NO </td>
+              <td nowrap="nowrap" class="style9" id="sd7Ecell">[7E] Staffing</td>
+              <td nowrap="nowrap" class="style9"><input name="sd7E" type="radio" value="YES" checked="checked" onclick ="setcolor ('sd7Ecell', this.value );"/>
+              YES &nbsp;&nbsp;
+              <input name="sd7E" type="radio" value="NO" onclick ="setcolor ('sd7Ecell', this.value );"/>
+              NO </td>
+            </tr>
+            <tr valign="top" class="formtext">
+              <td height="24" nowrap="nowrap" class="style9" id ="sd6Fcell"">[6F] Phone</td>
+              <td nowrap="nowrap" class="style9"><input name="sd6F" type="radio" value="YES" checked="checked" onclick ="setcolor ('sd6Fcell', this.value );" />
+              YES &nbsp;&nbsp;
+              <input name="sd6F" type="radio" value="NO" onclick ="setcolor ('sd6Fcell', this.value );" />
+              NO </td>
+              <td colspan="2" rowspan="3" nowrap="nowrap" class="style9" id="sd7Fcell">[7F] Remarks and Supplies Needed <br />
+              <textarea name="sd7F" cols="70" rows="1" id="sd7F" onkeyup="AutoGrowTextArea(this)" onchange="this.value=RWS(this.value)"></textarea></td>
+            </tr>
+            <tr valign="top" class="formtext">
+              <td height="24" nowrap="nowrap" class="style9" id ="sd6Gcell"">[6G] Water</td>
+              <td nowrap="nowrap" class="style9"><input name="sd6G" type="radio" value="YES" checked="checked" onclick ="setcolor ('sd6Gcell', this.value );" />
+              YES &nbsp;&nbsp;
+              <input name="sd6G" type="radio" value="NO"  onclick ="setcolor ('sd6Gcell', this.value );" />
+              NO </td>
+            </tr>
+            <tr valign="top" class="formtext">
+              <td height="24" nowrap="nowrap" class="style9" id ="sd6Hcell">[6H] Waste water/sewer</td>
+              <td nowrap="nowrap" class="style9"><input name="sd6H" type="radio" value="YES" checked="checked" onclick ="setcolor ('sd6Hcell', this.value );" />
+              YES &nbsp;&nbsp;
+              <input name="sd6H" type="radio" value="NO" onclick ="setcolor ('sd6Hcell', this.value );"/>
+              NO </td>
+            </tr>
+            <tr valign="top" class="formtext">
+              <td height="24" nowrap="nowrap" class="style9" id ="sd6Icell">[6I] Electrical</td>
+              <td nowrap="nowrap" class="style9"><input name="sd6I" type="radio" value="COMMERCIAL" checked="checked" onclick ="setcolor ('sd6Icell', this.value );"  />
+              Commercial&nbsp;&nbsp;
+              <input name="sd6I" type="radio" value="GENERATOR" onclick = "sd6Icell.style.background = '#fccac7'; " />
+              Generator</td>
+              <td colspan="2" nowrap="nowrap" bgcolor="#F4F6F7">BLOCK 8 HOW LONG WITHOUT ASSISTANCE</td>
+            </tr>
+            <tr valign="top" class="formtext">
+              <td height="24" nowrap="nowrap" class="style9" id ="sd6Jcell">[6J] Electrical generator tested</td>
+              <td nowrap="nowrap" class="style9"><input name="sd6J" type="radio" value="YES" checked="checked" onclick ="setcolor ('sd6Jcell', this.value );" />
+              YES &nbsp;&nbsp;
+              <input name="sd6J" type="radio" value="NO" onclick ="setcolor ('sd6Jcell', this.value );"/>
+              NO </td>
+              <td colspan="2" nowrap="nowrap" class="style9" id ="sd8Acell">[8A]
+                  <input name="sd8A" type="radio" value="Longer then 48 hours" checked="CHECKED" onclick = "sd8Acell.style.background = '#ffffff'; "/>
+              Longer then 48 hours
+              <input name="sd8A" type="radio" value="Up to 48 hours" onclick = "sd8Acell.style.background = '#ffcca3'; "/>
+              Up to 48 hours
+              <input name="sd8A" type="radio" value="Up to 12 hours" onclick = "sd8Acell.style.background = '#fccac7'; "/>
+              Up to 12 hours</td>
+            </tr>
+            <tr valign="top" class="formtext">
+              <td height="24" nowrap="nowrap" class="style9" id ="sd6Kcell">[6k] Gen fuel status</td>
+              <td nowrap="nowrap" class="style9"><input name="sd6K" type="radio" value="48 hours or more" checked="checked" onclick = "sd6Kcell.style.background = '#ffffff'; "/>
+&gt;48 hours &nbsp;
+              <input name="sd6K" type="radio" value="Less than 48 hours" onclick = "sd6Kcell.style.background = '#ffcca3'; "/>
+&lt;48 hours &nbsp;&nbsp;
+              <input name="sd6K" type="radio" value="Less than 12 hours"  onclick = "sd6Kcell.style.background = '#fccac7'; "/>
+&lt;12 hours &nbsp;</td>
+              <td colspan="2" rowspan="2" nowrap="nowrap" class="style9">[8B] Remarks<br />
+                  <textarea name="sd8B" cols="70" id="sd8B" onkeyup="AutoGrowTextArea(this)" onchange="this.value=RWS(this.value)"></textarea>
+              </td>
+            </tr>
+            <tr valign="top" class="formtext">
+              <td height="86" colspan="2" nowrap="nowrap" class="style9">[6L] Remarks<br />
+                  <textarea name="sd6L" cols="70" id="sd6L" onkeyup="AutoGrowTextArea(this)" onchange="this.value=RWS(this.value)"></textarea>
+              </td>
+            </tr>
+        </table></td>
+      </tr>
+      <tr valign="top" class="formtext">
+        <td height="262" colspan="2" style="white-space: nowrap; height: 35px;">
+		<table width="100%"   border="1" cellpadding="3" cellspacing="0" bordercolor="#CCCCCC">
+            <tr valign="top" bgcolor="#CCCCCC" class="formtext">
+              <td colspan="2" nowrap="nowrap" bgcolor="#F4F6F7">BLOCK 9 - DAMAGE ASSESSMENT<em> </em></td>
+              <td colspan="2" nowrap="nowrap" bgcolor="#F4F6F7">BLOCK 10 SURGE<span class="style9"><em> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </em>&nbsp;<em>&nbsp;&nbsp;&nbsp;&nbsp; </em>&nbsp;<em>&nbsp;&nbsp;&nbsp;&nbsp; </em>&nbsp;<em>&nbsp;&nbsp;&nbsp;<em>&nbsp;&nbsp;&nbsp;&nbsp; </em>&nbsp;<em>&nbsp; </em>&nbsp;&nbsp;&nbsp;</em><em>&nbsp;&nbsp;&nbsp;&nbsp; </em>&nbsp;<em>&nbsp; </em>&nbsp;&nbsp;&nbsp;<em>&nbsp;&nbsp;&nbsp;&nbsp; </em>&nbsp;<em>&nbsp; </em>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>COUNT</td>
+            </tr>
+            <tr valign="top" class="formtext">
+              <td width="30%" nowrap="nowrap" class="style9">Evacuation (&quot;TRAIN&quot; Categories)</td>
+              <td width="16%" nowrap="nowrap" class="style9">TOTAL COUNT</td>
+              <td width="32%" nowrap="nowrap" class="style9">[10A] Casualty Information (in last 12 hours) </td>
+              <td width="22%" nowrap="nowrap" class="style9"><input name="sd10A" type="text" id="sd10A" size="6" maxlength="5" /></td>
+            </tr>
+            <tr valign="top" class="formtext">
+              <td nowrap="nowrap" bgcolor="#87CEFA" class="style9">[9A] Ambulatory to Evacuate (blue)</td>
+              <td nowrap="nowrap" class="style9"><input name="sd9A" type="text" id="sd9A" size="6" maxlength="5" /></td>
+              <td nowrap="nowrap" class="style9">[10B] Patients Not Yet Seen</td>
+              <td nowrap="nowrap" class="style9"><input name="sd10B" type="text" id="sd10B" size="6" maxlength="5" /></td>
+            </tr>
+            <tr valign="top" class="formtext">
+              <td nowrap="nowrap" bgcolor="#98FB98" class="style9">[9B] Basic Life Support (BLS) to Evacuate (green)</td>
+              <td nowrap="nowrap" class="style9"><input name="sd9B" type="text" id="sd9B" size="6" maxlength="5" /></td>
+              <td nowrap="nowrap" class="style9">[10C] Patients Treated and Released</td>
+              <td nowrap="nowrap" class="style9"><input name="sd10C" type="text" id="sd10C" size="6" maxlength="5" /></td>
+            </tr>
+            <tr valign="top" class="formtext">
+              <td height="28" nowrap="nowrap" bgcolor="#FFFFE0" class="style9">[9C] Advanced Life Support (ALS) to Evacuate (yellow)</td>
+              <td nowrap="nowrap" class="style9"><input name="sd9C" type="text" id="sd9C" size="6" maxlength="5" /></td>
+              <td nowrap="nowrap" class="style9">[10D] Patients Admitted (in last 12 hours)</td>
+              <td nowrap="nowrap" class="style9"><input name="sd10D" type="text" id="sd10D" size="6" maxlength="5" /></td>
+            </tr>
+            <tr valign="top" class="formtext">
+              <td nowrap="nowrap" bgcolor="#ffb84d" class="style9">[9D] Critical Care Transport (CCT) (orange)</td>
+              <td nowrap="nowrap" class="style9"><input name="sd9D" type="text" id="sd9D" size="6" maxlength="5" /></td>
+              <td colspan="2" rowspan="3" nowrap="nowrap" class="style9">[10E] Remarks<br />
+              <textarea name="sd10E" cols="70" rows="1" id="sd10E" onkeyup="AutoGrowTextArea(this)" onchange="this.value=RWS(this.value)"></textarea> <textarea name="parseme" cols="60" id="parseme" style="display: none;"></textarea></td>
+            </tr>
+            <tr valign="top" class="formtext">
+              <td nowrap="nowrap" bgcolor="#ff9999" class="style9">[9E] Specialized (red)</td>
+              <td nowrap="nowrap" class="style9"><input name="sd9E" type="text" id="sd9E" size="6" maxlength="5" /></td>
+            </tr>
+            <tr valign="top" class="formtext">
+              <td height="58" colspan="2" nowrap="nowrap" class="style9">[9F] Remarks<br />
+                  <textarea name="sd9F" cols="70" rows="1" id="sd9F" onkeyup="AutoGrowTextArea(this)" onchange="this.value=RWS(this.value)"></textarea>
+              </td>
+            </tr>
+        </table></td>
+      </tr>
+      <tr valign="top" class="formtext">
+        <td colspan="2"><table width="100%"  border="0" cellspacing="0" cellpadding="3">
+            <tr>
+              <td width="27%" bgcolor="#F4F6F7">BLOCK 11 OTHER REMARKS</td>
+              <td width="73%" rowspan="2" valign="top"><textarea name="sd11REMARKS" cols="70" rows="1" id="sd11REMARKS"onkeyup="AutoGrowTextArea(this)" onchange="this.value=RWS(this.value)"></textarea></td>
+            </tr>
+            <tr>
+              <td>&nbsp;</td>
+            </tr>
+            <tr>
+              <td colspan="2" id = "BLOCK12">BLOCK 12&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  <input name="EventType" type="text" id="EventType" readonly="readonly"  value="THIS IS A DRILL " /></td>
+            </tr>
+          </table>
+            <table width="100%"  border="1" cellspacing="0" cellpadding="4">
+          </table></td>
+      </tr>
+      <tr class="formtext">
+        <td width="1415" height="36"><div align="left"> <span style="font-family: Calibri;"><small>
+            &nbsp;<big>
+            <input type="button" value="Save SDG Hospital Status Data "  onclick="SaveData()" />
+            </big>&nbsp;            <input value="Submit" style="width: 70px; " size="8" name="Submit" method="Post" id="Submit" enctype="multipart/form-data" class="SubmitBtn" type="submit" />
+            </small></span>&nbsp;
+            <input class="BtnFormat2" value="Reset Form " name="ResetForm" size="8"" type="reset" />
+&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</div></td>
+        <td style="width: 120px;" width="120"><div align="left"> <small><span style="font-size: 12px;"><big><big><small><small>
+        <input name="Templateversion" type="hidden" id="Templateversion" value="SDG Hospital Status Report Ver 6.2" />
+        </small></small></big></big></span></small>Ver 6.2
+        <input name="testCall" type="hidden" id="testCall" value="{MsgSender}" size="14" maxlength="13" />
+        </div></td>
+      </tr>
+    </tbody>
+  </table>
+</form>
+</body></html>

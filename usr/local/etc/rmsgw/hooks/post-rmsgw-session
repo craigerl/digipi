@@ -1,0 +1,27 @@
+#!/bin/sh
+# $Id: post-rmsgw-session 176 2014-10-27 09:07:54Z eckertb $
+
+#
+# gateway error codes
+#
+# ERR_GW_LOGIN		-1 /* login error */
+# ERR_GW_TIMEO		1 /* gatway timeout with CMS */
+# ERR_GW_FATAL		-101 /* fatal error code lower limit */
+# ERR_GW_SOCK		-101 /* socket error */
+# ERR_GW_AX25		-102 /* ax25 error */
+# ERR_GW_SOCKIO		-103 /* to/from CMS */
+# ERR_GW_AX25IO		-104 /* to/from AX.25 */
+# ERR_GW_INVPORT	-105 /* invalid/missing port */
+
+CONFIG_FILE=$1; shift
+GWCALL=$1; shift
+AX25PORT=$1; shift
+CHANNEL=$1; shift
+CMS=$1; shift
+USERCALL=$1; shift
+ERRCODE=$1; shift
+BYTES_SENT=$1; shift
+BYTES_RECV=$1; shift
+
+
+exit 0

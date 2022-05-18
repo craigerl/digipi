@@ -1,0 +1,56 @@
+Form: ARC 204 Work Assignment.html,ARC 204 Work Assignment Viewer.html
+
+Subject:ARC 204 Work Assignment: <var IncidentName> #: <var IncidentNumber>, <var PreparedDate> 
+SeqInc:
+Msg: ARC ICS 204 Work Assignment
+
+1. Incident Name: <var IncidentName>
+2. Incident/DR Number: <var IncidentNumber>
+3. Operational Period: 
+	<var Opstart> to <var OpstartDate>
+	<var OpEnd> to <var OpEndDate>
+
+AD Operations:	<var ADOp>   <var ADphone>
+District: <var District>
+District Director: <var DistritDir>   <var DDphone>
+Group: <var Group>
+Team Leader: <var TeamLeader>   <var TeamLphone>
+Activity: <var Activity>
+ 
+Work Location: <var LocationName>
+Arrival Time: <var ArriveTime>
+Address: 
+<var Address>
+
+Name (First and Last)	Contact Information 
+<var name1>	<var contact1>
+<var name2>	<var contact2>
+<var name3>	<var contact3>
+<var name4>	<var contact4>
+<var name5>	<var contact5>
+<var name6>	<var contact6>
+<var name7>	<var contact7>
+<var name8>	<var contact8>
+<var name9>	<var contact9>
+
+Work Assignment
+<var Assignment>
+
+Resources Assigned: Supplies	Quantity
+<var Resource1>	<var QRY1>
+<var Resource2>	<var QRY2>
+<var Resource3>	<var QRY3>
+<var Resource4>	<var QRY4>
+<var Resource5>	<var QRY5>
+<var Resource6>	<var QRY6>
+<var Resource7>	<var QRY7>
+
+Special Instructions and Equipment
+<var Instructions>
+
+Prepared by: <var PreparedBY>   Date: <var PreparedDate>
+
+----------------------------------------------------------
+Express Sending Station: <MsgSender>
+Senders Express Version: <ProgramVersion>
+Senders Template Version: <var Templateversion>

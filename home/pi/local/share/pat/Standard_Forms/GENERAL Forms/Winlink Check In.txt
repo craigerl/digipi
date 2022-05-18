@@ -1,0 +1,41 @@
+Form:Winlink_Check_In_Initial.html,Winlink_Check_In_Viewer.html
+
+To:<var MsgTo>
+
+Subject: Express Check In [<var Status>]-<var MsgSender>-<var Location>
+
+
+Msg:
+-
+<var Title> Check-in
+Status: [<var Status>]
+Date/Time: <var DateTime>
+Initial Assigned Operators: <var Assigned>
+Location: <var Location>
+GPS Coordinates: <var GPS2>   MGRS Coordinates: <var MGRS> 
+Grid Square: <var Grid>
+What3Words: <var w3w>
+Band Used: <var Band>
+Session Type: <var Session>
+Call/Tactical Sender: <var MsgSender>
+
+-------------------------------------------------------------
+Comments:
+
+<var Comments>  
+
+-------------------------------------------------------------
+Below Info Used for Copy and Paste to Spreadsheet
+
+TAB Delimited:
+
+<var Title>	<var DateTime>	<var MsgSender>	<var Assigned>	<var Location>	<var GPS2>	<var MGRS>	<var Grid>	<var w3w>	<var Band>	<var Session>	<var Commentstab>
+
+Semicolon Delimited Values: 
+
+<var Title>;<var DateTime>;<var MsgSender>;<var Assigned>;<var Location>;<var GPS2>;<var MGRS>;<var Grid>;<var w3w>;<var Band>;<var Session>;<var Commentstab>
+
+----------
+<var Templateversion>
+
+

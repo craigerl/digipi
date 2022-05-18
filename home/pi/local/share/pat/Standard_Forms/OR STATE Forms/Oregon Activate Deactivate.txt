@@ -1,0 +1,64 @@
+Form:Oregon_Activate_Deactivate_Initial.html,Oregon_Activate_Deactivate_Viewer.html
+
+To: 
+Subject: <var Incidentname> -- <var Type>
+Msg:
+
+Report Status: <var Status>
+Report Type: <var Type>
+
+OERS Incident Name & Number: <var Incidentname> 
+
+1. Requester: <var Requester>      2. Position: <var Position> 
+
+3. Agency: <var Agency> 4. Jurisdiction: <var jurisdiction> 
+
+5. Time, Date of Activation: <var Thedatetime> 
+
+6. Reason for Activation:
+<var Reason> 
+
+7. Expected Duration of Activation: <var Duration>
+
+8. Station Type: <var StationType> 
+
+9. Call sign used for Voice is: <var VoiceCall>  
+    Call sign for Data is: <var DataCall> 
+
+10. Station Physical Location: <var Location> 
+
+11. VHF Frequencies
+<var VHFFreq> 
+
+12. UHF Frequencies 
+<var UHFFreq> 
+
+13. HF Frequencies:
+<var hf1f> Primary 3964 kHz +/- 5 kHz LSB Voice
+<var hf2f> Secondary 7248 kHz +/- 5 kHz LSB Voice
+<var hf3f> Data Frequencies as chosen by Winlink Express (ALL use these 1-4)
+<var hf4f> FEMA Channels 5330.5 kHz Dial Frequency USB Voice
+Local frequency: <var Local> 
+
+14. Winlink (Amateur Service) E-Mail traffic will be monitored at least [<var w2lkcheck>] times per hour with acknowledgments.
+
+SHARES E-Mail traffic will be monitored at least <var Sharescheck> times per hour with acknowledgments.
+
+15. SHARES Calls in use: <var SHAREScalls> 
+
+16. Number of Operators at Station Location: [<var numoperators>] 
+
+17. Other Information:
+<var otherinfo> 
+
+18. Authorizing Signature and Title: <var Signature> 
+
+19. Operator Issuing Message: <var OpName> 
+
+
+------------------------
+Express Sending Station: <MsgSender>
+Senders Express Version: <ProgramVersion>
+Senders Template Version: <var Templateversion>
+
+

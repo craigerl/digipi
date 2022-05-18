@@ -1,0 +1,16 @@
+set timeout 20
+spawn "bluetoothctl"
+expect "#"
+send "discoverable on\r"
+expect "Changing discoverable on succeeded"
+send "pairable on\r"
+expect "Changing pairable on succeeded"
+send "agent on\r"
+expect "Agent registered"
+send "default-agent\r"
+expect "Default agent request successful"
+
+expect "confirmation "
+send "yes\r"       ;# this shows up and if the connection with the computer isn't initialised, both top level expects timeout and this gets send.
+send "trust\r"    
+interact #Just so that you can continue debugging afterwards

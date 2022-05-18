@@ -1,0 +1,1001 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="content-type" content="application/xhtml+xml; charset=utf-8" /><title>ARC Staff Request</title>
+
+<style type="text/css">
+body, td, th {
+font-family: Arial,Helvetica,sans-serif;
+font-size: 12px;
+font-weight: inherit;
+}
+.zentriert {
+font-size: 12px;
+}
+input, select {
+padding: 1px;
+-moz-border-radius-topleft: 2px;
+-moz-border-radius-topright: 2px;
+-moz-border-radius-bottomright: 2px;
+-moz-border-radius-bottomleft: 2px;
+font-family: Arial,Helvetica,sans-serif;
+font-size: 12px;
+font-weight: inherit;
+}
+textarea {
+padding: 1px;
+-moz-border-radius-topleft: 2px;
+-moz-border-radius-topright: 2px;
+-moz-border-radius-bottomright: 2px;
+-moz-border-radius-bottomleft: 2px;
+font-family: Arial,Helvetica,sans-serif;
+font-size: 12px;
+font-weight: inherit;
+}
+.rechtsbuendig {
+font-size: 12px;
+}
+.SubmitBtn {
+font-size: 12px;
+}
+.version {
+color: #666666;
+position: relative;
+left: 0px;
+top: 3px;
+font-size: 12px;
+}
+h1, h2, h3, h4, h5, h6 {
+font-style: normal;
+font-weight: normal;
+}
+</style>
+<style>
+/*
+body {color:#000; background:#fff; font:100%/1.5 arial,sans-serif;}
+h2 {margin-top:0}
+*/
+/* Styling applied to classes only */
+/* Pop-up content shifted off-screen when not in view.
+Still readable by screen-reader software.
+When targeted it fills the browser window.
+*/
+.pop-up {
+	position:absolute;
+	top:0;
+	left:-500em;
+	visibility: visible;
+}
+.pop-up:target {position:static; left:0;}
+/* The pop-up itself */
+.popBox {
+	background:#ffffff;
+	position:absolute;
+	left:30%;
+	right:30%;
+	top:30%;
+	bottom:20%;
+	z-index:10;
+	border:1px solid #3a3a3a;
+/* CSS3 where available: rounded corners, drop-shadow, and fade in. */
+border-radius:.25rem;
+box-shadow:0 .5rem .5rem rgba(0,0,0,.5);
+	opacity:0;
+	transition: opacity 0.8s ease-out;
+	visibility: visible;
+}
+:target .popBox {position:fixed; opacity:1;}
+/* Light box properties */
+.lightbox {
+display:none;
+text-indent:-200em;
+background-color:rgba(0,0,0,.4);
+width:100%;
+height:100%;
+position:fixed;
+top:0;
+left:0;
+bottom:0;
+right:0;
+z-index:5;
+}
+:target .lightbox {display:block;}
+/* The pop-ups close link, moved via CSS to the top right of the pop-up */
+.close:link,
+.close:visited {
+	position: absolute;
+	top: -0.75em;
+	right: -0.75em;
+	display: block;
+	width: 2em;
+	height: 2em;
+	line-height: 1.8;
+	padding: 0;
+	text-align: center;
+	text-decoration: none;
+	background-color: #000;
+	border: 2px solid #fff;
+	color: #fff;
+	border-radius: 50%;
+box-shadow: 0 0 .5rem .5rem rba(0,0,0,.5);
+	visibility: visible;
+}
+.close:before {content:"X";}
+.close:hover,
+.close:active,
+.close:focus {
+box-shadow: 0 0 .5rem .5rem rba(255,0,0,.5);
+background-color: #c00;
+color: #fff;
+}
+.close span {
+text-indent: -200em;
+display: block;
+}
+/* The pop-up content div will scroll if it has too much content */
+.popScroll {
+	position:absolute;
+	top: 1rem;
+	left: 1rem;
+	right: 1rem;
+	bottom: 1rem;
+	overflow-y: auto;
+*overflow-y: scroll;
+	padding-right: 0.5em;
+	visibility: visible;
+}
+.popScroll h2 {margin-top:0}
+.style11 {font-size: 12px; font-family: Arial, Helvetica, sans-serif; }
+
+.style12 {font-size: 12px; font-family: Arial, Helvetica, sans-serif}
+.style13 {font-size: 12px; font-family: Arial, Helvetica, sans-serif;  }
+.classCenter {   text-align: center; 
+}
+.classCenter {text-align: center; 
+}
+.style10 {	font-family: Arial, Helvetica, sans-serif;
+	font-size: xx-small;
+}
+.style50 {font-size: 10px; font-weight: bold; }
+.style9 {font-size: 10px}
+.style51 {font-size: 11px}
+
+  input[type=button] {
+
+  border: 2px solid #0f88f2;;
+   border-radius:.25rem;
+  color: black;
+    background-color: white;
+  padding: 2px 2px;
+  text-decoration: none;
+  margin: 2px 2px;
+  cursor: pointer;
+}
+input[type=submit] {
+ border: 2px solid green;
+  border-radius:.25rem;
+  background-color: white;
+  color: black;
+  padding: 2px 2px;
+  font-size: 14px;
+   cursor: pointer;
+}
+input[type=reset] {
+ border: 2px solid red;
+ border-radius:.25rem;
+  background-color: white;
+  color: black;
+  padding: 2px 2px;
+  font-size: 14px;
+   cursor: pointer;
+}
+input[type=black1] {
+ border: 2px solid #999999;
+   width:225px;
+  border-radius:.25rem;
+
+  background-color: white;
+  color: black;
+  padding: 2px 2px;
+  font-size: 14px;
+   cursor: pointer;
+}
+
+.style52 {
+	font-size: 18px;
+	
+}
+.style53 {font-family: Arial, Helvetica, sans-serif}
+.style55 {font-family: Arial, Helvetica, sans-serif; font-size: 16px; }
+.style21 {font-size: 14px; font-family: Arial, Helvetica, sans-serif; }
+.style6 {
+font-family: Arial, Helvetica, sans-serif;
+
+font-size: 20px;
+}
+</style>
+
+<script>
+
+function shortmonth(monthnum) {
+
+var monthname;
+
+shortmonths = ["JAN", "FEB", "MAR","APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"] ;
+
+monthname = shortmonths [monthnum];s
+
+return monthname; }
+
+</script>
+
+<script>
+
+function SetDateTime(TType,TheFld, FocusFld) {
+
+var txt;
+
+var myprompt;
+
+var d = new Date(),
+
+thisyear = d.getFullYear();
+
+thismonth= d.getMonth();
+
+thisday = d.getDate();
+
+var monname;
+
+h = (d.getHours()<10?'0':'') + d.getHours()
+
+m = (d.getMinutes()<10?'0':'') + d.getMinutes()
+
+s = (d.getSeconds()<10?'0':'') + d.getSeconds();
+
+var now = new Date();
+
+var utch = now.getUTCHours();
+
+if (utch < 10) { utch = "0"+utch};
+
+var utcs = now.getUTCMinutes();
+
+if (utcs < 10) { utcs = "0"+utcs};
+
+var myUTCtime = utch+":"+utcs+"Z";
+
+var utcstr = d.toUTCString();
+
+var localt = d.toLocaleTimeString();
+
+var isostr = d.toISOString();
+
+monthname = shortmonth (thismonth);
+
+thismonth = thismonth + 1;
+
+switch (TType) {
+
+case 'hms' :
+
+myprompt = h + ':' + m + ':' + s;
+
+var RightNow = prompt("Time:", myprompt);
+
+document.getElementById(TheFld).value = RightNow;
+
+break;
+
+case 'hm' :
+
+myprompt = h + ':' + m;
+
+var RightNow = prompt("Time:", myprompt);
+
+document.getElementById(TheFld).value = RightNow;
+
+break;
+
+case 'm-d-y': myprompt = thismonth+ '-' + thisday+ '-'+ thisyear;
+
+var RightNow = prompt("Date:", myprompt);
+
+document.getElementById(TheFld).value = RightNow;
+
+break;
+
+case 'm/d/y': myprompt = thismonth+ '/' + thisday+ '/'+ thisyear;
+
+var RightNow = prompt("Date:", myprompt);
+
+document.getElementById(TheFld).value = RightNow;
+
+break;
+
+case 'd mmm y': myprompt = thisday+ ' ' + monthname+ ' '+ thisyear;
+
+var RightNow = prompt("Date:", myprompt);
+
+document.getElementById(TheFld).value = RightNow;
+
+break;
+
+case 'mmm-d-y': myprompt = monthname+'-'+thisday+ '-' + thisyear;
+
+var RightNow = prompt("Date:", myprompt);
+
+document.getElementById(TheFld).value = RightNow;
+
+break;
+
+case 'localampm': var myprompt = localt;
+
+var RightNow = prompt("Local time:", myprompt);
+
+document.getElementById(TheFld).value = RightNow;
+
+break;
+
+case 'fulldate': var myprompt = thisyear+ '-'+thismonth+'-'+thisday;
+
+var RightNow = prompt("Date:", myprompt);
+
+document.getElementById(TheFld).value = RightNow;
+
+break;
+
+case 'fulldatetime': var myprompt = thisyear+'-'+thismonth+ '-'+thisday+' '+h + ':' + m ;
+
+var RightNow = prompt("Date time:", myprompt);
+
+document.getElementById(TheFld).value = RightNow;
+
+break;
+
+case 'autodate': var RightNow = thisyear+'-'+thismonth+ '-'+thisday ;
+
+//var RightNow = prompt("Date time:", myprompt);
+
+document.getElementById(TheFld).value = RightNow;
+
+break;
+
+case 'autotime': var RightNow = h + ':' + m ;
+
+//var RightNow = prompt("Date time:", myprompt);
+
+document.getElementById(TheFld).value = RightNow;
+
+break;
+
+case 'iso': var myprompt = isostr;
+
+var RightNow = prompt("Date time:", myprompt);
+
+document.getElementById(TheFld).value = RightNow;
+
+break;
+
+case 'utc': var myprompt = utcstr;
+
+var RightNow = prompt("Date time:", myprompt);
+
+document.getElementById(TheFld).value = RightNow;
+
+break;
+
+case 'zulu': var myprompt = isostr;
+
+myprompt = isostr.replace("T", " "); slen = myprompt.length;
+
+myprompt = myprompt.substr(0, slen-5)+'Z';
+
+var RightNow = prompt("Date time:", myprompt);
+
+document.getElementById(TheFld).value = RightNow;
+
+break;
+
+case 'UTChm': var myprompt = myUTCtime;
+
+var RightNow = prompt("Date time:", myprompt);
+
+document.getElementById(TheFld).value = RightNow;
+
+break;
+
+}
+
+// if(FocusFld !== null && FocusFld !== '') {document.getElementById(FocusFld).focus()} --/
+
+}; </script>
+
+<script>
+
+function AutoGrowTextArea(textField)
+{
+if (textField.clientHeight < textField.scrollHeight)
+{
+textField.style.height = textField.scrollHeight + "px";
+if (textField.clientHeight < textField.scrollHeight)
+{
+textField.style.height = (textField.scrollHeight * 2 - textField.clientHeight) + "px";
+}
+}
+}
+function Countthelines(f) { var text1 = f
+var text2 = text1.replace(/\s+$/,"");
+var split2 = text2.split("\n"); var mytotal = split2.length * 17;
+if (mytotal < 150) {
+mytotal = 150;
+}
+var tstr = mytotal.toString();
+return tstr;
+}
+function newfix(f){
+var ThisText = document.getElementById(f).value;
+var makeit = Countthelines(ThisText);
+document.getElementById(f).style.height = makeit+"px"; }
+function Fixarea() {
+newfix("Message");
+// newfix("reply");
+AutoGrowTextArea(document.getElementById("Message"));
+// AutoGrowTextArea(document.getElementById("reply"));
+}
+function RWS(str){
+var text2 = str.replace(/\s+$/,"");
+return text2.trim();
+}
+
+function Flip(theid,working) {
+x1 = document.getElementById(theid).value;
+if (x1 == '' || x1 == '') { document.getElementById(theid).value = working} 
+else { document.getElementById(theid).value = '';}
+}
+
+// Test auto collect
+
+function saveTextAsFile(fileNameToSaveAs, textToWrite) {
+var textToWrite = document.getElementById('parseme').value; 
+var fileNameToSaveAs = "ARC Staff Request " + DateforFile()+".txt";
+fileNameToSaveAs = prompt("", fileNameToSaveAs);
+
+  /* Saves a text string as a blob file*/  
+  var ie = navigator.userAgent.match(/MSIE\s([\d.]+)/),
+      ie11 = navigator.userAgent.match(/Trident\/7.0/) && navigator.userAgent.match(/rv:11/),
+      ieEDGE = navigator.userAgent.match(/Edge/g),
+      ieVer=(ie ? ie[1] : (ie11 ? 11 : (ieEDGE ? 12 : -1)));
+
+  if (ie && ieVer<10) {
+    console.log("No blobs on IE ver<10");
+    return;
+  }
+
+  var textFileAsBlob = new Blob([textToWrite], {
+    type: 'text/plain'
+  });
+
+  if (ieVer>-1) {
+    window.navigator.msSaveBlob(textFileAsBlob, fileNameToSaveAs);
+
+  } else {
+    var downloadLink = document.createElement("a");
+    downloadLink.download = fileNameToSaveAs;
+    downloadLink.href = window.URL.createObjectURL(textFileAsBlob);
+    downloadLink.onclick = function(e) { document.body.removeChild(e.target); };
+    downloadLink.style.display = "none";
+    document.body.appendChild(downloadLink);
+    downloadLink.click();
+  }
+}
+
+
+
+
+
+function destroyClickedElement(event)
+{
+    document.body.removeChild(event.target);
+}
+
+function loadFileAsText()
+{
+
+    var fileToLoad = document.getElementById("fileToLoad").files[0];
+ 
+    var fileReader = new FileReader();
+    fileReader.onload = function(fileLoadedEvent) 
+    {
+        var textFromFileLoaded = fileLoadedEvent.target.result;
+        document.getElementById("inputTextToSave").value = textFromFileLoaded;
+    };
+    fileReader.readAsText(fileToLoad, "UTF-8");
+}
+
+
+function DateforFile(RightNow) {
+var txt;
+var d = new Date(),
+thisyear = d.getFullYear();
+thismonth= d.getMonth();
+thismonth = thismonth+1;
+if (thismonth < 10) { thismonth = "0" + thismonth}
+
+thisday = d.getDate();
+if (thisday < 10) { thisday = "0" + thisday}
+
+h = (d.getHours()<10?'0':'') + d.getHours()
+m = (d.getMinutes()<10?'0':'') + d.getMinutes()
+var myprompt = thisyear+ '-'+thismonth+'-'+thisday+' '+h + '_' + m ;
+return myprompt;
+}
+
+function isObject(arg) {
+  return Object.prototype.toString.call(arg)==='[object Object]';
+}
+
+function formDataToObject(elForm) {
+  if (!elForm instanceof Element) return;
+  var fields = elForm.querySelectorAll('input, select, textarea'),
+    o = {};
+  for (var i=0, imax=fields.length; i<imax; ++i) {
+    var field = fields[i],
+      sKey = field.name || field.id;
+    if (field.type==='button' || field.type==='image' || field.type==='submit' || !sKey) continue;
+    switch (field.type) {
+      case 'checkbox':
+        o[sKey] = +field.checked;
+        break;
+      case 'radio':
+        if (o[sKey]===undefined) o[sKey] = '';
+        if (field.checked) o[sKey] = field.value;
+        break;
+      case 'select-multiple':
+        var a = [];
+        for (var j=0, jmax=field.options.length; j<jmax; ++j) {
+          if (field.options[j].selected) a.push(field.options[j].value);
+        }
+        o[sKey] = a;
+        break;
+      default:
+        o[sKey] = field.value;
+    }
+  }
+ // alert('Form data:\n\n' + JSON.stringify(o, null, 2));
+ document.getElementById('parseme').value = JSON.stringify(o, null, 2);
+//  return o;
+}
+
+function populateForm(o) {
+
+o =  JSON.parse(document.getElementById('parseme').value);
+ //if (!isObject(o)) return;
+if (!isObject(o)) return;
+  for (var i in o) {
+    var el = document.getElementById(i) || document.querySelector('[name=' + i + ']');
+    if (el.type==='radio') el = document.querySelectorAll('[name=' + i + ']');
+    switch (typeof o[i]) {
+      case 'number':
+        el.checked = o[i];
+        break;
+      case 'object':
+        if (el.options && o[i] instanceof Array) {
+          for (var j=0, jmax=el.options.length; j<jmax; ++j) {
+            if (o[i].indexOf(el.options[j].value)>-1) el.options[j].selected = true;
+          }
+        }
+        break;
+      default:
+        if (el instanceof NodeList) {
+          for (var j=0, jmax=el.length; j<jmax; ++j) {
+            if (el[j].value===o[i]) el[j].checked = true;
+          }
+        } else {
+          el.value = o[i];
+        }
+    }
+  }
+}
+
+function SaveData() {
+	
+			formDataToObject(document.getElementById('myform'))
+			saveTextAsFile();
+			
+			//saveTextAsFile();
+			}
+
+//-------
+ function readBlob(opt_startByte, opt_stopByte) {
+  
+    var files = document.getElementById('files').files;
+    if (!files.length) {
+      alert('Please select a file!');
+      return;
+    }
+
+    var file = files[0];
+    var start = parseInt(opt_startByte) || 0;
+    var stop = parseInt(opt_stopByte) || file.size - 1;
+
+    var reader = new FileReader();
+
+    // If we use onloadend, we need to check the readyState.
+    reader.onloadend = function(evt) {
+      if (evt.target.readyState == FileReader.DONE) { // DONE == 2
+        document.getElementById('byte_content').textContent = evt.target.result;
+        document.getElementById('byte_range').textContent = 
+            ['Read bytes: ', start + 1, ' - ', stop + 1,
+             ' of ', file.size, ' byte file'].join('');
+      }
+    };
+
+    var blob = file.slice(start, stop + 1);
+    reader.readAsBinaryString(blob);
+  }
+    	
+  window.onload = function () { 
+ 
+ //Check the support for the File API support 
+ if (window.File && window.FileReader && window.FileList && window.Blob) {
+    var fileSelected = document.getElementById('txtfiletoread');
+	
+    fileSelected.addEventListener('change', function (e) { 
+         //Set the extension for the file 
+         var fileExtension = /text.*/; 
+         //Get the file object 
+         var fileTobeRead = fileSelected.files[0];
+        //Check of the extension match 
+         if (fileTobeRead.type.match(fileExtension)) { 
+             //Initialize the FileReader object to read the 2file 
+			
+             var fileReader = new FileReader(); 
+             fileReader.onload = function (e) { 
+                 var fileContents = document.getElementById('filecontents'); 
+                
+				document.getElementById('parseme').value =fileReader.result;
+				populateForm(obj = document.getElementById('parseme').value);
+			 } 
+             fileReader.readAsText(fileTobeRead); 
+         } 
+         else { 
+             alert("Please select text file"); 
+         }
+ 
+    }, false);
+} 
+ else { 
+     alert("Files are not supported"); 
+ } 
+//var txt = document.getElementById('parseme').value;
+//var myobject = txt;
+//populateForm(myobject);
+Checkifinbrowser();
+ }
+ function Checkifinbrowser() {
+ var x= document.getElementById("testCall").value; 
+ var n = x.search("{Msg");
+ if (n>-1) { 
+ document.getElementById('Submit').style.visibility='hidden';
+  alert('You are running this form outside of Winlink.\n \nWhen you have completed the form, SAVE the data and then give or send the SAVED data file to the radio operator. The operator will load the SAVED data into the correct form and send via winlink. ');
+ } else {document.getElementById('Submit').style.visibility='visible';  }
+}
+
+</script></head>
+<body width: 1017px;">
+<div style="text-align: left;">
+<form  style="font-family: Arial;" pbzloc="3" onsubmit="return confirm('To complete your form submission, click OK and close the open browser window. You will return to the new message window so you can post your message to the outbox');" method="post" id="myform" enctype="multipart/form-data" action="http://{FormServer}:{FormPort}">
+  <div align="left"></div>
+  <div id="pop1" class="pop-up"><!-- The pop-up block -->
+<div class="popBox"><!-- If the content becomes larger than the pop-up this div will scroll the content -->
+<div class="popScroll"><!-- Test for help starts here -->
+<p> </p></p>
+<strong>Contact ARC Staff on this forms use.</strong>
+<br /><br />
+<strong>More Information</strong><br /><br />
+You can save your completed HTML to a text file. This will allow you to reload the form
+with ALL entered form data. You do this prior to submitting the form. Then you can open a new form and load the saved HTML form data. 
+NOTE: Date and Times will be the previous, so change if needed. This is much like using FireFox and the addon Formlet. It will save the info
+as a text file with the Date and Time as the text file name. Now you can use any browser, save your form, (as many versions as you like), and then re-populate.
+<br />
+<br />
+Printing this form is dependent upon your selected
+
+printer and its settings. Various Web Browsers and and their viewing
+
+sizes are not all the same. Printing from a browsers print function
+
+may be different from the operating systems default print mode.
+
+Select what works for you, for both printing and viewing.
+
+You may print direct to the printer as a HTML or save as a
+
+PDF then print the PDF. In some instances Landscape mode may print
+
+better than Portrait. <br />
+
+
+</div>
+<!-- The close pop-up link correctly positioned at the end of the content block -->
+<a class="close" href="#links"><span>Back
+to links</span></a> </div>
+</div>
+<table border="0" align="center" style="width: 973px; " pbzloc="59">
+<tbody>
+<tr>
+<td height="941" valign="top" pbzloc="5">
+<table style="width: 888px; " border="1" bordercolor="#999999" cellpadding="1" cellspacing="0">
+<tbody>
+<tr>
+<td width="69%" height="33" style="text-align: center; vertical-align: middle; "><div align="center">
+  <p align="left"><span class="style6"><span class="western"><img src="data:image/png;base64,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" name="_img1" align="middle" class="image" id="_img1" /> <b><span style="font-weight: bold;"><small><big><small><span class="style21" style="font-weight: bold;"><small><big><small>&nbsp; &nbsp; &nbsp;<strong><b> <font face="Liberation Sans, serif"><b>&nbsp;</b></font> <font face="Liberation Sans, serif"><b>&nbsp;</b></font> <font face="Liberation Sans, serif"><b>&nbsp;</b></font> <font face="Liberation Sans, serif"><b>&nbsp;</b></font> <font face="Liberation Sans, serif"><b>&nbsp;</b></font></b></strong></small></big></small></span></small></big></small></span></b></span>&nbsp; &nbsp;</span><span class="style52"><small><big><big>American Red Cross&nbsp;</big></big></small></span><small><big><big><span class="style52" style="font-family: Arial, Helvetica, sans-serif; bold;"><small><big><small><small><big><big><small><big><small><small><big><big><small><big><big>Staff Request Form</big></big></small></big></big></small></small></big></small></big></big></small></small></big></small><span style="font-weight: bold;"><small><big><small><span style="font-weight: bold;"><small><big><big><span style="font-weight: bold;"><small><big><small><span style="font-weight: bold;"><small><big><big><span style="font-weight: bold;"><small><big><span style="font-weight: bold;"><big></big></span></big></small></span></big></big></small></span></small></big></small></span></big></big></small></span></small></big></small></span></span></big></big></small><span class="style52"><small><big><big><span style="font-family: Arial, Helvetica, sans-serif; bold;"><span style="font-weight: bold;"><small><big><small><span style="font-weight: bold;"><small><big><big><span style="font-weight: bold;"><small><big><small><span style="font-weight: bold;"><small><big><big><span style="font-weight: bold;"><small><big><span style="font-weight: bold;"><big><span class="style53">&nbsp;</span></big></span></big></small></span></big></big></small></span></small></big></small></span></big></big></small></span></small></big></small></span></span></big> </big></small></span></p>
+  <p><span class="style52"><small><big><span class="style53"><small><big><span style="font-weight: normal;"><small>
+                    <input type="button" value=" Load ARC Staff Request Data " onclick="document.getElementById('txtfiletoread').click();" />
+                    <input type="file" id="txtfiletoread" accept=".txt"  style="display: none;"/>
+                    <big><big><small>&nbsp;&nbsp;&nbsp;</small></big></big></small></span></big></small></span><big><span style="font-family: Arial, Helvetica, sans-serif; bold;"><span style="font-weight: bold;"><small><big><small><span style="font-weight: bold;"><small><big><big><span style="font-weight: bold;"><small><big><small><span style="font-weight: bold;"><small><big><big><span style="font-weight: bold;"><small><big><span style="font-weight: bold;"><big><span class="style53">&nbsp;</span></big></span></big></small></span></big></big></small></span></small></big></small></span></big></big></small></span></small></big></small></span></span></big><span class="style55"><small><big><span style="font-weight: normal;"><small><a href="#pop1"><big style="color: rgb(204, 0, 0);">Form Info</big></a></small></span></big></small></span></big></small></span></p>
+</div></td>
+</tr>
+<tr>
+<td height="25" valign="middle" nowrap="nowrap" bgcolor="#f8f8ff" style="text-align: center;">
+  <div align="left" class="style13"><span class="style13">&nbsp;DR#:</span> <span class="style11">&nbsp;
+      <input name="DRnum" type="text" id="DRnum" value="" size="30" maxlength="30" required/ >
+&nbsp;<span class="style12">&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;</span>&nbsp;&nbsp; &nbsp;&nbsp; Date of Request :&nbsp;<input name="Date" type="text" id="Date" size="15" onclick="SetDateTime('fulldate',this.id)" />
+</span></div>
+<textarea name="parseme" cols="60" id="parseme" style="display: none;"></textarea> </td>
+</tr>
+<tr>
+<td height="242" style="text-align: center; background-color: white;"><table width="100%"  border="1" cellpadding="1" cellspacing="0" bordercolor="#999999">
+  <tr class="style9">
+    <td valign="top"><strong>&nbsp;Request for Skilled DRO Workers</strong>
+      <div align="left"></div>      </td>
+    </tr>
+</table>
+  <div align="left">
+    <table width="100%"  border="1" cellspacing="0" cellpadding="1">
+      <tr>
+        <td width="22%"><span class="style50"> &nbsp;G/A/P Positions/Specialty Track: <br />
+          &nbsp;SA and Above</span></td>
+        <td width="16%"><div align="center"><span class="style50"> DRO Scheduled hours </span></div></td>
+        <td width="12%"><div align="center"><span class="style50">How many <br />
+          workers? </span></div></td>
+        <td width="13%"><div align="center"><span class="style50">Where do these workers report? </span></div></td>
+        <td width="10%"><div align="center"><span class="style50">For how many days?</span></div></td>
+        <td width="13%"><div align="center"><span class="style50">First day workers needed </span></div></td>
+        <td width="14%"><div align="center"><span class="style50">Who do they report to?</span></div></td>
+      </tr>
+      <tr valign="top">
+        <td height="25" nowrap="nowrap"> &nbsp;<input name="Tasks1" type="text" id="Tasks1" size="35" maxlength="34" /></td>
+        <td nowrap="nowrap"><div align="center">
+          <input name="HRsstart1" type="text" id="HRsstart1" size="9" maxlength="9" />
+            to<strong>            <input name="HRsEnd1" type="text" id="HRsEnd1" size="9" maxlength="9" />
+            </strong></div></td>
+        <td nowrap="nowrap"><div align="center">
+          <input name="howmany1" type="text" id="howmany1" size="10" maxlength="8" />
+        </div></td>
+        <td nowrap="nowrap"><input name="Reportto1" type="text" id="Reportto1" size="20" maxlength="18" /></td>
+        <td nowrap="nowrap"><div align="center">
+          <input name="Days1" type="text" id="Days1" size="10" maxlength="8" />
+        </div></td>
+        <td nowrap="nowrap"><div align="center">
+          <input name="Firstday1" type="text" id="Firstday1" size="12" maxlength="10" />
+        </div></td>
+        <td nowrap="nowrap"><div align="center">
+          <input name="Reportto1" type="text" id="Reportto1" size="20" maxlength="18" />
+        </div></td>
+      </tr>
+      <tr valign="top">
+        <td nowrap="nowrap"> &nbsp;<input name="Tasks2" type="text" id="Tasks2" size="35" maxlength="34" /></td>
+        <td nowrap="nowrap"><div align="center">
+          <input name="HRsstart2" type="text" id="HRsstart2" size="9" maxlength="9" />
+              to<strong>              <input name="HRsEnd2" type="text" id="HRsEnd2" size="9" maxlength="9" />
+              </strong></div></td>
+        <td nowrap="nowrap"><div align="center">
+          <input name="howmany2" type="text" id="howmany2" size="10" maxlength="8" />
+        </div></td>
+        <td nowrap="nowrap"><input name="Reportto2" type="text" id="Reportto2" size="20" maxlength="18" /></td>
+        <td nowrap="nowrap"><div align="center">
+          <input name="Days2" type="text" id="Days2" size="10" maxlength="8" />
+        </div></td>
+        <td nowrap="nowrap"><div align="center">
+          <input name="Firstday2" type="text" id="Firstday2" size="12" maxlength="11" />
+        </div></td>
+        <td nowrap="nowrap"><div align="center">
+          <input name="Reportto2" type="text" id="Reportto2" size="20" maxlength="18" />
+        </div></td>
+      </tr>
+      <tr valign="top">
+        <td nowrap="nowrap"> &nbsp;<input name="Tasks3" type="text" id="Tasks3" size="35" maxlength="34" /></td>
+        <td nowrap="nowrap"><div align="center">
+          <input name="HRsstart3" type="text" id="HRsstart3" size="9" maxlength="9" />
+              to<strong>              <input name="HRsEnd3" type="text" id="HRsEnd3" size="9" maxlength="9" />
+              </strong></div></td>
+        <td nowrap="nowrap"><div align="center">
+          <input name="howmany3" type="text" id="howmany3" size="10" maxlength="9" />
+        </div></td>
+        <td nowrap="nowrap"><input name="Reportto3" type="text" id="Reportto3" size="20" maxlength="18" /></td>
+        <td nowrap="nowrap"><div align="center">
+          <input name="Days3" type="text" id="Days3" size="10" maxlength="8" />
+        </div></td>
+        <td nowrap="nowrap"><div align="center">
+          <input name="Firstday3" type="text" id="Firstday3" size="12" maxlength="11" />
+        </div></td>
+        <td nowrap="nowrap"><div align="center">
+          <input name="Reportto3" type="text" id="Reportto3" size="20" maxlength="18" />
+        </div></td>
+      </tr>
+      <tr valign="top" bgcolor="#f8f8ff">
+        <td nowrap="nowrap"><span class="style50">&nbsp;</span><span class="style9">Request for Virtual Workers</span></td>
+        <td nowrap="nowrap"><div align="center" class="style9">During  these hours</div></td>
+        <td nowrap="nowrap" class="style9"><div align="center">
+          <p class="style9">How many <br />
+            workers? </p>
+          </div></td>
+        <td nowrap="nowrap" class="style9"><div align="center"><span class="style9"> How many days?</span></div></td>
+        <td nowrap="nowrap" class="style9"><div align="center"><span class="style9">First day  <br />
+          needed </span></div></td>
+        <td nowrap="nowrap" class="style9"><div align="center"><span class="style9">Who do they <br />
+          report to?</span></div></td>
+        <td nowrap="nowrap" bgcolor="#f8f8ff" class="style9"><div align="center" class="style9">Contact Phone/Email </div></td>
+      </tr>
+      <tr valign="top">
+        <td height="26" nowrap="nowrap"> &nbsp;<input name="Tasks4" type="text" id="Tasks4" size="35" maxlength="34" /></td>
+        <td nowrap="nowrap"><div align="center">
+          <input name="HRsstart4" type="text" id="HRsstart4" size="9" maxlength="9" />
+              to<strong>              <input name="HRsEnd4" type="text" id="HRsEnd4" size="9" maxlength="9" />
+              </strong></div></td>
+        <td nowrap="nowrap"><div align="center">
+          <input name="howmany4" type="text" id="howmany4" size="10" maxlength="8" />
+        </div></td>
+        <td nowrap="nowrap"><input name="Reportto4" type="text" id="Reportto4" size="20" maxlength="18" /></td>
+        <td nowrap="nowrap">          <div align="center">
+          <input name="Days4" type="text" id="Days4" size="10" maxlength="8" />        
+        </div></td>
+        <td nowrap="nowrap"><div align="center">
+          <input name="Firstday4" type="text" id="Firstday4" size="12" maxlength="11" />
+        </div></td>
+        <td nowrap="nowrap"><input name="Reportto4" type="text" id="Reportto4" size="30" maxlength="29" /></td>
+      </tr>
+      <tr valign="top">
+        <td nowrap="nowrap"> &nbsp;<input name="Tasks5" type="text" id="Tasks5" size="35" maxlength="34" /></td>
+        <td nowrap="nowrap"><div align="center">
+          <input name="HRsstart5" type="text" id="HRsstart5" size="9" maxlength="9" />
+              to<strong>              <input name="HRsEnd5" type="text" id="HRsEnd5" size="9" maxlength="9" />
+              </strong></div></td>
+        <td nowrap="nowrap"><div align="center">
+          <input name="howmany5" type="text" id="howmany5" size="10" maxlength="8" />
+        </div></td>
+        <td nowrap="nowrap"><input name="Reportto15" type="text" id="Reportto15" size="20" maxlength="18" /></td>
+        <td nowrap="nowrap">          <div align="center">
+          <input name="Days5" type="text" id="Days5" size="10" maxlength="8" />        
+        </div></td>
+        <td nowrap="nowrap"><div align="center">
+          <input name="Firstday5" type="text" id="Firstday5" size="12" maxlength="11" />
+        </div></td>
+        <td nowrap="nowrap"><input name="Reportto5" type="text" id="Reportto5" size="30" maxlength="29" /></td>
+      </tr>
+      <tr valign="top" bgcolor="#f8f8ff">
+        <td nowrap="nowrap" class="style50"> &nbsp;Request for EBVs </td>
+        <td nowrap="nowrap">&nbsp;</td>
+        <td nowrap="nowrap"><div align="center"></div></td>
+        <td nowrap="nowrap">&nbsp;</td>
+        <td nowrap="nowrap">&nbsp;</td>
+        <td nowrap="nowrap">&nbsp;</td>
+        <td nowrap="nowrap">&nbsp;</td>
+      </tr>
+      <tr valign="top">
+        <td nowrap="nowrap"> &nbsp;<input name="Tasks6" type="text" id="Tasks6" size="35" maxlength="34" /></td>
+        <td nowrap="nowrap"><div align="center">
+<input name="HRsstart6" type="text" id="HRsstart6" size="9" maxlength="9" />              
+to<strong>              <input name="HRsEnd6" type="text" id="HRsEnd6" size="9" maxlength="9" />
+            </strong></div></td>
+        <td nowrap="nowrap"><div align="center">
+          <input name="howmany6" type="text" id="howmany6" size="10" maxlength="8" />
+</div></td>
+        <td nowrap="nowrap"><input name="Reportto6" type="text" id="Reportto6" size="20" maxlength="18" /></td>
+        <td nowrap="nowrap"><div align="center">
+          <input name="Days6" type="text" id="Days6" size="10" maxlength="8" />
+        </div></td>
+        <td nowrap="nowrap"><div align="center">
+          <input name="Firstday6" type="text" id="Firstday6" size="12" maxlength="11" />
+        </div></td>
+        <td nowrap="nowrap"><div align="center">
+          <input name="Reportto6" type="text" id="Reportto6" size="30" maxlength="29" />
+        </div></td>
+      </tr>
+      <tr valign="top">
+        <td height="25" nowrap="nowrap"> &nbsp;<input name="Tasks7" type="text" id="Tasks7" size="35" maxlength="34" /></td>
+        <td nowrap="nowrap"><div align="center">
+          <input name="HRsstart7" type="text" id="HRsstart7" size="9" maxlength="9" />
+              to<strong>              <input name="HRsEnd7" type="text" id="HRsEnd7" size="9" maxlength="9" />
+              </strong></div></td>
+        <td nowrap="nowrap"><div align="center">
+          <input name="howmany7" type="text" id="howmany7" size="10" maxlength="8" />
+</div></td>
+        <td nowrap="nowrap"><input name="Reportto7" type="text" id="Reportto7" size="20" maxlength="18" /></td>
+        <td nowrap="nowrap"><div align="center">
+          <input name="Days7" type="text" id="Days7" size="10" maxlength="8" />
+        </div></td>
+        <td nowrap="nowrap"><div align="center">
+          <input name="Firstday7" type="text" id="Firstday7" size="12" maxlength="11" />
+        </div></td>
+        <td nowrap="nowrap"><div align="center">
+          <input name="Reportto7" type="text" id="Reportto7" size="30" maxlength="29" />
+        </div></td>
+      </tr>
+    </table>
+    <br />
+    <table width="100%"  border="1" cellspacing="0" cellpadding="1">
+      <tr class="style9">
+        <td nowrap="nowrap"><strong> &nbsp;</strong><span class="style51">Printed Name and Signature of Person Submitting Request</span></td>
+        <td class="style51">&nbsp;Date Requested</td>
+        <td class="style51">&nbsp;Email Address used on this DRO</td>
+      </tr>
+      <tr class="style9">
+        <td nowrap="nowrap"> &nbsp;<input name="RequesterSig" type="text" id="RequesterSig" size="35" maxlength="30" /></td>
+        <td> &nbsp;<input name="DateRequested" type="text" id="DateRequested" size="35" maxlength="30" /></td>
+        <td> &nbsp;<input name="DROEmail" type="text" id="DROEmail" size="35" maxlength="30" /></td>
+      </tr>
+      <tr class="style9">
+        <td nowrap="nowrap" class="style51"><strong>&nbsp;</strong>Requestor’s Position</td>
+        <td class="style51"><strong>&nbsp;</strong>DRO Phone Number</td>
+        <td class="style51"><strong>&nbsp;</strong>Work Location</td>
+      </tr>
+      <tr class="style9">
+        <td nowrap="nowrap"> &nbsp;<input name="RequesterPos" type="text" id="RequesterPos" size="35" maxlength="30" /></td>
+        <td> &nbsp;<input name="DROPhone" type="text" id="DROPhone" size="35" maxlength="30" /></td>
+        <td> &nbsp;<input name="WorkLocation" type="text" id="WorkLocation" size="35" maxlength="30" /></td>
+      </tr>
+      <tr class="style9">
+        <td nowrap="nowrap" class="style51">&nbsp;Approver Name and Signature</td>
+        <td class="style51"><strong>&nbsp;</strong>Approver’s Position</td>
+        <td class="style51"><strong>&nbsp;</strong>Approver DRO Phone Number</td>
+      </tr>
+      <tr class="style9">
+        <td width="40%" nowrap="nowrap"><input name="AprovSig" type="text" id="AprovSig" size="35" maxlength="30" /></td>
+        <td width="28%"> &nbsp;<input name="AproverPos" type="text" id="AproverPos" size="35" maxlength="30" /></td>
+      <td width="32%"> &nbsp;<input name="AprovDROPhone" type="text" id="AprovDROPhone" size="35" maxlength="30" /></td>
+      </tr>
+    </table>
+    <table width="100%"  border="1" cellspacing="0" cellpadding="1">
+      <tr bgcolor="#f8f8ff" class="style9">
+        <td colspan="2"><strong>&nbsp;<span class="style51"></span>Staff Services Only:</strong></td>
+      </tr>
+      <tr class="style9">
+        <td width="36%"><strong>&nbsp;</strong>Date &amp; Time Received in Staff Services:</td>
+        <td width="64%"><strong>&nbsp;<span class="style51"></span>Volunteer Connection Data Entry:</strong></td>
+      </tr>
+      <tr class="style9">
+        <td nowrap="nowrap"> &nbsp;<input name="Datetimereceived" type="text" id="Datetimereceived" size="30" maxlength="29" /></td>
+        <td nowrap="nowrap"><span class="style51">&nbsp;Date &amp; Time:</span><strong><span class="style51">              <input name="DateEntered" type="text" id="DateEntered" size="25" maxlength="24" />
+</span></strong><span class="style51">&nbsp; SS Worker&rsquo;s Name: </span>
+            <strong>
+            <input name="SSWorkerName" type="text" id="SSWorkerName" size="25" maxlength="24" />
+            </strong></td>
+      </tr>
+    </table>
+    </div></td>
+</tr>
+<tr>
+<td height="40" colspan="3" valign="top" style="text-align: justify;"><small><span class="style10"><span class="style12" ><span class="style13">&nbsp;</span></span></span></small><small> </small> &nbsp;&nbsp;<small><big>
+          <input type="button" value="Save ARC Staff Request Data"  onclick="SaveData()" />
+          </big> </small> &nbsp;&nbsp;<small> </small> &nbsp;&nbsp;<small><big>
+          </big>
+          <input style="height: 28px; " title="After submitting, close browser, then address message for posting" class="SubmitBtn" enctype="multipart/form-data" id="Submit" method="Post" name="Submit" value="Submit" type="submit" />
+          </small>&nbsp;&nbsp;          <input class="BtnFormat2" value="Reset Form " name="ResetForm" id="ResetForm"type="reset" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <small><span class="style10">DCS JT DMWT Staff Request Form
+<input name="Templateversion" type="hidden" id="Templateversion" value="Staff Request  V.3.2" />
+<span class="SubmitBtn style9">V3.2
+<input name="testCall" type="hidden" id="testCall" value="{MsgSender}" size="14" maxlength="13" />
+</span></span></small></td>
+</tr>
+</tbody>
+</table>
+<br />
+&nbsp;</td>
+</tr>
+</tbody>
+<!-- popup starts here -->
+</table>
+</form>
+</div>
+</body></html>

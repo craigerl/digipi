@@ -1,0 +1,52 @@
+Form: ARC_Staff_Request_Form_Initial.html,ARC_Staff_Request_Form_Viewer.html
+Subject:ARC Staff Request    DR#: <var DRnum>, Date of Request: <var Date>
+SeqInc:
+Msg: ARC Staff Request FORM
+DR#  <var DRnum>       Date of Request: <var Date>
+
+>>> Request for Individual Workers:   
+
+[Tasks]  >During these hours >How many workers >Where do they report >For how many days >First day workers needed >Who do they report to 
+
+[<var Tasks1>]  [<var HRsstart1> to <var HRsEnd1>]  [<var howmany1>]  [<var Reportto1>]  [<var Days1>]  [<var Firstday1>]  [<var Reportto1>]
+[<var Tasks2>]  [<var HRsstart2> to <var HRsEnd2>]  [<var howmany2>]  [<var Reportto2>]  [<var Days2>]  [<var Firstday2>]  [<var Reportto2>]
+[<var Tasks3>]  [<var HRsstart3> to <var HRsEnd3>]  [<var howmany3>]  [<var Reportto3>]  [<var Days3>]  [<var Firstday3>]  [<var Reportto3>]
+
+>>> Request for Virtual Workers:
+
+[Tasks]  >During these hours >How many workers >How many days >First day Needed > Who do they report to
+
+[<var Tasks4>]  [<var HRsstart4> to <var HRsEnd4>]  [<var howmany4>]  [<var Days4>]  [<var Firstday4>]  [<var Reportto4>]
+[<var Tasks5>]  [<var HRsstart5> to <var HRsEnd5>]  [<var howmany5>]  [<var Days5>]  [<var Firstday5>]  [<var Reportto5>]
+
+>>> Request for EBVs: 
+
+[<var Tasks6>]  [<var HRsstart6> to <var HRsEnd6>]  [<var howmany6>]  [<var Days6>]  [<var Firstday6>]  [<var Reportto6>]
+[<var Tasks7>]  [<var HRsstart7> to <var HRsEnd7>]  [<var howmany7>]  [<var Days7>]  [<var Firstday7>]  [<var Reportto7>]
+
+Printed Name and Signature of Person Submitting Request:
+<var RequesterSig>
+Requestor's Position: <var RequesterPos>
+Date Requested: <var DateRequested>
+Email Address used on this DRO: <var DROEmail>
+
+DRO Phone Number: 
+<var DROPhone>
+Work Location: <var WorkLocation>
+
+Approver Name and Signature:
+<var AprovSig>
+Approver's Position: <var AproverPos>
+Approver DRO Phone Number:<var AprovDROPhone>
+
+Staff Services Only:
+Date & Time Received in Staff Services: <var Datetimereceived>
+
+Volunteer Connection Data Entry: 
+Date & Time: <var DateEntered>     
+SS Worker's Name: <var SSWorkerName>
+------------------------------------ 
+
+Express Sending Station: <MsgSender>
+Sender Express Version: <ProgramVersion>
+Sender Template Version: <var Templateversion>

@@ -1,0 +1,1750 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+
+<meta http-equiv="content-type" content="application/xhtml+xml; charset=utf-8" /><title>ICS210 Resource Status Change</title>
+
+
+
+<style type="text/css">
+
+body, td, th {
+
+font-family: Arial,Helvetica,sans-serif;
+
+font-size: 12px;
+
+font-weight: inherit;
+
+}
+
+.zentriert {
+
+font-size: 12px;
+
+}
+
+input, select {
+
+padding: 2px;
+
+-moz-border-radius-topleft: 2px;
+
+-moz-border-radius-topright: 2px;
+
+-moz-border-radius-bottomright: 2px;
+
+-moz-border-radius-bottomleft: 2px;
+
+font-family: Arial,Helvetica,sans-serif;
+
+font-size: 12px;
+
+}
+
+textarea {
+
+padding: 2px;
+
+-moz-border-radius-topleft: 2px;
+
+-moz-border-radius-topright: 2px;
+
+-moz-border-radius-bottomright: 2px;
+
+-moz-border-radius-bottomleft: 2px;
+
+font-family: Arial,Helvetica,sans-serif;
+
+font-size: 12px;
+
+}
+
+.rechtsbuendig {
+
+font-size: 12px;
+
+}
+
+.SubmitBtn {
+
+font-size: 12px;
+
+}
+
+.version {
+
+color: #666666;
+
+position: relative;
+
+left: 2px;
+
+top: 2px;
+
+font-size: 12px;
+
+}
+
+</style>
+
+<style>
+/*
+
+body {color:#000; background:#fff; font:100%/1.5 arial,sans-serif;}
+
+h2 {margin-top:0}
+
+*/
+
+/* Styling applied to classes only */
+
+/* Pop-up content shifted off-screen when not in view.
+
+Still readable by screen-reader software.
+
+When targeted it fills the browser window.
+
+*/
+
+.pop-up {
+	position:absolute;
+	top:0;
+	left:-500em;
+	visibility: visible;
+}
+
+.pop-up:target {position:static; left:0;}
+
+/* The pop-up itself */
+
+.popBox {
+	background:#ffffff;
+	position:absolute;
+	left:20%;
+	right:20%;
+	top:20%;
+	bottom:20%;
+	z-index:10;
+	border:1px solid #3a3a3a;
+
+/* CSS3 where available: rounded corners, drop-shadow, and fade in. */
+
+border-radius:.25rem;
+
+box-shadow:0 .5rem .5rem rgba(0,0,0,.5);
+	opacity:0;
+	transition: opacity 0.8s ease-out;
+	visibility: visible;
+}
+
+:target .popBox {position:fixed; opacity:1;}
+
+/* Light box properties */
+
+.lightbox {
+
+display:none;
+
+text-indent:-200em;
+
+background-color:rgba(0,0,0,.4);
+
+width:100%;
+
+height:100%;
+
+position:fixed;
+
+top:0;
+
+left:0;
+
+bottom:0;
+
+right:0;
+
+z-index:5;
+
+}
+
+:target .lightbox {display:block;}
+
+/* The pop-ups close link, moved via CSS to the top right of the pop-up */
+
+.close:link,
+
+.close:visited {
+	position: absolute;
+	top: -0.75em;
+	right: -0.75em;
+	display: block;
+	width: 2em;
+	height: 2em;
+	line-height: 1.8;
+	padding: 0;
+	text-align: center;
+	text-decoration: none;
+	background-color: #000;
+	border: 2px solid #fff;
+	color: #fff;
+	border-radius: 50%;
+
+box-shadow: 0 0 .5rem .5rem rba(0,0,0,.5);
+	visibility: visible;
+}
+
+.close:before {content:"X";}
+
+.close:hover,
+
+.close:active,
+
+.close:focus {
+
+box-shadow: 0 0 .5rem .5rem rba(255,0,0,.5);
+
+background-color: #c00;
+
+color: #fff;
+
+}
+
+.close span {
+
+text-indent: -200em;
+
+display: block;
+
+}
+
+/* The pop-up content div will scroll if it has too much content */
+
+.popScroll {
+	position:absolute;
+	top: 1rem;
+	left: 1rem;
+	right: 1rem;
+	bottom: 1rem;
+	overflow-y: auto;
+
+*overflow-y: scroll;
+	padding-right: 0.5em;
+	visibility: visible;
+}
+
+.popScroll h2 {margin-top:0}
+
+</style>
+
+<style type="text/css">
+.formtext {font-family: Arial, Helvetica, sans-serif;
+font-size: 11pt;
+font-weight: normal;
+}
+
+  input[type=button] {
+
+  border: 2px solid #0f88f2;;
+   border-radius:.25rem;
+  color: black;
+  padding: 2px 2px;
+  text-decoration: none;
+  margin: 2px 2px;
+  cursor: pointer;
+}
+input[type=submit] {
+ border: 2px solid green;
+  border-radius:.25rem;
+  background-color: white;
+  color: black;
+  padding: 2px 2px;
+  font-size: 14px;
+   cursor: pointer;
+}
+input[type=reset] {
+ border: 2px solid red;
+ border-radius:.25rem;
+  background-color: white;
+  color: black;
+  padding: 2px 2px;
+  font-size: 14px;
+   cursor: pointer;
+}
+input[type=black1] {
+ border: 2px solid #999999;
+   width:225px;
+  border-radius:.25rem;
+
+  background-color: white;
+  color: black;
+  padding: 2px 2px;
+  font-size: 14px;
+   cursor: pointer;
+}
+
+.style7 {color: #FF0000;
+	font-size: 10px;
+}
+.style7 {font-size: 10px}
+.style8 {font-size: 12px}
+</style>
+
+<script type="text/javascript">
+function AutoGrowTextArea(textField)
+
+{
+
+if (textField.clientHeight < textField.scrollHeight)
+
+{
+
+textField.style.height = textField.scrollHeight + "px";
+
+if (textField.clientHeight < textField.scrollHeight)
+
+{
+
+textField.style.height = (textField.scrollHeight * 2 - textField.clientHeight) + "px";
+
+}
+
+}
+
+}
+function TimeNow(Timefld, FocusFld) {
+
+var txt;
+
+var d = new Date(),
+
+thisyear = d.getFullYear();
+
+thismonth= d.getMonth();
+
+thismonth = thismonth+1;
+if (thismonth < 10) { thismonth = "0" + thismonth}
+
+thisday = d.getDate();
+if (thisday < 10) { thisday = "0" + thisday}
+
+h = (d.getHours()<10?'0':'') + d.getHours()
+
+m = (d.getMinutes()<10?'0':'') + d.getMinutes()
+
+s = (d.getSeconds()<10?'0':'') + d.getSeconds();
+
+var myprompt = thisyear+ '-'+thismonth+'-'+thisday+' '+h + ':' + m ;
+
+var RightNow = prompt("Date / Time:", myprompt);
+
+document.getElementById(Timefld).value = RightNow;
+
+document.getElementById(FocusFld).focus();
+
+} </script>
+
+<script>
+
+function doLoad() {
+
+// alert( "The load event is executing" );
+
+}
+
+if ( window.addEventListener ) { window.addEventListener( "load", doLoad, false );
+
+}
+
+else if ( window.attachEvent ) { window.attachEvent( "onload", doLoad );
+
+} else if ( window.onLoad ) {
+
+window.onload = doLoad;
+
+}
+
+
+
+function Countthelines(f) { var text1 = f
+
+var text2 = text1.replace(/\s+$/,"");
+
+var split2 = text2.split("\n"); var mytotal = split2.length * 17;
+
+if (mytotal < 150) {
+
+mytotal = 150;
+
+}
+
+var tstr = mytotal.toString();
+
+return tstr;
+
+}
+
+function newfix(f){
+
+var ThisText = document.getElementById(f).value;
+
+var makeit = Countthelines(ThisText);
+
+document.getElementById(f).style.height = makeit+"px"; }
+
+function Fixfields() {
+
+for (i = 1; i < 21; i++) {
+ 
+  AutoGrowTextArea(document.getElementById("Fro"+i));
+  AutoGrowTextArea(document.getElementById("To"+i));
+}
+AutoGrowTextArea(document.getElementById("Comments"));
+}
+function Fixarea() {
+
+newfix("Procedures");
+
+// newfix("reply");
+
+//AutoGrowTextArea(document.getElementById("Comments"));
+
+
+}
+
+function RWS(str){
+
+var text2 = str.replace(/\s+$/,"");
+
+return text2.trim();
+
+}
+
+</script>
+
+<script type="text/javascript">
+
+function Datetime(Timefld, FocusFld) {
+
+var txt;
+
+var d = new Date(),
+
+thisyear = d.getFullYear();
+
+thismonth= d.getMonth();
+
+thismonth = thismonth+1;
+
+thisday = d.getDate();
+
+h = (d.getHours()<10?'0':'') + d.getHours()
+
+m = (d.getMinutes()<10?'0':'') + d.getMinutes()
+
+s = (d.getSeconds()<10?'0':'') + d.getSeconds();
+
+var myprompt = thisyear+ '-'+thismonth+'-'+thisday+' '+h + ':' + m ;
+
+var RightNow = prompt("", myprompt);
+
+document.getElementById(Timefld).value = RightNow;
+
+document.getElementById(FocusFld).focus();
+
+} 
+
+
+// Test auto collect
+// Add parseme
+//    <textarea name="parseme" cols="60" id="parseme" style="display: none;"></textarea>
+function saveTextAsFile(fileNameToSaveAs, textToWrite) {
+var textToWrite = document.getElementById('parseme').value; 
+var fileNameToSaveAs = "ICS210 " + DateforFile()+".txt";
+fileNameToSaveAs = prompt("", fileNameToSaveAs);
+
+  /* Saves a text string as a blob file*/  
+  var ie = navigator.userAgent.match(/MSIE\s([\d.]+)/),
+      ie11 = navigator.userAgent.match(/Trident\/7.0/) && navigator.userAgent.match(/rv:11/),
+      ieEDGE = navigator.userAgent.match(/Edge/g),
+      ieVer=(ie ? ie[1] : (ie11 ? 11 : (ieEDGE ? 12 : -1)));
+
+  if (ie && ieVer<10) {
+    console.log("No blobs on IE ver<10");
+    return;
+  }
+
+  var textFileAsBlob = new Blob([textToWrite], {
+    type: 'text/plain'
+  });
+
+  if (ieVer>-1) {
+    window.navigator.msSaveBlob(textFileAsBlob, fileNameToSaveAs);
+
+  } else {
+    var downloadLink = document.createElement("a");
+    downloadLink.download = fileNameToSaveAs;
+    downloadLink.href = window.URL.createObjectURL(textFileAsBlob);
+    downloadLink.onclick = function(e) { document.body.removeChild(e.target); };
+    downloadLink.style.display = "none";
+    document.body.appendChild(downloadLink);
+    downloadLink.click();
+  }
+}
+
+function destroyClickedElement(event)
+{
+    document.body.removeChild(event.target);
+}
+
+function loadFileAsText()
+{
+
+    var fileToLoad = document.getElementById("fileToLoad").files[0];
+ 
+    var fileReader = new FileReader();
+    fileReader.onload = function(fileLoadedEvent) 
+    {
+        var textFromFileLoaded = fileLoadedEvent.target.result;
+        document.getElementById("inputTextToSave").value = textFromFileLoaded;
+    };
+    fileReader.readAsText(fileToLoad, "UTF-8");
+}
+
+
+function DateforFile(RightNow) {
+var txt;
+var d = new Date(),
+thisyear = d.getFullYear();
+thismonth= d.getMonth();
+thismonth = thismonth+1;
+if (thismonth < 10) { thismonth = "0" + thismonth}
+
+thisday = d.getDate();
+if (thisday < 10) { thisday = "0" + thisday}
+
+h = (d.getHours()<10?'0':'') + d.getHours()
+m = (d.getMinutes()<10?'0':'') + d.getMinutes()
+var myprompt = thisyear+ '-'+thismonth+'-'+thisday+' '+h + '_' + m ;
+return myprompt;
+}
+
+function isObject(arg) {
+  return Object.prototype.toString.call(arg)==='[object Object]';
+}
+
+function formDataToObject(elForm) {
+  if (!elForm instanceof Element) return;
+  var fields = elForm.querySelectorAll('input, select, textarea'),
+    o = {};
+  for (var i=0, imax=fields.length; i<imax; ++i) {
+    var field = fields[i],
+      sKey = field.name || field.id;
+    if (field.type==='button' || field.type==='image' || field.type==='submit' || !sKey) continue;
+    switch (field.type) {
+      case 'checkbox':
+        o[sKey] = +field.checked;
+        break;
+      case 'radio':
+        if (o[sKey]===undefined) o[sKey] = '';
+        if (field.checked) o[sKey] = field.value;
+        break;
+      case 'select-multiple':
+        var a = [];
+        for (var j=0, jmax=field.options.length; j<jmax; ++j) {
+          if (field.options[j].selected) a.push(field.options[j].value);
+        }
+        o[sKey] = a;
+        break;
+      default:
+        o[sKey] = field.value;
+    }
+  }
+ // alert('Form data:\n\n' + JSON.stringify(o, null, 2));
+ document.getElementById('parseme').value = JSON.stringify(o, null, 2);
+//  return o;
+}
+
+function populateForm(o) {
+
+o =  JSON.parse(document.getElementById('parseme').value);
+ //if (!isObject(o)) return;
+if (!isObject(o)) return;
+  for (var i in o) {
+    var el = document.getElementById(i) || document.querySelector('[name=' + i + ']');
+    if (el.type==='radio') el = document.querySelectorAll('[name=' + i + ']');
+    switch (typeof o[i]) {
+      case 'number':
+        el.checked = o[i];
+        break;
+      case 'object':
+        if (el.options && o[i] instanceof Array) {
+          for (var j=0, jmax=el.options.length; j<jmax; ++j) {
+            if (o[i].indexOf(el.options[j].value)>-1) el.options[j].selected = true;
+          }
+        }
+        break;
+      default:
+        if (el instanceof NodeList) {
+          for (var j=0, jmax=el.length; j<jmax; ++j) {
+            if (el[j].value===o[i]) el[j].checked = true;
+          }
+        } else {
+          el.value = o[i];
+        }
+    }
+  }
+
+  Fixfields();
+AutoGrowTextArea(document.getElementById("Comments"));
+}
+
+function SaveData() {
+	
+			formDataToObject(document.getElementById('myform'))
+			saveTextAsFile();
+			
+			//saveTextAsFile();
+			}
+
+//-------
+ function readBlob(opt_startByte, opt_stopByte) {
+  
+    var files = document.getElementById('files').files;
+    if (!files.length) {
+      alert('Please select a file!');
+      return;
+    }
+
+    var file = files[0];
+    var start = parseInt(opt_startByte) || 0;
+    var stop = parseInt(opt_stopByte) || file.size - 1;
+
+    var reader = new FileReader();
+
+    // If we use onloadend, we need to check the readyState.
+    reader.onloadend = function(evt) {
+      if (evt.target.readyState == FileReader.DONE) { // DONE == 2
+        document.getElementById('byte_content').textContent = evt.target.result;
+        document.getElementById('byte_range').textContent = 
+            ['Read bytes: ', start + 1, ' - ', stop + 1,
+             ' of ', file.size, ' byte file'].join('');
+      }
+    };
+
+    var blob = file.slice(start, stop + 1);
+    reader.readAsBinaryString(blob);
+  }
+    	
+  window.onload = function () { 
+
+ //Check the support for the File API support 
+ if (window.File && window.FileReader && window.FileList && window.Blob) {
+    var fileSelected = document.getElementById('txtfiletoread');
+	
+    fileSelected.addEventListener('change', function (e) { 
+         //Set the extension for the file 
+         var fileExtension = /text.*/; 
+         //Get the file object 
+         var fileTobeRead = fileSelected.files[0];
+        //Check of the extension match 
+         if (fileTobeRead.type.match(fileExtension)) { 
+             //Initialize the FileReader object to read the 2file 
+			
+             var fileReader = new FileReader(); 
+             fileReader.onload = function (e) { 
+                 var fileContents = document.getElementById('filecontents'); 
+                
+				document.getElementById('parseme').value =fileReader.result;
+				populateForm(obj = document.getElementById('parseme').value);
+			 } 
+             fileReader.readAsText(fileTobeRead); 
+         } 
+         else { 
+             alert("Please select text file"); 
+         }
+ 
+    }, false);
+} 
+ else { 
+     alert("Files are not supported"); 
+ } 
+Checkifinbrowser();
+getit(); }
+ function Checkifinbrowser() {
+
+ var x= document.getElementById("testCall").value; 
+ var n = x.search("{Msg");
+ if (n>-1) { 
+ document.getElementById('Submit').style.visibility='hidden';
+  alert('You are running this form outside of Winlink.\n \nWhen you have composed your Message, save the data and then pass the saved data file and pass to radio operator.');
+ } else {document.getElementById('Submit').style.visibility='visible';  }
+}
+
+function RestoreTitle() {
+
+var RightNow = document.getElementById('FormTitle').value;
+
+//document.getElementById('Title').value = RightNow;
+document.getElementById('SubjectText').innerHTML = RightNow;
+store();
+}
+
+	   function store(){
+ 	var formatted= document.getElementById("FormTitle");
+     localStorage.setItem("ics210", formatted.value);
+	 //alert (localStorage.getItem("ics205a"));
+    }
+
+	function getit() {
+	var storedValue = localStorage.getItem("ics210");
+	//alert(storedValue);
+	document.getElementById('FormTitle').value = storedValue;
+	RestoreTitle();
+	
+	}
+	function SetupTitle() {
+var myprompt = '';
+var myttemp = document.getElementById('FormTitle').value;
+var RightNow = prompt("Enter Agency/Group Title",   myprompt);
+if (RightNow.length == 0) { RightNow = myttemp}
+document.getElementById('FormTitle').value = RightNow;
+document.getElementById('SubjectText').innerHTML = RightNow;
+store();
+
+}
+ 
+
+ 
+ </script> 
+
+</head>
+
+<body>
+
+<form  style="font-family: Arial;" pbzloc="3" onsubmit="return confirm('To complete your form submission, click OK and close the open browser window. You will return to the new message window so you can post your message to the outbox');" method="post" id="myform" enctype="multipart/form-data" action="http://{FormServer}:{FormPort}">
+  <span class="style8">&nbsp;</span> <div id="pop1" class="pop-up"><!-- The pop-up block -->
+
+<div class="popBox"><!-- If the content becomes larger than the pop-up this div will scroll the content -->
+
+<div class="popScroll"><!-- Test for help starts here -->
+
+<p> </p>
+
+<h2>ICS 210 Resource Status Change</h2>
+
+<p align="left"><strong>Purpose</strong>.<br />
+
+<br />
+
+The Resource Status Change (ICS 210) is used by the Incident
+
+Communications Center Manager to record status change information
+
+received on resources assigned to the incident. The ICS 210 is
+
+essentially a message form that can be used to update Resource Status
+
+Cards or T-Cards (ICS 219) for incident-level resource management.<br />
+
+<br />
+<strong>More Information</strong><br /><br />
+You can save your completed HTML to a text file. This will allow you to reload the ICS210
+with ALL entered form data. You do this prior to submitting the form. Then you can open a new ICS210 and load the saved HTML form data. 
+NOTE: Date and Times will be the previous, so change if needed. This is much like using FireFox and the addon Formlet. It will save the info
+as a text file with the Date and Time as the text file name. Now you can use any browser, save your form, (as many versions as you like), and then re-populate.
+<br />
+<br />
+Printing this form is dependent upon your selected
+
+printer and its settings. Various Web Browsers and and their viewing
+
+sizes are not all the same. Printing from a browsers print function
+
+may be different from the operating systems default print mode.
+
+Select what works for you, for both printing and viewing.
+
+You may print direct to the printer as a HTML or save as a
+
+PDF then print the PDF. In some instances Landscape mode may print
+
+better than Portrait. <br />
+
+</p>
+
+</div>
+
+<!-- The close pop-up link correctly positioned at the end of the content block -->
+
+<a href="#links" class="close"><span>Back
+
+to links</span></a> </div>
+
+</div>
+<p></p>
+
+<tbody>
+<b><input type="button" value="Setup" onclick="SetupTitle()" />
+</b>  <span class="style7">&nbsp;Click to add an agency or group name </span>
+<table align="left" border="0" width="778">
+
+<tr>
+
+<td>
+
+  <div align="left">
+    <table style=" width: 887px; height: 1214px;" border="1" bordercolor="#999999" cellpadding="4" cellspacing="0">
+    
+<tbody>
+    
+<tr bgcolor="#dee9f9">
+    
+<script type="text/javascript">
+
+function TimeNow(Timefld) {
+
+var txt;
+
+var d = new Date(),
+
+thisyear = d.getFullYear();
+
+thismonth= d.getMonth();
+
+thisday = d.getDate();
+
+h = (d.getHours()<10?'0':'') + d.getHours()
+
+m = (d.getMinutes()<10?'0':'') + d.getMinutes()
+
+s = (d.getSeconds()<10?'0':'') + d.getSeconds();
+
+var myprompt = h + ':' + m ;
+
+var RightNow = prompt("Current Time:", myprompt);
+
+document.getElementById(Timefld).value = RightNow;
+
+
+}
+
+function DateNow(Timefld ) {
+
+var txt;
+
+var d = new Date(),
+
+thisday = d.getDate();
+
+thisyear = d.getFullYear();
+
+thismonth= d.getMonth();
+
+thismonth= thismonth + 1;
+if (thismonth < 10) { thismonth = "0" + thismonth}
+thisday = d.getDate();
+if (thisday < 10) { thisday = "0" + thisday}
+h = (d.getHours()<10?'0':'') + d.getHours()
+
+m = (d.getMinutes()<10?'0':'') + d.getMinutes()
+
+s = (d.getSeconds()<10?'0':'') + d.getSeconds();
+
+var myprompt = thisyear+ '-'+thismonth+'-'+thisday;
+
+var RightNow = prompt("Current Date: " , myprompt);
+
+document.getElementById(Timefld).value = RightNow;
+
+}
+
+
+
+</script> <td colspan="2" style="text-align: center; "> <big><span style="font-weight:12 bold;"><strong>RESOURCE
+    
+STATUS CHANGE</strong> &nbsp; &nbsp;&nbsp; &nbsp;</span><small>(ICS210)</small><big><span style="font-weight: bold;"> &nbsp;</span></big></big><big><small><br />
+ <span class="style14"  id="SubjectText"><strong> </strong></span>
+&nbsp; &nbsp; &nbsp;
+    
+&nbsp; &nbsp; &nbsp; &nbsp;
+    
+&nbsp; &nbsp; &nbsp;&nbsp; <a href="#pop1"></a></small></big></td>
+    
+</tr>
+    
+<tr>
+    
+<td width="56%" colspan="1" style="vertical-align: top; width: 50%; text-align: center;"><div align="left"><span style="font-weight: bold;"><br />
+            1. Incident Name &nbsp;</span>&nbsp;
+            <input name="FormTitle" type="hidden" id="FormTitle" />      
+</div>
+      <p align="left">&nbsp;&nbsp;<b><input title="Enter the name assigned to the incident. Incident number is optional" required="required" id="Incident_Name" maxlength="55" name="Incident_Name" size="60" /></b>&nbsp;</p>
+      <p align="left">
+      &nbsp;&nbsp;&nbsp;
+          <input type="button" value=" Load ICS 210 Form Data " onclick="document.getElementById('txtfiletoread').click();" />
+&nbsp;          
+<input type="file" id="txtfiletoread" accept=".txt"  style="display: none;"/>
+             <textarea name="parseme" cols="60" id="parseme" style="display: none;"></textarea>
+             <big><small>&nbsp; <a href="#pop1"><span style="color: rgb(204, 0, 0);">Form Info</span></a></small></big><br />
+    
+&nbsp;</p>
+      </td>
+    
+<td width="44%" valign="top" style="width: 50%; text-align: center; vertical-align: top;"><div align="left">
+  <span style="font-weight: bold;"><br />
+        
+2. Operational Period <br style="font-weight: bold;" />
+        
+<br />
+        
+  </span>&nbsp; &nbsp; &nbsp; &nbsp;
+        
+&nbsp; &nbsp;&nbsp; DATE&nbsp; &nbsp; From<span style="font-style: italic;">&nbsp;</span> <b>
+        <input title="Enter the start date." required="required" maxlength="11" id="DateFrom" name="DateFrom" size="12" /> 
+&nbsp;</b>to&nbsp; <b>
+        <input title="Enter the end date." required="required" maxlength="11" id="DateTo" name="DateTo" size="12" />
+        </b><b>&nbsp;</b>&nbsp; &nbsp;
+        
+&nbsp;&nbsp;</p>
+  <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; TIME &nbsp; &nbsp; From<span style="font-style: italic;">&nbsp;</span> <b> </b> <b>
+    <input title="Enter the start time, use the 24-hour clock" required="required" maxlength="11" id="TimeFrom" name="TimeFrom" size="12" />
+&nbsp;  </b>to&nbsp; <b>
+  <input title="Enter the end time, use the 24-hour clock" required="required" maxlength="11" id="TimeTo" name="TimeTo" size="12" />
+  </b>&nbsp;&nbsp; </p>
+</div></td>
+    
+</tr>
+    
+<tr>
+    
+<td colspan="3">
+    
+<table style="text-align: left; width: 871px; height: 914px;" border="1" cellpadding="3" cellspacing="0">
+    
+<tbody>
+    
+<tr bgcolor="#f8f8ff">
+    
+<td width="11%" style="text-align: center; vertical-align: top; width: 11%; "><span style="font-weight: bold;">3.
+    
+Resource #</span></td>
+    
+<td width="15%" style="text-align: center; vertical-align: top; width: 15%;"><span style="font-weight: bold;">4.
+    
+New Status<br />
+    
+</span><br />
+    
+</td>
+    
+<td width="21%" style="text-align: center; vertical-align: top; width: 20%; ">
+    
+<div align="center"><span style="font-weight: bold;">5. From<br />
+    
+</span><small>&nbsp;(Assignment
+    
+&amp; Status)</small></div>
+    
+</td>
+    
+<td width="30%" style="text-align: center; vertical-align: top;">
+    
+<div align="center"><span style="font-weight: bold;">6. To<br />
+    
+</span><small>(Assignment &amp;
+    
+Status)</small></div>
+    
+</td>
+    
+<td colspan="2" style="text-align: center; vertical-align: top; background-color:">
+    
+<div align="center"><span style="font-weight: bold;">7. Time &amp; Date of Change<br />
+    
+</span></div>
+    
+</td>
+    
+</tr>
+    
+<tr>
+    
+<td style="vertical-align: middle; text-align: center;"><input maxlength="15" size="16" name="Res1" /></td>
+    
+<td style="text-align: center;">
+    
+<select size="3" name="Sta1"><option selected="selected">------</option><option>Available</option><option>Assigned</option><option>OUT OF SERVICE</option></select>
+    
+<br />
+    
+</td>
+    
+<td style="text-align: center;">
+    
+<div align="center"> <textarea name="Fro1" id="Fro1" cols="50" rows="1" onchange="this.value=RWS(this.value)" onkeyup="AutoGrowTextArea(this)" maxlength="125" placeholder="Max 125 Characters"></textarea> </div>
+    
+</td>
+    
+<td style="text-align: center;">
+    
+<div align="center"> <textarea name="To1" id="To1"cols="50" rows="1" onchange="this.value=RWS(this.value)" onkeyup="AutoGrowTextArea(this)" placeholder="Max 125 Characters" maxlength="125"></textarea></div>
+    
+</td>
+    
+<td style="text-align: center;" width="10%">
+    
+<div align="center"> <input maxlength="10" size="10" name="Time1" id="Time1" placeholder="click for time" onclick="TimeNow('Time1')" /></div>
+    
+</td>
+    
+<td style="text-align: center;" width="13%">
+    
+<div align="center"> <input maxlength="10" size="10" name="Date1" id="Date1" placeholder="click for date" onclick="DateNow('Date1')" /></div>
+    
+</td>
+    
+</tr>
+    
+<tr>
+    
+<td style="text-align: center; vertical-align: middle; background-color: white;"><input maxlength="15" size="16" name="Res2" /></td>
+    
+<td style="text-align: center; vertical-align: middle; background-color: white;">
+    
+<select size="3" name="Sta2"><option selected="selected">------</option><option>Available</option><option>Assigned</option><option>OUT OF SERVICE</option></select>
+    
+</td>
+    
+<td style="text-align: center; vertical-align: middle; background-color: white;">
+    
+<div align="center"> <textarea name="Fro2" id="Fro2"cols="50" rows="1" onchange="this.value=RWS(this.value)" onkeyup="AutoGrowTextArea(this)" placeholder="Max 125 Characters" maxlength="125"></textarea></div>
+    
+</td>
+    
+<td style="text-align: center; vertical-align: middle; background-color: white;">
+    
+<div align="center"> <textarea name="To2" id="To2" cols="50" rows="1" onchange="this.value=RWS(this.value)" onkeyup="AutoGrowTextArea(this)" placeholder="Max 125 Characters" maxlength="125"></textarea></div>
+    
+</td>
+    
+<td style="text-align: center; vertical-align: middle; background-color: white;">
+    
+<div align="center"> <input maxlength="10" size="10" name="Time2" id="Time2" placeholder="click for time" onclick="TimeNow('Time2')" /></div>
+    
+</td>
+    
+<td style="text-align: center; vertical-align: middle; background-color: white;">
+    
+<div align="center"> <input maxlength="10" size="10" name="Date2" id="Date2" placeholder="click for date" onclick="DateNow('Date2')" /></div>
+    
+</td>
+    
+</tr>
+    
+<tr>
+    
+<td style="text-align: center; vertical-align: middle; background-color: white;"><input maxlength="15" size="16" name="Res3" /></td>
+    
+<td style="text-align: center; vertical-align: middle; background-color: white;">
+    
+<select size="3" name="Sta3"><option selected="selected">------</option><option>Available</option><option>Assigned</option><option>OUT OF SERVICE</option></select>
+    
+</td>
+    
+<td style="text-align: center; vertical-align: middle; background-color: white;">
+    
+<div align="center"> <textarea name="Fro3" id="Fro3" cols="50" rows="1" onchange="this.value=RWS(this.value)" onkeyup="AutoGrowTextArea(this)" placeholder="Max 125 Characters" maxlength="125"></textarea></div>
+    
+</td>
+    
+<td style="text-align: center; vertical-align: middle; background-color: white;">
+    
+<div align="center"> <textarea name="To3" id="To3" cols="50" rows="1" onchange="this.value=RWS(this.value)" onkeyup="AutoGrowTextArea(this)" placeholder="Max 125 Characters" maxlength="125"></textarea></div>
+    
+</td>
+    
+<td style="text-align: center; vertical-align: middle; background-color: white;">
+    
+<div align="center"> <input maxlength="10" size="10" name="Time3" id="Time3" placeholder="click for time" onclick="TimeNow('Time3')" /></div>
+    
+</td>
+    
+<td style="text-align: center; vertical-align: middle; background-color: white;">
+    
+<div align="center"> <input maxlength="10" size="10" name="Date3" id="Date3" placeholder="click for date" onclick="DateNow('Date3')" /></div>
+    
+</td>
+    
+</tr>
+    
+<tr>
+    
+<td style="text-align: center; vertical-align: middle; background-color: white;"><input maxlength="15" size="16" name="Res4" /></td>
+    
+<td style="text-align: center; vertical-align: middle; background-color: white;">
+    
+<select size="3" name="Sta4"><option selected="selected">------</option><option>Available</option><option>Assigned</option><option>OUT OF SERVICE</option></select>
+    
+</td>
+    
+<td style="text-align: center; vertical-align: middle; background-color: white;">
+    
+<div align="center"> <textarea name="Fro4" id="Fro4"  cols="50" rows="1" onchange="this.value=RWS(this.value)" onkeyup="AutoGrowTextArea(this)" placeholder="Max 125 Characters" maxlength="125"></textarea></div>
+    
+</td>
+    
+<td style="text-align: center; vertical-align: middle; background-color: white;">
+    
+<div align="center"> <textarea name="To4"  id="To4"  cols="50" rows="1" onchange="this.value=RWS(this.value)" onkeyup="AutoGrowTextArea(this)" placeholder="Max 125 Characters" maxlength="125"></textarea></div>
+    
+</td>
+    
+<td style="text-align: center; vertical-align: middle; background-color: white;">
+    
+<div align="center"> <input maxlength="10" size="10" name="Time4" id="Time4" placeholder="click for time" onclick="TimeNow('Time4')" /></div>
+    
+</td>
+    
+<td style="text-align: center; vertical-align: middle; background-color: white;">
+    
+<div align="center"> <input maxlength="10" size="10" name="Date4" id="Date4" placeholder="click for date" onclick="DateNow('Date4')" /></div>
+    
+</td>
+    
+</tr>
+    
+<tr>
+    
+<td style="text-align: center; vertical-align: middle; background-color: white;"><input maxlength="15" size="16" name="Res5" /></td>
+    
+<td style="text-align: center; vertical-align: middle; background-color: white;">
+    
+<select size="3" name="Sta5"><option selected="selected">------</option><option>Available</option><option>Assigned</option><option>OUT OF SERVICE</option></select>
+    
+</td>
+    
+<td style="text-align: center; vertical-align: middle; background-color: white;">
+    
+<div align="center"> <textarea name="Fro5"  id="Fro5"cols="50" rows="1" onchange="this.value=RWS(this.value)" onkeyup="AutoGrowTextArea(this)" placeholder="Max 125 Characters" maxlength="125"></textarea></div>
+    
+</td>
+    
+<td style="text-align: center; vertical-align: middle; background-color: white;">
+    
+<div align="center"> <textarea name="To5"  id="To5" cols="50" rows="1" onchange="this.value=RWS(this.value)" onkeyup="AutoGrowTextArea(this)" placeholder="Max 125 Characters" maxlength="125"></textarea></div>
+    
+</td>
+    
+<td style="text-align: center; vertical-align: middle; background-color: white;">
+    
+<div align="center"> <input maxlength="10" size="10" name="Time5" id="Time5" placeholder="click for time" onclick="TimeNow('Time5')" /></div>
+    
+</td>
+    
+<td style="text-align: center; vertical-align: middle; background-color: white;">
+    
+<div align="center"> <input maxlength="10" size="10" name="Date5" id="Date5" placeholder="click for date" onclick="DateNow('Date5')" /></div>
+    
+</td>
+    
+</tr>
+    
+<tr>
+    
+<td style="text-align: center; vertical-align: middle; background-color: white;"><input maxlength="15" size="16" name="Res6" /> </td>
+    
+<td style="text-align: center; vertical-align: top; background-color: white;">
+    
+<select size="3" name="Sta6"><option selected="selected">------</option><option>Available</option><option>Assigned</option><option>OUT OF SERVICE</option></select>
+    
+</td>
+    
+<td style="text-align: center; vertical-align: middle; background-color: white;">
+    
+<div align="center"> <textarea name="Fro6" id="Fro6"cols="50" rows="1" onchange="this.value=RWS(this.value)" onkeyup="AutoGrowTextArea(this)" placeholder="Max 125 Characters" maxlength="125"></textarea></div>
+    
+</td>
+    
+<td style="text-align: center; vertical-align: middle; background-color: white;">
+    
+<div align="center"> <textarea name="To6" id="To6"cols="50" rows="1" onchange="this.value=RWS(this.value)" onkeyup="AutoGrowTextArea(this)" placeholder="Max 125 Characters" maxlength="125"></textarea></div>
+    
+</td>
+    
+<td style="text-align: center; vertical-align: middle; background-color: white;">
+    
+<div align="center"> <input maxlength="10" size="10" name="Time6" id="Time6" placeholder="click for time" onclick="TimeNow('Time6')" /></div>
+    
+</td>
+    
+<td style="text-align: center; vertical-align: middle; background-color: white;">
+    
+<div align="center"> <input maxlength="10" size="10" name="Date6" id="Date6" placeholder="click for date" onclick="DateNow('Date6')" /></div>
+    
+</td>
+    
+</tr>
+    
+<tr>
+    
+<td style="text-align: center; vertical-align: middle; background-color: white;"><input maxlength="15" size="16" name="Res7" /> </td>
+    
+<td style="text-align: center; vertical-align: middle; background-color: white;">
+    
+<select size="3" name="Sta7"><option selected="selected">------</option><option>Available</option><option>Assigned</option><option>OUT OF SERVICE</option></select>
+    
+</td>
+    
+<td style="text-align: center; vertical-align: middle; background-color: white;">
+    
+<div align="center"> <textarea name="Fro7"  id="Fro7"cols="50" rows="1" onchange="this.value=RWS(this.value)" onkeyup="AutoGrowTextArea(this)" placeholder="Max 125 Characters" maxlength="125"></textarea></div>
+    
+</td>
+    
+<td style="text-align: center; vertical-align: middle; background-color: white;">
+    
+<div align="center"> <textarea name="To7" id="To7" cols="50" rows="1" onchange="this.value=RWS(this.value)" onkeyup="AutoGrowTextArea(this)" placeholder="Max 125 Characters" maxlength="125"></textarea></div>
+    
+</td>
+    
+<td style="text-align: center; vertical-align: middle; background-color: white;">
+    
+<div align="center"> <input maxlength="10" size="10" name="Time7" id="Time7" placeholder="click for time" onclick="TimeNow('Time7')" /></div>
+    
+</td>
+    
+<td style="text-align: center; vertical-align: middle; background-color: white;">
+    
+<div align="center"> <input maxlength="10" size="10" name="Date7" id="Date7" placeholder="click for date" onclick="DateNow('Date7')" /></div>
+    
+</td>
+    
+</tr>
+    
+<tr>
+    
+<td style="text-align: center; vertical-align: middle; background-color: white;"><input maxlength="15" size="16" name="Res8" /> </td>
+    
+<td style="text-align: center; vertical-align: middle; background-color: white;">
+    
+<select size="3" name="Sta8"><option selected="selected">------</option><option>Available</option><option>Assigned</option><option>OUT OF SERVICE</option></select>
+    
+</td>
+    
+<td style="text-align: center; vertical-align: middle; background-color: white;">
+    
+<div align="center"> <textarea name="Fro8" id="Fro8" cols="50" rows="1" onchange="this.value=RWS(this.value)" onkeyup="AutoGrowTextArea(this)" placeholder="Max 125 Characters" maxlength="125"></textarea></div>
+    
+</td>
+    
+<td style="text-align: center; vertical-align: middle; background-color: white;">
+    
+<div align="center"> <textarea name="To8" id="To8"  cols="50" rows="1" onchange="this.value=RWS(this.value)" onkeyup="AutoGrowTextArea(this)" placeholder="Max 125 Characters" maxlength="125"></textarea></div>
+    
+</td>
+    
+<td style="text-align: center; vertical-align: middle; background-color: white;">
+    
+<div align="center"> <input maxlength="10" size="10" name="Time8" id="Time8" placeholder="click for time" onclick="TimeNow('Time8')" /></div>
+    
+</td>
+    
+<td style="text-align: center; vertical-align: middle; background-color: white;">
+    
+<div align="center"> <input maxlength="10" size="10" name="Date8" id="Date8" placeholder="click for date" onclick="DateNow('Date8')" /></div>
+    
+</td>
+    
+</tr>
+    
+<tr>
+    
+<td style="text-align: center; vertical-align: middle; background-color: white;"><input maxlength="15" size="16" name="Res9" /> </td>
+    
+<td style="text-align: center; vertical-align: middle; background-color: white;">
+    
+<select size="3" name="Sta9"><option selected="selected">------</option><option>Available</option><option>Assigned</option><option>OUT OF SERVICE</option></select>
+    
+</td>
+    
+<td style="text-align: center; vertical-align: middle; background-color: white;">
+    
+<div align="center"> <textarea name="Fro9" id="Fro9" cols="50" rows="1" onchange="this.value=RWS(this.value)" onkeyup="AutoGrowTextArea(this)" placeholder="Max 125 Characters" maxlength="125"></textarea></div>
+    
+</td>
+    
+<td style="text-align: center; vertical-align: middle; background-color: white;">
+    
+<div align="center"> <textarea name="To9" id="To9" cols="50" rows="1" onchange="this.value=RWS(this.value)" onkeyup="AutoGrowTextArea(this)" placeholder="Max 125 Characters" maxlength="125"></textarea></div>
+    
+</td>
+    
+<td style="text-align: center; vertical-align: middle; background-color: white;">
+    
+<div align="center"> <input maxlength="11" size="10" name="Time9" id="Time9" placeholder="click for time" onclick="TimeNow('Time9')" /></div>
+    
+</td>
+    
+<td style="text-align: center; vertical-align: middle; background-color: white;">
+    
+<div align="center"> <input maxlength="10" size="10" name="Date9" id="Date9" placeholder="click for date" onclick="DateNow('Date9')" /></div>
+    
+</td>
+    
+</tr>
+    
+<tr>
+    
+<td style="text-align: center; vertical-align: middle; background-color: white;"><input maxlength="15" size="16" name="Res10" /> </td>
+    
+<td style="text-align: center; vertical-align: middle; background-color: white;">
+    
+<select size="3" name="Sta10"><option selected="selected">------</option><option>Available</option><option>Assigned</option><option>OUT OF SERVICE</option></select>
+    
+</td>
+    
+<td style="text-align: center; vertical-align: middle; background-color: white;">
+    
+<div align="center"> <textarea name="Fro10" id="Fro10" cols="50" rows="1" onchange="this.value=RWS(this.value)" onkeyup="AutoGrowTextArea(this)" placeholder="Max 125 Characters" maxlength="125"></textarea></div>
+    
+</td>
+    
+<td style="text-align: center; vertical-align: middle; background-color: white;">
+    
+<div align="center"> <textarea name="To10" id="To10" cols="50" rows="1" onchange="this.value=RWS(this.value)" onkeyup="AutoGrowTextArea(this)" placeholder="Max 125 Characters" maxlength="125"></textarea></div>
+    
+</td>
+    
+<td style="text-align: center; vertical-align: middle; background-color: white;">
+    
+<div align="center"> <input maxlength="10" size="10" name="Time10" id="Time10" placeholder="click for time" onclick="TimeNow('Time10')" /></div>
+    
+</td>
+    
+<td style="text-align: center; vertical-align: middle; background-color: white;">
+    
+<div align="center"> <input maxlength="10" size="10" name="Date10" id="Date10" placeholder="click for date" onclick="DateNow('Date10')" /></div>
+    
+</td>
+    
+</tr>
+    
+<tr>
+    
+<td style="text-align: center; vertical-align: middle; background-color: white;"><input maxlength="15" size="16" name="Res11" /> </td>
+    
+<td style="text-align: center; vertical-align: middle; background-color: white;">
+    
+<select size="3" name="Sta11"><option selected="selected">------</option><option>Available</option><option>Assigned</option><option>OUT OF SERVICE</option></select>
+    
+</td>
+    
+<td style="text-align: center; vertical-align: middle; background-color: white;">
+    
+<div align="center"> <textarea name="Fro11" id="Fro11" cols="50" rows="1" onchange="this.value=RWS(this.value)" onkeyup="AutoGrowTextArea(this)" placeholder="Max 125 Characters" maxlength="125"></textarea></div>
+    
+</td>
+    
+<td style="text-align: center; vertical-align: middle; background-color: white;">
+    
+<div align="center"> <textarea name="To11" id="To11"cols="50" rows="1" onchange="this.value=RWS(this.value)" onkeyup="AutoGrowTextArea(this)" placeholder="Max 125 Characters" maxlength="125"></textarea></div>
+    
+</td>
+    
+<td style="text-align: center; vertical-align: middle; background-color: white;">
+    
+<div align="center"> <input maxlength="10" size="10" name="Time11" id="Time11" placeholder="click for time" onclick="TimeNow('Time11')" /></div>
+    
+</td>
+    
+<td style="text-align: center; vertical-align: middle; background-color: white;">
+    
+<div align="center"> <input maxlength="10" size="10" name="Date11" id="Date11" placeholder="click for date" onclick="DateNow('Date11')" /></div>
+    
+</td>
+    
+</tr>
+    
+<tr>
+    
+<td style="text-align: center; vertical-align: middle; background-color: white;"><input maxlength="15" size="16" name="Res12" /> </td>
+    
+<td style="text-align: center; vertical-align: middle; background-color: white;">
+    
+<select size="3" name="Sta12"><option selected="selected">------</option><option>Available</option><option>Assigned</option><option>OUT OF SERVICE</option></select>
+    
+</td>
+    
+<td style="text-align: center; vertical-align: middle; background-color: white;">
+    
+<div align="center"> <textarea name="Fro12" id="Fro12"  cols="50" rows="1" onchange="this.value=RWS(this.value)" onkeyup="AutoGrowTextArea(this)" placeholder="Max 125 Characters" maxlength="125"></textarea></div>
+    
+</td>
+    
+<td style="text-align: center; vertical-align: middle; background-color: white;">
+    
+<div align="center"> <textarea name="To12" id="To12" cols="50" rows="1" onchange="this.value=RWS(this.value)" onkeyup="AutoGrowTextArea(this)" placeholder="Max 125 Characters" maxlength="125"></textarea></div>
+    
+</td>
+    
+<td style="text-align: center; vertical-align: middle; background-color: white;">
+    
+<div align="center"> <input maxlength="10" size="10" name="Time12" id="Time12" placeholder="click for time" onclick="TimeNow('Time12')" /></div>
+    
+</td>
+    
+<td style="text-align: center; vertical-align: middle; background-color: white;">
+    
+<div align="center"> <input maxlength="10" size="10" name="Date12" id="Date12" placeholder="click for date" onclick="DateNow('Date12')" /></div>
+    
+</td>
+    
+</tr>
+    
+<tr>
+    
+<td style="text-align: center; vertical-align: middle; background-color: white;"><input maxlength="15" size="16" name="Res13" /> </td>
+    
+<td style="text-align: center; vertical-align: middle; background-color: white;">
+    
+<select size="3" name="Sta13"><option selected="selected">------</option><option>Available</option><option>Assigned</option><option>OUT OF SERVICE</option></select>
+    
+</td>
+    
+<td style="text-align: center; vertical-align: middle; background-color: white;">
+    
+<div align="center"> <textarea name="Fro13" id="Fro13" cols="50" rows="1" onchange="this.value=RWS(this.value)" onkeyup="AutoGrowTextArea(this)" placeholder="Max 125 Characters" maxlength="125"></textarea></div>
+    
+</td>
+    
+<td style="text-align: center; vertical-align: middle; background-color: white;">
+    
+<div align="center"> <textarea name="To13" id="To13" cols="50" rows="1" onchange="this.value=RWS(this.value)" onkeyup="AutoGrowTextArea(this)" placeholder="Max 125 Characters" maxlength="125"></textarea></div>
+    
+</td>
+    
+<td style="text-align: center; vertical-align: middle; background-color: white;">
+    
+<div align="center"> <input maxlength="10" size="10" name="Time13" id="Time13" placeholder="click for time" onclick="TimeNow('Time13')" /></div>
+    
+</td>
+    
+<td style="text-align: center; vertical-align: middle; background-color: white;">
+    
+<div align="center"> <input maxlength="10" size="10" name="Date13" id="Date13" placeholder="click for date" onclick="DateNow('Date13')" /></div>
+    
+</td>
+    
+</tr>
+    
+<tr>
+    
+<td style="text-align: center; vertical-align: middle; background-color: white;"><input maxlength="15" size="16" name="Res14" /> </td>
+    
+<td style="text-align: center; vertical-align: middle; background-color: white;">
+    
+<select size="3" name="Sta14"><option selected="selected">------</option><option>Available</option><option>Assigned</option><option>OUT OF SERVICE</option></select>
+    
+</td>
+    
+<td style="text-align: center; vertical-align: middle; background-color: white;">
+    
+<div align="center"> <textarea name="Fro14" id="Fro14" cols="50" rows="1" onchange="this.value=RWS(this.value)" onkeyup="AutoGrowTextArea(this)" placeholder="Max 125 Characters" maxlength="125"></textarea></div>
+    
+</td>
+    
+<td style="text-align: center; vertical-align: middle; background-color: white;">
+    
+<div align="center"> <textarea name="To14"id="To14"  cols="50" rows="1" onchange="this.value=RWS(this.value)" onkeyup="AutoGrowTextArea(this)" placeholder="Max 125 Characters" maxlength="125"></textarea></div>
+    
+</td>
+    
+<td style="text-align: center; vertical-align: middle; background-color: white;">
+    
+<div align="center"> <input maxlength="10" size="10" name="Time14" id="Time14" placeholder="click for time" onclick="TimeNow('Time14')" /></div>
+    
+</td>
+    
+<td style="text-align: center; vertical-align: middle; background-color: white;">
+    
+<div align="center"> <input maxlength="10" size="10" name="Date14" id="Date14" placeholder="click for date" onclick="DateNow('Date14')" /></div>
+    
+</td>
+    
+</tr>
+    
+<tr>
+    
+<td style="text-align: center; vertical-align: middle; background-color: white;"><input maxlength="15" size="16" name="Res15" /> </td>
+    
+<td style="text-align: center; vertical-align: middle; background-color: white;">
+    
+<select size="3" name="Sta15"><option selected="selected">------</option><option>Available</option><option>Assigned</option><option>OUT OF SERVICE</option></select>
+    
+</td>
+    
+<td style="text-align: center; vertical-align: middle; background-color: white;">
+    
+<div align="center"> <textarea name="Fro15" id="Fro15" cols="50" rows="1" onchange="this.value=RWS(this.value)" onkeyup="AutoGrowTextArea(this)" placeholder="Max 125 Characters" maxlength="125"></textarea></div>
+    
+</td>
+    
+<td style="text-align: center; vertical-align: middle; background-color: white;">
+    
+<div align="center"> <textarea name="To15" id="To15"  cols="50" rows="1" onchange="this.value=RWS(this.value)" onkeyup="AutoGrowTextArea(this)" placeholder="Max 125 Characters" maxlength="125"></textarea></div>
+    
+</td>
+    
+<td style="text-align: center; vertical-align: middle; background-color: white;">
+    
+<div align="center"> <input maxlength="10" size="10" name="Time15" id="Time15" placeholder="click for time" onclick="TimeNow('Time15')" /></div>
+    
+</td>
+    
+<td style="text-align: center; vertical-align: middle; background-color: white;">
+    
+<div align="center"> <input maxlength="10" size="10" name="Date15" id="Date15" placeholder="click for date" onclick="DateNow('Date15')" /></div>
+    
+</td>
+    
+</tr>
+    
+<tr>
+    
+<td style="text-align: center; vertical-align: middle; background-color: white;"><input maxlength="15" size="16" name="Res16" /> </td>
+    
+<td style="text-align: center; vertical-align: middle; background-color: white;">
+    
+<select size="3" name="Sta16"><option selected="selected">------</option><option>Available</option><option>Assigned</option><option>OUT OF SERVICE</option></select>
+    
+</td>
+    
+<td style="text-align: center; vertical-align: middle; background-color: white;">
+    
+<div align="center"> <textarea name="Fro16" id="Fro16"cols="50" rows="1" onchange="this.value=RWS(this.value)" onkeyup="AutoGrowTextArea(this)" placeholder="Max 125 Characters" maxlength="125"></textarea></div>
+    
+</td>
+    
+<td style="text-align: center; vertical-align: middle; background-color: white;">
+    
+<div align="center"> <textarea name="To16" id="To16" cols="50" rows="1" onchange="this.value=RWS(this.value)" onkeyup="AutoGrowTextArea(this)" placeholder="Max 125 Characters" maxlength="125"></textarea></div>
+    
+</td>
+    
+<td style="text-align: center; vertical-align: middle; background-color: white;">
+    
+<div align="center"> <input maxlength="10" size="10" name="Time16" id="Time16" placeholder="click for time" onclick="TimeNow('Time16')" /></div>
+    
+</td>
+    
+<td style="text-align: center; vertical-align: middle; background-color: white;">
+    
+<div align="center"> <input maxlength="10" size="10" name="Date16" id="Date16" placeholder="click for date" onclick="DateNow('Date16')" /></div>
+    
+</td>
+    
+</tr>
+    
+<tr>
+    
+<td style="text-align: center; vertical-align: middle; background-color: white;"><input maxlength="15" size="16" name="Res17" /> </td>
+    
+<td style="text-align: center; vertical-align: middle; background-color: white;">
+    
+<select size="3" name="Sta17"><option selected="selected">------</option><option>Available</option><option>Assigned</option><option>OUT OF SERVICE</option></select>
+    
+</td>
+    
+<td style="text-align: center; vertical-align: middle; background-color: white;">
+    
+<div align="center"> <textarea name="Fro17" id="Fro17" cols="50" rows="1" onchange="this.value=RWS(this.value)" onkeyup="AutoGrowTextArea(this)" placeholder="Max 125 Characters" maxlength="125"></textarea></div>
+    
+</td>
+    
+<td style="text-align: center; vertical-align: middle; background-color: white;">
+    
+<div align="center"> <textarea name="To17"  id="To17"cols="50" rows="1" onchange="this.value=RWS(this.value)" onkeyup="AutoGrowTextArea(this)" placeholder="Max 125 Characters" maxlength="125"></textarea></div>
+    
+</td>
+    
+<td style="text-align: center; vertical-align: middle; background-color: white;">
+    
+<div align="center"> <input maxlength="10" size="10" name="Time17" id="Time17" placeholder="click for time" onclick="TimeNow('Time17')" /></div>
+    
+</td>
+    
+<td style="text-align: center; vertical-align: middle; background-color: white;">
+    
+<div align="center"> <input maxlength="10" size="10" name="Date17" id="Date17" placeholder="click for date" onclick="DateNow('Date17')" /></div>
+    
+</td>
+    
+</tr>
+    
+<tr>
+    
+<td style="text-align: center; vertical-align: middle; background-color: white;"><input maxlength="15" size="16" name="Res18" /> </td>
+    
+<td style="text-align: center; vertical-align: middle; background-color: white;">
+    
+<select size="3" name="Sta18"><option selected="selected">------</option><option>Available</option><option>Assigned</option><option>OUT OF SERVICE</option></select>
+    
+</td>
+    
+<td style="text-align: center; vertical-align: middle; background-color: white;">
+    
+<div align="center"> <textarea name="Fro18" id="Fro18"  cols="50" rows="1" onchange="this.value=RWS(this.value)" onkeyup="AutoGrowTextArea(this)" placeholder="Max 125 Characters" maxlength="125"></textarea></div>
+    
+</td>
+    
+<td style="text-align: center; vertical-align: middle; background-color: white;">
+    
+<div align="center"> <textarea name="To18" id="To18" cols="50" rows="1" onchange="this.value=RWS(this.value)" onkeyup="AutoGrowTextArea(this)" placeholder="Max 125 Characters" maxlength="125"></textarea></div>
+    
+</td>
+    
+<td style="text-align: center; vertical-align: middle; background-color: white;">
+    
+<div align="center"> <input maxlength="10" size="10" name="Time18" id="Time18" placeholder="click for time" onclick="TimeNow('Time18')" /></div>
+    
+</td>
+    
+<td style="text-align: center; vertical-align: middle; background-color: white;">
+    
+<div align="center"> <input maxlength="10" size="10" name="Date18" id="Date18" placeholder="click for date" onclick="DateNow('Date18')" /></div>
+    
+</td>
+    
+</tr>
+    
+<tr>
+    
+<td style="text-align: center; vertical-align: middle; background-color: white;"><input maxlength="15" size="16" name="Res19" /> </td>
+    
+<td style="text-align: center; vertical-align: middle; background-color: white;">
+    
+<select size="3" name="Sta19"><option selected="selected">------</option><option>Available</option><option>Assigned</option><option>OUT OF SERVICE</option></select>
+    
+</td>
+    
+<td style="text-align: center; vertical-align: middle; background-color: white;">
+    
+<div align="center"> <textarea name="Fro19" id="Fro19" cols="50" rows="1" onchange="this.value=RWS(this.value)" onkeyup="AutoGrowTextArea(this)" placeholder="Max 125 Characters" maxlength="125"></textarea></div>
+    
+</td>
+    
+<td style="text-align: center; vertical-align: middle; background-color: white;">
+    
+<div align="center"> <textarea name="To19" id="To19" cols="50" rows="1" onchange="this.value=RWS(this.value)" onkeyup="AutoGrowTextArea(this)" placeholder="Max 125 Characters" maxlength="125"></textarea></div>
+    
+</td>
+    
+<td style="text-align: center; vertical-align: middle; background-color: white;">
+    
+<div align="center"> 
+  <input maxlength="10" size="10" name="Time19" id="Time19" placeholder="click for time" onclick="TimeNow('Time19')" />
+</div>
+    
+</td>
+    
+<td style="text-align: center; vertical-align: middle; background-color: white;">
+    
+<div align="center"> <input maxlength="10" size="10" name="Date19" id="Date19" placeholder="click for date" onclick="DateNow('Date19')" /></div>
+    
+</td>
+    
+</tr>
+    
+<tr>
+    
+<td style="text-align: center; vertical-align: middle; background-color: white;"><input maxlength="15" size="16" name="Res20" /> </td>
+    
+<td style="text-align: center; vertical-align: middle; background-color: white;">
+    
+<select size="3" name="Sta20"><option selected="selected">------</option><option>Available</option><option>Assigned</option><option>OUT OF SERVICE</option></select>
+    
+</td>
+    
+<td style="text-align: center; vertical-align: middle; background-color: white;">
+    
+<div align="center"> <textarea name="Fro20" id="Fro20"cols="50" rows="1" onchange="this.value=RWS(this.value)" onkeyup="AutoGrowTextArea(this)" placeholder="Max 125 Characters" maxlength="125"></textarea></div>
+    
+</td>
+    
+<td style="text-align: center; vertical-align: middle; background-color: white;">
+    
+<div align="center"> <textarea name="To20" id="To20" cols="50" rows="1" onchange="this.value=RWS(this.value)" onkeyup="AutoGrowTextArea(this)" placeholder="Max 125 Characters" maxlength="125"></textarea></div>
+    
+</td>
+    
+<td style="text-align: center; vertical-align: middle; background-color: white;">
+    
+<div align="center"> <input maxlength="10" size="10" name="Time20" id="Time20" placeholder="click for time" onclick="TimeNow('Time20')" /></div>
+    
+</td>
+    
+<td style="text-align: center; vertical-align: middle; background-color: white;">
+    
+<div align="center"> <input maxlength="10" size="10" name="Date20" id="Date20" placeholder="click for date" onclick="DateNow('Date20')" /></div>
+    
+</td>
+    
+</tr>
+    
+</tbody>
+    
+</table>
+    
+</td>
+    
+</tr>
+    
+<tr>
+    
+<td style="vertical-align: top; text-align: center;" colspan="3"><div align="left"><span style="font-weight: bold;"><br />
+      
+      <span style="font-weight: bold;">&nbsp;</span>8. Comments</span><br />
+      
+<textarea title="Enter any special information provided by the resource or dispatch center." cols="120" rows="1" name="Comments" id="Comments"onchange="this.value=RWS(this.value)" onkeyup="AutoGrowTextArea(this)" placeholder="Be brief and accurate."></textarea>
+    </div></td>
+    
+</tr>
+    
+<tr>
+    
+<td colspan="3" style="vertical-align: top; height: 35px; text-align: justify;"><span style="font-weight: bold;"> 9. Prepared By </span>&nbsp;
+  <input title="Name + Title/Position. Name here is signature for radio delivery." required="required" maxlength="45" size="50" id="PreparedName" name="PreparedName" />
+&nbsp;&nbsp;<span style="font-weight: bold;">Date/Time </span>
+<input title="Enter date (m/d/y) &amp; time prepared (24-hour clock)." required="required" maxlength="21" size="22" id="Date_Time" name="TimeDate" placeholder="Click for Date/Time" onclick="Datetime('Date_Time')" />
+&nbsp;
+<input name="testCall" type="hidden" id="testCall" value="{MsgSender}" size="14" maxlength="13" />
+<b><span style="font-weight: normal;"><big>
+<input name="Templateversion" type="hidden"
+
+                                    id="Templateversion" value="ICS210- v 8.3" />
+</big></span></b> <big><big><span style="font-weight: bold;"> </span></big></big><big><small>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Ver 8.3.1 </small></big><br />
+<br />
+    
+&nbsp;<small><span style="font-size: 12px;"><small><span class="formtext"><span style="font-family: Calibri;"><big>
+    <input type="button" value="Save ICS 210 Form  Data" onclick="SaveData()" />
+</big>&nbsp;</span></span></small> </span></small>&nbsp;
+    <input class="SubmitBtn" enctype="multipart/form-data" id="Submit" method="post" name="Submit" size="6"  value="Submit" type="submit" />&nbsp;<span style="font-weight: bold;"> </span><input class="BtnFormat2" value="Reset Form " name="ResetForm"  type="reset" />&nbsp;&nbsp;&nbsp;<span style="font-weight: bold;"> &nbsp; </span></td>
+</tr>
+    
+</tbody>
+    
+</table>
+  </div></td>
+
+</tr>
+
+</tbody>
+
+<!-- popup starts here -->
+
+</table>
+
+</form>
+
+</body></html>

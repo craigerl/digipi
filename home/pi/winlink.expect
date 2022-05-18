@@ -1,0 +1,17 @@
+#!/usr/bin/expect
+# Test expect script to telnet.
+
+set username [lindex $argv 0];
+
+spawn telnet server.winlink.org 8772
+send ""
+send "set crmod on\r"
+#stty -echo
+expect "Callsign :" { send "$username\r" }
+expect "Password :" { send "cmstelnet\r" }
+#stty echo
+
+send "login\r"
+
+interact 
+

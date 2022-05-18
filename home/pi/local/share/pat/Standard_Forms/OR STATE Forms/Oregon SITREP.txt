@@ -1,0 +1,61 @@
+Form: Oregon_SITREP_Initial.html,Oregon_SITREP_Viewer.html
+
+To: <MsgTo>
+Cc: <MsgCc>
+
+Subject: OR SitRep - <var EveName> - [<var SeqNum>]
+	
+Msg:
+Status: <var Status>
+
+1. To: <var To>
+2. SITREP: <var SITREP> 
+
+3. Categories:
+
+<var Cat>
+------------------------------------
+
+4. Event Name: <var EveName>
+          
+5. <var Seq> Report If Sequential Number Report, it is: [<var SeqNum>]
+
+6. Situation Summary:
+
+<var Summary>
+------------------------------------
+
+7. Past 24 Hour Summary:
+
+<var Summary2>
+------------------------------------
+
+8. Next 24 Hour Summary:
+
+<var Summary3>
+------------------------------------
+
+9. Efforts by Other Agencies/Organizations:
+
+<var Summary4>
+------------------------------------
+
+10. Date/Time Approved: <var AuthTime>
+11. Authorizing Officials Name:
+<var Auth>
+12. Authorizing Officials Position:
+<var AuthPos>
+------------------------------------
+
+Report Filled in Date/Time: <var DateTime>
+
+------------------------
+Express Sending Station: <MsgSender>
+Senders Express Version: <ProgramVersion>
+Senders Template Version: <var Templateversion>
+
+
+
+
+
+

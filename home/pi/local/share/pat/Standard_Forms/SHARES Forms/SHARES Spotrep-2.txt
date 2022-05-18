@@ -1,0 +1,52 @@
+Form:Shares_Spotrep-2_Initial.html,Shares_Spotrep-2_Viewer.html
+To: <MsgTo>
+Cc: <MsgCc>
+Readonly:True
+Subject://WL2K <var Precedence>/ SPOTREP <var UDTGfld>
+
+Readonly:True
+Msg:
+
+PRECEDENCE: <var Precedence>   
+DATE/TIME Group: <var UDTGfld>   
+TASK# <var MsgNR>
+FROM: <var MsgSender>
+TO: <var MsgTo>
+INFO (CC): <var MsgCc>
+BT
+UNCLASS
+
+SUBJ SPOTREP <var UDTGfld> 
+
+1. City/State/Territory:  <var City>
+2. Latitude :<var gpsLat>  Longitude:<var gpsLon>   MGRS:<var MGRS> 
+3. LandLines functioning?   [ <var Land> ] <var Comm1>
+4. Cell Phones functioning?  [ <var Cell> ] <var Comm2>
+5. AM/FM Broadcast Stations functioning?  [ <var AMFM> ] <var Comm3>
+6. TV Stations functioning?  [ <var TVStatus> ] <var Comm4>
+7. Public Water Works functioning?  [ <var WaterWorks> ] <var Comm5>
+8. Commercial Power functioning? [ <var PowerWorks> ] <var Comm6>
+9. Internet functioning?  [ <var Inter> ]  <var Comm7>
+10. Additional Comments:  <var Message>
+11. Poc <var POC>
+
+BT
+NNNN
+
+[No changes or editing of this message are allowed]
+(If not using Winlink Express, you may ignore the .xml file attached)
+
+
+--- json data --
+
+<var myjasondata>
+
+--- end of json data --
+------------------------------------
+Express Sending Station: <MsgSender>
+Express Version: <ProgramVersion>
+Template Version: <var Templateversion>
+
+
+
+

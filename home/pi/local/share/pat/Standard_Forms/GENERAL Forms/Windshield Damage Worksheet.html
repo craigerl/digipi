@@ -1,0 +1,384 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+    <meta http-equiv="content-type" content="application/xhtml+xml; charset=utf-8" />
+    
+    <title>DaAmage Assessment</title>
+	<style type="text/css">
+	@media print {
+
+#printPageButton {
+    display: none;
+  }
+  .form-control, .form-control.nobug {
+border: 0;
+outline: 0;
+box-shadow: none;
+font-size:12px;
+}
+.form-control.nobug {
+transition: none; /*-- THIS IS IMPORTANT -- */
+}
+ input {
+         outline: none !important;
+		box-shadow: none;
+		border: none;
+		}
+}
+
+body, td, th {
+font-family: Arial,Helvetica,sans-serif;
+font-size: 12px;
+font-weight: inherit;
+}
+.zentriert {
+font-size: 12px;
+font-family: Arial,Helvetica,sans-serif;
+font-weight: inherit;
+}
+input, select {
+padding: 1px;
+-moz-border-radius-topleft: 2px;
+-moz-border-radius-topright: 2px;
+-moz-border-radius-bottomright: 2px;
+-moz-border-radius-bottomleft: 2px;
+font-family: Arial,Helvetica,sans-serif;
+font-size: 12px;
+font-weight: inherit;
+}
+textarea {
+padding: 1px;
+-moz-border-radius-topleft: 2px;
+-moz-border-radius-topright: 2px;
+-moz-border-radius-bottomright: 2px;
+-moz-border-radius-bottomleft: 2px;
+font-family: Arial,Helvetica,sans-serif;
+font-size: 12px;
+font-weight: inherit;
+}
+.rechtsbuendig {
+font-size: 12px;
+font-family: Arial,Helvetica,sans-serif;
+font-weight: inherit;
+}
+.SubmitBtn {
+font-size: 12px;
+font-family: Arial,Helvetica,sans-serif;
+font-weight: inherit;
+}
+.version {
+color: #666666;
+position: relative;
+left: 0px;
+top: 3px;
+font-size: 12px;
+font-family: Arial,Helvetica,sans-serif;
+font-weight: inherit;
+}
+.style3 {font-family: Arial, Helvetica, sans-serif}
+    .style6 {font-size: 16px}
+    .style7 {font-size: 18px}
+    </style></head>
+<body>
+    <span style="font-family:  Arial, Helvetica, sans-serif;"> </span>
+    <form action="http://{FormServer}:{FormPort}" enctype="multipart/form-data" id="Initial Damage" method="post" pbzloc="1">
+      <table style="width: 840px; height: 743px;" align="center" border="0">
+        <tbody>
+          <tr>
+            <td><span style="font-family:  Arial, Helvetica, sans-serif;">&nbsp;</span>
+              <table style="font-size: 14px; width: 834px; height: 785px;" border="1" bordercolor="#999999" cellpadding="4" cellspacing="0">
+                <tbody>
+                  <tr>
+                    <td bgcolor="#FFFFFF" style="height: 5%; text-align: center; vertical-align: middle; ;"><p style="font-family: Arial, Helvetica, sans-serif;">&nbsp;&nbsp;&nbsp;<span class="style7">&nbsp;&nbsp;
+                                  Damage Assessment / Windshield Survey Work Sheet</span></p>
+                      <p style="font-family: Arial, Helvetica, sans-serif;"><span class="style6">Print as many copies as needed.  <em>Used to gather field info to bring back to radio operator to compile and send. </em></span></p></td>
+                  </tr>
+                  <tr>
+                    <td height="49" style="text-align: center; vertical-align: top;"><div align="left" class="style3"><span style="font-style: italic;">&nbsp;<br />
+                      </span><big><small><b>&nbsp;</b></small>Jurisdiction 
+                      ________________________________&nbsp; Date Of Survey ___________________ </big>
+                      <div align="left" class="style3"></div>
+                      </div></td>
+                  </tr>
+                  <tr>
+                    <td valign="top" bgcolor="#FFFFFF" style="text-align: center; vertical-align: top; "><div align="left" class="style3"><big><br />
+                        Survey Area &nbsp;
+                        <big>________________________________</big> Survey Team &nbsp;
+                        <big>______________________________</big>
+                    </big></div></td>
+                  </tr>
+                  <tr>
+                    <td height="415" colspan="4" style="text-align: center; vertical-align: top;">
+                      <table style="text-align: left; " border="1" cellpadding="2" cellspacing="0">
+                        <tbody>
+                          <tr>
+                            <td width="401" class="style3" style="text-align: center; vertical-align: top; background-color: white;"><span style="font-style: italic;"><br />
+                              </span></td>
+                            <td width="54" bgcolor="#FFFFFF" style="text-align: center; vertical-align: top;">Affected<br />
+                            10 %</td>
+                            <td width="49" style="text-align: center; vertical-align: top; ">Minor<br />
+                              25 %</td>
+                            <td width="54" style="text-align: center; vertical-align: top; ">Major<br />
+                              50 %</td>
+                            <td width="56" style="text-align: center; vertical-align: top; background-color: white; font-weight: bold;">Totaled<br />
+                              <span style="font-weight: normal;">100 %</span></td>
+                            <td width="58" style="text-align: center; vertical-align: top; font-style: italic;">Total <br />
+Number</td>
+                            <td width="74" style="text-align: center; vertical-align: top; font-style: italic;">$
+                              Loss&nbsp;</td>
+                          </tr>
+                          <tr>
+                            <td style="vertical-align: top; background-color: rgb(204, 204, 204); text-align: justify;"><span style="font-weight: bold;">CATEGORY &nbsp; </span>&nbsp;
+                              &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                              &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                              &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;
+                              &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;
+                              &nbsp;&nbsp;</td>
+                            <td style="text-align: center; vertical-align: top; background-color: rgb(204, 204, 204);">#</td>
+                            <td style="background-color: rgb(204, 204, 204); text-align: center; vertical-align: top;">#</td>
+                            <td style="background-color: rgb(204, 204, 204); text-align: center; vertical-align: top;">#</td>
+                            <td style="background-color: rgb(204, 204, 204); text-align: center; vertical-align: top;">#</td>
+                            <td style="background-color: rgb(204, 204, 204); text-align: center; vertical-align: top;">Count</td>
+                            <td style="background-color: rgb(204, 204, 204); text-align: center; vertical-align: top;">$
+                              Estimate</td>
+                          </tr>
+                          <tr valign="top">
+                            <td>HOUSES</td>
+                            <td>
+                              <div align="center">                              </div></td>
+                            <td><div align="center">
+</div></td>
+                            <td><div align="center">
+                            </div></td>
+                            <td><div align="center">
+                            </div></td>
+                            <td><div align="center">
+                            </div></td>
+                            <td style="text-align: center; vertical-align: top;">&nbsp;</td>
+                          </tr>
+                          <tr valign="top">
+                            <td>APARTMENT COMPLEX</td>
+                            <td><div align="center">
+                            </div></td>
+                            <td><div align="center">
+                            </div></td>
+                            <td><div align="center">
+                            </div></td>
+                            <td><div align="center">
+                            </div></td>
+                            <td><div align="center">
+                            </div></td>
+                            <td style="text-align: center; vertical-align: top;">&nbsp;</td>
+                          </tr>
+                          <tr valign="top">
+                            <td>MOBILE HOMES</td>
+                            <td><div align="center">
+                            </div></td>
+                            <td><div align="center">
+                            </div></td>
+                            <td><div align="center">
+                            </div></td>
+                            <td><div align="center">
+                            </div></td>
+                            <td><div align="center">
+                            </div></td>
+                            <td style="text-align: center; vertical-align: top;">&nbsp;</td>
+                          </tr>
+                          <tr valign="top">
+                            <td>RESIDENTIAL HIGH RISE BUILDING&nbsp;</td>
+                            <td><div align="center">
+                            </div></td>
+                            <td><div align="center">
+                            </div></td>
+                            <td><div align="center">
+                            </div></td>
+                            <td><div align="center">
+                            </div></td>
+                            <td><div align="center">
+                            </div></td>
+                            <td style="text-align: center; vertical-align: top;">&nbsp;</td>
+                          </tr>
+                          <tr valign="top">
+                            <td>COMMERCIAL HIGH RISE BUILDING</td>
+                            <td><div align="center">
+                            </div></td>
+                            <td><div align="center">
+                            </div></td>
+                            <td><div align="center">
+                            </div></td>
+                            <td><div align="center">
+                            </div></td>
+                            <td><div align="center">
+                            </div></td>
+                            <td style="text-align: center; vertical-align: top;">&nbsp;</td>
+                          </tr>
+                          <tr valign="top">
+                            <td>PUBLIC BUILDINGS</td>
+                            <td><div align="center">
+                            </div></td>
+                            <td><div align="center">
+                            </div></td>
+                            <td><div align="center">
+                            </div></td>
+                            <td><div align="center">
+                            </div></td>
+                            <td><div align="center">
+                            </div></td>
+                            <td style="text-align: center; vertical-align: top;">&nbsp;</td>
+                          </tr>
+                          <tr valign="top">
+                            <td>SMALL BUSINESS</td>
+                            <td><div align="center">
+                            </div></td>
+                            <td><div align="center">
+                            </div></td>
+                            <td><div align="center">
+                            </div></td>
+                            <td><div align="center">
+                            </div></td>
+                            <td><div align="center">
+                            </div></td>
+                            <td style="text-align: center; vertical-align: top;">&nbsp;</td>
+                          </tr>
+                          <tr valign="top">
+                            <td>FACTORIES / INDUSTRIAL COMPLEX</td>
+                            <td><div align="center">
+                            </div></td>
+                            <td><div align="center">
+                            </div></td>
+                            <td><div align="center">
+                            </div></td>
+                            <td><div align="center">
+                            </div></td>
+                            <td><div align="center">
+                            </div></td>
+                            <td style="text-align: center; vertical-align: top;">&nbsp;</td>
+                          </tr>
+                          <tr valign="top">
+                            <td>ROADS</td>
+                            <td><div align="center">
+                            </div></td>
+                            <td><div align="center">
+                            </div></td>
+                            <td><div align="center">
+                            </div></td>
+                            <td><div align="center">
+                            </div></td>
+                            <td><div align="center">
+                            </div></td>
+                            <td style="text-align: center; vertical-align: top;">&nbsp;</td>
+                          </tr>
+                          <tr valign="top">
+                            <td>BRIDGES</td>
+                            <td><div align="center">
+                            </div></td>
+                            <td><div align="center">
+                            </div></td>
+                            <td><div align="center">
+                            </div></td>
+                            <td><div align="center">
+                            </div></td>
+                            <td><div align="center">
+                            </div></td>
+                            <td style="text-align: center; vertical-align: top;">&nbsp;</td>
+                          </tr>
+                          <tr valign="top">
+                            <td>ELECTRICAL DISTRIBUTION</td>
+                            <td><div align="center">
+                            </div></td>
+                            <td><div align="center">
+                            </div></td>
+                            <td><div align="center">
+                            </div></td>
+                            <td><div align="center">
+                            </div></td>
+                            <td><div align="center">
+                            </div></td>
+                            <td style="text-align: center; vertical-align: top;">&nbsp;</td>
+                          </tr>
+                          <tr valign="top">
+                            <td style="text-align: left; vertical-align: middle;">SCHOOLS</td>
+                            <td><div align="center">
+                            </div></td>
+                            <td><div align="center">
+                            </div></td>
+                            <td><div align="center">
+                            </div></td>
+                            <td><div align="center">
+                            </div></td>
+                            <td><div align="center">
+                            </div></td>
+                            <td style="text-align: center; vertical-align: top;">&nbsp;</td>
+                          </tr>
+                          <tr valign="top">
+                            <td style="text-align: center; vertical-align: top;"><div align="left">
+                            </div></td>
+                            <td><div align="center">
+                            </div></td>
+                            <td><div align="center">
+                            </div></td>
+                            <td><div align="center">
+                            </div></td>
+                            <td><div align="center">
+                            </div></td>
+                            <td><div align="center">
+                            </div></td>
+                            <td style="text-align: center; vertical-align: top;">&nbsp;</td>
+                          </tr>
+                          <tr valign="top">
+                            <td style="text-align: center; vertical-align: top;"><div align="left">
+                            </div></td>
+                            <td><div align="center">
+                            </div></td>
+                            <td><div align="center">
+                            </div></td>
+                            <td><div align="center">
+                            </div></td>
+                            <td><div align="center">
+                            </div></td>
+                            <td><div align="center">
+                            </div></td>
+                            <td style="text-align: center; vertical-align: top;">&nbsp;</td>
+                          </tr>
+                          <tr valign="top">
+                            <td style="text-align: center; vertical-align: top;"><div align="left">
+                            </div></td>
+                            <td><div align="center">
+                            </div></td>
+                            <td><div align="center">
+                            </div></td>
+                            <td style="height: 18.9333px;"><div align="center">
+                            </div></td>
+                            <td><div align="center">
+                            </div></td>
+                            <td><div align="center">
+                            </div></td>
+                            <td style="text-align: center; vertical-align: top;">&nbsp;</td>
+                          </tr>
+                          <tr>
+                            <td height="27" colspan="6" style="text-align: center; vertical-align: top;"><div align="left">
+                            </div>                              <div align="right">Total Dollar Amount: 
+                            </div></td>
+                            <td style="text-align: center; vertical-align: top;">&nbsp;</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="4" style="vertical-align: top; text-align: justify;"><p style="font-family: Arial, Helvetica, sans-serif; color: black;"><big style="font-weight: bold;">COMMENTS</big>&nbsp;(if any
+                          by the survey team)</p>
+                      <p style="font-family: Arial, Helvetica, sans-serif; color: black;">&nbsp;</p>
+                      <p style="font-family: Arial, Helvetica, sans-serif; color: black;">&nbsp;</p>
+                      <p style="font-family: Arial, Helvetica, sans-serif; color: black;">&nbsp;</p>
+                      <p style="font-family: Arial, Helvetica, sans-serif; color: black;"><br />
+                      </p></td>
+                  </tr>
+</tbody>
+</table>
+<span style="font-family:  Arial, Helvetica, sans-serif;"><br />
+<small>&nbsp;</small></span></td>
+</tr>
+</tbody>
+</table>
+</form>
+</body></html>

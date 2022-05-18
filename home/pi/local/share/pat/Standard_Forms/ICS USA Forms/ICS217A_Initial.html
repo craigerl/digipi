@@ -1,0 +1,1362 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta content="application/xhtml+xml; charset=utf-8" http-equiv="content-type" /><title>ICS217A COMMUNICATIONS RESOURCE AVAILABILITYWORKSHEET/title&gt;</title>
+
+<style type="text/css">
+
+body, td, th {
+
+font-family: Arial,Helvetica,sans-serif;
+
+font-size: 12px;
+
+font-weight: inherit;
+
+}
+
+.zentriert {
+
+font-size: 12px;
+
+}
+
+input, select {
+
+padding: 2px;
+
+-moz-border-radius-topleft: 2px;
+
+-moz-border-radius-topright: 2px;
+
+-moz-border-radius-bottomright: 2px;
+
+-moz-border-radius-bottomleft: 2px;
+
+font-family: Arial,Helvetica,sans-serif;
+
+font-size: 12px;
+
+}
+
+textarea {
+
+padding: 2px;
+
+-moz-border-radius-topleft: 2px;
+
+-moz-border-radius-topright: 2px;
+
+-moz-border-radius-bottomright: 2px;
+
+-moz-border-radius-bottomleft: 2px;
+
+font-family: Arial,Helvetica,sans-serif;
+
+font-size: 12px;
+
+}
+.rechtsbuendig {
+
+font-size: 12px;
+
+}
+
+.SubmitBtn {
+
+font-size: 12px;
+
+}
+
+.version {
+
+color: #666666;
+
+position: relative;
+
+left: 2px;
+
+top: 2px;
+
+font-size: 12px;
+
+}
+
+</style>
+
+<style>
+/*
+
+body {color:#000; background:#fff; font:100%/1.5 arial,sans-serif;}
+
+h2 {margin-top:0}
+
+*/
+
+/* Styling applied to classes only */
+
+/* Pop-up content shifted off-screen when not in view.
+
+Still readable by screen-reader software.
+
+When targeted it fills the browser window.
+
+*/
+
+.pop-up {
+	position:absolute;
+	top:0;
+	left:-500em;
+	visibility: visible;
+}
+
+.pop-up:target {position:static; left:0;}
+
+/* The pop-up itself */
+
+.popBox {
+	background:#ffffff;
+	position:absolute;
+	left:18%;
+	right:20%;
+	top:20%;
+	bottom:25%;
+	z-index:10;
+	border:1px solid #3a3a3a;
+
+/* CSS3 where available: rounded corners, drop-shadow, and fade in. */
+
+border-radius:.25rem;
+
+box-shadow:0 .5rem .5rem rgba(0,0,0,.5);
+	opacity:0;
+	transition: opacity 0.8s ease-out;
+	visibility: visible;
+}
+
+:target .popBox {position:fixed; opacity:1;}
+
+/* Light box properties */
+
+.lightbox {
+
+display:none;
+
+text-indent:-200em;
+
+background-color:rgba(0,0,0,.4);
+
+width:100%;
+
+height:100%;
+
+position:fixed;
+
+top:0;
+
+left:0;
+
+bottom:0;
+
+right:0;
+
+z-index:5;
+
+}
+
+:target .lightbox {display:block;}
+
+/* The pop-ups close link, moved via CSS to the top right of the pop-up */
+
+.close:link,
+
+.close:visited {
+	position: absolute;
+	top: -0.75em;
+	right: -0.75em;
+	display: block;
+	width: 2em;
+	height: 2em;
+	line-height: 1.8;
+	padding: 0;
+	text-align: center;
+	text-decoration: none;
+	background-color: #000;
+	border: 2px solid #fff;
+	color: #fff;
+	border-radius: 50%;
+
+box-shadow: 0 0 .5rem .5rem rba(0,0,0,.5);
+	visibility: visible;
+}
+
+.close:before {content:"X";}
+
+.close:hover,
+
+.close:active,
+
+.close:focus {
+
+box-shadow: 0 0 .5rem .5rem rba(255,0,0,.5);
+
+background-color: #c00;
+
+color: #fff;
+
+}
+
+.close span {
+
+text-indent: -200em;
+
+display: block;
+
+}
+
+/* The pop-up content div will scroll if it has too much content */
+
+.popScroll {
+	position:absolute;
+	top: 1rem;
+	left: 1rem;
+	right: 1rem;
+	bottom: 1rem;
+	overflow-y: auto;
+
+*overflow-y: scroll;
+	padding-right: 0.5em;
+	visibility: visible;
+}
+
+.popScroll h2 {margin-top:0}
+
+</style>
+
+<style type="text/css">
+.formtext {font-family: Arial, Helvetica, sans-serif;
+font-size: 11pt;
+font-weight: normal;
+}
+.style1 {font-size: 10px}
+.style4 {font-family: Arial, Helvetica, sans-serif; font-size: 12px;}
+textarea#styled {
+	width: 600px;
+		border:1px dashed red
+	padding: 5px;
+	
+}
+
+  input[type=button] {
+
+  border: 2px solid #0f88f2;;
+   border-radius:.25rem;
+  color: black;
+  padding: 2px 2px;
+  text-decoration: none;
+  margin: 2px 2px;
+  cursor: pointer;
+}
+input[type=submit] {
+ border: 2px solid green;
+  border-radius:.25rem;
+  background-color: white;
+  color: black;
+  padding: 2px 2px;
+  font-size: 14px;
+   cursor: pointer;
+}
+input[type=reset] {
+ border: 2px solid red;
+ border-radius:.25rem;
+  background-color: white;
+  color: black;
+  padding: 2px 2px;
+  font-size: 14px;
+   cursor: pointer;
+}
+input[type=black1] {
+ border: 2px solid #999999;
+   width:225px;
+  border-radius:.25rem;
+
+  background-color: white;
+  color: black;
+  padding: 2px 2px;
+  font-size: 14px;
+   cursor: pointer;
+}
+
+.close1 {content:"X";}
+.pop-up1 {	position:absolute;
+	top:0;
+	left:-500em;
+	visibility: visible;
+}
+.popBox1 {	background:#ffffff;
+	position:absolute;
+	left:25%;
+	right:25%;
+	top:20%;
+	bottom:20%;
+	z-index:10;
+	border:1px solid #3a3a3a;
+
+/* CSS3 where available: rounded corners, drop-shadow, and fade in. */
+
+border-radius:.25rem;
+
+box-shadow:0 .5rem .5rem rgba(0,0,0,.5);
+	opacity:0;
+	transition: opacity 0.8s ease-out;
+	visibility: visible;
+}
+.popScroll1 {	position:absolute;
+	top: 1rem;
+	left: 1rem;
+	right: 1rem;
+	bottom: 1rem;
+	overflow-y: auto;
+
+*overflow-y: scroll;
+	padding-right: 0.5em;
+	visibility: visible;
+}
+.style17 {color: #FF0000}
+.style16 {font-size: 10}
+.style20 {font-family: Arial, Helvetica, sans-serif; font-size: 11px; }
+</style>
+
+<script type="text/javascript">
+function AutoGrowTextArea(textField)
+
+{
+
+if (textField.clientHeight < textField.scrollHeight)
+
+{
+
+textField.style.height = textField.scrollHeight + "px";
+
+if (textField.clientHeight < textField.scrollHeight)
+
+{
+
+textField.style.height = (textField.scrollHeight * 2 - textField.clientHeight) + "px";
+
+}
+
+}
+
+}
+function TimeNow(Timefld, FocusFld) {
+
+var txt;
+
+var d = new Date(),
+
+thisyear = d.getFullYear();
+
+thismonth= d.getMonth();
+
+thismonth = thismonth+1;
+if (thismonth < 10) { thismonth = "0" + thismonth}
+
+thisday = d.getDate();
+if (thisday < 10) { thisday = "0" + thisday}
+
+h = (d.getHours()<10?'0':'') + d.getHours()
+
+m = (d.getMinutes()<10?'0':'') + d.getMinutes()
+
+s = (d.getSeconds()<10?'0':'') + d.getSeconds();
+
+var myprompt = thisyear+ '-'+thismonth+'-'+thisday+' '+h + ':' + m ;
+
+var RightNow = prompt("Date / Time:", myprompt);
+
+document.getElementById(Timefld).value = RightNow;
+
+//document.getElementById(FocusFld).focus();
+
+} </script>
+
+<script>
+
+function doLoad() {
+
+// alert( "The load event is executing" );
+
+}
+
+if ( window.addEventListener ) { window.addEventListener( "load", doLoad, false );
+
+}
+
+else if ( window.attachEvent ) { window.attachEvent( "onload", doLoad );
+
+} else if ( window.onLoad ) {
+
+window.onload = doLoad;
+
+}
+
+
+
+function Countthelines(f) { var text1 = f
+
+var text2 = text1.replace(/\s+$/,"");
+
+var split2 = text2.split("\n"); var mytotal = split2.length * 17;
+
+if (mytotal < 150) {
+
+mytotal = 150;
+
+}
+
+var tstr = mytotal.toString();
+
+return tstr;
+
+}
+
+function newfix(f){
+
+var ThisText = document.getElementById(f).value;
+
+var makeit = Countthelines(ThisText);
+
+document.getElementById(f).style.height = makeit+"px"; }
+
+function Fixfields() {
+
+
+ // AutoGrowTextArea(document.getElementById("Subs1"));
+ // AutoGrowTextArea(document.getElementById("FinComm"));
+}
+function Fixarea() {
+
+newfix("Procedures");
+
+// newfix("reply");
+
+//AutoGrowTextArea(document.getElementById("Comments"));
+
+
+}
+
+function RWS(str){
+
+var text2 = str.replace(/\s+$/,"");
+
+return text2.trim();
+
+}
+
+</script>
+
+<script type="text/javascript">
+
+function Datetime(Timefld, FocusFld) {
+
+var txt;
+
+var d = new Date(),
+
+thisyear = d.getFullYear();
+
+thismonth= d.getMonth();
+
+thismonth = thismonth+1;
+
+thisday = d.getDate();
+
+h = (d.getHours()<10?'0':'') + d.getHours()
+
+m = (d.getMinutes()<10?'0':'') + d.getMinutes()
+
+s = (d.getSeconds()<10?'0':'') + d.getSeconds();
+
+var myprompt = thisyear+ '-'+thismonth+'-'+thisday+' '+h + ':' + m ;
+
+var RightNow = prompt("", myprompt);
+
+document.getElementById(Timefld).value = RightNow;
+
+document.getElementById(FocusFld).focus();
+
+} 
+
+
+// Test auto collect
+// Add parseme
+//    <textarea name="parseme" cols="60" id="parseme" style="display: none;"></textarea>
+
+function ExporttoExcel(fileNameToSaveAs, textToWrite) {
+var textToWrite = document.getElementById('parseme').value; 
+var excelheader = "Channel Configuration	Channel Name/Trunked Radio System Talkgroup	Eligible Users	RX Freq N/W	 RX Tone/NAC	TX Freq  N/W	TX Tone/NAC	Mode A, D or M 	Remarks";
+var textToWrite = excelheader + "\r" + textToWrite;
+var fileNameToSaveAs = "ICS217A " + DateforFile()+".xls";
+fileNameToSaveAs = prompt("", fileNameToSaveAs);
+
+  /* Saves a text string as a blob file*/  
+  var ie = navigator.userAgent.match(/MSIE\s([\d.]+)/),
+      ie11 = navigator.userAgent.match(/Trident\/7.0/) && navigator.userAgent.match(/rv:11/),
+      ieEDGE = navigator.userAgent.match(/Edge/g),
+      ieVer=(ie ? ie[1] : (ie11 ? 11 : (ieEDGE ? 12 : -1)));
+
+  if (ie && ieVer<10) {
+    console.log("No blobs on IE ver<10");
+    return;
+  }
+
+  var textFileAsBlob = new Blob([textToWrite], {
+    type: 'text/plain'
+  });
+
+  if (ieVer>-1) {
+    window.navigator.msSaveBlob(textFileAsBlob, fileNameToSaveAs);
+
+  } else {
+    var downloadLink = document.createElement("a");
+    downloadLink.download = fileNameToSaveAs;
+    downloadLink.href = window.URL.createObjectURL(textFileAsBlob);
+    downloadLink.onclick = function(e) { document.body.removeChild(e.target); };
+    downloadLink.style.display = "none";
+    document.body.appendChild(downloadLink);
+    downloadLink.click();
+  }
+}
+
+// end export
+function saveTextAsFile(fileNameToSaveAs, textToWrite) {
+var textToWrite = document.getElementById('parseme').value; 
+var fileNameToSaveAs = "ICS217A " + DateforFile()+".txt";
+fileNameToSaveAs = prompt("", fileNameToSaveAs);
+
+  /* Saves a text string as a blob file*/  
+  var ie = navigator.userAgent.match(/MSIE\s([\d.]+)/),
+      ie11 = navigator.userAgent.match(/Trident\/7.0/) && navigator.userAgent.match(/rv:11/),
+      ieEDGE = navigator.userAgent.match(/Edge/g),
+      ieVer=(ie ? ie[1] : (ie11 ? 11 : (ieEDGE ? 12 : -1)));
+
+  if (ie && ieVer<10) {
+    console.log("No blobs on IE ver<10");
+    return;
+  }
+
+  var textFileAsBlob = new Blob([textToWrite], {
+    type: 'text/plain'
+  });
+
+  if (ieVer>-1) {
+    window.navigator.msSaveBlob(textFileAsBlob, fileNameToSaveAs);
+
+  } else {
+    var downloadLink = document.createElement("a");
+    downloadLink.download = fileNameToSaveAs;
+    downloadLink.href = window.URL.createObjectURL(textFileAsBlob);
+    downloadLink.onclick = function(e) { document.body.removeChild(e.target); };
+    downloadLink.style.display = "none";
+    document.body.appendChild(downloadLink);
+    downloadLink.click();
+  }
+}
+
+function destroyClickedElement(event)
+{
+    document.body.removeChild(event.target);
+}
+
+function loadFileAsText()
+{
+
+    var fileToLoad = document.getElementById("fileToLoad").files[0];
+ 
+    var fileReader = new FileReader();
+    fileReader.onload = function(fileLoadedEvent) 
+    {
+        var textFromFileLoaded = fileLoadedEvent.target.result;
+        document.getElementById("inputTextToSave").value = textFromFileLoaded;
+    };
+    fileReader.readAsText(fileToLoad, "UTF-8");
+}
+
+
+function DateforFile(RightNow) {
+var txt;
+var d = new Date(),
+thisyear = d.getFullYear();
+thismonth= d.getMonth();
+thismonth = thismonth+1;
+if (thismonth < 10) { thismonth = "0" + thismonth}
+
+thisday = d.getDate();
+if (thisday < 10) { thisday = "0" + thisday}
+
+h = (d.getHours()<10?'0':'') + d.getHours()
+m = (d.getMinutes()<10?'0':'') + d.getMinutes()
+var myprompt = thisyear+ '-'+thismonth+'-'+thisday+' '+h + '_' + m ;
+return myprompt;
+}
+
+function isObject(arg) {
+  return Object.prototype.toString.call(arg)==='[object Object]';
+}
+
+function formDataToObject(elForm) {
+  if (!elForm instanceof Element) return;
+  var fields = elForm.querySelectorAll('input, select, textarea'),
+    o = {};
+  for (var i=0, imax=fields.length; i<imax; ++i) {
+    var field = fields[i],
+      sKey = field.name || field.id;
+    if (field.type==='button' || field.type==='image' || field.type==='submit' || !sKey) continue;
+    switch (field.type) {
+      case 'checkbox':
+        o[sKey] = +field.checked;
+        break;
+      case 'radio':
+        if (o[sKey]===undefined) o[sKey] = '';
+        if (field.checked) o[sKey] = field.value;
+        break;
+      case 'select-multiple':
+        var a = [];
+        for (var j=0, jmax=field.options.length; j<jmax; ++j) {
+          if (field.options[j].selected) a.push(field.options[j].value);
+        }
+        o[sKey] = a;
+        break;
+      default:
+        o[sKey] = field.value;
+    }
+  }
+ // alert('Form data:\n\n' + JSON.stringify(o, null, 2));
+ document.getElementById('parseme').value = JSON.stringify(o, null, 2);
+//  return o;
+}
+
+function populateForm(o) {
+
+o =  JSON.parse(document.getElementById('parseme').value);
+ //if (!isObject(o)) return;
+if (!isObject(o)) return;
+  for (var i in o) {
+    var el = document.getElementById(i) || document.querySelector('[name=' + i + ']');
+    if (el.type==='radio') el = document.querySelectorAll('[name=' + i + ']');
+    switch (typeof o[i]) {
+      case 'number':
+        el.checked = o[i];
+        break;
+      case 'object':
+        if (el.options && o[i] instanceof Array) {
+          for (var j=0, jmax=el.options.length; j<jmax; ++j) {
+            if (o[i].indexOf(el.options[j].value)>-1) el.options[j].selected = true;
+          }
+        }
+        break;
+      default:
+        if (el instanceof NodeList) {
+          for (var j=0, jmax=el.length; j<jmax; ++j) {
+            if (el[j].value===o[i]) el[j].checked = true;
+          }
+        } else {
+          el.value = o[i];
+        }
+    }
+  }
+  Fixfields();
+AutoGrowTextArea(document.getElementById("Comments"));
+}
+
+function SaveData() {
+	
+			formDataToObject(document.getElementById('myform'))
+			saveTextAsFile();
+			
+			//saveTextAsFile();
+			}
+
+//-------
+ function readBlob(opt_startByte, opt_stopByte) {
+  
+    var files = document.getElementById('files').files;
+    if (!files.length) {
+      alert('Please select a file!');
+      return;
+    }
+
+    var file = files[0];
+    var start = parseInt(opt_startByte) || 0;
+    var stop = parseInt(opt_stopByte) || file.size - 1;
+
+    var reader = new FileReader();
+
+    // If we use onloadend, we need to check the readyState.
+    reader.onloadend = function(evt) {
+      if (evt.target.readyState == FileReader.DONE) { // DONE == 2
+        document.getElementById('byte_content').textContent = evt.target.result;
+        document.getElementById('byte_range').textContent = 
+            ['Read bytes: ', start + 1, ' - ', stop + 1,
+             ' of ', file.size, ' byte file'].join('');
+      }
+    };
+
+    var blob = file.slice(start, stop + 1);
+    reader.readAsBinaryString(blob);
+  }
+    	
+  window.onload = function () { 
+
+ //Check the support for the File API support 
+ if (window.File && window.FileReader && window.FileList && window.Blob) {
+    var fileSelected = document.getElementById('txtfiletoread');
+	
+    fileSelected.addEventListener('change', function (e) { 
+         //Set the extension for the file 
+         var fileExtension = /text.*/; 
+         //Get the file object 
+         var fileTobeRead = fileSelected.files[0];
+        //Check of the extension match 
+         if (fileTobeRead.type.match(fileExtension)) { 
+             //Initialize the FileReader object to read the 2file 
+			
+             var fileReader = new FileReader(); 
+             fileReader.onload = function (e) { 
+                 var fileContents = document.getElementById('filecontents'); 
+                
+				document.getElementById('parseme').value =fileReader.result;
+				populateForm(obj = document.getElementById('parseme').value);
+			 } 
+             fileReader.readAsText(fileTobeRead); 
+         } 
+         else { 
+             alert("Please select text file"); 
+         }
+ 
+    }, false);
+} 
+ else { 
+     alert("Files are not supported"); 
+ } 
+ Checkifinbrowser();
+ getit();
+//var txt = document.getElementById('parseme').value;
+//var myobject = txt;
+//populateForm(myobject);
+
+
+ }
+ 
+ function ExportData() {
+		var mydata= "";
+	for (x = 1; x <21; x++) {
+
+        //var tabs = lines[line].split('\t',11);
+					 //---  	
+			var mydata=mydata + document.getElementById('ChConfig'+x).value+"\t";
+		 		var mydata=mydata+document.getElementById('ChName'+x).value+"\t";
+			var mydata=mydata+document.getElementById('Users'+x).value+"\t";
+			
+			var mydata=mydata+document.getElementById('RxFreq'+x).value+"\t";
+			var mydata=mydata+document.getElementById('RxTone'+x).value+"\t";
+			var mydata=mydata+document.getElementById('TxFreq'+x).value+"\t";
+			
+			var mydata=mydata+document.getElementById('RxTone'+x).value+"\t";
+			var mydata=mydata+document.getElementById('Mode'+x).value+"\t";
+			var mydata=mydata+document.getElementById('Remarks'+x).value+"\t";
+			
+			var mydata=mydata+"\n";
+			document.getElementById('parseme').value = mydata;
+			
+			 }   
+			 
+			 // note get header info
+		
+			
+			ExporttoExcel();
+			
+			//saveTextAsFile();
+			}
+
+function parsestring() {
+alert('test');
+document.getElementById('Mode1').value = 'A';
+
+}
+
+function parsestring2(mType) {
+	var mytext = document.getElementById('parseme2').value +'\n';;
+	var myType = mType;
+	var lines = mytext.split('\n');
+
+    for(var line = 0; line < lines.length- 1 ; line++){
+        // By tabs
+		//alert (lines[line]);
+		var x = line +1;
+		
+
+     		if (line <21) { 
+			 var tabs = lines[line].split('\t',9); 
+			 if (tabs.length >1) {
+         	if (tabs[0] != null){document.getElementById('ChConfig'+x).value =tabs[0]};
+			if (tabs[1] != null){document.getElementById('ChName'+x).value = tabs[1]};
+		 	if (tabs[2] != null){document.getElementById('Users'+x).value = tabs[2]};
+			
+			if (tabs[3] != null){document.getElementById('RxFreq'+x).value = tabs[3]};
+			if (tabs[4] != null){document.getElementById('RxTone'+x).value = tabs[4]};
+			if (tabs[5] != null){document.getElementById('TxFreq'+x).value = tabs[5]};
+			if (tabs[6] != null){document.getElementById('TxTone'+x).value = tabs[6]};
+			if (tabs[7] != null){uc = tabs[7]; uc=uc.toUpperCase();document.getElementById('Mode'+x).value =uc};
+			if (tabs[8] != null){document.getElementById('Remarks'+x).value = tabs[8]};
+			}
+			 }   // end loop
+			//}
+			 // now the header & footerto fill
+			
+			
+			}
+alert ('Data has been parsed.');   
+	 document.getElementById('lnk').click();
+}
+
+function setbg(color)
+{
+alert('test');
+color = "#ffffcc"
+document.getElementById("styled").style.background=color
+}
+
+function Checkifinbrowser() {
+ var x= document.getElementById("testCall").value; 
+ var n = x.search("{Msg");
+ if (n>-1) { 
+ document.getElementById('Submit').style.visibility='hidden';
+  alert('You are running this form outside of Winlink.\n \nWhen you have completed the form, SAVE the data and then give or send the SAVED data file to the radio operator. The operator will load the SAVED data into the correct form and send via winlink. ');
+ } else {document.getElementById('Submit').style.visibility='visible';  }
+}
+
+function RestoreTitle() {
+
+var RightNow = document.getElementById('FormTitle').value;
+
+//document.getElementById('Title').value = RightNow;
+document.getElementById('SubjectText').innerHTML = RightNow;
+store();
+}
+
+	   function store(){
+ 	var formatted= document.getElementById("FormTitle");
+     localStorage.setItem("ics217A", formatted.value);
+	 //alert (localStorage.getItem("ics214"));
+    }
+
+	function getit() {
+	var storedValue = localStorage.getItem("ics217A");
+	//alert(storedValue);
+	document.getElementById('FormTitle').value = storedValue;
+	RestoreTitle();
+	
+	}
+	function SetupTitle() {
+var myprompt = '';
+var myttemp = document.getElementById('FormTitle').value;
+var RightNow = prompt("Enter Agency/Group Title",   myprompt);
+if (RightNow.length == 0) { RightNow = myttemp}
+document.getElementById('FormTitle').value = RightNow;
+document.getElementById('SubjectText').innerHTML = RightNow;
+store();
+
+}
+</script> 
+</head>
+<body style="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);" alink="#000099" link="#000099" vlink="#990099">
+<form  style="font-family: Arial;" pbzloc="3" onsubmit="return confirm('To complete your form submission, click OK and close the open browser window. You will return to the new message window so you can post your message to the outbox');" method="post" id="myform" enctype="multipart/form-data" action="http://{FormServer}:{FormPort}">
+<div id="pop1" class="pop-up"><!-- The pop-up block -->
+<div class="popBox"><!-- If the content becomes larger than the pop-up this div will scroll the content -->
+<div class="popScroll"><!-- Test for help starts here -->
+<p> </p>
+<h2>ICS 217A COMMUNICATIONS RESOURCE AVAILABILITY WORKSHEET</h2>
+<p align="left">Purpose.<br />
+<br />
+The Communications Resource Availability Worksheet is a template that
+users may fill out prior to an incident.
+An agency’s inter-operable channels and/or talk-groups can be entered
+on the form enabling a Communications
+Unit Leader to have the technical information readily available to
+complete an Incident Radio
+Communications Plan (ICS Form 205).
+<br />
+</p><strong>More Information</strong><br /><br />
+You can save your completed HTML to a text file. This will allow you to reload the Form
+with ALL entered form data. You do this prior to submitting the form. Then you can open a new 217A and load the saved HTML form data. 
+NOTE: Date and Times will be the previous, so change if needed. This is much like using FireFox and the addon Formlet. It will save the info
+as a text file with the Date and Time as the text file name. Now you can use any browser, save your form, (as many versions as you like), and then re-populate.
+<br />
+<br />
+This form also allows for pasting channel data from a spreadsheet with TAB delineation.
+You would create a spreadsheet entry form to MATCH the HTML template frequency section.
+Do not exceed the data entry box input lengths or the info will may be seen properly if printed.
+It is suggested you test a few times to understand how this works.
+Once mastered it can be a time saver in the field for frequency data entry.<br /><br />
+
+Copy the data in the field below and use as a guide for your spreadsheet. The program expects 9 columns of data for each channel.</P>
+<textarea name="demo1" cols="80" rows="3" id="demo1" style="border:2px dashed red">Channel Configuration	Channel Name/Trunked Radio System Talkgroup	Eligible Users	RX Freq N/W	RX Tone/NAC	TX Freq N/W	TX Tone/NAC	Mode A, D or M 	Comment
+</textarea><br /><p>
+In addition you can export the frequency data to a .xls file, again TAB delineation, for opening in a spreadsheet. It is suggested you test a few times to understand how this works. Once mastered these can be a time saver in the field for frequency data info via a spreadsheet. 
+<br /><br />
+<strong> NOTE on printing. </strong><br /><P>
+
+Printing this form is dependent upon your selected
+
+printer and its settings. Various Web Browsers and and their viewing
+
+sizes are not all the same. Printing from a browsers print function
+
+may be different from the operating systems default print mode.
+
+Select what works for you, for both printing and viewing.
+
+You may print direct to the printer as a HTML or save as a
+
+PDF then print the PDF. In some instances Landscape mode may print
+
+better than Portrait. <br />
+</div>
+<!-- The close pop-up link correctly positioned at the end of the content block -->
+<a id="lnk" href="#links" class="close"><span>Back
+to links</span></a> </div>
+</div>
+
+	    <div class="pop-up" id="pop3">
+    <!-- The pop-up block -->
+    <div class="popBox">
+      <!-- If the content becomes larger than the pop-up this div will scroll the content -->
+      <div class="popScroll">
+        <p> </p>
+        <h2>Copy and Paste Data From Spreadsheet</h2>
+        <span class="style13">
+        <p align="left">
+		Copy the data from the spreadsheet, then click the button "Parse Data"<br />
+		TAB delineation and entry data needs to not exceed HTML entry box input lengths.<br />
+        </p>
+        <textarea name="parseme2" cols="80" rows="4" id="parseme2" placeholder="Paste spreadsheet data here" ></textarea> 
+		</br><input type=button value="Parse Data" onClick="parsestring2();">
+		
+		
+        </span>
+        <p align="left"></p>
+      <a href="#links">Close this window</a> </div>
+      <!-- The close pop-up link correctly positioned at the end of the content block -->
+      <a href="#links" class="close"><span>Back to links</span></a> </div>
+  </div>
+<table align="left" border="0" width="902">
+<tbody>
+<tr>
+<td>
+<table style="background-color: rgb(250, 250, 255); width: 1148px; height: 629px;" pbzloc="6" border="0" bordercolor="#999999" cellpadding="2" cellspacing="2">
+<tbody>
+<tr>
+<td pbzloc="5" colspan="3"><div id="pop1" class="pop-up1">
+  <!-- The pop-up block -->
+  <div class="popBox1">
+    <!-- If the content becomes larger than the pop-up this div will scroll the content -->
+    <div class="popScroll1">
+      <!-- Test for help starts here -->
+      <p> </p>
+      <h3>INDIVIDUAL LOG ICS FORM 214A </h3>
+      <p align="left"><strong>Purpose</strong>.<br />
+          <br />
+        The Individual Log, while not required, records details of each individual’s activities. These logs provide a basic reference from which to extract information for inclusion in any after-action report. <br />
+      </p>
+      <p align="left"> <strong>Preparation</strong>.<br />
+          <br />
+        An Individual Log can be initiated and maintained by each member of the ICS. Completed logs are forwarded to supervisors who provide copies to the Documentation Unit. </p>
+      <p align="left"><strong>Distribution</strong>.<br />
+          <br />
+        The Documentation Unit maintains a file of all Individual Logs. The original of each log MUST be submitted to the Documentation Unit. </p>
+      <p align="left">Save a copy for yourself by sending to your E-mail or printing </p>
+      <strong> NOTE on printing. </strong><br />
+      <br />
+      Printing this form is dependent upon your selected printer and its settings. Various Web Browsers and and their viewing sizes are not all the same. Printing from a browsers print function may be different from the operating systems default print mode. Select what works for you, for both printing and viewing. You may print direct to the printer as a HTML or save as a PDF then print the PDF. In some instances Landscape mode may print better than Portrait. <br />
+      <br />
+      <strong>More Information</strong><br />
+      <br />
+      You can save your completed HTML to a text file. This will allow you to reload the ICS214A with ALL entered form data. You do this prior to submitting the form. Then you can open a new 214A and load the saved HTML form data. NOTE: Date and Times will be the previous, so change if needed. This is much like using FireFox and the addon Formlet. It will save the info as a text file with the Date and Time as the text file name. Now you can use any browser, save your form, (as many versions as you like), and then re-populate. <br />
+      <br />
+    </div>
+    <!-- The close pop-up link correctly positioned at the end of the content block -->
+    <a class="close1" href="#links"><span>Back to links</span></a> </div>
+</div>
+  <input type="button" value="Setup" onclick="SetupTitle()" />
+  <span class="style16"> <span class="style17"> &nbsp;Click to add an agency or group name</span></span> <span class="style16"></span>
+<table width="900" border="1" align="left" cellpadding="3" cellspacing="0" style="width: 900; height: 806px; text-align: left; margin-left: auto; margin-right: auto;">
+<tbody>
+<tr>
+<td width="43%" height="55" valign="top" style="width: 45%; vertical-align: top; text-align: left; height: 30px; background-color: white;">
+<p align="center"><b><big pbzloc="5">&nbsp;<span >COMMUNICATIONS
+RESOURCE AVAILABILITY WORKSHEET</span><span style="color: rgb(153, 102, 51);">&nbsp;&nbsp;</span></b><span style="color: rgb(153, 102, 51);">&nbsp;<span style="font-weight: bold;">(</span><span style="color: black;">ICS217A)<br />
+ <span class="style13"  id="SubjectText">  </span><br />
+</span></span><br />
+  <input type="button" value=" Load ICS217A Data " onclick="document.getElementById('txtfiletoread').click();" />
+  <span style="color: rgb(153, 102, 51);"><span style="font-weight: normal;"><big style="color: rgb(204, 0, 0);">&nbsp;&nbsp;&nbsp;<span class="style4">&nbsp;<span style="color: rgb(153, 102, 51);"><big style="color: rgb(204, 0, 0);"><span style="color: rgb(153, 102, 51);"><big style="color: rgb(204, 0, 0);"></span></span></span></span></span><span style="font-weight: normal;"><span class="style20"><a  href="#pop1">Form Info</a></span></span><span style="color: rgb(153, 102, 51);"><span style="font-weight: normal;">&nbsp;<b><small><big><small><span class="SubmitBtn"><b style="font-weight: normal;">
+  <input name="FormTitle" type="hidden" id="FormTitle" />
+  </b></span></small></big></small></b><br />
+  </span></span>  <input type="file" id="txtfiletoread" accept=".txt"  style="display: none;"/>
+             <textarea name="parseme" cols="60" id="parseme" style="display: none;"></textarea>
+</p>
+</td>
+<td width="18%" valign="top" nowrap="nowrap" style="width: 5%; vertical-align: top;  text-align: top; background-color: white;" ><small ><br />
+  &nbsp;  Frequency Band
+ <br />
+&nbsp;
+<select style="width: 83px;" pbzloc="18" name="Bands">
+  <option value="--" selected="selected">--</option>
+  <option value="VHF LOW">VHF LOW</option>
+  <option value="VHF HIGH">VHF HIGH</option>
+  <option value="UHF">UHF</option>
+  <option value="700">700</option>
+  <option value="800">800</option>
+  <option value="HF">HF</option>
+  <option value="OTHER">OTHER</option>
+</select>
+  </td>
+<td width="39%" valign="top" style="width: 30%; vertical-align: top; text-align: center;  background-color: white;"><div align="left">&nbsp; &nbsp;<br /> 
+      <small >&nbsp;Description
+    <br />
+    <small pbzloc="27"><span style="color: rgb(153, 102, 51);">&nbsp;</span>  
+        <input size="55" name="Description" maxlength="50" />
+    </div></td>
+</tr>
+<tr>
+<td style="height: 3px; background-color: white; text-align: center; vertical-align: middle;" colspan="4"><div align="left"><br style="color: rgb(0, 102, 0);" />
+      <span style="color: rgb(0, 102, 0);"><small pbzloc="27">&nbsp; &nbsp;Work
+  sheet  Incident or Event Name</span>&nbsp; &nbsp;
+  <input size="70" name="Incident" maxlength="60" />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Date/Time<span style="color: rgb(0, 102, 0);"> (optional)</span> &nbsp;&nbsp;
+  <input style="color: rgb(204, 0, 0);" placeholder="Click to Add Date/Time" name="ActivityDateTime1" maxlength="23" id="ActivityDateTime1" size="24" onclick="TimeNow('ActivityDateTime1', 'ChConfig1')" />
+  <br />
+  <br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;<a href="#pop3">Paste Field Data Below from a Spreadsheet </a>
+<br />
+<br />
+</div></td>
+</tr>
+<tr>
+<td colspan="4" >
+<table width="1038" border="1" align="left" cellpadding="2" cellspacing="0" style="width: 1053px; height: 671px; text-align: left; margin-left: auto; margin-right: auto;" pbzloc="4">
+<tbody>
+<tr>
+<td style="width: 2%;">&nbsp;#</td>
+<td style="width: 12%; text-align: center;">
+<p><span style="font-size: 10px;">Channel
+Configuration</span></p>
+</td>
+<td style="width: 10%; text-align: center;">
+<p><span style="font-size: 9px;"><span>Channel
+Name/Trunked R</span><span>adio System Talkgroup</span></span></p>
+</td>
+<td style="width: 10%; text-align: center;"><span style="font-size: 9px;"><span>Eligible Users</span></span></td>
+<td style="width: 8%; text-align: center;">
+<p><span style="font-size: 9px;"><span>&nbsp;
+RX Freq <br />
+N/W</span></span></p>
+</td>
+<td style="width: 5%; text-align: center;"><span style="font-size: 9px;"><span>&nbsp;RX Tone/NAC</span></span></td>
+<td style="width: 8%; text-align: center; vertical-align: middle;">
+<p><span style="font-size: 9px;"><span>TX
+Freq&nbsp;<br /> 
+</span></span><span style="font-size: 9px;"><span>N/W</span></span></p>
+</td>
+<td style="width: 4%; text-align: center; vertical-align: middle;"><span style="font-size: 9px;"><span>TX Tone/NAC</span></span></td>
+<td style="width: 5%; vertical-align: baseline; text-align: center;">
+<p><span style="font-size: 9px;"><span>Mode
+&nbsp;A, D or M</span></span><span style="font-size: 9px;"><span> </span></span></p>
+</td>
+<td style="width: 35%; text-align: center; vertical-align: middle;"><span style="font-size: 9px;"><span>Remarks</span></span></td>
+</tr>
+<tr>
+<td style="height: 25px;" pbzloc="5"><span style="font-size: 12px;"><span pbzloc="1">1</span></span></td>
+<td style="text-align: center; vertical-align: middle; background-color: white;" ><input name="ChConfig1" id="ChConfig1" maxlength="20" type="text" /></td>
+<td style="text-align: center; vertical-align: middle; background-color: white;" ><input name="ChName1"id="ChName1" maxlength="20" type="text" /></td>
+<td style="text-align: center; vertical-align: middle; background-color: white;" ><input name="Users1"id="Users1"maxlength="20" type="text" /></td>
+<td style="text-align: center; vertical-align: middle; background-color: white;" ><input size="10" name="RxFreq1" id="RxFreq1"maxlength="10" type="text" /></td>
+<td style="text-align: center; vertical-align: middle; background-color: white;" ><input size="7" name="RxTone1"id="RxTone1" maxlength="7" type="text" /></td>
+<td pbzloc="3" style="text-align: center; vertical-align: middle; background-color: white;" ><input size="10" name="TxFreq1" id="TxFreq1"maxlength="10" type="text" /></td>
+<td style="text-align: center; vertical-align: middle; background-color: white;" ><input size="7" name="TxTone1"  id="TxTone1" maxlength="7" type="text" /></td>
+<td style="text-align: center; vertical-align: middle; background-color: white;" ><input size="3" name="Mode1"  id="Mode1" maxlength="1" type="text" />
+</td>
+<td style="text-align: center; vertical-align: middle; background-color: white;" ><input size="55" name="Remarks1" id="Remarks1"maxlength="50" type="text" /></td>
+</tr>
+<tr>
+  <td style="height: 25px;" pbzloc="5"><span style="font-size: 12px;">2</span></td>
+  <td style="text-align: center; vertical-align: middle; background-color: white;" ><input name="ChConfig2" id="ChConfig2" maxlength="20" type="text" /></td>
+  <td style="text-align: center; vertical-align: middle; background-color: white;" ><input name="ChName2"id="ChName2" maxlength="20" type="text" /></td>
+  <td style="text-align: center; vertical-align: middle; background-color: white;" ><input name="Users2"id="Users2"maxlength="20" type="text" /></td>
+  <td style="text-align: center; vertical-align: middle; background-color: white;" ><input size="10" name="RxFreq2" id="RxFreq2"maxlength="10" type="text" /></td>
+  <td style="text-align: center; vertical-align: middle; background-color: white;" ><input size="7" name="RxTone2"id="RxTone2" maxlength="7" type="text" /></td>
+  <td pbzloc="3" style="text-align: center; vertical-align: middle; background-color: white;" ><input size="10" name="TxFreq2" id="TxFreq2"maxlength="10" type="text" /></td>
+  <td style="text-align: center; vertical-align: middle; background-color: white;" ><input size="7" name="TxTone2"  id="TxTone2" maxlength="7" type="text" /></td>
+  <td style="text-align: center; vertical-align: middle; background-color: white;" ><input size="3" name="Mode2"  id="Mode2" maxlength="1" type="text" /></td>
+  <td style="text-align: center; vertical-align: middle; background-color: white;" ><input size="55" name="Remarks2" id="Remarks2"maxlength="50" type="text" /></td>
+</tr>
+<tr>
+  <td style="height: 25px;" pbzloc="5"><span style="font-size: 12px;">3</span></td>
+  <td style="text-align: center; vertical-align: middle; background-color: white;" ><input name="ChConfig3" id="ChConfig3" maxlength="20" type="text" /></td>
+  <td style="text-align: center; vertical-align: middle; background-color: white;" ><input name="ChName3"id="ChName3" maxlength="20" type="text" /></td>
+  <td style="text-align: center; vertical-align: middle; background-color: white;" ><input name="Users3"id="Users3"maxlength="20" type="text" /></td>
+  <td style="text-align: center; vertical-align: middle; background-color: white;" ><input size="10" name="RxFreq3" id="RxFreq3"maxlength="10" type="text" /></td>
+  <td style="text-align: center; vertical-align: middle; background-color: white;" ><input size="7" name="RxTone3"id="RxTone3" maxlength="7" type="text" /></td>
+  <td pbzloc="3" style="text-align: center; vertical-align: middle; background-color: white;" ><input size="10" name="TxFreq3" id="TxFreq3"maxlength="10" type="text" /></td>
+  <td style="text-align: center; vertical-align: middle; background-color: white;" ><input size="7" name="TxTone3"  id="TxTone3" maxlength="7" type="text" /></td>
+  <td style="text-align: center; vertical-align: middle; background-color: white;" ><input size="3" name="Mode3"  id="Mode3" maxlength="1" type="text" /></td>
+  <td style="text-align: center; vertical-align: middle; background-color: white;" ><input size="55" name="Remarks3" id="Remarks3"maxlength="50" type="text" /></td>
+</tr>
+<tr>
+  <td style="height: 25px;" pbzloc="5"><span style="font-size: 12px;">4</span></td>
+  <td style="text-align: center; vertical-align: middle; background-color: white;" ><input name="ChConfig4" id="ChConfig4" maxlength="20" type="text" /></td>
+  <td style="text-align: center; vertical-align: middle; background-color: white;" ><input name="ChName4"id="ChName4" maxlength="20" type="text" /></td>
+  <td style="text-align: center; vertical-align: middle; background-color: white;" ><input name="Users4"id="Users4"maxlength="20" type="text" /></td>
+  <td style="text-align: center; vertical-align: middle; background-color: white;" ><input size="10" name="RxFreq4" id="RxFreq4"maxlength="10" type="text" /></td>
+  <td style="text-align: center; vertical-align: middle; background-color: white;" ><input size="7" name="RxTone4"id="RxTone4" maxlength="7" type="text" /></td>
+  <td pbzloc="3" style="text-align: center; vertical-align: middle; background-color: white;" ><input size="10" name="TxFreq4" id="TxFreq4"maxlength="10" type="text" /></td>
+  <td style="text-align: center; vertical-align: middle; background-color: white;" ><input size="7" name="TxTone4"  id="TxTone4" maxlength="7" type="text" /></td>
+  <td style="text-align: center; vertical-align: middle; background-color: white;" ><input size="3" name="Mode4"  id="Mode4" maxlength="1" type="text" /></td>
+  <td style="text-align: center; vertical-align: middle; background-color: white;" ><input size="55" name="Remarks4" id="Remarks4"maxlength="50" type="text" /></td>
+</tr>
+<tr>
+  <td style="height: 25px;" pbzloc="5"><span class="SubmitBtn">5</span></td>
+  <td style="text-align: center; vertical-align: middle; background-color: white;" ><input name="ChConfig5" id="ChConfig5" maxlength="20" type="text" /></td>
+  <td style="text-align: center; vertical-align: middle; background-color: white;" ><input name="ChName5"id="ChName5" maxlength="20" type="text" /></td>
+  <td style="text-align: center; vertical-align: middle; background-color: white;" ><input name="Users5"id="Users5"maxlength="20" type="text" /></td>
+  <td style="text-align: center; vertical-align: middle; background-color: white;" ><input size="10" name="RxFreq5" id="RxFreq5"maxlength="10" type="text" /></td>
+  <td style="text-align: center; vertical-align: middle; background-color: white;" ><input size="7" name="RxTone5"id="RxTone5" maxlength="7" type="text" /></td>
+  <td pbzloc="3" style="text-align: center; vertical-align: middle; background-color: white;" ><input size="10" name="TxFreq5" id="TxFreq5"maxlength="10" type="text" /></td>
+  <td style="text-align: center; vertical-align: middle; background-color: white;" ><input size="7" name="TxTone5"  id="TxTone5" maxlength="7" type="text" /></td>
+  <td style="text-align: center; vertical-align: middle; background-color: white;" ><input size="3" name="Mode5"  id="Mode5" maxlength="1" type="text" /></td>
+  <td style="text-align: center; vertical-align: middle; background-color: white;" ><input size="55" name="Remarks5" id="Remarks5"maxlength="50" type="text" /></td>
+</tr>
+<tr>
+  <td style="height: 25px;" pbzloc="5"><span style="font-size: 12px;">6</span></td>
+  <td style="text-align: center; vertical-align: middle; background-color: white;" ><input name="ChConfig6" id="ChConfig6" maxlength="20" type="text" /></td>
+  <td style="text-align: center; vertical-align: middle; background-color: white;" ><input name="ChName6"id="ChName6" maxlength="20" type="text" /></td>
+  <td style="text-align: center; vertical-align: middle; background-color: white;" ><input name="Users6"id="Users6"maxlength="20" type="text" /></td>
+  <td style="text-align: center; vertical-align: middle; background-color: white;" ><input size="10" name="RxFreq6" id="RxFreq6"maxlength="10" type="text" /></td>
+  <td style="text-align: center; vertical-align: middle; background-color: white;" ><input size="7" name="RxTone6"id="RxTone6" maxlength="7" type="text" /></td>
+  <td pbzloc="3" style="text-align: center; vertical-align: middle; background-color: white;" ><input size="10" name="TxFreq6" id="TxFreq6"maxlength="10" type="text" /></td>
+  <td style="text-align: center; vertical-align: middle; background-color: white;" ><input size="7" name="TxTone6"  id="TxTone6" maxlength="7" type="text" /></td>
+  <td style="text-align: center; vertical-align: middle; background-color: white;" ><input size="3" name="Mode6"  id="Mode6" maxlength="1" type="text" /></td>
+  <td style="text-align: center; vertical-align: middle; background-color: white;" ><input size="55" name="Remarks6" id="Remarks6"maxlength="50" type="text" /></td>
+</tr>
+<tr>
+  <td style="height: 25px;" pbzloc="5"><span style="font-size: 12px;">7</span></td>
+  <td style="text-align: center; vertical-align: middle; background-color: white;" ><input name="ChConfig7" id="ChConfig7" maxlength="20" type="text" /></td>
+  <td style="text-align: center; vertical-align: middle; background-color: white;" ><input name="ChName7"id="ChName7" maxlength="20" type="text" /></td>
+  <td style="text-align: center; vertical-align: middle; background-color: white;" ><input name="Users7"id="Users7"maxlength="20" type="text" /></td>
+  <td style="text-align: center; vertical-align: middle; background-color: white;" ><input size="10" name="RxFreq7" id="RxFreq7"maxlength="10" type="text" /></td>
+  <td style="text-align: center; vertical-align: middle; background-color: white;" ><input size="7" name="RxTone7" id="RxTone7" maxlength="7" type="text" /></td>
+  <td pbzloc="3" style="text-align: center; vertical-align: middle; background-color: white;" ><input size="10" name="TxFreq7" id="TxFreq7"maxlength="10" type="text" /></td>
+  <td style="text-align: center; vertical-align: middle; background-color: white;" ><input size="7" name="TxTone7"  id="TxTone7" maxlength="7" type="text" /></td>
+  <td style="text-align: center; vertical-align: middle; background-color: white;" ><input size="3" name="Mode7"  id="Mode7" maxlength="1" type="text" /></td>
+  <td style="text-align: center; vertical-align: middle; background-color: white;" ><input size="55" name="Remarks7" id="Remarks7"maxlength="50" type="text" /></td>
+</tr>
+<tr>
+  <td style="height: 25px;" pbzloc="5"><span style="font-size: 12px;">8</span></td>
+  <td style="text-align: center; vertical-align: middle; background-color: white;" ><input name="ChConfig8" id="ChConfig8" maxlength="20" type="text" /></td>
+  <td style="text-align: center; vertical-align: middle; background-color: white;" ><input name="ChName8"id="ChName8" maxlength="20" type="text" /></td>
+  <td style="text-align: center; vertical-align: middle; background-color: white;" ><input name="Users8"id="Users8"maxlength="20" type="text" /></td>
+  <td style="text-align: center; vertical-align: middle; background-color: white;" ><input size="10" name="RxFreq8" id="RxFreq8"maxlength="10" type="text" /></td>
+  <td style="text-align: center; vertical-align: middle; background-color: white;" ><input size="7" name="RxTone8"id="RxTone8" maxlength="7" type="text" /></td>
+  <td pbzloc="3" style="text-align: center; vertical-align: middle; background-color: white;" ><input size="10" name="TxFreq8" id="TxFreq8"maxlength="10" type="text" /></td>
+  <td style="text-align: center; vertical-align: middle; background-color: white;" ><input size="7" name="TxTone8"  id="TxTone8" maxlength="7" type="text" /></td>
+  <td style="text-align: center; vertical-align: middle; background-color: white;" ><input size="3" name="Mode8"  id="Mode8" maxlength="1" type="text" /></td>
+  <td style="text-align: center; vertical-align: middle; background-color: white;" ><input size="55" name="Remarks8" id="Remarks8"maxlength="50" type="text" /></td>
+</tr>
+<tr>
+  <td style="height: 25px;" pbzloc="5"><span style="font-size: 12px;">9</span></td>
+  <td style="text-align: center; vertical-align: middle; background-color: white;" ><input name="ChConfig9" id="ChConfig9" maxlength="20" type="text" /></td>
+  <td style="text-align: center; vertical-align: middle; background-color: white;" ><input name="ChName9"id="ChName9" maxlength="20" type="text" /></td>
+  <td style="text-align: center; vertical-align: middle; background-color: white;" ><input name="Users9"id="Users9"maxlength="20" type="text" /></td>
+  <td style="text-align: center; vertical-align: middle; background-color: white;" ><input size="10" name="RxFreq9" id="RxFreq9"maxlength="10" type="text" /></td>
+  <td style="text-align: center; vertical-align: middle; background-color: white;" ><input size="7" name="RxTone9"id="RxTone9" maxlength="7" type="text" /></td>
+  <td pbzloc="3" style="text-align: center; vertical-align: middle; background-color: white;" ><input size="10" name="TxFreq9" id="TxFreq9"maxlength="10" type="text" /></td>
+  <td style="text-align: center; vertical-align: middle; background-color: white;" ><input size="7" name="TxTone9"  id="TxTone9" maxlength="7" type="text" /></td>
+  <td style="text-align: center; vertical-align: middle; background-color: white;" ><input size="3" name="Mode9"  id="Mode9" maxlength="1" type="text" /></td>
+  <td style="text-align: center; vertical-align: middle; background-color: white;" ><input size="55" name="Remarks9" id="Remarks9"maxlength="50" type="text" /></td>
+</tr>
+<tr>
+  <td style="height: 25px;" pbzloc="5"><span style="font-size: 12px;">10</span></td>
+  <td style="text-align: center; vertical-align: middle; background-color: white;" ><input name="ChConfig10" id="ChConfig10" maxlength="20" type="text" /></td>
+  <td style="text-align: center; vertical-align: middle; background-color: white;" ><input name="ChName10"id="ChName10" maxlength="20" type="text" /></td>
+  <td style="text-align: center; vertical-align: middle; background-color: white;" ><input name="Users10"id="Users10"maxlength="20" type="text" /></td>
+  <td style="text-align: center; vertical-align: middle; background-color: white;" ><input size="10" name="RxFreq10" id="RxFreq10"maxlength="10" type="text" /></td>
+  <td style="text-align: center; vertical-align: middle; background-color: white;" ><input size="7" name="RxTone10"id="RxTone10" maxlength="7" type="text" /></td>
+  <td pbzloc="3" style="text-align: center; vertical-align: middle; background-color: white;" ><input size="10" name="TxFreq10" id="TxFreq10"maxlength="10" type="text" /></td>
+  <td style="text-align: center; vertical-align: middle; background-color: white;" ><input size="7" name="TxTone10"  id="TxTone10" maxlength="7" type="text" /></td>
+  <td style="text-align: center; vertical-align: middle; background-color: white;" ><input size="3" name="Mode10"  id="Mode10" maxlength="1" type="text" /></td>
+  <td style="text-align: center; vertical-align: middle; background-color: white;" ><input size="55" name="Remarks10" id="Remarks10"maxlength="50" type="text" /></td>
+</tr>
+<tr>
+<td ><span style="font-size: 12px;">11</span></td>
+<td style="text-align: center; vertical-align: middle; background-color: white;" ><input name="ChConfig11" id="ChConfig11" maxlength="20" type="text" /></td>
+<td style="text-align: center; vertical-align: middle; background-color: white;" ><input name="ChName11"id="ChName11" maxlength="20" type="text" /></td>
+<td style="text-align: center; vertical-align: middle; background-color: white;" ><input name="Users11"id="Users11"maxlength="20" type="text" /></td>
+<td style="text-align: center; vertical-align: middle; background-color: white;" ><input size="10" name="RxFreq11" id="RxFreq11"maxlength="10" type="text" /></td>
+<td style="text-align: center; vertical-align: middle; background-color: white;" ><input size="7" name="RxTone11"id="RxTone11" maxlength="7" type="text" /></td>
+<td pbzloc="3" style="text-align: center; vertical-align: middle; background-color: white;" ><input size="10" name="TxFreq11" id="TxFreq11"maxlength="10" type="text" /></td>
+<td style="text-align: center; vertical-align: middle; background-color: white;" ><input size="7" name="TxTone11"  id="TxTone11" maxlength="7" type="text" /></td>
+<td style="text-align: center; vertical-align: middle; background-color: white;" ><input size="3" name="Mode11"  id="Mode11" maxlength="1" type="text" /></td>
+<td style="text-align: center; vertical-align: middle; background-color: white;" ><input size="55" name="Remarks11" id="Remarks11"maxlength="50" type="text" /></td>
+</tr>
+<tr>
+<td ><span style="font-size: 12px;">12</span></td>
+<td style="text-align: center; vertical-align: middle; background-color: white;" ><input name="ChConfig12" id="ChConfig12" maxlength="20" type="text" /></td>
+<td style="text-align: center; vertical-align: middle; background-color: white;" ><input name="ChName12"id="ChName12" maxlength="20" type="text" /></td>
+<td style="text-align: center; vertical-align: middle; background-color: white;" ><input name="Users12"id="Users12"maxlength="20" type="text" /></td>
+<td style="text-align: center; vertical-align: middle; background-color: white;" ><input size="10" name="RxFreq12" id="RxFreq12"maxlength="10" type="text" /></td>
+<td style="text-align: center; vertical-align: middle; background-color: white;" ><input size="7" name="RxTone12"id="RxTone12" maxlength="7" type="text" /></td>
+<td pbzloc="3" style="text-align: center; vertical-align: middle; background-color: white;" ><input size="10" name="TxFreq12" id="TxFreq12"maxlength="10" type="text" /></td>
+<td style="text-align: center; vertical-align: middle; background-color: white;" ><input size="7" name="TxTone12"  id="TxTone12" maxlength="7" type="text" /></td>
+<td style="text-align: center; vertical-align: middle; background-color: white;" ><input size="3" name="Mode12"  id="Mode12" maxlength="1" type="text" /></td>
+<td style="text-align: center; vertical-align: middle; background-color: white;" ><input size="55" name="Remarks12" id="Remarks12"maxlength="50" type="text" /></td>
+</tr>
+<tr>
+<td ><span style="font-size: 12px;">13</span></td>
+<td style="text-align: center; vertical-align: middle; background-color: white;" ><input name="ChConfig13" id="ChConfig13" maxlength="20" type="text" /></td>
+<td style="text-align: center; vertical-align: middle; background-color: white;" ><input name="ChName13"id="ChName13" maxlength="20" type="text" /></td>
+<td style="text-align: center; vertical-align: middle; background-color: white;" ><input name="Users13"id="Users13"maxlength="20" type="text" /></td>
+<td style="text-align: center; vertical-align: middle; background-color: white;" ><input size="10" name="RxFreq13" id="RxFreq13"maxlength="10" type="text" /></td>
+<td style="text-align: center; vertical-align: middle; background-color: white;" ><input size="7" name="RxTone13"id="RxTone13" maxlength="7" type="text" /></td>
+<td pbzloc="3" style="text-align: center; vertical-align: middle; background-color: white;" ><input size="10" name="TxFreq13" id="TxFreq13"maxlength="10" type="text" /></td>
+<td style="text-align: center; vertical-align: middle; background-color: white;" ><input size="7" name="TxTone13"  id="TxTone13" maxlength="7" type="text" /></td>
+<td style="text-align: center; vertical-align: middle; background-color: white;" ><input size="3" name="Mode13"  id="Mode13" maxlength="1" type="text" /></td>
+<td style="text-align: center; vertical-align: middle; background-color: white;" ><input size="55" name="Remarks13" id="Remarks13"maxlength="50" type="text" /></td>
+</tr>
+<tr>
+<td><span style="font-size: 12px;">14</span></td>
+<td style="text-align: center; vertical-align: middle; background-color: white;" ><input name="ChConfig14" id="ChConfig14" maxlength="20" type="text" /></td>
+<td style="text-align: center; vertical-align: middle; background-color: white;" ><input name="ChName14"id="ChName14" maxlength="20" type="text" /></td>
+<td style="text-align: center; vertical-align: middle; background-color: white;" ><input name="Users14"id="Users14"maxlength="20" type="text" /></td>
+<td style="text-align: center; vertical-align: middle; background-color: white;" ><input size="10" name="RxFreq14" id="RxFreq14"maxlength="10" type="text" /></td>
+<td style="text-align: center; vertical-align: middle; background-color: white;" ><input size="7" name="RxTone14"id="RxTone14" maxlength="7" type="text" /></td>
+<td pbzloc="3" style="text-align: center; vertical-align: middle; background-color: white;" ><input size="10" name="TxFreq14" id="TxFreq14"maxlength="10" type="text" /></td>
+<td style="text-align: center; vertical-align: middle; background-color: white;" ><input size="7" name="TxTone14"  id="TxTone14" maxlength="7" type="text" /></td>
+<td style="text-align: center; vertical-align: middle; background-color: white;" ><input size="3" name="Mode14"  id="Mode14" maxlength="1" type="text" /></td>
+<td style="text-align: center; vertical-align: middle; background-color: white;" ><input size="55" name="Remarks14" id="Remarks14"maxlength="50" type="text" /></td>
+</tr>
+<tr>
+<td ><span style="font-size: 12px;">15</span></td>
+<td style="text-align: center; vertical-align: middle; background-color: white;" ><input name="ChConfig15" id="ChConfig15" maxlength="20" type="text" /></td>
+<td style="text-align: center; vertical-align: middle; background-color: white;" ><input name="ChName15"id="ChName15" maxlength="20" type="text" /></td>
+<td style="text-align: center; vertical-align: middle; background-color: white;" ><input name="Users15"id="Users15"maxlength="20" type="text" /></td>
+<td style="text-align: center; vertical-align: middle; background-color: white;" ><input size="10" name="RxFreq15" id="RxFreq15"maxlength="10" type="text" /></td>
+<td style="text-align: center; vertical-align: middle; background-color: white;" ><input size="7" name="RxTone15"id="RxTone15" maxlength="7" type="text" /></td>
+<td pbzloc="3" style="text-align: center; vertical-align: middle; background-color: white;" ><input size="10" name="TxFreq15" id="TxFreq15"maxlength="10" type="text" /></td>
+<td style="text-align: center; vertical-align: middle; background-color: white;" ><input size="7" name="TxTone15"  id="TxTone15" maxlength="7" type="text" /></td>
+<td style="text-align: center; vertical-align: middle; background-color: white;" ><input size="3" name="Mode15"  id="Mode15" maxlength="1" type="text" /></td>
+<td style="text-align: center; vertical-align: middle; background-color: white;" ><input size="55" name="Remarks15" id="Remarks15"maxlength="50" type="text" /></td>
+</tr>
+<tr>
+<td ><span style="font-size: 12px;">16</span></td>
+<td style="text-align: center; vertical-align: middle; background-color: white;" ><input name="ChConfig16" id="ChConfig16" maxlength="20" type="text" /></td>
+<td style="text-align: center; vertical-align: middle; background-color: white;" ><input name="ChName16"id="ChName16" maxlength="20" type="text" /></td>
+<td style="text-align: center; vertical-align: middle; background-color: white;" ><input name="Users16"id="Users16"maxlength="20" type="text" /></td>
+<td style="text-align: center; vertical-align: middle; background-color: white;" ><input size="10" name="RxFreq16" id="RxFreq16"maxlength="10" type="text" /></td>
+<td style="text-align: center; vertical-align: middle; background-color: white;" ><input size="7" name="RxTone16"id="RxTone16" maxlength="7" type="text" /></td>
+<td pbzloc="3" style="text-align: center; vertical-align: middle; background-color: white;" ><input size="10" name="TxFreq16" id="TxFreq16"maxlength="10" type="text" /></td>
+<td style="text-align: center; vertical-align: middle; background-color: white;" ><input size="7" name="TxTone16"  id="TxTone16" maxlength="7" type="text" /></td>
+<td style="text-align: center; vertical-align: middle; background-color: white;" ><input size="3" name="Mode16"  id="Mode16" maxlength="1" type="text" /></td>
+<td style="text-align: center; vertical-align: middle; background-color: white;" ><input size="55" name="Remarks16" id="Remarks16"maxlength="50" type="text" /></td>
+</tr>
+<tr>
+<td ><span style="font-size: 12px;">17</span></td>
+<td style="text-align: center; vertical-align: middle; background-color: white;" ><input name="ChConfig17" id="ChConfig17" maxlength="20" type="text" /></td>
+<td style="text-align: center; vertical-align: middle; background-color: white;" ><input name="ChName17"id="ChName17" maxlength="20" type="text" /></td>
+<td style="text-align: center; vertical-align: middle; background-color: white;" ><input name="Users17"id="Users17"maxlength="20" type="text" /></td>
+<td style="text-align: center; vertical-align: middle; background-color: white;" ><input size="10" name="RxFreq17" id="RxFreq17"maxlength="10" type="text" /></td>
+<td style="text-align: center; vertical-align: middle; background-color: white;" ><input size="7" name="RxTone17"id="RxTone17" maxlength="7" type="text" /></td>
+<td pbzloc="3" style="text-align: center; vertical-align: middle; background-color: white;" ><input size="10" name="TxFreq17" id="TxFreq17"maxlength="10" type="text" /></td>
+<td style="text-align: center; vertical-align: middle; background-color: white;" ><input size="7" name="TxTone17"  id="TxTone17" maxlength="7" type="text" /></td>
+<td style="text-align: center; vertical-align: middle; background-color: white;" ><input size="3" name="Mode17"  id="Mode17" maxlength="1" type="text" /></td>
+<td style="text-align: center; vertical-align: middle; background-color: white;" ><input size="55" name="Remarks17" id="Remarks17"maxlength="50" type="text" /></td>
+</tr>
+<tr>
+<td ><span style="font-size: 12px;">18</span></td>
+<td style="text-align: center; vertical-align: middle; background-color: white;" ><input name="ChConfig18" id="ChConfig18" maxlength="20" type="text" /></td>
+<td style="text-align: center; vertical-align: middle; background-color: white;" ><input name="ChName18"id="ChName18" maxlength="20" type="text" /></td>
+<td style="text-align: center; vertical-align: middle; background-color: white;" ><input name="Users18"id="Users18"maxlength="20" type="text" /></td>
+<td style="text-align: center; vertical-align: middle; background-color: white;" ><input size="10" name="RxFreq18" id="RxFreq18"maxlength="10" type="text" /></td>
+<td style="text-align: center; vertical-align: middle; background-color: white;" ><input size="7" name="RxTone18"id="RxTone18" maxlength="7" type="text" /></td>
+<td pbzloc="3" style="text-align: center; vertical-align: middle; background-color: white;" ><input size="10" name="TxFreq18" id="TxFreq18"maxlength="10" type="text" /></td>
+<td style="text-align: center; vertical-align: middle; background-color: white;" ><input size="7" name="TxTone18"  id="TxTone18" maxlength="7" type="text" /></td>
+<td style="text-align: center; vertical-align: middle; background-color: white;" ><input size="3" name="Mode18"  id="Mode18" maxlength="1" type="text" /></td>
+<td style="text-align: center; vertical-align: middle; background-color: white;" ><input size="55" name="Remarks18" id="Remarks18"maxlength="50" type="text" /></td>
+</tr>
+<tr>
+<td ><span style="font-size: 12px;">19</span></td>
+<td style="text-align: center; vertical-align: middle; background-color: white;" ><input name="ChConfig19" id="ChConfig19" maxlength="20" type="text" /></td>
+<td style="text-align: center; vertical-align: middle; background-color: white;" ><input name="ChName19"id="ChName19" maxlength="20" type="text" /></td>
+<td style="text-align: center; vertical-align: middle; background-color: white;" ><input name="Users19"id="Users19"maxlength="20" type="text" /></td>
+<td style="text-align: center; vertical-align: middle; background-color: white;" ><input size="10" name="RxFreq19" id="RxFreq19"maxlength="10" type="text" /></td>
+<td style="text-align: center; vertical-align: middle; background-color: white;" ><input size="7" name="RxTone19"id="RxTone19" maxlength="7" type="text" /></td>
+<td pbzloc="3" style="text-align: center; vertical-align: middle; background-color: white;" ><input size="10" name="TxFreq19" id="TxFreq19"maxlength="10" type="text" /></td>
+<td style="text-align: center; vertical-align: middle; background-color: white;" ><input size="7" name="TxTone19"  id="TxTone19" maxlength="7" type="text" /></td>
+<td style="text-align: center; vertical-align: middle; background-color: white;" ><input size="3" name="Mode19"  id="Mode19" maxlength="1" type="text" /></td>
+<td style="text-align: center; vertical-align: middle; background-color: white;" ><input size="55" name="Remarks19" id="Remarks19"maxlength="50" type="text" /></td>
+</tr>
+<tr>
+<td ><span style="font-size: 12px;">20</span></td>
+<td style="text-align: center; vertical-align: middle; background-color: white;" ><input name="ChConfig20" id="ChConfig20" maxlength="20" type="text" /></td>
+<td style="text-align: center; vertical-align: middle; background-color: white;" ><input name="ChName20"id="ChName20" maxlength="20" type="text" /></td>
+<td style="text-align: center; vertical-align: middle; background-color: white;" ><input name="Users20"id="Users20"maxlength="20" type="text" /></td>
+<td style="text-align: center; vertical-align: middle; background-color: white;" ><input size="10" name="RxFreq20" id="RxFreq20"maxlength="10" type="text" /></td>
+<td style="text-align: center; vertical-align: middle; background-color: white;" ><input size="7" name="RxTone20"id="RxTone20" maxlength="7" type="text" /></td>
+<td pbzloc="3" style="text-align: center; vertical-align: middle; background-color: white;" ><input size="10" name="TxFreq20" id="TxFreq20"maxlength="10" type="text" /></td>
+<td style="text-align: center; vertical-align: middle; background-color: white;" ><input size="7" name="TxTone20"  id="TxTone20" maxlength="7" type="text" /></td>
+<td style="text-align: center; vertical-align: middle; background-color: white;" ><input size="3" name="Mode20"  id="Mode20" maxlength="1" type="text" /></td>
+<td style="text-align: center; vertical-align: middle; background-color: white;" ><input size="55" name="Remarks20" id="Remarks20"maxlength="50" type="text" /></td>
+</tr>
+<tr>
+<td style="height: 35px; width: 20%; vertical-align: top; text-align: left;" colspan="10">
+<p align="left"><font face="Arial" size="1"><font pbzloc="8" face="Arial" size="1">The convention calls for
+frequency lists to show 4&nbsp;digits after the decimal place,
+followed by either an N or a W, depending on whether the frequency is </font></font><font face="Arial" size="1"><font pbzloc="11" face="Arial" size="1">narrow or wide band.
+Mode&nbsp;A or D indicates analog or digital,</font></font><font face="Arial" size="1"><font pbzloc="10" face="Arial" size="1"> M indicating mixed mode. All
+channels are shown </font></font><font face="Arial" size="1"><font pbzloc="11" face="Arial" size="1">as if programmed in a control station, mobile or
+portable radio. Repeater and base stations must be programmed with the
+Rx and Tx reversed.</font></font></p>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr>
+  <td style="height: 15px;" colspan="3"><small pbzloc="6">&nbsp;&nbsp;<span style="font-size: 12px;"><span class="formtext"><span style="font-family: Calibri;">
+    </span></span></span>&nbsp;
+    <input value="Submit" style="height: 24px;" size="1" name="Submit" method="Post" id="Submit" enctype="multipart/form-data" class="SubmitBtn" type="submit" />&nbsp;&nbsp;&nbsp;&nbsp;<input \name="ResetForm" value="Reset Form " class="BtnFormat2" type="reset" />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>&nbsp;</b><small style="font-weight: bold;" pbzloc="4">&nbsp;&nbsp;&nbsp;<span style="font-size: 12px;"><span class="formtext"><span style="font-family: Calibri;">
+    <input type="button" value="Save ICS217A Data"  onclick="SaveData()" />
+    &nbsp;</span></span> <b><span style="font-weight: normal;">
+    <input type="black1" value="Export Data to Spreadsheet format"  onclick="ExportData()" />
+    <input name="testCall" type="hidden" id="testCall" value="{MsgSender}" size="14" maxlength="13" />
+    <span style="font-size: 12px;"><b><span style="font-weight: normal;">
+    <input name="Templateversion" type="hidden"
+
+                                    id="Templateversion" value="ICS217A v 14.5" />
+    </span></b></span> </span></b></span>&nbsp;&nbsp;&nbsp;<b>&nbsp;</b><small style="font-weight: bold;" pbzloc="4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>&nbsp;</b><small style="font-weight: bold;" pbzloc="4">&nbsp;&nbsp;&nbsp;<span style="font-size: 12px;"><b><span style="font-weight: normal;">    <span style="color: rgb(153, 102, 51);"><span style="color: black;">&nbsp;<span class="style1">Vers 14.5<span class="SubmitBtn"></span></span></span></span></span></b></span></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+<!-- popup starts here -->
+</table>
+</form>
+</body></html>

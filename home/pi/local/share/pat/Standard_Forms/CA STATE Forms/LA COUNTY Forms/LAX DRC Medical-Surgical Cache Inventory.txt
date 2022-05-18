@@ -1,0 +1,50 @@
+Form:LAX DRC M-SS CACHE INVENTORY CHECKLIST.html,LAX DRC M-SS CACHE INVENTORY CHECKLIST Viewer.html
+To:
+
+Subject:M/SS Cache Inventory CHECKLIST, <var facility>
+
+Msg:  
+DEPARTMENT OF HEALTH SERVICES COUNTY OF LOS ANGELES
+REFERENCE NO. 1107.1 
+
+SUBJECT: M/SS CACHE INVENTORY AND CHECKLIST FOR ITEMS DEPLOYED
+
+FACILITY: <var facility>
+------------
+
+There were <var CntChanges> changes to "Number Checked Out" made on the form.
+
+See Viewing Form in Winlink
+
+Notes/Comments
+
+<var Comments>
+--
+Facility: <var Facility2>
+Released by: <var Releasedby>
+Date released: <var DateReleased>
+Received by: <var Receivedby>
+
+Returned by: <var Returnedby>
+Date returned: <var DateReturned>
+
+
+------------------------------------
+Express Sending Station: <MsgSender>
+Senders Express Version: <ProgramVersion>
+Senders Template Version: <var Templateversion>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

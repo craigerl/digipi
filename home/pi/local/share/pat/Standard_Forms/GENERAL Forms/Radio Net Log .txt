@@ -1,0 +1,58 @@
+Form: Radio Net Log Initial.html,Radio Net Log Viewer.html
+
+To: 
+Subject: <var Title> Radio Net Log - <var Incident_Name> 
+Msg:
+Radio Net Log
+---------
+1. Incident Name: <var Incident_Name> 
+2. Operational Period: 
+  2a. Date From: <var DateFrom>  Date To: <var DateTo> 
+  2b. Time From: <var TimeFrom>  Time To: <var TimeTo> 
+3. Name /Position (NCS): <var NCS> 
+4. Name /Position (Backup): <var BackupNCS> 
+
+-----
+ #	Call Sign	Location	Check in	Check out	Comments
+1	<var A1>	<var A2>	<var A3>	<var A4>	<var A5> 
+2	<var B1>	<var B2>	<var B3> 	<var B4>	<var B5> 
+3	<var C1>	<var C2>	<var C3> 	<var C4>	<var C5> 
+4	<var D1>	<var D2>	<var D3> 	<var D4>	<var D5> 
+5	<var E1>	<var E2>	<var E3>	<var E4>	<var E5> 
+6	<var F1>	<var F2>	<var F3>	<var F4>	<var F5> 
+7	<var G1>	<var G2>	<var G3>	<var G4>	<var G5> 
+8	<var H1>	<var H2>	<var H3>	<var H4>	<var H5> 
+9	<var I1>	<var I2>	<var I3>	<var I4>	<var I5> 
+10	<var J1>	<var J2>	<var J3> 	<var J4>	<var J5> 
+11	<var K1>	<var K2>	<var K3> 	<var K4>	<var K5> 
+12	<var L1>	<var L2>	<var L3>	<var L4>	<var L5> 
+13	<var M1>	<var M2>	<var M3> 	<var M4>	<var M5> 
+14	<var N1>	<var N2>	<var N3> 	<var N4>	<var N5> 
+15	<var O1>	<var O2>	<var O3> 	<var O4>	<var O5> 
+16	<var P1>	<var P2>	<var P3> 	<var P4>	<var P5> 
+17	<var Q1>	<var Q2>	<var Q3> 	<var Q4>	<var Q5> 
+18	<var R1>	<var R2>	<var R3> 	<var R4>	<var R5> 
+19	<var S1>	<var S2>	<var S3> 	<var S4>	<var S5> 
+20	<var T1>	<var T2>	<var T3> 	<var T4>	<var T5> 
+21	<var U1>	<var U2>	<var U3> 	<var U4>	<var U5> 
+22	<var V1>	<var V2>	<var V3> 	<var V4>	<var V5> 
+23	<var W1>	<var W2>	<var W3> 	<var W4>	<var W5> 
+24	<var X1>	<var X2>	<var X3> 	<var X4>	<var X5> 
+25	<var Y1>	<var Y2>	<var Y3> 	<var Y4>	<var Y5> 
+
+---------------------------------------------
+Comments or Additional Information
+
+<var Comments>
+
+PAGE <var PageOf> OF <var PageTo>
+------------------------
+Express Sending Station: <MsgSender>
+Senders Express Version: <ProgramVersion>
+Senders Template Version: <var Templateversion>
+
+
+
+
+
+

@@ -1,0 +1,60 @@
+Form: Halifax_ICS202_Initial.html,Halifax_ICS202_Viewer.html
+
+
+To: 
+Subject:Halifax Incident Objectives ICS202: <var IncidentName>
+SeqInc:
+Msg:
+1. Incident Name: <var IncidentName>
+2. Date Prepared: <var DatePrepared>
+3. Time: <var TimePrepared>
+
+4. Operational Period: <var OpdateTime>
+   Date From: <var DateFrom>
+   Date To: <var DateTo>
+   Time From: <var TimeFrom>
+   Time To: <var TimeTo>
+
+5. GENERAL CONTROL OBJECTIVES FOR INCIDENT:(Includes alternatives) 
+  
+<var Objectives>
+
+6. WEATHER FORECAST:
+   
+<var weather>
+
+7. GENERAL SAFETY MESSAGE:
+
+<var Safety>
+
+8. ATTACHMENTS:
+ 
+<var ORGlist>  Organizational List (ICS203) 
+
+<var AssignList> Assignment List (ICS204) 
+
+<var COMMPLAN> Communications Plan (ICS205) 
+
+<var Medplan> Medical Plan (ICS206) 
+
+<var MAP> Incident Map 
+
+<var Traffic> Traffic Plan 
+
+--- Other:
+
+<var ALt1>  <var ALttxt1>
+<var ALt2>  <var ALttxt2>
+<var ALt3>  <var ALttxt3>
+
+----
+
+9. PREPARED BY: <var prepedby>
+  SIGNATURE: <var prepsignature>
+
+10. APPROVED BY: <var approvedby>
+  SIGNATURE: <var appSignature>
+
+
+
+

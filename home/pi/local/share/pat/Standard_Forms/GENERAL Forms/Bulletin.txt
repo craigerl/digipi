@@ -1,0 +1,16 @@
+Form: Bulletin Initial.html,Bulletin Viewer.html
+To: 
+Subject: <var Subjectline> #<var BullNr> <var Level>	
+Msg:
+<var Title> Bulletin For: <var Name>
+Bulletin #: <var BullNr>
+Bulletin From: <var From_Name>
+Date/Time: <var ActivityDateTime1>
+Read Level: <var Level>
+
+<var Message>		-Express Sending Station: <MsgSender>Senders Express Version: <ProgramVersion>Senders Template Version: <var Templateversion>
+
+
+
+
+

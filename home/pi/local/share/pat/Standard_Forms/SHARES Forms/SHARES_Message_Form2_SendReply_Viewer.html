@@ -1,0 +1,267 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>SHARES Message Form 2-Confirmation-{var Call_From}-{var RDateTime}-</title>
+
+
+
+<style type="text/css">
+
+@media print {
+
+#printPageButton {
+
+    display: none;
+
+  }
+
+  .form-control, .form-control.nobug {
+
+border: 0;
+
+outline: 0;
+
+box-shadow: none;
+
+font-size:12px;
+
+}
+
+.form-control.nobug {
+
+transition: none; /*-- THIS IS IMPORTANT -- */
+
+}
+
+ input {
+
+         outline: none !important;
+
+		box-shadow: none;
+
+		border: none;
+
+		}
+
+}
+
+
+
+body, td, th {
+
+font-family: Arial,Helvetica,sans-serif;
+
+font-size: 12px;
+
+font-weight: inherit;
+
+}
+
+.zentriert {
+
+font-size: 12px;
+
+font-weight: inherit;
+
+}
+
+input, select {
+
+padding: 1px;
+
+-moz-border-radius-topleft: 2px;
+
+-moz-border-radius-topright: 2px;
+
+-moz-border-radius-bottomright: 2px;
+
+-moz-border-radius-bottomleft: 2px;
+
+font-family: Arial,Helvetica,sans-serif;
+
+font-size: 12px;
+
+font-weight: inherit;
+
+}
+
+textarea {
+
+padding: 1px;
+
+-moz-border-radius-topleft: 2px;
+
+-moz-border-radius-topright: 2px;
+
+-moz-border-radius-bottomright: 2px;
+
+-moz-border-radius-bottomleft: 2px;
+
+font-family: Arial,Helvetica,sans-serif;
+
+font-size: 12px;
+
+font-weight: inherit;
+
+}
+
+.rechtsbuendig {
+
+font-size: 12px;
+
+font-weight: inherit;
+
+}
+
+.SubmitBtn {
+
+font-size: 12px;
+
+font-weight: inherit;
+
+}
+
+.version {
+
+color: #666666;
+
+position: relative;
+
+left: 0px;
+
+top: 3px;
+
+font-size: 12px;
+
+font-weight: inherit;
+
+}
+
+</style></head>
+
+<body>
+
+<form action="http://{FormServer}:{FormPort}" onsubmit="return confirm('To complete your form submission, click OK and close the open browser window. You will return to the new message window so you can address and post your message to the outbox');" enctype="multipart/form-data" id="SHARES Message Form 2" method="post" pbzloc="1" style="font-family: Arial Black;">
+
+<table style="height: 498px; width: 907px;" align="center" border="0">
+
+<tbody>
+
+<tr>
+
+<td>
+
+<table style="font-size: 14px; width: 807px; height: 225px;" border="3" bordercolor="#999999" cellpadding="4" cellspacing="2">
+
+<tbody>
+
+<tr style="font-family: Arial;">
+
+<td colspan="2" style="height: 15%; text-align: center; background-color: rgb(255, 255, 204);"><small><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+&nbsp;
+
+</b><big><big><big><small>SHARES
+
+HF RADIO PROGRAM MESSAGE</small></big> FORM 2 </big></big><span style="font-size: 14px;"><big style="font-weight: bold;"><big>&nbsp;&nbsp;&nbsp;</big></big></span></small>&nbsp;<big>&nbsp;<small>&nbsp;</small></big><small><big>Ver 9 &nbsp;</big><span style="font-size: 12px;"><big style="font-weight: bold;"><big>&nbsp;&nbsp;<br />
+&nbsp;&nbsp;</big></big></span></small></td>
+
+</tr>
+
+<tr style="font-family: Arial;">
+
+<td style="text-align: center; background-color: white;" colspan="2"><div align="left"><big><big><span style="color: rgb(204, 102, 0);"><small><br style="color: black;" />
+
+              <big><big>&nbsp; &nbsp;</big></big><span style="color: rgb(204, 0, 0);">Confirmation
+
+  Of Message Received By:</span></small> &nbsp;</span></big></big><big><big><span style="color: rgb(204, 102, 0);">
+
+  <input maxlength="21" size="22" readonly="readonly" name="Call_From" value="{var Call_From}" />
+
+  </span></big></big><big><big>
+
+&nbsp; <br />
+
+  <br />
+
+  </big></big><small><big><big>&nbsp; &nbsp;Return
+
+  Confirmation DTG:</big> (Zulu)</big></small> 
+  <input readonly="readonly" id="RDateTime" maxlength="22" name="RDateTime" required="required" size="22" value="{var RDateTime}" />
+
+</div>
+
+  </td>
+
+</tr>
+
+<tr>
+
+<td style="text-align: center;" colspan="2"><div style="background-color: rgb(255, 255, 204);" align="left"><big><span style="color: rgb(153, 51, 0);"><br />
+
+  <span style="width: 750px;"><small><big><big>&nbsp; &nbsp;</big></big></small><span style="width: 750px;">{var MsgOriginalBody}</span></span></span></big><br />
+
+  <big><br />
+
+</big></div></td>
+
+</tr>
+
+<tr>
+
+<td style="text-align: center;" colspan="2"><div style="background-color: rgb(255, 255, 204);" align="left">
+
+  <div align="left"><br />
+
+        <small><big><big>&nbsp; &nbsp;Comments About This
+
+    Confirmation Message:<br />
+
+    <br />
+
+   <span style="width:750px; margin: 10px;  word-wrap:break-word; display:inline-block;">{var Comments}</span><br />
+
+      </big></big></small></div>
+
+</div></td>
+
+</tr>
+
+<tr>
+
+<td style="text-align: justify; background-color: white;" colspan="2"><div align="left"><big><big>
+
+  <big>&nbsp;</big></big><big><big>
+&nbsp; &nbsp; &nbsp; &nbsp;</big></big></big> &nbsp; &nbsp; &nbsp;
+
+&nbsp; &nbsp; &nbsp; &nbsp;
+
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+
+&nbsp; &nbsp; &nbsp; &nbsp;
+
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+
+&nbsp; &nbsp; &nbsp; &nbsp;
+
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;<span class="version"></span></div></td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+<br />
+
+<small>&nbsp;</small></td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</form>
+
+</body></html>

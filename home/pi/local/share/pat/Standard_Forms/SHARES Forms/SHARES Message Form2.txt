@@ -1,0 +1,42 @@
+Form:SHARES_Message_Form2_Initial.html,SHARES_Message_Form2_Viewer.html
+ReplyTemplate: SHARES_Message_Form2_SendReply.0
+
+To:<var To>
+Subject:SHARES Message-<var Event>-Msg #:[<var Msg_Num>] <var Date>	
+Msg:
+
+Original Mesage Sent To: <var To>
+Originating Station: <var Calling>
+Operator Name: <var Op_Name>
+Time/Month/Year: <var Date>
+
+FROM
+Name: <var Fr_Name>
+Agency: <var Fr_Agency>
+City: <var Fr_City>
+Telephone: <var Fr_Tel>
+State: <var Fr_State>
+
+TO
+Name: <var To_Name>
+Agency: <var To_Agency>
+City: <var To_City>
+Telephone: <var To_Tel>
+State: <var To_State>
+------------------------------------------------
+
+Para 1: This is a SHARES: <var Event>
+Para 2: Message Follows:
+
+<var Message>
+
+Message Status: <var Status>
+------------------------------------------------
+Originating Station Remarks: 
+
+<var remarks>
+
+
+
+
+

@@ -1,0 +1,1495 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>DCS S213 Initial</title>
+
+
+
+<style type="text/css">
+
+<!--
+
+@media print {
+.form-control, .form-control.nobug {
+
+border: 0;
+
+outline: 0;
+
+box-shadow: none;
+
+font-size:14px;
+
+}
+
+.form-control.nobug {
+
+transition: none; /*-- THIS IS IMPORTANT -- */
+
+}
+
+input, textarea {
+
+outline: none !important;
+
+box-shadow: none;
+
+border: none;
+
+overflow: visible;
+
+font-family: Arial, Helvetica, sans-serif;
+
+font-size: 11px;
+
+}
+}
+
+.formtext {
+
+font-family: Arial, Helvetica, sans-serif;
+
+font-size: 11pt;
+
+font-weight: normal;
+
+margin: 10px;
+
+}
+
+#TextHeader {
+background-color: #dddddd;
+font-size: 10px;
+font-family: Arial,Helvetica,sans-serif;
+}
+
+.upload-btn-wrapper {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.btn {
+  border: 2px solid gray;
+  color: gray;
+  background-color: white;
+  padding: 8px 20px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.upload-btn-wrapper input[type=file] {
+  font-size: 50px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;}
+  
+  <!--
+
+TD{ bgcolor="#ffffff" valign="top"}
+
+.SubmitBtn {font-size: 12px;
+
+font-family: Arial,Helvetica,sans-serif;
+
+font-weight: inherit;
+
+}
+
+.upload-btn-wrapper {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.btn {
+  border: 2px solid gray;
+  color: gray;
+  background-color: white;
+  padding: 8px 20px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.upload-btn-wrapper input[type=file] {
+  font-size: 50px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;}
+/*
+
+body {color:#000; background:#fff; font:100%/1.5 arial,sans-serif;}
+
+h2 {margin-top:0}
+
+*/
+
+/* Styling applied to classes only */
+
+/* Pop-up content shifted off-screen when not in view.
+
+Still readable by screen-reader software.
+
+When targeted it fills the browser window.
+
+*/
+.pop-up {
+	position:absolute;
+	top:0;
+	left:-500em;
+	visibility: hidden;
+}
+
+.pop-up:target {position:static; left:0;}
+
+/* The pop-up itself */
+
+.popBox {
+	background:#ffffff;
+	position:absolute;
+	left:25%;
+	right:25%;
+	top:10%;
+	bottom:25%;
+	z-index:10;
+	border:1px solid #3a3a3a;
+
+/* CSS3 where available: rounded corners, drop-shadow, and fade in. */
+
+border-radius:.25rem;
+
+box-shadow:0 .5rem .5rem rgba(0,0,0,.5);
+	opacity:0;
+	transition: opacity 0.8s ease-out;
+	visibility: hidden;
+}
+
+:target .popBox {position:fixed; opacity:1;}
+
+/* Light box properties */
+
+.lightbox {
+
+display:none;
+
+text-indent:-200em;
+
+background-color:rgba(0,0,0,.4);
+
+width:100%;
+
+height:100%;
+
+position:fixed;
+
+top:0;
+
+left:0;
+
+bottom:0;
+
+right:0;
+
+z-index:5;
+
+}
+
+:target .lightbox {display:block;}
+
+/* The pop-ups close link, moved via CSS to the top right of the pop-up */
+
+.close:link,
+
+.close:visited {
+	position: absolute;
+	top: -0.75em;
+	right: -0.75em;
+	display: block;
+	width: 2em;
+	height: 2em;
+	line-height: 1.8;
+	padding: 0;
+	text-align: center;
+	text-decoration: none;
+	background-color: #000;
+	border: 2px solid #fff;
+	color: #fff;
+	border-radius: 50%;
+
+box-shadow: 0 0 .5rem .5rem rba(0,0,0,.5);
+	visibility: hidden;
+}
+
+.close:before {content:"X";}
+
+.close:hover,
+
+.close:active,
+
+.close:focus {
+
+box-shadow: 0 0 .5rem .5rem rba(255,0,0,.5);
+
+background-color: #c00;
+
+color: #fff;
+
+}
+
+.close span {
+
+text-indent: -200em;
+
+display: block;
+
+}
+
+/* The pop-up content div will scroll if it has too much content */
+
+.popScroll {
+	position:absolute;
+	top: 1rem;
+	left: 1rem;
+	right: 1rem;
+	bottom: 1rem;
+	overflow-y: auto;
+
+*overflow-y: scroll;
+	padding-right: 0.5em;
+	visibility: hidden;
+}
+
+.popScroll h2 {margin-top:0}
+}
+
+  input[type=button] {
+
+  border: 1.5px solid #0f88f2;
+   border-radius:.25rem;
+  color: black;
+  padding: 2px 2px;
+  text-decoration: none;
+  margin: 2px 2px;
+  cursor: pointer;
+}
+input[type=submit] {
+ border: 1.5px solid green;
+  border-radius:.25rem;
+  background-color: white;
+  color: black;
+  padding: 2px 2px;
+  font-size: 14px;
+   cursor: pointer;
+}
+input[type=reset] {
+ border: 1.5px solid red;
+ border-radius:.25rem;
+  background-color: white;
+  color: black;
+  padding: 2px 2px;
+  font-size: 14px;
+   cursor: pointer;
+}
+input[type=black1] {
+ border: 1.5px solid #999999;
+   width:225px;
+  border-radius:.25rem;
+
+  background-color: white;
+  color: black;
+  padding: 2px 2px;
+  font-size: 14px;
+   cursor: pointer;
+}
+input[type=blue1] {
+ border: 1.5px solid #0f88f2;
+   border-radius:.25rem;
+  color: black;
+  padding: 2px 2px;
+  text-decoration: none;
+  margin: 2px 2px;
+  cursor: pointer;
+}
+
+
+.style18 {font-size: 13px}
+.style20 {font-size: 11px}
+</style>
+
+<script>
+
+function shortmonth(monthnum) {
+
+var monthname;
+
+shortmonths = ["JAN", "FEB", "MAR","APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"] ;
+
+monthname = shortmonths [monthnum];
+
+return monthname; }
+
+
+
+function SetDateTime(TType,TheFld, FocusFld) {
+
+//id="tformat" value="Local"
+var txt;
+
+var myprompt;
+
+var d = new Date(),
+
+thisyear = d.getFullYear();
+
+thismonth= d.getMonth();
+
+thisday = d.getDate();
+if (thisday < 10) { thisday = "0" + thisday}
+
+var monname;
+
+h = (d.getHours()<10?'0':'') + d.getHours()
+
+m = (d.getMinutes()<10?'0':'') + d.getMinutes()
+
+s = (d.getSeconds()<10?'0':'') + d.getSeconds();
+
+var now = new Date();
+
+var utch = now.getUTCHours();
+
+if (utch < 10) { utch = "0"+utch};
+
+var utcs = now.getUTCMinutes();
+
+if (utcs < 10) { utcs = "0"+utcs};
+
+var myUTCtime = utch+":"+utcs+"Z";
+
+var utcstr = d.toUTCString();
+
+var localt = d.toLocaleTimeString();
+
+var isostr = d.toISOString();
+var UTCyear = d.getUTCFullYear();
+//monthname = shortmonth (thismonth);
+var UTCmon = d.getUTCMonth();  
+var UTCmon = UTCmon+1;
+if (UTCmon < 10) { UTCmon = "0" + UTCmon}
+
+var UTCdate = d.getUTCDate();  
+thismonth = thismonth + 1;
+if (thismonth < 10) { thismonth = "0" + thismonth};
+//if (thismonth < 10) { thismonth = "0" + thismonth}
+
+myUTCdate = UTCyear+'-'+UTCmon+'-'+UTCdate;
+switch (TType) {
+
+case 'hms' :
+
+myprompt = h + ':' + m + ':' + s;
+
+var RightNow = prompt("Time:", myprompt);
+
+document.getElementById(TheFld).value = RightNow;
+
+break;
+
+case 'hm' :
+
+//var cformat =document.getElementById('tformat').checked;
+var myprompt = h + ':' + m;
+var RightNow = prompt("Time:", myprompt);
+
+document.getElementById(TheFld).value = RightNow;
+
+break;
+
+case 'm-d-y': myprompt = thismonth+ '-' + thisday+ '-'+ thisyear;
+
+var RightNow = prompt("Date:", myprompt);
+
+document.getElementById(TheFld).value = RightNow;
+
+break;
+
+case 'm/d/y': myprompt = thismonth+ '/' + thisday+ '/'+ thisyear;
+
+var RightNow = prompt("Date:", myprompt);
+
+document.getElementById(TheFld).value = RightNow;
+
+break;
+
+case 'd mmm y': myprompt = thisday+ ' ' + monthname+ ' '+ thisyear;
+
+var RightNow = prompt("Date:", myprompt);
+
+document.getElementById(TheFld).value = RightNow;
+
+break;
+
+case 'mmm-d-y': myprompt = monthname+'-'+thisday+ '-' + thisyear;
+
+var RightNow = prompt("Date:", myprompt);
+
+document.getElementById(TheFld).value = RightNow;
+
+break;
+
+case 'localampm': var myprompt = localt;
+
+var RightNow = prompt("Local time:", myprompt);
+
+document.getElementById(TheFld).value = RightNow;
+
+break;
+
+case 'fulldate': 
+
+//var cformat =document.getElementById('tformat').checked;
+var myprompt = thisyear+ '-'+thismonth+'-'+thisday;
+
+
+
+
+var RightNow = prompt("Date:", myprompt);
+
+document.getElementById(TheFld).value = RightNow;
+
+break;
+
+case 'fulldatetime': 
+
+var myprompt = thisyear+'-'+thismonth+ '-'+thisday+' '+h + ':' + m ;
+
+var RightNow = prompt("Date time:", myprompt);
+
+document.getElementById(TheFld).value = RightNow;
+
+break;
+
+case 'autodate': var RightNow = thisyear+'-'+thismonth+ '-'+thisday ;
+
+//var RightNow = prompt("Date time:", myprompt);
+
+document.getElementById(TheFld).value = RightNow;
+
+break;
+
+case 'autotime': var RightNow = h + ':' + m ;
+
+//var RightNow = prompt("Date time:", myprompt);
+
+document.getElementById(TheFld).value = RightNow;
+
+break;
+
+case 'iso': var myprompt = isostr;
+
+var RightNow = prompt("Date time:", myprompt);
+
+document.getElementById(TheFld).value = RightNow;
+
+break;
+
+case 'utc': var myprompt = utcstr;
+
+var RightNow = prompt("Date time:", myprompt);
+
+document.getElementById(TheFld).value = RightNow;
+
+break;
+
+case 'zulu': var myprompt = isostr;
+
+myprompt = isostr.replace("T", " "); slen = myprompt.length;
+
+myprompt = myprompt.substr(0, slen-5);
+
+var RightNow = prompt("Date time:", myprompt);
+
+document.getElementById(TheFld).value = RightNow;
+
+break;
+
+case 'UTChm': var myprompt = myUTCtime;
+
+var RightNow = prompt("Date time:", myprompt);
+
+document.getElementById(TheFld).value = RightNow;
+
+break;
+
+}
+
+// if(FocusFld !== null && FocusFld !== '') {document.getElementById(FocusFld).focus()} --/
+
+}; 
+
+
+
+
+function DateTime() {  
+//  alert ("atdatetime");
+var txt;  
+  
+var myprompt;  
+  
+var d = new Date(),  
+  
+thisyear = d.getFullYear();  
+  
+thismonth= d.getMonth();  
+  
+thisday = d.getDate();  
+  var UTCdate = d.getUTCDate();  
+var monname;  
+  
+h = (d.getHours()<10?'0':'') + d.getHours()  
+  
+m = (d.getMinutes()<10?'0':'') + d.getMinutes()  
+  
+var Localtime = h + m+'L ';  
+  
+var now = new Date();  
+  
+var utch = now.getUTCHours();  
+  
+if (utch < 10) { utch = '0'+utch};  
+  
+var utcs = now.getUTCMinutes();  
+  
+if (utcs < 10) { utcs = '0'+utcs};  
+  
+var myUTCtime = utch+""+utcs;  
+  
+var utcstr = d.toUTCString();  
+  
+var localt = d.toLocaleTimeString();  
+  
+var isostr = d.toISOString();  
+  
+monthname = shortmonth (thismonth);  
+  
+thismonth = thismonth + 1;  
+  if (thismonth < 10) { thismonth = "0" + thismonth}
+
+var UTCmon = d.getUTCDate();  
+  
+var UTCmon = d.getUTCMonth();  
+var UTCmon = UTCmon+1;
+if (UTCmon < 10) { UTCmon = "0" + UTCmon}
+
+var utcmonthname = shortmonth (UTCmon);  
+  
+//var UTCmmdd =utcmonthname + " "+UTCdate+" "+thisyear;  
+  
+//var Localdate = monthname+' '+thisday+" "+thisyear;  
+var UTCmmdd =thisyear + "-"+UTCmon+"-"+UTCdate;  
+  	
+var Localdate = thisyear+'-'+thismonth+'-'+thisday;
+  
+var Rightnow =UTCmmdd;  
+  
+if (document.getElementById('tformat').checked) { Rightnow = Localdate};  
+  
+document.getElementById('Mdate').value = Rightnow;  
+  
+var Rightnow = myUTCtime;  
+  
+if (document.getElementById('tformat').checked) { Rightnow = Localtime};  
+  
+document.getElementById('Mtime').value = Rightnow;  
+  
+// if(FocusFld !== null && FocusFld !== '') {document.getElementById(FocusFld).focus()} --/  
+  
+};  
+function RWS(str){
+
+var text2 = str.replace(/\s+$/,"");
+var aquote = '"';
+var text2=text2.replace(/\“/g, aquote); 
+var text2=text2.replace(/\”/g, aquote); 
+var text2=text2.replace(/\’/g, "'"); 
+var text2=text2.replace(/\‘/g, "'"); 
+
+ text2 = text2.replace(/[\u2018|\u2019|\u201A]/gm, "\'");
+    // smart double quotes
+	text2 = text2.replace(/[\u201C|\u201D|\u201E]/g, "\"");
+	//text2 = text2.replace(/\u00201c/g, aquote);
+//text2 = text2.replace(/[\u+201D]/gm, aquote);
+    // ellipsis
+   // text2 = text2.replace(/\u2026/g, "...");
+    // dashes
+    //text2 = text2.replace(/[\u2013|\u2014]/g, "-");
+    // circumflex
+ //   text2 = text2.replace(/\u02C6/g, "^");
+    // open angle bracket
+    //text2 = text2.replace(/\u2039/g, "");
+    // spaces
+    //text2 = text2.replace(/[\u02DC|\u00A0]/g, " ");
+return text2.trim();
+
+}	function selectaddress(){  
+ location.href="#pop3";  
+ 
+}  
+//-------
+ function readBlob(opt_startByte, opt_stopByte) {
+  
+    var files = document.getElementById('files').files;
+    if (!files.length) {
+      alert('Please select a file!');
+      return;
+    }
+
+    var file = files[0];
+    var start = parseInt(opt_startByte) || 0;
+    var stop = parseInt(opt_stopByte) || file.size - 1;
+
+    var reader = new FileReader();
+
+    // If we use onloadend, we need to check the readyState.
+    reader.onloadend = function(evt) {
+      if (evt.target.readyState == FileReader.DONE) { // DONE == 2
+        document.getElementById('byte_content').textContent = evt.target.result;
+        document.getElementById('byte_range').textContent = 
+            ['Read bytes: ', start + 1, ' - ', stop + 1,
+             ' of ', file.size, ' byte file'].join('');
+      }
+    };
+
+    var blob = file.slice(start, stop + 1);
+    reader.readAsBinaryString(blob);
+  }
+    	
+  window.onload = function () { 
+ 
+ //Check the support for the File API support 
+ if (window.File && window.FileReader && window.FileList && window.Blob) {
+    var fileSelected = document.getElementById('txtfiletoread');
+	
+    fileSelected.addEventListener('change', function (e) { 
+         //Set the extension for the file 
+         var fileExtension = /text.*/; 
+         //Get the file object 
+         var fileTobeRead = fileSelected.files[0];
+        //Check of the extension match 
+         if (fileTobeRead.type.match(fileExtension)) { 
+             //Initialize the FileReader object to read the 2file 
+			
+             var fileReader = new FileReader(); 
+             fileReader.onload = function (e) { 
+                 var fileContents = document.getElementById('filecontents'); 
+                
+				document.getElementById('parseme').value =fileReader.result;
+				       parsestring("F");   } 
+             fileReader.readAsText(fileTobeRead); 
+         } 
+         else { 
+             alert("Please select text file"); 
+         }
+ 
+    }, false);
+} 
+ else { 
+     alert("Files are not supported"); 
+ } 
+ SetDateTime('autodate','Mdate');
+ SetDateTime('autotime','Mtime')
+
+ }
+
+function saveTextAsFile(fileNameToSaveAs, textToWrite) {
+var textToWrite = document.getElementById('parseme').value; 
+var fileNameToSaveAs = "DCS 213 INITIAL " + DateforFile()+".txt";
+fileNameToSaveAs = prompt("", fileNameToSaveAs);
+
+  /* Saves a text string as a blob file*/  
+  var ie = navigator.userAgent.match(/MSIE\s([\d.]+)/),
+      ie11 = navigator.userAgent.match(/Trident\/7.0/) && navigator.userAgent.match(/rv:11/),
+      ieEDGE = navigator.userAgent.match(/Edge/g),
+      ieVer=(ie ? ie[1] : (ie11 ? 11 : (ieEDGE ? 12 : -1)));
+
+  if (ie && ieVer<10) {
+    console.log("No blobs on IE ver<10");
+    return;
+  }
+
+  var textFileAsBlob = new Blob([textToWrite], {
+    type: 'text/plain'
+  });
+
+  if (ieVer>-1) {
+    window.navigator.msSaveBlob(textFileAsBlob, fileNameToSaveAs);
+
+  } else {
+    var downloadLink = document.createElement("a");
+    downloadLink.download = fileNameToSaveAs;
+    downloadLink.href = window.URL.createObjectURL(textFileAsBlob);
+    downloadLink.onclick = function(e) { document.body.removeChild(e.target); };
+    downloadLink.style.display = "none";
+    document.body.appendChild(downloadLink);
+    downloadLink.click();
+  }
+}
+
+
+
+
+
+function destroyClickedElement(event)
+{
+    document.body.removeChild(event.target);
+}
+
+function loadFileAsText()
+{
+
+    var fileToLoad = document.getElementById("fileToLoad").files[0];
+ 
+    var fileReader = new FileReader();
+    fileReader.onload = function(fileLoadedEvent) 
+    {
+        var textFromFileLoaded = fileLoadedEvent.target.result;
+        document.getElementById("inputTextToSave").value = textFromFileLoaded;
+    };
+    fileReader.readAsText(fileToLoad, "UTF-8");
+}
+
+function TimeNow(Timefld, FocusFld) {
+var txt;
+var d = new Date(),
+thisyear = d.getFullYear();
+thismonth= d.getMonth();
+thismonth = thismonth+1;
+if (thismonth < 10) { thismonth = "0" + thismonth}
+
+thisday = d.getDate();
+if (thisday < 10) { thisday = "0" + thisday};
+
+h = (d.getHours()<10?'0':'') + d.getHours()
+m = (d.getMinutes()<10?'0':'') + d.getMinutes()
+s = (d.getSeconds()<10?'0':'') + d.getSeconds();
+var myprompt = thisyear+ '-'+thismonth+'-'+thisday+' '+h + ':' + m ;
+var RightNow = prompt("", myprompt);
+document.getElementById(Timefld).value = RightNow;
+} 
+function DateforFile(RightNow) {
+var txt;
+var d = new Date(),
+thisyear = d.getFullYear();
+thismonth= d.getMonth();
+thismonth = thismonth+1;
+if (thismonth < 10) { thismonth = "0" + thismonth}
+
+thisday = d.getDate();
+if (thisday < 10) { thisday = "0" + thisday}
+
+h = (d.getHours()<10?'0':'') + d.getHours()
+m = (d.getMinutes()<10?'0':'') + d.getMinutes()
+s = (d.getSeconds()<10?'0':'') + d.getSeconds();
+var myprompt = thisyear+ '-'+thismonth+'-'+thisday+' '+h + '_' + m ;
+return myprompt;
+}
+
+function shortmonth(monthnum) {
+var monthname;
+shortmonths = ["JAN", "FEB", "MAR","APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"] ;
+monthname = shortmonths [monthnum];
+return monthname;
+}
+function DateTime(TType,TheFld, FocusFld) {
+var txt;
+var myprompt;
+var d = new Date(),
+thisyear = d.getFullYear();
+thismonth= d.getMonth();
+thisday = d.getDate();
+var monname;
+h = (d.getHours()<10?'0':'') + d.getHours()
+m = (d.getMinutes()<10?'0':'') + d.getMinutes()
+s = (d.getSeconds()<10?'0':'') + d.getSeconds();
+var now = new Date();
+var utch = now.getUTCHours();
+if (utch < 10) { utch = "0"+utch};
+var utcs = now.getUTCMinutes();
+if (utcs < 10) { utcs = "0"+utcs};
+var myUTCtime = utch+":"+utcs+"";
+var utcstr = d.toUTCString();
+var localt = d.toLocaleTimeString();
+var isostr = d.toISOString();
+monthname = shortmonth (thismonth);
+thismonth = thismonth + 1;
+switch (TType) {
+case 'hms' :
+myprompt = h + ':' + m + ':' + s;
+var RightNow = prompt("Time:", myprompt);
+document.getElementById(TheFld).value = RightNow;
+break;
+case 'hm' :
+myprompt = h + ':' + m;
+var RightNow = prompt("Time:", myprompt);
+document.getElementById(TheFld).value = RightNow;
+break;
+case 'm-d-y': myprompt = thismonth+ '-' + thisday+ '-'+ thisyear;
+var RightNow = prompt("Date:", myprompt);
+document.getElementById(TheFld).value = RightNow;
+break;
+case 'm/d/y': myprompt = thismonth+ '/' + thisday+ '/'+ thisyear;
+var RightNow = prompt("Date:", myprompt);
+document.getElementById(TheFld).value = RightNow;
+break;
+case 'DateStamp-m-d-y': var RightNow = thismonth+ '-' + thisday+ '-'+ thisyear;
+document.getElementById(TheFld).value = RightNow;
+break;
+case 'd mmm y': myprompt = thisday+ ' ' + monthname+ ' '+ thisyear;
+var RightNow = prompt("Date:", myprompt);
+document.getElementById(TheFld).value = RightNow;
+break;
+case 'mmm-d-y': myprompt = monthname+'-'+thisday+ '-' + thisyear;
+var RightNow = prompt("Date:", myprompt);
+document.getElementById(TheFld).value = RightNow;
+break;
+case 'localampm': var myprompt = localt;
+var RightNow = prompt("Local time:", myprompt);
+document.getElementById(TheFld).value = RightNow;
+break;
+case 'fulldate': var myprompt = thisyear+ '-'+thismonth+'-'+thisday;
+var RightNow = prompt("Date:", myprompt);
+document.getElementById(TheFld).value = RightNow;
+break;
+case 'fulldatetime': var myprompt = thisyear+'-'+thismonth+ '-'+thisday+' '+h + ':' + m + ':' + s;
+var RightNow = prompt("Date time:", myprompt);
+document.getElementById(TheFld).value = RightNow;
+break;
+case 'iso': var myprompt = isostr;
+var RightNow = prompt("Date time:", myprompt);
+document.getElementById(TheFld).value = RightNow;
+break;
+case 'utc': var myprompt = utcstr;
+var RightNow = prompt("Date time:", myprompt);
+document.getElementById(TheFld).value = RightNow;
+break;
+case 'zulu': var myprompt = isostr;
+myprompt = isostr.replace("T", " "); slen = myprompt.length;
+myprompt = myprompt.substr(0, slen-5)+'Z';
+var RightNow = prompt("Date time:", myprompt);
+document.getElementById(TheFld).value = RightNow;
+break;
+case 'UTChm': var myprompt = myUTCtime;
+var RightNow = prompt("Date time:", myprompt);
+document.getElementById(TheFld).value = RightNow;
+break;
+}
+// if(FocusFld !== null && FocusFld !== '') {document.getElementById(FocusFld).focus()} --/
+};
+function AutoGrowTextArea(textField){
+//alert (textField.clientHeight );
+//textField.style.height = textField.scrollHeight + "px";
+if (textField.clientHeight < textField.scrollHeight)
+{
+textField.style.height = (textField.scrollHeight * 2 - textField.clientHeight) + "px";
+}
+}
+
+function Countthelines(f) { var text1 = f;
+
+var text2 = text1.replace(/\s+$/,"");
+var split2 = text2.split("\n"); 
+var ar = text2.length /100;
+var mytotal = (split2.length+ar) * 15.5;
+
+
+//var mytotal = split2.length * 15.5;
+//alert("#lines "+mytotal)
+//if (mytotal < 300) {
+//mytotal = 150;
+//}
+var tstr = mytotal.toString();
+return tstr;
+}
+function newfix(f){
+var ThisText = document.getElementById(f).value;
+var makeit = Countthelines(ThisText);
+
+document.getElementById(f).style.height = makeit+"px"; 
+
+}
+
+function Fixarea() {
+
+newfix('Message');
+ document.getElementById('Message').value
+AutoGrowTextArea('Message');
+
+}
+function RWS(str){
+var text2 = str.replace(/\s+$/,"");
+return text2.trim();
+}
+
+function saveTextAsFile(fileNameToSaveAs, textToWrite) {
+var textToWrite = document.getElementById('parseme').value; 
+var fileNameToSaveAs = "DCS 213 data " + DateforFile()+".txt";
+fileNameToSaveAs = prompt("", fileNameToSaveAs);
+
+
+  var ie = navigator.userAgent.match(/MSIE\s([\d.]+)/),
+      ie11 = navigator.userAgent.match(/Trident\/7.0/) && navigator.userAgent.match(/rv:11/),
+      ieEDGE = navigator.userAgent.match(/Edge/g),
+      ieVer=(ie ? ie[1] : (ie11 ? 11 : (ieEDGE ? 12 : -1)));
+
+  if (ie && ieVer<10) {
+    console.log("No blobs on IE ver<10");
+    return;
+  }
+
+  var textFileAsBlob = new Blob([textToWrite], {
+    type: 'text/plain'
+  });
+
+  if (ieVer>-1) {
+    window.navigator.msSaveBlob(textFileAsBlob, fileNameToSaveAs);
+
+  } else {
+    var downloadLink = document.createElement("a");
+    downloadLink.download = fileNameToSaveAs;
+    downloadLink.href = window.URL.createObjectURL(textFileAsBlob);
+    downloadLink.onclick = function(e) { document.body.removeChild(e.target); };
+    downloadLink.style.display = "none";
+    document.body.appendChild(downloadLink);
+    downloadLink.click();
+  }
+}
+
+
+
+
+
+function destroyClickedElement(event)
+{
+    document.body.removeChild(event.target);
+}
+
+function loadFileAsText()
+{
+
+    var fileToLoad = document.getElementById("fileToLoad").files[0];
+ 
+    var fileReader = new FileReader();
+    fileReader.onload = function(fileLoadedEvent) 
+    {
+        var textFromFileLoaded = fileLoadedEvent.target.result;
+        document.getElementById("inputTextToSave").value = textFromFileLoaded;
+    };
+    fileReader.readAsText(fileToLoad, "UTF-8");
+}
+
+
+function DateforFile(RightNow) {
+var txt;
+var d = new Date(),
+thisyear = d.getFullYear();
+thismonth= d.getMonth();
+thismonth = thismonth+1;
+if (thismonth < 10) { thismonth = "0" + thismonth}
+
+thisday = d.getDate();
+if (thisday < 10) { thisday = "0" + thisday}
+
+h = (d.getHours()<10?'0':'') + d.getHours()
+m = (d.getMinutes()<10?'0':'') + d.getMinutes()
+var myprompt = thisyear+ '-'+thismonth+'-'+thisday+' '+h + '_' + m ;
+return myprompt;
+}
+
+function isObject(arg) {
+  return Object.prototype.toString.call(arg)==='[object Object]';
+}
+
+function formDataToObject(elForm) {
+  if (!elForm instanceof Element) return;
+  var fields = elForm.querySelectorAll('input, select, textarea'),
+    o = {};
+  for (var i=0, imax=fields.length; i<imax; ++i) {
+    var field = fields[i],
+      sKey = field.name || field.id;
+    if (field.type==='button' || field.type==='image' || field.type==='submit' || !sKey) continue;
+    switch (field.type) {
+      case 'checkbox':
+        o[sKey] = +field.checked;
+        break;
+      case 'radio':
+        if (o[sKey]===undefined) o[sKey] = '';
+        if (field.checked) o[sKey] = field.value;
+        break;
+      case 'select-multiple':
+        var a = [];
+        for (var j=0, jmax=field.options.length; j<jmax; ++j) {
+          if (field.options[j].selected) a.push(field.options[j].value);
+        }
+        o[sKey] = a;
+        break;
+      default:
+        o[sKey] = field.value;
+    }
+  }
+ // alert('Form data:\n\n' + JSON.stringify(o, null, 2));
+ document.getElementById('parseme').value = JSON.stringify(o, null, 2);
+//  return o;
+}
+
+function populateForm(o) {
+
+o =  JSON.parse(document.getElementById('parseme').value);
+ //if (!isObject(o)) return;
+if (!isObject(o)) return;
+  for (var i in o) {
+    var el = document.getElementById(i) || document.querySelector('[name=' + i + ']');
+    if (el.type==='radio') el = document.querySelectorAll('[name=' + i + ']');
+    switch (typeof o[i]) {
+      case 'number':
+        el.checked = o[i];
+        break;
+      case 'object':
+        if (el.options && o[i] instanceof Array) {
+          for (var j=0, jmax=el.options.length; j<jmax; ++j) {
+            if (o[i].indexOf(el.options[j].value)>-1) el.options[j].selected = true;
+          }
+        }
+        break;
+      default:
+        if (el instanceof NodeList) {
+          for (var j=0, jmax=el.length; j<jmax; ++j) {
+            if (el[j].value===o[i]) el[j].checked = true;
+          }
+        } else {
+          el.value = o[i];
+        }
+    }
+  }
+    Fixfields();
+ RestoreTitle();
+
+
+}
+
+function SaveData() {
+	
+			formDataToObject(document.getElementById('myform'))
+			saveTextAsFile();
+			
+			//saveTextAsFile();
+			}
+
+//-------
+ function readBlob(opt_startByte, opt_stopByte) {
+  
+    var files = document.getElementById('files').files;
+    if (!files.length) {
+      alert('Please select a file!');
+      return;
+    }
+
+    var file = files[0];
+    var start = parseInt(opt_startByte) || 0;
+    var stop = parseInt(opt_stopByte) || file.size - 1;
+
+    var reader = new FileReader();
+
+    // If we use onloadend, we need to check the readyState.
+    reader.onloadend = function(evt) {
+      if (evt.target.readyState == FileReader.DONE) { // DONE == 2
+        document.getElementById('byte_content').textContent = evt.target.result;
+        document.getElementById('byte_range').textContent = 
+            ['Read bytes: ', start + 1, ' - ', stop + 1,
+             ' of ', file.size, ' byte file'].join('');
+      }
+    };
+
+    var blob = file.slice(start, stop + 1);
+    reader.readAsBinaryString(blob);
+  }
+    	
+  window.onload = function () { 
+ 
+ //Check the support for the File API support 
+ if (window.File && window.FileReader && window.FileList && window.Blob) {
+    var fileSelected = document.getElementById('txtfiletoread');
+	
+    fileSelected.addEventListener('change', function (e) { 
+         //Set the extension for the file 
+         var fileExtension = /text.*/; 
+         //Get the file object 
+         var fileTobeRead = fileSelected.files[0];
+        //Check of the extension match 
+         if (fileTobeRead.type.match(fileExtension)) { 
+             //Initialize the FileReader object to read the 2file 
+			
+             var fileReader = new FileReader(); 
+             fileReader.onload = function (e) { 
+                 var fileContents = document.getElementById('filecontents'); 
+                
+				document.getElementById('parseme').value =fileReader.result;
+				populateForm(obj = document.getElementById('parseme').value);
+					 } 
+             fileReader.readAsText(fileTobeRead); 
+         } 
+         else { 
+             alert("Please select text file"); 
+         }
+ 
+    }, false);
+} 
+ else { 
+     alert("Files are not supported"); 
+ } 
+Checkifinbrowser();
+Fixfields();
+ }
+ 
+  function Fixfields() {
+AutoGrowTextArea(document.getElementById("Message"));
+
+//  AutoGrowTextArea(document.getElementById("Comm3"));
+}
+
+
+	
+	function selectaddress(){  
+ location.href="#pop3";  
+} 
+
+
+function Fixcurlymsg() {
+n = document.getElementById("Message").value
+       n=n.replace(/[\u2018\u2019]/g, "'")   // smart single quotes
+       n=n.replace(/[\u201C\u201D]/g, '"');  // smart double quotes
+ document.getElementById("Message").value = n
+
+}
+function Flip(theid,thefield,working) {
+x1 = document.getElementById(theid);
+if (x1.checked) { document.getElementById(thefield).value = working;} 
+else { document.getElementById(thefield).value = '';}
+}
+function Flip2(theid,thefield,workingfld) {
+var x1 = document.getElementById(theid);
+var working= document.getElementById(workingfld).value;
+if (working == '') {alert ('You must enter a Department to notify first.'); x1.checked = false}
+if (x1.checked) { document.getElementById(thefield).value = working;} 
+else { document.getElementById(thefield).value = '';}
+}
+
+function Checkifinbrowser() {
+ var x= document.getElementById("testCall").value; 
+ var n = x.search("{Msg");
+ if (n>-1) { 
+ document.getElementById('Submit').style.visibility='hidden';
+  alert('You are running this form outside of Winlink.\n \nWhen you have completed the form, SAVE the data and then give or send the SAVED data file to the radio operator. The operator will load the SAVED data into the correct form and send via winlink. ');
+ } else {document.getElementById('Submit').style.visibility='visible';  }
+}
+
+
+</script>
+
+
+
+</head>
+<body >
+<form  style="font-family: Arial;" pbzloc="3" onsubmit="return confirm('To complete your form submission, click OK and close the open browser window. You will return to the new message window so you can post your message to the outbox');" method="post" id="myform" enctype="multipart/form-data" action="http://{FormServer}:{FormPort}">
+
+<table width="1030" border="2" cellpadding="4" cellspacing="0" bordercolor="#999999" style="width: 950px; height: 318px;">
+  <tbody>
+    <tr>
+      <td colspan="4" bgcolor="#dee9f9" style="text-align: center; vertical-align: top; "><span class="style3"><small>DCS 213 <big style="font-weight: bold;"><big><span style="font-weight: normal;">GENERAL MESSAGE</span></big></big></small></span><strong><small><small><big><span style="font-weight: normal;"><small><span class="style1"><br />
+        </span><br />
+        <input name="loadbtn" type="blue1" id="loadbtn" onclick="document.getElementById('txtfiletoread').click();" value="Load DCS 213 data" style="width: 120px;  "/>
+        <textarea name="parseme" cols="60" id="parseme" style="display: none;"></textarea>
+        <input type="file" id="txtfiletoread" accept=".txt"  style="display: none;"/>
+      </small></span></big></small></small></strong></td>
+    </tr>
+    <tr>
+      <td style="text-align: center;" colspan="6"><div align="left"><strong style="font-weight: normal;"><br />
+            <span class="style18">INCIDENT NAME</span></strong><span style="font-size: 14px"><strong style="font-weight: normal;">:</strong></span>
+          <input id="Incident_Name" maxlength="60" name="Incident_Name" required="required" size="70" type="text" />
+      </div></td>
+    </tr>
+    <tr class="style18">
+      <td width="449" nowrap="nowrap" style="text-align: center;"><div align="left">TO :<big> </big>
+              <input id="To_Name" maxlength="35" name="To_Name" required="required" size="35" type="text" />
+      </div></td>
+      <td colspan="2" nowrap="nowrap" style="text-align: center;"><div align="left">POSITION:
+              <input id="To_position" maxlength="18" name="To_position" required="required" size="20" type="text" />
+      </div></td>
+      <td width="90" rowspan="2" valign="top" style="text-align: top;"><div align="left">
+          <input name="Priority" type="radio" value="ROUTINE" checked="checked" />
+          <span class="style4"><strong>ROUTINE</strong></span>
+          <p></p>
+        </div>
+          <div align="left"><span class="style4">
+            <input name="Priority" type="radio" value="PRIORITY" />
+            <strong>PRIORITY</strong></span></div></td>
+    </tr>
+    <tr class="style18">
+      <td nowrap="nowrap" style="text-align: center;"><div align="left"><strong><span style="font-weight: normal;">FROM</span></strong>:<big> </big>
+              <input id="From" maxlength="35" name="From" required="required" size="35" type="text" />
+      </div></td>
+      <td colspan="2" nowrap="nowrap" style="text-align: center;"><div align="left">POSITION: 
+        <input id="From_position" maxlength="18" name="From_position" required="required" size="20" type="text" />
+      </div></td>
+    </tr>
+    <tr class="style18">
+      <td nowrap="nowrap" style="text-align: center;"><div align="left">Subject:&nbsp;
+              <input id="Subjectline" maxlength="28" name="Subjectline" required="required" size="30" type="text" />
+</div></td>
+      <td width="240" valign="top" nowrap="nowrap" style="text-align: center;"><div align="left">DATE:&nbsp;            <input required="required" title="Click to change the date or overwrite" name="Mdate" id="Mdate" size="11" maxlength="10" onclick="SetDateTime('fulldate',this.id)" />      
+        </div></td>
+      <td width="207" valign="top" nowrap="nowrap" style="text-align: center;"><div align="left">TIME:&nbsp;
+          <input required="required" title="Click to change the time or overwrite" name="Mtime" id="Mtime" size="6" maxlength="6" onclick="SetDateTime('hm',this.id)" />
+      </div></td>
+      <td colspan="2" style="text-align: center;"><div align="left">MESSAGE#: 
+            <input name="Msgnum" type="text" id="Msgnum" size="8" maxlength="8" />
+      </div></td>
+    </tr>
+    <tr>
+      <td colspan="6" style="height: 88px; vertical-align: top; text-align: center;"><div align="left">
+        <table width="100%"  border="1" cellpadding="0" cellspacing="0" id="t4">
+          <tr bgcolor="#f8f8ff">
+            <td colspan="11" class="style20"><div align="center">MESSAGE              </div></td>
+            </tr>
+          <tr>
+            <td width="13%"><div align="right"><span class="style20">&nbsp;</span><span class="style20"> </span><br />              
+            </div></td>
+            <td width="9%" nowrap="nowrap" class="style20">&nbsp;
+              <input name="B1" type="checkbox" id="b1" onclick="Flip(this.id,'f1', 'Incoming ')" value="checkbox"/>
+Incoming
+<input name="f1" type="hidden" id="f1" /></td>
+            <td width="9%" nowrap="nowrap" class="style20"><input name="B2" type="checkbox" id="b2" onclick="Flip(this.id,'f2', 'Outgoing ')" value="checkbox"/>
+              Outgoing 
+  <input name="f2" type="hidden" id="f2" /></td>
+            <td width="8%" nowrap="nowrap" class="style20"><input name="B3" type="checkbox" id="b3" onclick="Flip(this.id,'f3', 'Circuit: 2M  ')" value="checkbox"/>
+Circuit: 2M
+  <input name="f3" type="hidden" id="f3" />  &nbsp;&nbsp;</td>
+            <td width="7%" nowrap="nowrap" class="style20"><input name="B4" type="checkbox" id="b4" onclick="Flip(this.id,'f4', ' 220 ')" value="checkbox"/>
+220
+  <input name="f4" type="hidden" id="f4" /></td>
+            <td width="7%" nowrap="nowrap" class="style20"><input name="B5" type="checkbox" id="b5" onclick="Flip(this.id,'f5', ' 440 ')" value="checkbox"/>
+              440
+                <input name="f5" type="hidden" id="f5" /></td>
+            <td width="8%" nowrap="nowrap" class="style20"><input name="B6" type="checkbox" id="b6" onclick="Flip(this.id,'f6', '10m ')" value="checkbox"/>
+              10M 
+                <input name="f6" type="hidden" id="f6" /></td>
+            <td width="7%" nowrap="nowrap" class="style20"><input name="B7" type="checkbox" id="b7" onclick="Flip(this.id,'f7', '6M ')" value="checkbox"/>
+6M
+  <input name="f7" type="hidden" id="f7" />
+  </td>
+            <td width="10%" nowrap="nowrap" class="style20"><input name="B8" type="checkbox" id="b8" onclick="Flip(this.id,'f8', 'HF ')" value="checkbox"/>
+HF
+  <input name="f8" type="hidden" id="f8" /></td>
+            <td width="10%" nowrap="nowrap" class="style20"><input name="B9" type="checkbox" id="b9" onclick="Flip(this.id,'f9', 'NBEMS ')" value="checkbox"/>
+NBEMS
+  <input name="f9" type="hidden" id="f9" /></td>
+            <td width="12%" nowrap="nowrap" class="style20"><input name="B10" type="checkbox" id="b10" onclick="Flip(this.id,'f10', 'Winlink ')" value="checkbox"/>
+Winlink 
+  <input name="f10" type="hidden" id="f10" /></td>
+          </tr>
+          <tr>
+            <td valign="top">
+              <table width="100%"  border="1" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td><span class="style20">
+                    <input name="B11" type="checkbox" id="b11" onclick="Flip(this.id,'f11', 'OPS. CMDR ')" value="checkbox"/>
+                  </span></td>
+                  <td><span class="style20">OPS. CMDR
+                    <input name="f11" type="hidden" id="f11" />
+                  </span></td>
+                </tr>
+                <tr>
+                  <td><span class="style20">
+                    <input name="B12" type="checkbox" id="b12" onclick="Flip(this.id,'f12', 'DEP. OPS. CMDR,')" value="checkbox"/>
+                  </span></td>
+                  <td class="style20">&nbsp;DEP. OPS. CMDR
+                    <input name="f12" type="hidden" id="f12" /></td>
+                </tr>
+                <tr>
+                  <td><span class="style20">
+                    <input name="B13" type="checkbox" id="b13" onclick="Flip(this.id,'f13', 'CHIEF of STAFF, ')" value="checkbox"/>
+                  </span></td>
+                  <td class="style20">&nbsp;CHIEF of STAFF                    
+                    <input name="f13" type="hidden" id="f13" /></td>
+                </tr>
+                <tr>
+                  <td><span class="style20">
+                    <input name="B14" type="checkbox" id="b14" onclick="Flip(this.id,'f14', 'OPS. OFFICER, ')" value="checkbox"/>
+                  </span></td>
+                  <td class="style20">&nbsp;OPS. OFFICER
+                    <input name="f14" type="hidden" id="f14" /></td>
+                </tr>
+                <tr>
+                  <td><span class="style20">
+                    <input name="B15" type="checkbox" id="b15" onclick="Flip(this.id,'f15', 'OPERATIONS, ')" value="checkbox"/>
+                  </span></td>
+                  <td class="style20">&nbsp;OPERATIONS
+                    <input name="f15" type="hidden" id="f15" /></td>
+                </tr>
+                <tr>
+                  <td><span class="style20">
+                  <input name="B16" type="checkbox" id="b15" onclick="Flip(this.id,'f16', 'LOGISTICS, ')" value="checkbox"/>
+</span></td>
+                  <td class="style20">&nbsp;LOGISTICS
+                    <input name="f16" type="hidden" id="f16" /></td>
+                </tr>
+                <tr>
+                  <td><span class="style20">
+                    <input name="B17" type="checkbox" id="b11" onclick="Flip(this.id,'f17', 'PERSONNEL, ')" value="checkbox"/>
+                  </span></td>
+                  <td class="style20">&nbsp;PERSONNEL
+                    <input name="f17" type="hidden" id="f17" /></td>
+                </tr>
+                <tr>
+                  <td><span class="style20">
+                    <input name="B18" type="checkbox" id="b18" onclick="Flip(this.id,'f18', 'INTELLIGENCE, ')" value="checkbox"/>
+                  </span></td>
+                  <td class="style20">&nbsp;INTELLIGENCE
+                    <input name="f18" type="hidden" id="f18" /></td>
+                </tr>
+                <tr>
+                  <td><span class="style20">
+                    <input name="B19" type="checkbox" id="b19" onclick="Flip(this.id,'f19', 'DPSS/REDCROSS, ')" value="checkbox"/>
+                  </span></td>
+                  <td class="style20">&nbsp;DPSS/REDCROSS
+                    <input name="f19" type="hidden" id="f19" /></td>
+                </tr>
+                <tr>
+                  <td><span class="style20">
+                    <input name="B20" type="checkbox" id="b20" onclick="Flip(this.id,'f20', 'ENGINEER, ')" value="checkbox"/>
+                  </span></td>
+                  <td class="style20">&nbsp;ENGINEER
+                    <input name="f20" type="hidden" id="f20" /></td>
+                </tr>
+                <tr>
+                  <td><span class="style20">
+                    <input name="B21" type="checkbox" id="b21" onclick="Flip(this.id,'f21', 'FIRE, ')" value="checkbox"/>
+                  </span></td>
+                  <td class="style20">&nbsp;FIRE
+                    <input name="f21" type="hidden" id="f21" /></td>
+                </tr>
+                <tr>
+                  <td><span class="style20">
+                    <input name="B22" type="checkbox" id="b22" onclick="Flip(this.id,'f22', 'FLOOD, ')" value="checkbox"/>
+                  </span></td>
+                  <td class="style20">&nbsp;FLOOD                    
+                    <input name="f22" type="hidden" id="f22" /></td>
+                </tr>
+                <tr>
+                  <td><span class="style20">
+                    <input name="B23" type="checkbox" id="b23" onclick="Flip(this.id,'f23', 'HEALTH, ')" value="checkbox"/>
+                  </span></td>
+                  <td class="style20">&nbsp;HEALTH                    
+                    <input name="f23" type="hidden" id="f23" /></td>
+                </tr>
+                <tr>
+                  <td><span class="style20">
+                    <input name="B24" type="checkbox" id="b24" onclick="Flip(this.id,'f24', 'MECHANICAL, ')" value="checkbox"/>
+                  </span></td>
+                  <td class="style20">&nbsp;MECHANICAL                    
+                    <input name="f24" type="hidden" id="f24" /></td>
+                </tr>
+                <tr>
+                  <td class="style20"><input name="B25" type="checkbox" id="b251" onclick="Flip(this.id,'f25', 'PURCH/STORES, ')" value="checkbox"/></td>
+                  <td class="style20">&nbsp;PURCH/STORES
+                    <input name="f25" type="hidden" id="f25" /></td>
+                </tr>
+                <tr>
+                  <td><span class="style20">
+                    <input name="B26" type="checkbox" id="b26" onclick="Flip(this.id,'f26', 'CORONER, ')" value="checkbox"/>
+                  </span></td>
+                  <td class="style20">CORONER
+                    <input name="f26" type="hidden" id="f26" /></td>
+                </tr>
+                <tr>
+                  <td><span class="style20">
+                    <input name="B27" type="checkbox" id="b27" onclick="Flip(this.id,'f27', 'CEO, ')" value="checkbox"/>
+                  </span></td>
+                  <td class="style20">&nbsp;CEO
+                    <input name="f27" type="hidden" id="f27" /></td>
+                </tr>
+                <tr>
+                  <td><span class="style20">
+                    <input name="B28" type="checkbox" id="b28" onclick="Flip(this.id,'f28', 'CALTRANS, ')" value="checkbox"/>
+                  </span></td>
+                  <td class="style20">&nbsp;CALTRANS
+                    <input name="f28" type="hidden" id="f28" /></td>
+                </tr>
+                <tr>
+                  <td><span class="style20">
+                    <input name="B29" type="checkbox" id="b29" onclick="Flip(this.id,'f29', 'CHP, ')" value="checkbox"/>
+                  </span></td>
+                  <td class="style20">&nbsp;CHP
+                    <input name="f29" type="hidden" id="f29" /></td>
+                </tr>
+                <tr>
+                  <td><span class="style20">
+				  
+                    <input name="B30" type="checkbox" id="b30" onclick="Flip2(this.id,'f30','t30')" value="checkbox"/>
+                  </span></td>
+                  <td><input name="f30" type="hidden" id="f30" size="15" />
+                    <span class="style20">
+                    <input name="t30" type="text" id="t30" size="18" maxlength="17" />
+                    </span>                    <span class="style20">                    </span></td>
+                </tr>
+                <tr>
+                  <td><span class="style20">
+                    <input name="B31" type="checkbox" id="b31" onclick="Flip2(this.id,'f31', 't31')" value="checkbox"/>
+                  </span></td>
+                  <td><input name="f31" type="hidden" id="f31" size="15" />
+                    <span class="style20">
+                    <input name="t31" type="text" id="t31" size="18" maxlength="17" />
+                    </span>                    <span class="style20">                    </span></td>
+                </tr>
+              </table></td>
+            <td colspan="10" valign="top">&nbsp;              <textarea name="Message" cols="100" rows="6" wrap="PHYSICAL" id="Message" onchange="this.value=RWS(this.value)" onkeyup="AutoGrowTextArea(this)"></textarea></td>
+          </tr>
+        </table>
+        <span class="style18">APPROVED BY:
+        <input id="Approved_Name" maxlength="23" name="Approved_Name" required="required" size="25" />
+&nbsp; <small><big>&nbsp;&nbsp;SIGNATURE:
+<input id="Approved_Sig" maxlength="25" name="Approved_Sig" required="required" size="25" type="text" />
+&nbsp;&nbsp;&nbsp;POSITION/TITLE:</big></small>
+<input id="Approved_PosTitle" maxlength="25" name="Approved_PosTitle" required="required" size="25" type="text" />
+<input name="Templateversion" type="hidden" id="Templateversion" value="LACDCS Rev 07/20 - v1.5" />
+<input name="testCall" type="hidden" id="testCall" value="{MsgSender}" size="14" maxlength="13" />
+<br />
+          <label></label>
+        </span>
+        <label>            </label>
+        </div>
+        </td>
+    </tr>
+    <tr>
+      <td style="text-align: center;" colspan="6"><div align="right"><span class="style20">LACDCS Rev 07/20 - v1.5</span><br />
+          </div></td>
+    </tr>
+    <tr>
+      <td colspan="6"><span class="FormReg"><span class="formbold"><small><span style="font-family: Calibri;">
+        <input name="savebtn" type="blue1" id="savebtn"  onclick="SaveData()" value="Save DCS 213 data" style="width: 120px;  "/>
+        </span></small></span></span>&nbsp;
+        <input class="SubmitBtn" enctype="multipart/form-data" id="Submit" method="Post" name="Submit" pbzloc="4" size="8" style="height: 24px;  " value=" Submit " type="submit" />
+&nbsp;
+        <input class="BtnFormat2" value=" Reset Form " name="ResetForm" type="reset" />
+        <span class="FormReg">&nbsp; </span><strong><small><small><span style="font-weight: normal;">&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;</span></small></small></strong></td>
+    </tr>
+  </tbody>
+</table>
+</form>
+</body>
+</html>

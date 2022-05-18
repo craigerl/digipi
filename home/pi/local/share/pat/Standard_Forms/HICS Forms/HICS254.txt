@@ -1,0 +1,144 @@
+Form: HICS254_Initial.html,HICS254_Viewer.html
+
+To: 
+Subject: HICS254-<var Incident_Name>-<var Facility> 
+
+Msg:
+1. INCIDENT NAME: <var Incident_Name>
+PAGE [<var Page>] OF [<var Page1>]
+Express Sender: <var MsgSender>
+
+2. OPERATIONAL PERIOD: #:[<var OpNum>]
+Date From: <var DateFrom>
+Time From: <var TimeFrom>
+
+Date To: <var DateTo>
+Time To: <var TimeTo>
+
+3. AREA (Triage or Specific Treatment Area)  <var Area>
+    
+---------------------------------------------------------------------
+
+Field Tag #: <var Tag1>
+Medical Record #: <var Med1>
+Name: <var Name1>
+Sex: <var Sex1>
+DOB-Age: <var Dob1>
+Triage Category: <var TriaCat1>
+Procedures Location: <var Loc1>
+Procedures Time: <var Loct1>
+Disposition: <var Disp1> 
+Disposition Time: <var Dispt1>
+
+Field Tag #: <var Tag2>
+Medical Record #: <var Med2>
+Name: <var Name2>
+Sex: <var Sex2>
+DOB-Age: <var Dob2>
+Triage Category: <var TriaCat2>
+Procedures Location: <var Loc2>
+Procedures Time: <var Loct2>
+Disposition: <var Disp2> 
+Disposition Time: <var Dispt2>
+
+Field Tag #: <var Tag3>
+Medical Record #: <var Med3>
+Name: <var Name3>
+Sex: <var Sex3>
+DOB-Age: <var Dob3>
+Triage Category: <var TriaCat3>
+Procedures Location: <var Loc3>
+Procedures Time: <var Loct3>
+Disposition: <var Disp3> 
+Disposition Time: <var Dispt3>
+
+Field Tag #: <var Tag4>
+Medical Record #: <var Med4>
+Name: <var Name4>
+Sex: <var Sex4>
+DOB-Age: <var Dob4>
+Triage Category: <var TriaCat4>
+Procedures Location: <var Loc4>
+Procedures Time: <var Loct4>
+Disposition: <var Disp4> 
+Disposition Time: <var Dispt4>
+
+Field Tag #: <var Tag5>
+Medical Record #: <var Med5>
+Name: <var Name5>
+Sex: <var Sex5>
+DOB-Age: <var Dob5>
+Triage Category: <var TriaCat5>
+Procedures Location: <var Loc5>
+Procedures Time: <var Loct5>
+Disposition: <var Disp5> 
+Disposition Time: <var Dispt5>
+
+Field Tag #: <var Tag6>
+Medical Record #: <var Med6>
+Name: <var Name6>
+Sex: <var Sex6>
+DOB-Age: <var Dob6>
+Triage Category: <var TriaCat6>
+Procedures Location: <var Loc6>
+Procedures Time: <var Loct6>
+Disposition: <var Disp6> 
+Disposition Time: <var Dispt6>
+
+Field Tag #: <var Tag7>
+Medical Record #: <var Med7>
+Name: <var Name7>
+Sex: <var Sex7>
+DOB-Age: <var Dob7>
+Triage Category: <var TriaCat7>
+Procedures Location: <var Loc7>
+Procedures Time: <var Loct7>
+Disposition: <var Disp7> 
+Disposition Time: <var Dispt7>
+
+Field Tag #: <var Tag8>
+Medical Record #: <var Med8>
+Name: <var Name8>
+Sex: <var Sex8>
+DOB-Age: <var Dob8>
+Triage Category: <var TriaCat8>
+Procedures Location: <var Loc8>
+Procedures Time: <var Loct8>
+Disposition: <var Disp8> 
+Disposition Time: <var Dispt8>
+
+Field Tag #: <var Tag9>
+Medical Record #: <var Med9>
+Name: <var Name9>
+Sex: <var Sex9>
+DOB-Age: <var Dob9>
+Triage Category: <var TriaCat9>
+Procedures Location: <var Loc9>
+Procedures Time: <var Loct9>
+Disposition: <var Disp9> 
+Disposition Time: <var Dispt9>
+
+Field Tag #: <var Tag10>
+Medical Record #: <var Med10>
+Name: <var Name10>
+Sex: <var Sex10>
+DOB-Age: <var Dob10>
+Triage Category: <var TriaCat10>
+Procedures Location: <var Loc10>
+Procedures Time: <var Loct10>
+Disposition: <var Disp10> 
+Disposition Time: <var Dispt10>
+
+4. PREPARED by: <var PreparedName>
+Date: <var Date_Time> Time: <var Time>
+
+FACILITY: <var Facility>
+
+------------------------------------
+Express Sending Station: <MsgSender>
+Senders Express Version: <ProgramVersion>
+Senders Template Version: <var Templateversion>
+
+
+
+

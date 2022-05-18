@@ -1,0 +1,19 @@
+
+LinPac: pripojeni uzivatelia:
+
+ Kanal   Port     Znacka   Meno
+:set CHN 1
+:label RPT
+:IF %C@%CHN != %Y@%CHN
+:IF %N@%CHN != %C@%CHN
+     %CHN      %P@%CHN     %C@%CHN    %N@%CHN
+:ELSE
+     %CHN      %P@%CHN     %C@%CHN
+:ENDIF
+:ENDIF
+:set CHN %[%CHN+1]
+:IF %CHN <= 8
+:GOTO RPT
+:ENDIF
+
+:unset CHN

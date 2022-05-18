@@ -1,0 +1,125 @@
+Form: SA-FIA-730_Initial.html, SA-FIA-730_Viewer.html
+To:
+Subject:Disaster Operations Statistical Report: <var MsgSender>
+SeqInc:	
+Msg:
+Disaster Operations Statistical Report
+
+REPORT INFORMATION: 
+
+Disaster: <var Disaster>
+Task #: <var TaskNum>
+Country: <var Country>
+Unit: <var Unit>
+Community: <var Community>
+Single Day: <var SingleDay>
+Cumulative: <var Cumulative>  thru <var CumThru>
+
+LOCATION DETAILS (building, address, route) 
+  <var Location>
+
+CONTACT NUMBERS (phone,fax, e-mail): 
+  <var ContactNumbers>
+
+FACILITY TYPE:
+Feeding Operations <var FeedingOps>	Command Post <var CmdPost>  	Assistance Center <var AssistCtr> 	Staging Area  <var StagingArea>  	Shelter <var Shelter> 
+Mobile <var Mobile>       Fixed <var Fixed> 	Phone Bank <var PhoneBank> 	Distribution Center <var DistCtr>  	Warehouse <var Warehouse> 	Other   <var Other>
+
+
+DISASTER FOOD SERVICES: 
+  Prepared Meals (hot and cold): <var Meals>
+  Drinks (coffee, soda, juice, water): <var Drinks>
+  Snacks (donuts, cakes, chips): <var Snacks>
+
+MASS SHELTERING: 
+  Lodging Provided: <var Logging>
+
+MEDICAL / SANITATION: 
+  Medical Services Provided: <var MedSvc>
+  Showers Provided: <var Showers>
+
+EMERGENCY FINANCIAL AID: 
+  Client Interviews: <var Interviews>
+  Referrals to Other Agencies: <var Referals>
+  Total Cases Opened: <var CasesOpened>
+  Total Individuals Assisted: <var TotAssisted>
+
+FINANCIAL ASSISTANCE:
+
+Vouchers     Total
+  Cleanup / Reconstruction: <var  CleanupRecons>   <var  CleanupReconstot>
+  Clothing: <var ClothingVouchers>   <var ClothingVoucherstot>
+  Energy: <var Energy>    <var Energytot>
+  Furniture: <var FurnitureVouchers>   <var FurnitureVoucherstot>
+  Gift Cards / Debit Cards: <var GiftDbCards>   <var GiftDbCardstot>
+  Groceries: <var GroceryOrders>    <var GroceryOrderstot>
+  Housing (Rent / Mortgage): <var Rent>    <var Renttot>
+  Transient Lodging (Hotel): <var LodgingVouchers>   <var LodgingVoucherstot>
+  Transportation: <var TransportVouchers>   <var TransportVoucherstot>
+  Other (specify): <var OtherVouchers>      <var OtherVoucherstot>
+TOTALS: <var TotalVouchers>    <var TotalVoucherstot>
+
+
+IN-KIND DISTRIBUTION: 
+  Blankets (per item): <var Blankets>
+  Bibles, Brochures, Tracts (per item): <var BiblesEtc>
+  Cleanup Kits (per kit): <var CleanupKits>
+  Cleaning / Rebuild (per order): <var CleanRebuild>
+  Comfort Kits (per kit): <var ComfortKits>
+  Clothing (per item): <var Clothing>
+  Furniture (per item): <var Furniture>
+  Groceries / Food Boxes (per order): <var FoodBoxes>
+  Ice (per bag): <var IceBags>
+  Infant Supplies (per order): <var BabySupplyOrders>
+  Tarps / Plastic Sheeting (per item): <var Tarps>
+  Toys (per order): <var ToyOrders>
+  Water (per gallon or case): <var H2OGal>
+
+NOTES: 
+<var Notes1>
+
+<var Notes2>
+
+<var Notes3>
+
+EMOTIONAL & SPIRITUAL CARE 
+  Spiritual Care Provided Prayer): <var Prayer>
+  Adult Seekers: <var AdultSeekers>
+  Youth Seekers (Under Age 14): <var Youths>
+  Mental Health Care Provided (CISM): <var MentalHealth>
+
+  Worship Services: <var WorshipServices>   | <var Worshipers>
+  Memorial Services: <var MemServices>  |  <var MemServicesattend>
+
+FINANCE ADMINISTRATION 
+  Personnel | Number on Site  | Hours Served
+  Officers: <var SiteOfficers>  <var OfficerHrs>
+  Employees: <var EmpOnSite>  <var EmpHrs>
+  Volunteers: <var VolOnSite>  <var VolunteerHrs>
+  Totals: 
+
+SUBMITTED BY:
+NAME: <var SubmittedName>    TITLE: <var SubmittedTitle>   DATE SUBMITTED: <var SubmittedDate>
+
+----
+Current     Operational Assets  Unduplicated Totals 
+  <var CurTotCanteens>   Mobile Canteens  <var UndupTotCanteens>
+  <var CurTotVehicles>  Other S.A. Vehicles  <var UndupTotCanteens>
+  <var AssistCtrs>  Assistance Centers   <var UnDupAssistCtrs>
+  <var CmdPosts>  Command Posts    <var UnDupCmdPosts>
+  <var DistCtrs>   Distribution Centers   <var UnDupDistCtrs>
+  <var FeedingFacilities> Feeding Facilities   <var UnDupFeedingFacilities>
+  <var PhoneBanks>  Phone Banks    <var UnDupPhoneBanks>
+  <var Shelters>  Shelters    <var UnDupShelters>
+  <var StagiingAreas> Staging Areas    <var UnDupStagingAreas>
+  <var Warehouses> Warehouses   <var UnDupWarehouses>
+  <var OtherSAFacilities>  Other S.A. Facilities   <var UnDupSAFacils>
+  <var GovEOCs>  Govn't EOCs*   <var UnDupGovEOCs>
+  <var GovDRCs>  Govn't DRCs*  <var UnDupGovDRCs>
+
+Office notes:
+<var OfficeNotes>
+
+---
+Express Sending Station: <MsgSender>
+
