@@ -28,14 +28,14 @@ chnline 20
 redraw
 
 ;; Callsign setup
-mycall@1 KM6LYW
-mycall@2 KM6LYW
-mycall@3 KM6LYW
-mycall@4 KM6LYW
-mycall@5 KM6LYW
-mycall@6 KM6LYW
-mycall@7 KM6LYW
-mycall@8 KM6LYW
+mycall@1 KX6XXX
+mycall@2 KX6XXX
+mycall@3 KX6XXX
+mycall@4 KX6XXX
+mycall@5 KX6XXX
+mycall@6 KX6XXX
+mycall@7 KX6XXX
+mycall@8 KX6XXX
 ;; Unproto calls destination (unsrc) and digi path (undest)
 unsrc LINPAC
 undest INFO
@@ -64,8 +64,8 @@ set USER_PATH "./user"
 set LOG_PATH "./log"
 
 ;; Path to home BBS - the port name is REQUIRED - i.e. radio:OK0PAB OK0NMA
-set HOME_BBS "radio:KM6LYW-4 "
-set HOME_ADDR "KM6LYW.CRAIGER.ORG"
+set HOME_BBS "radio:KX6XXX-4 "
+set HOME_ADDR "KX6XXX.CRAIGER.ORG"
 
 ;; Preferred size of 7plus blocks
 set BLOCK7P 5120
