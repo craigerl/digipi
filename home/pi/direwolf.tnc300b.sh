@@ -29,8 +29,7 @@ sudo mv /tmp/direwolf.tnc300b.conf /run/direwolf.tnc300b.conf
 # set default alsa audio device
 echo "ALSA_CARD $ALSA_CARD"
 
-# enable FX.25 FEC (-X 1) on hf tnc
-direwolf -X 1 -d t -p -q d -t 0 -c /run/direwolf.tnc300b.conf | tee /home/pi/direwolf.log &
+direwolf -d t -p -q d -t 0 -c /run/direwolf.tnc300b.conf | tee /home/pi/direwolf.log &
 
 /home/pi/direwatch.py --log "/run/direwolf.log" --title_text "TNC 300b"  &
 

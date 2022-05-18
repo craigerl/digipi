@@ -59,10 +59,10 @@ while true;
 do
 #{
 #sleep 10
-#echo "user KM6LYW-4 pass 22452 vers digipi 1.6"
+#echo "user KX6XXX-4 pass 12345 vers digipi 1.6"
 #sleep 2
 ## Please change longitude/latitude below if you uncomment this:
-#printf  "KM6LYW-4>WIDE1-1,TCPIP,WIDE1-1:!3853.80N/12056.15WB145.730Mhz: http://craiger.org/bbs Play Zork!\r\n"
+#printf  "KX6XXX-4>WIDE1-1,TCPIP,WIDE1-1:!3853.80N/12056.15WB145.730Mhz: http://craiger.org/bbs Play Zork!\r\n"
 #sleep 12
 #echo "^]"
 #echo "quit"

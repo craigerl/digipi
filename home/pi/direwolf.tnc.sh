@@ -30,7 +30,7 @@ echo "ALSA_CARD $ALSA_CARD"
 
 direwolf -d t -p -q d -t 0 -c /run/direwolf.tnc.conf | tee /home/pi/direwolf.log &
 
-/home/pi/direwatch.py -o --log "/run/direwolf.log" --title_text "DigiPi TNC"  &
+/home/pi/direwatch.py  --log "/run/direwolf.log" --title_text "DigiPi TNC"  &
 
 # wait for direwolf to open port 8001
 sleep 5
