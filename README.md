@@ -1,5 +1,5 @@
 # digipi
-DigiPi code and config files  (not a completed digipi sd card image)
+DigiPi code and config files
 
 This repository is all of my original code, and modifications to 
 existing GPL code that goes into the DigiPi project.  This is not
