@@ -1,36 +1,7 @@
 <?php include 'header.php' ?>
-<!---
-<html>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<LINK href="styles/simple.css" rel="stylesheet" type="text/css">
-
-
-<title>DigiPi </title>
-
-<body  style="position: relative; height: 100%; width: 100%; overflow: hidden;">
-
-
-<table width=400 >
-<tr>
-  <td width=10% bgcolor="lightgrey">
-    <font size=+3><strong>DigiPi</strong> </font>
-  </td>
-  <td width=10% bgcolor="lightgrey" >
-    <img align=right height=40px src="radio.png">
-  </td>
-</tr>
-</table>
-<br/>
-
--->
-
-<!---
-<h1><strong>DigiPi</strong></h1>
---->
-
 <form action="index.php" method="post">
 
-<?php   
+<?php
 
 
 $submit = "none";
@@ -46,7 +17,6 @@ if (isset($_POST["tnc"])) {
       echo $output;
   }
 }
-
 
 if (isset($_POST["digipeater"])) {
   $submit = $_POST["digipeater"];
@@ -534,95 +504,99 @@ echo "</td></tr>";
 
 
 #craiger systemd thinks a sigkill is a failure, so reset failed service status
-#This will turn red/failed service into grey/stopped 
-$output = shell_exec('sudo systemctl reset-failed fldigi 2> /dev/null'); 
-$output = shell_exec('sudo systemctl reset-failed sstv 2> /dev/null'); 
-$output = shell_exec('sudo systemctl reset-failed wsjtx 2> /dev/null'); 
-$output = shell_exec('sudo systemctl reset-failed ardop 2> /dev/null'); 
-$output = shell_exec('sudo systemctl reset-failed tnc300b 2> /dev/null'); 
+#This will turn red/failed service into grey/stopped
+$output = shell_exec('sudo systemctl reset-failed fldigi 2> /dev/null');
+$output = shell_exec('sudo systemctl reset-failed sstv 2> /dev/null');
+$output = shell_exec('sudo systemctl reset-failed wsjtx 2> /dev/null');
+$output = shell_exec('sudo systemctl reset-failed ardop 2> /dev/null');
+$output = shell_exec('sudo systemctl reset-failed tnc300b 2> /dev/null');
 $output = shell_exec('sudo systemctl reset-failed digipeater 2> /dev/null');
 $output = shell_exec('sudo systemctl reset-failed tnc 2> /dev/null');
-$output = shell_exec('sudo systemctl reset-failed node 2> /dev/null'); 
-$output = shell_exec('sudo systemctl reset-failed winlinkrms 2> /dev/null'); 
-$output = shell_exec('sudo systemctl reset-failed pat 2> /dev/null'); 
-$output = shell_exec('sudo systemctl reset-failed js8call 2> /dev/null'); 
+$output = shell_exec('sudo systemctl reset-failed node 2> /dev/null');
+$output = shell_exec('sudo systemctl reset-failed winlinkrms 2> /dev/null');
+$output = shell_exec('sudo systemctl reset-failed pat 2> /dev/null');
+$output = shell_exec('sudo systemctl reset-failed js8call 2> /dev/null');
 
 ?>
-
 </table>
-
 <br/>
 <br/>
 
-<!--<table cellpadding="4" bgcolor="#dddddd" border="1" style="border-width:1px;border-color:black; border-collapse:collapse;"  > -->
 <table>
 <tr>
   <td width="100px">
     <script language="JavaScript">
-    document.write('<a href="' + window.location.protocol + '//' + window.location.hostname + ':8080' + '" target="new" title="Pat Email Client"><strong>PatEmail</strong></a> ' );
+    document.write('<a href="' + window.location.protocol + '//' + window.location.hostname + ':8080' + '" target="new" title="Pat Email Client">PatEmail</a> ' );
     </script>
   </td>
   <td width="100px">
-    <a href="axcall.php" target="new" title="Connect to radio/BBS"><strong>AXCall</strong></a>
+    <a href="axcall.php" target="new" title="Connect to radio/BBS">AXCall</a>
   </td>
-  <td width="100px">      
-    <a href="/js8" target="js8" title="Display JS8Call screen"><strong>JS8Call</strong></a>
-  </td>
-</tr>
-<tr>
-  <td>
-    <a href="/ft8" target="ft8" title="Dispaly FT8 screen"><strong>WSJTX FT8</strong>
-  </td>
-  <td>
-    <a href="/tv" target="tv" title="Dispaly SSTV screen"><strong>SSTV</strong>
-  </td>
-  <td>
-    <a href="/fld" target="fld" title="Display FLDigi screen"><strong>FLDigi</strong></a>
+  <td width="100px">
+    <a href="/js8" target="js8" title="Display JS8Call screen">JS8Call</a>
   </td>
 </tr>
 <tr>
   <td>
-    <a href="/wifi.php" title="Setup Wifi connection"><strong>Wifi</strong></a>
+    <a href="/ft8" target="ft8" title="Dispaly FT8 screen">WSJTX FT8</a>
   </td>
   <td>
-    <a href=/shell.php target="shell" title="Command prompt"><strong>Shell</strong></a>
+    <a href="/tv" target="tv" title="Dispaly SSTV screen">SSTV</a>
   </td>
   <td>
-    <a href=/log.php title="Direwolf Log" target="log"><strong>PktLog</strong></a>
+    <a href="/fld" target="fld" title="Display FLDigi screen">FLDigi</a>
+  </td>
+</tr>
+<tr>
+  <td>
+    <a href="/wifi.php" title="Setup Wifi connection">Wifi</a>
+  </td>
+  <td>
+    <a href=/shell.php target="shell" title="Command prompt">Shell</a>
+  </td>
+  <td>
+    <a href=/log.php title="Direwolf Log" target="log">PktLog</a>
   </td>
 </tr>
 <tr>
   <td >
-    <a href=/syslog.php title="System log file" target="syslog"><strong>SysLog</strong></a>
+    <a href=/syslog.php title="System log file" target="syslog">SysLog</a>
   </td>
   <td >
-    <a href=/index.php><strong>Refresh</strong></a>
+    <a href=/index.php>Refresh</a>
   </td>
   <td colspan="1">
-    <a href=/help.php><strong>Help</strong></a>
+    <a href=/help.php>Help</a>
   </td>
 </tr>
 
 <?php
   if (!file_exists("/var/cache/digipi/localized.txt")) {
-    echo '<tr><td colspan=3><a href="/setup.php" title="REQUIRED!  Enter your callsign and other local information" " target="setup"><font color="green"><strong>Initialize</strong></font></a> </td></tr>';
+    echo '<tr><td colspan=3><a href="/setup.php" title="REQUIRED!  Enter your callsign and other local information" " target="setup"><font color="green">Initialize</font></a> </td></tr>';
   }
-?>  
+?>
 
 </table>
 
 
-
+</table>
+<br/><br/>
+<table class="bottom-nav">
+<tr>
+  <td class="bottom-nav">
+    <input type="submit" name="reboot" value="Reboot">
+  </td>
+  <td class="bottom-nav">
+      <input type="submit" name="shutdown" value="Shutdown">
+  </td>
+  <td class="bottom-nav">
+      <input title="Write current application configurations (ft8, js8call, etc) to SD card" type="submit" name="save" value="Save Configs">
+  </td>
+</tr>
+</table>
 
 <br/><br/>
-    <input type="submit" name="reboot" value="Reboot">
-    &nbsp;
-    <input type="submit" name="shutdown" value="Shutdown">   
-    &nbsp;
-    <input title="Write current application configurations (ft8, js8call, etc) to SD card" type="submit" name="save" value="Save Configs">  
-    &nbsp; 
-    <br/><br/>
-    <small>1.6-2 KM6LYW ©2022</small>
+<small>1.6-2 KM6LYW ©2022</small>
 
 <br/><br/>
 
@@ -631,7 +605,7 @@ $output = shell_exec('sudo systemctl reset-failed js8call 2> /dev/null');
 if (isset($_POST["reboot"])) {
   $submit = $_POST["reboot"];
   if ( $submit == 'Reboot' ) {
-      echo "<br/><br/><strong><font color=red>Restarting DigiPi...</font></strong><br/> ";
+      echo "<br/><br/><font color=red>Restarting DigiPi...</font><br/> ";
 #      if (isset($_SERVER['SERVER_ADDR'])) {
 #          $IP = $_SERVER['SERVER_ADDR'];
 #      }
@@ -639,7 +613,7 @@ if (isset($_POST["reboot"])) {
 #          $IP = "0.0.0.0";
 #      }
       $output = shell_exec("sudo killall direwatch.py");
-      $output = shell_exec("sudo /home/pi/digibanner.py -b DigiPi -s Rebooting..."); 
+      $output = shell_exec("sudo /home/pi/digibanner.py -b DigiPi -s Rebooting...");
       $output = shell_exec("sudo /sbin/shutdown -r 0");
       echo $output;
   }
@@ -648,9 +622,9 @@ if (isset($_POST["reboot"])) {
 if (isset($_POST["shutdown"])) {
   $submit = $_POST["shutdown"];
   if ( $submit == 'Shutdown' ) {
-      echo "<br/><br/><strong><font color=red>Shutting down DigiPi...</font></strong><br/> ";
+      echo "<br/><br/><font color=red>Shutting down DigiPi...</font><br/> ";
       $output = shell_exec("sudo killall direwatch.py");
-      $output = shell_exec("sudo /home/pi/digibanner.py -b Digipi -s Shutdown..."); 
+      $output = shell_exec("sudo /home/pi/digibanner.py -b Digipi -s Shutdown...");
       $output = shell_exec("sudo /sbin/shutdown -h 0");
       echo $output;
   }
@@ -659,10 +633,10 @@ if (isset($_POST["shutdown"])) {
 if (isset($_POST["save"])) {
   $submit = $_POST["save"];
   if ( $submit == 'Save Configs' ) {
-      echo "<br/><br/><strong><font color=red>Saving configuration...</font></strong><br/> ";
+      echo "<br/><br/><font color=red>Saving configuration...</font><br/> ";
       $output = shell_exec("sudo -i -u pi /home/pi/saveconfigs.sh");
       #echo $output;
-      echo "<br/><br/><strong><font color=red>Please reboot or shutdown gracefully.</font></strong><br/> ";
+      echo "<br/><br/><font color=red>Please reboot or shutdown gracefully.</font><br/> ";
   }
 }
 
@@ -670,10 +644,9 @@ if (isset($_POST["save"])) {
 
 <br/>
 <br/>
+<!-- EASTER EGG -->
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="/dot"><font size="+3" color="#eeeeee">.</font></a>
 
 </form>
-
-</font>
 </body>
 </html>

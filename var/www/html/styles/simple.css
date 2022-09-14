@@ -2,57 +2,80 @@
 Base styles
 ------------------------*/
 
-body
-{
+body {
 	margin: 0;
 	padding: 5;
 	color: #333;
 	background-color: #fdfdfd;
-/*      font: 1em/1.2 "Helvetica Neue", Helvetica, Arial, Geneva, sans-serif; */
-        font: 1em/1.2 "Arial", Arial, Helvetica, Geneva, sans-serif; 
+	/*      font: 1em/1.2 "Helvetica Neue", Helvetica, Arial, Geneva, sans-serif; */
+	font: 1em/1.2 "Arial", Arial, Helvetica, Geneva, sans-serif;
 
-	overflow:initial !important;
+	overflow: initial !important;
 }
 
-h1,h2,h3,h4,h5,h6
-{
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
 	margin: 0 0 .5em;
 	font-weight: 500;
 	line-height: 1.1;
-        font: 1em/1.2 "Arial", Arial, Helvetica, Geneva, sans-serif; 
+	font: 1em/1.2 "Arial", Arial, Helvetica, Geneva, sans-serif;
 }
 
-h1 { font-size: 2.25em; } /* 36px */
-h2 { font-size: 1.75em; } /* 28px */
-h3 { font-size: 1.375em; } /* 22px */
-h4 { font-size: 1.125em; } /* 18px */
-h5 { font-size: 1em; } /* 16px */
-h6 { font-size: .875em; } /* 14px */
+h1 {
+	font-size: 2.25em;
+}
 
-p
-{
+/* 36px */
+h2 {
+	font-size: 1.75em;
+}
+
+/* 28px */
+h3 {
+	font-size: 1.375em;
+}
+
+/* 22px */
+h4 {
+	font-size: 1.125em;
+}
+
+/* 18px */
+h5 {
+	font-size: 1em;
+}
+
+/* 16px */
+h6 {
+	font-size: .875em;
+}
+
+/* 14px */
+
+p {
 	margin: 0 0 1.5em;
 	line-height: 1.5;
-        font: 1em/1.2 "Arial", Arial, Helvetica, Geneva, sans-serif; 
+	font: 1em/1.2 "Arial", Arial, Helvetica, Geneva, sans-serif;
 }
 
-div
-{
-        margin: 0 0 1.5em;
-        line-height: 1.5;
-        font: 1em/1.2 "Arial", Arial, Helvetica, Geneva, sans-serif;
+div {
+	margin: 0 0 1.5em;
+	line-height: 1.5;
+	font: 1em/1.2 "Arial", Arial, Helvetica, Geneva, sans-serif;
 }
 
 
-blockquote
-{
+blockquote {
 	padding: 1em 2em;
 	margin: 0 0 2em;
 	border-left: 5px solid #eee;
 }
 
-hr
-{
+hr {
 	height: 0;
 	margin-top: 1em;
 	margin-bottom: 2em;
@@ -60,29 +83,55 @@ hr
 	border-top: 1px solid #ddd;
 }
 
-table
-{
+table {
 	background-color: transparent;
 	border-spacing: 0;
 	border-collapse: collapse;
 	border-top: 1px solid #ddd;
 }
 
-th, td
-{
+th,
+td {
 	padding: .2em 1em;
 	vertical-align: top;
 	text-align: left;
 	border-bottom: 1px solid #ddd;
-        font: 1em/1.2 "Arial", Arial, Helvetica, Geneva, sans-serif; 
+	font: 1em/1.2 "Arial", Arial, Helvetica, Geneva, sans-serif;
 }
 
-a { text-decoration:none; }
-a:link { color: royalblue; }
-a:visited { color: royalblue; }
-a:focus { color: black; }
-a:hover { color: green; }
-a:active { color: red; }
+table.bottom-nav,
+.bottom-nav th,
+.bottom-nav td {
+	background-color: transparent;
+	border-spacing: 0;
+	border-collapse: collapse;
+	border-top: none;
+	border-bottom: none;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:link {
+	color: royalblue;
+}
+
+a:visited {
+	color: royalblue;
+}
+
+a:focus {
+	color: black;
+}
+
+a:hover {
+	color: green;
+}
+
+a:active {
+	color: red;
+}
 
 
 
@@ -90,42 +139,39 @@ a:active { color: red; }
 Layout styles
 ------------------------*/
 
-.container
-{
+.container {
 	max-width: 70em;
 	margin: 0 auto;
 }
 
-.header
-{
+.header {
 	color: #fff;
 	background: #999;
 	padding: 1em 1.25em;
 }
 
-.header-heading { margin: 0; }
+.header-heading {
+	margin: 0;
+}
 
-.nav-bar
-{
+.nav-bar {
 	background: #000;
 	padding: 0;
 }
 
-.content
-{
+.content {
 	/* overflow: hidden; --*/
 	overflow: scroll;
 	padding: 1em 1.25em;
 	background-color: #fff;
 }
 
-.main, .aside
-{
+.main,
+.aside {
 	margin-bottom: 1em;
 }
 
-.footer
-{
+.footer {
 	color: #fff;
 	background: #000;
 	padding: 1em 1.25em;
@@ -135,21 +181,18 @@ Layout styles
 Nav
 ------------------------*/
 
-.nav
-{
+.nav {
 	margin: 0;
 	padding: 0;
 	list-style: none;
 }
 
-.nav li
-{
+.nav li {
 	display: inline;
 	margin: 0;
 }
 
-.nav a
-{
+.nav a {
 	display: block;
 	padding: .7em 1.25em;
 	color: #fff;
@@ -157,23 +200,25 @@ Nav
 	border-bottom: 1px solid gray;
 }
 
-.nav a:link { color: white; }
-.nav a:visited { color: white; }
+.nav a:link {
+	color: white;
+}
 
-.nav a:focus
-{
+.nav a:visited {
+	color: white;
+}
+
+.nav a:focus {
 	color: black;
 	background-color: white;
 }
 
-.nav a:hover
-{
+.nav a:hover {
 	color: white;
 	background-color: green;
 }
 
-.nav a:active
-{
+.nav a:active {
 	color: white;
 	background-color: red;
 }
@@ -182,10 +227,11 @@ Nav
 Single styles
 ------------------------*/
 
-.img-responsive { max-width: 100%; }
+.img-responsive {
+	max-width: 100%;
+}
 
-.btn
-{
+.btn {
 	color: #fff !important;
 	background-color: royalblue;
 	border-color: #222;
@@ -203,46 +249,39 @@ Single styles
 	text-decoration: none;
 }
 
-.btn:hover
-{
+.btn:hover {
 	color: #fff !important;
 	background-color: green;
 }
 
-.btn:focus
-{
+.btn:focus {
 	color: #fff !important;
 	background-color: black;
 }
 
-.btn:active
-{
+.btn:active {
 	color: #fff !important;
 	background-color: red;
 }
 
-.table
-{
+.table {
 	width: 100%;
 	max-width: 100%;
 	margin-bottom: 20px;
 }
 
-.list-unstyled
-{
+.list-unstyled {
 	padding-left: 0;
 	list-style: none;
 }
 
-.list-inline
-{
+.list-inline {
 	padding-left: 0;
 	margin-left: -5px;
 	list-style: none;
 }
 
-.list-inline > li
-{
+.list-inline>li {
 	display: inline-block;
 	padding-right: 5px;
 	padding-left: 5px;
@@ -252,37 +291,42 @@ Single styles
 Wide styles
 ------------------------*/
 
-@media (min-width: 55em)
-{
-	.header { padding: 1.5em 3em; }
-	.nav-bar { padding: 1em 3em; }
-	.content { padding: 2em 3em; }
+@media (min-width: 55em) {
+	.header {
+		padding: 1.5em 3em;
+	}
 
-	.main
-	{
+	.nav-bar {
+		padding: 1em 3em;
+	}
+
+	.content {
+		padding: 2em 3em;
+	}
+
+	.main {
 		float: left;
 		width: 65%;
 		margin-right: 5%;
 		margin-bottom: 1em;
 	}
 
-	.aside
-	{
+	.aside {
 		float: left;
 		width: 30%;
 		margin-bottom: 1em;
 	}
 
-	.footer { padding: 2em 3em; }
-	
-	.nav li
-	{
+	.footer {
+		padding: 2em 3em;
+	}
+
+	.nav li {
 		display: inline;
 		margin: 0 1em 0 0;
 	}
-	
-	.nav a
-	{
+
+	.nav a {
 		display: inline;
 		padding: 0;
 		border-bottom: 0;
