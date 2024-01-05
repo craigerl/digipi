@@ -99,11 +99,11 @@ Input signal level transition (dB); -90 to 0 -->
 
 <!-- type: double; default: 0.0
 Waterfall reference level (dB) -->
-<WFREFLEVEL>0</WFREFLEVEL>
+<WFREFLEVEL>-20</WFREFLEVEL>
 
 <!-- type: double; default: 60.0
 Waterfall amplitude span (dB) -->
-<WFAMPSPAN>60</WFAMPSPAN>
+<WFAMPSPAN>70</WFAMPSPAN>
 
 <!-- type: bool; default: false
 WF_UI - enable reverse button -->
@@ -155,11 +155,11 @@ WF_UI - enable wf transmit lock button -->
 
 <!-- type: int; default: 0
 Lowest frequency shown on waterfall (Hz) -->
-<LOWFREQCUTOFF>0</LOWFREQCUTOFF>
+<LOWFREQCUTOFF>200</LOWFREQCUTOFF>
 
 <!-- type: int; default: 3000
 Highest frequency shown on waterfall (Hz) -->
-<HIGHFREQCUTOFF>3000</HIGHFREQCUTOFF>
+<HIGHFREQCUTOFF>2500</HIGHFREQCUTOFF>
 
 <!-- type: double; default: 1500
 Default CW tracking point (Hz) -->
@@ -289,7 +289,7 @@ Transmit all text in lowercase -->
 
 <!-- type: bool; default: true
 Enable psk multi-channel detector - disable for very slow cpus -->
-<PSKBROWSER_ON>1</PSKBROWSER_ON>
+<PSKBROWSER_ON>0</PSKBROWSER_ON>
 
 <!-- type: int; default: 50
 PSK signal acquisition search range (Hz) -->
@@ -501,11 +501,11 @@ Filter bandwidth (Hz) -->
 
 <!-- type: double; default: 0.4
 Detector hysterisis, lower threshold -->
-<CWLOWER>0.482727</CWLOWER>
+<CWLOWER>0.362587</CWLOWER>
 
 <!-- type: double; default: 0.6
 Detector hysterisis, upper threshold -->
-<CWUPPER>0.510912</CWUPPER>
+<CWUPPER>0.402912</CWUPPER>
 
 <!-- type: int; default: 100
 Matched Filter length -->
@@ -705,11 +705,11 @@ X9 Hell bandwidth -->
 
 <!-- type: double; default: 250.0
 FSKH-245 bandwidth -->
-<HELL_BW5>250</HELL_BW5>
+<HELL_BW5>180</HELL_BW5>
 
 <!-- type: double; default: 120.0
 FSKH-105 Hell bandwidth -->
-<HELL_BW6>120</HELL_BW6>
+<HELL_BW6>100</HELL_BW6>
 
 <!-- type: double; default: 450.0
 HELL-80 bandwidth -->
@@ -821,7 +821,7 @@ Enable filtering before decoding -->
 
 <!-- type: std::string; default: &quot;&quot;
 Secondary text (sent during keyboard idle times) -->
-<THORSECTEXT>K </THORSECTEXT>
+<THORSECTEXT>a </THORSECTEXT>
 
 <!-- type: int; default: 5
 This setting is currently unused -->
@@ -873,7 +873,7 @@ Filter bandwidth factor (bandwidth relative to signal width) -->
 
 <!-- type: std::string; default: &quot;&quot;
 Secondary text (sent during keyboard idle times) -->
-<SECONDARYTEXT>K </SECONDARYTEXT>
+<SECONDARYTEXT>a </SECONDARYTEXT>
 
 <!-- type: bool; default: true
 Enable filtering before decoding -->
@@ -1167,7 +1167,7 @@ Docked rig control -->
 
 <!-- type: int; default: 125
 Waterfall height (pixels) -->
-<WFHEIGHT>125</WFHEIGHT>
+<WFHEIGHT>100</WFHEIGHT>
 
 <!-- type: bool; default: true
 Show tooltips -->
@@ -1376,7 +1376,7 @@ Callsign xml query type.  Values are as follows:
 
 <!-- type: std::string; default: &quot;https://www.hamcall.net/&quot;
 web address of hamcall -->
-<HAMCALLURL>https://www.hamcall.net/</HAMCALLURL>
+<HAMCALLURL>http://www.hamcall.net/</HAMCALLURL>
 
 <!-- type: std::string; default: &quot;https://www.hamqth.com/&quot;
 web address of hamqth -->
@@ -1388,7 +1388,7 @@ web address of QRZ.com -->
 
 <!-- type: std::string; default: &quot;https://callook.info/&quot;
 web address of callook -->
-<CALLOOKURL>https://callook.info/</CALLOOKURL>
+<CALLOOKURL>http://callook.info/</CALLOOKURL>
 
 <!-- type: int; default: QRZWEBNONE
 Callsign browser query type.  Values are as follows:
@@ -1551,11 +1551,11 @@ Use RIGTX/RX vice CWCOMPORTKEYDOWN/CWCOMPORTKEYUP -->
 <!-- type: bool; default: false
 PTT change at flrig changes Rx/Tx state
 set to false if multple instance of fldigi used with single flrig -->
-<FLRIG_KEYS_MODEM>0</FLRIG_KEYS_MODEM>
+<FLRIG_KEYS_MODEM>1</FLRIG_KEYS_MODEM>
 
 <!-- type: bool; default: false
 True if flrig xmlrpc server is used for xcvr control -->
-<CLIENT_TO_FLRIG>1</CLIENT_TO_FLRIG>
+<CLIENT_TO_FLRIG>0</CLIENT_TO_FLRIG>
 
 <!-- type: bool; default: false
 True to shutdown flrig when closing fldigi -->
@@ -1591,7 +1591,7 @@ Generate PTT signal on right audio channel -->
 
 <!-- type: int; default: 0
 Use Hamlib rig control -->
-<CHKUSEHAMLIBIS>0</CHKUSEHAMLIBIS>
+<CHKUSEHAMLIBIS>1</CHKUSEHAMLIBIS>
 
 <!-- type: int; default: 0
 Use RigCAT rig control -->
@@ -1607,7 +1607,7 @@ PTT device -->
 
 <!-- type: std::string; default: DEFAULT_HAMRIGDEVICE
 Hamlib rig device -->
-<HAMRIGDEVICE>/dev/ttyUSB0</HAMRIGDEVICE>
+<HAMRIGDEVICE>/dev/ttyACM0</HAMRIGDEVICE>
 
 <!-- type: std::string; default: &quot;&quot;
 Hamlib rig name -->
@@ -1615,7 +1615,7 @@ Hamlib rig name -->
 
 <!-- type: int; default: 0
 Hamlib rig model -->
-<HAMRIGMODEL>3073</HAMRIGMODEL>
+<HAMRIGMODEL>3085</HAMRIGMODEL>
 
 <!-- type: std::string; default: &quot;&quot;
 Hamlib configuration (param=val, ...) -->
@@ -1761,7 +1761,7 @@ DTR +12 -->
 
 <!-- type: bool; default: false
 RTS/CTS flow control -->
-<HAMLIBRTSCTSFLOW>1</HAMLIBRTSCTSFLOW>
+<HAMLIBRTSCTSFLOW>0</HAMLIBRTSCTSFLOW>
 
 <!-- type: bool; default: false
 XON/XOFF flow control -->
@@ -1773,11 +1773,11 @@ Number of times to resend command before giving up -->
 
 <!-- type: int; default: 200
 Retry interval (milliseconds) -->
-<HAMLIBTIMEOUT>2000</HAMLIBTIMEOUT>
+<HAMLIBTIMEOUT>1000</HAMLIBTIMEOUT>
 
 <!-- type: int; default: 5
 Wait interval before reading response (milliseconds) -->
-<HAMLIBWAIT>25</HAMLIBWAIT>
+<HAMLIBWAIT>0</HAMLIBWAIT>
 
 <!-- type: int; default: 0
 Write delay (milliseconds) -->
@@ -1919,7 +1919,7 @@ Antenna description (keep short!) -->
 
 <!-- type: std::string; default: &quot;&quot;
 Operator call sign, if distinct from the station call MYCALL -->
-<OPERCALL></OPERCALL>
+<OPERCALL>KM6LYW</OPERCALL>
 
 <!-- type: int; default: SND_IDX_NULL
 Audio subsystem.  Values are as follows:
@@ -1940,7 +1940,7 @@ PortAudio input device name -->
 
 <!-- type: int; default: -1
 PortAudio input device index -->
-<PORTININDEX>0</PORTININDEX>
+<PORTININDEX>1</PORTININDEX>
 
 <!-- type: std::string; default: &quot;&quot;
 PortAudio output device name -->
@@ -1948,7 +1948,7 @@ PortAudio output device name -->
 
 <!-- type: int; default: -1
 PortAudio input device index -->
-<PORTOUTINDEX>0</PORTOUTINDEX>
+<PORTOUTINDEX>1</PORTOUTINDEX>
 
 <!-- type: std::string; default: &quot;&quot;
 PortAudio alert device name -->
@@ -1988,7 +1988,7 @@ For compatibility with older versions -->
 
 <!-- type: int; default: SAMPLE_RATE_UNSET
 Input sample rate -->
-<INSAMPLERATE>1</INSAMPLERATE>
+<INSAMPLERATE>44100</INSAMPLERATE>
 
 <!-- type: int; default: SAMPLE_RATE_UNSET
 Output sample rate -->
@@ -1998,7 +1998,7 @@ Output sample rate -->
 Sample rate conversion type. Values are as follows:
   0: Best SINC; 1: Medium SINC; 2: Fastest SINC; 3: ZOH; 4: Linear.
 The default is 2. -->
-<SAMPLECONVERTER>4</SAMPLECONVERTER>
+<SAMPLECONVERTER>2</SAMPLECONVERTER>
 
 <!-- type: int; default: 0
 Input (RX) sample rate correction (PPM) -->
@@ -2224,11 +2224,11 @@ SQSO in-state -->
 
 <!-- type: int; default: 0
 SQSO state -->
-<SQSOstate>0</SQSOstate>
+<SQSOstate>6</SQSOstate>
 
 <!-- type: int; default: 0
 SQSO county -->
-<SQSOcounty>0</SQSOcounty>
+<SQSOcounty>8</SQSOcounty>
 
 <!-- type: int; default: 0
 SQSO log state -->
@@ -3061,7 +3061,7 @@ Signal centered on freq (Standard 1900Hz) -->
 <!-- type: int; default: 4000
 Received fax maximum number of rows
 1200 rows standard for IOC576 transmission. -->
-<WEFAXMAXROWS>4000</WEFAXMAXROWS>
+<WEFAXMAXROWS>2900</WEFAXMAXROWS>
 
 <!-- type: int; default: 1
 Pixel margin for noise removal -->
@@ -3327,15 +3327,15 @@ left click on waterfall transfers to spectrum center -->
 
 <!-- type: bool; default: true
 scale spectrum display frequency linked to modem bandwidth -->
-<wf_spectrum_modem_scale>1</wf_spectrum_modem_scale>
+<wf_spectrum_modem_scale>0</wf_spectrum_modem_scale>
 
 <!-- type: int; default: 5
 scale factor for spectrum display linked to modem bandwidth -->
-<spectrum_scale_factor>5</spectrum_scale_factor>
+<spectrum_scale_factor>1</spectrum_scale_factor>
 
 <!-- type: bool; default: true
 use waterfall db range and offset values for spectrum scope -->
-<wf_spectrum_dbvals>1</wf_spectrum_dbvals>
+<wf_spectrum_dbvals>0</wf_spectrum_dbvals>
 
 <!-- type: int; default: 1
 FMT sample rate

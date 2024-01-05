@@ -20,20 +20,17 @@ truncate --size 0 /run/direwolf.log
 cp /home/pi/direwolf.winlink.conf /tmp/direwolf.winlink.conf
 USBPRESENT=`grep "USB" /proc/asound/cards | wc -l`
 if [ $USBPRESENT -eq 0 ]; then
-  export ALSA_CARD=0
+#  export ALSA_CARD=0
   sed -i 's/\#PTT GPIO/PTT GPIO/gi' /tmp/direwolf.winlink.conf
 else
-  export ALSA_CARD=1
+#  export ALSA_CARD=1
   sed -i 's/\#PTT RIG/PTT RIG/gi' /tmp/direwolf.winlink.conf
 fi
 sudo mv /tmp/direwolf.winlink.conf /run/direwolf.winlink.conf
 
-# set default alsa audio device
-echo "ALSA_CARD $ALSA_CARD"
-
 direwolf -d t -p -q d -t 0 -c /run/direwolf.winlink.conf | tee /home/pi/direwolf.log &
 
-/home/pi/direwatch.py --log "/run/direwolf.log" --title_text "Winlink"  &
+sudo /home/pi/direwatch.py --log "/run/direwolf.log" --title_text "Winlink"  &
 
 sleep 5 # wait for direwolf to create /tmp/kisstnc
 

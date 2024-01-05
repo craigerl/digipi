@@ -1,0 +1,51 @@
+<!-- Version 4 27/10/2018 -->
+<!DOCTYPE html> 
+<html> 
+<head> 
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/> 
+<style type="text/css">
+pre {margin-left: 4px;margin-right: 4px;white-space: pre-wrap} 
+#main{width:700px;position:absolute;left:0px;border:2px solid;background-color: #ffffff;}
+</style>
+<script>
+var Main;
+var fromleft;
+var txt;
+function initialize(mainoffset)
+{
+	var w=window,d=document,e=d.documentElement,g=d.getElementsByTagName('body')[0];
+	x=w.innerWidth; //||e.clientWidth||g.clientWidth;
+	y=w.innerHeight; //||e.clientHeight||g.clientHeight; 
+	Main = document.getElementById("main");
+	txt =  document.getElementById("txt");
+	w = x;	
+	if (w > 920) {w = 920;}
+ 	fromleft = (x / 2) - (x - 150)/2;
+	if (fromleft < 0) {fromleft = 0;}
+	Main.style.left = fromleft + "px";
+	Main.style.width = x - 150 + "px";
+	Main.style.height = y - mainoffset + "px";
+	txt.style.left = fromleft + "px";
+	txt.style.width = x - 150 + "px";
+	txt.style.height = y - mainoffset + "px";	
+}
+function Reply(Num, Key)
+{
+var param = "toolbar=yes,location=yes,directories=yes,status=yes,menubar=yes,scrollbars=yes,resizable=yes,titlebar=yes,toobar=yes";
+window.open("/WebMail/Reply/" + Num + "?" + Key,"_self",param);
+}
+</script>
+<title>WebMail</title> 
+</head>
+<body background=/background.jpg onload="initialize(125)" onresize="initialize(125)">
+<h3 align=center> %s Webmail Interface - User %s - Message %d</h3>
+<table align=center border=1 cellpadding=2 bgcolor=white><tr>
+<td><a href="#" onclick="Reply('%d' ,'%s'); return false;">Reply</a></td>
+<td><a href=/WebMail/WMDel/%d?%s>Kill Message</a></td>
+%s
+<td><a href=/WebMail/WMSame?%s>Back to List</a></td>
+</tr></table>
+<br>
+<div align=center id="main">
+<%s id="txt" style="overflow:auto;" align=left>%s</%s>
+</div> 

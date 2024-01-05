@@ -1,0 +1,20 @@
+E: [20:27:02.504] soundcard/sound.cxx : 1815 : init_stream
+    Could not find device "", using default device
+I: [20:27:09.039] soundcard/sound.cxx : 1917 : start_stream
+    
+open pa stream for read:
+  samplerate    : 44100
+  device number : 7
+  # channels    : 2
+  latency       : 0.021333
+  sample Format : paFloat32
+I: [20:27:09.167] soundcard/sound.cxx : 1391 : Open
+    Port Audio open mode = Read
+device type = paInDevelopment
+device name = 
+# input channels 2
+# output channels 2
+I: [20:27:52.046] trx/trx.cxx : 996 : trx_close
+    closing trx thread
+I: [20:27:52.187] trx/trx.cxx : 1026 : trx_close
+    trx thread closed

@@ -1,8 +1,8 @@
 {
-  "mycall": "KM6LYW",
-  "secure_login_password": "7H7WWA",
+  "mycall": "KX6XXX",
+  "secure_login_password": "XXXXXX",
   "auxiliary_addresses": [],
-  "locator": "CM98mv",
+  "locator": "CN99mv",
   "http_addr": "0.0.0.0:8080",
   "motd": [
     "Open source Winlink client - getpat.io"
@@ -12,9 +12,9 @@
     "ab K6SAT-11 144.370 Folsom": "ax25:///K6SAT-11",
     "ab K6IXA-13 145.630 Tracy": "ax25:///K6IXA-13",
     "ab WS8ER-12 145.630 FHill": "ax25:///WS8ER-12",
-    "ab KM6LYW-10 144.910 via WS8ER-7": "ax25:///WS8ER-7/KM6LYW-10",
-    "ab KM6LYW-10 144.370 via BERR37": "ax25:///BERR37/KM6LYW-10",
-    "ab KM6LYW-10 145.730 via MTVNOD": "ax25:///MTVNOD/KM6LYW-10",
+    "ab KX6XXX-10 144.910 via WS8ER-7": "ax25:///WS8ER-7/KX6XXX-10",
+    "ab KX6XXX-10 144.370 via BERR37": "ax25:///BERR37/KX6XXX-10",
+    "ab KX6XXX-10 145.730 via MTVNOD": "ax25:///MTVNOD/KX6XXX-10",
     "ab AG6QO-10 144.370 Davis via BERR37": "ax25:///BERR37/AG6QO-10",
     "ab K6WLS-10 144.370 Woodland via BERR37": "ax25:///BERR37/K6WLS-10",
     "ab K6WLS-10 144.370 Woodland": "ax25:///K6WLS-10",
@@ -284,14 +284,17 @@
   "hamlib_rigs": {
     "RigCtl Radio": {"address": "localhost:4532", "network": "tcp"}
   },
-  "ax25": {
+  "ax25_linux": {
     "port": "radio",
     "beacon": {
       "every": 3600,
       "message": "Winlink P2P",
       "destination": "IDENT"
     },
-    "rig": ""
+    "rig": "RigCtl Radio",
+    "ptt_ctrl": true,
+    "beacon_interval": 0,
+    "cwid_enabled": true
   },
   "serial-tnc": {
     "path": "/dev/ttyUSB0",

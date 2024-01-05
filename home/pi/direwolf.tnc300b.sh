@@ -18,20 +18,17 @@ truncate --size 0 /run/direwolf.log
 cp /home/pi/direwolf.tnc300b.conf /tmp/direwolf.tnc300b.conf
 USBPRESENT=`grep "USB" /proc/asound/cards | wc -l`
 if [ $USBPRESENT -eq 0 ]; then
-  export ALSA_CARD=0
+#  export ALSA_CARD=0
   sed -i 's/\#PTT GPIO/PTT GPIO/gi' /tmp/direwolf.tnc300b.conf
 else
-  export ALSA_CARD=1
+#  export ALSA_CARD=1
   sed -i 's/\#PTT RIG/PTT RIG/gi' /tmp/direwolf.tnc300b.conf
 fi
 sudo mv /tmp/direwolf.tnc300b.conf /run/direwolf.tnc300b.conf
 
-# set default alsa audio device
-echo "ALSA_CARD $ALSA_CARD"
-
 direwolf -d t -p -q d -t 0 -c /run/direwolf.tnc300b.conf | tee /home/pi/direwolf.log &
 
-/home/pi/direwatch.py --log "/run/direwolf.log" --title_text "TNC 300b"  &
+sudo /home/pi/direwatch.py --log "/run/direwolf.log" --title_text "TNC 300b"  &
 
 # wait for direwolf to open port 8001
 sleep 5

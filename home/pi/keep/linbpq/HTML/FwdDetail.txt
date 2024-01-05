@@ -1,0 +1,22 @@
+<!-- Version 2 16/8/2019 -->
+<h3 align="center">Forwarding Config for %s - %d Messages Queued</h3><form style="font-family: monospace; text-align: center" method=post action=/Mail/FWD?%s>
+&nbsp;&nbsp;TO &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;TIMES&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; Connect Script<br>
+<textarea wrap=hard rows=8 cols=10 name=TO>%s</textarea> 
+<textarea wrap=hard rows=8 cols=10 name=AT>%s</textarea> 
+<textarea wrap=hard rows=8 cols=10 name=Times>%s</textarea> 
+<textarea wrap=hard rows=8 cols=20 name=FWD>%s</textarea><br>
+Hierarchical Routes (Flood Bulls) HR (Personals and Directed Bulls)
+<textarea wrap=hard rows=8 cols=30 name=HRB>%s</textarea> 
+<textarea wrap=hard rows=8 cols=30 name=HRP>%s</textarea>
+<br><br>
+BBS HA <input value="%s" size=50 name=BBSHA> <br>
+Enable Forwarding&nbsp;<input %sname=EnF type=checkbox> Interval <input value=%d size=3 name=Interval>(Secs)<br>
+Request Reverse&nbsp;&nbsp;&nbsp;<input %sname=EnR type=checkbox> Interval <input value=%d size=3 name=RInterval>(Secs)<br>
+Send new messages without waiting for poll timer<input %sname=NoWait type=checkbox><br>
+FBB Blocked <input %sname=Blocked type=checkbox>Max Block <input value=%d size=3 name=FBBBlock> 
+Send Personal Mail Only <input %sname=Personal type=checkbox><br>
+Allow Binary <input %sname=Bin type=checkbox> Use B1 Protocol <input %sname=B1 type=checkbox>&nbsp; Use B2 Protocol<input %sname=B2 type=checkbox><br>
+Send ctrl/Z instead of /ex in text mode forwarding <input %sname=CTRLZ type=checkbox><br>
+<br><input onclick=save(this.form) value=Update type=button> <input onclick=startf(this.form) value="Start Forwarding" type=button><br>
+</form>

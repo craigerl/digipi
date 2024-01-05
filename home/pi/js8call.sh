@@ -23,13 +23,13 @@ sudo killall js8call
 # start stuff
 nice -n 5 vncserver -depth 16                               # runs in background
 /home/pi/digibanner.py -b JS8Call -s http://digipi/js8      # exits quickly
-nice -n 5 /usr/share/novnc/utils/launch.sh &                # this doesn't exit
+/usr/share/novnc/utils/novnc_proxy --vnc localhost:5901 &
 
 export DISPLAY=:1   
 
 js8call &
 
-sleep 14
+sleep 8
 
 #maximize app, full screen
 wmctrl -a js8call -b add,maximized_vert,maximized_horz

@@ -1,0 +1,201 @@
+<!-- Version 3 16/8/2019 -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"><head>
+  
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+
+  
+  <style type="text/css"> 
+
+#outer
+{
+width:900px;
+height:620px;
+position:absolute;
+border:0px solid;
+font-family: monospace;
+}
+#main
+{
+width:600px;
+position:absolute;
+height:610px;
+left:295px;
+border:2px solid;
+}
+#left
+{
+position: absolute;
+width:290px;
+height:510px;
+border:0px solid;
+overflow: auto;
+}
+#common
+{
+position: absolute;
+width:180px;
+height:500px;
+border:2px solid;
+overflow: auto;
+}
+#sidebar
+{
+position: absolute;
+width:95px;
+left:190px;
+height:500px;
+border:2px solid;
+overflow: auto;
+}
+
+</style>
+<title>Edit Forwarding</title>
+
+<script type="text/javascript"> 
+ 
+var Details
+var Sidebar
+var fromleft;
+var Outer;
+var Key = "%s"
+
+function initialize()
+{
+	var w=window,d=document,e=d.documentElement,g=d.getElementsByTagName('body')[0];
+	x=w.innerWidth||e.clientWidth||g.clientWidth;	y=w.innerHeight||e.clientHeight||g.clientHeight;
+	fromleft = (x / 2) - 450;
+	if (fromleft < 0) {fromleft = 0;}
+	Outer = document.getElementById("outer"); 
+	Outer.style.left = fromleft + "px";
+	Sidebar = document.getElementById("sidebar"); 
+	Details = document.getElementById("main"); 
+	Details.innerHTML = "waiting for data..."; 
+	GetData("");
+}
+
+function save(form)
+{
+	var msg
+	var fn = "FWDSave?" + Key;
+	
+	msg = 
+	form.TO.value + "|" +
+	form.AT.value + "|" +
+	form.Times.value + "|" +
+	form.FWD.value + "|" +
+	form.HRB.value + "|" +
+	form.HRP.value + "|" +
+	form.BBSHA.value + "|" +
+	form.EnF.checked + "|" +
+	form.Interval.value + "|" +
+	form.EnR.checked + "|" + 
+	form.RInterval.value + "|" +
+	form.NoWait.checked + "|" +
+	form.Blocked.checked + "|"  +
+	form.FBBBlock.value + "|"  +
+	form.Personal.checked + "|" +
+	form.Bin.checked + "|" +
+	form.B1.checked + "|" +
+	form.B2.checked + "|" +
+	form.CTRLZ.checked + "|"
+	post(fn, msg);
+}
+
+function startf(form)
+{
+	var fn = "FWDSave?" + Key;
+	post(fn, "StartForward", "");
+}
+
+function post(url, data)
+{
+	if (window.XMLHttpRequest){request=new XMLHttpRequest();}else{request=new ActiveXObject("Microsoft.XMLHTTP");}
+	request.onreadystatechange = function()
+	{if (request.readyState == 4){Details.innerHTML = request.responseText;}}
+	request.open("POST", url, true);request.send(data);
+}
+
+function GetDetails(call)
+{
+	var fn = "FwdDetails?" + Key;
+	post(fn, call);
+}
+function GetData()
+{
+	if (window.XMLHttpRequest){request=new XMLHttpRequest();}else{request=new ActiveXObject("Microsoft.XMLHTTP");}
+ 
+	request.onreadystatechange = function()
+	{
+		if (request.readyState == 4)
+		{
+			var text = request.responseText;
+			var lines = text.split("|");
+			var i = 0;
+			
+	 	    var infoArea = document.getElementById("sidebar"); 
+		    var strInfo = '<table>';
+ 						
+			while(i < lines.length - 1)
+			{	
+				var clink = '<a href=javascript:GetDetails("' + lines[i] + '")>' + lines[i] + '</a>';	
+				var tableRow = '<tr><td>' + clink + '</td></tr>\n';	 
+				strInfo += tableRow;			
+				i=i+1;
+			}
+			infoArea.innerHTML = strInfo + "</table>";
+			GetDetails(lines[0]);
+		}
+	}
+	request.open("POST","FwdList.txt?%s",true);										   
+	request.send();
+}
+ 
+  </script>
+</head><body onload="initialize()" onresize="initialize()" style="background-image: url(/background.jpg);">
+<h3 align="center">BPQ32 BBS %s</h3>
+
+<table align="center" bgcolor="white" border="1" cellpadding="2">
+
+  <tbody>
+    <tr>
+      <td><a href="/Mail/Status?%s">Status</a></td>
+      <td><a href="/Mail/Conf?%s">Configuration</a></td>
+      <td><a href="/Mail/Users?%s">Users</a></td>
+      <td><a href="/Mail/Msgs?%s">Messages</a></td>
+      <td><a href="/Mail/FWD?%s">Forwarding</a></td>
+      <td><a href="/Mail/Wel?%s">Welcome Msgs &amp; Prompts</a></td>
+      <td><a href="/Mail/HK?%s">Housekeeping</a></td>
+      <td><a href="/Mail/WP?%s">WP Update</a></td>
+      <td><a href="/">Node Menu</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<br />
+
+<div id="outer">
+<div id="left">
+<div id="common">
+<form style="font-family: monospace; text-align: center;" method=post action=/Mail/FwdCommon?%s>
+Max size to Send <input value=%d size="3" name="MaxTX"><br>
+<br>
+Max Size to Receive <input value=%d size="3" name="MaxRX"><br>
+<br>
+Max age for Bulls <input value=%d size="3" name="MaxAge"><br>
+<br>
+Warn if no route<br>
+&nbsp;for P or T <input %sname="WarnNoRoute" type="checkbox" /><br />
+  <br />
+Use Local Time&nbsp;<input %sname="LocalTime" type="checkbox" /><br />
+  <br />
+Aliases<br />
+  <br />
+  <textarea rows="8" cols="12" name="Aliases">%s</textarea><br><br>
+<input name=Submit value=Update type=submit> </form>
+</div>
+<div id="sidebar"> </div>
+</div>
+<div id="main"> </div>
+</div>
+</body></html>

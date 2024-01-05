@@ -5,8 +5,8 @@
 [.]
 
 version:1.3.53
-mainx:584
-mainy:57
+mainx:579
+mainy:35
 mainw:425
 mainh:326
 uisize:0
@@ -69,7 +69,7 @@ poll_all:4
 bw_A:34
 mode_A:9
 freq_A_u:0
-freq_A_l:14266000
+freq_A_l:7078000
 bw_B:34
 mode_B:9
 freq_B_u:0
@@ -97,7 +97,7 @@ restore_comp_on_off:1
 restore_comp_level:1
 bool_spkr_on:1
 int_volume:0
-dbl_power:100
+dbl_power:93
 int_mic:50
 bool_notch:0
 int_notch:1500
@@ -139,7 +139,7 @@ vox_gain:10
 vox_anti:10
 vox_hang:100
 compression:5
-compON:0
+compON:1
 noise_reduction:0
 noise_red_val:3
 nb_level:50

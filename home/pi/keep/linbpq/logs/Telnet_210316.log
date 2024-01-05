@@ -1,0 +1,145 @@
+15/03/2021 21:29:02 1 192.168.1.100 Incoming Connect on Port 8772
+15/03/2021 21:29:06 1 192.168.1.100 User=KM6LYW
+15/03/2021 21:29:07 1 192.168.1.100 Password=test11
+15/03/2021 21:29:07 1 192.168.1.100 Call Accepted Callsign =KM6LYW
+15/03/2021 21:29:18 1 Disconnected. Bytes Sent = 72 Bytes Received 36
+15/03/2021 21:29:32 1 192.168.1.100 Incoming Connect on Port 8010
+15/03/2021 21:29:32 1 192.168.1.100 User=GET / HTTP/1.1
+15/03/2021 21:29:33 1 192.168.1.100 Incoming Connect on Port 8010
+15/03/2021 21:29:33 1 192.168.1.100 User=GET / HTTP/1.1
+15/03/2021 21:29:37 1 192.168.1.100 Incoming Connect on Port 8011
+15/03/2021 21:29:48 2 192.168.1.100 Incoming Connect on Port 8012
+15/03/2021 21:29:48 1 192.168.1.100 Incoming Connect on Port 8012
+15/03/2021 21:33:01 1 192.168.1.100 Incoming Connect on Port 8012
+15/03/2021 21:36:50 2 192.168.1.100 Incoming Connect on Port 8010
+15/03/2021 21:36:53 2 192.168.1.100 User=KM6LYW
+15/03/2021 21:36:54 2 192.168.1.100 Password=test11
+15/03/2021 21:36:56 2 192.168.1.100 Password=test11
+15/03/2021 21:37:05 2 192.168.1.100 Password=
+15/03/2021 21:37:06 2 192.168.1.100 Password=
+15/03/2021 21:37:58 1 192.168.1.100 Incoming Connect on Port 8012
+15/03/2021 21:38:22 2 192.168.1.100 Incoming Connect on Port 8010
+15/03/2021 21:38:26 2 192.168.1.100 User=KM6LYW
+15/03/2021 21:38:27 2 192.168.1.100 Password=test11
+15/03/2021 21:38:27 2 192.168.1.100 Call Accepted Callsign=KM6LYW
+15/03/2021 21:38:50 2 Disconnected. Bytes Sent = 308 Bytes Received 6
+15/03/2021 21:38:51 15 Disconnected. Bytes Sent = 0 Bytes Received 83
+15/03/2021 21:42:55 1 192.168.1.100 Incoming Connect on Port 8010
+15/03/2021 21:43:01 1 192.168.1.100 User=KM6L
+15/03/2021 21:43:03 1 192.168.1.100 User=KM6LYW
+15/03/2021 21:43:04 1 192.168.1.100 Password=tes11
+15/03/2021 21:43:07 1 192.168.1.100 Password=test11
+15/03/2021 21:43:07 1 192.168.1.100 Call Accepted Callsign=KM6LYW
+15/03/2021 21:44:48 1 Disconnected. Bytes Sent = 3669 Bytes Received 57
+15/03/2021 21:44:50 15 Disconnected. Bytes Sent = 22 Bytes Received 2589
+15/03/2021 21:51:37 1 192.168.1.100 Incoming Connect on Port 8010
+15/03/2021 21:51:40 1 192.168.1.100 User=KM6LYW
+15/03/2021 21:51:43 1 192.168.1.100 Password=test11
+15/03/2021 21:51:43 1 192.168.1.100 Call Accepted Callsign=KM6LYW
+15/03/2021 21:54:51 1 Disconnected. Bytes Sent = 221 Bytes Received 12
+15/03/2021 21:55:06 1 192.168.1.100 Incoming Connect on Port 8010
+15/03/2021 21:55:08 1 192.168.1.100 User=KM6LYW
+15/03/2021 21:55:10 1 192.168.1.100 Password=test11
+15/03/2021 21:55:10 1 192.168.1.100 Call Accepted Callsign=KM6LYW
+15/03/2021 21:56:04 1 Disconnected. Bytes Sent = 478 Bytes Received 17
+15/03/2021 21:59:13 1 192.168.1.100 Incoming Connect on Port 8012
+15/03/2021 21:59:17 2 192.168.1.100 Incoming Connect on Port 8010
+15/03/2021 21:59:20 2 192.168.1.100 User=KM6LYW
+15/03/2021 21:59:21 2 192.168.1.100 Password=test11
+15/03/2021 21:59:21 2 192.168.1.100 Call Accepted Callsign=KM6LYW
+15/03/2021 22:09:35 1 192.168.1.100 Incoming Connect on Port 8010
+15/03/2021 22:09:38 1 192.168.1.100 User=KM6LYW
+15/03/2021 22:09:39 1 192.168.1.100 Password=test11
+15/03/2021 22:09:39 1 192.168.1.100 Call Accepted Callsign=KM6LYW
+15/03/2021 22:10:21 1 Disconnected. Bytes Sent = 625 Bytes Received 38
+15/03/2021 22:14:08 1 192.168.1.100 Incoming Connect on Port 8012
+15/03/2021 22:20:23 1 192.168.1.100 Incoming Connect on Port 8012
+15/03/2021 22:21:33 2 127.0.0.1 Incoming Connect on Port 8010
+15/03/2021 22:21:37 2 127.0.0.1 User=KM6LYW
+15/03/2021 22:21:38 2 127.0.0.1 Password=test11
+15/03/2021 22:21:38 2 127.0.0.1 Call Accepted Callsign=KM6LYW
+15/03/2021 22:21:49 2 Disconnected. Bytes Sent = 68 Bytes Received 5
+15/03/2021 22:25:49 1 127.0.0.1 Incoming Connect on Port 8010
+15/03/2021 22:25:56 1 127.0.0.1 User=
+15/03/2021 22:25:56 1 127.0.0.1 User=
+15/03/2021 22:25:56 1 127.0.0.1 User=
+15/03/2021 22:25:56 1 127.0.0.1 User=
+15/03/2021 22:26:00 1 127.0.0.1 User=
+15/03/2021 22:47:52 1 127.0.0.1 Incoming Connect on Port 8010
+15/03/2021 22:48:03 1 127.0.0.1 User=KM6LYW
+15/03/2021 22:48:08 1 127.0.0.1 Password=test11
+15/03/2021 22:48:08 1 127.0.0.1 Call Accepted Callsign=KM6LYW
+15/03/2021 22:49:39 1 Disconnected. Bytes Sent = 148 Bytes Received 2
+15/03/2021 22:50:42 1 192.168.1.100 Incoming Connect on Port 8010
+15/03/2021 22:50:44 1 192.168.1.100 User=KM6LYW
+15/03/2021 22:50:45 1 192.168.1.100 Password=test11
+15/03/2021 22:50:45 1 192.168.1.100 Call Accepted Callsign=KM6LYW
+15/03/2021 23:00:31 1 Disconnected. Bytes Sent = 573 Bytes Received 19
+15/03/2021 23:05:40 1 192.168.1.100 Incoming Connect on Port 8010
+15/03/2021 23:20:58 1 192.168.1.100 Incoming Connect on Port 8010
+15/03/2021 23:21:01 1 192.168.1.100 User=KM6LYW
+15/03/2021 23:21:02 1 192.168.1.100 Password=test11
+15/03/2021 23:21:02 1 192.168.1.100 Call Accepted Callsign=KM6LYW
+15/03/2021 23:21:03 1 Disconnected. Bytes Sent = 70 Bytes Received 5
+15/03/2021 23:21:09 1 192.168.1.100 Incoming Connect on Port 8010
+15/03/2021 23:21:51 1 192.168.1.100 Incoming Connect on Port 8012
+15/03/2021 23:26:12 1 192.168.1.100 Incoming Connect on Port 8012
+15/03/2021 23:50:06 1 127.0.0.1 Incoming Connect on Port 8010
+15/03/2021 23:50:09 1 127.0.0.1 User=KM6LYW
+15/03/2021 23:50:10 1 127.0.0.1 Password=test11
+15/03/2021 23:50:10 1 127.0.0.1 Call Accepted Callsign=KM6LYW
+15/03/2021 23:51:33 1 Disconnected. Bytes Sent = 2013 Bytes Received 34
+15/03/2021 23:59:30 1 192.168.1.100 Incoming Connect on Port 8012
+16/03/2021 07:19:00 1 192.168.1.100 Incoming Connect on Port 8010
+16/03/2021 07:19:03 1 192.168.1.100 User=KM6LYW
+16/03/2021 07:19:04 1 192.168.1.100 Password=test11
+16/03/2021 07:19:04 1 192.168.1.100 Call Accepted Callsign=KM6LYW
+16/03/2021 07:19:10 1 Disconnected. Bytes Sent = 283 Bytes Received 6
+16/03/2021 07:19:21 1 192.168.1.100 Incoming Connect on Port 8010
+16/03/2021 07:19:24 1 192.168.1.100 User=KM6LYW-15
+16/03/2021 07:19:25 1 192.168.1.100 User=test11
+16/03/2021 07:19:27 1 192.168.1.100 User=KM6LYW
+16/03/2021 07:19:28 1 192.168.1.100 Password=test11
+16/03/2021 07:19:28 1 192.168.1.100 Call Accepted Callsign=KM6LYW
+16/03/2021 07:34:44 1 Disconnected. Bytes Sent = 223 Bytes Received 7
+16/03/2021 07:43:55 1 192.168.1.100 Incoming Connect on Port 8010
+16/03/2021 07:43:58 1 192.168.1.100 User=KM6LYW
+16/03/2021 07:43:59 1 192.168.1.100 Password=test11
+16/03/2021 07:43:59 1 192.168.1.100 Call Accepted Callsign=KM6LYW
+16/03/2021 07:44:04 1 Disconnected. Bytes Sent = 284 Bytes Received 7
+16/03/2021 07:44:06 1 192.168.1.100 Incoming Connect on Port 8010
+16/03/2021 07:44:09 1 192.168.1.100 User=KM6LYW
+16/03/2021 07:44:10 1 192.168.1.100 Password=test11
+16/03/2021 07:44:10 1 192.168.1.100 Call Accepted Callsign=KM6LYW
+16/03/2021 07:44:21 1 Disconnected. Bytes Sent = 276 Bytes Received 9
+16/03/2021 07:46:13 1 192.168.1.100 Incoming Connect on Port 8010
+16/03/2021 07:46:16 1 192.168.1.100 User=KM6LYW
+16/03/2021 07:46:17 1 192.168.1.100 Password=test11
+16/03/2021 07:46:17 1 192.168.1.100 Call Accepted Callsign=KM6LYW
+16/03/2021 07:47:18 1 192.168.1.100 Incoming Connect on Port 8010
+16/03/2021 07:47:20 1 192.168.1.100 User=KM6LYW
+16/03/2021 07:47:21 1 192.168.1.100 Password=test11
+16/03/2021 07:47:21 1 192.168.1.100 Call Accepted Callsign=KM6LYW
+16/03/2021 07:48:13 1 192.168.1.100 Incoming Connect on Port 8010
+16/03/2021 07:48:15 1 192.168.1.100 User=KM6LYW
+16/03/2021 07:48:17 1 192.168.1.100 Password=test11
+16/03/2021 07:48:17 1 192.168.1.100 Call Accepted Callsign=KM6LYW
+16/03/2021 07:48:20 1 Disconnected. Bytes Sent = 285 Bytes Received 7
+16/03/2021 07:48:54 1 192.168.1.100 Incoming Connect on Port 8010
+16/03/2021 07:48:55 1 192.168.1.100 User=KM6LYW
+16/03/2021 07:48:56 1 192.168.1.100 Password=test11
+16/03/2021 07:48:56 1 192.168.1.100 Call Accepted Callsign=KM6LYW
+16/03/2021 07:49:07 1 192.168.1.100 Incoming Connect on Port 8010
+16/03/2021 07:49:09 1 192.168.1.100 User=KM6LYW
+16/03/2021 07:49:10 1 192.168.1.100 Password=test11
+16/03/2021 07:49:10 1 192.168.1.100 Call Accepted Callsign=KM6LYW
+16/03/2021 07:49:14 1 Disconnected. Bytes Sent = 285 Bytes Received 7
+16/03/2021 07:51:41 1 192.168.1.100 Incoming Connect on Port 8010
+16/03/2021 07:51:44 1 192.168.1.100 User=KM6LYW
+16/03/2021 07:51:45 1 192.168.1.100 Password=test11
+16/03/2021 07:51:45 1 192.168.1.100 Call Accepted Callsign=KM6LYW
+16/03/2021 07:51:48 1 Disconnected. Bytes Sent = 284 Bytes Received 7
+16/03/2021 07:52:09 1 192.168.1.100 Incoming Connect on Port 8010
+16/03/2021 07:52:12 1 192.168.1.100 User=KM6LYW
+16/03/2021 07:52:13 1 192.168.1.100 Password=test11
+16/03/2021 07:52:13 1 192.168.1.100 Call Accepted Callsign=KM6LYW

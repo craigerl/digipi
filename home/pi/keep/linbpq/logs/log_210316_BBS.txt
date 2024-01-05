@@ -1,0 +1,73 @@
+210316 05:08:38 !          Mail Starting
+210316 05:09:22 !          Mail Starting
+210316 05:24:38 !          Mail Starting
+210316 05:25:14 !          Mail Starting
+210316 05:27:06 !          Mail Starting
+210316 05:27:35 !          Mail Starting
+210316 05:43:19 !          Mail Starting
+210316 06:05:27 !          Mail Starting
+210316 06:26:02 !          Mail Starting
+210316 06:31:55 !          Mail Starting
+210316 06:33:14 !          Mail Starting
+210316 06:40:54 !          Mail Starting
+210316 06:46:36 !          Mail Starting
+210316 06:47:01 |KM6LYW-10 Incoming Connect from KM6LYW on Port 1 Freq 0 Mode Packet 1200
+210316 06:47:01 >KM6LYW-10 [BPQ-6.0.21.29-IHJM$]
+210316 06:47:01 >KM6LYW-10 Please enter your Name>
+210316 06:47:07 |KM6LYW-10 KM6LYW-10 Disconnected
+210316 06:50:27 |KM6LYW    Incoming Connect from KM6LYW on Port 3 Freq 0 Mode Packet 1200
+210316 06:50:27 >KM6LYW    [BPQ-6.0.21.29-IHJM$]
+210316 06:50:27 >KM6LYW    Please enter your Name>
+210316 06:50:32 <KM6LYW    craiger
+210316 06:50:32 >KM6LYW    Hello craiger. Latest Message is 0, Last listed is 0
+210316 06:50:32 >KM6LYW    Please enter your Home BBS using the Home command.You may also enter your QTH and ZIP/Postcode using qth and zip commands.
+210316 06:50:32 >KM6LYW    de KM6LYW>
+210316 06:50:46 <KM6LYW    help
+210316 06:50:46 >KM6LYW    A - Abort Output
+210316 06:50:46 >KM6LYW    B - Logoff
+210316 06:50:46 >KM6LYW    CMSPASS Password - Set CMS Password
+210316 06:50:46 >KM6LYW    D - Flag NTS Message(s) as Delivered - D num
+210316 06:50:46 >KM6LYW    HOMEBBS - Display or get HomeBBS
+210316 06:50:46 >KM6LYW    INFO - Display information about this BBS
+210316 06:50:46 >KM6LYW    I CALL - Lookup CALL in WP Allows *CALL CALL* *CALL* wildcards
+210316 06:50:46 >KM6LYW    I@ PARAM - Lookup @BBS in WP
+210316 06:50:46 >KM6LYW    IZ PARAM - Lookup Zip Codes in WP
+210316 06:50:46 >KM6LYW    IH PARAM - Lookup HA elements in WP - eg USA EU etc
+210316 06:50:46 >KM6LYW    K - Kill Message(s) - K num, KM (Kill my read messages)
+210316 06:50:46 >KM6LYW    L - List Message(s) - 
+210316 06:50:46 >KM6LYW       L = List New, LR = List New (Oldest first)
+210316 06:50:46 >KM6LYW       LM = List Mine, L> Call, L< Call, L@ = List to, from or at
+210316 06:50:46 >KM6LYW       LL num = List msg num, L num-num = List Range
+210316 06:50:46 >KM6LYW       LN LY LH LK LF L$ LD = List Message with corresponding Status
+210316 06:50:46 >KM6LYW       LB LP LT = List Mesaage with corresponding Type
+210316 06:50:46 >KM6LYW       LC = List TO fields of all active bulletins
+210316 06:50:46 >KM6LYW       You can combine most selections eg LMP, LMN LB< G8BPQ
+210316 06:50:46 >KM6LYW    LISTFILES or FILES - List files available for download
+210316 06:50:46 >KM6LYW    N Name - Set Name
+210316 06:50:46 >KM6LYW    NODE - Return to Node
+210316 06:50:46 >KM6LYW    OP n - Set Page Length (Output will pause every n lines)
+210316 06:50:46 >KM6LYW    PASS Password - Set BBS Password
+210316 06:50:46 >KM6LYW    POLLRMS - Manage Polling for messages from RMS 
+210316 06:50:46 >KM6LYW    Q QTH - Set QTH
+210316 06:50:46 >KM6LYW    R - Read Message(s) - R num 
+210316 06:50:46 >KM6LYW                          RM (Read new messages to me), RMR (RM oldest first)
+210316 06:50:46 >KM6LYW    READ Name - Read File
+210316 06:50:46 >KM6LYW    S - Send Message - S or SP Send Personal, SB Send Bull, ST Send NTS,
+210316 06:50:46 >KM6LYW                       SR Num - Send Reply, SC Num - Send Copy
+210316 06:50:46 >KM6LYW    X - Toggle Expert Mode
+210316 06:50:46 >KM6LYW    YAPP - Download file from BBS using YAPP protocol
+210316 06:50:46 >KM6LYW    de KM6LYW>
+210316 06:50:53 <KM6LYW    NODE
+210316 06:50:53 >KM6LYW    
+210316 06:50:54 |KM6LYW    KM6LYW Disconnected
+210316 06:54:37 !          Mail Starting
+210316 06:55:45 !          Mail Starting
+210316 06:59:13 !          Mail Starting
+210316 14:15:11 !          Mail Starting
+210316 14:15:42 !          Mail Starting
+210316 14:43:53 !          Mail Starting
+210316 14:46:10 !          Mail Starting
+210316 14:47:17 !          Mail Starting
+210316 14:48:11 !          Mail Starting
+210316 14:49:06 !          Mail Starting
+210316 14:51:39 !          Mail Starting

@@ -1,85 +1,88 @@
-[13:56:45.-76] I: main: FLRIG 1.3.53 log started on Tue May 17 06:56:45 2022
+[15:18:57.-19] I: main: FLRIG 1.3.53 log started on Tue Mar 15 08:18:57 2022
 
-[13:56:45.-76] I: start_cwio_thread: started cwio thread
-[13:56:45.-76] Q: init_port_combos: Search for serial ports
-[13:56:45.-76] Q: init_port_combos: Found serial port /dev/serial/by-id/usb-Silicon_Labs_CP2102_USB_to_UART_Bridge_Controller_IC-7300_02015947-if00-port0
-[13:56:45.-76] Q: init_port_combos: Found serial port /dev/tty
-[13:56:45.-76] Q: init_port_combos: Found serial port /dev/tty0
-[13:56:45.-76] Q: init_port_combos: Found serial port /dev/tty1
-[13:56:45.-76] Q: init_port_combos: Found serial port /dev/tty10
-[13:56:45.-76] Q: init_port_combos: Found serial port /dev/tty11
-[13:56:45.-76] Q: init_port_combos: Found serial port /dev/tty12
-[13:56:45.-76] Q: init_port_combos: Found serial port /dev/tty13
-[13:56:45.-76] Q: init_port_combos: Found serial port /dev/tty14
-[13:56:45.-76] Q: init_port_combos: Found serial port /dev/tty15
-[13:56:45.-76] Q: init_port_combos: Found serial port /dev/tty16
-[13:56:45.-76] Q: init_port_combos: Found serial port /dev/tty17
-[13:56:45.-76] Q: init_port_combos: Found serial port /dev/tty18
-[13:56:45.-76] Q: init_port_combos: Found serial port /dev/tty19
-[13:56:45.-76] Q: init_port_combos: Found serial port /dev/tty2
-[13:56:45.-76] Q: init_port_combos: Found serial port /dev/tty20
-[13:56:45.-76] Q: init_port_combos: Found serial port /dev/tty21
-[13:56:45.-76] Q: init_port_combos: Found serial port /dev/tty22
-[13:56:45.-76] Q: init_port_combos: Found serial port /dev/tty23
-[13:56:45.-76] Q: init_port_combos: Found serial port /dev/tty24
-[13:56:45.-76] Q: init_port_combos: Found serial port /dev/tty25
-[13:56:45.-76] Q: init_port_combos: Found serial port /dev/tty26
-[13:56:45.-76] Q: init_port_combos: Found serial port /dev/tty27
-[13:56:45.-76] Q: init_port_combos: Found serial port /dev/tty28
-[13:56:45.-76] Q: init_port_combos: Found serial port /dev/tty29
-[13:56:45.-76] Q: init_port_combos: Found serial port /dev/tty3
-[13:56:45.-76] Q: init_port_combos: Found serial port /dev/tty30
-[13:56:45.-76] Q: init_port_combos: Found serial port /dev/tty31
-[13:56:45.-76] Q: init_port_combos: Found serial port /dev/tty32
-[13:56:45.-76] Q: init_port_combos: Found serial port /dev/tty33
-[13:56:45.-76] Q: init_port_combos: Found serial port /dev/tty34
-[13:56:45.-76] Q: init_port_combos: Found serial port /dev/tty35
-[13:56:45.-76] Q: init_port_combos: Found serial port /dev/tty36
-[13:56:45.-76] Q: init_port_combos: Found serial port /dev/tty37
-[13:56:45.-76] Q: init_port_combos: Found serial port /dev/tty38
-[13:56:45.-76] Q: init_port_combos: Found serial port /dev/tty39
-[13:56:45.-76] Q: init_port_combos: Found serial port /dev/tty4
-[13:56:45.-76] Q: init_port_combos: Found serial port /dev/tty40
-[13:56:45.-76] Q: init_port_combos: Found serial port /dev/tty41
-[13:56:45.-76] Q: init_port_combos: Found serial port /dev/tty42
-[13:56:45.-76] Q: init_port_combos: Found serial port /dev/tty43
-[13:56:45.-76] Q: init_port_combos: Found serial port /dev/tty44
-[13:56:45.-76] Q: init_port_combos: Found serial port /dev/tty45
-[13:56:45.-76] Q: init_port_combos: Found serial port /dev/tty46
-[13:56:45.-76] Q: init_port_combos: Found serial port /dev/tty47
-[13:56:45.-76] Q: init_port_combos: Found serial port /dev/tty48
-[13:56:45.-76] Q: init_port_combos: Found serial port /dev/tty49
-[13:56:45.-76] Q: init_port_combos: Found serial port /dev/tty5
-[13:56:45.-76] Q: init_port_combos: Found serial port /dev/tty50
-[13:56:45.-76] Q: init_port_combos: Found serial port /dev/tty51
-[13:56:45.-76] Q: init_port_combos: Found serial port /dev/tty52
-[13:56:45.-76] Q: init_port_combos: Found serial port /dev/tty53
-[13:56:45.-76] Q: init_port_combos: Found serial port /dev/tty54
-[13:56:45.-76] Q: init_port_combos: Found serial port /dev/tty55
-[13:56:45.-76] Q: init_port_combos: Found serial port /dev/tty56
-[13:56:45.-76] Q: init_port_combos: Found serial port /dev/tty57
-[13:56:45.-76] Q: init_port_combos: Found serial port /dev/tty58
-[13:56:45.-76] Q: init_port_combos: Found serial port /dev/tty59
-[13:56:45.-76] Q: init_port_combos: Found serial port /dev/tty6
-[13:56:45.-76] Q: init_port_combos: Found serial port /dev/tty60
-[13:56:45.-76] Q: init_port_combos: Found serial port /dev/tty61
-[13:56:45.-76] Q: init_port_combos: Found serial port /dev/tty62
-[13:56:45.-76] Q: init_port_combos: Found serial port /dev/tty63
-[13:56:45.-76] Q: init_port_combos: Found serial port /dev/tty7
-[13:56:45.-76] Q: init_port_combos: Found serial port /dev/tty8
-[13:56:45.-76] Q: init_port_combos: Found serial port /dev/tty9
-[13:56:45.-76] Q: init_port_combos: Found serial port /dev/ttyAMA0
-[13:56:45.-76] Q: init_port_combos: Found serial port /dev/ttyS0
-[13:56:45.-76] Q: init_port_combos: Found serial port /dev/ttyUSB0
-[13:56:45.-76] Q: init_port_combos: Found serial port /dev/ttyprintk
-[13:56:45.-76] Q: init_port_combos: Searching /sys/class/tty/
-[13:56:45.-76] Q: init_port_combos: Found serial port /dev/ttyAMA0
-[13:56:45.-76] Q: init_port_combos: Found serial port /dev/ttyS0
-[13:56:45.-76] Q: init_port_combos: Found serial port /dev/ttyUSB0
-[13:56:45.-76] Q: init_port_combos: Searching /home/pi/vdev
-[13:56:46.-76] D: startXcvrSerial: 
+[15:18:58.-19] I: start_cwio_thread: started cwio thread
+[15:18:58.-19] Q: init_port_combos: Search for serial ports
+[15:18:58.-19] Q: init_port_combos: Found serial port /dev/serial/by-id/usb-Icom_Inc._IC-705_IC-705_12003404-if00
+[15:18:58.-19] Q: init_port_combos: Found serial port /dev/serial/by-id/usb-Icom_Inc._IC-705_IC-705_12003404-if02
+[15:18:58.-19] Q: init_port_combos: Found serial port /dev/tty
+[15:18:58.-19] Q: init_port_combos: Found serial port /dev/tty0
+[15:18:58.-19] Q: init_port_combos: Found serial port /dev/tty1
+[15:18:58.-19] Q: init_port_combos: Found serial port /dev/tty10
+[15:18:58.-19] Q: init_port_combos: Found serial port /dev/tty11
+[15:18:58.-19] Q: init_port_combos: Found serial port /dev/tty12
+[15:18:58.-19] Q: init_port_combos: Found serial port /dev/tty13
+[15:18:58.-19] Q: init_port_combos: Found serial port /dev/tty14
+[15:18:58.-19] Q: init_port_combos: Found serial port /dev/tty15
+[15:18:58.-19] Q: init_port_combos: Found serial port /dev/tty16
+[15:18:58.-19] Q: init_port_combos: Found serial port /dev/tty17
+[15:18:58.-19] Q: init_port_combos: Found serial port /dev/tty18
+[15:18:58.-19] Q: init_port_combos: Found serial port /dev/tty19
+[15:18:58.-19] Q: init_port_combos: Found serial port /dev/tty2
+[15:18:58.-19] Q: init_port_combos: Found serial port /dev/tty20
+[15:18:58.-19] Q: init_port_combos: Found serial port /dev/tty21
+[15:18:58.-19] Q: init_port_combos: Found serial port /dev/tty22
+[15:18:58.-19] Q: init_port_combos: Found serial port /dev/tty23
+[15:18:58.-19] Q: init_port_combos: Found serial port /dev/tty24
+[15:18:58.-19] Q: init_port_combos: Found serial port /dev/tty25
+[15:18:58.-19] Q: init_port_combos: Found serial port /dev/tty26
+[15:18:58.-19] Q: init_port_combos: Found serial port /dev/tty27
+[15:18:58.-19] Q: init_port_combos: Found serial port /dev/tty28
+[15:18:58.-19] Q: init_port_combos: Found serial port /dev/tty29
+[15:18:58.-19] Q: init_port_combos: Found serial port /dev/tty3
+[15:18:58.-19] Q: init_port_combos: Found serial port /dev/tty30
+[15:18:58.-19] Q: init_port_combos: Found serial port /dev/tty31
+[15:18:58.-19] Q: init_port_combos: Found serial port /dev/tty32
+[15:18:58.-19] Q: init_port_combos: Found serial port /dev/tty33
+[15:18:58.-19] Q: init_port_combos: Found serial port /dev/tty34
+[15:18:58.-19] Q: init_port_combos: Found serial port /dev/tty35
+[15:18:58.-19] Q: init_port_combos: Found serial port /dev/tty36
+[15:18:58.-19] Q: init_port_combos: Found serial port /dev/tty37
+[15:18:58.-19] Q: init_port_combos: Found serial port /dev/tty38
+[15:18:58.-19] Q: init_port_combos: Found serial port /dev/tty39
+[15:18:58.-19] Q: init_port_combos: Found serial port /dev/tty4
+[15:18:58.-19] Q: init_port_combos: Found serial port /dev/tty40
+[15:18:58.-19] Q: init_port_combos: Found serial port /dev/tty41
+[15:18:58.-19] Q: init_port_combos: Found serial port /dev/tty42
+[15:18:58.-19] Q: init_port_combos: Found serial port /dev/tty43
+[15:18:58.-19] Q: init_port_combos: Found serial port /dev/tty44
+[15:18:58.-19] Q: init_port_combos: Found serial port /dev/tty45
+[15:18:58.-19] Q: init_port_combos: Found serial port /dev/tty46
+[15:18:58.-19] Q: init_port_combos: Found serial port /dev/tty47
+[15:18:58.-19] Q: init_port_combos: Found serial port /dev/tty48
+[15:18:58.-19] Q: init_port_combos: Found serial port /dev/tty49
+[15:18:58.-19] Q: init_port_combos: Found serial port /dev/tty5
+[15:18:58.-19] Q: init_port_combos: Found serial port /dev/tty50
+[15:18:58.-19] Q: init_port_combos: Found serial port /dev/tty51
+[15:18:58.-19] Q: init_port_combos: Found serial port /dev/tty52
+[15:18:58.-19] Q: init_port_combos: Found serial port /dev/tty53
+[15:18:58.-19] Q: init_port_combos: Found serial port /dev/tty54
+[15:18:58.-19] Q: init_port_combos: Found serial port /dev/tty55
+[15:18:58.-19] Q: init_port_combos: Found serial port /dev/tty56
+[15:18:58.-19] Q: init_port_combos: Found serial port /dev/tty57
+[15:18:58.-19] Q: init_port_combos: Found serial port /dev/tty58
+[15:18:58.-19] Q: init_port_combos: Found serial port /dev/tty59
+[15:18:58.-19] Q: init_port_combos: Found serial port /dev/tty6
+[15:18:58.-19] Q: init_port_combos: Found serial port /dev/tty60
+[15:18:58.-19] Q: init_port_combos: Found serial port /dev/tty61
+[15:18:58.-19] Q: init_port_combos: Found serial port /dev/tty62
+[15:18:58.-19] Q: init_port_combos: Found serial port /dev/tty63
+[15:18:58.-19] Q: init_port_combos: Found serial port /dev/tty7
+[15:18:58.-19] Q: init_port_combos: Found serial port /dev/tty8
+[15:18:58.-19] Q: init_port_combos: Found serial port /dev/tty9
+[15:18:58.-19] Q: init_port_combos: Found serial port /dev/ttyACM0
+[15:18:58.-19] Q: init_port_combos: Found serial port /dev/ttyACM1
+[15:18:58.-19] Q: init_port_combos: Found serial port /dev/ttyAMA0
+[15:18:58.-19] Q: init_port_combos: Found serial port /dev/ttyS0
+[15:18:58.-19] Q: init_port_combos: Found serial port /dev/ttyprintk
+[15:18:58.-19] Q: init_port_combos: Searching /sys/class/tty/
+[15:18:58.-19] Q: init_port_combos: Found serial port /dev/ttyAMA0
+[15:18:58.-19] Q: init_port_combos: Found serial port /dev/ttyACM1
+[15:18:58.-19] Q: init_port_combos: Found serial port /dev/ttyS0
+[15:18:58.-19] Q: init_port_combos: Found serial port /dev/ttyACM0
+[15:18:58.-19] Q: init_port_combos: Searching /home/pi/vdev
+[15:18:58.-19] D: startXcvrSerial: 
 Serial port:
-    Port     : /dev/ttyUSB0
+    Port     : /dev/ttyACM0
     Baud     : 6
     Stopbits : 1
     Retries  : 2
@@ -92,3 +95,151 @@ Serial port:
     RTS+     : 1
     DTR+     : 1
 
+[15:19:02.-19] E:08:19:02: SET vox hang ans in 56 ms, FAILED
+cmd FE FE A4 E0 1A 05 01 91 00 FD
+ans FE FE E0 A4 FA FD
+[15:19:02.-19] E:08:19:02: get vfo adj TIMED OUT : 312 ms
+cmd FE FE A4 E0 1A 05 00 58 FD
+ans FE FE E0 A4 1A 05 00 58 00 FD
+[15:19:03.-19] E:08:19:03: get TUNE : 55 ms
+cmd FE FE A4 E0 1C 01 FD
+ans FE FE E0 A4 FA FD
+[15:19:04.-19] E:08:19:04: get TUNE : 55 ms
+cmd FE FE A4 E0 1C 01 FD
+ans FE FE E0 A4 FA FD
+[15:19:06.-19] E:08:19:06: get TUNE : 56 ms
+cmd FE FE A4 E0 1C 01 FD
+ans FE FE E0 A4 FA FD
+[15:19:08.-19] E:08:19:08: get TUNE : 56 ms
+cmd FE FE A4 E0 1C 01 FD
+ans FE FE E0 A4 FA FD
+[15:19:10.-19] E:08:19:10: get TUNE : 55 ms
+cmd FE FE A4 E0 1C 01 FD
+ans FE FE E0 A4 FA FD
+[15:19:11.-19] E:08:19:11: get TUNE : 55 ms
+cmd FE FE A4 E0 1C 01 FD
+ans FE FE E0 A4 FA FD
+[15:19:13.-19] E:08:19:13: get TUNE : 56 ms
+cmd FE FE A4 E0 1C 01 FD
+ans FE FE E0 A4 FA FD
+[15:19:15.-19] E:08:19:15: get TUNE : 55 ms
+cmd FE FE A4 E0 1C 01 FD
+ans FE FE E0 A4 FA FD
+[15:19:16.-19] E:08:19:16: get TUNE : 55 ms
+cmd FE FE A4 E0 1C 01 FD
+ans FE FE E0 A4 FA FD
+[15:19:18.-19] E:08:19:18: get TUNE : 55 ms
+cmd FE FE A4 E0 1C 01 FD
+ans FE FE E0 A4 FA FD
+[15:19:20.-19] E:08:19:20: get TUNE : 55 ms
+cmd FE FE A4 E0 1C 01 FD
+ans FE FE E0 A4 FA FD
+[15:19:22.-19] E:08:19:22: get TUNE : 55 ms
+cmd FE FE A4 E0 1C 01 FD
+ans FE FE E0 A4 FA FD
+[15:19:23.-19] E:08:19:23: get TUNE : 56 ms
+cmd FE FE A4 E0 1C 01 FD
+ans FE FE E0 A4 FA FD
+[15:19:25.-19] E:08:19:25: get TUNE : 55 ms
+cmd FE FE A4 E0 1C 01 FD
+ans FE FE E0 A4 FA FD
+[15:19:27.-19] E:08:19:27: get TUNE : 55 ms
+cmd FE FE A4 E0 1C 01 FD
+ans FE FE E0 A4 FA FD
+[15:19:29.-19] E:08:19:29: get TUNE : 56 ms
+cmd FE FE A4 E0 1C 01 FD
+ans FE FE E0 A4 FA FD
+[15:19:30.-19] E:08:19:30: get TUNE : 56 ms
+cmd FE FE A4 E0 1C 01 FD
+ans FE FE E0 A4 FA FD
+[15:19:32.-19] E:08:19:32: get TUNE : 56 ms
+cmd FE FE A4 E0 1C 01 FD
+ans FE FE E0 A4 FA FD
+[15:19:36.-19] D: startXcvrSerial: 
+Serial port:
+    Port     : /dev/ttyACM0
+    Baud     : 6
+    Stopbits : 1
+    Retries  : 2
+    Timeout  : 50
+    Loop     : 200
+    RTSCTS   : 0
+    CATptt   : 1
+    RTSptt   : 0
+    DTRptt   : 0
+    RTS+     : 1
+    DTR+     : 1
+
+[15:19:39.-19] E:08:19:39: SET vox hang ans in 56 ms, FAILED
+cmd FE FE A4 E0 1A 05 01 91 00 FD
+ans FE FE E0 A4 FA FD
+[15:19:40.-19] E:08:19:40: get vfo adj TIMED OUT : 312 ms
+cmd FE FE A4 E0 1A 05 00 58 FD
+ans FE FE E0 A4 1A 05 00 58 00 FD
+[15:19:40.-19] E:08:19:40: get TUNE : 55 ms
+cmd FE FE A4 E0 1C 01 FD
+ans FE FE E0 A4 FA FD
+[15:19:42.-19] E:08:19:42: get TUNE : 55 ms
+cmd FE FE A4 E0 1C 01 FD
+ans FE FE E0 A4 FA FD
+[15:19:44.-19] E:08:19:44: get TUNE : 55 ms
+cmd FE FE A4 E0 1C 01 FD
+ans FE FE E0 A4 FA FD
+[15:19:46.-19] E:08:19:46: get TUNE : 55 ms
+cmd FE FE A4 E0 1C 01 FD
+ans FE FE E0 A4 FA FD
+[15:19:48.-19] E:08:19:48: get TUNE : 56 ms
+cmd FE FE A4 E0 1C 01 FD
+ans FE FE E0 A4 FA FD
+[15:19:50.-19] E:08:19:50: get TUNE : 55 ms
+cmd FE FE A4 E0 1C 01 FD
+ans FE FE E0 A4 FA FD
+[15:19:51.-19] E:08:19:51: get TUNE : 55 ms
+cmd FE FE A4 E0 1C 01 FD
+ans FE FE E0 A4 FA FD
+[15:19:53.-19] E:08:19:53: get TUNE : 56 ms
+cmd FE FE A4 E0 1C 01 FD
+ans FE FE E0 A4 FA FD
+[15:19:55.-19] E:08:19:55: get TUNE : 56 ms
+cmd FE FE A4 E0 1C 01 FD
+ans FE FE E0 A4 FA FD
+[15:19:56.-19] E:08:19:56: get TUNE : 56 ms
+cmd FE FE A4 E0 1C 01 FD
+ans FE FE E0 A4 FA FD
+[15:19:58.-19] E:08:19:58: get TUNE : 56 ms
+cmd FE FE A4 E0 1C 01 FD
+ans FE FE E0 A4 FA FD
+[15:20:00.-19] E:08:20:00: get TUNE : 56 ms
+cmd FE FE A4 E0 1C 01 FD
+ans FE FE E0 A4 FA FD
+[15:20:02.-19] E:08:20:02: get TUNE : 55 ms
+cmd FE FE A4 E0 1C 01 FD
+ans FE FE E0 A4 FA FD
+[15:20:03.-19] E:08:20:03: get TUNE : 55 ms
+cmd FE FE A4 E0 1C 01 FD
+ans FE FE E0 A4 FA FD
+[15:20:05.-19] E:08:20:05: get TUNE : 56 ms
+cmd FE FE A4 E0 1C 01 FD
+ans FE FE E0 A4 FA FD
+[15:20:07.-19] E:08:20:07: get TUNE : 56 ms
+cmd FE FE A4 E0 1C 01 FD
+ans FE FE E0 A4 FA FD
+[15:20:08.-19] E:08:20:08: get TUNE : 55 ms
+cmd FE FE A4 E0 1C 01 FD
+ans FE FE E0 A4 FA FD
+[15:20:10.-19] E:08:20:10: get TUNE : 55 ms
+cmd FE FE A4 E0 1C 01 FD
+ans FE FE E0 A4 FA FD
+[15:20:12.-19] E:08:20:12: get TUNE : 55 ms
+cmd FE FE A4 E0 1C 01 FD
+ans FE FE E0 A4 FA FD
+[15:20:14.-19] E:08:20:14: get TUNE : 55 ms
+cmd FE FE A4 E0 1C 01 FD
+ans FE FE E0 A4 FA FD
+[15:20:15.-19] E:08:20:15: get TUNE : 56 ms
+cmd FE FE A4 E0 1C 01 FD
+ans FE FE E0 A4 FA FD
+[15:20:17.-19] E:08:20:17: get TUNE : 55 ms
+cmd FE FE A4 E0 1C 01 FD
+ans FE FE E0 A4 FA FD
+[15:20:20.-19] I: stop_cwio_thread: cwio thread - stopped

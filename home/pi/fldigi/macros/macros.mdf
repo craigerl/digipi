@@ -8,10 +8,11 @@
 
 //
 // Macro # 1
-/$ 0 RsID CQ
-<TXRSID:on><TX>\n
-CQ CQ CQ CQ CQ de  <MYCALL> <MYCALL> pse k\n
-<RX><@TXRSID:off>
+/$ 0 CQ @>|
+<TX>\n
+CQ CQ CQ de <MYCALL> <MYCALL> <MYCALL>\n
+CQ CQ CQ de <MYCALL> <MYCALL> <MYCALL> pse k\n
+<RX>
 
 //
 // Macro # 2
@@ -43,9 +44,9 @@ tnx fer QSO <NAME>, 73, God bless.\n
 // Macro # 6
 /$ 5 Me/Qth
 \n
-op:  <MYNAME>\n
-qth: <MYQTH>\n
-loc: <MYLOC>\n
+my name ... <MYNAME> <MYNAME>\n
+my QTH .... <MYQTH>\n
+my LOC .... <MYLOC>\n
 
 
 //
@@ -57,7 +58,7 @@ Age:   \n
 Rig:   \n
 Pwr:   \n
 Ant:   \n
-OS:    \n
+OS:    Linux\n
 Soft:  <VER>\n
 Web:   \n
 Email: 
@@ -86,7 +87,6 @@ Email:
 // Macro # 12
 /$ 11 TX @>|
 <TX>\n
-de <MYCALL> k\n
 <RX>
 
 //
@@ -125,7 +125,7 @@ de <MYCALL> k\n
 //
 // Macro # 19
 /$ 18 CW-CQ @>|
-<TX>CQ CQ CQ DE <MYCALL> <MYCALL>  CQ CQ CQ DE <MYCALL> K<RX>
+<TX>CQ CQ CQ DE <MYCALL> <MYCALL> <MYCALL>  CQ CQ CQ DE <MYCALL> K<RX>
 
 //
 // Macro # 20
@@ -136,15 +136,15 @@ de <MYCALL> k\n
 // Macro # 21
 /$ 20 CQ @-3+
 <TX>\n
-<IDLE:5>CQ CQ CQ de <MYCALL> <MYCALL>\n
-CQ CQ CQ de <MYCALL> k<RX><TIMER:15>
+<IDLE:5>CQ CQ CQ de <MYCALL> <MYCALL> <MYCALL>\n
+CQ CQ CQ de <MYCALL> <MYCALL> <MYCALL> k<RX><TIMER:15>
 
 //
 // Macro # 22
 /$ 21 CQ-ID @>|
 <TX><ID>\n
-CQ CQ CQ de <MYCALL> <MYCALL>\n
-CQ CQ CQ de <MYCALL> <MYCALL> K\n
+CQ CQ CQ de <MYCALL> <MYCALL> <MYCALL>\n
+CQ CQ CQ de <MYCALL> <MYCALL> <MYCALL> pse k\n
 <RX>
 
 //

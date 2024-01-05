@@ -19,20 +19,17 @@ truncate --size 0 /run/direwolf.log
 cp /home/pi/direwolf.digipeater.conf /tmp/direwolf.digipeater.conf
 USBPRESENT=`grep "USB" /proc/asound/cards | wc -l`
 if [ $USBPRESENT -eq 0 ]; then
-  export ALSA_CARD=0
+#  export ALSA_CARD=0
   sed -i 's/\#PTT GPIO/PTT GPIO/gi' /tmp/direwolf.digipeater.conf
 else
-  export ALSA_CARD=1
+#  export ALSA_CARD=1
   sed -i 's/\#PTT RIG/PTT RIG/gi' /tmp/direwolf.digipeater.conf
 fi
 sudo mv /tmp/direwolf.digipeater.conf /run/direwolf.digipeater.conf
 
-# set default alsa audio device
-echo "ALSA_CARD $ALSA_CARD"
-
 direwolf -d t -p -q d -t 0 -c /run/direwolf.digipeater.conf | tee /home/pi/direwolf.log &
 
-/home/pi/direwatch.py --log "/run/direwolf.log" --title_text "APRS Digi"  &
+sudo /home/pi/direwatch.py --log "/run/direwolf.log" --title_text "APRS Digi"  &
 
 # wait for direwolf to open port 8001
 sleep 5

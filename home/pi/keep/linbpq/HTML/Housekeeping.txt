@@ -1,0 +1,165 @@
+<!-- Version 2 2/1/2016 -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"><head>
+  
+<meta content="text/html; charset=ISO-8859-1" http-equiv="content-type" />
+<title>Housekeeping</title>
+<script type="text/javascript"> 
+ 
+var Main
+var fromleft;
+
+function initialize()
+{	
+	var w=window,d=document,e=d.documentElement,g=d.getElementsByTagName('body')[0];
+	x=w.innerWidth||e.clientWidth||g.clientWidth;
+	fromleft = (x / 2) - 440;
+	if (fromleft < 0) {fromleft = 0;}
+	Main = document.getElementById("main"); 
+	Main.style.left = fromleft + "px";
+
+//	Main.style.width = (x - fromleft) + "px";
+}
+</script>
+</head>
+<body background=/background.jpg onload="initialize()" onresize="initialize()">
+<h3 align=center>BPQ32 BBS %s</h3>
+<span align=center><table align=center border=1 cellpadding=2 bgcolor=white><tr>
+<td><a href=/Mail/Status?%s>Status</a></td>
+<td><a href=/Mail/Conf?%s>Configuration</a></td>
+<td><a href=/Mail/Users?%s>Users</a></td>
+<td><a href=/Mail/Msgs?%s>Messages</a></td>
+<td><a href=/Mail/FWD?%s>Forwarding</a></td>
+<td><a href=/Mail/Wel?%s>Welcome Msgs & Prompts</a></td>
+<td><a href=/Mail/HK?%s>Housekeeping</a></td>
+<td><a href=/Mail/WP?%s>WP Update</a></td>
+<td><a href=/>Node Menu</a></td></tr></table>
+<br>
+<div style="text-align: center;"><font size="+1"><span style="font-family: monospace; font-weight: bold;">Housekeeping</span></font></div>
+
+<form style="font-family: monospace; " method="post" action="/Mail/HK?%s" name="HK">
+  <div id="main" style="position: relative; top:10px; height:550px; width:940px; overflow: auto">
+  <div style="border: 2px solid ; width: 270px; height: 510px; "><div style="text-align: center;"><font size="+1"><span style="font-family: monospace; font-weight: bold;">Parameters</span></font></div><br>
+<br>
+  <table style="text-align: left; width: 264px; height: 116px;" border="0" cellpadding="2" cellspacing="2">
+    <tbody>
+      <tr>
+        <td>Maintenance Time (UTC)</td>
+        <td><input size="3" name="MTTime" value="%d" /></td>
+      </tr>
+      <tr>
+        <td>Max Message Number </td>
+        <td><input size="3" name="MAXMSG" value="%d" /></td>
+      </tr>
+      <tr>
+        <td>BID Lifetime (Days)</td>
+        <td><input size="3" name="BIDLife" value="%d"> </td>
+      </tr>
+      <tr>
+        <td>Log File Lifetime (days)</td>
+        <td><input size="3" name="LogLife" value="%d"></td>
+      </tr><tr>
+        <td>Delete Inactive Users (days)</td>
+        <td><input size="3" name="UserLife" value="%d"></td>
+      </tr>
+    </tbody>
+  </table>
+  <br />
+Delete Messages and logs<br>
+to recycle bin <input %sname="Deltobin" value="Deltobin" type="checkbox"><br>
+  <br />
+Send Non-delivery Notifications<br>
+for P and T messages <input %sname="SendND" value="SendND" type="checkbox" /><br>
+  <br />
+Supress Mailing of<br>
+Housekeeping Result <input %sname="NoMail" value="Yes" type="checkbox"><br><br>
+Generate Traffic Report<input %sname="GenTraffic" value="Yes" type="checkbox"><br><br>
+<div style="text-align: center;"><input  name=RunNow value="Run Housekeeping" type=submit></div>
+  </div>
+  <div style="border: 2px solid ; overflow: auto; position: absolute; left: 285px; width: 585px; height: 511px; top: 0px;"><div style="text-align: center;"><font size="+1"><span
+style="font-family: monospace; font-weight: bold;">Lifetimes</span></font><br>
+</div>
+
+  <div style="border: 2px solid ; overflow: auto; position: absolute; top: 20px; left: 10px; width: 180px; height: 150px;"><div style="text-align: center;"><span
+style="font-family: monospace; font-weight: bold;">Personals</span>
+</div>
+  <table style="text-align: left; width: 177px;" border="0" cellpadding="2" cellspacing="2">
+    <tbody>
+      <tr>
+        <td>Read</td>
+        <td><input size="2" name="PR" value="%d"></td>
+      </tr>
+      <tr>
+        <td>Unread </td>
+        <td><input size="2" name="PUR" value="%d"></td>
+      </tr>
+      <tr>
+        <td>Forwarded </td>
+        <td><input size="2" name="PF" value="%d"></td>
+      </tr>
+      <tr>
+        <td>Unforwarded </td>
+        <td><input size="2" name="PUF" value="%d"></td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+  <div style="border: 2px solid ; overflow: auto; position: absolute; top: 20px; left: 200px; width: 180px; height: 150px;"><div style="text-align: center;"><span
+style="font-family: monospace; font-weight: bold;">Bulletins</span>
+</div>
+  <table style="text-align: left; width: 177px;" border="0" cellpadding="2" cellspacing="2">
+    <tbody>
+      <tr>
+        <td>Forwarded</td>
+        <td><input size="2" name="BF" value="%d"></td>
+      </tr>
+      <tr>
+        <td>Unforwarded</td>
+        <td><input size="2" name="BUF" value="%d"></td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+  
+    <div style="border: 2px solid ; overflow: auto; position: absolute; top: 20px; left: 390px; width: 180px; height: 150px;"><div style="text-align: center;"><span
+style="font-family: monospace; font-weight: bold;">NTS</span>
+</div>
+  <table style="text-align: left; width: 177px;" border="0" cellpadding="2" cellspacing="2">
+    <tbody>
+      <tr>
+        <td>Delivered</td>
+        <td><input size="2" name="NTSD" value="%d"></td>
+      </tr>
+      <tr>
+        <td>Forwarded</td>
+        <td><input size="2" name="NTSF" value="%d"></td>
+      </tr>
+      <tr>
+        <td>Unforwarded</td>
+        <td><input size="2" name="NTSU" value="%d"></td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
+  
+  
+  
+  <div style="border: 0px solid ; overflow: auto; position: absolute; top: 180px; left: 10px; width: 550px; height: 310px;">The following boxes allow you to specify different
+values for different Bulletin origins and destinations. Normally these apply to Sent Messages. To apply to unsent, check box below.<br><br>
+Specify Call, Lifetime....eg ALL, 10<br><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+From&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;
+To&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+At<br />
+  <textarea cols="12" rows="8" name="From">%s</textarea> <textarea cols="12" rows="8" name="To">%s</textarea> <textarea cols="12" rows="8" name="At">%s</textarea> <br />
+  <br />
+&nbsp;Apply Overrides to unsent Bulls <input name="OvUnsent" %svalue="OvUnsent" type="checkbox"><br>
+  </div>
+  </div>
+  <div style="position: absolute;left: 370px;top: 520px;"><input name=Save value=Save type=submit> <input name=Cancel value=Cancel type=submit></div>
+
+  </div>
+</form>
+<br>

@@ -6,15 +6,12 @@ NEWCALL=KX6XXX
 NEWWLPASS=XXXXXX
 NEWAPRSPASS=12345
 NEWGRID=CN99mv
-NEWLAT=40.9999N
+NEWLAT=39.9999N
 NEWLON=140.9999W
 NEWNODEPASS=abc123
 NEWRIGNUMBER=3085
 NEWDEVICEFILE=ttyACM0
 NEWBAUDRATE=115200
-NEWFLRIG=
-NEWBIGVNC=
-
 
 
 
@@ -27,12 +24,29 @@ OLDCALL=KX6XXX
 OLDWLPASS=XXXXXX
 OLDAPRSPASS=12345
 OLDGRID=CN99mv
-OLDLAT=40.9999N
+OLDLAT=39.9999N
 OLDLON=140.9999W
 OLDNODEPASS=abc123
 OLDRIGNUMBER=3085
 OLDDEVICEFILE=ttyACM0
 OLDBAUDRATE=115200
+
+
+# replace GPS cardinal suffix with signed decimal for aprsd webchat
+if [ ${NEWLAT: -1} == "S" ]  || [ ${NEWLAT: -1} == "s" ] ; then
+   SIGN="-"
+else
+   SIGN=""
+fi
+NEWWEBCHATLAT=$SIGN${NEWLAT::-1}
+
+if [ ${NEWLON: -1} == "W" ]  || [ ${NEWLON: -1} == "w" ] ; then
+   SIGN="-"
+else
+   SIGN=""
+fi
+NEWWEBCHATLON=$SIGN${NEWLON::-1}
+
 
 
 # remount the root filesystem read/write
@@ -43,12 +57,13 @@ touch /var/cache/digipi/localized.txt
 
 cd /
 
-
 if [ -n "$NEWCALL" ]; then
+# sed -i "s/$OLDCALL/$NEWCALL/gi"           etc/ax25/node.conf
+  sed -i "s/$OLDCALL/$NEWCALL/gi"           etc/ax25/uronode.conf
+# sed -i "s/$OLDCALL/$NEWCALL/gi"           etc/ax25/node.perms
+  sed -i "s/$OLDCALL/$NEWCALL/gi"           etc/ax25/uronode.perms
   sed -i "s/$OLDCALL/$NEWCALL/gi"           etc/ax25/nrports 
-  sed -i "s/$OLDCALL/$NEWCALL/gi"           etc/ax25/node.conf
   sed -i "s/$OLDCALL/$NEWCALL/gi"           etc/ax25/axports
-  sed -i "s/$OLDCALL/$NEWCALL/gi"           etc/ax25/node.perms
   sed -i "s/$OLDCALL/$NEWCALL/gi"           etc/ax25/ax25d.conf
   sed -i "s/$OLDCALL/$NEWCALL/gi"           home/pi/direwolf.winlink.conf
   sed -i "s/$OLDCALL/$NEWCALL/gi"           home/pi/direwolf.node.conf
@@ -65,12 +80,13 @@ if [ -n "$NEWCALL" ]; then
   sed -i "s/$OLDCALL/$NEWCALL/gi"           home/pi/config/JS8Call.ini
   sed -i "s/$OLDCALL/$NEWCALL/gi"           home/pi/fldigi/fldigi_def.xml
   sed -i "s/$OLDCALL/$NEWCALL/gi"           home/pi/config/LinPac/macro/init.mac
+  sed -i "s/$OLDCALL/$NEWCALL/gi"           home/pi/config/aprsd/aprsd.conf
 fi
 
-sed -i "s/COOL/DIGI/gi"                   etc/ax25/node.conf
+sed -i "s/COOL/DIGI/gi"                   etc/ax25/uronode.conf
 
 if [ -n "$NEWNODEPASS" ]; then
-  sed -i "s/$OLDNODEPASS/$NEWNODEPASS/gi"   etc/ax25/node.perms
+  sed -i "s/$OLDNODEPASS/$NEWNODEPASS/gi"   etc/ax25/uronode.perms
 fi
 
 if [ -n "$NEWWLPASS" ]; then
@@ -94,13 +110,17 @@ if [ -n "$NEWAPRSPASS" ]; then
   sed -i "s/$OLDAPRSPASS/$NEWAPRSPASS/gi"   home/pi/direwolf.tnc300b.conf
   sed -i "s/$OLDAPRSPASS/$NEWAPRSPASS/gi"   home/pi/direwolf.node.sh
   sed -i "s/$OLDAPRSPASS/$NEWAPRSPASS/gi"   home/pi/direwolf.tnc.conf
+  sed -i "s/$OLDAPRSPASS/$NEWAPRSPASS/gi"   home/pi/config/aprsd/aprsd.conf
 fi
 
 
 if [ -n "$NEWLAT" ]; then
-  sed -i "s/$OLDLAT/$NEWLAT/gi"         home/pi/direwolf.tnc.conf
-  sed -i "s/$OLDLAT/$NEWLAT/gi"         home/pi/direwolf.tnc300b.conf
-  sed -i "s/$OLDLAT/$NEWLAT/gi"         home/pi/direwolf.digipeater.conf
+  sed -i "s/$OLDLAT/$NEWLAT/gi"               home/pi/direwolf.tnc.conf
+  sed -i "s/$OLDLAT/$NEWLAT/gi"               home/pi/direwolf.tnc300b.conf
+  sed -i "s/$OLDLAT/$NEWLAT/gi"               home/pi/direwolf.digipeater.conf
+  sed -i "s/${OLDLAT::-1}/$NEWWEBCHATLAT/gi"  home/pi/config/aprsd/aprsd.conf
+  sed -i "s/${OLDLON::-1}/$NEWWEBCHATLON/gi"  home/pi/config/aprsd/aprsd.conf
+
 fi
 
 if [ -n "$NEWLON" ]; then

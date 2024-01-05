@@ -46,16 +46,18 @@ from PIL import Image, ImageDraw, ImageFont
 import re
 import adafruit_rgb_display.st7789 as st7789  
 import pyinotify
-import RPi.GPIO as GPIO
+#import RPi.GPIO as GPIO
+from gpiozero import LED
 import threading
 import signal
 import os
 import aprslib
 
 # Configuration for CS and DC pins (these are PiTFT defaults):
-cs_pin = digitalio.DigitalInOut(board.CE0)
+#cs_pin = digitalio.DigitalInOut(board.CE0)
+#dc_pin = digitalio.DigitalInOut(board.D25)
 dc_pin = digitalio.DigitalInOut(board.D25)
-#reset_pin = digitalio.DigitalInOut(board.D24)
+cs_pin = digitalio.DigitalInOut(board.D4)
 
 # Config for display baudrate (default max is 24mhz):
 BAUDRATE = 64000000
@@ -87,7 +89,7 @@ disp = st7789.ST7789(
     baudrate=BAUDRATE,
     height=240,
     y_offset=80,
-    rotation=0
+    rotation=180
 )
 
 # don't write to display concurrently with thread
@@ -150,8 +152,9 @@ else:
 
 def bluetooth_connection_poll_thread():
     bt_status = 0
-    GPIO.setmode(GPIO.BCM)
-    GPIO.setup(5, GPIO.OUT) 
+    #GPIO.setmode(GPIO.BCM)
+    #GPIO.setup(5, GPIO.OUT) 
+    blue_led = LED(5)
     time.sleep(2) # so screen initialization doesn't overdraw bluetooth as off
 
     while True:
@@ -161,7 +164,8 @@ def bluetooth_connection_poll_thread():
             if bt_status == 0:
                 bt_status = 1
                 bticon = Image.open('bt.small.on.png')   
-                GPIO.output(5, GPIO.HIGH)
+                #GPIO.output(5, GPIO.HIGH)
+                blue_led.on() 
                 image.paste(bticon, (width - title_bar_height * 3 + 12  , padding + 2 ), bticon)
                 with display_lock:
                     disp.image(image)
@@ -169,7 +173,8 @@ def bluetooth_connection_poll_thread():
             if bt_status == 1:
                 bt_status = 0  
                 bticon = Image.open('bt.small.off.png')   
-                GPIO.output(5, GPIO.LOW)
+                #GPIO.output(5, GPIO.LOW)
+                blue_led.off()
                 image.paste(bticon, (width - title_bar_height * 3 + 12  , padding + 2 ), bticon)
                 with display_lock:
                     disp.image(image)
@@ -272,24 +277,29 @@ font_epic = ImageFont.truetype(fontpath, 40)
 #font = ImageFont.truetype("/usr/share/fonts/truetype/dafont/BebasNeue-Regular.ttf", fontsize)
 #font_big = ImageFont.truetype("/usr/share/fonts/truetype/dafont/BebasNeue-Regular.ttf", 24)
 #font_huge = ImageFont.truetype("/usr/share/fonts/truetype/dafont/BebasNeue-Regular.ttf", 34)
-line_height = font.getsize("ABCJQ")[1] - 1          # tallest callsign, with dangling J/Q tails
+#line_height = font.getsize("ABCJQ")[1] - 1          # tallest callsign, with dangling J/Q tails
+line_height = font.getbbox("ABCJQ")[3] - 1          # tallest callsign, with dangling J/Q tails
+
 
 # load and scale symbol chart based on font height
 symbol_chart0x64 = Image.open("aprs-symbols-64-0.png")
 symbol_chart1x64 = Image.open("aprs-symbols-64-1.png")
-fontvertical = font.getsize("XXX")[1]
+#fontvertical = font.getsize("XXX")[1]
+fontvertical = font.getbbox("ABCJQ")[3]       # tallest callsign, with dangling J/Q tails
 symbol_chart0x64.thumbnail(((fontvertical + fontvertical // 8) * 16, (fontvertical + fontvertical // 8) * 6)) # nudge larger than font, into space between lines
 symbol_chart1x64.thumbnail(((fontvertical + fontvertical // 8) * 16, (fontvertical + fontvertical // 8) * 6)) # nudge larger than font, into space between lines
 symbol_dimension = symbol_chart0x64.width//16
 
-max_line_width = font.getsize("KN6MUC-15")[0] + symbol_dimension + (symbol_dimension // 8)   # longest callsign i can think of in pixels, plus symbo width + space
+#max_line_width = font.getsize("KN6MUC-15")[0] + symbol_dimension + (symbol_dimension // 8)   # longest callsign i can think of in pixels, plus symbo width + space
+max_line_width = font.getbbox("KN6MUC-15")[2] + symbol_dimension + (symbol_dimension // 8)   # longest callsign i can think of in pixels, plus symbo width + space
 max_cols = width // max_line_width
 
 # Draw a black filled box to clear the image.
 draw.rectangle((0, 0, width, height), outline=0, fill="#000000")
 
 # Draw our logo
-w,h = font.getsize(title_text)
+#w,h = font.getsize(title_text)
+h = font.getbbox(title_text)[3]
 draw.text(   (padding * 3  ,  height // 2 - h) ,   title_text, font=font_huge,   fill="#99AA99")
 with display_lock:
     disp.image(image)
@@ -415,7 +425,8 @@ def single_loop():
       draw.text((120, 70), str(info2), font=font_small, fill="#AAAAAA")
       draw.text((120, 90), str(info3), font=font_small, fill="#AAAAAA")
       draw.text((5, 144), str(info4), font=font_small, fill="#AAAAAA")
-      draw.text((5, height - font_epic.getsize("X")[1] - 3), call, font=font_epic, fill="#AAAAAA") # text up from bottom edge
+      #draw.text((5, height - font_epic.getsize("X")[1] - 3), call, font=font_epic, fill="#AAAAAA") # text up from bottom edge
+      draw.text((5, height - font_epic.getbbox("X")[3] - 3), call, font=font_epic, fill="#AAAAAA") # text up from bottom edge
   
       with display_lock:
           disp.image(image)
@@ -426,7 +437,8 @@ def single_loop():
 def list_loop():
   call = "null"
   # position cursor in -1 slot, as the first thing the loop does is increment slot
-  y = padding + title_bar_height - font.getsize("ABCJQ")[1]  
+  #y = padding + title_bar_height - font.getsize("ABCJQ")[1]  
+  y = padding + title_bar_height - font.getbbox("ABCJQ")[3]  
   x = padding
   max_lines  = ( height - title_bar_height - padding )  //   line_height 
   max_cols = ( width // max_line_width )

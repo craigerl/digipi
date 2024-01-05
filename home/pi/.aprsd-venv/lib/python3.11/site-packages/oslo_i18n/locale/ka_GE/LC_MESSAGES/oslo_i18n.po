@@ -1,0 +1,18 @@
+# Temuri Doghonadze <temuri.doghonadze@gmail.com>, 2023. #zanata
+msgid ""
+msgstr ""
+"Project-Id-Version: oslo.i18n VERSION\n"
+"Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
+"POT-Creation-Date: 2023-05-05 13:54+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2023-04-14 09:09+0000\n"
+"Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
+"Language-Team: Georgian (Georgia)\n"
+"Language: ka_GE\n"
+"X-Generator: Zanata 4.3.3\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+
+msgid "Message objects do not support addition."
+msgstr "შეტყობინების ობიექტებს დამატების მხარდაჭერა არ გააჩნიათ."

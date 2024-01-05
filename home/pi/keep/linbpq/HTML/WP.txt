@@ -1,0 +1,116 @@
+<!-- Version 1 13/3/2014 -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<style type="text/css"> 
+
+#main {width:500px;height:480px;position:absolute;left:105px;font-family: monospace;border:2px solid;}
+#sidebar{position: absolute;left: 0px;width: 97px;height: 480px;font-family: monospace;border:2px solid;overflow: auto;}
+</style>
+
+<title>Edit WP</title>
+
+<script type="text/javascript"> 
+ 
+var Details
+var Sidebar
+var fromleft;
+
+function initialize()
+{	
+	var w=window,d=document,e=d.documentElement,g=d.getElementsByTagName('body')[0];
+	x=w.innerWidth||e.clientWidth||g.clientWidth;	y=w.innerHeight||e.clientHeight||g.clientHeight;
+	fromleft = (x / 2) - 300;
+	Sidebar = document.getElementById("sidebar"); 
+	Sidebar.style.left = fromleft + "px";
+	Details = document.getElementById("main"); 
+	Details.innerHTML = "waiting for data..."; 
+	Details.style.left = fromleft + 105 + "px";
+	GetData();
+}
+
+function save(form)
+{
+	var msg
+	msg = form.Name.value + "|" + form.Home1.value+ "|" + form.Home2.value+ "|" + form.QTH1.value+ "|" + form.QTH2.value+ "|" + form.ZIP1.value + "|" + form.ZIP2.value +"|"
+	var fn = "WPSave?%s";
+	post(fn, msg);
+}
+
+function del(form)
+{
+	var msg
+	msg = form.Name.value + "|" + form.Home1.value+ "|" + form.Home2.value+ "|" + form.QTH1.value+ "|" + form.QTH2.value+ "|" + form.ZIP1.value + "|" + form.ZIP2.value +"|"
+	var fn = "WPSave?%s";
+	post(fn, "Delete");
+}
+
+function post(url, data)
+{
+	if (window.XMLHttpRequest){request=new XMLHttpRequest();}else{request=new ActiveXObject("Microsoft.XMLHTTP");}
+	request.onreadystatechange = function()
+	{if (request.readyState == 4){Details.innerHTML = request.responseText;}}
+	request.open("POST", url, true);request.send(data);
+}
+function GetDetails(call)
+{
+	var fn = "WPDetails?%s";
+	post(fn, call);
+}
+function GetData()
+{
+	if (window.XMLHttpRequest){request=new XMLHttpRequest();}else{request=new ActiveXObject("Microsoft.XMLHTTP");}
+ 
+	request.onreadystatechange = function()
+	{
+		if (request.readyState == 4)
+		{
+			var text = request.responseText;
+			var lines = text.split("|");
+			var i = 0;
+			
+	 	    var infoArea = document.getElementById("sidebar"); 
+		    var strInfo = '<table>';
+ 						
+			while(i < lines.length - 1)
+			{	
+				var clink = '<a href=javascript:GetDetails("' + lines[i] + '")>' + lines[i] + '</a>';	
+				var tableRow = '<tr><td>' + clink + '</td></tr>\n';	 
+				strInfo += tableRow;			
+				i=i+1;
+			}
+			infoArea.innerHTML = strInfo + "</table>";
+			GetDetails(lines[0]);
+		}
+	}
+	request.open("GET","WPInfo.txt?%s",true);										   
+	request.send();
+}
+ 
+</script>
+</head><body background=/background.jpg onload="initialize()">
+<h3 align="center">BPQ32 BBS %s</h3>
+
+<span align="center">
+<table align="center" bgcolor="white" border="1" cellpadding="2">
+  <tbody>
+    <tr>
+      <td><a href="/Mail/Status?%s">Status</a></td>
+      <td><a href="/Mail/Conf?%s">Configuration</a></td>
+      <td><a href="/Mail/Users?%s">Users</a></td>
+      <td><a href="/Mail/Msgs?%s">Messages</a></td>
+      <td><a href="/Mail/FWD?%s">Forwarding</a></td>
+      <td><a href="/Mail/Wel?%s">Welcome Msgs &amp; Prompts</a></td>
+	<td><a href="/Mail/HK?%s">Housekeeping</a></td>
+	<td><a href="/Mail/WP?%s">WP Update</a></td>
+      <td><a href="/">Node Menu</a></td>
+    </tr>
+  </tbody>
+</table>
+<br>
+<div style="text-align: center;"><font size="+1"><span style="font-family: monospace; font-weight: bold;">White Pages</span></font></div>
+<br>
+<div style="font-family: monospace;" id="sidebar" align="center"> </div>
+<div style="font-family: monospace;" id="main" align="center"> </div>
+</span>
+</body></html>

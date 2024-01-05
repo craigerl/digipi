@@ -1,4 +1,4 @@
-(fftw-3.3.8 fftwf_wisdom #x4a633eef #xb5a95564 #x91014bdd #x9c85ce5f
+(fftw-3.3.10 fftwf_wisdom #x4a633eef #xb5a95564 #x91014bdd #x9c85ce5f
   (fftwf_dft_r2hc_register 0 #x31bff #x31bff #x0 #x43d1054d #x9a2c581c #xa536de6f #x155cb722)
   (fftwf_codelet_r2cf_2 2 #x30bff #x30bff #x0 #x063ba62b #x1c6cd173 #x796a5960 #xe1f9e6f4)
   (fftwf_rdft2_nop_register 0 #x31bff #x31bff #x0 #x23bc0f65 #x88cd17aa #x3c8e2ac8 #x35b9a099)

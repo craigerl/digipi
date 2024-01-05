@@ -45,8 +45,11 @@ import os
 import subprocess
 
 # Configuration for CS and DC pins (these are PiTFT defaults):
-cs_pin = digitalio.DigitalInOut(board.CE0)
+#pin = digitalio.DigitalInOut(board.D4)  # blinkatest
+#cs_pin = digitalio.DigitalInOut(board.CE0)
 dc_pin = digitalio.DigitalInOut(board.D25)
+cs_pin = digitalio.DigitalInOut(board.D4)
+#dc_pin = digitalio.DigitalInOut(board.D4)
 #reset_pin = digitalio.DigitalInOut(board.D24)
 
 # Config for display baudrate (default max is 24mhz):
@@ -79,7 +82,7 @@ disp = st7789.ST7789(
     baudrate=BAUDRATE,
     height=240,
     y_offset=80,
-    rotation=0
+    rotation=180
 )
 
 # don't write to display concurrently with thread
@@ -100,27 +103,14 @@ padding = 4
 title_bar_height = 34
 
 
-#def signal_handler(signal, frame):
-#   print("Got ", signal, " exiting.")
-#   draw.rectangle((0, 0, width, height), outline=0, fill=(30,30,30))
-#   with display_lock:
-#       disp.image(image)
-#   #sys.exit(0)  # thread ignores this
-#   os._exit(0)
-
-#signal.signal(signal.SIGINT, signal_handler)
-#signal.signal(signal.SIGTERM, signal_handler)
-
-
-
 def parse_arguments():
     ap = argparse.ArgumentParser()
-#    ap.add_argument("-l", "--log", required=True, help="Direwolf log file location")
     ap.add_argument("-f", "--fontsize", required=False, help="Font size for callsigns")
     ap.add_argument("-b", "--big", required=False, help="large text to display")
     ap.add_argument("-s", "--small", required=False, help="smaller text underneath")
     ap.add_argument("-t", "--tiny", required=False, help="tiny text underneath smaller text")
     ap.add_argument("-i", "--ip", required=False, help="display IP address instead of tiny text")
+    ap.add_argument("-g", "--graphic", required=False, help="Display a small image on screen")
     args = vars(ap.parse_args())
     return args
 
@@ -162,21 +152,30 @@ if args["ip"]:
        IP = "0.0.0.0"
    tiny = IP
 
+if args["graphic"]:
+   graphic = args["graphic"]
+
+
 font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", fontsize)
-line_height = font.getsize("ABCJQ")[1] - 1          # tallest callsign, with dangling J/Q tails
+line_height = font.getbbox("ABCJQ")[3] - 1          # tallest callsign, with dangling J/Q tails
 font_huge = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", 34)
 font_big = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", 24)
 font_tiny = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", 18)
 
-
 # Draw a black filled box to clear the image.
 draw.rectangle((0, 0, width, height), outline=0, fill="#000000")
+
+if args["graphic"]:
+   background = Image.open(args["graphic"])
+   image.paste(background, (width - 120, 37), background)
 
 draw.rectangle((0, 0, width, 30), outline=0, fill="#333333")
 draw.text(   (10  ,  0  ) , "DigiPi", font=font_big, fill="#888888")
 draw.text(   (10  ,  height * .28 )                                   , big,   font=font_huge, fill="#888888")
-draw.text(   (10  ,  height * .28 + font_big.getsize("BgJ")[1] + 12 ) , small, font=font_big,  fill="#666666")
-draw.text(   (10  ,  height       - font_big.getsize("BgJ")[1] - 4  ) , tiny,  font=font_tiny, fill="#666666")
+#draw.text(   (10  ,  height * .28 + font_big.getsize("BgJ")[1] + 12 ) , small, font=font_big,  fill="#666666")
+#draw.text(   (10  ,  height       - font_big.getsize("BgJ")[1] - 4  ) , tiny,  font=font_tiny, fill="#666666")
+draw.text(   (10  ,  height * .28 + font_big.getbbox("BgJ")[3] + 12 ) , small, font=font_big,  fill="#666666")
+draw.text(   (10  ,  height       - font_big.getbbox("BgJ")[3] - 4  ) , tiny,  font=font_tiny, fill="#666666")
 disp.image(image)
 
 exit(0)

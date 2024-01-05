@@ -24,7 +24,9 @@ sudo servivce wsjtx stop
 # start stuff
 nice -n 5 vncserver -depth 16                                   # runs in background
 /home/pi/digibanner.py -b SSTV -s http://digipi/tv              # momentary run
-nice -n 5 /usr/share/novnc/utils/launch.sh &                    # this doesn't exit
+/usr/share/novnc/utils/novnc_proxy --vnc localhost:5901 &
+
+
 
 export DISPLAY=:1   
 

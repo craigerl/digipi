@@ -25,11 +25,10 @@ sudo killall fldigi
 # start stuff
 nice -n 5 vncserver -depth 16                               # runs in background
 /home/pi/digibanner.py -b FLDigi -s http://digipi/fld       # exits quickly
-nice -n 5 /usr/share/novnc/utils/launch.sh &                # this doesn't exit
+/usr/share/novnc/utils/novnc_proxy --vnc localhost:5901 &
 
 export DISPLAY=:1   
 
-#sudo swapon /dev/mmcblk0p2   # fldigi locks up without swap
 fldigi &
 
 sleep 8

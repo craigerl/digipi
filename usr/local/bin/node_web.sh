@@ -383,7 +383,6 @@ function MainMenu() {
 	echo "Bookmarks"
 	echo "[100] W6EK.org Sierra Foothills ARC"
 	echo "[200] craiger.org/bbs info about this node"
-	echo "[300] yubanet fire info"
 	echo ""
 
 	echo "Enter Choice: (Q = quit)"
@@ -429,9 +428,9 @@ function MainMenu() {
 	then
 		URL="http://craiger.org/bbs.html"
 		GetPage "${URL}" "MainMenu"
-	elif [ $Selection -eq 300 ]
+	elif [ $Selection -eq 202 ]
 	then
-		URL="https://yubanet.com/Fires/"
+		URL="https://www.amsat.org"
 		GetPage "${URL}" "MainMenu"
 	elif [ $Selection -eq 400 ]
 	then

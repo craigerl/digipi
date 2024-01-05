@@ -23,19 +23,17 @@ truncate --size 0 /run/direwolf.log
 cp /home/pi/direwolf.node.conf /tmp/direwolf.node.conf
 USBPRESENT=`grep "USB" /proc/asound/cards | wc -l`
 if [ $USBPRESENT -eq 0 ]; then
-  export ALSA_CARD=0
+#  export ALSA_CARD=0
   sed -i 's/\#PTT GPIO/PTT GPIO/gi' /tmp/direwolf.node.conf
 else
-  export ALSA_CARD=1
+#  export ALSA_CARD=1
   sed -i 's/\#PTT RIG/PTT RIG/gi' /tmp/direwolf.node.conf
 fi
 sudo mv /tmp/direwolf.node.conf /run/direwolf.node.conf
 
-echo "ALSA_CARD $ALSA_CARD"
-
 direwolf -d t -p -q d -t 0 -c /run/direwolf.node.conf | tee /home/pi/direwolf.log &
 
-/home/pi/direwatch.py  --log "/run/direwolf.log" --title_text "ax25 Node"  &
+sudo /home/pi/direwatch.py  --log "/run/direwolf.log" --title_text "ax25 Node"  &
 
 sleep 5
 sudo modprobe netrom

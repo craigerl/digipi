@@ -1,19 +1,22 @@
 #!/usr/bin/python3
 
 import pyinotify
-import RPi.GPIO as GPIO
+#import RPi.GPIO as GPIO
+from gpiozero import LED
 import os.path
 from time import sleep
 
-GPIO.setwarnings(False)
+#GPIO.setwarnings(False)
 
 def handle_change(cb):
    with open('/sys/class/gpio/gpio12/value', 'r') as f:
       status = f.read(1)
       if status == '0':
-         GPIO.output(26, GPIO.LOW)
+         #print("OFF\n")
+         led26.off()
       else:
-         GPIO.output(26, GPIO.HIGH)
+         #print("RED!\n")
+         led26.on()
    f.close
 
 def null_function(junk):  # default callback prints tons of debugging info
@@ -25,9 +28,8 @@ while not os.path.exists("/sys/class/gpio/gpio12/value"):
 
 print("Detected GPIO12 initialization.  Mirroring state to GPIO26.")
 
-GPIO.setmode(GPIO.BCM)    # logical pin numbers, not BOARD
-GPIO.setup(26, GPIO.OUT)  # Red LED
-GPIO.setwarnings(False)   # suppress pin-is-in-use warning
+led26 = LED(26)
+led12 = LED(12)
 
 # Instanciate a new WatchManager (will be used to store watches).
 wm = pyinotify.WatchManager()

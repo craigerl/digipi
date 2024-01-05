@@ -1,0 +1,177 @@
+<!-- Version 2 7/5/2016 -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"> 
+<head> 
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/> 
+<link href="/menu_assets/styles.css" rel="stylesheet" type="text/css">
+<style type="text/css"> 
+
+
+#outer
+{
+width:662px;
+height:%dpx;
+position:absolute;
+top:100px;
+font-family: monospace;
+}
+#main
+{
+width:550px;
+height:%dpx;
+position:absolute;
+left:112px;
+border:2px solid;
+}
+#sidebar
+{
+position: absolute;
+width: 110px;
+top:105px;
+height: %dpx;
+border:2px solid;
+overflow: auto;
+}
+#sel
+{
+position: absolute;
+width: 110px;
+height: 103px;
+border:2px solid;
+font-family: monospace;
+}
+</style>
+
+<title>Edit Messages</title> 
+<script type="text/javascript"> 
+ 
+var Details
+var Sidebar
+var fromleft;
+var Outer;
+
+function initialize()
+{	
+	var w=window,d=document,e=d.documentElement,g=d.getElementsByTagName('body')[0];
+	x=w.innerWidth||e.clientWidth||g.clientWidth;	y=w.innerHeight||e.clientHeight||g.clientHeight;
+	fromleft = (x / 2) - 331;
+	if (fromleft < 0) {fromleft = 0;}
+	Outer = document.getElementById("outer"); 
+	Outer.style.left = fromleft + "px";
+	Sidebar = document.getElementById("sidebar"); 
+//	Sidebar.style.left = fromleft + "px";
+	Details = document.getElementById("main"); 
+	Details.innerHTML = "waiting for data..."; 
+//	Details.style.left = fromleft + 150 + "px";
+	GetData("");
+}
+function ck(cell)
+{
+	var fn = "MsgFwdUpdate?%s";
+	post(fn, cell);
+}
+
+function save(form)
+{
+	var msg
+	msg = form.From.value + "|" + form.To.value+ "|" + form.BID.value+ "|" + form.VIA.value+ "|" + form.Title.value+ "|" + form.Type.value + "|" + form.Status.value +"|"
+	var fn = "MsgSave?%s";
+	post(fn, msg);
+}
+
+function doit(param)
+{
+	var fn = "MsgAction?%s";
+	post(fn, param);
+}
+
+function dofilter(form)
+{
+	var val = form.FFrom.value + "|" + form.FTo.value + "|" + form.FVia.value+ "|" + form.FBid.value+ "|" 
+	GetData(val);
+}
+
+function editmsg(url)
+{
+var param = "toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=no,resizable=no,titlebar=no,toobar=no,width=800,height=600";
+window.open(url,"_blank", param);
+}
+
+
+function post(url, data)
+{
+	if (window.XMLHttpRequest){request=new XMLHttpRequest();}else{request=new ActiveXObject("Microsoft.XMLHTTP");}
+	request.onreadystatechange = function()
+	{if (request.readyState == 4){Details.innerHTML = request.responseText;}}
+	request.open("POST", url, true);request.send(data);
+}
+function GetDetails(call)
+{
+	var fn = "MsgDetails?%s";
+	post(fn, call);
+}
+function GetData(filter)
+{
+	if (window.XMLHttpRequest){request=new XMLHttpRequest();}else{request=new ActiveXObject("Microsoft.XMLHTTP");}
+ 
+	request.onreadystatechange = function()
+	{
+		if (request.readyState == 4)
+		{
+			var text = request.responseText;
+			var lines = text.split("|");
+			var i = 0;
+			
+	 	    var infoArea = document.getElementById("sidebar"); 
+		    var strInfo = '<table>';
+ 						
+			while(i < lines.length - 1)
+			{	
+				var clink = '<a href=javascript:GetDetails("' + lines[i] + '")>' + lines[i] + '</a>';	
+				var tableRow = '<tr><td>' + clink + '</td></tr>\n';	 
+				strInfo += tableRow;			
+				i=i+1;
+			}
+			infoArea.innerHTML = strInfo + "</table>";
+			GetDetails(lines[0]);
+		}
+	}
+	request.open("POST","MsgInfo.txt?%s",true);										   
+	request.send(filter);
+}
+ 
+</script>
+</head>
+<body background=/background.jpg onload="initialize()" onresize="initialize()">
+<h3 align=center>BPQ32 BBS %s</h3>
+<table align="center" bgcolor="white" border="1" cellpadding="2">
+  <tbody>
+    <tr>
+      <td><a href="/Mail/Status?%s">Status</a></td>
+      <td><a href="/Mail/Conf?%s">Configuration</a></td>
+      <td><a href="/Mail/Users?%s">Users</a></td>
+      <td><a href="/Mail/Msgs?%s">Messages</a></td>
+      <td><a href="/Mail/FWD?%s">Forwarding</a></td>
+      <td><a href="/Mail/Wel?%s">Welcome Msgs &amp; Prompts</a></td>
+      <td><a href="/Mail/HK?%s">Housekeeping</a></td>
+      <td><a href="/Mail/WP?%s">WP Update</a></td>
+      <td><a href="/">Node Menu</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<div id="outer">
+ <div align=center style="font-family: monospace;" id="sidebar"></div>
+ <div align=center style="font-family: monospace;" id="main"></div> 
+ <div style="font-family: monospace;" id="sel">
+ <form style="font-family: monospace;"><div style="text-align: center;"><span
+style="font-family: monospace; font-weight: bold;">Filter</span></div>
+From <input style="font-family: monospace;" size="7" name="FFrom" value="" onkeyup=dofilter(this.form)><br>
+To&nbsp;&nbsp; <input  style="font-family: monospace;" size="7" name="FTo" value="" onkeyup=dofilter(this.form)<br>
+Via&nbsp; <input  style="font-family: monospace;" size="7" name="FVia" value="" onkeyup=dofilter(this.form)><br>
+BID&nbsp; <input  style="font-family: monospace;" size="7" name="FBid" value="" onkeyup=dofilter(this.form)>
+</form>
+</div>
+</div> 
+</span>
+

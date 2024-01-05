@@ -15,7 +15,6 @@ function ctrl_c() {
    exit 0
 }
 
-
 sudo sh -c  "echo performance  > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor"
 
 # stop stuff
@@ -29,10 +28,12 @@ sudo killall jt9
 # start stuff
 nice -n 5 vncserver -depth 16                                 # runs in background
 /home/pi/digibanner.py -b WSJTX\ FT8 -s http://digipi/ft8     # momentary run
-nice -n 5 /usr/share/novnc/utils/launch.sh &                  # this doesn't exit
+#nice -n 5 /usr/share/novnc/utils/launch.sh &                  # this doesn't exit
+nice -n 5 /usr/share/novnc/utils/novnc_proxy --vnc localhost:5901 &                # this doesn't exit
 
 export DISPLAY=:1   
 
+export LC_ALL=C; unset LANGUAGE  # wsjtx needs this
 
 wsjtx &
 

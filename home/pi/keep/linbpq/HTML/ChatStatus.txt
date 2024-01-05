@@ -1,0 +1,121 @@
+<!-- Version 1 13/3/2014 -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+<style type="text/css"> 
+#outer {width:720px;height:700px;position:absolute;border:0px solid;font-family: monospace;}
+#streams {width:360px;position:absolute;height:300px;left:2px;border:2px solid;overflow: auto}
+#users {position: absolute;top:307px;left:2px;width:710px;height:350px;border:2px solid;overflow: auto;}
+#links {position: absolute;left:370px;width:341px;height:300px;border:2px solid;overflow: auto;}
+</style>
+<title>%s's Chat Server</title>
+  
+<script type="text/javascript">
+
+var Outer;
+var Selected;
+var Inpval;
+var SelectedStream = 0;
+
+function initialize()
+{
+ var w=window,d=document,e=d.documentElement,g=d.getElementsByTagName('body')[0];
+ x=w.innerWidth||e.clientWidth||g.clientWidth;
+ y=w.innerHeight||e.clientHeight||g.clientHeight;
+ fromleft = (x / 2) - 360;
+
+ if (fromleft < 0) {fromleft = 0;}
+ Outer = document.getElementById("outer");
+ Outer.style.left = fromleft + "px";
+ Inpval = document.getElementById("inpval");
+}
+ 
+function SelectRow(newRow)
+{
+ var cell=document.getElementById("cell_" + newRow);
+ var Last = Selected;
+ Selected = cell;
+ SelectedStream = newRow
+ cell.style.background="#AAF";
+ if (Last)
+  {Last.style.background="#FFF"};
+ if (cell == Last)
+ {
+  SelectedStream = 0;
+ }
+  Inpval.value = SelectedStream;
+}
+
+function condRefresh()
+{
+	if (SelectedStream == 0)
+		{location.reload(true);}
+}
+
+window.setInterval(condRefresh, 10000);
+
+</script>
+</head><body onload="initialize()" onresize="initialize()" style="background-image: url(/background.jpg);">
+<h3 align="center">BPQ32 Chat Server %s</h3>
+
+<table align="center" bgcolor="white" border="1" cellpadding="2">
+
+  <tbody>
+    <tr>
+      <td><a href="/Chat/ChatStatus?%s">Status</a></td>
+      <td><a href="/Chat/ChatConf?%s">Configuration</a></td>
+      <td><a href="/">Node Menu</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<br>
+
+<div style="left: 160px;" id="outer">
+<div id="streams">
+<form style="font-family: monospace; text-align: center;" method="post" action="/Chat/ChatDisSession?%s">
+  <table style="font-family: monospace; background-color: white; text-align: left; margin-left: auto; margin-right: auto;" tabindex="1" border="1" cellpadding="2">
+    <tbody>
+      <tr>
+        <th style="width: 120px;">User</th>
+        <th style="width: 75px;">Callsign</th>
+        <th>Stream</th>
+        <th style="width: 80px;">Topic</th>
+        <th>Queue</th>
+      </tr>
+%s
+    </tbody>
+  </table>
+ <input type="hidden" name=Stream value=99 id=inpval>
+<input align = center value=Disconnect type=submit> 
+<br>
+  </form>
+</div>
+<div id="users">
+<table style="font-family: monospace; background-color: white; text-align: left; margin-left: auto; margin-right: auto;" tabindex="1" border="1" cellpadding="2">
+  <tbody>
+    <tr>
+      <th style="width: 75px;">Callsign</th>
+      <th style="width: 75px;">Node</th>
+      <th style="width: 80px;">Name</th>
+      <th style="width: 80px;">Topic</th>
+      <th>Idle</th>
+      <th style="width: 320px;">QTH</th>
+    </tr>
+%s
+  </tbody>
+</table>
+</div>
+<div id="links">
+<table style="font-family: monospace; background-color: white; text-align: left; tabindex="1" border="1" cellpadding="2">
+  <tbody>
+    <tr>
+      <th style="width: 80px;">Callsign</th>
+      <th style="width: 75px;">State</th>
+      <th style="width: 75px;">Nodes</th>
+      <th>Users</th>
+    </tr>
+%s
+  </tbody>
+</table>
+</div>
+</div>

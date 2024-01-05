@@ -1,0 +1,46 @@
+210316 05:09:46 |          Incoming Connect from KM6LYW
+210316 05:09:46 >          [BPQChatServer-6.0.21.29]
+210316 05:09:46 >          Please enter your Name>
+210316 05:09:52 ?          topic_join complete user KM6LYW topic General addr 18fa2b8 ref 1
+210316 05:09:52 >          KM6LYW's Chat Server.Type /h for command summary.Bringing up links to other nodes.This may take a minute or two.The /p command shows what nodes are linked.
+210316 05:09:52 >          1 Station(s) connected:
+210316 05:09:52 >          KM6LYW at COOLBBS   craiger, ?_qth [General] Idle for 0 seconds
+210316 05:10:05 <          howdy all
+210316 05:10:16 <          /p
+210316 05:10:16 >          1 Node(s)
+210316 05:10:16 >          Here COOLBB <- COOLBBS
+210316 05:10:16 >          User KM6LYW
+210316 05:10:16 >          Links Defined:
+210316 05:10:20 <          /quit
+210316 05:10:21 |          Chat User KM6LYW Disconnected
+210316 05:10:21 ?          topic_leave user KM6LYW topic General addr 18fa2b8 ref 1
+210316 14:19:09 |          Incoming Connect from KM6LYW
+210316 14:19:09 >          [BPQChatServer-6.0.21.29]
+210316 14:19:09 !          Node KM6LYW connected, but is not defined as a Node - closing
+210316 14:19:09 >          Node KM6LYW-1 does not have KM6LYW defined as a node to link to - closing.
+210316 14:19:09 |          Chat User KM6LYW Disconnected
+210316 14:44:03 |          Incoming Connect from KM6LYW
+210316 14:44:03 >          [BPQChatServer-6.0.21.29]
+210316 14:44:03 !          Node KM6LYW connected, but is not defined as a Node - closing
+210316 14:44:03 >          Node KM6LYW-5 does not have KM6LYW defined as a node to link to - closing.
+210316 14:44:04 |          Chat User KM6LYW Disconnected
+210316 14:44:20 |          Incoming Connect from KM6LYW
+210316 14:44:20 >          [BPQChatServer-6.0.21.29]
+210316 14:44:20 !          Node KM6LYW connected, but is not defined as a Node - closing
+210316 14:44:20 >          Node KM6LYW-5 does not have KM6LYW defined as a node to link to - closing.
+210316 14:44:21 |          Chat User KM6LYW Disconnected
+210316 14:48:19 |          Incoming Connect from KM6LYW
+210316 14:48:19 >          [BPQChatServer-6.0.21.29]
+210316 14:48:19 !          Node KM6LYW connected, but is not defined as a Node - closing
+210316 14:48:19 >          Node KM6LYW-14 does not have KM6LYW defined as a node to link to - closing.
+210316 14:48:20 |          Chat User KM6LYW Disconnected
+210316 14:49:13 |          Incoming Connect from KM6LYW
+210316 14:49:13 >          [BPQChatServer-6.0.21.29]
+210316 14:49:13 !          Node KM6LYW connected, but is not defined as a Node - closing
+210316 14:49:13 >          Node KM6LYW-14 does not have KM6LYW defined as a node to link to - closing.
+210316 14:49:14 |          Chat User KM6LYW Disconnected
+210316 14:51:48 |          Incoming Connect from KM6LYW
+210316 14:51:48 >          [BPQChatServer-6.0.21.29]
+210316 14:51:48 !          Node KM6LYW connected, but is not defined as a Node - closing
+210316 14:51:48 >          Node KM6LYW-5 does not have KM6LYW defined as a node to link to - closing.
+210316 14:51:48 |          Chat User KM6LYW Disconnected

@@ -37,7 +37,7 @@ mycall@6 KX6XXX
 mycall@7 KX6XXX
 mycall@8 KX6XXX
 ;; Unproto calls destination (unsrc) and digi path (undest)
-unsrc LINPAC
+unsrc KX6XXX
 undest INFO
 
 ;; Other settings

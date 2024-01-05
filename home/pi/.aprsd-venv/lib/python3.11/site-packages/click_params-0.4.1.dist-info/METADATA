@@ -1,0 +1,83 @@
+Metadata-Version: 2.1
+Name: click-params
+Version: 0.4.1
+Summary: A bunch of useful click parameter types
+Home-page: https://click-params.readthedocs.io/en/stable
+License: Apache-2.0
+Keywords: click,params,validators,network,cli
+Author: lewoudar
+Author-email: lewoudar@gmail.com
+Requires-Python: >=3.7,<4.0
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Classifier: Topic :: Terminals
+Requires-Dist: click (>=7.0,<9.0)
+Requires-Dist: validators (>=0.20,<0.21)
+Project-URL: Bug Tracker, https://github.com/click-contrib/click_params/issues
+Project-URL: Documentation, https://click-params.readthedocs.io/en/stable
+Project-URL: Repository, https://github.com/click-contrib/click_params
+Description-Content-Type: text/markdown
+
+# click-params
+
+[![Pypi version](https://img.shields.io/pypi/v/click-params.svg)](https://pypi.org/project/click-params/)
+![](https://github.com/click-contrib/click_params/workflows/CI/badge.svg)
+[![Coverage Status](https://codecov.io/gh/click-contrib/click_params/branch/master/graphs/badge.svg?branch=master)](https://codecov.io/gh/click-contrib/click_params)
+[![Documentation Status](https://readthedocs.org/projects/click_params/badge/?version=latest)](https://click-params.readthedocs.io/en/latest/?badge=latest)
+[![License Apache 2](https://img.shields.io/hexpm/l/plug.svg)](http://www.apache.org/licenses/LICENSE-2.0)
+[![Code Style](https://img.shields.io/badge/code%20style-black-black)](https://github.com/click-contrib/click_params)
+
+A bunch of useful click parameter types.
+
+## Why?
+
+I often find myself wanting to use a click parameter able to handle list of strings, so I decide to put this in a library
+and I ended adding more parameter types that can be useful for various scripts including network, mathematics and so on.
+
+
+## Installation
+
+```bash
+pip install click-params
+```
+
+click-params starts working from **python 3.7**. It has a few dependencies:
+- [click](https://click.palletsprojects.com/en/7.x/) >= 7.0
+- [validators](https://validators.readthedocs.io/en/latest/)
+
+## Usage
+
+```python
+import click
+from click_params import Ipv4AddressListParamType
+
+@click.command()
+@click.option('-a', '--addresses', help='list of ipv4 addresses', prompt='list of ipv4 addresses to reserve',
+ type=Ipv4AddressListParamType())
+def pool(addresses):
+    click.echo('reserved ips:')
+    for ip in addresses:
+        click.echo(ip)
+```
+
+```bash
+$ pool --addresses='192.168.1.1,192.168.1.14'
+reserved ips:
+192.168.1.1
+192.168.1.14
+```
+
+You can change the default separator "," by passing it when initializing the parameter type.
+
+## Documentation
+
+Documentation is available at https://click-params.readthedocs.io/en/latest/.
+
