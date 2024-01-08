@@ -1,0 +1,13 @@
+[Unit]
+DefaultDependencies=no
+Description=Create /run/resolv.conf before networking starts
+Wants=network-pre.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/touch /run/resolv.conf 
+TimeoutSec=0
+RemainAfterExit=yes
+
+[Install]
+RequiredBy=network-pre.target

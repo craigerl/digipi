@@ -1,0 +1,17 @@
+[Unit]
+Description=DigiPi initial boot service
+After=default.target
+
+[Service]
+Type=simple
+#Wait for boot process to complete, not just start
+ExecStartPre=sleep 20
+#ExecStart=digipeater
+#ExecStart=node
+#ExecStart=winlink
+ExecStart=systemctl start tnc
+Restart=no
+
+[Install]
+WantedBy=default.target
+

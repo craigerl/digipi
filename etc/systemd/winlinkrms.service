@@ -1,0 +1,21 @@
+[Unit]
+Description=winlinkrms
+Conflicts=fldigi.service sstv.service wsjtx.service tnc300b.service digipeater.service tnc.service node.service 
+
+
+[Service]
+ExecStartPre=+systemctl stop fldigi sstv wsjtx tnc300b digipeater tnc node js8call
+ExecStart=/home/pi/direwolf.winlink.sh
+WorkingDirectory=/home/pi/
+StandardOutput=inherit
+StandardError=inherit
+Restart=no
+User=pi
+TimeoutStopSec=3
+#KillSignal=SIGKILL
+
+
+
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,17 @@
+[Unit]
+Description=gpio_redled
+#After=ardop
+#Before=network.target
+
+
+[Service]
+ExecStart=/home/pi/gpio_redled.py
+WorkingDirectory=/home/pi/
+StandardOutput=inherit
+StandardError=inherit
+Restart=no
+User=pi
+
+
+[Install]
+WantedBy=multi-user.target
