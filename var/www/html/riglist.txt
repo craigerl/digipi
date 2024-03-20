@@ -1,0 +1,283 @@
+
+DigiRig:           use "RTS" as rig number, device file "ttyUSB0"
+DigiPi Hat:        use "DTR" as rig number, device file "ttyUSB0"
+USB audio dongle:  use "GPIO" as rig number to force PTT on GPIO pin 12
+
+For other USB-connected radios select the Rig# below:
+
+ Rig #  Mfg                    Model                   Version         Status      Macro
+   RTS  DigiRig                DigiRig    (ttyUSB0)
+   DTR  DigiHat                DigiPi Hat (ttyUSB0)
+     1  Hamlib                 Dummy                   20221128.0      Stable      RIG_MODEL_DUMMY
+     2  Hamlib                 NET rigctl              20230106.0      Stable      RIG_MODEL_NETRIGCTL
+     4  FLRig                  FLRig                   20221109.0      Stable      RIG_MODEL_FLRIG
+     5  TRXManager             TRXManager 5.7.630+     20210613.0      Stable      RIG_MODEL_TRXMANAGER_RIG
+     6  Hamlib                 Dummy No VFO            20220510.0      Stable      RIG_MODEL_DUMMY_NOVFO
+  1001  Yaesu                  FT-847                  20220525.0      Stable      RIG_MODEL_FT847
+  1003  Yaesu                  FT-1000D                20211111.0      Stable      RIG_MODEL_FT1000D
+  1004  Yaesu                  MARK-V FT-1000MP        20230104.0      Stable      RIG_MODEL_FT1000MPMKV
+  1005  Yaesu                  FT-747GX                20220819.1      Stable      RIG_MODEL_FT747
+  1006  Yaesu                  FT-757GX                20220429.0      Stable      RIG_MODEL_FT757
+  1007  Yaesu                  FT-757GXII              20200325.0      Stable      RIG_MODEL_FT757GXII
+  1009  Yaesu                  FT-767GX                20210221.0      Stable      RIG_MODEL_FT767
+  1010  Yaesu                  FT-736R                 20221218.0      Stable      RIG_MODEL_FT736R
+  1011  Yaesu                  FT-840                  20200323.0      Stable      RIG_MODEL_FT840
+  1013  Yaesu                  FT-900                  20200323.0      Stable      RIG_MODEL_FT900
+  1014  Yaesu                  FT-920                  20220529.0      Stable      RIG_MODEL_FT920
+  1015  Yaesu                  FT-890                  20200323.0      Stable      RIG_MODEL_FT890
+  1016  Yaesu                  FT-990                  20211231.0      Stable      RIG_MODEL_FT990
+  1017  Yaesu                  FRG-100                 20160409.0      Stable      RIG_MODEL_FRG100
+  1018  Yaesu                  FRG-9600                20160409.0      Alpha       RIG_MODEL_FRG9600
+  1019  Yaesu                  FRG-8800                20160409.0      Alpha       RIG_MODEL_FRG8800
+  1020  Yaesu                  FT-817                  20220419.0      Stable      RIG_MODEL_FT817
+  1021  Yaesu                  FT-100                  20211111.0      Stable      RIG_MODEL_FT100
+  1022  Yaesu                  FT-857                  20220712.0      Stable      RIG_MODEL_FT857
+  1023  Yaesu                  FT-897                  20220404.0      Stable      RIG_MODEL_FT897
+  1024  Yaesu                  FT-1000MP               20230104.0      Stable      RIG_MODEL_FT1000MP
+  1025  Yaesu                  MARK-V Field FT-1000MP  20230104.0      Stable      RIG_MODEL_FT1000MPMKVFLD
+  1026  Yaesu                  VR-5000                 20200505.0      Stable      RIG_MODEL_VR5000
+  1027  Yaesu                  FT-450                  20230109.2      Stable      RIG_MODEL_FT450
+  1028  Yaesu                  FT-950                  20230109.4      Stable      RIG_MODEL_FT950
+  1029  Yaesu                  FT-2000                 20230109.3      Stable      RIG_MODEL_FT2000
+  1030  Yaesu                  FTDX-9000               20230109.3      Stable      RIG_MODEL_FT9000
+  1031  Yaesu                  FT-980                  20200114.0      Stable      RIG_MODEL_FT980
+  1032  Yaesu                  FTDX-5000               20230109.9      Stable      RIG_MODEL_FTDX5000
+  1033  Vertex Standard        VX-1700                 20210221.0      Stable      RIG_MODEL_VX1700
+  1034  Yaesu                  FTDX-1200               20230109.5      Stable      RIG_MODEL_FTDX1200
+  1035  Yaesu                  FT-991                  20230109.15     Stable      RIG_MODEL_FT991
+  1036  Yaesu                  FT-891                  20230109.7      Stable      RIG_MODEL_FT891
+  1037  Yaesu                  FTDX-3000               20230109.10     Stable      RIG_MODEL_FTDX3000
+  1038  Yaesu                  FT-847UNI               20210221.0      Stable      RIG_MODEL_FT847UNI
+  1039  Yaesu                  FT-600                  20201009.0      Stable      RIG_MODEL_FT600
+  1040  Yaesu                  FTDX-101D               20230109.17     Stable      RIG_MODEL_FTDX101D
+  1041  Yaesu                  FT-818                  20220419.0      Stable      RIG_MODEL_FT818
+  1042  Yaesu                  FTDX-10                 20230109.5      Stable      RIG_MODEL_FTDX10
+  1043  Yaesu                  FT-897D                 20220407.0      Stable      RIG_MODEL_FT897D
+  1044  Yaesu                  FTDX-101MP              20230109.8      Stable      RIG_MODEL_FTDX101MP
+  1045  M0NKA                  mcHF QRP                20220525.0      Stable      RIG_MODEL_MCHFQRP
+  1046  Yaesu                  FT-450D                 20230109.2      Stable      RIG_MODEL_FT450
+  1047  Yaesu                  FT-650                  20220525.0      Stable      RIG_MODEL_FT650
+  1048  Yaesu                  FT-990 Old Rom          20220628.0      Stable      RIG_MODEL_FT990UNI
+  1049  Yaesu                  FT-710                  20230109.2      Stable      RIG_MODEL_FT710
+  2001  Kenwood                TS-50S                  20230109.1      Stable      RIG_MODEL_TS50
+  2002  Kenwood                TS-440S                 20200407.3      Stable      RIG_MODEL_TS440
+  2003  Kenwood                TS-450S                 20230109.0      Stable      RIG_MODEL_TS450S
+  2004  Kenwood                TS-570D                 20230109.1      Stable      RIG_MODEL_TS570D
+  2005  Kenwood                TS-690S                 20230109.1      Stable      RIG_MODEL_TS690S
+  2006  Kenwood                TS-711                  20230109.0      Alpha       RIG_MODEL_TS711
+  2007  Kenwood                TS-790                  20230109.0      Stable      RIG_MODEL_TS790
+  2008  Kenwood                TS-811                  20230109.0      Alpha       RIG_MODEL_TS811
+  2009  Kenwood                TS-850                  20230109.0      Stable      RIG_MODEL_TS850
+  2010  Kenwood                TS-870S                 20230109.1      Stable      RIG_MODEL_TS870S
+  2011  Kenwood                TS-940S                 20230109.0      Stable      RIG_MODEL_TS940
+  2012  Kenwood                TS-950S                 20230109.1      Stable      RIG_MODEL_TS950S
+  2013  Kenwood                TS-950SDX               20230109.1      Stable      RIG_MODEL_TS950SDX
+  2014  Kenwood                TS-2000                 20230109.0      Stable      RIG_MODEL_TS2000
+  2015  Kenwood                R-5000                  20200407.1      Stable      RIG_MODEL_R5000
+  2016  Kenwood                TS-570S                 20230109.2      Stable      RIG_MODEL_TS570S
+  2017  Kenwood                TH-D7A                  20200701.1      Stable      RIG_MODEL_THD7A
+  2019  Kenwood                TH-F6A                  20200701.0      Stable      RIG_MODEL_THF6A
+  2020  Kenwood                TH-F7E                  20200701.0      Stable      RIG_MODEL_THF7E
+  2021  Elecraft               K2                      20230109.0      Stable      RIG_MODEL_K2
+  2022  Kenwood                TS-930                  20230109.1      Alpha       RIG_MODEL_TS930
+  2023  Kenwood                TH-G71                  20200701.0      Stable      RIG_MODEL_THG71
+  2024  Kenwood                TS-680S                 20230109.1      Stable      RIG_MODEL_TS680S
+  2025  Kenwood                TS-140S                 20230109.1      Stable      RIG_MODEL_TS140S
+  2026  Kenwood                TM-D700                 20200701.0      Stable      RIG_MODEL_TMD700
+  2027  Kenwood                TM-V7                   20200701.0      Stable      RIG_MODEL_TMV7
+  2028  Kenwood                TS-480                  20230109.2      Stable      RIG_MODEL_TS480
+  2029  Elecraft               K3                      20230109.25     Stable      RIG_MODEL_K3
+  2030  Kenwood                TRC-80                  20230109.0      Stable      RIG_MODEL_TRC80
+  2031  Kenwood                TS-590S                 20230109.2      Stable      RIG_MODEL_TS590S
+  2032  SigFox                 Transfox                20111223.0      Stable      RIG_MODEL_TRANSFOX
+  2033  Kenwood                TH-D72A                 20200701.1      Stable      RIG_MODEL_THD72A
+  2034  Kenwood                TM-D710(G)              20230109.5      Stable      (null)
+  2035  Kenwood                TM-V71(A)               20230109.1      Stable      RIG_MODEL_TMV71
+  2036  FlexRadio              6xxx                    20220306.0      Stable      RIG_MODEL_F6K
+  2037  Kenwood                TS-590SG                20230109.1      Stable      RIG_MODEL_TS590SG
+  2038  Elecraft               XG3                     20200613.0      Stable      RIG_MODEL_XG3
+  2039  Kenwood                TS-990S                 20230109.3      Stable      RIG_MODEL_TS990S
+  2040  OpenHPSDR              PiHPSDR                 20230109.1      Stable      RIG_MODEL_HPSDR
+  2041  Kenwood                TS-890S                 20230109.10     Stable      RIG_MODEL_TS890S
+  2042  Kenwood                TH-D74                  20230109.3      Stable      RIG_MODEL_THD74
+  2043  Elecraft               K3S                     20230109.19     Stable      RIG_MODEL_K3S
+  2044  Elecraft               KX2                     20230109.17     Stable      RIG_MODEL_KX2
+  2045  Elecraft               KX3                     20230109.18     Stable      RIG_MODEL_KX3
+  2046  Hilberling             PT-8000A                20230109.1      Stable      RIG_MODEL_PT8000A
+  2047  Elecraft               K4                      20230109.25     Stable      RIG_MODEL_K4
+  2048  FlexRadio/ANAN         PowerSDR/Thetis         20221123.0      Stable      RIG_MODEL_POWERSDR
+  2049  Malachite              DSP                     20230109.2      Stable      RIG_MODEL_MALACHITE
+  2050  Lab599                 TX-500                  20230109.3      Stable      RIG_MODEL_LAB599_TX500
+  2051  SDRPlay                SDRUno                  20230109.2      Stable      RIG_MODEL_SDRUNO
+  2052  QRPLabs                QCX/QDX                 20230109.0      Stable      RIG_MODEL_QRPLABS
+  3002  Icom                   IC-1275                 20230109.0      Stable      RIG_MODEL_IC1275
+  3003  Icom                   IC-271                  20230109.0      Alpha       RIG_MODEL_IC271
+  3004  Icom                   IC-275                  20230109.0      Stable      RIG_MODEL_IC275
+  3005  Icom                   IC-375                  20230109.0      Stable      RIG_MODEL_IC375
+  3006  Icom                   IC-471                  20230109.0      Alpha       RIG_MODEL_IC471
+  3007  Icom                   IC-475                  20230109.0      Stable      RIG_MODEL_IC475
+  3008  Icom                   IC-575                  20230109.0      Stable      RIG_MODEL_IC575
+  3009  Icom                   IC-706                  20230109.1      Stable      RIG_MODEL_IC706
+  3010  Icom                   IC-706MkII              20230109.1      Stable      RIG_MODEL_IC706MKII
+  3011  Icom                   IC-706MkIIG             20230109.2      Stable      RIG_MODEL_IC706MKIIG
+  3012  Icom                   IC-707                  20230109.0      Alpha       RIG_MODEL_IC707
+  3013  Icom                   IC-718                  20230109.1      Stable      RIG_MODEL_IC718
+  3014  Icom                   IC-725                  20230109.0      Stable      RIG_MODEL_IC725
+  3015  Icom                   IC-726                  20230109.0      Stable      RIG_MODEL_IC726
+  3016  Icom                   IC-728                  20230109.0      Alpha       RIG_MODEL_IC728
+  3017  Icom                   IC-729                  20230109.0      Stable      RIG_MODEL_IC729
+  3019  Icom                   IC-735                  20230109.0      Stable      RIG_MODEL_IC735
+  3020  Icom                   IC-736                  20230109.0      Alpha       RIG_MODEL_IC736
+  3021  Icom                   IC-737                  20230109.0      Alpha       RIG_MODEL_IC737
+  3022  Icom                   IC-738                  20230109.0      Alpha       RIG_MODEL_IC738
+  3023  Icom                   IC-746                  20230109.3      Stable      RIG_MODEL_IC746
+  3024  Icom                   IC-751                  20230109.0      Stable      RIG_MODEL_IC751
+  3026  Icom                   IC-756                  20230109.3      Stable      RIG_MODEL_IC756
+  3027  Icom                   IC-756PRO               20230109.3      Stable      RIG_MODEL_IC756PRO
+  3028  Icom                   IC-761                  20230109.0      Stable      RIG_MODEL_IC761
+  3029  Icom                   IC-765                  20230109.0      Stable      RIG_MODEL_IC765
+  3030  Icom                   IC-775                  20230109.0      Alpha       RIG_MODEL_IC775
+  3031  Icom                   IC-781                  20230109.1      Stable      RIG_MODEL_IC781
+  3032  Icom                   IC-820H                 20230109.0      Beta        RIG_MODEL_IC820
+  3034  Icom                   IC-821H                 20230109.1      Stable      RIG_MODEL_IC821H
+  3035  Icom                   IC-970                  20230109.0      Alpha       RIG_MODEL_IC970
+  3036  Icom                   IC-R10                  20230109.0      Stable      RIG_MODEL_ICR10
+  3037  Icom                   IC-R71                  20230109.0      Alpha       RIG_MODEL_ICR71
+  3038  Icom                   IC-R72                  20230109.0      Alpha       RIG_MODEL_ICR72
+  3039  Icom                   IC-R75                  20230109.0      Stable      RIG_MODEL_ICR75
+  3040  Icom                   IC-R7000                20230109.0      Beta        RIG_MODEL_ICR7000
+  3041  Icom                   IC-R7100                20230109.0      Alpha       RIG_MODEL_ICR7100
+  3042  Icom                   ICR-8500                20230109.0      Stable      RIG_MODEL_ICR8500
+  3043  Icom                   IC-R9000                20230109.0      Beta        RIG_MODEL_ICR9000
+  3044  Icom                   IC-910                  20230109.1      Stable      RIG_MODEL_IC910
+  3045  Icom                   IC-78                   20230109.0      Alpha       RIG_MODEL_IC78
+  3046  Icom                   IC-746PRO               20230109.2      Stable      RIG_MODEL_IC746PRO
+  3047  Icom                   IC-756PROII             20230109.3      Stable      RIG_MODEL_IC756PROII
+  3051  Ten-Tec                Omni VI Plus            20230109.0      Stable      RIG_MODEL_OMNIVIP
+  3052  Optoelectronics        OptoScan535             20230109.0      Stable      RIG_MODEL_OS535
+  3053  Optoelectronics        OptoScan456             20230109.0      Stable      RIG_MODEL_OS456
+  3054  Icom                   IC ID-1                 20230109.0      Alpha       RIG_MODEL_ICID1
+  3055  Icom                   IC-703                  20230109.1      Stable      RIG_MODEL_IC703
+  3056  Icom                   IC-7800                 20230109.6      Stable      RIG_MODEL_IC7800
+  3057  Icom                   IC-756PROIII            20230109.3      Stable      RIG_MODEL_IC756PROIII
+  3058  Icom                   IC-R20                  20230109.0      Stable      RIG_MODEL_ICR20
+  3060  Icom                   IC-7000                 20230109.3      Stable      RIG_MODEL_IC7000
+  3061  Icom                   IC-7200                 20230109.2      Stable      RIG_MODEL_IC7200
+  3062  Icom                   IC-7700                 20230109.2      Stable      RIG_MODEL_IC7700
+  3063  Icom                   IC-7600                 20230109.4      Stable      RIG_MODEL_IC7600
+  3064  Ten-Tec                Delta II                20230109.0      Alpha       RIG_MODEL_DELTAII
+  3065  Icom                   IC-92D                  20230109.0      Alpha       RIG_MODEL_IC92D
+  3066  Icom                   IC-R9500                20230109.0      Stable      RIG_MODEL_ICR9500
+  3067  Icom                   IC-7410                 20230109.2      Alpha       RIG_MODEL_IC7410
+  3068  Icom                   IC-9100                 20230109.4      Stable      RIG_MODEL_IC9100
+  3069  Icom                   IC-RX7                  20230109.0      Alpha       RIG_MODEL_ICRX7
+  3070  Icom                   IC-7100                 20230109.3      Stable      RIG_MODEL_IC7100
+  3071  Icom                   ID-5100                 20230109.2      Stable      RIG_MODEL_ID5100
+  3072  Icom                   IC-2730                 20230109.0      Alpha       RIG_MODEL_IC2730
+  3073  Icom                   IC-7300                 20230109.10     Stable      RIG_MODEL_IC7300
+  3074  Microtelecom           Perseus                 20230109.0      Beta        RIG_MODEL_PERSEUS
+  3075  Icom                   IC-7850/7851            20230109.4      Stable      RIG_MODEL_IC785x
+  3076  Xiegu                  X108G                   20230109.2      Stable      RIG_MODEL_X108G
+  3077  Icom                   IC-R6                   20230109.0      Stable      RIG_MODEL_ICR6
+  3078  Icom                   IC-7610                 20230109.9      Stable      RIG_MODEL_IC7610
+  3079  Icom                   IC-R8600                20230109.3      Beta        RIG_MODEL_ICR8600
+  3080  Icom                   IC-R30                  20230109.0      Beta        RIG_MODEL_ICR30
+  3081  Icom                   IC-9700                 20230109.11     Stable      RIG_MODEL_IC9700
+  3082  Icom                   ID-4100                 20230109.1      Beta        RIG_MODEL_ID4100
+  3083  Icom                   ID-31                   20230109.1      Alpha       RIG_MODEL_ID31
+  3084  Icom                   ID-51                   20230109.1      Alpha       RIG_MODEL_ID51
+  3085  Icom                   IC-705                  20230109.8      Stable      RIG_MODEL_IC705
+  3086  Icom                   IC-F8101                20230109.2      Stable      RIG_MODEL_ICF8101
+  3087  Xiegu                  X6100                   20230109.4      Stable      RIG_MODEL_X6100
+  3088  Xiegu                  G90                     20230109.4      Stable      RIG_MODEL_G90
+  3089  Xiegu                  X5105                   20230109.1      Stable      RIG_MODEL_X5105
+  4001  Icom                   IC-PCR1000              20200323.0      Stable      RIG_MODEL_PCR1000
+  4002  Icom                   IC-PCR100               20200323.0      Stable      RIG_MODEL_PCR100
+  4003  Icom                   IC-PCR1500              20200323.0      Stable      RIG_MODEL_PCR1500
+  4004  Icom                   IC-PCR2500              20200323.0      Stable      RIG_MODEL_PCR2500
+  5001  AOR                    AR8200                  20220630.0      Beta        RIG_MODEL_AR8200
+  5002  AOR                    AR8000                  20220630.0      Stable      RIG_MODEL_AR8000
+  5003  AOR                    AR7030                  20200324.0      Stable      RIG_MODEL_AR7030
+  5004  AOR                    AR5000                  20220630.0      Stable      RIG_MODEL_AR5000
+  5005  AOR                    AR3030                  20200113.0      Stable      RIG_MODEL_AR3030
+  5006  AOR                    AR3000A                 20061007.0      Stable      RIG_MODEL_AR3000A
+  5008  AOR                    AR2700                  20220630.0      Alpha       RIG_MODEL_AR2700
+  5013  AOR                    AR8600                  20220630.0      Stable      RIG_MODEL_AR8600
+  5014  AOR                    AR5000A                 20220630.0      Beta        RIG_MODEL_AR5000A
+  5015  AOR                    AR7030 Plus             20200319.0      Stable      RIG_MODEL_AR7030P
+  5016  AOR                    SR2200                  20220630.0      Stable      RIG_MODEL_SR2200
+  6001  JRC                    JST-145                 20200320.3      Stable      RIG_MODEL_JST145
+  6002  JRC                    JST-245                 20200320.3      Stable      RIG_MODEL_JST245
+  6005  JRC                    NRD-525                 20200320.0      Beta        RIG_MODEL_NRD525
+  6006  JRC                    NRD-535D                20200320.1      Stable      RIG_MODEL_NRD535
+  6007  JRC                    NRD-545 DSP             20200320.0      Stable      RIG_MODEL_NRD545
+  8001  Uniden                 BC780xlt                20200621.0      Stable      RIG_MODEL_BC780
+  8002  Uniden                 BC245xlt                20200621.0      Alpha       RIG_MODEL_BC245
+  8003  Uniden                 BC895xlt                20200621.0      Alpha       RIG_MODEL_BC895
+  8004  Radio Shack            PRO-2052                20200621.0      Alpha       RIG_MODEL_PRO2052
+  8006  Uniden                 BC250D                  20200621.0      Alpha       RIG_MODEL_BC250
+  8010  Uniden                 BCD-396T                20170808.0      Beta        RIG_MODEL_BCD396T
+  8011  Uniden                 BCD-996T                20170808.0      Beta        RIG_MODEL_BCD996T
+  8012  Uniden                 BC898T                  20200621.0      Alpha       RIG_MODEL_BC898
+  9002  Drake                  R-8A                    20200319.0      Stable      RIG_MODEL_DKR8A
+  9003  Drake                  R-8B                    20200319.0      Alpha       RIG_MODEL_DKR8B
+ 10004  Lowe                   HF-235                  20200112.0      Beta        RIG_MODEL_HF235
+ 11003  Racal                  RA6790/GM               20200113.0      Alpha       RIG_MODEL_RA6790
+ 11005  Racal                  RA3702                  20210911.0      Beta        RIG_MODEL_RA3702
+ 12004  Watkins-Johnson        WJ-8888                 20040912.0      Alpha       RIG_MODEL_WJ8888
+ 14002  Skanti                 TRP8000                 20191208.0      Alpha       RIG_MODEL_TRP8000
+ 14004  Skanti                 TRP 8255 S R            20200323.0      Alpha       RIG_MODEL_TRP8255
+ 15001  Winradio               WR-1000                 20110822.0      Alpha       RIG_MODEL_WR1000
+ 15002  Winradio               WR-1500                 20110822.0      Alpha       RIG_MODEL_WR1500
+ 15003  Winradio               WR-1550                 20110822.0      Alpha       RIG_MODEL_WR1550
+ 15004  Winradio               WR-3100                 20110822.0      Alpha       RIG_MODEL_WR3100
+ 15005  Winradio               WR-3150                 20110822.0      Alpha       RIG_MODEL_WR3150
+ 15006  Winradio               WR-3500                 20110822.0      Alpha       RIG_MODEL_WR3500
+ 15007  Winradio               WR-3700                 20110822.0      Alpha       RIG_MODEL_WR3700
+ 15009  Winradio               WR-G313                 20191224.0      Beta        RIG_MODEL_G313
+ 16001  Ten-Tec                TT-550                  20190817.0      Stable      RIG_MODEL_TT550
+ 16002  Ten-Tec                TT-538 Jupiter          20221205.0      Stable      RIG_MODEL_TT538
+ 16003  Ten-Tec                RX-320                  20200113.0      Stable      RIG_MODEL_RX320
+ 16004  Ten-Tec                RX-340                  20160409.0      Alpha       RIG_MODEL_RX340
+ 16005  Ten-Tec                RX-350                  20191208.0      Alpha       RIG_MODEL_RX350
+ 16007  Ten-Tec                TT-516 Argonaut V       20191208.0      Stable      RIG_MODEL_TT516
+ 16008  Ten-Tec                TT-565 Orion            20220614.0      Stable      RIG_MODEL_TT565
+ 16009  Ten-Tec                TT-585 Paragon          20200305.0      Stable      RIG_MODEL_TT585
+ 16011  Ten-Tec                TT-588 Omni VII         20220718.0      Stable      RIG_MODEL_TT588
+ 16012  Ten-Tec                RX-331                  20200911.0      Stable      RIG_MODEL_RX331
+ 16013  Ten-Tec                TT-599 Eagle            20220614.0      Stable      RIG_MODEL_TT599
+ 17001  Alinco                 DX-77                   20200323.1      Stable      RIG_MODEL_DX77
+ 17002  Alinco                 DX-SR8                  20200323.0      Stable      RIG_MODEL_DXSR8
+ 18001  Kachina                505DSP                  20061007.0      Beta        RIG_MODEL_505DSP
+ 22001  TAPR                   DSP-10                  20061007.0      Beta        RIG_MODEL_DSP10
+ 23001  Flex-radio             SDR-1000                20200323.0      Alpha       RIG_MODEL_SDR1000
+ 23003  DTTS Microwave Society DttSP IPC               20200319.0      Beta        RIG_MODEL_DTTSP
+ 23004  DTTS Microwave Society DttSP UDP               20200319.0      Beta        RIG_MODEL_DTTSP_UDP
+ 24001  RFT                    EKD-500                 20031007.0      Beta        RIG_MODEL_EKD500
+ 25001  Elektor                Elektor 3/04            20200112.0      Stable      RIG_MODEL_ELEKTOR304
+ 25002  SAT-Schneider          DRT1                    20200112.0      Stable      RIG_MODEL_DRT1
+ 25006  AmQRP                  DDS-60                  20200112.0      Beta        RIG_MODEL_DDS60
+ 25008  mRS                    miniVNA                 20190817.0      Beta        RIG_MODEL_MINIVNA
+ 25014  N2ADR                  HiQSDR                  20200323.0      Alpha       RIG_MODEL_HIQSDR
+ 25019  HobbyPCB               RS-HFIQ                 20220430.0      Stable      RIG_MODEL_RSHFIQ
+ 26001  Video4Linux            SW/FM radio             20120107.0      Stable      RIG_MODEL_V4L
+ 26002  Video4Linux2           SW/FM radio             20191223.0      Beta        RIG_MODEL_V4L2
+ 27001  Rohde&Schwarz          ESMC                    20090803.0      Beta        RIG_MODEL_ESMC
+ 27002  Rohde&Schwarz          EB200                   20090803.0      Alpha       RIG_MODEL_EB200
+ 27003  Rohde&Schwarz          XK2100                  20210901.0      Stable      RIG_MODEL_XK2100
+ 27004  Rohde&Schwarz          EK895/6                 20220813.0      Beta        RIG_MODEL_EK89X
+ 28001  Philips/Simoco         PRM8060                 20210416.0      Stable      RIG_MODEL_PRM8060
+ 29001  ADAT www.adat.ch       ADT-200A                20191206.0      Stable      RIG_MODEL_ADT_200A
+ 30001  Icom                   IC-M700PRO              20181007.0      Beta        RIG_MODEL_IC_M700PRO
+ 30002  Icom                   IC-M802                 20181007.0      Stable      RIG_MODEL_IC_M802
+ 30003  Icom                   IC-M710                 20181007.0      Stable      RIG_MODEL_IC_M710
+ 30004  Icom                   IC-M803                 20181007.0      Stable      RIG_MODEL_IC_M803
+ 31001  Dorji                  DRA818V                 20191209.0      Alpha       RIG_MODEL_DORJI_DRA818V
+ 31002  Dorji                  DRA818U                 20191209.0      Alpha       RIG_MODEL_DORJI_DRA818U
+ 32001  Barrett                2050                    20220113.0      Stable      RIG_MODEL_BARRETT_2050
+ 32002  Barrett                950                     20220113.0      Stable      RIG_MODEL_BARRETT_950
+ 32003  Barrett                4050                    20220113.0f     Stable      RIG_MODEL_BARRETT_4050
+ 33001  ELAD                   FDM-DUO                 20220608.0      Stable      RIG_MODEL_ELAD_FDM_DUO
+ 34001  CODAN                  Envoy                   20211228.0      Stable      RIG_MODEL_CODAN_ENVOY
+ 34002  CODAN                  NGT                     20211228.0      Stable      RIG_MODEL_CODAN_NGT
+ 35001  GOMSPACE               GS100                   20211117.0      Beta        RIG_MODEL_GS100
