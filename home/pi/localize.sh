@@ -18,7 +18,7 @@ NEWDEVICEFILE=ttyUSB1
 NEWBAUDRATE=19200
 NEWBIGVNC=
 NEWFLRIG=1
-NEWUSBDEVICE=ttyACM0
+NEWGPSDEVICE=ttyACM0
 
 
 
@@ -39,7 +39,7 @@ OLDDEVICEFILE=ttyACM0
 OLDBAUDRATE=115200
 OLDBIGVNC=
 OLDFLRIG=
-OLDUSBDEVICE=ttyACM1
+OLDGPSDEVICE=ttyACM1
 
 
 # replace GPS cardinal suffix with signed decimal for aprsd webchat
@@ -174,8 +174,8 @@ if [ -n "$NEWDEVICEFILE" ]; then
   done
 fi
 
-if [ -n "$NEWUSBDEVICE" ]; then
-  sed -i "s/$OLDUSBDEVICE/$NEWUSBDEVICE/gi"           etc/default/gpsd
+if [ -n "$NEWGPSDEVICE" ]; then
+  sed -i "s/$OLDGPSDEVICE/$NEWGPSDEVICE/gi"           etc/default/gpsd
 fi
 
 cd - > /dev/null 2> /dev/null
