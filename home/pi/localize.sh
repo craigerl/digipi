@@ -1,17 +1,24 @@
 #!/bin/bash
 
-# Fill out these accordingly, using the examples below
+# This file runs once when you press "Initialize." Running it a second
+# time is illadvised unless you also change the OLD values to your
+# current configuration.   DigiPi will dynamically read the NEW 
+# variables below for NEWRIGNUMBER, NEWDEVICEFILE and NEWBAUDRATE, feel 
+# free to edit those variables.  
 
-NEWCALL=KX6XXX
+NEWCALL=KM6MZM
 NEWWLPASS=XXXXXX
-NEWAPRSPASS=12345
-NEWGRID=CN99mv
-NEWLAT=39.9999N
-NEWLON=140.9999W
+NEWAPRSPASS=21679
+NEWGRID=CM87xi
+NEWLAT=37.379
+NEWLON=-122.051692
 NEWNODEPASS=abc123
-NEWRIGNUMBER=3085
-NEWDEVICEFILE=ttyACM0
-NEWBAUDRATE=115200
+NEWRIGNUMBER=RTS
+NEWDEVICEFILE=ttyUSB1
+NEWBAUDRATE=19200
+NEWBIGVNC=
+NEWFLRIG=1
+NEWUSBDEVICE=ttyACM0
 
 
 
@@ -24,28 +31,31 @@ OLDCALL=KX6XXX
 OLDWLPASS=XXXXXX
 OLDAPRSPASS=12345
 OLDGRID=CN99mv
-OLDLAT=39.9999N
-OLDLON=140.9999W
+OLDLAT=39.9999
+OLDLON=-140.9999
 OLDNODEPASS=abc123
 OLDRIGNUMBER=3085
 OLDDEVICEFILE=ttyACM0
 OLDBAUDRATE=115200
+OLDBIGVNC=
+OLDFLRIG=
+OLDUSBDEVICE=ttyACM1
 
 
 # replace GPS cardinal suffix with signed decimal for aprsd webchat
-if [ ${NEWLAT: -1} == "S" ]  || [ ${NEWLAT: -1} == "s" ] ; then
-   SIGN="-"
-else
-   SIGN=""
-fi
-NEWWEBCHATLAT=$SIGN${NEWLAT::-1}
-
-if [ ${NEWLON: -1} == "W" ]  || [ ${NEWLON: -1} == "w" ] ; then
-   SIGN="-"
-else
-   SIGN=""
-fi
-NEWWEBCHATLON=$SIGN${NEWLON::-1}
+#if [ ${NEWLAT: -1} == "S" ]  || [ ${NEWLAT: -1} == "s" ] ; then
+#   SIGN="-"
+#else
+#   SIGN=""
+#fi
+#NEWWEBCHATLAT=$SIGN${NEWLAT::-1}
+#
+#if [ ${NEWLON: -1} == "W" ]  || [ ${NEWLON: -1} == "w" ] ; then
+#   SIGN="-"
+#else
+#   SIGN=""
+#fi
+#NEWWEBCHATLON=$SIGN${NEWLON::-1}
 
 
 
@@ -58,9 +68,7 @@ touch /var/cache/digipi/localized.txt
 cd /
 
 if [ -n "$NEWCALL" ]; then
-# sed -i "s/$OLDCALL/$NEWCALL/gi"           etc/ax25/node.conf
   sed -i "s/$OLDCALL/$NEWCALL/gi"           etc/ax25/uronode.conf
-# sed -i "s/$OLDCALL/$NEWCALL/gi"           etc/ax25/node.perms
   sed -i "s/$OLDCALL/$NEWCALL/gi"           etc/ax25/uronode.perms
   sed -i "s/$OLDCALL/$NEWCALL/gi"           etc/ax25/nrports 
   sed -i "s/$OLDCALL/$NEWCALL/gi"           etc/ax25/axports
@@ -118,8 +126,8 @@ if [ -n "$NEWLAT" ]; then
   sed -i "s/$OLDLAT/$NEWLAT/gi"               home/pi/direwolf.tnc.conf
   sed -i "s/$OLDLAT/$NEWLAT/gi"               home/pi/direwolf.tnc300b.conf
   sed -i "s/$OLDLAT/$NEWLAT/gi"               home/pi/direwolf.digipeater.conf
-  sed -i "s/${OLDLAT::-1}/$NEWWEBCHATLAT/gi"  home/pi/config/aprsd/aprsd.conf
-  sed -i "s/${OLDLON::-1}/$NEWWEBCHATLON/gi"  home/pi/config/aprsd/aprsd.conf
+  sed -i "s/$OLDLAT/$NEWLAT/gi"         home/pi/config/aprsd/aprsd.conf
+  sed -i "s/$OLDLON/$NEWLON/gi"         home/pi/config/aprsd/aprsd.conf
 
 fi
 
@@ -146,7 +154,12 @@ if [ -n "$NEWBIGVNC" ]; then
 fi
 
 if [ -n "$NEWRIGNUMBER" ]; then
-  sed -i "s/$OLDRIGNUMBER/$NEWRIGNUMBER/gi"   etc/systemd/system/rigctld.service
+  if [ $NEWRIGNUMBER = "DTR" -o $NEWRIGNUMBER = "RTS" ]; then
+    # hacky, wont run more than once
+    sed -i "s/\-m $OLDRIGNUMBER \-r/\-P $NEWRIGNUMBER \-p/gi"  etc/systemd/system/rigctld.service
+  else
+    sed -i "s/$OLDRIGNUMBER/$NEWRIGNUMBER/gi"   etc/systemd/system/rigctld.service
+  fi
   for file in `ls /home/pi/direwolf*.conf`
   do
     sed -i "s/RIG $OLDRIGNUMBER/RIG $NEWRIGNUMBER/gi"   $file
@@ -156,10 +169,13 @@ fi
 if [ -n "$NEWDEVICEFILE" ]; then
   sed -i "s/$OLDDEVICEFILE/$NEWDEVICEFILE/gi"   etc/systemd/system/rigctld.service
   for file in `ls /home/pi/direwolf*.conf`
-
   do
     sed -i "s/$OLDDEVICEFILE/$NEWDEVICEFILE/gi"   $file
   done
+fi
+
+if [ -n "$NEWUSBDEVICE" ]; then
+  sed -i "s/$OLDUSBDEVICE/$NEWUSBDEVICE/gi"           etc/default/gpsd
 fi
 
 cd - > /dev/null 2> /dev/null
