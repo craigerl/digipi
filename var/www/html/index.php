@@ -640,6 +640,11 @@ $output = shell_exec('sudo systemctl reset-failed js8call 2> /dev/null');
      <a href="/webchat.php" target="webchat" title="APRS Messaging"><strong>Webchat</strong></a>
   </td>
 </tr>
+<tr>
+  <td>
+    <a href="/audio.php" title="Audio Settings"><strong>Audio</strong></a>
+  </td>
+</tr>
 
 <?php
   if (!file_exists("/var/cache/digipi/localized.txt")) {
