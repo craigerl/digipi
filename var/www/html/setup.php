@@ -50,6 +50,10 @@ always reflash your SD card and start over if not sure.
   <tr><td>Large Display</td><td> <input type="checkbox" name="bigvnc" " value=""></td><td> Use with PC or large tablet </td></tr>
 </table>
 <br>
+<table width=600>
+<tr><td colspan=3>USB-connected GPS Devices</td></tr>
+  <tr><td bgcolor="#eeeeee">&nbsp;&nbsp;Device file</td><td> <input type="text" name="gpsdevicefile" size="8" value="ttyACM0"></td><td>USB GPS dongle=<strong>ttyACM0,</strong>  ic705=<strong>ttyACM1</strong></td></tr>
+</table>
 <br>
 <table width=600>
 <tr><td colspan=3>USB-connected radios, aprs/winlink/ax25/packet settings</td></tr>
@@ -145,6 +149,10 @@ if (isset($_POST["submit"])) {
    }
    if (isset($_POST["bigvnc"])) {
       $output = shell_exec("sudo sed -i 's/NEWBIGVNC=.*/NEWBIGVNC=1/gi' /home/pi/localize.sh ");
+   }
+   if (strlen($_POST["gpsdevicefile"]) > 0) {
+      $devicefile = addslashes($_POST["devicefile"]);
+      $output = shell_exec("sudo sed -i 's/NEWGPSDEVICE=.*/NEWGPSDEVICE=$devicefile/gi' /home/pi/localize.sh ");
    }
 
    echo 'Changes applied. </br></br>';
