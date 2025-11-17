@@ -1,6 +1,0 @@
-Form: RRI ICS213 Radiogram.html
-Subject: <var Subjectline>
-To: <var Mailthisto>
-Cc: <var Archive>
-SeqInc:
-Msg: <var MsgToSend>

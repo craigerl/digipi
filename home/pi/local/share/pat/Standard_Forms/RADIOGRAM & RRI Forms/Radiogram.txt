@@ -1,6 +1,0 @@
-Form:Radiogram.html
-Subject: <var Subjectline>
-To: <var Mailthisto>
-Cc: <var ArchiveThis>
-SeqInc:
-Msg: <var MsgToSend> 

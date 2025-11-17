@@ -1,0 +1,16 @@
+[Unit]
+Description=digipeater
+
+[Service]
+ExecStartPre=+systemctl stop fldigi sstv wsjtx ardop tnc300b tnc node winlinkrms pat js8call tracker
+ExecStart=/home/pi/direwolf.digipeater.sh
+WorkingDirectory=/home/pi/
+StandardOutput=inherit
+StandardError=inherit
+Restart=no
+User=pi
+TimeoutStopSec=3
+#KillSignal=SIGKILL
+
+[Install]
+WantedBy=multi-user.target

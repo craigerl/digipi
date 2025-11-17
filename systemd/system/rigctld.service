@@ -1,0 +1,17 @@
+[Unit]
+Description=rigctld
+#Before=pat
+
+
+[Service]
+ExecStart=/usr/bin/rigctld -m 3085 -r /dev/ttyACM0 -s 115200  
+WorkingDirectory=/home/pi/
+StandardOutput=inherit
+StandardError=inherit
+Restart=no
+User=pi
+
+
+[Install]
+WantedBy=multi-user.target
+WantedBy=pat

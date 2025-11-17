@@ -1,10 +1,8 @@
 
-  USERS - list connected users     
-  TALK  - TALK callsign "message text"
+  CHAT  - Enter Chatroom
   EMAIL - Winlink command line email  
-  WEB   - Display web sites
   ZORK  - Play Zork!
-  HITCH - Play Hitchiker's Guide
   NODES - List nearby nodenames
-  CONN  - CONNect radio nodename
+  CONN  - CONNect nodename
+  BYE   - Disconnect
   ?     - Complete list of commands

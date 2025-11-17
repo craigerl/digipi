@@ -1,7 +1,0 @@
-<html><head><title>%s's BPQ32 Web Server</title></head><body><P align=center>
-<table border=2 cellpadding=2 cellspacing=2 bgcolor=white>
-<tr>
-<td align=center><a href=/Node/NodeMenu.html>Node Pages</a></td>
-<td align=center><a href=/aprs/all.html>APRS Pages</a></td>
-<td align=center><a href=/WebMail/MailEntry>WebMail</a></td>
-</tr></table></body></html>

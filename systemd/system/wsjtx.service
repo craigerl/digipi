@@ -1,0 +1,15 @@
+[Unit]
+Description=wsjtx
+
+[Service]
+ExecStartPre=+systemctl stop tnc fldigi sstv ardop tnc300b digipeater node winlinkrms pat js8call tracker webchat
+ExecStart=/home/pi/wsjtx.sh
+WorkingDirectory=/home/pi/
+StandardOutput=inherit
+StandardError=inherit
+Restart=no
+User=pi
+TimeoutStopSec=3
+
+[Install]
+WantedBy=multi-user.target

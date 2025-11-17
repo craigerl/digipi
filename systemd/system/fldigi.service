@@ -1,0 +1,16 @@
+[Unit]
+Description=fldigi
+#Requires=rigctld.service
+
+[Service]
+ExecStartPre=+systemctl stop tnc sstv wsjtx ardop tnc300b digipeater node winlinkrms pat js8call tracker webchat
+ExecStart=/home/pi/fldigi.sh
+WorkingDirectory=/home/pi/
+StandardOutput=inherit
+StandardError=inherit
+Restart=no
+User=pi
+TimeoutStopSec=3
+
+[Install]
+WantedBy=multi-user.target

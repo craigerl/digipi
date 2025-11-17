@@ -1,5 +1,0 @@
-WSJT-X ADIF Export<eoh>
-<call:4>W7HD <gridsquare:4>DM42 <mode:3>FT8 <rst_sent:3>-05 <rst_rcvd:3>-07 <qso_date:8>20210909 <time_on:6>140745 <qso_date_off:8>20210909 <time_off:6>140831 <band:3>40m <freq:8>7.074597 <station_callsign:6>KM6LYW <my_gridsquare:4>CM98 <eor>
-<call:6>KA0CDW <gridsquare:4>EN21 <mode:3>FT8 <rst_sent:3>-11 <rst_rcvd:3>-08 <qso_date:8>20210909 <time_on:6>141300 <qso_date_off:8>20210909 <time_off:6>141331 <band:3>20m <freq:9>14.074597 <station_callsign:6>KM6LYW <my_gridsquare:4>CM98 <eor>
-<call:4>K4IO <gridsquare:4>EM83 <mode:3>FT8 <rst_sent:3>-10 <rst_rcvd:3>-07 <qso_date:8>20210911 <time_on:6>152630 <qso_date_off:8>20210911 <time_off:6>152747 <band:3>20m <freq:9>14.074842 <station_callsign:6>KM6LYW <my_gridsquare:4>CM98 <eor>
-<call:4>K4IO <gridsquare:4>EM83 <mode:3>FT8 <rst_sent:3>-14 <rst_rcvd:3>-13 <qso_date:8>20210911 <time_on:6>165800 <qso_date_off:8>20210911 <time_off:6>165847 <band:3>20m <freq:9>14.074779 <station_callsign:6>KM6LYW <my_gridsquare:4>CM98 <eor>
