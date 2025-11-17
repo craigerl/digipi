@@ -1,0 +1,674 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Oregon Activate-Deactivate Report</title>
+
+<style type="text/css">
+body, td, th {
+font-family: Arial, Helvetica, sans-serif;
+}
+.zentriert {
+text-align: center;
+}
+input, select {
+padding: 1px;
+-moz-border-radius-topleft: 2px;
+-moz-border-radius-topright: 2px;
+-moz-border-radius-bottomright: 2px;
+-moz-border-radius-bottomleft: 2px;
+font-family: Arial, Helvetica, sans-serif;
+font-size: 12px;
+text-align: left;
+font-weight: normal;
+font-style: normal;
+}
+textarea {
+padding: 1px;
+-moz-border-radius-topleft: 2px;
+-moz-border-radius-topright: 2px;
+-moz-border-radius-bottomright: 2px;
+-moz-border-radius-bottomleft: 2px;
+font-family: Arial, Helvetica, sans-serif;
+font-size: 12px;
+font-weight: normal;
+font-style: normal;
+}
+.rechtsbuendig {
+text-align: right;
+}
+.SubmitBtn {
+text-align: right;
+}
+.version {
+font-size: 10px;
+color: #666666;
+position: relative;
+left: 0px;
+top: 3px;
+}
+.style1 {font-size: 16px}
+.style2 {font-size: 16}
+.style3 {font-size: 12px}
+.formtext {font-family: Arial, Helvetica, sans-serif;
+font-size: 11pt;
+font-weight: normal;
+}
+</style>
+<script>
+function shortmonth(monthnum) {
+var monthname;
+shortmonths = ["JAN", "FEB", "MAR","APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"] ;
+monthname = shortmonths [monthnum];s
+ return monthname; }
+</script>
+<script>
+function SetDateTime(TType,TheFld, FocusFld) {
+var txt;
+var  myprompt;
+var d = new Date(),
+ thisyear = d.getFullYear();
+ thismonth= d.getMonth();
+ thisday = d.getDate();
+ 
+  var submonth = thismonth+1; ;
+if (submonth < 10) { submonth = "0"+submonth};
+ var subday = thisday;
+if (thisday < 10) { thisday = "0"+thisday};
+
+var monname;
+h = (d.getHours()<10?'0':'') + d.getHours()
+m = (d.getMinutes()<10?'0':'') + d.getMinutes()
+s = (d.getSeconds()<10?'0':'') + d.getSeconds();
+
+var now = new Date();
+var utch = now.getUTCHours();
+if (utch < 10) { utch = "0"+utch};
+var utcs =  now.getUTCMinutes();
+if (utcs < 10) { utcs = "0"+utcs};
+var myUTCtime =  utch+":"+utcs+"Z";
+
+
+var utcstr = d.toUTCString();
+var localt  = d.toLocaleTimeString();
+var isostr = d.toISOString();
+monthname = shortmonth (thismonth);
+thismonth = thismonth + 1;
+switch (TType) {
+    case 'hms'  :
+        myprompt = h + ':' + m + ':' + s;
+		var RightNow = prompt("Time:", myprompt);
+		document.getElementById(TheFld).value = RightNow;
+        break;
+		case 'hm'  :
+        myprompt = h + ':' + m;
+		var RightNow = prompt("Time:", myprompt);
+		document.getElementById(TheFld).value = RightNow;
+        break;
+		case 'm-d-y':     
+			myprompt = thismonth+ '-' + thisday+ '-'+  thisyear;
+			var RightNow = prompt("Date:", myprompt);
+			document.getElementById(TheFld).value = RightNow;
+		   break;
+		 case 'm/d/y':     
+			myprompt = thismonth+ '/' + thisday+ '/'+  thisyear;
+			var RightNow = prompt("Date:", myprompt);
+			document.getElementById(TheFld).value = RightNow;
+		     break;
+		 case 'd mmm y':     
+			myprompt = thisday+ ' ' + monthname+ ' '+  thisyear;
+			var RightNow = prompt("Date:", myprompt);
+			document.getElementById(TheFld).value = RightNow;
+		   break;
+		   case 'mmm-d-y':     
+			myprompt = monthname+'-'+thisday+ '-' +  thisyear;
+			var RightNow = prompt("Date:", myprompt);
+			document.getElementById(TheFld).value = RightNow;
+		   break;
+        case 'localampm':     
+			var myprompt = localt;
+			var RightNow = prompt("Local time:", myprompt);
+			document.getElementById(TheFld).value = RightNow;
+		   break;
+
+		case 'fulldate':     
+			var myprompt = thisyear+ '-'+thismonth+'-'+thisday;
+			var RightNow = prompt("Date:", myprompt);
+			document.getElementById(TheFld).value = RightNow;
+		   break;
+		   case 'fulldatetime':     
+			var myprompt = thisyear+'-'+thismonth+ '-'+thisday+' '+h + ':' + m ;
+			var RightNow = prompt("Date time:", myprompt);
+			document.getElementById(TheFld).value = RightNow;
+		   break;
+		   case 'autofulldatetime':     
+			var RightNow = thisyear+'-'+thismonth+ '-'+thisday+' '+h + ':' + m ;
+			
+			var RightNow = prompt("Date time:", myprompt);
+			document.getElementById(TheFld).value = RightNow;
+			
+			
+		   break;
+		    case 'iso':     
+			var myprompt = isostr;
+			var RightNow = prompt("Date time:", myprompt);
+			document.getElementById(TheFld).value = RightNow;
+		   break;
+		   case 'utc':     
+			var myprompt = utcstr;
+			var RightNow = prompt("Date time:", myprompt);
+			document.getElementById(TheFld).value = RightNow;
+		   break;
+		   	   
+		   case 'zulu':     
+			var myprompt = isostr;
+			myprompt = isostr.replace("T", "  "); 
+			slen = myprompt.length;
+			myprompt = myprompt.substr(0, slen-5)+'Z';
+			var RightNow = prompt("Date time:", myprompt);
+			document.getElementById(TheFld).value = RightNow;
+		   break;
+		    case 'UTChm':     
+			var myprompt = myUTCtime;
+			var RightNow = prompt("Date time:", myprompt);
+			document.getElementById(TheFld).value = RightNow;
+		   break;
+		}
+				
+	// if(FocusFld !== null && FocusFld !== '') {document.getElementById(FocusFld).focus()} --/
+	};	
+		
+</script>
+
+
+
+<script>
+
+function AutoGrowTextArea(textField)
+{
+if (textField.clientHeight < textField.scrollHeight)
+{
+textField.style.height = textField.scrollHeight + "px";
+if (textField.clientHeight < textField.scrollHeight)
+{
+textField.style.height = (textField.scrollHeight * 2 - textField.clientHeight) + "px";
+}
+}
+}
+function Countthelines(f) { var text1 = f
+var text2 = text1.replace(/\s+$/,"");
+var split2 = text2.split("\n"); var mytotal = split2.length * 17;
+if (mytotal < 60) {
+mytotal = 60;
+}
+var tstr = mytotal.toString();
+return tstr;
+}
+function newfix(f){
+var ThisText = document.getElementById(f).value;
+var makeit = Countthelines(ThisText);
+document.getElementById(f).style.height = makeit+"px"; }
+function Fixarea() {
+newfix("Narrative");
+AutoGrowTextArea(document.getElementById("Narrative"));
+}
+function RWS(str){
+var text2 = str.replace(/\s+$/,"");
+return text2.trim();
+}
+function setheader(What)
+{
+
+document.getElementById('SubjectText1').innerHTML = What;
+document.getElementById('SubjectText2').innerHTML = What;
+document.getElementById('SubjectText3').innerHTML = What;
+
+}
+
+function Flip(theid,working) {
+
+x1 = document.getElementById(theid).value;
+
+if (x1 == '' || x1 == '') { document.getElementById(theid).value = working} 
+
+else { document.getElementById(theid).value = '';}
+
+}
+
+// add save load
+
+
+function saveTextAsFile(fileNameToSaveAs, textToWrite) {
+var textToWrite = document.getElementById('parseme').value; 
+var fileNameToSaveAs = "OR Activation - Deactivation data " + DateforFile()+".txt";
+fileNameToSaveAs = prompt("", fileNameToSaveAs);
+
+  /* Saves a text string as a blob file*/  
+  var ie = navigator.userAgent.match(/MSIE\s([\d.]+)/),
+      ie11 = navigator.userAgent.match(/Trident\/7.0/) && navigator.userAgent.match(/rv:11/),
+      ieEDGE = navigator.userAgent.match(/Edge/g),
+      ieVer=(ie ? ie[1] : (ie11 ? 11 : (ieEDGE ? 12 : -1)));
+
+  if (ie && ieVer<10) {
+    console.log("No blobs on IE ver<10");
+    return;
+  }
+
+  var textFileAsBlob = new Blob([textToWrite], {
+    type: 'text/plain'
+  });
+
+  if (ieVer>-1) {
+    window.navigator.msSaveBlob(textFileAsBlob, fileNameToSaveAs);
+
+  } else {
+    var downloadLink = document.createElement("a");
+    downloadLink.download = fileNameToSaveAs;
+    downloadLink.href = window.URL.createObjectURL(textFileAsBlob);
+    downloadLink.onclick = function(e) { document.body.removeChild(e.target); };
+    downloadLink.style.display = "none";
+    document.body.appendChild(downloadLink);
+    downloadLink.click();
+  }
+}
+
+
+
+
+
+function destroyClickedElement(event)
+{
+    document.body.removeChild(event.target);
+}
+
+function loadFileAsText()
+{
+
+    var fileToLoad = document.getElementById("fileToLoad").files[0];
+ 
+    var fileReader = new FileReader();
+    fileReader.onload = function(fileLoadedEvent) 
+    {
+        var textFromFileLoaded = fileLoadedEvent.target.result;
+        document.getElementById("inputTextToSave").value = textFromFileLoaded;
+    };
+    fileReader.readAsText(fileToLoad, "UTF-8");
+}
+
+
+function DateforFile(RightNow) {
+var txt;
+var d = new Date(),
+thisyear = d.getFullYear();
+thismonth= d.getMonth();
+thismonth = thismonth+1;
+if (thismonth < 10) { thismonth = "0" + thismonth}
+
+thisday = d.getDate();
+if (thisday < 10) { thisday = "0" + thisday}
+
+h = (d.getHours()<10?'0':'') + d.getHours()
+m = (d.getMinutes()<10?'0':'') + d.getMinutes()
+var myprompt = thisyear+ '-'+thismonth+'-'+thisday+' '+h + '_' + m ;
+return myprompt;
+}
+
+function isObject(arg) {
+  return Object.prototype.toString.call(arg)==='[object Object]';
+}
+
+function formDataToObject(elForm) {
+  if (!elForm instanceof Element) return;
+  var fields = elForm.querySelectorAll('input, select, textarea'),
+    o = {};
+  for (var i=0, imax=fields.length; i<imax; ++i) {
+    var field = fields[i],
+      sKey = field.name || field.id;
+    if (field.type==='button' || field.type==='image' || field.type==='submit' || !sKey) continue;
+    switch (field.type) {
+      case 'checkbox':
+        o[sKey] = +field.checked;
+        break;
+      case 'radio':
+        if (o[sKey]===undefined) o[sKey] = '';
+        if (field.checked) o[sKey] = field.value;
+        break;
+      case 'select-multiple':
+        var a = [];
+        for (var j=0, jmax=field.options.length; j<jmax; ++j) {
+          if (field.options[j].selected) a.push(field.options[j].value);
+        }
+        o[sKey] = a;
+        break;
+      default:
+        o[sKey] = field.value;
+    }
+  }
+ // alert('Form data:\n\n' + JSON.stringify(o, null, 2));
+ document.getElementById('parseme').value = JSON.stringify(o, null, 2);
+//  return o;
+}
+
+function populateForm(o) {
+
+o =  JSON.parse(document.getElementById('parseme').value);
+ //if (!isObject(o)) return;
+if (!isObject(o)) return;
+  for (var i in o) {
+    var el = document.getElementById(i) || document.querySelector('[name=' + i + ']');
+    if (el.type==='radio') el = document.querySelectorAll('[name=' + i + ']');
+    switch (typeof o[i]) {
+      case 'number':
+        el.checked = o[i];
+        break;
+      case 'object':
+        if (el.options && o[i] instanceof Array) {
+          for (var j=0, jmax=el.options.length; j<jmax; ++j) {
+            if (o[i].indexOf(el.options[j].value)>-1) el.options[j].selected = true;
+          }
+        }
+        break;
+      default:
+        if (el instanceof NodeList) {
+          for (var j=0, jmax=el.length; j<jmax; ++j) {
+            if (el[j].value===o[i]) el[j].checked = true;
+          }
+        } else {
+          el.value = o[i];
+        }
+    }
+  }
+    Fixfields();
+	 restoreheader();
+
+
+
+}
+
+function SaveData() {
+	
+			formDataToObject(document.getElementById('myform'))
+			saveTextAsFile();
+			
+			//saveTextAsFile();
+			}
+
+//-------
+ function readBlob(opt_startByte, opt_stopByte) {
+  
+    var files = document.getElementById('files').files;
+    if (!files.length) {
+      alert('Please select a file!');
+      return;
+    }
+
+    var file = files[0];
+    var start = parseInt(opt_startByte) || 0;
+    var stop = parseInt(opt_stopByte) || file.size - 1;
+
+    var reader = new FileReader();
+
+    // If we use onloadend, we need to check the readyState.
+    reader.onloadend = function(evt) {
+      if (evt.target.readyState == FileReader.DONE) { // DONE == 2
+        document.getElementById('byte_content').textContent = evt.target.result;
+        document.getElementById('byte_range').textContent = 
+            ['Read bytes: ', start + 1, ' - ', stop + 1,
+             ' of ', file.size, ' byte file'].join('');
+      }
+    };
+
+    var blob = file.slice(start, stop + 1);
+    reader.readAsBinaryString(blob);
+  }
+    	
+  window.onload = function () { 
+ 
+ //Check the support for the File API support 
+ if (window.File && window.FileReader && window.FileList && window.Blob) {
+    var fileSelected = document.getElementById('txtfiletoread');
+	
+    fileSelected.addEventListener('change', function (e) { 
+         //Set the extension for the file 
+         var fileExtension = /text.*/; 
+         //Get the file object 
+         var fileTobeRead = fileSelected.files[0];
+        //Check of the extension match 
+         if (fileTobeRead.type.match(fileExtension)) { 
+             //Initialize the FileReader object to read the 2file 
+			
+             var fileReader = new FileReader(); 
+             fileReader.onload = function (e) { 
+                 var fileContents = document.getElementById('filecontents'); 
+                
+				document.getElementById('parseme').value =fileReader.result;
+				populateForm(obj = document.getElementById('parseme').value);
+					 } 
+             fileReader.readAsText(fileTobeRead); 
+         } 
+         else { 
+             alert("Please select text file"); 
+         }
+ 
+    }, false);
+} 
+ else { 
+     alert("Files are not supported"); 
+ } 
+ Fixfields();
+ restoreheader();
+ Checkifinbrowser()
+ }
+ 
+ function Fixfields() { 
+ AutoGrowTextArea(document.getElementById("Reason"));
+AutoGrowTextArea(document.getElementById("VHFFreq"));
+AutoGrowTextArea(document.getElementById("UHFFreq"));
+AutoGrowTextArea(document.getElementById("otherinfo"));
+}
+
+function restoreheader() {
+head =document.getElementById('Status').value;
+setheader (head); }
+
+function Checkifinbrowser() {
+ var x= document.getElementById("testCall").value; 
+ var n = x.search("{Msg");
+ if (n>-1) { 
+ document.getElementById('Submit').style.visibility='hidden';
+  alert('You are running this form outside of Winlink.\n \nWhen you have completed the form, SAVE the data and then give or send the SAVED data file to the radio operator. The operator will load the SAVED data into the correct form and send via winlink. ');
+ } else {document.getElementById('Submit').style.visibility='visible';  }
+}
+
+</script></head>
+<body>
+
+<div style="text-align: center;">
+<form  style="font-family: Arial;" pbzloc="3" onsubmit="return confirm('To complete your form submission, click OK and close the open browser window. You will return to the new message window so you can post your message to the outbox');" method="post" id="myform" enctype="multipart/form-data" action="http://{FormServer}:{FormPort}">
+<table style="width: 1034px; " align="center" border="0">
+<tbody>
+<tr>
+<td>
+<table height="871" border="3" cellpadding="5" cellspacing="0" bordercolor="#999999" style="font-size: 14px; width: 877px; height: 888px;">
+<tbody>
+<tr>
+<td colspan="2" bgcolor="#dee9f9" style="height: 15%; vertical-align: top; text-align: center; ">
+  <table width="100%"  border="1" align="center" cellpadding="4" cellspacing="0" bordercolor="#dee9f9">
+      <tr>
+        <td><div align="center"><small><b><big>- - - -&nbsp;&nbsp;&nbsp;<span  id="SubjectText1">ARES EXERCISE</span>&nbsp;&nbsp;&nbsp;- - - -</big></b></small></div></td>
+        <td><div align="center"><small><b><big>- - - -&nbsp;&nbsp;&nbsp;<span  id="SubjectText2">ARES EXERCISE</span>&nbsp;&nbsp;&nbsp;- - - -</big></b></small></div></td>
+        <td><div align="center"><small><b><big>- - - -&nbsp;&nbsp;&nbsp;<span  id="SubjectText3">ARES EXERCISE</span>&nbsp;&nbsp;&nbsp;- - - -</big></b></small></div></td>
+      </tr>
+  </table>
+ <p align="center" ><small><big><span class="style1"><big><span class="style2"><big>OREGON
+    </big><span style="font-style: italic;">Activation - Deactivation Report</span></span></big></span></big></small><span class="style2" style="font-weight: bold; font-style: italic;">&nbsp;</span> 
+ <p align="center" ><input type="button" value="Load OR Activation - Deactivation data" onclick="document.getElementById('txtfiletoread').click();" />
+  <input type="file" id="txtfiletoread" accept=".txt"  style="display: none;"/>  
+ <p align="left" ><small><b>
+      <select size="1" name="Status"  id="Status" onchange="setheader(this.value)";>
+        <option>ARES EXERCISE</option>
+        <option>REAL EVENT</option>
+        <option>OEM TRAINING EXERCISE</option>
+      </select>
+      </b><small><big><span class="style1"><big><span class="style2"><big> <small><big><big><big>&nbsp;</big></big></big></small> <small><big><big><big>&nbsp;</big></big></big></small> <small><big><big><big>&nbsp;</big></big></big></small><span class="style3"><b>
+      Report Type:</b></span></big></span></big></span></big></small>
+      <input name="Type" type="radio" value="ACTIVATION" checked="checked" />
+      <strong>Activation</strong>      
+      &nbsp;&nbsp;
+      <input name="Type" type="radio" value="DEACTIVATION" />
+      <strong>Deactivation</strong> <br />
+    </small></p></td>
+</tr>
+<tr pbzloc="3">
+<td colspan="2" style="text-align: center; vertical-align: top;"><div align="left">OERS Incident Name &amp; Number: 
+  <input name="Incidentname" type="text" id="Incidentname" size="90" placeholder="Incident name and OERS #, if issued" required/>
+<textarea name="parseme" cols="60" id="parseme" style="display: none;"></textarea> </div></td>
+</tr>
+<tr pbzloc="3">
+  <td colspan="2" nowrap="nowrap" style="text-align: center; vertical-align: top;"><div align="left">
+    <p>1. Requester: 
+      <input name="Requester" type="text" id="Requester" size="50" maxlength="58" placeholder="Name of Requesting Official" required />
+       &nbsp; &nbsp; &nbsp; 2. Position: 
+      <input name="Position" type="text" id="Position" size="45" placeholder="Title or Position of requester" required/>
+    </p>
+    </div></td>
+</tr>
+<tr pbzloc="3">
+  <td colspan="2" style="text-align: center; vertical-align: top;"><div align="left">3. Agency: 
+    <input name="Agency" type="text" id="Agency" size="45" placeholder="Requesting Agency" required/>
+&nbsp;&nbsp;&nbsp;    4. Jurisdiction: 
+<input name="jurisdiction" type="text" id="jurisdiction" size="45" placeholder="City, County, Tribe"/>
+  </div></td>
+</tr>
+<tr pbzloc="3">
+  <td colspan="2" style="text-align: center; vertical-align: top;"><div align="left">5. Time, Date of Activation: 
+    <input name="Thedatetime" type="text" id="Thedatetime" placeholder="Click for Date/Time" onclick="SetDateTime('fulldatetime',this.id)"/>
+  </div></td>
+</tr>
+<tr pbzloc="3">
+  <td colspan="2" style="text-align: center; vertical-align: top;"><div align="left">6. Reason for Activation:<br />
+    <textarea name="Reason" cols="130" rows="2" id="Reason" plceholder="Nature of event"onkeyup="AutoGrowTextArea(this)" onchange="this.value=RWS(this.value)"></textarea>
+  </div></td>
+</tr>
+<tr pbzloc="3">
+  <td colspan="2" style="text-align: center; vertical-align: top;"><div align="left">7. Expected Duration of Activation: 
+    <input name="Duration" type="text" id="Duration" size="40" />
+  </div></td>
+</tr>
+<tr pbzloc="3">
+  <td colspan="2" style="text-align: center; vertical-align: top;"><div align="left">8. Station Type: 
+    <select name="StationType" id="StationType">
+      <option selected="selected">EOC</option>
+      <option>Alt-EOC</option>
+      <option>COOP</option>
+      <option>Field Station</option>
+    </select>
+    </div></td>
+</tr>
+<tr pbzloc="3">
+  <td colspan="2" style="text-align: center; vertical-align: top;"><div align="left">9. Call sign used for Voice is:
+    <input name="VoiceCall" type="text" id="VoiceCall" />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Call sign for Data is:
+    <input name="DataCall" type="text" id="DataCall" />
+  </div></td>
+</tr>
+<tr pbzloc="3">
+  <td colspan="2" style="text-align: center; vertical-align: top;"><div align="left">10. Station Physical Location: 
+    <input name="Location" type="text" id="Location" size="70" />
+  </div></td>
+</tr>
+<tr pbzloc="3">
+  <td width="449" valign="top" style="text-align: center; vertical-align: top;"><div align="left">11. VHF Frequencies<br />
+    <textarea name="VHFFreq" cols="60" rows="2" id="VHFFreq" placeholder="List frequency, offset, access tone, Voice or data" onkeyup="AutoGrowTextArea(this)" onchange="this.value=RWS(this.value)"></textarea>
+  </div></td>
+<td width="404" valign="top" style="text-align: center; vertical-align: top;"> <div align="left">12. UHF Frequencies <br />
+      <textarea name="UHFFreq" cols="60" rows="2" id="UHFFreq" placeholder="List frequency, offset, access tone, Voice or data" onkeyup="AutoGrowTextArea(this)" onchange="this.value=RWS(this.value)"></textarea>
+</div></td>
+</tr>
+<tr pbzloc="3">
+  <td colspan="2" style="text-align: center; vertical-align: top;"><div align="left">
+    <p>13. HF Frequencies:<br />
+&nbsp;
+&nbsp;
+&nbsp;
+<input name="hf1f" type="hidden" id="hf1f" />
+<input name="hf1" type="checkbox" id="hf1" value="YES" onclick="Flip('hf1f', 'YES')"/ />      
+Primary 3964 kHz +/- 5 kHz LSB Voice<br />
+      &nbsp; &nbsp; &nbsp;
+      <input name="hf2f" type="hidden" id="hf2f" />
+      <input name="hf2" type="checkbox" id="hf2" value="YES"  onclick="Flip('hf2f', 'YES')" />
+      Secondary 7248 kHz +/- 5 kHz LSB Voice<br />
+      &nbsp; &nbsp; &nbsp;
+      <input name="hf3f" type="hidden" id="hf3f" />
+      <input name="hf3" type="checkbox" id="hf3" value="YES"  onclick="Flip('hf3f', 'YES')"/>
+      Data Frequencies as chosen by Winlink Express<br />
+      &nbsp; &nbsp; &nbsp;
+      <input name="hf4f" type="hidden" id="hf4f" />
+      <input name="hf4" type="checkbox" id="hf4" value="YES" onclick="Flip('hf4f', 'YES')" />
+      FEMA Channels 5330.5 kHz Dial Frequency USB Voice<br />
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  Local frequency: 
+        <input name="Local" type="text" id="Local" size="60" />
+    </p>
+    </div></td>
+</tr>
+<tr pbzloc="3">
+  <td colspan="2" style="text-align: center; vertical-align: top;"><div align="left">
+    <p>14. Winlink (Amateur Service) E-Mail traffic will be monitored at least
+        <input name="w2lkcheck" type="text" id="w2lkcheck" value="2" size="3" />    
+        times per hour with acknowledgments.</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SHARES E-Mail traffic will be monitored at least
+      <input name="Sharescheck" type="text" id="Sharescheck" value="0" size="3" />
+times per hour with acknowledgments.</p>
+  </div></td>
+</tr>
+<tr pbzloc="3">
+  <td colspan="2" style="text-align: center; vertical-align: top;"><div align="left">15. SHARES Calls in use: 
+    <input name="SHAREScalls" type="text" id="SHAREScalls" size="120" />
+  </div></td>
+</tr>
+<tr pbzloc="3">
+  <td colspan="2" style="text-align: center; vertical-align: top;"><div align="left">16. Number of Operators at Station Location:
+    <input name="numoperators" type="text" id="numoperators" size="3" />
+  </div></td>
+</tr>
+<tr valign="top" pbzloc="3">
+  <td colspan="2" style="text-align: center; vertical-align: top;"><div align="left">17. Other Information:<br /> 
+    <textarea name="otherinfo" cols="90" rows="2" id="otherinfo" onkeyup="AutoGrowTextArea(this)" onchange="this.value=RWS(this.value)"></textarea>
+  </div></td>
+</tr>
+<tr pbzloc="3">
+  <td colspan="2" style="text-align: center; vertical-align: top;"><div align="left">18. Authorizing Signature and Title:
+    <input name="Signature" type="text" id="Signature" size="60" placeholder=" Name and Title" required />
+  </div></td>
+</tr>
+<tr valign="top">
+<td colspan="2" style="text-align: center; background-color: white;"><div align="left">
+  <p>19. Operator Issuing Message:<span style="font-style: italic;">
+    <input name="OpName" type="text" id="OpName" size="50" placeholder="Name, Call" required />
+</span></p>
+  </div></td>
+</tr>
+<tr>
+<td height="41" colspan="5" s vertical-align: top; text-align: justify;">
+  <div align="left"><small>
+        <span class="formtext"><span style="font-family: Calibri;"><small><big><big><small><span style="font-family: Calibri;">
+        <input type="button" value="Save OR Activate-Deactivate data "  style="color: blue;"onclick="SaveData()" />
+        </span>&nbsp;&nbsp;</small></big></big></small></span></span>
+        <input class="SubmitBtn" enctype="multipart/form-data" id="Submit" method="Post" name="Submit" size="8" style="height: 28px;  color: green;" value="Submit" type="submit" /> 
+      &nbsp;</small>
+      <input class="BtnFormat2" value="Reset Form " name="ResetForm" style="color: rgb(204, 0, 0);" type="reset" />
+      <b>
+      <input name="testCall" type="hidden" id="testCall" value="{MsgSender}" size="14" maxlength="13" />
+      <input name="Templateversion" type="hidden"
+
+                                    id="Templateversion" value="Oregon Activate-Deactivate v 7.2" />
+      </b></div></td>
+</tr>
+</tbody>
+</table>
+<br />
+<small>&nbsp;</small></td>
+</tr>
+</tbody>
+</table>
+</form>
+</div>
+</body></html>

@@ -1,0 +1,92 @@
+@(#) $Id: TIPS.txt,v 1.1.1.1 2001/12/17 01:15:55 dl9sau Exp $
+
+- How to connect tnn/xnet hosts which login to unix via ax25 to our unix
+  shell?
+  use the axconv utility
+
+- How to connect a permlink using TNT via unix sockets and wampes-compatible 
+  command set? - thanks to the db0sgl team for this example
+
+
+ppconversd.conf:
+----------------
+# Allowed unix path to unix sockets (each line specifies one matching unix path)
+unix_sockets unix:/afu/convers/sockets/
+# Parameters:   <Remote_host>   <remote_address:port>   [primary_link]	[first line\nsecond line]
+Link            db0bid        unix:/afu/convers/sockets/socket db0bid "connect ax25 db0bid-7"
+
+autostrt.tnt:
+-------------
+# incoming connection to our AX25-call db0sgl-5. we'll gate it to our
+# local convers-server port 3600
+db0sgl-5 socket *:3600
+
+tnt.up:
+-------
+# define a wampes compatible unix socket, where tnt will listen for
+# conversd's active permlink connections. our outgoing call will be db0sgl-6
+socket netcmd unix:/afu/convers/sockets/socket db0sgl-6
+autost on
+remote on
+setacc socket always
+
+routes.tnt defines the ax25-path to a remote site. in our example,
+we need to specify the path to db0bid-7.
+
+
+- another example:
+
+Listening on an ax25 unix Socket (as referred in the conversd.conf example):
+  Listeners ax25:db0fho-11,db0fho-10
+waits on the unix device with the call db0fho-10 as call db0fho-11 for
+incoming connections.
+You must add this socket to the accesslist (further down in conversd.conf):
+Access          ax25:*  USER
+
+If you like the user to join (/name) with the same call as he's connected
+to conversd (ax25-call without SSID), you may say instead
+Access          ax25:*  USER RESTRICTED
+This is not the default, because i believe in the user that knows
+what he does..
+
+---
+
+Imagine you have ax25d running, but not configured Listener ax25:....,
+and you'd like to give special (trusted) ax25 source calls access to
+connect to wconversd (say db0lj-11) as HOST (permlink).
+
+1. Add a new listener for trusted users
+Listener unix:/var/cache/conversd/.sockets/wconvers
+chown daemon.permlink /var/cache/conversd/.sockets/
+chmod 770 /var/cache/conversd/.sockets/
+["daemon", when you installed your conversd as user daemon]
+
+2. Change your wconversd.conf
+Access unix:/var/cache/conversd/.sockets/	HOST
+Access unix:/var/cache/conversd/sockets/	USER
+
+3. Then put in your ax25d.conf:
+db0sgl-1  * * * * * * - daemon /usr/local/bin/rawconvers rawconvers -s unix:/var/cache/conversd/.sockets/wconvers
+[rawconvers needs not to be run under root - if you considered the permission
+concept in 1.) ]
+
+Note that this requres rawconvers to be compiled with -DNO_IOCTL; this
+is, because rawconvers becomes a direct child of ax25d and has no controlling
+tty. Please DO NOT compile rawconvers whith the shell extension option.
+
+--
+
+//COMP compression is used by many terminals.
+some software like tnt has it's own comp code. use it.
+axspawn does EOL conversion. thus it's not binary compatible (that's why
+ax25->tnt->conversd will not work with conversd's built-in compression)
+
+do not use compression on permlinks. the design of //COMP will not compress
+"binary" data. conversd link commands are considered as binary. so the
+packets will not be compressed.
+
+compression on TCP may have strange results, if the MTU us smaller than
+the length of the compressed packet (256 bytes max). tcp on ampr is almost
+smaller (216, if you don't like tcp fragmentation).
+that's why //COMP will be only useful for ax25 sockets.
+

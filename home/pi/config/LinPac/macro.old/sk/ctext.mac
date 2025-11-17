@@ -1,0 +1,11 @@
+LinPac verzia %V kanal %K
+Napis //I pre info, //H pre vypis prikazov.
+
+:IF %(exist STN_NICKNAME) = 1
+Ahoj, %STN_NICKNAME !
+:ELSE
+Ahoj, %N !
+:ENDIF
+:IF %A >= 120
+Operator bol aktivny pred %A sekundami. Skus //B ak neodpoveda.
+:ENDIF

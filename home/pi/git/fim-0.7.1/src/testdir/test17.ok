@@ -1,0 +1,22 @@
+List/limit test: BEGIN.
+first list ok
+pushed list ok
+after-remove list ok
+after-remove list len ok
+9
+9
+limited list ok
+reverse list ok
+sorted list ok
+cleared list ok
+last list ok
+cleared list ok
+cleared list len ok
+2.pcx
+7.pcx
+dumpmarked quiet -- ok
+unmarkall quiet -- ok
+TODO -- why: marked 0 files
+ ?
+pushdir list ok
+List/limit test: DONE.

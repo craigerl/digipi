@@ -1,0 +1,20 @@
+Usage:
+
+To display this help:
+   rmsgw_aci -h
+
+Normal usage:
+   rmsgw_aci [ -c configfile ] [ -l logmask ]
+
+The rmsgw_aci program is normally run every 30 minutes  from cron
+(please choose an arbitrary minute (and its +30) to run, as opposed
+to running right on each hour and half hour).
+
+The crontab entry (for the rmsgw user) will look like:
+19,49 * * * * /usr/local/bin/rmsgw_aci >/dev/null 2>&1
+
+See the rmsgw_aci man page for more information.
+
+The auto check in involves updating availablity in the Winlink 2000
+system for each defined and active channel found in
+/usr/local/etc/channels.xml.

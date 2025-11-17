@@ -1,0 +1,52 @@
+Form: Hospital_Bed_Report_Initial.html,Hospital_Bed_Report_Viewer.html
+
+To:
+Subject: <var Title> Hospital Bed Report-<var Facility>-<var Time1>
+	
+Msg:  
+For Jurisdication or Group: <var Title>
+   
+REPORTING FACILITY: [<var Facility>]
+As of Time: <var Time1>
+Date: <var Date>
+
+Contact Person: <var Contact>
+Phone Number: <var Phone>
+Email: <var Email>
+
+   TYPE            Available Beds       Notes       
+------------------------------------------------------------------
+
+Emergency Beds [ <var B1> ]   <var Note1> 
+
+Pediatrics [ <var B2> ]   <var Note2>
+
+Medical/Surgery [ <var B3> ]  <var Note3>
+
+Psychiatry [ <var B4> ]  <var Note4>
+
+Burn [<var B5>]  <var Note5>
+
+Critical Care [ <var B6> ]  <var Note6>
+
+<var OtherType2> [ <var B7> ]  <var Note7>
+
+<var OtherType3> [ <var B8> ]  <var Note8>
+
+TOTAL AVAILABLE: <var TotalBeds>
+
+-------------------------------------
+
+Comments: <var Comments>
+------------------------------------
+
+Express Sending Station: <MsgSender>
+Senders Express Version: <ProgramVersion>
+Senders Template Version: <var Templateversion>
+
+
+
+
+
+
+

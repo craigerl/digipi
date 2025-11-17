@@ -1,0 +1,10 @@
+
+  - Edit Makefile (directories, COPTS)
+  - make
+  - make install  (to install the binary and create directories)
+  - make install-conf (to install the default configuration)
+  - Edit the installed convers.conf
+  - run it (as root, or the owner specified in Makefile)
+
+
+

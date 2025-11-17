@@ -1,0 +1,828 @@
+# @(#) $Id: convers.help.de,v 1.5 2005/02/14 01:19:19 dl9sau Exp $
+# This is the help file for Tampa PingPong convers/conversd 
+# by Brian A. Lantz/KO4KS <brian@lantz.com> (V1.22)
+# Mods by Tony Jenkins G8TBF Jan 2000; None-existant commands removed
+# & some text clarified. (Conatct: g8tbf@nndg.org)
+#
+# Deutsche Uebersetzung vom 25.10.2001 von Jens <dh6bb>
+# Das Format:
+#	Alle Zeile die mit ':' anfangen sind ID Zeilen, die zeigen zu welchen
+#	Betreff sie gehoeren. Mehrfach Betreffs sind durch ':' getrennt.
+#	Alle anderen Zeilen zeigen die Antwort auf eine Suche nach einem Betreff.
+#
+#	Bei einem '/help' Kommando ohne weiterem Parameter wird die erste Zeile
+#	aller Betreffs gezeigt.
+#	In the case of a '/help' command with no query subject, the first
+#	line of all subjects (including to subject ID '*'), will be
+#	displayed.
+#
+# Achtung - Syntax:
+# /<Befehl>-Zeilen max. 79 Zeichen,
+# Text-Info-Zeilen sollten max. 77 Zeichen lang sein!
+# statt mit TABS mit Blanks formatieren
+#
+:*
+Die Kommandos koennen abgekuerzt werden indem man alle nicht gross
+:*
+geschriebenen Buchstaben im Kommando weglaesst.
+:*
+Parameter in "[]" sind optional. 
+:*
+(Die [] (eckigen Klammern) nicht mitschreiben!)
+:*
+- z.B. fuer /NIckname [name] einfach /Nickname gefolgt von Deinem Namen.
+:*
+Hinweis: Kommandos die mit einem "*" gekennzeichnet sind, sind nur fuer 
+:*
+         Sysops zugaenglich.
+:?:help
+/?                      zeigt eine kurze Zusammenfassung der moeglichen Befehle
+:*
+:away
+/Away [text]            setzt Dich auf Status 'abwesend' bzw. 'zurueck'
+
+Setzt den Abwesenheitstext, den die anderen lesen koennen. Beim Aufruf ohne
+Argument wird der Text geloescht und man gilt wieder als anwesend. 
+:action:me
+/ACtion text            schreibt einen Aktionstext auf den Kanal
+:all
+/ALl text               Text an alle User Deines Kanals
+
+Wenn Du im /query Modus bist, wird Text mit vorangestelltem /all behandelt,
+als wuerdest Du ohne /query arbeiten. D.h. die eingegebene Zeile wird
+auf den aktuellen Kanal gesendet.
+:auth
+/AUth [sys|md5] [pass]  Auth macht den Passwort-Check waehrend des Logins
+
+Wenn "pass" als Passwort nicht angegeben ist, wird das Passwort mit der
+naechsten Zeile eingelesen. Ist sys oder md5 angegeben, wird der weit
+verbreitete sys- bzw. md5-Standard verwendet (um die Uertragung des
+Passworts im Klartext zu vermeiden).
+Das Passwort kann auch in einer laengeren Zeichenkette versteckt sein
+(Baycom-Style).
+Die zuletzt gewaehlte Auth-Methode wird auf dem Server gespeichert und beim
+naechsten Login automatisch gewaehlt. Mit /auth laesst sich aber auch
+jeder zeit eine der anderen Methoden waehlen.
+:banlist
+/BAnlist [- n1 ..]      zeigt die Liste derzeit gebannter Nutzer
+
+Die Banlist ist die Liste der derzeit gebannten Nutzer.
+Ein Sysop kann einen Eintrag aus der Liste der auf dem lokalen Knoten 
+gebannten loeschen mit "/banlist - name1 [name2 ..]"
+:banparm
+/BANParm                zeigt / aendert die Flood- / Ban-Konfiguration
+
+Dieser Befehl zeigt die aktuelle Flood- / Ban-Konfiguration.
+:beep:bell
+/Beep                   Beep-Modus an/aus
+:beep:bell
+/BELl                   Beep-Modus an/aus 
+
+Hiermit wird das Klingelzeichen (^G), welches vor jeder Mitteilung gesendet
+werden kann, ein- oder ausgeschaltet. Diese Kommando ist eigentlich eine
+Untermenge des /prompt Befehls, siehe dort.
+:bye:exit:quit
+/BYe  [arg]             beendet die Convers-Sitzung
+#:bjack
+#/BJack                 eine Runde Black-Jack
+:channel:join
+/Channel [n]            wechselt auf den Kanal n
+:charset
+/CHARset [in [out]]     aendert den Zeichenwandler (Voreinstellung ANSI)
+
+/CHARset ? zeigt eine Uebersicht ueber alle verfuegbaren Zeichensatzwandler
+Mit diesem Befehl kannst Du dem Convers mitteilen, welche Zeichensatzwandlung
+Du haben moechtest. Die Syntax ist "/char [In-Typ [Out-Typ]]".
+Wenn Du z.B. mit einem Atari ST arbeitest, koenntest Du "/char atari"
+eingeben. Wenn Du einen PC benutzt und Umlaute im TeX-Stil schreiben 
+moechtest, gebe "/char tex pc" ein, "/char ?" listet die Moeglichkeiten auf.
+Spiel ruhig ein bisschen mit dieser Funktion.
+#:cq
+#/CQ [text]              sendet einen allgemeinen Anruf an alle User
+#
+#Ein Aufruf dieses Befehl sendet etwa folgende Zeile:
+#
+#    *** callsign@hostname channel xx calling CQ [topic]'
+#
+#wobei 'xx' Deine derzeitige Kanalnummer ist. 'topic' ist ein optionaler
+#Text. Dieser Text wird wie ein normaler Convers-Text an alle User auf allen
+#Kanaelen ausgegeben.
+#:cut
+#/CUt                    Simulates the cutting of a card deck/displays result
+#Simulates the cutting of a deck of cards and displays selected card.
+:chinfo
+/CHInfo [channel]       gibt eine detaillierte Beschreibung ueber den Kanal
+
+Der CHInfo Befehl gibt eine detaillierte Beschreibung ueber den Kanal (wer 
+ihn wann aufgemacht hat, ueber das Topic, wann zuletzt Betrieb war etc..)
+Mit channel "*" wird eine Liste aller Channels ausgegeben.
+:cron 
+/CRon [add..|list|-]    aendert die Liste der Cronjobs bzw. die Crontab
+
+Cronjobs werden periodisch ausgefuehrt.
+Ein neuer Cronjob wird mit "/cron add n m command.." hinzugefuegt wobei 'n'
+das Interval (in Minuten) ist und 'm' angibt wie oft der Befehl ausgefuehrt 
+wird. Ist 'm' 0, wird der Job immer ausgefuehrt.
+Beispiel: "/cron add 10 3 /invite dl9sau@db0tud" wird den /invite-Befehl 
+alle 10 Minuten und insgesamt 3 Mal ausfuehren.
+"/cron" oder "/cron list" gibt die Liste der vorhandenen Cronjobs aus.
+Geloescht werden kann z.B. Job Nr. 2 mit "/cron delete 2" oder "cron - 2".
+Mit "/cron -" oder "/cron delete" wird die komplette Crontab entfernt.
+Beachte, dass die Crontab derzeit nicht in der /profile gespeichert wird.
+Ein Operator kann Cronjobs anderer User loeschen: "/cron ~ ha1ck -" entfernt
+die Crontab fuer User ha1ck. Ist User ha1ck mehrfach im convers, versuche 
+"/cron ~ ha1ck/1 -", "/cron ~ ha1ck/2 -", etc..
+Ohne "USER/NUMMER" wird Nummer = 1 angenommen.
+:cstat
+/CStat                  zeigt Informationen ueber Links und Ziele
+:destinations:hosts
+/Destinations           listet erreichbare Ping-Pong Knoten
+:bye:exit:quit
+/Exit [arg]             beendet die Convers-Sitzung
+:echo
+/ECho [text]            spielt 'text' zurueck
+
+Mit /echo kann z.B. die Link-Zeit getestet werden. Der (optionale) Text 
+wird zurueckgesendet.
+Beachte: Dich koennte auch das /rtt Kommando interessieren.
+:exclude:imsg:iwrite
+/EXClude user text      sendet Text an Alle auf Deinem Kanal ausser User
+:filter:ignore
+/Filter [off|<users>]   filtert Nachrichten von bestimmten Rufzeichen
+
+Die Filter-Funktion aktiviert einen Nachrichten-Filter gegen bestimmte
+nervtoetende Rufzeichen. <users> ist eine Liste von Calls, durch Leerzeichen
+getrennt. "/filter" ohne Argument zeigt den momentanen Filter-Status an. 
+"/filter off" bzw. "/filter -" oder "/filter @" deaktiviert den Filter. 
+Nutzer die keinen (entsprechenden) Filter gesetzt haben, erhalten natuerlich
+weiterhin die Texte der Dich stoerenden Person. 
+Der Status wird in der /profile gespeichert.
+:filterwords
+/FILTERWords [off|wort] filtert Woerter
+
+Die FilterWords-Funktion filtert Text aus, der die angegebenen Worte 
+enthaelt.
+:filtermsgs
+/FILTERMsgs [arg]       filtert "Private" oder "Channel-Nachrichten"
+
+Filtermsgs erlaubt es, bestimmte "private" oder "channel messages" die an 
+Dich gerichtet sind abzuschalten.
+Die Werte sind bitweise ver-ODERt, um auszublenden:
+  private msgs von  1: usern  4: conversd
+  channel           2: usern  8: conversd
+Ein Wert von 0 schaltet den Filter ab (Voreinstellung).
+Conversd messages sollten nur im Notfall abgeschaltet werden.
+"/Filtermsgs" ohne Argument zeigt den aktuellen Status. 
+Der Status wird in der /profile gespeichert.
+:halt
+/HAlt                   haelt den Convers-Server an - nur fuer Sysops
+
+Das halt-Kommando ist ein spezieller Sysop-Befehl welcher einen verwirrt
+oder fehlerhaft reagierenden Server anhaelt.
+Wenn conversd gestarted wurde
+  - als standalone daemon, wird der convers service beendet,
+  - via inittab, wird ein neuer conversd Prozess durch inittab gestartet.
+s.a. "/REStart"
+:help:?
+/Help [command]         gibt Hilfe-Information zu "command"
+
+Der Hilfebefehl kann von zusaetzlichen Parametern begleitet werden. Du
+hattest bestimmt "/help help" eingetippt um dies hier zu sehen, richtig? :-)
+Der Schraegstrich darf hier nicht vor den fraglichen Kommandos stehen.
+Helpfile Version: $Revision: 1.5 $ / $Date: 2005/02/14 01:19:19 $
+:history
+/HIstory [-] [chan] [n] anzeigen / loeschen der Channel-History
+
+Mit dem /history Befehl lassen sich die letzten Messages auf dem Channel
+anzeigen (z.B. die bevor Du auf den Channel kamst).
+
+Ohne Argument bezieht sich /history auf den aktuellen Channel, mit Ausgabe
+der letzten 16 Zeilen. Meist sollte "/history" voellig ausreichen.
+
+chan kann ein beliebiger channel sein, auf dem Du sonst noch bist. chan '*'
+bezieht sich auf den aktuellen channel. chan 'all' benoetigt Sysop-Rechte.
+
+Das 3. Argument bezieht sich auf die Anzahl der Zeilen. Ohne Angabe des 
+Wertes n werden die letzten 16 Zeilen des Channels ausgegeben. 
+Mit n = 0 oder n = "all" wird jede gespeicherte Zeile ausgegeben.
+Mit n = -10 werden die letzten zehn Zeilen ausgegeben.
+Mit n = +5 werden die ersten fuenf Zeilen aus der Channel-History angezeigt.
+Durch n = 3 werden die _letzten_ drei Zeilen ausgegeben (weil das der wohl
+meistgenutzte Parameter ist).
+Channel "chan" kann weggelassen werden, wenn "/history +5" oder
+"/history -10" angegeben wird.
+
+Mit "/history -" oder "/history delete" kann die Historie des aktuellen
+channels geloescht werden. Mit "/history - 1" wuerde die Historie von
+channel 1 geloescht. 
+Beachte, dass zum Loeschen der Historie channel-op Rechte noetig sind.
+
+Auf 'invisible' und 'secret channels' gibt es keine Historie.
+
+Text, der aelter als n Stunden ist wird automatisch geloescht.
+Wann die Zeilen verfallen bzw. wie viele Zeilen gespeichert werden haengt von
+der Systemkonfiguration ab.
+Sind keine lokalen User mehr auf dem Kanal eingeloggt wird die history dieses
+Kanals nach einiger Zeit ebenfalls geloescht.
+:hushlogin
+/Hushlogin              Unterdrueckt ueberfluessigen Text beim login.
+
+Wenn die langen login Texte, user / channel Statistiken und die "motd"
+stoeren, dann lassen diese sich mit /hushlogin abschalten.
+Der aktuelle Status wird auf dem Server gespeichert.
+:destinations:hosts
+/HOsts                  listet erreichbare ping-pong Knoten
+
+Alle PingPong-Hosts die im Netzwerk verbunden sind werden angezeigt.
+Die Zahlen, die mit angezeigt werden sind die Antwortzeiten in Sekunden.
+:idle
+/IDle [n]               setzt die Zeit, nach der disconnected wird
+
+Bei /IDle 60 wird die Verbindung getrennt, wenn 60 Min. lang keine Eingabe
+mehr erfolgt ist. /Idle 0 schaltet den Timer aus. /Idle zeigt den Status
+des Idle-Timers (und aendert ihn dabei nicht).
+
+:filter:ignore
+/IGnore [off|<users>]   filtert User
+:exclude:imsg
+/IMsg user text         sendet Text an Alle auf Deinem Kanal ausser 'user'
+
+Dieses Kommando ist das Gegenteil des /msg Befehls. Hiermit sendest Du Text
+an alle User dieses Kanals ausser dem als ersten Parameter angegebenen User.
+Da der Text intern als privater Text an die Anderen verschickt wird, werden
+die Links etwas mehr belastet :-)
+:invite
+/Invite user [channel]  laedt 'user' auf (diesen) 'channel' ein.
+
+Eine Einladung wird an den genannten 'user' geschickt. Die Einladung wird 
+durch alle Convers-Nodes im Netz geschickt. Ist der 'user' auf einem
+anderen Kanal, kann er auf den privaten Kanal wechseln. Ist er auf einer
+Unixma schine online, bekommt er die Einladung via standard broadcast vom
+conversd.
+Er kann nicht direkt auf den privaten Kanal wechseln.
+
+Neu!
+- "user@host": Die Einladung wird nur an diesen Host geschickt.
+
+   user@host wird darauf antworten, wenn der User nicht auf dem Host
+   eingelogged ist (nicht bei alten Convers-Versionen).
+
+- "user@all" sendet die Einladung an jeden Host im Netzwerk, egal ob die
+   Einladung irgendwo erfolgreich ist. Dies ist nuetzlich, wenn ein User bei
+   vielen Hosts ist. Man bekommt evtl. mehrfache Antworten.
+   Beide Arten informieren Dich, wenn die Einladung nicht gesendet wurde.
+
+:irc
+/IRC                    schaltet zwischen IRC-Client und normalem convers mode
+
+Die Beschreibung hierzu ist momentan nur auf Englisch (/lang en) verfuegbar.
+
+:paclen
+/PAclen [n]             setzt die Paketgroesse zurueck bzw. setzt sie auf n
+
+Mittels /paclen laesst sich der Daten-Durchsatz auf die eigene Link-Guete 
+hin optimieren. Z.B. mit n = 120, wird die Paket-Groesse auf 120 Zeichen
+beschraenkt. Ohne "n" wird die aktuelle Paket-Groesse angezeigt.
+n = 0 setzt die Paket-Groesse auf einen sinnvollen Wert zurueck.
+
+:personal
+/PErsonal [text]        setzt eine persoenliche Beschreibung
+
+Eine typische Beschreibung wird z.B.: "/pers Fred, Buechig, JN49fb" gesetzt.
+Dieser Text wird fuer zukuenftige Sitzungen lokal gespeichert.
+
+User koennen diese Informationen mit "/who" (Syntax s. /help who) abrufen.
+
+:prompt
+/PRompt abcd            Prompt setzen a=Query b=Normal c=ctrl-g d=ctrl-h
+
+Das prompt-Kommando besteht aus bis zu vier Unterbefehlen.
+"/prompt abcd" setzt a fuer ein Query, b fuer ein 'standard prompt'. 
+"d" ist der Buchstabe zum Entfernen des Prompt und "c" wird angezeigt, 
+wann immer ein Text an Dich gesendet wird. Normalerweise machst
+Du "c" mit einem Control-G (piep) und "d" als Backspace oder Delete 
+(control-h oder 0x7f).
+Mit "/prompt", "/prompt -", or "/prompt off" wird der Prompt
+auf den Normalzustand zurueckgesetzt.
+
+:channel:join
+/Join [n]               verbindet zusaetzlich mit dem Kanal n
+
+Verbindet Dich zusaetzlich mit dem gewuenschten Kanal. Im Gegensatz zu
+aelteren conversd-Implementationen, verbleibt man auch noch im bisherigen
+Kanal, denn es wird eine Mehrfach-Kanal-Verbindung unterstuetzt. Um einen
+Kanal zu verlassen, musst Du "/leave" verwenden.
+:language
+/LANguage [arg]         setzt / zeigt die derzeitige Sprache der Hilfe
+
+Dieses Kommando setzt/zeigt die derzeit verwendete Sprache. Wenn die
+gewuenschte Sprache nicht existiert, bekommst Du die "default" Hilfe-Datei,
+welche vom Standort des Convers-Servers abhaengen mag.
+"/lang reset" setzt auf diese Standard-Sprache zurueck.
+
+/Lang zeigt die derzeitige Einstellung.
+/Lang en macht Englisch zur derzeitigen Sprache.
+Du bekommst eine Liste bekannter/verfuegbarer Sprachen mit "/lang ?".
+:last
+/LASt [-n] user[,..]    wann wurde ein Nutzer das letzte Mal gesehen
+
+Der letze Login und Logout des genannten Users wird aus der lokalen
+Datenbank herausgesucht.
+Vielen Dank an W. Tremmel (<dh2paf@db0sao.ampr.org>, <tremmel@ira.uka.de>)
+fuer seine Arbeit an diesem Punkt.
+
+Mit "-n" laesst sich die Zahl der Eintraege pro User einschraenken: 1 (der 
+neueste) ist default; 64 Eintraege (auch als "-0" anzugeben) sind Maximum.
+
+:leave
+/LEave [channel]        verlassen des eingestellten oder default channel
+
+Die Eingabe dieses Befehls bewirkt das Verlassen des aktuellen oder
+angegebenen Kanals. Falls der eingegebene Kanal der letzte verbleibende
+ist, wird das Convers-Programm verlassen.
+
+Mit: "/leave 1 bis denne", wird der Kanal 1 verlassen und als Grund "bis
+denne" an alle anderen auf diesem Kanal ausgegeben. Man kann zur
+Bequemlichkeit auch * eingeben, damit ist der aktuelle Kanal gemeint.
+
+:links
+/LInks [-] [args]       listet oder setzt Links
+
+Der aktuelle Link-Status wird angezeigt. In der Standardversion, Host-Name,
+Link Status, Verbindungsantwortzeit, Nachbar revision codes und state time
+gefolgt von dem Zeitpunkt des naechsten Versuches und Anzahl der Versuche
+von disconnecteten oder connecteten Links werden angezeigt. Verbundene 
+Links zeigen ihre Warteschlangen-Laenge und absolute Sende-Statistik.
+
+Wenn Du Sysop bist, dann moechtest Du evtl. Links im laufenden Betrieb setzen
+oder loeschen. Die folgende detailierte Beschreibung ist nur fuer Sysops 
+interessant
+
+Einen Link hinzufuegen geschieht in etwa so:
+
+  "/l dc6iq-u 2 4 unix:/tcp/.sockets/netcmd connect tcp dc6iq 3600"
+
+  Mit diesem Kommando wird ein host "dc6iq-u" in die Gruppe 2 mit Qualitaet 4
+  aufgenommen. Der Link wird ueber WAMPES hergestellt.
+  Diese war eine ganze Zeit nicht moeglich wegen der Link Syntax wie unten:
+
+  anstelle dessen, verwende jetzt (dc6iq-u habe keinen Primary-Link):
+ 
+  "/l dc6iq-u 2 4 unix:/tcp/.sockets/netcmd dc6iq-u connect tcp dc6iq 3600"
+
+Neue Art: (rueckwaerts Kompatibilitaet, Qualitaet und Gruppe werden ignoriert)
+  "/l db0hdf 1 1 db0hdf.ampr.org:3600"               # primary
+  "/l db0fc 1 1 db0fc-u.ampr.org:3600 db0hdf"        # fallback fuer db0hdf
+  "/l db0fc 1 1 db0fc-1.ampr.org:3600 db0fc-u"       # fallback fuer db0fc-u
+  "/l db0zwi 1 1 db0zwi.ampr.org:3600"               # ein weiterer primary
+  "/l db0hht 1 1 db0hht.ampr.org:3600 db0hht"        # ein weiterer primary
+  "/l db0lpz 1 1 ax25:db0lpz-10 db0lpz"              # ein weiterer primary
+  "/l db0hdf 1 1 ax25:db0hdf-10 db0lpz foo\nfoo bar" # fallback fuer db0lpz
+
+Wie wir am letzten Beispiel sehen werden 'foo' und 'foo bar' an db0hdf
+gesendet nachdem der Link aufgebaut ist. Dies dient dazu, Kommandos an den
+Linkpartner zu senden - z.B. fuer das Verbinden oder den Start des Convers.
+Diese Parameter sind optional.
+
+Werden keine TCP-Port-Nummern angegeben wird der Default-Port genutzt.
+
+Existierende Eintraege werden automatisch geloescht.
+Ein Hinweis fuer UNIX-socket Nutzer:
+Aus Sicherheitsgruenden muss der Pfad der nutzbaren unix-sockets in der 
+conversd.conf angefuegt werden: "unix_sockets /tcp/.sockets/"
+
+Noch nicht implementiert:
+- netrom:db0nos
+
+Wenn Du einen bereits existierenden Link hinzufuegst, wird er automatisch
+durch die neuen Informationen ersetzt.
+
+Um einen Link zu loeschen, schreibe:
+  "/li - db0fc" entfernt Link zu db0fc
+  "/li - -"     entfernt alle Links in der Tabelle 
+  "/li - all"   entfernt alle Links in der Tabelle 
+
+Wenn bekannt ist, dass ein Host "loops" provoziert wenn er connected, kann
+er von Hand geblockt werden mit "/li ! db0dau" oder "/li lock db0dau".
+Solche Hosts werden als "Disc./locked!" in der Link-Liste angezeigt
+(achte auf das '!' Zeichen), welches andeutet, dass der Host administrativ
+geblockt wurde. 
+[Eine Alternative ist, den permlink socket als AUTH HOST zu konfigurieren,
+oder ein Passwort fuer den fehlkonfigurierten Host zu setzen:
+mit /mkpass new db0dau random]
+
+Ein existierender Link kann wie folgt ueberprueft werden:
+  "/li ? db0fc"
+Man erhaelt zusaetzliche Infos.
+
+Falls man die lange Liste aller Hosts haben moechte, ist  "/li long" der 
+Befehl Deiner Wahl, oder einfacher "/l l" ;)
+"static" weist auf einen permanenten Link hin, "learned" bedeutet, dass uns
+ein neuer Host connected hat. Bei statischen Links werden zusaetzliche
+Informationen angezeigt (Socket, connect Befehle, etc..)
+
+Mit "/link db0fc" wird die Link-Liste fuer db0fc angezeigt.
+Es gibt einige conversd's, die nur auf "/link @db0fc" reagieren, man sollte 
+also beide Varianten ausprobieren.
+Manche Convers antworten vielleicht auch auf einen "/link all" Befehl (wir 
+zum Beispiel).
+
+Mit der neuen Option "/li <" oder "/li acl" kann die Access-Liste geaendert
+werden. Das wird benoetigt, wenn in conversd.conf nur User-Verbindungen
+erlaubt wurden (Access 44.0.0.0/8 USER) und man einen neuen Link mit 
+'/li add ...' hinzufuegt und den laufenden conversd nicht restarten will.
+Die Syntax ist wie im Konfigurations-File conversd.conf:
+'/li < 44.128.0.1 HOST'. Die aktuelle ACL wird mit '/li <' ausgegeben.
+Derzeit koennen bestehende Eintraege dieser Liste nicht geloescht oder
+geaendert werden. Der neue Eintrag hat eine hoehere Prioritaet als bereits
+bestehende.
+
+Weil wir alle Menschen sind und die Syntax sehr kryptisch ist koennen wir
+auch sagen:
+
+  "/li add db0fc db0fc-u.ampr.org:3600 db0hdf" statt "/li db0fc ..."
+  "/li drop db0fc db0fc-u.ampr.org:3600 db0hdf" statt "/li - db0fc ..."
+  "/li del db0fc db0fc-u.ampr.org:3600 db0hdf" statt "/li - db0fc ..."
+  "/li lookup db0fc" statt "/li db0fc ..."
+  "/li list db0fc"   statt "/li long db0fc"
+  "/li reset db0fc"  setzt den Link zu db0fc zurueck.
+  "/li kill db0fc"   setzt den Link zu db0fc zurueck.
+  "/li ~ db0fc"      setzt den Link zu db0fc zurueck.
+  "/li ~ all"        setzt jeden Link in der Permlink-Liste zurueck.
+  "/li reset db0fc aus diesem Grund" setzt den Link zu db0fc zurueck,
+                     mit der Begruendung "aus diesem Grund".
+  "/li lock db0fc"   blockt den Link zu db0fc fuer 30 Minuten.
+  "/li ! db0fc"      blockt den Link zu db0fc fuer 30 Minuten.
+  "/li lock db0fc aus diesem Grund" blockt den Link zu db0fc fuer 30 Minuten,
+                     mit der Begruendung "aus diesem Grund".
+  "/li lock db0fc 60" blockt den Link zu db0fc fuer 60 Minuten.
+  "/li lock db0fc 60 aus diesem Grund" blockt den Link zu db0fc fuer 30
+                     Minuten, mit der Begruendung "aus diesem Grund".
+
+  add, drop, del, acl ..  koennen abgekuerzt werden.
+
+Im IRC-Client-Mode ist der /link Befehl andersweitig reserviert und daher 
+nur als "/clink" zugaenglich.
+:list
+/LISt [short]           listet alle Kanaele und ihre Themen
+
+Alle Kanaele, deren Thema (wenn gesetzt), Flags (wenn vorhanden) und User
+werden angezeigt.
+Bei "short" werden die Themen nicht mit angezeigt.
+
+:action:me:
+/ME text                schreibt etwas in den Kanal
+
+Wenn Du die Aktion anzeigen willst, kannst Du diese Kommando gebrauchen:
+durch Eingabe der Zeile "/me gaehnt", werden alle verbundenen User auf 
+diesem Kanal eine Nachricht bekommen wie: "*** dc6iq gaehnt"
+
+:map
+/MAp                    zeichnet eine Karte des Convers-Netzes
+
+Der /map Befehl skizziert die aktuelle Struktur des Convers-Netzes (so weit
+bestimmbar)
+
+:mkpass
+/MKpass <what> [pass]   setzt das Passwort fuer Convers
+
+Wenn Passwort-Authentication gewuenscht ist, nutze den /mkpass Befehl.
+MKpass list     zeigt das derzeitige Passwort.
+       new x    setzt ein neues Passwort x.
+       change y aendert das aktuelle Passwort auf y.
+       delete   loescht das Passwort.
+Ein neues Passwort mit dem Namen
+  - "empty" wird ein leeres Passwort,
+  - "random" wird ein Zufalls-Passwort,
+erzeugen.
+
+Als Sysop ist es moeglich, ein Passwort eines Users zurueckzusetzen.
+Mit '/mkpass change dl9sau abcdefg' wird das Passwort von dl9sau auf abcdefg
+gesetzt.
+Ein neues Zufalls-Passwort fuer den Permlink db0zwi mit der Laenge 16 laesst
+sich mit "/mkpass new db0zwi random 16" erzeugen.
+
+Ein Passwort kann bis zu 80 Zeichen lang sein.
+Wenn ein Passwort definiert ist und nach /name die Zeile "PASS deinpasswort"
+eingegeben wird (oder -anstelle von "/auth"- der "/PASS deinpasswort"
+Befehl ausgefuehrt wird), wird automatisch auf IRC-Mode gewechselt.
+:mode
+/MOde #channel options  setzt die Optionen fuer den Kanal
+
+Der MODE Befehl ist einer der kompliziertesten. Er wird eingestellt mit:
+
+"/mode <channel> <+|-><t|i|s|m|p|l|o<name>>". Flags koennen folgendermassen
+gesetzt werden:
+
+	t - Kanal Thema kann nur durch "channel operators" gesetzt werden.
+	i - Kanal nicht sichtbar fuer Nutzer die nicht auf dem Kanal sind
+	s - Kanal ist geheim, nur Nummer wird nicht angezeigt
+	m - Kanal wird moderiert, nur "channel operators" koennen reden
+	p - Kanal ist privat, Teilnahme nur nach Einladung
+	l - Kanal ist lokal, keine Weiterleitung
+	o <call> - macht <call> zum "channel operator"
+
+Ein + zeigt das die Option gesetzt werden kann, - schaltet die Option aus.
+Eine Kombination von + und - ist erlaubt, so kann die folgende Befehlszeile
+ausgefuehrt werden:
+"/mode 69 -s+todc6iq". Kanal 69 ist nicht mehr geheim, das Thema kann aber nur
+durch den Operator gesetzt werden. Zusaetzlich wird der User dc6iq zum Channel
+Operator.
+
+Du kannst auch: "/mode * +t"schreiben, wenn der derzeitige Kanal gemeint ist.
+
+:msg:send:write
+/Msg user|#channel text sendet eine Nachricht an User bzw. Channel
+:news
+/NEws                   zeigt evtentuelle Neuigkeiten an
+
+Zeigt die aktuellen PingPong-Convers Neuigkeiten.
+:nickname
+/NIckname nick          setzen / loeschen des "nickname"
+
+Setzt den Nickname auf 'nick'. Z.B. /nick fred so dass fortan vor Deinen
+Nachrichten <g1abc:fred> statt <g1abc> gesendet wird.
+Der Nickname wird auf dem Server gespeichert und beim naechsten Connect
+automatisch gesetzt. Mit '/nick @' wird die nickname Funktion ausgeschaltet.
+:nonickname
+/NONickname             schaltet "nickname" aus.
+
+Der /nickname kann mit /nonick ausgeschaltet werden.
+Dieser Befehl ist obsolet. "/nickname @" wird empfohlen.
+:note
+/NOTe [text]            setzt eine persoenliche Beschreibung (/pers verwenden!)
+:notify
+/Notify [calls]         informiert, wenn "call" in den Convers kommt
+
+Du wirst benachrichtigt, falls eine Person aus der Liste auf einem Kanal in
+diesem Convers auftaucht. Z.B "/notify + dc1ik" fuegt den User dc1ik zur
+Liste hinzu. "/notify - dc1ik" entfernt ihn wieder. Die Liste wird zunaechst
+behandelt, also wenn ein plus-Zeichen gegeben wurde. Verschiedene Listen 
+koennen angelegt werden. Das folgende Kommando ist ok und uebernimmt dc1ik, 
+db4ut und dg3kcr in die Liste, waehrend dc6iq und dh2paf entfernt werden.
+
+"/notify + dc1ik db4ut - dc6iq dh2paf +dg3kcr"
+
+Nichtmitglieder werden ignoriert.
+
+"/notify @db0tud" benachrichtigt Dich, wenn ein neuer User sich bei db0tud
+anmeldet.
+
+"/notify dl9sau@db0tud" informiert Dich, das dl9sau sich bei db0tud
+angemeldet hat.
+
+"/notify #73" zeigt Dir an, dass jemand auf Kanal 73 eingestiegen ist.
+
+Im IRC-Client Mode wird der /notify Befehl lokal vom client-Programm
+ausgewertet. Daher ist er ueber den "/cnotify" Befehl zugaenglich.
+:notice
+/NOTICe <user|ch> foo.. sendet die Nachricht "foo.." als "notice"
+
+Dies ist eine Erweiterung des /me Befehls, und unterscheidet sich
+grundlegend vom /msg Befehl.
+:online
+/Online                 zeigt an, wer online ist (wie "/who n")
+:operator:sysop
+/OPerator [number]      Operator werden
+:profile
+/PROFile [command ..]   add / run / list / delete profile
+
+"profile" wird jedes Mal beim Einloggen in den Convers ausgefuehrt.
+Die aktuelle "profile", sofern bereits angelegt, wird auf dem Server
+gespeichert. Mittels folgender Zeilen koennen Kommandos hinzugefuegt /
+geloescht und geaendert werden:
+  /profile add /who q
+  /profile del /who
+Falls bei 'add' ein Befehl bereits vorhanden ist wird dieser durch den neuen
+ersetzt. "profile" kann mit "/profile del" geloescht werden.
+
+Statt "add" laesst sich auch "+" schreiben, statt "del" "-", statt "run" "!".
+help oder ? zeigt eine kurze Hilfe.
+
+Mit "/profile" oder "/profile list" wird die aktuelle "profile" angezeigt.
+Mit "/profile run" bzw "/profile !" kann die "profile" auch manuell gestartet
+werden.
+
+Beachte, dass einige Befehle automatisch "profile" anpassen.
+Derzeit sind dies:
+   /charset, /language, /notify, /filter, /filtermsgs
+   /width, /paclen, /idle, /beep, /prompt, /timestamp,
+   /trigger, /shownicks
+
+Ein Operator darf die "profile" eines Users aendern / loeschen / ausfuehren /
+anzeigen, z.B. um Fehlkonfigurationen zu beheben.
+Um die "profile" von dl9sau anzuzeigen:
+  /profile ~dl9sau list
+:query
+/QUEry [user]           Start/Ende einer privaten Sitzung
+
+Der Username als Argument ist der einzige Empfaenger fuer alle weiteren
+Texte. Sie werden als private Nachrichten gesendet (wie /m). 
+Ohne weiteren Zusatz wird dieser Modus verlassen und der kuenftig
+eingegebene Text geht wieder in den aktuellen Kanal.
+s.a. "/all"
+:bye:exit:quit
+/Quit [arg]             beendet die convers-Sitzung
+
+Mit diesem Kommando verlaesst Du die gesamte ping-pong Unterhaltung. 
+Wir hoffen, Du hast diesen Teil genossen :))
+
+Wenn Du "/q bis denne" eingibts wird "bis denne" zum Abschluss an alle
+User geschickt.
+#:quote
+#/QUOte                  sendet den Text des Tages an den derzeitgen Kanal
+#
+#sendet den Text des Tages an den derzeitgen Kanal.
+#
+:realnames
+/Realnames [user]       zeigt die Namen und Nicknames aller User an
+
+Mit /realname werden Name, Nickname, channel und Personal aller User
+angezeigt. (s.a. "/who r")
+:restart
+/REStart                Neustart des Convers-Servers * Nur fuer Sysops
+
+Dieser Sysop-Befehl beendet alle aktiven Links und alle Verbindungen der User.
+Danach wird der Server - je nach lokaler Konfiguration - neu gestartet.
+
+s.a "/halt"
+
+#:roll
+#/ROll                   simuliert den Wurf zweier Wuerfel und zeigt das Ergebnis
+#
+#Simuliert den Wurf zweier Wuerfel und zeigt das Ergebnis.
+#
+:rtt
+/RTt [zeit]             testet die Laufzeit zwischen Dir und diesem Convers.
+
+Nach "/rtt" schicke die vorgeschlagene "/rtt Zeile" zurueck.
+In den meisten Faellen wird Dein Packet-Programm dies automatisch fuer Dich
+tun ;)
+Beachte: //rtt funktioniert auch.
+:msg:send:write
+/Send user text         schreibt eine private Nachricht an 'user'
+:shownicks
+/SHownicks [status]     schaltet die Anzeige von "nicknames" an / aus
+
+Mit diesem Befehl laesst sich die Anzeige von "nicknames" unterdruecken.
+Mit "/SHownicks status" wird der aktuelle Status angezeigt, ohne ihn zu
+veraendern.
+Dieser Befehl ist derzeit nicht im ircmode verfuegbar.
+#:smiley
+#/SMiley                 zeigt einen zufaelligen 'smiley' und seine Bedeutung
+#
+#Zeigt einen zufaelligen 'smiley' und seine Bedeutung.
+:stats
+/STats [[mode] [num]]   fragt die Statistik des Servers ab
+:operator:sysop:/priv
+/SYsOp [..|md5|sys]     Sysop werden
+
+Nach Aufruf diese Befehls wird eine Zufallsnummer zwischen 0 und 99999
+anzeigen.  Nimm jede Zahl, multipliziere mit der verbundenen Geheimnummer
+in der Konfiguation, summiere sie auf und antworte mit "/oper <n>" (wobei
+<n> das Ergebnis der Rechnung ist). 
+Es ist auch moeglich, mit "/sys md5" oder "/sys sys" modernere Verfahren
+zu nutzen, analog dazu wie es bei /auth beschrieben ist.
+Eine SecretPass Konfiguration ist empfehlenswert; die "Nummern"-Variante
+wird genutzt wenn SecretPass nicht definiert ist.
+:sysinfo
+/SYSinfo [host]         fragt Informationen ueber "host" ab
+
+Die Info kann alles, sollte aber mindestens die email-Adresse des Sysops
+dieses Hosts enthalten.
+Wenn Du statt "host" "all" abfragst, wirst Du SYSInfo-messages von jedem 
+verbundenen Host bekommen.
+
+#:/priv
+#//priv [number]         Sysop werden
+:time
+/Time                   sendet die Uhrzeit des Hosts
+
+Sendet die Uhrzeit des Hosts.
+:timestamp
+/TIMEStamp              schaltet Zeitangabe bei channel- und priv-msgs
+
+Mit dem /Timestamp Befehl schickt conversd einen Zeitmarker (bei Channel-
+und privaten Nachrichten). /TIMEstamp benoetigt keine Argumente (schaltet
+ein wenn aus (default) oder umgekehrt). Der aktuelle Zustand wird in
+der /profile gespeichert. Im IRC-Mode ist dieser Befehl nicht verfuegbar:
+die meisten IRC-Klienten besitzen dieses Feature von Hause aus.
+:topic
+/TOpic [#chan] [text]   setze das Thema des Kanals. Text=@ loescht Thema
+
+Eine (ausfuehrliche) Beschreibung eines Kanalthemas kann gesetzt werden. 
+Andere User koennen es mit dem "/who quick" oder /list" Kommando ansehen. 
+Ohne Angabe eines "channel" wird das Thema auf Deinem aktuellen Kanal
+gesetzt bzw. geaendert, andernfalls auf dem angegeben Kanal - sofern Du
+dort auch eingeloggt bist - und das aendern von Themen nicht durch den
+Mode-Befehl eingeschraenkt wurde.
+Um das Thema zu loeschen, setze das Topic auf "@" :-)
+Ein leeres topic-Kommando gibt das aktuelle Kanalthema aus.
+"/Topic #all" zeigt die Themen aller Kanaele die ein Topic gesetzt haben - 
+wie auch "/who t"
+:trigger
+/TRigger [n|off]        setzt / zeigt / aendert den Anti-Idle Timer
+Mit /trigger kann eine Zeile gesendet werden, wenn fuer n Minuten keine
+Daten gesendet / empfangen wurden. Das ist auf ruhigen Channels nuetzlich,
+damit z.B. nicht der Digi nach einer bestimmten Idle-Zeit automatisch die 
+Verbindung trennt.
+Beispiel:
+  /trigger 60  sendet nach 60 Minuten Inaktivitaet eine Message
+  /trigger -10 ist speziell: sendet alle 10min ein Leerzeichen (bzw. im
+               IRC-Mode eine Leerzeile) anstelle des Info-Textes
+  /trigger off schaltet die Funktion wieder aus
+  /trigger     zeigt den Status der Timer an (beachte, dass diese dabei
+               zurueckgesetzt werden).
+:users
+/USers [[*|#][channel]|A|C|L|N|Q|R|S|T|U users|@ node]  zeigt User und Kanaele
+
+Alias fuer "/who". Schreibe "/help who" fuer weitere Informationen
+:uptime
+/UPtime                 wie lange laeuft dieser Convers schon?
+
+Die Uptime gibt an, wie lange der Convers seit dem letzten Neustart laeuft.
+:wall:
+/WAll <message>         sendet <message> an alle lokalen User
+
+Wall schreibt eine Nachricht an alle User des lokalen conversd.
+Es werden /operator Rechte benoetigt.
+:who:
+/Who  [[*|#][channel]|A|C|L|N|Q|R|S|T|U users|@ node]  zeigt User und Kanaele
+
+Das who-Kommando unterstuetzt bis zu vier Schalter. Ein "a" zeigt alle User 
+und deren evtl. away-Text. "l" generiert eine lange Liste mit allen
+"personal", "away"-Texten und Queue Informationen. Ein "q" gibt eine
+ausfuehrliche Liste. "s" gibt eine Liste ohne Kanal-Themen aus.
+Ein Sternchen "*" zeigt die User auf dem derzeitigen Kanal in normaler Art 
+an. Mit "/Who * 99" bekommt man alle User des Kanals 99 im "/who n" format.
+
+Fuer Freunde des IRC: "/who #99" ist ein Synonym zu "/who * 99".
+
+Ein "r" zeigt User mit "personal info" und "nickname" an.
+
+Ein "n" listet User/ Host / via, channel, personal text und sofern away auf.
+Das ist das, was auch das /online-Kommando macht.
+
+Ein "t" listet alle Themen auf allen Kanaelen, falls gesetzt, genau wie
+"/topic #all". Falls Du genauere Informationen ueber "User" haben moechtest, 
+kannst Du den "who u userlist" oder "whois user" Befehl verwenden.
+Mit "@ node" bekommst Du eine Liste der derzeitigen User eines genannten
+Nodes. Mit "@" bekommst Du eine Liste aller User des lokalen Nodes.
+
+:whois
+/WHOIs user             zeigt die kompletten Informationen eines Users
+
+Dies ist eine Frage an den conversd. "/whois dc6iq" zeigt alle verfuegbaren
+Infos ueber dc6iq, z.B. verbundener Kanal, perstext, away usw.
+
+Whois vergleicht auch "nickname".
+
+Wildcards sind erlaubt, Du kannst z.B. "/whois dl*" oder "/whois *foo*" 
+eingeben.
+
+Beachte, dass whois "*" eine lange Liste von Informationen ueber alle Nutzer
+ausgibt. Sie ist wirklich sehr lang!
+:width
+/WIdth [value]          setzt / zeigt Zeilenbreite
+
+Macht conversd Deine Bildschirmbreite (Zeichen/Zeile) bekannt. Die Meldungen
+der anderen wird dann auf diese Breite gebracht. Voreingestellt ist 80.
+Ein Wert von 0 setzt die Breite auf unendlich, mit unformatierter Ausgabe
+(also keine Umbrueche, Leerzeichen bleiben erhalten). "/width reset" setzt
+die Breite auf die Voreinsellung zurueck.
+
+:wizard:zap
+/WIZard [xxx]           Sysop Cmd: Sendet manuell conversd protokoll Pakete
+
+Dieses Kommando sendet conversd-Pakete an unsere Nachbarn.
+Vorsicht! Du musst nicht nur ein Sysop sein, sondern auch ein
+Protokoll-Experte...
+:msg:send:write
+/WRite user text        sendet eine private Nachricht an einen User
+
+Sendet einen Text an einen speziellen User oder an einen verbundenem Kanal.
+Wenn der Text an einen Kanal gehen soll, so muss man folgendes eingeben:
+"/msg #<Kanal> <text>". Wenn das Ziel ein User ist, so kann er den Text
+an den zusaetzlichen Sternchen erkennen. Z.B. wenn dc6iq eine Nachricht an
+dc1ik mit "/m dc1ik Das ist ein Test" sendet, so erhaelt dc1ik folgendes:
+"<*dc6iq*>: Das ist ein test".
+:verbose
+/Verbose                Laber-Modus ein/aus
+
+Schaltet die Laber-Option ein/aus. Du bekommst dann viele Informationen
+ueber Aktionen der User (Einloggen/Ausloggen/Texte-setzen/...), auch wenn
+diese nicht auf Deinem Kanal sind.
+:version
+/VERSion                zeigt Informationen zu dieser Version
+
+Zeigt Versionsinformationen dieser Software.
+:/COMP
+ //COMP [on|off]      schaltet compression ein/aus
+
+Der Compression-Algorithmus ist der klassische LZW-Standard, der im ampr-Netz
+weit verbreitet ist. Er wird von vielen Packet-Programmen beherrscht.
+Beachte, dass Compression nicht gut mit Umlauten zusammenarbeitet.
+Compression mag nicht funktionieren bei telnet sessions, bei convers ueber
+unix login (axspawn) oder wenn tnt die convers-session verwaltet (sofern tnt
+nicht so eingestellt ist, dass es selbst //comp bedient). Im Zweifelsfalle
+frag Deinen Sysop..

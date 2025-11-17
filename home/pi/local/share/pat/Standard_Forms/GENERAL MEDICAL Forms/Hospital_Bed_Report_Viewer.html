@@ -1,0 +1,728 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="content-type" content="application/xhtml+xml; charset=utf-8" />
+    <title>Hosp Bed Report</title>
+    <style type="text/css">
+@media print {
+
+#printPageButton {
+    display: none;
+  }
+  .form-control, .form-control.nobug {
+border: 0;
+outline: 0;
+box-shadow: none;
+font-size:12px;
+}
+.form-control.nobug {
+transition: none; /*-- THIS IS IMPORTANT -- */
+}
+ input {
+         outline: none !important;
+		box-shadow: none;
+		border: none;
+		}
+}
+body, td, th {
+font-family: Arial, Helvetica, sans-serif;
+}
+.zentriert {
+text-align: center;
+}
+input, select {
+padding: 1px;
+-moz-border-radius-topleft: 2px;
+-moz-border-radius-topright: 2px;
+-moz-border-radius-bottomright: 2px;
+-moz-border-radius-bottomleft: 2px;
+font-family: Arial, Helvetica, sans-serif;
+font-size: 12px;
+text-align: left;
+font-weight: normal;
+font-style: normal;
+}
+textarea {
+padding: 1px;
+-moz-border-radius-topleft: 2px;
+-moz-border-radius-topright: 2px;
+-moz-border-radius-bottomright: 2px;
+-moz-border-radius-bottomleft: 2px;
+font-family: Arial, Helvetica, sans-serif;
+font-size: 12px;
+font-weight: normal;
+font-style: normal;
+}
+
+.right {
+text-align: right;
+}
+.SubmitBtn {
+text-align: right;
+}
+.version {
+font-size: 10px;
+color: #666666;
+position: relative;
+left: 0px;
+top: 3px;
+}
+.Header {	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	color: #000;
+	text-align: center;
+	background-color: #EFEFEF;
+}
+    </style>
+    <style>
+
+.pop-up {position:absolute; top:0; left:-500em;}
+.pop-up:target {position:static; left:0;}
+/* The pop-up itself */
+.popBox {
+background:#ffffff;
+/* alternatively fixed width / height and negative margins from 50% */
+position:absolute; left:30%; right:30%; top:30%; bottom:30%;
+z-index:10;
+border:1px solid #3a3a3a;
+/* CSS3 where available: rounded corners, drop-shadow, and fade in. */
+border-radius:.25rem;
+box-shadow:0 .5rem .5rem rgba(0,0,0,.5);
+opacity:0;
+transition: opacity 0.8s ease-out;
+}
+:target .popBox {position:fixed; opacity:1;}
+/* Light box properties */
+.lightbox {
+display:none;
+text-indent:-200em;
+background-color:rgba(0,0,0,.4);
+width:100%;
+height:100%;
+position:fixed;
+top:0;
+left:0;
+bottom:0;
+right:0;
+z-index:5;
+}
+:target .lightbox {display:block;}
+/* The pop-ups close link, moved via CSS to the top right of the pop-up */
+.close:link,
+.close:visited {
+position: absolute;
+top: -0.75em;
+right: -0.75em;
+display: block;
+width: 2em;
+height: 2em;
+line-height: 1.8;
+padding: 0;
+text-align: center;
+text-decoration: none;
+background-color: #000;
+border: 2px solid #fff;
+color: #fff;
+border-radius: 50%;
+box-shadow: 0 0 .5rem .5rem rba(0,0,0,.5);
+}
+
+.close:before {content:"X";}
+.close:hover,
+.close:active,
+.close:focus {
+box-shadow: 0 0 .5rem .5rem rba(255,0,0,.5);
+background-color: #c00;
+color: #fff;
+}
+.close span {
+text-indent: -200em;
+display: block;
+}
+/* The pop-up content div will scroll if it has too much content */
+.popScroll {
+position:absolute;
+top: 1rem;
+left: 1rem;
+right: 1rem;
+bottom: 1rem;
+overflow-y: auto;
+*overflow-y: scroll;
+padding-right: 0.5em;
+}
+.popScroll h2 {margin-top:0}
+.style1 {color: #2A0000}
+    .style2 {
+	font-weight: bold;
+	color: #2A0000;
+}
+    .style3 {color: #FF0000}
+    </style>
+    <script>
+function shortmonth(monthnum) {
+var monthname;
+shortmonths = ["JAN", "FEB", "MAR","APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"] ;
+monthname = shortmonths [monthnum];s
+return monthname; }
+</script>
+    <script>
+function SetDateTime(TType,TheFld, FocusFld) {
+var txt;
+var myprompt;
+var d = new Date(),
+thisyear = d.getFullYear();
+thismonth= d.getMonth();
+thisday = d.getDate();
+var submonth = thismonth+1; ;
+if (submonth < 10) { submonth = "0"+submonth};
+var subday = thisday;
+if (thisday < 10) { thisday = "0"+thisday};
+var monname;
+h = (d.getHours()<10?'0':'') + d.getHours()
+m = (d.getMinutes()<10?'0':'') + d.getMinutes()
+s = (d.getSeconds()<10?'0':'') + d.getSeconds();
+var now = new Date();
+var utch = now.getUTCHours();
+if (utch < 10) { utch = "0"+utch};
+var utcs = now.getUTCMinutes();
+if (utcs < 10) { utcs = "0"+utcs};
+var myUTCtime = utch+":"+utcs+"Z";
+var utcstr = d.toUTCString();
+var localt = d.toLocaleTimeString();
+var isostr = d.toISOString();
+monthname = shortmonth (thismonth);
+thismonth = thismonth + 1;
+switch (TType) {
+case 'hms' :
+myprompt = h + ':' + m + ':' + s;
+var RightNow = prompt("Time:", myprompt);
+document.getElementById(TheFld).value = RightNow;
+break;
+case 'hm' :
+myprompt = h + ':' + m;
+var RightNow = prompt("Time:", myprompt);
+document.getElementById(TheFld).value = RightNow;
+break;
+case 'm-d-y': myprompt = thismonth+ '-' + thisday+ '-'+ thisyear;
+var RightNow = prompt("Date:", myprompt);
+document.getElementById(TheFld).value = RightNow;
+break;
+case 'm/d/y': myprompt = thismonth+ '/' + thisday+ '/'+ thisyear;
+var RightNow = prompt("Date:", myprompt);
+document.getElementById(TheFld).value = RightNow;
+break;
+case 'd mmm y': myprompt = thisday+ ' ' + monthname+ ' '+ thisyear;
+var RightNow = prompt("Date:", myprompt);
+document.getElementById(TheFld).value = RightNow;
+break;
+case 'mmm-d-y': myprompt = monthname+'-'+thisday+ '-' + thisyear;
+var RightNow = prompt("Date:", myprompt);
+document.getElementById(TheFld).value = RightNow;
+break;
+case 'mmm-d-y-time': myprompt = monthname+'-'+thisday+ '-' + thisyear +'  '+ h+':'+m;
+var RightNow = prompt("Date & Tinme:", myprompt);
+document.getElementById(TheFld).value = RightNow;
+break;
+case 'localampm': var myprompt = localt;
+var RightNow = prompt("Local time:", myprompt);
+document.getElementById(TheFld).value = RightNow;
+break;
+case 'fulldate': var myprompt = thisyear+ '-'+thismonth+'-'+thisday;
+var RightNow = prompt("Date:", myprompt);
+document.getElementById(TheFld).value = RightNow;
+break;
+case 'fulldatetime': var myprompt = thisyear+'-'+thismonth+ '-'+thisday+' '+h + ':' + m ;
+var RightNow = prompt("Date time:", myprompt);
+document.getElementById(TheFld).value = RightNow;
+break;
+case 'autofulldatetime': var RightNow = thisyear+'-'+thismonth+ '-'+thisday+' '+h + ':' + m ;
+//var RightNow = prompt("Date time:", myprompt);
+//document.getElementById(TheFld).value = RightNow;
+//var ORTimestamp = thisyear+submonth+subday+h+m+s;
+//document.getElementById('TimeStampOR').value = ORTimestamp; break;
+case 'iso': var myprompt = isostr;
+var RightNow = prompt("Date time:", myprompt);
+document.getElementById(TheFld).value = RightNow;
+break;
+case 'utc': var myprompt = utcstr;
+var RightNow = prompt("Date time:", myprompt);
+document.getElementById(TheFld).value = RightNow;
+break;
+case 'zulu': var myprompt = isostr;
+myprompt = isostr.replace("T", " "); slen = myprompt.length;
+myprompt = myprompt.substr(0, slen-5)+'Z';
+var RightNow = prompt("Date time:", myprompt);
+document.getElementById(TheFld).value = RightNow;
+break;
+case 'UTChm': var myprompt = myUTCtime;
+var RightNow = prompt("Date time:", myprompt);
+document.getElementById(TheFld).value = RightNow;
+break;
+}
+}
+function isNumberKey(evt)
+{
+var charCode = (evt.which) ? evt.which : event.keyCode
+if (charCode < 48 || charCode > 57)
+return false;
+return true;
+}
+
+function linecountwords () {
+var wct = 0;
+//101;
+for (i = 1; i < 51; i++) {
+ 	var mfield = 't'+i;
+	var mylen = 0;
+	var x = document.getElementById(mfield).value;
+	var x = x.trim();
+	var mylen = x.length;
+	//if (mylen <2 ) {fixpunct (x, mfield);}
+	if (mylen == 1 ) { fixpunct (x, mfield);}
+ 	if (mylen >0) {wct = wct +1;};
+	 
+ }
+
+document.getElementById('Check').value= wct;
+
+}
+
+function wordcount(s) {
+s = s.replace(/(^\s*)|(\s*$)/gi,"");//exclude start and end white-space
+s = s.replace(/\n/g, " "); // Convert CR to spacing
+s = s.replace(/[ ]{2,}/gi," ");//2 or more space to 1
+cnt = s.split(' ').length; var ele = document.getElementById('check');
+ document.getElementById('Check').value= cnt;
+}
+
+function CheckText() {
+var MSGText = document.getElementById('Message').value;
+
+wordcount(document.getElementById('Message').value)
+
+}
+
+function AutoGrowTextArea(textField)
+{
+if (textField.clientHeight < textField.scrollHeight)
+{
+textField.style.height = textField.scrollHeight + "px";
+if (textField.clientHeight < textField.scrollHeight)
+{
+textField.style.height = (textField.scrollHeight * 2 - textField.clientHeight) + "px";
+}
+}
+}
+function Countthelines(f) { var text1 = f
+var text2 = text1.replace(/\s+$/,"");
+var split2 = text2.split("\n"); var mytotal = split2.length * 17;
+if (mytotal < 150) {
+mytotal = 150;
+}
+var tstr = mytotal.toString();
+return tstr;
+}
+function newfix(f){
+var ThisText = document.getElementById(f).value;
+var makeit = Countthelines(ThisText);
+document.getElementById(f).style.height = makeit+"px"; }
+function Fixarea() {
+newfix("Message");
+// newfix("reply");
+AutoGrowTextArea(document.getElementById("Message"));
+// AutoGrowTextArea(document.getElementById("reply"));
+}
+function RWS(str){
+var text2 = str.replace(/\s+$/,"");
+return text2.trim();
+}
+
+function BedTotals()
+{
+mytotal = 0;
+var B1 = document.getElementById('B1').value;
+var B2 = document.getElementById('B2').value;
+var B3 = document.getElementById('B3').value;
+var B4 = document.getElementById('B4').value;
+var B5 = document.getElementById('B5').value;
+mytotal = Number(B1)+Number(B2)+Number(B3)+Number(B4) +Number(B5);
+document.getElementById('TotalBeds').value = mytotal;
+}
+
+</script>
+    <script type="text/javascript">
+
+
+</script></head>
+  <body>
+    <form action="http://{FormServer}:{FormPort}" enctype="multipart/form-data"
+
+      id="Hosp Bed Report" method="post" onsubmit="return confirm('To complete your form submission, click OK and close the open browser window. You will return to the new message window so you can post your message to the outbox');"
+
+      pbzloc="1" style="font-family: Arial Black;">
+      <table style="height: 498px; width: 907px;" border="0" align="center">
+        <tbody>
+          <tr>
+            <td>
+              <table style="font-size: 14px; width: 800px; height: 542px;" cellspacing="0"
+
+                cellpadding="2" bordercolor="#999999" border="1" width="900">
+                <tbody>
+                  <tr>
+                    <td colspan="2" style="height: 15%; vertical-align: top; text-align: center; "
+
+                      bgcolor="#f8f8ff"><p><small><b><big>HOSPITAL BED REPORT</big></b></small><small><span style="font-size: 12px;"><br />
+                    </span><b><big>{var Title} </big></b><span style="font-size: 12px;">                     </span></small></p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="text-align: center; vertical-align: top;" colspan="2">
+                      <div align="left"><br />
+                        <span style="color: rgb(204, 0, 0);">  <span class="style3"> </span></span><span class="style1">As of
+                        Time:</span>  
+                        <span class="style3">{var Time1} </span>         Date:  
+                        {var Date}
+                          </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="text-align: justify;" colspan="2"> 
+                         
+                                 
+                                
+                                 
+                       
+                            <span style="color: rgb(204, 0, 0);"> </span></td>
+                  </tr>
+                  <tr>
+                    <td colspan="5" style="text-align: center; vertical-align: middle;"
+
+                      valign="top">
+                      <table style="text-align: left;  " cellspacing="0" cellpadding="2"
+
+                        border="1" width="100%">
+                        <tbody>
+                          <tr>
+                            <td style="vertical-align: middle; text-align: center;"
+
+                              height="37">
+                              <table cellspacing="0" cellpadding="0" border="0"
+
+                                width="100%">
+                                <tbody>
+                                  <tr>
+                                    <td align="left" width="26%" valign="top"><span
+
+                                        style="color: rgb(204, 0, 0);"> <span style="color: rgb(204, 0, 0);">  </span></span>Name
+                                      of Reporting Facility:  </td>
+                                    <td align="left" width="74%" valign="top"><span class="style3">{var Facility}</span></td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td style="vertical-align: middle; text-align: center;"
+
+                              height="32">
+                              <table cellspacing="0" cellpadding="0" border="0"
+
+                                width="100%">
+                                <tbody>
+                                  <tr>
+                                    <td align="left" width="26%" valign="top"><span
+
+                                        style="color: rgb(204, 0, 0);"> <span style="color: rgb(204, 0, 0);">  </span></span>Contact
+                                      Person:  </td>
+                                    <td align="left" width="74%" valign="top">{var Contact}</td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td style="vertical-align: middle; text-align: center;"
+
+                              height="37">
+                              <div align="left">
+                                <table cellspacing="0" cellpadding="0" border="0"
+
+                                  width="100%">
+                                  <tbody>
+                                    <tr>
+                                      <td align="left" width="26%" valign="top"><span
+
+                                          style="color: rgb(204, 0, 0);"> <span
+
+                                            style="color: rgb(204, 0, 0);">  </span></span>Contact
+                                        Phone Number:  </td>
+                                      <td align="left" width="74%" valign="top">{var Phone}</td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td style="text-align: center;" height="27">
+                              <div align="left">
+                                <table cellspacing="0" cellpadding="0" border="0"
+
+                                  width="100%">
+                                  <tbody>
+                                    <tr>
+                                      <td align="left" width="26%" valign="top"> <span
+
+                                          style="color: rgb(204, 0, 0);">  </span>Contact
+                                        Email Address:<span style="color: rgb(204, 0, 0);">
+                                        </span></td>
+                                      <td align="left" width="74%" valign="top">{var Email}</td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </div>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      <table style="text-align: left; height: 271px;" cellspacing="0"
+
+                        cellpadding="2" border="1" width="100%">
+                        <tbody>
+                          <tr>
+                            <td style="background-color: white;" align="undefined"
+
+                              valign="undefined"><table cellspacing="0" cellpadding="3" border="0"
+
+                                width="100%">
+                                <tbody>
+                                  <tr valign="top">
+                                    <td align="left" width="18%"><span style="color: red;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="style2">Type</span></span></td>
+                                    <td align="left" width="82%"><span class="style2"> &nbsp;&nbsp;Available </span> <span class="style1"><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Notes</strong>
+                                    </span>                                      <div align="left"></div></td>
+                                  </tr>
+                                </tbody>
+                            </table></td>
+                          </tr>
+                          <tr>
+                            <td style="background-color: white;" align="undefined"
+
+                              valign="undefined"><table cellspacing="0" cellpadding="3" border="0"
+
+                                width="100%">
+                                <tbody>
+                                  <tr valign="top">
+                                    <td align="left" width="21%">&nbsp;&nbsp;<span class="style3">Emergency Beds</span> </td>
+                                    <td align="left" width="79%"><input name="B1"
+
+                                        class="right" id="B1" style="color: black;" onchange="BedTotals()"
+
+                                       value="{var B1}" size="4"
+
+                                        maxlength="8" readonly/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                {var Note1}</td>
+                                  </tr>
+                                </tbody>
+                            </table></td>
+                          </tr>
+                          <tr>
+                            <td style="background-color: white;" align="undefined"
+
+                              valign="undefined"><table cellspacing="0" cellpadding="3" border="0"
+
+                                width="100%">
+                                <tbody>
+                                  <tr>
+                                    <td align="left" width="21%" valign="top">&nbsp;&nbsp;Pediatrics</td>
+                                    <td align="left" width="79%" valign="top"><input
+
+                                        name="B2"
+
+                                        class="right" id="B2" onchange="BedTotals()"
+
+                                        value="{var B2}" size="4" maxlength="8" readonly/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                {var Note2}</td>
+                                  </tr>
+                                </tbody>
+                            </table></td>
+                          </tr>
+                          <tr>
+                            <td style="text-align: center;"><table cellspacing="0" cellpadding="3" border="0"
+
+                                width="100%">
+                                <tbody>
+                                  <tr>
+                                    <td align="left" width="21%" valign="top">&nbsp;&nbsp;Medical / Surgery </td>
+                                    <td align="left" width="79%" valign="top"><input
+
+                                        name="B3"
+
+                                        class="right" id="B3" onchange="BedTotals()"
+
+                                        value="{var B3}" size="4" maxlength="8" readonly/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                {var Note3}</td>
+                                  </tr>
+                                </tbody>
+                            </table></td>
+                          </tr>
+                          <tr>
+                            <td style="text-align: center;"><table cellspacing="0" cellpadding="3" border="0"
+
+                                width="100%">
+                                <tbody>
+                                  <tr>
+                                    <td align="left" width="21%" valign="top">&nbsp;&nbsp;Psychiatry</td>
+                                    <td align="left" width="79%" valign="top"><input
+
+                                        name="B4"
+
+                                        class="right" id="B4" onchange="BedTotals()"
+
+                                        value="{var B4}" size="4" maxlength="8" readonly />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                {var Note4}</td>
+                                  </tr>
+                                </tbody>
+                            </table></td>
+                          </tr>
+                          <tr>
+                            <td style="text-align: center;"><table cellspacing="0" cellpadding="3" border="0"
+
+                                width="100%">
+                                <tbody>
+                                  <tr>
+                                    <td align="left" width="21%" valign="top">&nbsp;&nbsp;Burn</td>
+                                    <td align="left" width="79%" valign="top"><input
+
+                                        name="B5"
+
+                                        class="right" id="B5" onchange="BedTotals()"
+
+                                        value="{var B5}" size="4" maxlength="8" readonly/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                {var Note5}</td>
+                                  </tr>
+                                </tbody>
+                            </table></td>
+                          </tr>
+                          <tr>
+                            <td style="text-align: center;"><table cellspacing="0" cellpadding="3" border="0"
+
+                                width="100%">
+                                <tbody>
+                                  <tr>
+                                    <td align="left" width="21%" valign="top">&nbsp; Critical Care </td>
+                                    <td align="left" width="79%" valign="top"><input
+
+                                        name="B6"
+
+                                        class="right" id="B6" onchange="BedTotals()"
+
+                                         value="{var B6}" size="4" maxlength="8" readonly/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                {var Note6}</td>
+                                  </tr>
+                                </tbody>
+                            </table></td>
+                          </tr>
+                          <tr>
+                            <td style="text-align: center;"><table cellspacing="0" cellpadding="3" border="0"
+
+                                width="100%">
+                                <tbody>
+                                  <tr>
+                                    <td align="left" width="21%" valign="top">&nbsp;&nbsp;
+                                        {var OtherType2} </td>
+                                    <td align="left" width="79%" valign="top"><input
+
+                                        name="B7"
+
+                                        class="right" id="B7" onchange="BedTotals()"
+
+                                        value="{var B7}" size="4" maxlength="8"readonly />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                {var Note7}</td>
+                                  </tr>
+                                </tbody>
+                            </table></td>
+                          </tr>
+                          <tr>
+                            <td style="text-align: center;"><table cellspacing="0" cellpadding="3" border="0"
+
+                                width="100%">
+                                <tbody>
+                                  <tr>
+                                    <td align="left" width="21%" valign="top">&nbsp;&nbsp;
+                                        {var OtherType3} </td>
+                                    <td align="left" width="79%" valign="top"><input
+
+                                        name="B8"
+
+                                        class="right" id="B8" onchange="BedTotals()"
+
+                                         value="{var B8}" size="4" maxlength="8"readonly/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                {var Note8}</td>
+                                  </tr>
+                                </tbody>
+                            </table></td>
+                          </tr>
+                          <tr>
+                            <td style="text-align: center;"><table cellspacing="0" cellpadding="3" border="0"
+
+                                width="100%">
+                                <tbody>
+                                  <tr bgcolor="#f8f8ff">
+                                    <td width="21%">  <span style="font-weight: bold;">TOTAL: </span></td>
+                                    <td align="left" width="79%" valign="top"><input
+
+                                        name="TotalBeds" class="right" id="TotalBeds" value="{var TotalBeds}" size="4"
+
+                                        maxlength="8" readonly/></td>
+                                  </tr>
+                                </tbody>
+                            </table></td>
+                          </tr>
+                          <tr>
+                            <td style="text-align: center;"> <em>DEFINITION: Physical Available Beds = Staffed + Un-staffed Beds</em></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      <hr style="width: 100%; height: 2px;" />
+                      <div align="left">
+                        <p><span style="color: rgb(204, 0, 0);">   </span>Comments:</p>
+                        <p> <span style="width:750px; margin: 10px;  margin: 10px;  word-wrap:break-word; display:inline-block;">{var Comments}</span> <br />
+                        </p>
+                        <p></p>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td width="665"><small> <span style="font-family: Calibri;"><small> 
+                            
+ <span style="color: rgb(204, 0, 0);"></span></small></span></small><small>  <span
+
+style="color: rgb(128, 0, 0);"><span><span style="font-size: 12px;"></span></span></span><span
+
+style="color: rgb(128, 0, 0);"><span style="font-size: 12px;">      
+                                                  </span> </span><span style="color: rgb(128, 0, 0);"> <span
+
+style="font-size: 12px;">                </span> </span><span style="color: rgb(128, 0, 0);"> </span></small></td>
+<td width="111"><div align="center"><small>Version 9.2<span style="font-size: 12px;"><big
+
+style="font-weight: bold;"><big><small> </small><span class="Header">
+</span></big></big></span></small></div></td>
+</tr>
+</tbody>
+</table>
+<br />
+<small> </small></td>
+</tr>
+</tbody>
+</table>
+</form>
+</body></html>

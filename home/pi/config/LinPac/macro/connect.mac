@@ -1,0 +1,32 @@
+:macro connect
+;; This macro implements the Connect command
+
+;; Determine the port name and the first callsign
+if %(strpos ":" "%1") == -1
+  set PORT ""
+  set CALL "%1"
+else
+  set PORT %(strleft %(strpos ":" "%1") "%1")
+  set CALL %(strright %[%(strlen %1) - %(strpos ":" "%1") - 1] %1)
+endif
+
+set CALL %(upcase %CALL)
+
+;;========================================================================
+;; Following section can contain various conditions for connecting some
+;; stations some special way
+;;========================================================================
+
+;;An example of connecting the BBS via the node that doesn't work as
+;;digipeater
+if %CALL == OK0PBB
+  pconnect CZ0AAA
+  waitfor %(isconn) == 1
+  echo c OK0PBB
+  return
+endif
+
+;;========================================================================
+
+;;Default action
+pconnect %*

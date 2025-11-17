@@ -1,0 +1,64 @@
+Form: SHARES Radio Interference Report_initial.html
+
+To: NCCSHARES@DHS.GOV
+Subject: SHARES Radio Interference Report - Ref: [<var Freq>]
+Msg:
+SHARES Radio Interference Report
+
+1. Information Concerning SOURCE of Interference
+
+a.  Call Sign, Bearing or Other Identification:
+ <var Sec1a>
+
+b.  Measured Frequency in kHz:
+ [<var Freq>]  To be completed by SPO: Assigned Freq. in kHz [<var SPOFreq>] RFA SER [<var RFAFreq>]
+
+c.  Class of Emission and Nature of Traffic Transmitted:
+ <var Sec1c>
+
+d. Measured Bandwidth of Interfering Signal:
+ [<var Width>]
+
+e. Signal Strength:
+ [<var Signal>]
+
+f. Date and Time Interference Started:
+ [<var DateTime1>  <var DateTime2>  <var TimeZone>]
+   
+   Duration in Minutes or Hours:
+ [<var Duration>]
+--------------------------------------------------
+
+2. Information Concerning Station RECEIVING Interference
+
+a. Call Sign, Bearing or Other Identification:
+ <var Sec2a>
+
+b. Assigned Frequency and Measured Frequency in kHz:
+ [<var Freq1>]
+
+c.  Class of Emission and Nature of Traffic Transmitted: 
+ <var Sec2c>
+
+d. Authorized Bandwidth and Measured Bandwidth:
+ [<var Width1>]
+
+e. Geographical Location:
+ <var Sec2e>
+---------------------------------------------------
+REMARKS:
+
+ <var Remarks>
+---------------------------------------------------
+
+3. Information Concerning Person or Office Submitting Report
+
+POC INFO:
+
+Name: <var Name> 
+Address: <var Address>
+Phone: <var Phone>
+Email: <var Email>
+
+---END of REPORT---
+

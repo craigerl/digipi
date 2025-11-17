@@ -1,0 +1,11 @@
+string collation comparison works
+string collation inequality works
+regular expressions operator works
+single negations on regular expressions work
+double negations on regular expressions work
+text subtraction test (on strings) is not yet ready
+text subtraction test (on variables) is fine
+text subtraction test (on variables) is fine
+text subtraction test (on string variables) is fine
+text subtraction test (on int variables) is fine
+string test success

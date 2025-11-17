@@ -1,0 +1,54 @@
+The Story Board
+
+$Revision: 1.1.1.1 $$Date: 2001/10/10 13:29:59 $
+
+Since there may be users of this code who don't know, how the story began,
+here's a short history.
+
+The roots of conversd are in "Packet Radio", this is a networking idea of ama-
+teur radio enthusiasts based some ten years ago. Doing a port of the Phil Karns
+<karn@qualcomm.com> <ka9q@????>, net code to unix (called WAMPES), Dieter Deyke
+<deyke@mdddhd.fc.hp.com> <dk5sg@db0sao.ampr.org> made the ball start rolling in
+- I believe - 1986/87. He did the most important part of implementation. Since
+there was a very well working implementation in 1992, I started my own source
+code tree.
+
+Wolfgang Tremmel <tremmel@ira.uka.de>/<dh2paf@db0sao.ampr.org> did a parallel
+work independent from mine. I joined our codes into a new version. The idea of
+keeping control of the links by the convers daemons was born and I implemented
+a round trip time measurement into the daemon's code. At this point, the name
+"Ping-Pong" was created. He also implemented the PCSP-Code which does the tal-
+king. This is included the the appropriate Libraries and include files are
+found on the system.
+
+Some ideas were given by Walter Koch <dg9ep@db0iz>, who ported the code into
+his own digipeater software project (hardware by Werner Cornelius, DG3DBI,
+based on V25, called "Falcon") and Bernd Hollerbach (db4ut@db0sao.ampr.org) who
+is used to stay up late (right until the morning grows :-)).
+
+Eddy van Loo <eddy@HZeeland.nl> put in the stuff to save /personal info. Thanks
+for this work !
+
+I'd like to thank a lot of people being silly enough to try out my code, re-
+porting bugs and tell me about new ideas and improvements to the Ping-Pong
+conversd. First to be mentioned is Olaf Erb <erb@insu1.etec.uni-karlsruhe.de>
+on the internet respectively <dc1ik@db0sao.ampr.org> in the ampr-world. He
+also did the port of WAMPES to linux, which is my platform. He also added the
+LOGGING features for the use with tcpd.
+
+Now you know a bit more...   best wishes, Fred.
+
+email:    dc6iq@insu1.etec.uni-karlsruhe.de, s_baumgn@ira.uka.de
+ampr-net: dc6iq@db0sao.ampr.org
+
+------------------------------------------------------------------
+
+January 2000: 
+Some bugs fixed (those that I am aware of..)
+Nickname & Nonickname commands re-introduced (& fixed)
+'who r' command working
+Year format in Logfiles fixed.
+Updated from V1.22 to V1.23
+Robert A. Jenkins, G8TBF / G0WTK
+email: g8tbf@nndg.org
+

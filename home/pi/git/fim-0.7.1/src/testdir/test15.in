@@ -1,0 +1,9 @@
+# Recording test.
+stdout "this test checks recording capabilities.";
+stdout "it is unfinished, as recording is only supported for interactive usage.";
+#_debug_commands='c';
+#start_recording;
+#stdout "you are recording, aren't you?";
+#stop_recording;
+#execute_record_buffer;
+#do_dump_record_buffer;

@@ -1,0 +1,28 @@
+# this is a sample fim configuration file (fimrc)
+#
+# this fimrc provides an example of simple and light lazy bound configuration
+
+autocmd_del "" "" "";
+autocmd "PostGoto" "" "load;";
+autocmd "PostNext" "" "load;";
+autocmd "PostPrev" "" "load;";
+
+autocmd "PostLoad"   "" "aalib_fix;";
+
+autocmd "PostLoad"   ".*/fbps-.*" "{auto_width_scale;;}";
+autocmd "PostLoad"   "" "if(autowidth){auto_width_scale;}";
+autocmd "PostLoad"   "" "if(v:auto_scale_v ){auto_scale;}";
+autocmd "PostLoad"   "" "if(auto_width_v ){auto_scale_width ;}";
+autocmd "PostLoad"   "" "if(auto_height_v){auto_scale_height;}";
+
+autocmd "PostInteractiveCommand"   "" "display;";
+
+autocmd "PreExecutionCycle" "/fbps-" "_display_busy=0;_display_status=0;" ;
+autocmd "PreExecutionCycle" "" "reload;";
+autocmd "PreExecutionCycle" "" "redisplay;";
+
+
+bind 'n' "next;";
+bind 'p' "prev;";
+bind 'b' "prev;";
+

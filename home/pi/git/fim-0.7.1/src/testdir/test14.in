@@ -1,0 +1,7 @@
+# fim internals test
+stdout "this test will break if user configuration breaks in.";
+stdout "so it is temporary :)";
+autocmd "" "" "";
+_debug_commands='c';
+echo "ciao";
+next;

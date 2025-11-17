@@ -1,0 +1,1044 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><!-- Credit to Original Radiogram Template by OE3VRW, Wolfgang Ruthner -->
+
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" /><title>Radiogram</title>
+
+
+
+<style type="text/css">
+
+.roter_Untergrund {
+
+background-color: #F00;
+
+}
+
+.RADIOGRAM {
+
+font-family: Arial, Helvetica, sans-serif;
+
+font-size: 28px;
+
+font-style: normal;
+
+font-weight: bold;
+
+color: #333;
+
+text-align: center;
+
+}
+
+.Kopfzeile {
+
+font-family: Arial, Helvetica, sans-serif;
+
+font-size: 12px;
+
+color: #000;
+
+text-align: center;
+
+background-color: #EFEFEF;
+
+}
+
+ZellenHintergrund {
+
+background-color: #000;
+
+}
+
+Zellenhintergrund {
+
+background-color: #EFEFEF;
+
+}
+
+Zellenfeld {
+
+text-align: center;
+
+}
+
+HintergrundTabelle {
+
+background-color: #EFEFEF;
+
+}
+
+.TabelleHintergrund {
+
+background-color: #EFEFEF;
+
+text-align: left;
+
+}
+
+body,td,th {
+
+font-family: Arial, Helvetica, sans-serif;
+
+font-size: 12px;
+
+text-align: center;
+
+}
+
+rechtsbuendig {
+
+text-align: right;
+
+}
+
+rb {
+
+text-align: right;
+
+}
+
+.TabelleHintergrund tr td .Hintergrund_Tabelle {
+
+text-align: left;
+
+}
+
+.TabelleHintergrund tr td {
+
+text-align: left;
+
+}
+
+.zentriert {
+
+text-align: center;
+
+}
+
+input,select {
+
+border: 1px solid #4195fc; /* some kind of blue border */
+
+/* other CSS styles */
+
+/* round the corners */
+
+-webkit-border-radius: 4px;
+
+-moz-border-radius: 4px;
+
+border-radius: 4px;
+
+/* make it glow! */
+
+-webkit-box-shadow: 0px 0px 4px #4195fc;
+
+-moz-box-shadow: 0px 0px 4px #4195fc;
+
+box-shadow: 0px 0px 4px #4195fc; /* some variation of blue for the shadow */
+
+background-color: #f0f0fa;
+
+font-family: Arial, Helvetica, sans-serif;
+
+font-size: 13px;
+
+padding: 2px;
+
+}
+
+textarea {
+
+/* round the corners */
+
+-webkit-border-radius: 4px;
+
+-moz-border-radius: 4px;
+
+border-radius: 4px;
+
+/* make it glow! */
+
+-webkit-box-shadow: 0px 0px 4px #4195fc;
+
+-moz-box-shadow: 0px 0px 4px #4195fc;
+
+box-shadow: 0px 0px 4px #4195fc; /* some variation of blue for the shadow */
+
+background-color: #f3f3fa;
+
+font-family: Arial, Helvetica, sans-serif;
+
+font-size: 16px;
+
+padding: 10px;
+
+margin: 10px;
+
+}
+
+.MSGtext {
+
+font-family: Arial, Helvetica, sans-serif;
+
+font-size: 18px;
+
+}
+
+.SubmitBtn {
+
+font-family: Arial, Helvetica, sans-serif;
+
+font-size: 18px;
+
+}
+
+.FromText {
+
+font-family: Arial, Helvetica, sans-serif;
+
+font-size: 18px;
+
+color: #aaa;
+
+}
+
+.Download {
+
+font-family: Arial, Helvetica, sans-serif;
+
+font-size: 10px;
+
+color: #aaa;
+
+}
+
+.punctuation {
+
+margin-top: 15px;
+
+}
+
+.P2Pcheckbox {
+
+margin-bottom: 15px;
+
+}
+
+</style>
+
+<style>
+
+/*
+
+body {color:#000; background:#fff; font:100%/1.5 arial,sans-serif;}
+
+h2 {margin-top:0}
+
+*/
+
+/* Styling applied to classes only */
+
+/* Pop-up content shifted off-screen when not in view.
+
+Still readable by screen-reader software.
+
+When targeted it fills the browser window.
+
+*/
+
+.pop-up {position:absolute; top:0; left:-500em;}
+
+.pop-up:target {position:static; left:0;}
+
+/* The pop-up itself */
+
+.popBox {
+
+background:#ffffff;
+
+/* alternatively fixed width / height and negative margins from 50% */
+
+position:absolute; left:30%; right:30%; top:30%; bottom:30%;
+
+z-index:10;
+
+border:1px solid #3a3a3a;
+
+/* CSS3 where available: rounded corners, drop-shadow, and fade in. */
+
+border-radius:.25rem;
+
+box-shadow:0 .5rem .5rem rgba(0,0,0,.5);
+
+opacity:0;
+
+transition: opacity 0.8s ease-out;
+
+}
+
+:target .popBox {position:fixed; opacity:1;}
+
+/* Light box properties */
+
+.lightbox {
+
+display:none;
+
+text-indent:-200em;
+
+background-color:rgba(0,0,0,.4);
+
+width:100%;
+
+height:100%;
+
+position:fixed;
+
+top:0;
+
+left:0;
+
+bottom:0;
+
+right:0;
+
+z-index:5;
+
+}
+
+:target .lightbox {display:block;}
+
+/* The pop-ups close link, moved via CSS to the top right of the pop-up */
+
+.close:link,
+
+.close:visited {
+
+position: absolute;
+
+top: -0.75em;
+
+right: -0.75em;
+
+display: block;
+
+width: 2em;
+
+height: 2em;
+
+line-height: 1.8;
+
+padding: 0;
+
+text-align: center;
+
+text-decoration: none;
+
+background-color: #000;
+
+border: 2px solid #fff;
+
+color: #fff;
+
+border-radius: 50%;
+
+box-shadow: 0 0 .5rem .5rem rba(0,0,0,.5);
+
+}
+
+.close:before {content:"X";}
+
+.close:hover,
+
+.close:active,
+
+.close:focus {
+
+box-shadow: 0 0 .5rem .5rem rba(255,0,0,.5);
+
+background-color: #c00;
+
+color: #fff;
+
+}
+
+.close span {
+
+text-indent: -200em;
+
+display: block;
+
+}
+
+/* The pop-up content div will scroll if it has too much content */
+
+.popScroll {
+
+position:absolute;
+
+top: 0px;
+
+left: 992px;
+
+right: 1rem;
+
+bottom: 1rem;
+
+overflow-y: auto;
+
+*overflow-y: scroll;
+
+padding-right: 0.5em;
+
+}
+
+.popScroll h2 {margin-top:0}
+
+.style1 {color: #FF0000}
+.style4 {font-size: 12px}
+.style5 {font-size: 14px}
+</style>
+
+<script type="text/javascript">
+
+function myreset() {
+
+//document.getElementById('Priority').value = "Routine";
+
+//document.getElementById('Subjectline').value = "";
+
+//createSubjectLine();
+
+//changeBGColor();
+
+//createSubjectLine();
+
+return false;
+
+}
+
+function start() {
+
+init ();
+
+//document.getElementById('Priority').value = "Routine";
+
+//document.getElementById('Subjectline').value = "";
+
+//createSubjectLine();
+
+//changeBGColor();
+
+//translate();
+
+//createSubjectLine();
+
+//cookie_counter(); 
+
+}
+
+function init () {
+
+var True = true;
+
+var False = false;
+
+}
+
+var cnt;
+
+function wordcount(s) {
+
+s = s.replace(/(^\s*)|(\s*$)/gi,"");//exclude start and end white-space
+
+s = s.replace(/\n/g, " "); // Convert CR to spacing
+
+s = s.replace(/[ ]{2,}/gi," ");//2 or more space to 1
+
+cnt = s.split(' ').length; var ele = document.getElementById('check');
+
+ele.value = cnt;
+
+}
+
+function punctwrdcnt(s) {
+
+//PunktText();
+
+wordcount(s);
+
+}
+
+function PunktText() {
+
+var MSGText = document.getElementById('MessageTXT').value;
+
+var PunctVal = document.getElementById('punctuation'); if (PunctVal.checked == true) {
+
+MSGText = MSGText.replaceAll (',', ' COMMA');
+
+MSGText = MSGText.replaceAll ('.', ' DOT'); MSGText = MSGText.replaceAll ('-', ' DASH');
+
+MSGText = MSGText.replaceAll ('?', ' QUERY');
+
+MSGText = MSGText.replaceAll ('!', ' EXCLAMATION');
+
+MSGText = MSGText.replaceAll (':', ' COLON');
+
+MSGText = MSGText.replaceAll (';', ' SEMICOLON');
+
+MSGText = MSGText.replaceAll ('@', ' ATSIGN');
+
+MSGText = MSGText.replaceAll ('#', ' POUNDSIGN');
+
+MSGText = MSGText.replaceAll ('$', ' DOLLARSIGN');
+
+MSGText = MSGText.replaceAll ('%', ' PERCENTSIGN');
+
+MSGText = MSGText.replaceAll ('&', ' AMPERSAND');
+
+MSGText = MSGText.replaceAll ('%', ' PERCENTSIGN');
+
+MSGText = MSGText.replaceAll ('\'', ' APOSTROPHE');
+
+MSGText = MSGText.replaceAll ('(', ' OPENINGPARENTHESIS');
+
+MSGText = MSGText.replaceAll (')', ' CLOSINGPARENTHESIS');
+
+MSGText = MSGText.replaceAll ('{', ' OPENINGBRACE');
+
+MSGText = MSGText.replaceAll ('}', ' CLOSINGBRACE');
+
+MSGText = MSGText.replaceAll ('}', ' CLOSINGBRACE');
+
+MSGText = MSGText.replaceAll ('}', ' CLOSINGBRACE');
+
+MSGText = MSGText.replaceAll ('*', ' ASTERISK');
+
+MSGText = MSGText.replaceAll ('~', ' TILDE');
+
+MSGText = MSGText.replaceAll ('>', ' GREATERTHANSIGN');
+
+MSGText = MSGText.replaceAll ('<', ' LESSTHANSIGN');
+
+MSGText = MSGText.replaceAll ('"', ' QUOTE');
+
+MSGText = MSGText.replaceAll ('|', ' BAR');
+
+MSGText = MSGText.replaceAll ('\\', ' BACKSLASH');
+
+MSGText = MSGText.replaceAll ('/', ' FORWARDSLASH');
+
+MSGText = MSGText.replaceAll ('=', ' EQUALSIGN');
+
+MSGText = MSGText.replaceAll ('^', ' CARET');
+
+MSGText = MSGText.replaceAll ('_', ' UNDERSCORE');
+
+MSGText = MSGText.replaceAll ('[', ' OPENINGBRACKET');
+
+MSGText = MSGText.replaceAll (']', ' CLOSINGBRACKET');
+
+MSGText = MSGText.replaceAll ('+', ' PLUSSIGN');
+
+MSGText = MSGText.replaceAll ('`', ' GRAVEACCENT');
+
+}
+
+else {
+
+MSGText = MSGText.replaceAll (' COMMA', ',');
+
+MSGText = MSGText.replaceAll (' DOT', '.'); MSGText = MSGText.replaceAll (' DASH', '-');
+
+MSGText = MSGText.replaceAll (' QUERY', '?');
+
+MSGText = MSGText.replaceAll (' EXCLAMATION', '!');
+
+MSGText = MSGText.replaceAll (' COLON', ':');
+
+MSGText = MSGText.replaceAll (' SEMICOLON', ';');
+
+MSGText = MSGText.replaceAll (' ATSIGN', '@');
+
+MSGText = MSGText.replaceAll (' QUOTE', '\''); MSGText = MSGText.replaceAll (' POUNDSIGN', '#');
+
+MSGText = MSGText.replaceAll (' DOLLARSIGN', '$');
+
+MSGText = MSGText.replaceAll (' PERCENTSIGN', '%'); MSGText = MSGText.replaceAll (' APOSTROPHE', '\'');
+
+MSGText = MSGText.replaceAll (' OPENINGPARENTHESIS', '(');
+
+MSGText = MSGText.replaceAll (' CLOSINGPARENTHESIS', ')'); MSGText = MSGText.replaceAll (' OPENINGBRACE', '{');
+
+MSGText = MSGText.replaceAll (' CLOSINGBRACE', '}');
+
+MSGText = MSGText.replaceAll (' ASTERISK', '*');
+
+MSGText = MSGText.replaceAll (' TILDE', '~'); MSGText = MSGText.replaceAll (' GREATERTHANSIGN', '>');
+
+MSGText = MSGText.replaceAll (' LESSTHANSIGN', '<');
+
+MSGText = MSGText.replaceAll (' BAR', '|');
+
+MSGText = MSGText.replaceAll (' BACKSLASH', '\\');
+
+MSGText = MSGText.replaceAll (' FORWARDSLASH', '/');
+
+MSGText = MSGText.replaceAll (' EQUALSIGN', '=');
+
+MSGText = MSGText.replaceAll (' UNDERSCORE', '_');
+
+MSGText = MSGText.replaceAll (' OPENINGBRACKET', '[');
+
+MSGText = MSGText.replaceAll (' CLOSINGBRACKET', ']');
+
+MSGText = MSGText.replaceAll (' GRAVEACCENT', '`');
+
+}
+
+document.getElementById('MessageTXT').value = MSGText;
+
+wordcount(document.getElementById('MessageTXT').value);
+
+}
+
+String.prototype.replaceAll = function(search, replace) {
+
+if (replace === undefined) {
+
+return this.toString();
+
+}
+
+return this.split(search).join(replace);
+
+}
+
+function changeBGColor() {
+
+var MSGText = document.getElementById('MSG');
+
+var Priority = document.getElementById('Priority');
+
+var WL2KPriority = document.getElementById('WL2KPriority'); var pri = document.getElementById('Priority').value;
+
+if (pri == null) { pri = "Routine"; }
+
+createSubjectLine();
+
+if (pri == "Routine") { // green
+
+Priority.style.background = "#cfc";
+
+MSGText.style.background = "#cfc"; }
+
+else if (pri == "Priority") { // yellow
+
+Priority.style.background = "#ff7";
+
+MSGText.style.background = "#ffc"; }
+
+else if (pri == "Emergency") { // red
+
+Priority.style.background = "#f99";
+
+MSGText.style.background = "#fdd"; }
+
+}
+
+function translate() {
+
+var userLang = navigator.language || navigator.userLanguage; if (userLang == "de") {
+
+document.getElementById('Number').innerHTML = 'Nummer:';
+
+document.getElementById('PriorityText').innerHTML = 'Priorit&auml;t:';
+
+document.getElementById('Station').innerHTML = 'Absender:';
+
+document.getElementById('Words').innerHTML = 'Anzahl W&ouml;rter:';
+
+document.getElementById('Origin').innerHTML = 'Absender Ort:';
+
+document.getElementById('Time').innerHTML = 'Uhrzeit:';
+
+document.getElementById('Name').innerHTML = 'An Name:';
+
+document.getElementById('Address').innerHTML = 'Adresse:';
+
+document.getElementById('City').innerHTML = 'Ort:';
+
+document.getElementById('Message').innerHTML = 'Nachrichtentext:';
+
+document.getElementById('From').innerHTML = 'Absender:';
+
+document.getElementById('pcttext').innerHTML = 'Punktation zu Text?';
+
+document.getElementById('Submit').value = 'Absenden';
+
+}
+
+}
+
+function createSubjectLine() {
+
+var pri = document.getElementById('Priority').value;
+
+var station = document.getElementById('station').value;
+
+var city = document.getElementById('CityVal').value;
+
+var tel = document.getElementById('Tel').value;
+
+var name = document.getElementById('nameVal').value;
+
+var time = document.getElementById('datetime').value;
+
+if (city == "") city = "xx";
+
+if (tel == "") tel = "xx";
+
+if (name == "") name = "xx";
+
+if (document.getElementById('WL2K').checked) {
+
+if (pri == "Routine") priority = "R/";
+
+if (pri == "Priority") priority = "P/";
+
+if (pri == "Emergency") priority = "O/";
+
+Subj = "//WL2K " + priority + " Radiogram from " + station + " @ " + time + " -- Severity: " + pri;
+
+}
+
+else if (document.getElementById('ARRL').checked) {
+
+if (pri == "Routine") priority = "R ";
+
+if (pri == "Priority") priority = "P ";
+
+if (pri == "Emergency") priority = "EMERGENCY ";
+
+Subj = priority + city + " " + tel + " " + name;
+
+}
+
+document.getElementById('SubjectText').innerHTML = Subj;
+
+document.getElementById('Subjectline').value = Subj;
+
+}
+
+function P2Pcheck() {
+
+if (document.getElementById('P2Pcheckbox').checked) {
+
+document.getElementById('P2PWLType').value = "P2P";
+
+}
+
+else {
+
+document.getElementById('P2PWLType').value = "WINLINK";
+
+}
+
+} function getCookieVal (offset) {
+
+var endstr = document.cookie.indexOf (";", offset);
+
+if (endstr == -1)
+
+endstr = document.cookie.length;
+
+return unescape(document.cookie.substring(offset, endstr));
+
+}
+
+function GetCookie () {
+
+var To = document.getElementById('To').value;
+
+var name = To.replace(";", "").toUpperCase(); var arg = name + "=";
+
+var alen = arg.length;
+
+var clen = document.cookie.length;
+
+var i = 0;
+
+while (i < clen) {
+
+var j = i + alen;
+
+if (document.cookie.substring(i, j) == arg)
+
+return getCookieVal (j);
+
+i = document.cookie.indexOf(" ", i) + 1;
+
+if (i == 0) break; }
+
+return null;
+
+}
+
+function SetCookie (name, value) {
+
+var To = document.getElementById('To').value;
+
+var name = To.replace(";", "").toUpperCase(); // var name = To;
+
+var argv = SetCookie.arguments;
+
+var argc = SetCookie.arguments.length;
+
+var expires = (2 < argc) ? argv[2] : null;
+
+var path = (3 < argc) ? argv[3] : null;
+
+var domain = (4 < argc) ? argv[4] : null;
+
+var secure = (5 < argc) ? argv[5] : false;
+
+document.cookie = name + "=" + escape (value) +
+
+((expires == null) ? "" : ("; expires=" + expires.toGMTString())) +
+
+((path == null) ? "" : ("; path=" + path)) +
+
+((domain == null) ? "" : ("; domain=" + domain)) +
+
+((secure == true) ? "; secure" : "");
+
+}
+
+function ResetCounts() {
+
+var To = document.getElementById('To').value;
+
+var name = To.replace(";", "").toUpperCase(); var counter = 1;
+
+var expdate = new Date();
+
+expdate.setTime(expdate.getTime() + (24 * 60 * 60 * 1000 * 365)); SetCookie(name, counter, expdate , "/", null, false);
+
+//location.reload();
+
+document.getElementById('NumberVal').value = 1;
+
+}
+
+function cookie_counter () {
+
+var expdate = new Date();
+
+var counter;
+
+// Set expiration date to a year from now.
+
+expdate.setTime(expdate.getTime() + (24 * 60 * 60 * 1000 * 365)); if(!(counter = GetCookie())) counter = 0;
+
+counter++;
+
+SetCookie("Callsign", counter, expdate, "/", null, false);
+
+document.getElementById('NumberVal').value = counter;
+
+} function ToChange ()
+
+{
+
+createSubjectLine();
+
+cookie_counter();
+
+}
+
+function AutoGrowTextArea(textField)
+
+{
+
+if (textField.clientHeight < textField.scrollHeight)
+
+{
+
+textField.style.height = textField.scrollHeight + "px";
+
+if (textField.clientHeight < textField.scrollHeight)
+
+{
+
+textField.style.height = (textField.scrollHeight * 2 - textField.clientHeight) + "px";
+
+}
+
+}
+
+}
+
+function Countthelines(f) { var text1 = f
+
+var text2 = text1.replace(/\s+$/,"");
+
+var split2 = text2.split("\n"); var mytotal = split2.length * 17;
+
+if (mytotal < 150) {
+
+mytotal = 150;
+
+}
+
+var tstr = mytotal.toString();
+
+return tstr;
+
+}
+
+function newfix(f){
+
+var ThisText = document.getElementById(f).value;
+
+var makeit = Countthelines(ThisText);
+
+document.getElementById(f).style.height = makeit+"px"; }
+
+function Fixarea() {
+
+newfix("Message");
+
+// newfix("reply");
+
+AutoGrowTextArea(document.getElementById("Message"));
+
+// AutoGrowTextArea(document.getElementById("reply"));
+
+}
+
+function RWS(str){
+
+var text2 = str.replace(/\s+$/,"");
+
+return text2.trim();
+
+}
+
+</script></head>
+<body onload="start();">
+
+<form id="Registration" method="post" onsubmit="return confirm('To complete your form submission, click OK and close the open browser window. You will return to the new message window so you can post your message to the outbox');" action="http://{FormServer}:{FormPort}" enctype="multipart/form-data">
+
+<div id="pop1" class="pop-up"><!-- The pop-up block -->
+
+<div class="popBox"><!-- If the content becomes larger than the pop-up this div will scroll the content -->
+
+<div class="popScroll">
+
+<p> </p>
+
+<h2>Change Punctuation to Text </h2>
+
+<div align="left">
+
+<p>The change "Punctuation to Text" checkbox toggles the keyboard
+
+punctuation marks to text in accordance with NTS MPG-SENDING
+
+ON VOICE.<br />
+
+</p>
+
+<p> http://www.arrl.org/files/file/Public%20Service/MPG204A.pdf </p>
+
+</div>
+
+<p align="left">While this is an IARU based Radiogram the
+
+ARRL NTS procedures are applicable.
+
+<br />
+
+<br />
+
+In an effort to keep things as simple as
+
+possible the NTS has adopted the following standards for punctuation in
+
+a formal radiogram: Period = X-Ray Question Mark = Query As these are
+
+the most common punctuations and could be easily misconstrued as
+
+something else ALL periods in a message are expressed as an "X" (spoken
+
+"X-ray") and all question marks are spoken as the word "query" at the
+
+end of the sentence. Other punctuation is permitted but in an effort to
+
+keep the check to a minimum they are discouraged. </p>
+
+<p align="left">The documents states: "Remember that
+
+punctuation, other than X for period, is always written out as a word
+
+group and may be spelled if necessary.&#8221;<br />
+
+<br />
+
+Original form credits to OE3VRW, Wolfgang Ruthner </p>
+
+</div>
+
+<!-- The close pop-up link correctly positioned at the end of the content block --><a href="#links" class="close"><span>Back
+
+to links</span></a> </div>
+
+</div>
+
+<table style="text-align: left; margin-left: auto; margin-right: auto; width: 999px; height: 138px;" border="1" cellpadding="1" cellspacing="1">
+
+<tbody>
+
+<tr>
+
+<td style="text-align: center; background-color: rgb(255, 255, 204);" colspan="6" class="RADIOGRAM"><span style="font-style: italic;">&nbsp;</span><small style="font-weight: bold; font-style: italic; color: rgb(153, 102, 51);">Oregon ARES Digital Network Quarterly Report Template Instructions</small><br style="color: rgb(153, 102, 51);" /><small style="font-weight: normal;"><span style="color: rgb(153, 102, 51);">Contact KF7RSF with questions</span><br /></small><div style="text-align: left;"><small style="font-weight: normal;"><br /><small style="font-weight: bold;">Overview:</small><br /><br /><small style="font-weight: normal;">This procedure tests the County EOC OADN equipment and provides a report to the Section Emergency Coordinator.&nbsp; <br /><br /></small><small style="font-weight: normal;">Send a Quarterly Test Message from the County EOC through an Oregon HF Pactor Gateway, </small><small style="font-weight: normal;">send the same Quarterly Test Message through a non-Oregon HF Pactor Gateway, </small><small style="font-weight: normal;">prepare the Quarterly Test Report and send the Quarterly Test Report through a VHF Packet Gateway.&nbsp; </small><br /><br /><small style="font-weight: normal;">It may be useful to print a copy of the Quarterly Test Report to record contact information.</small><br /><br /><small style="font-weight: bold;">Oregon Gateway:</small><br /><br /><small style="font-weight: normal;">Use
+the Quarterly Test Message Template and connect to an Oregon based HF
+RMS Gateway station and send the Quarterly Test Message.&nbsp; </small><small style="font-weight: normal;">The message is addressed to TEST.&nbsp; This message does not need to be sent to the SEC, ASEC, DEC, etc.</small><br /><br /><small style="font-weight: normal;">The
+Winlink system will forward a copy of the message back to the sending
+station so you know the message was successfully sent. </small><small style="font-weight: normal;">You may have to check for messages in a separate session to receive the TEST message from the Winlink system. </small><br /><br /><small style="font-weight: normal;">Be
+sure to update the HF Channel Selector table to see current
+stations.&nbsp; Try to send to W7ODN or K7ODN first but any Oregon
+station is fine.&nbsp; </small><small style="font-weight: normal;">This is a test of the County EOC equipment, not the OADN gateways. <br /><br /></small><small style="font-weight: normal;">Record the following information from the Winlink Express screen for the Quarterly Test Report:</small><br /><br /><small style="font-weight: normal;">&nbsp; Station Contacted Call Sign (W7ODN, K7ODN or other Oregon Station):</small><br /><small style="font-weight: normal;">&nbsp; Date of Contact:</small><br /><small style="font-weight: normal;">&nbsp; Time of Contact:</small><br /><small style="font-weight: normal;">&nbsp; Frequency:</small><br /><small style="font-weight: normal;">&nbsp; Throughput observed (bytes/minute):</small><br /><br /><small style="font-weight: bold;">Non-Oregon Gateway:</small><br /><br /><small style="font-weight: normal;">Use
+the Quarterly Test Message Template and connect to any non-Oregon based
+HF RMS Pactor Gateway station and send the Quarterly Test Template.</small><br /><br /><small style="font-weight: normal;">Record the following information from the Winlink Express screen for the Quarterly Test Report:</small><br /><br /><small style="font-weight: normal;">&nbsp; Station Contacted Call Sign:</small><br /><small style="font-weight: normal;">&nbsp; Date of Contact:</small><br /><small style="font-weight: normal;">&nbsp; Time of Contact:</small><br /><small style="font-weight: normal;">&nbsp; Frequency:</small><br /><small style="font-weight: normal;">&nbsp; Throughput observed (bytes/minute):</small><br /><br /><small style="font-weight: normal; font-style: italic;">Complete the Quarterly Test Report Template using the information recorded during the two above tests.</small><br style="font-style: italic;" /><br style="font-weight: bold;" /><small style="font-weight: bold;">Send the Quarterly Test Report:</small><br /><br /><small style="font-weight: normal;">If
+possible, connect to a neighboring county's VHF RMS Gateway using the
+path connection indicated in the Quarterly Test Report Template.</small><br /><br /><small style="font-weight: normal;">If
+you are unable to connect to a neighboring county RMS Packet Gateway,
+update the VHF RMS Packet Connectivity Test information in the
+Quarterly Test Report Template to indicate there is not an RMS Packet
+Gateway accessible outside your county from your county EOC. Try to
+send the report via any available VHF RMS Gateway.&nbsp; </small><br /><br /><small style="font-weight: normal;">If no VHF Gateway is available, update and send the Quarterly Test Report via any HF Gateway or Telnet.</small><br /><br /><small style="text-decoration: underline;"><span style="font-weight: normal; font-style: italic;">Contact KF7RSF with any questions .</span></small><br /><br /><br /><span style="font-style: italic;"></span></small><br /></div><span style="font-weight: normal;"></span><span style="font-weight: normal;"><small><span style="font-style: italic;"></span></small></span><small><small><small><span style="font-weight: normal;"></span></small></small></small><small><small><small><span style="font-weight: normal;"></span></small></small></small></td>
+
+</tr>
+
+
+
+
+
+
+
+</tbody>
+
+<!-- id here matches href in the activating link -->
+
+</table>
+
+</form>
+
+
+
+</body></html>

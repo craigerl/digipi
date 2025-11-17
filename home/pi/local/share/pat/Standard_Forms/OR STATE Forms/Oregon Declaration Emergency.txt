@@ -1,0 +1,53 @@
+Form: Oregon_Declaration_Emergency_Initial.html,Oregon_Declaration_Emergency_Viewer.html
+
+To: <MsgTo>
+Cc: <MsgCc>
+
+Subject: OR Declaration - <var County> - <var Type>
+	
+Msg:
+Status: <var Status>
+
+To: Governor, State of Oregon
+Through: Director, Office Oregon Emergency Management
+From: <var PubOff>
+
+1. County: <var County>
+2. Incident Type: <var Type>
+3. Beginning Date/Time of Incident: <var BegTime>
+
+4. Incident is: <var EventEnd>
+   IF ENDED, Date/Time: <var EndTime>
+
+5. Problem and Type of Assistance Needed:
+
+<var Problem>
+--------------------------------------
+
+6. Initial Assessment of Damage - # of Injuries - # of Deaths:
+
+<var Initial>
+--------------------------------------
+
+7. Actions Pending or Taken by County or Local Governments:
+
+<var Actions>
+--------------------------------------
+
+8. Request Date/Time - Form Filled Out: <var DateTime>
+
+9. Name of Authorizing Official (s): <var Auth>
+
+------------------------
+Express Sending Station: <MsgSender>
+Senders Express Version: <ProgramVersion>
+Senders Template Version: <var Templateversion>
+
+
+
+
+
+
+
+
+

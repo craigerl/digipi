@@ -1,0 +1,82 @@
+.\"
+.\"  This manual page section is maintained by Michael Meifert,
+.\"  <mime@dk3hg.hanse.de>. Since this information is available
+.\"  by readind the documentation files, I don't intend to work
+.\"  on the man pages this time. 
+.\"
+.\"  Thanks for his work on this documentaion file !
+.\"
+.\"  Modified for htpp-1.20 by Hessu
+.\"
+.PU
+.TH CONVERSD 8 "4 May 1994 " "htpp Ping-Pong Convers" "htpp Ping-Pong Convers Manual"
+.SH NAME
+conversd \- Hessu's Tampa Ping-Pong conversd
+.SH SYNOPSIS
+.TP 18
+.B conversd [-f] [-t]
+.SH DESCRIPTION
+.LP
+This is the Ping-Pong conversd, derived from WAMPES' conversd by Dieter
+Deyke <deyke@mdddhd.fc.hp.com>. It is also used in the Internet for ham radio
+conversation groups.
+.PP
+The "standard" TCP port to be used with conversd is 3600. You can change this
+using the Port directive in the configuration file.
+.SH OPTIONS
+.TP 16
+.BI \-f
+By default, conversd makes itself a daemon by forking itself to the background
+automatically. The -f parameter disables this behaviour, which can be useful
+if you need to run it from inittab (respawn) or a looping shell script to restart
+it after it dies in bugs.
+.TP 16
+.BI \-t
+Runs conversd in try-only mode. Reads configuration file, does all initialization,
+and dies immediately after that. Does not bind the port, accept connections or start
+linking. Useful for verifying if your configuration is valid after changes, before
+killing off the running copy and starting a new one.
+.SH FILES
+.TP 1.0i
+.B /usr/local/sbin/conversd
+This is the daemon itself.
+.TP 1.0i
+.B /usr/local/etc/convers.conf
+Configuration file (self-documenting)
+.TP 1.0i
+.B /usr/local/etc/convers.issue
+General text. Displayed at connect time.
+.TP 1.0i
+.B /usr/local/etc/convers.motd
+Motto of the day is displayed at user login (after the /name command).
+.TP 1.0i
+.B /usr/local/etc/convers.help
+User /help file
+.TP 1.0i
+.B /usr/local/var/cache/conversd/log/convers.log.*
+Convers logins/logouts are logged here for the /last command.
+.TP 1.0i
+.B /usr/local/var/cache/conversd/personals/<callsign>
+User /personals are saved here.
+.TP 1.0i
+.B /usr/local/var/cache/conversd/nicknames/<callsign>
+User /nicknames are saved here.
+
+.PP
+
+.SH UPDATES
+.LP
+Newer releases of this software might be found here:
+http://x-berg.in-berlin.de/cgi-bin/viewvc.cgi/ampr/conversd-saupp.tar.gz?view=tar
+http://db0tud.ampr.org/cgi-bin/viewvc.cgi/ampr/conversd-saupp.tar.gz?view=tar
+
+
+.SH AUTHORS
+The Ping-Pong convers package was written by Fred Baumgarten 
+(dc6iq@insu1.etec.uni-karlsruhe.de).
+Convert.c was written by Thomas Osterried (thomas@x-berg.in-berlin.de).
+Original manual page by Michael Meifert (mime@dk3hg.hanse.de).
+The server was enhanced and renamed to tpp by Brian Lantz.
+And later, cleaned up, enhanced more and renamed to htpp by Heikki Hannikainen <hessu@hes.iki.fi>.
+Minor mods and bugfixes by Tony Jenkins G8TBF. Changed to V1.23.
+This version is conversd-saupp (started as v1.6), fixes several bugs.

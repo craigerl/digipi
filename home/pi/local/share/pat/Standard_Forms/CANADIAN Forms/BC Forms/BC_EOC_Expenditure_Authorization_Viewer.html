@@ -1,0 +1,1083 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" /><title>BC EOC Expenditure Authorization</title>
+
+
+
+<style type="text/css">
+
+<!--
+
+@media print {
+#printPageButton {
+    display: none;
+  }
+.form-control, .form-control.nobug {
+
+border: 0;
+
+outline: 0;
+
+box-shadow: none;
+
+font-size:14px;
+
+}
+
+.form-control.nobug {
+
+transition: none; /*-- THIS IS IMPORTANT -- */
+
+}
+
+input, textarea {
+
+outline: none !important;
+
+box-shadow: none;
+
+border: none;
+
+overflow: visible;
+
+font-family: Arial, Helvetica, sans-serif;
+
+font-size: 11px;
+
+}
+
+.formtext {
+
+font-family: Arial, Helvetica, sans-serif;
+
+font-size: 11pt;
+
+font-weight: normal;
+
+}
+
+
+
+input[type=text], textarea {
+
+  -webkit-transition: all 0.30s ease-in-out;
+
+  -moz-transition: all 0.30s ease-in-out;
+
+  -ms-transition: all 0.30s ease-in-out;
+
+  -o-transition: all 0.30s ease-in-out;
+
+  outline: none;
+
+  padding: 3px 0px 3px 3px;
+
+  margin: 5px 1px 3px 0px;
+
+  border: 1px solid #666666;
+
+}
+
+ 
+
+input[type=text]:focus, textarea:focus {
+
+  box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+
+  padding: 3px 0px 3px 3px;
+
+  margin: 5px 1px 3px 0px;
+
+  border: 1px solid rgba(81, 203, 238, 1);
+
+}
+
+</style>
+
+<script>
+
+function shortmonth(monthnum) {
+
+var monthname;
+
+shortmonths = ["JAN", "FEB", "MAR","APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"] ;
+
+monthname = shortmonths [monthnum];s
+
+return monthname; }
+
+</script>
+
+<script>
+
+function SetDateTime(TType,TheFld, FocusFld) {
+
+var txt;
+
+var myprompt;
+
+var d = new Date(),
+
+thisyear = d.getFullYear();
+
+thismonth= d.getMonth();
+
+thisday = d.getDate();
+
+var monname;
+
+h = (d.getHours()<10?'0':'') + d.getHours()
+
+m = (d.getMinutes()<10?'0':'') + d.getMinutes()
+
+s = (d.getSeconds()<10?'0':'') + d.getSeconds();
+
+var now = new Date();
+
+var utch = now.getUTCHours();
+
+if (utch < 10) { utch = "0"+utch};
+
+var utcs = now.getUTCMinutes();
+
+if (utcs < 10) { utcs = "0"+utcs};
+
+var myUTCtime = utch+":"+utcs+"Z";
+
+var utcstr = d.toUTCString();
+
+var localt = d.toLocaleTimeString();
+
+var isostr = d.toISOString();
+
+monthname = shortmonth (thismonth);
+
+thismonth = thismonth + 1;
+
+switch (TType) {
+
+case 'hms' :
+
+myprompt = h + ':' + m + ':' + s;
+
+var RightNow = prompt("Time:", myprompt);
+
+document.getElementById(TheFld).value = RightNow;
+
+break;
+
+case 'hm' :
+
+myprompt = h + ':' + m;
+
+var RightNow = prompt("Time:", myprompt);
+
+document.getElementById(TheFld).value = RightNow;
+
+break;
+
+case 'm-d-y': myprompt = thismonth+ '-' + thisday+ '-'+ thisyear;
+
+var RightNow = prompt("Date:", myprompt);
+
+document.getElementById(TheFld).value = RightNow;
+
+break;
+
+case 'm/d/y': myprompt = thismonth+ '/' + thisday+ '/'+ thisyear;
+
+var RightNow = prompt("Date:", myprompt);
+
+document.getElementById(TheFld).value = RightNow;
+
+break;
+
+case 'd mmm y': myprompt = thisday+ ' ' + monthname+ ' '+ thisyear;
+
+var RightNow = prompt("Date:", myprompt);
+
+document.getElementById(TheFld).value = RightNow;
+
+break;
+
+case 'mmm-d-y': myprompt = monthname+'-'+thisday+ '-' + thisyear;
+
+var RightNow = prompt("Date:", myprompt);
+
+document.getElementById(TheFld).value = RightNow;
+
+break;
+
+case 'localampm': var myprompt = localt;
+
+var RightNow = prompt("Local time:", myprompt);
+
+document.getElementById(TheFld).value = RightNow;
+
+break;
+
+case 'fulldate': var myprompt = thisyear+ '-'+thismonth+'-'+thisday;
+
+var RightNow = prompt("Date:", myprompt);
+
+document.getElementById(TheFld).value = RightNow;
+
+break;
+
+case 'fulldatetime': var myprompt = thisyear+'-'+thismonth+ '-'+thisday+' '+h + ':' + m ;
+
+var RightNow = prompt("Date time:", myprompt);
+
+document.getElementById(TheFld).value = RightNow;
+
+break;
+
+case 'autodate': var RightNow = thisyear+'-'+thismonth+ '-'+thisday ;
+
+//var RightNow = prompt("Date time:", myprompt);
+
+document.getElementById(TheFld).value = RightNow;
+
+break;
+
+case 'autotime': var RightNow = h + ':' + m ;
+
+//var RightNow = prompt("Date time:", myprompt);
+
+document.getElementById(TheFld).value = RightNow;
+
+break;
+
+case 'iso': var myprompt = isostr;
+
+var RightNow = prompt("Date time:", myprompt);
+
+document.getElementById(TheFld).value = RightNow;
+
+break;
+
+case 'utc': var myprompt = utcstr;
+
+var RightNow = prompt("Date time:", myprompt);
+
+document.getElementById(TheFld).value = RightNow;
+
+break;
+
+case 'zulu': var myprompt = isostr;
+
+myprompt = isostr.replace("T", " "); slen = myprompt.length;
+
+myprompt = myprompt.substr(0, slen-5)+'Z';
+
+var RightNow = prompt("Date time:", myprompt);
+
+document.getElementById(TheFld).value = RightNow;
+
+break;
+
+case 'UTChm': var myprompt = myUTCtime;
+
+var RightNow = prompt("Date time:", myprompt);
+
+document.getElementById(TheFld).value = RightNow;
+
+break;
+
+}
+
+// if(FocusFld !== null && FocusFld !== '') {document.getElementById(FocusFld).focus()} --/
+
+}; </script>
+
+<script>
+
+function AutoGrowTextArea(textField)
+
+{
+
+if (textField.clientHeight < textField.scrollHeight)
+
+{
+
+textField.style.height = textField.scrollHeight + "px";
+
+if (textField.clientHeight < textField.scrollHeight)
+
+{
+
+textField.style.height = (textField.scrollHeight * 2 - textField.clientHeight) + "px";
+
+}
+
+}
+
+}
+
+function Countthelines(f) { var text1 = f
+
+var text2 = text1.replace(/\s+$/,"");
+
+var split2 = text2.split("\n"); var mytotal = split2.length * 17;
+
+if (mytotal < 150) {
+
+mytotal = 150;
+
+}
+
+var tstr = mytotal.toString();
+
+return tstr;
+
+}
+
+function newfix(f){
+
+var ThisText = document.getElementById(f).value;
+
+var makeit = Countthelines(ThisText);
+
+document.getElementById(f).style.height = makeit+"px"; }
+
+function Fixarea() {
+
+newfix("msg");
+
+newfix("reply");
+
+AutoGrowTextArea(document.getElementById("msg"));
+
+AutoGrowTextArea(document.getElementById("reply"));
+
+}
+
+function RWS(str){
+
+var text2 = str.replace(/\s+$/,"");
+
+return text2.trim();
+
+}
+
+function Flip(theid,working) {
+
+x1 = document.getElementById(theid).value;
+
+if (x1 == '' || x1 == '') { document.getElementById(theid).value = working} 
+
+else { document.getElementById(theid).value = '';}
+
+}
+
+function shortmonth(monthnum) {
+
+var monthname;
+
+shortmonths = ["JAN", "FEB", "MAR","APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"] ;
+
+monthname = shortmonths [monthnum];s
+
+return monthname; }
+
+</script>
+
+<script>
+
+function SetDateTime(TType,TheFld, FocusFld) {
+
+var txt;
+
+var myprompt;
+
+var d = new Date(),
+
+thisyear = d.getFullYear();
+
+thismonth= d.getMonth();
+
+thisday = d.getDate();
+
+var submonth = thismonth+1; ;
+
+if (submonth < 10) { submonth = "0"+submonth};
+
+var subday = thisday;
+
+if (thisday < 10) { thisday = "0"+thisday};
+
+var monname;
+
+h = (d.getHours()<10?'0':'') + d.getHours()
+
+m = (d.getMinutes()<10?'0':'') + d.getMinutes()
+
+s = (d.getSeconds()<10?'0':'') + d.getSeconds();
+
+var now = new Date();
+
+var utch = now.getUTCHours();
+
+if (utch < 10) { utch = "0"+utch};
+
+var utcs = now.getUTCMinutes();
+
+if (utcs < 10) { utcs = "0"+utcs};
+
+var myUTCtime = utch+":"+utcs+"Z";
+
+var utcstr = d.toUTCString();
+
+var localt = d.toLocaleTimeString();
+
+var isostr = d.toISOString();
+
+monthname = shortmonth (thismonth);
+
+thismonth = thismonth + 1;
+
+switch (TType) {
+
+case 'hms' :
+
+myprompt = h + ':' + m + ':' + s;
+
+var RightNow = prompt("Time:", myprompt);
+
+document.getElementById(TheFld).value = RightNow;
+
+break;
+
+case 'hm' :
+
+myprompt = h + ':' + m;
+
+var RightNow = prompt("Time:", myprompt);
+
+document.getElementById(TheFld).value = RightNow;
+
+break;
+
+case 'm-d-y': myprompt = thismonth+ '-' + thisday+ '-'+ thisyear;
+
+var RightNow = prompt("Date:", myprompt);
+
+document.getElementById(TheFld).value = RightNow;
+
+break;
+
+case 'm/d/y': myprompt = thismonth+ '/' + thisday+ '/'+ thisyear;
+
+var RightNow = prompt("Date:", myprompt);
+
+document.getElementById(TheFld).value = RightNow;
+
+break;
+
+case 'd mmm y': myprompt = thisday+ ' ' + monthname+ ' '+ thisyear;
+
+var RightNow = prompt("Date:", myprompt);
+
+document.getElementById(TheFld).value = RightNow;
+
+break;
+
+case 'mmm-d-y': myprompt = monthname+'-'+thisday+ '-' + thisyear;
+
+var RightNow = prompt("Date:", myprompt);
+
+document.getElementById(TheFld).value = RightNow;
+
+break;
+
+case 'localampm': var myprompt = localt;
+
+var RightNow = prompt("Local time:", myprompt);
+
+document.getElementById(TheFld).value = RightNow;
+
+break;
+
+case 'fulldate': var myprompt = thisyear+ '-'+thismonth+'-'+thisday;
+
+var RightNow = prompt("Date:", myprompt);
+
+document.getElementById(TheFld).value = RightNow;
+
+break;
+
+case 'fulldatetime': var myprompt = thisyear+'/'+thismonth+ '/'+thisday+' '+h  + ':'+m ;
+
+var RightNow = prompt("Date time:", myprompt);
+
+document.getElementById(TheFld).value = RightNow;
+
+break;
+
+case 'autofulldatetime': var RightNow = thisyear+'-'+thismonth+ '-'+thisday+' '+h + ':' + m ;
+
+//var RightNow = prompt("Date time:", myprompt);
+
+//document.getElementById(TheFld).value = RightNow;
+
+//var ORTimestamp = thisyear+submonth+subday+h+m+s;
+
+//document.getElementById('TimeStampOR').value = ORTimestamp; break;
+
+case 'iso': var myprompt = isostr;
+
+var RightNow = prompt("Date time:", myprompt);
+
+document.getElementById(TheFld).value = RightNow;
+
+break;
+
+case 'utc': var myprompt = utcstr;
+
+var RightNow = prompt("Date time:", myprompt);
+
+document.getElementById(TheFld).value = RightNow;
+
+break;
+
+case 'zulu': var myprompt = isostr;
+
+myprompt = isostr.replace("T", " "); slen = myprompt.length;
+
+myprompt = myprompt.substr(0, slen-5)+'Z';
+
+var RightNow = prompt("Date time:", myprompt);
+
+document.getElementById(TheFld).value = RightNow;
+
+break;
+
+case 'UTChm': var myprompt = myUTCtime;
+
+var RightNow = prompt("Date time:", myprompt);
+
+document.getElementById(TheFld).value = RightNow;
+
+break;
+
+}
+
+}
+
+</script>
+
+<style>
+
+<!--
+
+TD{ bgcolor="#ffffff" valign="top"}
+
+.SubmitBtn {font-size: 12px;
+
+font-family: Arial,Helvetica,sans-serif;
+
+font-weight: inherit;
+
+}
+
+</script>
+
+.style24 {font-family: Arial,Helvetica,sans-serif; font-size: 20px}
+
+</style>
+
+<style>
+
+/*
+
+body {color:#000; background:#fff; font:100%/1.5 arial,sans-serif;}
+
+h2 {margin-top:0}
+
+*/
+
+/* Styling applied to classes only */
+
+/* Pop-up content shifted off-screen when not in view.
+
+Still readable by screen-reader software.
+
+When targeted it fills the browser window.
+
+*/
+
+.pop-up {position:absolute; top:0; left:-500em;}
+
+.pop-up:target {position:static; left:0;}
+
+/* The pop-up itself */
+
+.popBox {
+
+background:#ffffff;
+
+/* alternatively fixed width / height and negative margins from 50% */
+
+position:absolute; left:30%; right:30%; top:30%; bottom:30%;
+
+z-index:10;
+
+border:1px solid #3a3a3a;
+
+/* CSS3 where available: rounded corners, drop-shadow, and fade in. */
+
+border-radius:.25rem;
+
+box-shadow:0 .5rem .5rem rgba(0,0,0,.5);
+
+opacity:0;
+
+transition: opacity 0.8s ease-out;
+
+}
+
+:target .popBox {position:fixed; opacity:1;}
+
+/* Light box properties */
+
+.lightbox {
+
+display:none;
+
+text-indent:-200em;
+
+background-color:rgba(0,0,0,.4);
+
+width:100%;
+
+height:100%;
+
+position:fixed;
+
+top:0;
+
+left:0;
+
+bottom:0;
+
+right:0;
+
+z-index:5;
+
+}
+
+:target .lightbox {display:block;}
+
+/* The pop-ups close link, moved via CSS to the top right of the pop-up */
+
+.close:link,
+
+.close:visited {
+
+position: absolute;
+
+top: -0.75em;
+
+right: -0.75em;
+
+display: block;
+
+width: 2em;
+
+height: 2em;
+
+line-height: 1.8;
+
+padding: 0;
+
+text-align: center;
+
+text-decoration: none;
+
+background-color: #000;
+
+border: 2px solid #fff;
+
+color: #fff;
+
+border-radius: 50%;
+
+box-shadow: 0 0 .5rem .5rem rba(0,0,0,.5);
+
+}
+
+.close:before {content:"X";}
+
+.close:hover,
+
+.close:active,
+
+.close:focus {
+
+box-shadow: 0 0 .5rem .5rem rba(255,0,0,.5);
+
+background-color: #c00;
+
+color: #fff;
+
+}
+
+.close span {
+
+text-indent: -200em;
+
+display: block;
+
+}
+
+/* The pop-up content div will scroll if it has too much content */
+
+.popScroll {
+
+position:absolute;
+
+top: 1rem;
+
+left: 1rem;
+
+right: 1rem;
+
+bottom: 1rem;
+
+overflow-y: auto;
+
+*overflow-y: scroll;
+
+padding-right: 0.5em;
+
+}
+
+.popScroll h2 {margin-top:0}
+
+.style6 {
+
+font-family: Arial, Helvetica, sans-serif;
+
+font-size: 20px;
+
+}
+
+.style11 {
+
+font-size: 9pt;
+
+color: #006600;
+
+}
+
+.Kopfzeile2 {font-family: Arial,Helvetica,sans-serif;
+font-size: 12px;
+color: #000000;
+text-align: center;
+background-color: #efefef;
+}
+.style12 {font-size: 10pt}
+.style13 {font-size: 9pt}
+.style15 {font-size: 11pt; font-family: Arial, Helvetica, sans-serif;}
+.style16 {font-size: 11px}
+</style>
+<script>
+function formatNumber (num, hfield) {
+//document.getElementById(hfield).value = num;
+    return "$ "+ num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")
+}
+
+function isNumberKey(evt)
+{
+var charCode = (evt.which) ? evt.which : event.keyCode
+if (charCode < 48 || charCode > 57)
+return false;
+return true;
+}
+function Flip(theid,working) {
+x1 = document.getElementById(theid).value;
+if (x1 == '' || x1 == '') { document.getElementById(theid).value = working} 
+else { document.getElementById(theid).value = '';}
+}
+
+function Checktheboxes () {
+ if (document.getElementById('fld27').value == "YES") { document.getElementById('fld27b').checked = true;};
+ if (document.getElementById('fld28').value == "YES") { document.getElementById('fld28b').checked = true;}; 
+ if (document.getElementById('fld29').value == "YES") { document.getElementById('fld29b').checked = true;};
+  if (document.getElementById('fld30').value == "YES") { document.getElementById('fld30b').checked = true;};
+ if (document.getElementById('fld31').value == "YES") { document.getElementById('fld31b').checked = true;};
+ if (document.getElementById('fld32').value == "YES") { document.getElementById('fld32b').checked = true;};
+ 
+ if (document.getElementById('fld33').value == "YES") { document.getElementById('fld33b').checked = true;};
+ if (document.getElementById('fld34').value == "YES") { document.getElementById('fld34b').checked = true;};
+ if (document.getElementById('fld35').value == "YES") { document.getElementById('fld35b').checked = true;};
+ if (document.getElementById('fld36').value == "YES") { document.getElementById('fld36b').checked = true;};
+ if (document.getElementById('fld37').value == "YES") { document.getElementById('fld37b').checked = true;};
+ if (document.getElementById('fld38').value == "YES") { document.getElementById('fld38b').checked = true;};
+ 
+}
+</script>
+
+
+
+
+</head>
+
+<body onload="Checktheboxes()">
+
+<form pbzloc="0" onsubmit="return confirm('To complete your form submission, click OK and close open blank browser window. You will return to the New Message window to post your mail to the outbox. You can also make address changes at this time.');" method="post" id="Respource Request" enctype="multipart/form-data" action="http://{FormServer}:{FormPort}"><br />
+
+
+<span class="formtext"><strong><span style="font-weight: bold;">
+</span></strong></span>
+<table style="width: 900px; " border="1" cellpadding="3" cellspacing="0">
+
+<colgroup><col width="657" /></colgroup> <tbody>
+
+<tr valign="top" bgcolor="#f8f8ff">
+
+<td height="35" colspan="3">
+
+<div  align="center"><span class="style6">&nbsp;
+
+&nbsp; &nbsp; &nbsp; &nbsp;BC EOC Expenditure Authorization</span></div>
+
+</td>
+
+</tr>
+<tr valign="top">
+  
+</tr>
+<tr valign="top">
+
+<td width="272" nowrap="nowrap"" class="formtext" stext-align: right;><div align="left"><span style="font-weight: bold;">&nbsp;</span>Event:
+  {var fld1}
+          <br />
+    
+</div></td>
+
+<td width="347" nowrap="nowrap"" class="formtext" stext-align: right;><div align="left"><span style="font-weight: bold;">&nbsp;</span>Date:
+      {var fld2}
+    <span style="font-weight: bold;">&nbsp;</span><span style="font-weight: bold;">&nbsp;</span><span style="font-weight: bold;">&nbsp;</span>Time: {var fld5}</div></td>
+<td width="243" rowspan="2" nowrap="nowrap"" class="formtext" text-align: right;><div align="center"><span style="font-weight: bold;">&nbsp;</span>EAF#:<br />
+      <span style="font-weight: bold;">&nbsp;</span>{var fld3}
+</div></td>
+</tr>
+<tr valign="top">
+  <td nowrap="nowrap"" class="formtext" stext-align: right;><span style="font-weight: bold;">&nbsp;</span>EMBC Task #: 
+    {var fld4}</td>
+  <td nowrap="nowrap"" class="formtext" stext-align: right;>&nbsp;</td>
+  </tr>
+
+
+<tr valign="top">
+  <td colspan="3" class="formtext"><span style="font-weight: bold;">&nbsp;</span>Priority:
+    {var Pri}</td>
+</tr>
+<tr valign="top" bgcolor="#f8f8ff">
+
+<td colspan="3" rowspan="1" class="formtext"><strong><span class="style15">&nbsp;</span>Requesting Organization/Community: </strong></td>
+
+</tr>
+
+<tr valign="top">
+
+<td colspan="3" cclass="formtext">
+
+<table width="100%" border="1" cellpadding="4" cellspacing="0" style="text-align: left;">
+
+<tbody>
+
+<tr valign="top" class="formtext">
+  <td width="32%" nowrap="nowrap"><span style="font-weight: bold;">&nbsp;</span>Authorized Representative:</td>
+  <td width="32%" nowrap="nowrap"><span style="font-weight: bold;">&nbsp;</span>Name: 
+    {var fld6}</td>
+  <td width="36%" nowrap="nowrap"><span style="font-weight: bold;">&nbsp;</span>Location:
+      {var fld7}
+
+    </td>
+</tr>
+<tr valign="top" class="formtext">
+
+<td rowspan="1">
+
+  <span style="font-weight: bold;">&nbsp;</span>Telephone :
+  {var fld8}</td>
+<td rowspan="1"><span style="font-weight: bold;">&nbsp;</span>FAX :
+  {var fld9}</td>
+<td rowspan="1"><span style="font-weight: bold;">&nbsp;</span>Email: 
+  {var fld10}</td>
+</tr>
+<tr>
+  <td colspan="3" class="formtext"><strong>&nbsp;Description of Expenditure:</strong><span class="style16"> (include nature of goods and/or services being acquired/provided, desired outcome, location, date/time planned&hellip;)</span></span><br />
+<span style="width:750px; margin: 10px;  word-wrap:break-word; display:inline-block;">{var fld11}  </span> </span></td>
+</tr>
+<tr>
+  <td colspan="3" class="formtext"> <table width="100%"  border="1" cellpadding="0" cellspacing="0" bordercolor="#CCCCCC">
+      <tr valign="top">
+        <td width="52%" height="20"><span style="font-weight: bold;">&nbsp;</span>Amount Requested: 
+          {var fld12}
+          </td>
+        <td width="48%"><span style="font-weight: bold;">&nbsp;</span>Expenditure Not to Exceed: 
+          {var fld13}</td>
+        </tr>
+    </table>
+    </td>
+</tr>
+
+</tbody>
+
+</table>
+
+</td>
+
+</tr>
+<tr valign="top">
+  <td colspan="3" class="formtext"><table width="100%" height="68" border="1" cellpadding="0" cellspacing="0" style="text-align: left; ">
+    <tbody>
+      
+      <tr class="formtext">
+        <td height="66"  colspan="3" valign="top" nowrap="nowrap"><table width="100%"  border="1" cellpadding="4" cellspacing="0" bordercolor="#999999">
+          <tr valign="top">
+            <td width="11%" rowspan="3" nowrap="nowrap" w><p><strong><span style="font-weight: bold;">&nbsp;</span>EOC<br />
+            </strong><strong><span style="font-weight: bold;">&nbsp;</span>Approvals</strong></p>
+              </td>
+            <td width="42%" nowrap="nowrap"><span style="font-weight: bold;">&nbsp;</span>Approved for Processing by:              
+              {var fld14}</td>
+            <td width="47%" nowrap="nowrap"><span style="font-weight: bold;">&nbsp;</span>Expenditure Request Approved by: {var fld15}              </td>
+            </tr>
+          <tr valign="top">
+            <td><span style="font-weight: bold;">&nbsp;</span>Position: 
+              {var fld16}
+              <br /></td>
+            <td><span style="font-weight: bold;">&nbsp;</span>Position: EOC Director (or designate) 
+              {var fld17}</td>
+            </tr>
+          <tr valign="top">
+            <td> <span style="font-weight: bold;">&nbsp;</span>Date/Time:              
+              {var fld18}</td>
+            <td><span style="font-weight: bold;">&nbsp;</span>Date/Time: 
+              {var fld19}</td>
+            </tr>
+        </table>        
+          </td>
+        </tr>
+    </tbody>
+  </table>
+    <table width="100%"  border="1" cellpadding="4" cellspacing="0" bordercolor="#999999">
+      <tr valign="top">
+        <td width="11%" rowspan="3" nowrap="nowrap"><strong><span style="font-weight: bold;">&nbsp;</span>PREOC <br />
+                <span style="font-weight: bold;">&nbsp;</span>Approvals</strong></td>
+        <td width="42%" nowrap="nowrap"><span style="font-weight: bold;">&nbsp;</span>Approved for Processing by:
+            {var fld20}
+            <br />
+            &nbsp;&nbsp;
+            {VAR fld21}</span></td>
+        <td width="47%" nowrap="nowrap"><span style="font-weight: bold;">&nbsp;</span>Expenditure Request Approved by:
+            {var fld22}</td>
+      </tr>
+      <tr valign="top">
+        <td><span style="font-weight: bold;">&nbsp;</span>Position: Operations Section Chief: 
+          {var fld23}         <br /></td>
+        <td><span style="font-weight: bold;">&nbsp;</span>Position: PREOC Director (or designate): 
+          {var fld24}
+          </td>
+      </tr>
+      <tr valign="top">
+        <td height="19"><span style="font-weight: bold;">&nbsp;</span>Date/Time: {var fld25}           </td>
+        <td><span style="font-weight: bold;">&nbsp;</span>Date/Time:
+            {var fld26}           </td>
+      </tr>
+    </table>
+  
+    <table width="100%"  border="1" cellspacing="0" cellpadding="4">
+      <tr valign="top">
+        <td width="11%"  rowspan="2" nowrap="nowrap"><strong><span style="font-weight: bold;">&nbsp;</span>Distribution </strong></td>
+        <td width="42%" nowrap="nowrap"><span style="font-weight: bold;">
+        <input name="fld27b" type="checkbox" id="fld27b" onclick="javascript: return false;" readonly value="YES" />
+        <input name="fld27" type="hidden" id="fld27" value="{var fld27}" />
+        </span>EOC Director<br />
+          <span style="font-weight: bold;">
+          <input name="fld28b" type="checkbox" id="fld28b" onclick="javascript: return false;"readonly="readonly" value="YES" />
+          <input name="fld28" type="hidden" id="fld28" value="{var fld28}" />
+          </span>EOC Operations Section<br />
+          <span style="font-weight: bold;">
+          <input name="fld29b" type="checkbox" id="fld29b" onclick="javascript: return false;"readonly="readonly" value="YES" />
+          <input name="fld29" type="hidden" id="fld29" value="{var fld29}" />
+          </span>EOC Planning Section<br />
+        
+          <input name="fld30b" type="checkbox" id="fld30b" value="YES" onclick="javascript: return false;"readonly="readonly" />
+          <input name="fld30" type="hidden" id="fld30" value="{var fld30}}" />
+          </span>EOC Logistics Section<br />
+          <span style="font-weight: bold;">
+          <input name="fld31b" type="checkbox" id="fld31b" onclick="javascript: return false;"readonly="readonly" value="YES"/>
+          <input name="fld31" type="hidden" id="fld31" value="{var fld31}" />
+          </span>EOC Finance &amp; Admin Section<br />
+          <span style="font-weight: bold;">
+          <input name="fld32b" type="checkbox" id="fld32b" onclick="javascript: return false;"readonly="readonly" value="YES" o/>
+          <input name="fld32" type="hidden" id="fld32" value="{var fld32}" />
+          </span>Other: {var fld39}
+          <br />            </td>
+        <td width="47%" nowrap="nowrap"><span style="font-weight: bold;">
+        <input name="fld33b" type="checkbox" id="fld33b" onclick="javascript: return false;"readonly="readonly" value="YES" />
+        <input name="fld33" type="hidden" id="fld33" value="{var fld33}" />
+        </span>PREOC Director<br />
+          
+          <input name="fld34b" type="checkbox" id="fld34b" onclick="javascript: return false;" readonly="readonly" value="YES"/>
+          </span>          <input name="fld34" type="hidden" id="fld34" value="{var fld34}" />
+          </span>PREOC Operations Section<br />
+          <span style="font-weight: bold;">
+          <input name="fld35b" type="checkbox" id="fld35b" onclick="javascript: return false;"readonly="readonly" value="YES" />
+          <input name="fld35" type="hidden" id="fld35" value="{var fld35}" />
+          </span>PREOC Planning Section<br />
+          <span style="font-weight: bold;">
+          <input name="fld36b" type="checkbox" id="fld36b"  onclick="javascript: return false;" readonly="readonly" value="YES" />
+          <input name="fld36" type="hidden" id="fld36" value="{var fld36}" />
+          </span>PREOC Logistics Section<br />
+          <span style="font-weight: bold;">
+          <input name="fld37b" type="checkbox" id="fld37b"  onclick="javascript: return false;" readonly="readonly" value="YES" />
+          <input name="fld37" type="hidden" id="fld37" value="{var fld37}" />
+          </span>PREOC Finance &amp; Admin Section<br />
+          <span style="font-weight: bold;"><span style="font-weight: bold;">
+          <input name="fld38b" type="checkbox" id="fld38b"  onclick="javascript: return false;" readonly="readonly" value="YES"/>
+          </span>          <input name="fld38" type="hidden" id="fld38" value="[var fld38}" />
+          </span>Other:</span> {var fld40}</td>
+      </tr>
+      
+    </table>
+    <table width="100%"  border="1" cellspacing="0" cellpadding="0">
+      <tr valign="top">
+        <td width="11%" rowspan="2" nowrap="nowrap"><strong><span style="font-weight: bold;">&nbsp;</span>Comments:</strong></td>
+        <td width="89%" nowrap="nowrap"><p> &nbsp; <span style="width:750px; margin: 10px;  word-wrap:break-word; display:inline-block;">{var fld41}</span></p>
+          <p style="font-weight: bold;">&nbsp;
+          </p></td>
+      </tr>
+    </table></td>
+</tr>
+
+<tr class="formtext">
+
+<td colspan="2" height="15">
+
+<div align="left"> &nbsp; <big><big>
+</big></big><span class="style11">&nbsp;&nbsp; &nbsp;&nbsp;</span><span class="style13">Sending Call/Tactical:</span>
+
+{Callsign}</div></td>
+
+<td> <span class="style12">Version  2.0 VA7MPG
+  </span>
+  <div align="left"></div>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</form>
+
+</body></html>

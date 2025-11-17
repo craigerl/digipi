@@ -1,0 +1,141 @@
+*** How to compile and install this conversd installation ! ***
+
+$Revision: 1.1.1.1 $$Date: 2001/10/10 13:29:59 $
+
+What Do you need for the installation ?
+
+*** RECOMMENDED: WAMPES in a newer release notably since 9307?? I guess.
+    If you use an older version, the sources must be available on your
+    hard disk(s).
+
+    If neither a new nor an old version is online, Configure will figure
+    this out (I hope so :-)) and bind only kernel TCP/IP to conversd.
+    This feature is untested, but may work. You will have to manage some
+    problems, please drop me a note :-)
+
+*** REQUIRED: GNU make is needed since the makefile uses a nice include
+    feature.
+
++++ Quick-Installation +++
+
+Do the following
+	# Configure
+if your defaults are not WAMPES, /usr/local/bin for user binaries and /tcp
+for the daemons set up the appropriate paths in Makefile using
+	# vi Makefile
+Then do a
+	# make install
+If set up the first time read the rest of this file and READE carfully ! If
+not, reinspect this file for new convers.conf syntax (changes in Rev 2.52)
+If all your configs seem to be ok, _and_ the daemons will be restarted by
+init(8), then do a
+	# make restart
+
+If you do a "make install", conversd is copied into /usr/local/sbin or
+wampes' default directory /tcp - change BIN_DIR in Makefile (after the
+Configure command to change it). then symbolic links are prepared to have
+kaconversd wconversd suconversd and lconversd as secondary conversation
+services.
+
+Then convers, ax25, cstat and online are copied into /usr/local/bin
+(change UBIN_DIR in Makefile to put it somewhere else), and again the
+symbolic links to kaconvers, lconvers, suconvers and wconvers are made
+from convers.
+
+At last, the manual pages are being installed into /usr/local/man (or
+/usr/man respectively).
+
+---------> Troubleshooting:
+
+***
+
+Q: I get an Error from sh(1). What is wrong ?
+
+A: The configure shell script is running on bash(1). Obtain a proper
+   Version (see prep.ai.mit.edu ~/pub/gnu, bash 1.12.tar.gz).
+
+***
+
+Q: I get an Error from make(1). What can I do to make the stuff compile ?
+
+A: The Makefile uses the include feature of the "gnu" make utility.
+   Obtain make-3.68.tar.gz from prep.ai.mit.edu:~/pub/gnu. Then compile
+   the stuff. You migth run into trouble with that, because your shell
+   doesn't work. then get bash-1.12.tar.gz out of the same directory in
+   prep.ai.mit.edu.
+
+   An easier way is simply to remove the lines around the include. Then
+   dependencies will not be used (Do you _really_ want to change things
+   in my horrible code ?). If so, I really can't believe _you_ rtfm :-)
+
+***
+
+Q: My compiler complains about undeclared prototypes and such. Is this
+   normal ?
+
+A: No it isn't, but it might work though. My machine is running Linux,
+   which is almost POSIX environment. Therefore header files to be in-
+   cluded may vary. I use the compiler switch -Wall to get _all_ warnings.
+   The whole story should be compiled without one single warning, or
+   worse, an error. If it does, check your system for the things that
+   are needed, patch the files and send a patch to me. They will be in-
+   cluded in later versions if necessary.
+
+***
+
+Q: I can't connect to convers via the unix sockets. Why ?
+
+A: Some unix kernel implementations leave destroyed socket files in
+   /tcp/sockets which cannot be overridden by a new one. You have to
+   remove these socket file at first. I will fix this problem later.
+
+***
+
+Q: Everything is working fine except no connections are established
+   to the remote nodes. Whats wrong ?
+
+A: Check your *convers.conf. PingPong release uses another style -
+   Refer to README.
+
+***
+
+Q: The personal names are not being remembered. What can I do ?
+
+A: Create a directory /var/local/spool/convers/personals for this
+   version (or /tcp/personals if not FSSTND-compatible). A later
+   pp-conversd may use another method to save the personal
+   information.
+
+***
+
+Q: The personal names are not stored into a save file. What's wrong ?
+
+A: Create your directory /var/local/spool/convers/personals (or
+   /tcp/personals if you are not using FSSTND compatible setups)
+
+***
+
+Q: I get build_socckaddr(): No such file or directory while trying to
+   use a convers client. What is wrong ?
+
+A: Have a look into /tcp/hosts. Maybe the entry "127.0.0.1 localhost"
+   is missing.
+
+***
+
+Q: My linux box doesn't establish a connection via WAMPES. Why this ?
+
+A: I believe you are using a kernel newer than 1.1.76. Since then the
+   unix domain sockets are broken. Actually it leads to a system panic.
+   (Don't worry - it's a slight one - only your conversd process is
+   kille :-)). A workaround for this was introduced in pp-3.02 since
+   Alan Cox doesn't want to fix that problem :-(
+
+   Info for now: Use kernel TCP/IP - Although it is too agressive for
+   radio links, it's the only method for now (or downgrade to 1.1.76...)
+
+***
+
+More problems and solutions ? report them !
+
+73, Fred, dc6iq@insu1.etec.uni-karlsruhe.de

@@ -1,0 +1,35 @@
+Form: HRM_Emergency_Management_Message_Initial.html,HRM_Emergency_Management_Message_Viewer.html
+
+To: <var SendToAddress>
+Subject:HALIFAX Message Form <var ActivityDateTime1>, <var Status>, Track#[<var MsgNum>]
+SeqInc:
+Msg:
+Date-Time: <var ActivityDateTime1>
+
+Action Precedence: <var Status>
+Info Precedence: <var Status1>
+
+FROM: <var From_Name>
+
+TO: <var To_Name>
+
+INFO: <var Info>
+
+-------------------------------------
+NUMBER: <var MsgNum>
+
+<var Message>
+-------------------------------------
+Originating Name: <var Approved_Name>
+
+----------------------------------------------------------
+Express Sending Station: <MsgSender>
+Senders Express Version: <ProgramVersion>
+Senders Template Version: <var Templateversion>
+
+
+ 
+
+
+
+

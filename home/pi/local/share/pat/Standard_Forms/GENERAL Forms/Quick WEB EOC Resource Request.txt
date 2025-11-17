@@ -1,0 +1,46 @@
+Form: Quick WEB EOC Resource Request_Initial.html,Quick WEB EOC Resource Request Viewer.html
+
+To: 
+Subject: <var Title> Resource Request - <var Ddate>
+
+Msg:
+<var Title> Resource Request
+
+Message Nunber: <var MesNum>
+Originating Station: <var OrigSta>
+Place of Origin: <var PlOrig>
+Time Filed: <var TimFil>
+Destination: <var DestSta>
+
+
+Resource Request Data 
+1. Request -{Mission Name}: <var IReq> 
+2. Date: <var Ddate>
+3. Time Reported: <var Trptd>
+4. Originating Agency - Id Number: <var Oaid>
+5. Requesting Official Name and Contact Info:
+  <var Ronci>
+ 
+6. Request - Detailed Description REF Box 1:
+  <var DDreq>
+  
+7. Request Priority (Precedence): <var Precedence>
+8. Resource Name (what are you requesting): <var Res1>
+9. Deliver To Location, and if POC if different from Box 5., Official Contact Info is indicated: 
+  <var DelToLoc>
+
+10. Status: <var Stat>
+
+Amateur Radio Use Only
+11. Acknowledging Call sign: <var AKCall>
+12. WebEOC Tracking#: <var WEOCTR>
+13. WebEOC Date Filed: <var WEOCDF>
+14. WebEOC Time Filed: <var WEOCTF>
+
+
+------------------------
+Express Sending Station: <MsgSender>
+Senders Express Version: <ProgramVersion>
+Senders Template Version: <var Templateversion>
+
+

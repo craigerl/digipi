@@ -1,0 +1,1069 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Disaster Receipt Form &ndash; Form 6409-B</title>
+<style type="text/css">
+<!--
+.classCenter {   text-align: center; 
+}
+.classCenter {text-align: center; 
+}
+.formtext {font-family: Arial, Helvetica, sans-serif;
+
+font-size: 11pt;
+
+font-weight: normal;
+
+margin: 10px;
+}
+.style12 {font-size: 12px; font-family: Arial, Helvetica, sans-serif}
+.style15 {font-size: 18px; font-family: Arial, Helvetica, sans-serif; }
+.style9 {font-size: 12px}
+.style14 {font-size: 11px; font-family: Arial, Helvetica, sans-serif}
+.style17 {font-size: 13px}
+.SubmitBtn1 {text-align: right;
+}
+.formtext1 {font-family: Arial, Helvetica, sans-serif;
+font-size: 11pt;
+font-weight: normal;
+}
+-->
+</style>
+<style>
+/*
+
+body {color:#000; background:#fff; font:100%/1.5 arial,sans-serif;}
+
+h2 {margin-top:0}
+
+*/
+
+/* Styling applied to classes only */
+
+/* Pop-up content shifted off-screen when not in view.
+
+Still readable by screen-reader software.
+
+When targeted it fills the browser window.
+
+*/
+
+.pop-up {
+	position:absolute;
+	top:0;
+	left:-500em;
+	visibility: hidden;
+}
+
+.pop-up:target {position:static; left:0;}
+
+/* The pop-up itself */
+
+.popBox {
+	background:#ffffff;
+	position:absolute;
+	left:25%;
+	right:25%;
+	top:10%;
+	bottom:15%;
+	z-index:10;
+	border:1px solid #3a3a3a;
+
+/* CSS3 where available: rounded corners, drop-shadow, and fade in. */
+
+border-radius:.25rem;
+
+box-shadow:0 .5rem .5rem rgba(0,0,0,.5);
+	opacity:0;
+	transition: opacity 0.8s ease-out;
+	visibility: visible;
+}
+
+:target .popBox {position:fixed; opacity:1;}
+
+/* Light box properties */
+
+.lightbox {
+
+display:none;
+
+text-indent:-200em;
+
+background-color:rgba(0,0,0,.4);
+
+width:100%;
+
+height:100%;
+
+position:fixed;
+
+top:0;
+
+left:0;
+
+bottom:0;
+
+right:0;
+
+z-index:5;
+
+}
+
+:target .lightbox {display:block;}
+
+/* The pop-ups close link, moved via CSS to the top right of the pop-up */
+
+.close:link,
+
+.close:visited {
+	position: absolute;
+	top: -0.75em;
+	right: -0.75em;
+	display: block;
+	width: 2em;
+	height: 2em;
+	line-height: 1.8;
+	padding: 0;
+	text-align: center;
+	text-decoration: none;
+	background-color: #000;
+	border: 2px solid #fff;
+	color: #fff;
+	border-radius: 50%;
+
+box-shadow: 0 0 .5rem .5rem rba(0,0,0,.5);
+	visibility: visible;
+}
+
+.close:before {content:"X";}
+
+.close:hover,
+
+.close:active,
+
+.close:focus {
+
+box-shadow: 0 0 .5rem .5rem rba(255,0,0,.5);
+
+background-color: #c00;
+
+color: #fff;
+
+}
+
+.close span {
+
+text-indent: -200em;
+
+display: block;
+
+}
+
+/* The pop-up content div will scroll if it has too much content */
+
+.popScroll {
+	position:absolute;
+	top: 1rem;
+	left: 1rem;
+	right: 1rem;
+	bottom: 1rem;
+	overflow-y: auto;
+
+*overflow-y: scroll;
+	padding-right: 0.5em;
+	visibility: visible;
+}
+
+.popScroll h2 {margin-top:0}
+.style31 {font-size: 11pt; margin: 10px; font-family: Arial, Helvetica, sans-serif;}
+.style32 {font-size: 11pt; font-family: Arial, Helvetica, sans-serif;}
+.style34 {font-size: 10pt}
+.formtext11 {font-family: Arial, Helvetica, sans-serif;
+
+font-size: 11pt;
+
+font-weight: normal;
+
+margin: 10px;
+}
+.style35 {color: #000000}
+.style36 {color: #FF0000}
+
+  input[type=button] {
+
+  border: 2px solid #0f88f2;;
+   border-radius:.25rem;
+  color: black;
+  padding: 2px 2px;
+ background-color: white;
+  text-decoration: none;
+  margin: 2px 2px;
+  cursor: pointer;
+}
+input[type=submit] {
+ border: 2px solid green;
+  border-radius:.25rem;
+  background-color: white;
+  color: black;
+  padding: 2px 2px;
+  font-size: 14px;
+   cursor: pointer;
+}
+input[type=reset] {
+ border: 2px solid red;
+ border-radius:.25rem;
+  background-color: white;
+  color: black;
+  padding: 2px 2px;
+  font-size: 14px;
+   cursor: pointer;
+}
+input[type=black1] {
+ border: 2px solid #999999;
+   width:225px;
+  border-radius:.25rem;
+
+  background-color: white;
+  color: black;
+  padding: 2px 2px;
+  font-size: 14px;
+   cursor: pointer;
+}
+
+</style>
+<script>
+
+// Test auto collect
+
+function AutoGrowTextArea(textField)
+{
+  if (textField.clientHeight < textField.scrollHeight)
+  {
+    textField.style.height = textField.scrollHeight + "px";
+    if (textField.clientHeight < textField.scrollHeight)
+    {
+      textField.style.height = 
+        (textField.scrollHeight * 2 - textField.clientHeight) + "px";
+    }
+  }
+}
+
+function saveTextAsFile(fileNameToSaveAs, textToWrite) {
+var textToWrite = document.getElementById('parseme').value; 
+
+
+var fileNameToSaveAs ="ARC 6409B data " + DateforFile()+".txt";
+fileNameToSaveAs = prompt("", fileNameToSaveAs);
+
+  /* Saves a text string as a blob file*/  
+  var ie = navigator.userAgent.match(/MSIE\s([\d.]+)/),
+      ie11 = navigator.userAgent.match(/Trident\/7.0/) && navigator.userAgent.match(/rv:11/),
+      ieEDGE = navigator.userAgent.match(/Edge/g),
+      ieVer=(ie ? ie[1] : (ie11 ? 11 : (ieEDGE ? 12 : -1)));
+
+  if (ie && ieVer<10) {
+    console.log("No blobs on IE ver<10");
+    return;
+  }
+
+  var textFileAsBlob = new Blob([textToWrite], {
+    type: 'text/plain'
+  });
+
+  if (ieVer>-1) {
+    window.navigator.msSaveBlob(textFileAsBlob, fileNameToSaveAs);
+
+  } else {
+    var downloadLink = document.createElement("a");
+    downloadLink.download = fileNameToSaveAs;
+    downloadLink.href = window.URL.createObjectURL(textFileAsBlob);
+    downloadLink.onclick = function(e) { document.body.removeChild(e.target); };
+    downloadLink.style.display = "none";
+    document.body.appendChild(downloadLink);
+    downloadLink.click();
+  }
+}
+
+
+
+
+
+function destroyClickedElement(event)
+{
+    document.body.removeChild(event.target);
+}
+
+function loadFileAsText()
+{
+
+    var fileToLoad = document.getElementById("fileToLoad").files[0];
+ 
+    var fileReader = new FileReader();
+    fileReader.onload = function(fileLoadedEvent) 
+    {
+        var textFromFileLoaded = fileLoadedEvent.target.result;
+        document.getElementById("inputTextToSave").value = textFromFileLoaded;
+    };
+    fileReader.readAsText(fileToLoad, "UTF-8");
+}
+
+
+function DateforFile(RightNow) {
+var txt;
+var d = new Date(),
+thisyear = d.getFullYear();
+thismonth= d.getMonth();
+thismonth = thismonth+1;
+if (thismonth < 10) { thismonth = "0" + thismonth}
+
+thisday = d.getDate();
+if (thisday < 10) { thisday = "0" + thisday}
+
+h = (d.getHours()<10?'0':'') + d.getHours()
+m = (d.getMinutes()<10?'0':'') + d.getMinutes()
+var myprompt = thisyear+ '-'+thismonth+'-'+thisday+' '+h + '_' + m ;
+return myprompt;
+}
+
+function isObject(arg) {
+  return Object.prototype.toString.call(arg)==='[object Object]';
+}
+
+function formDataToObject(elForm) {
+  if (!elForm instanceof Element) return;
+  var fields = elForm.querySelectorAll('input, select, textarea'),
+    o = {};
+  for (var i=0, imax=fields.length; i<imax; ++i) {
+    var field = fields[i],
+      sKey = field.name || field.id;
+    if (field.type==='button' || field.type==='image' || field.type==='submit' || !sKey) continue;
+    switch (field.type) {
+      case 'checkbox':
+        o[sKey] = +field.checked;
+        break;
+      case 'radio':
+        if (o[sKey]===undefined) o[sKey] = '';
+        if (field.checked) o[sKey] = field.value;
+        break;
+      case 'select-multiple':
+        var a = [];
+        for (var j=0, jmax=field.options.length; j<jmax; ++j) {
+          if (field.options[j].selected) a.push(field.options[j].value);
+        }
+        o[sKey] = a;
+        break;
+      default:
+        o[sKey] = field.value;
+    }
+  }
+ // alert('Form data:\n\n' + JSON.stringify(o, null, 2));
+ document.getElementById('parseme').value = JSON.stringify(o, null, 2);
+//  return o;
+}
+
+function populateForm(o) {
+
+o =  JSON.parse(document.getElementById('parseme').value);
+ //if (!isObject(o)) return;
+if (!isObject(o)) return;
+  for (var i in o) {
+    var el = document.getElementById(i) || document.querySelector('[name=' + i + ']');
+    if (el.type==='radio') el = document.querySelectorAll('[name=' + i + ']');
+    switch (typeof o[i]) {
+      case 'number':
+        el.checked = o[i];
+        break;
+      case 'object':
+        if (el.options && o[i] instanceof Array) {
+          for (var j=0, jmax=el.options.length; j<jmax; ++j) {
+            if (o[i].indexOf(el.options[j].value)>-1) el.options[j].selected = true;
+          }
+        }
+        break;
+      default:
+        if (el instanceof NodeList) {
+          for (var j=0, jmax=el.length; j<jmax; ++j) {
+            if (el[j].value===o[i]) el[j].checked = true;
+          }
+        } else {
+          el.value = o[i];
+        }
+    }
+  }
+  var n = document.getElementById("Explation").value 
+var n=n.replace(/\<br>/gm, "\r");
+document.getElementById("Explation").value =n;
+var n = document.getElementById('Instructions').value 
+var n=n.replace(/\<br>/gm, "\r");
+document.getElementById('Instructions').value =n;
+
+    AutoGrowTextArea(document.getElementById("Instructions"));
+	    AutoGrowTextArea(document.getElementById("Explation"));
+}
+
+function SaveData() {
+	
+			formDataToObject(document.getElementById('myform'))
+			saveTextAsFile();
+			
+			//saveTextAsFile();
+			}
+
+//-------
+ function readBlob(opt_startByte, opt_stopByte) {
+  
+    var files = document.getElementById('files').files;
+    if (!files.length) {
+      alert('Please select a file!');
+      return;
+    }
+
+    var file = files[0];
+    var start = parseInt(opt_startByte) || 0;
+    var stop = parseInt(opt_stopByte) || file.size - 1;
+
+    var reader = new FileReader();
+
+    // If we use onloadend, we need to check the readyState.
+    reader.onloadend = function(evt) {
+      if (evt.target.readyState == FileReader.DONE) { // DONE == 2
+        document.getElementById('byte_content').textContent = evt.target.result;
+        document.getElementById('byte_range').textContent = 
+            ['Read bytes: ', start + 1, ' - ', stop + 1,
+             ' of ', file.size, ' byte file'].join('');
+      }
+    };
+
+    var blob = file.slice(start, stop + 1);
+    reader.readAsBinaryString(blob);
+  }
+    	
+  window.onload = function () { 
+ 
+ //Check the support for the File API support 
+ if (window.File && window.FileReader && window.FileList && window.Blob) {
+    var fileSelected = document.getElementById('txtfiletoread');
+	
+    fileSelected.addEventListener('change', function (e) { 
+         //Set the extension for the file 
+         var fileExtension = /text.*/; 
+         //Get the file object 
+         var fileTobeRead = fileSelected.files[0];
+        //Check of the extension match 
+         if (fileTobeRead.type.match(fileExtension)) { 
+             //Initialize the FileReader object to read the 2file 
+			
+             var fileReader = new FileReader(); 
+             fileReader.onload = function (e) { 
+                 var fileContents = document.getElementById('filecontents'); 
+                
+				document.getElementById('parseme').value =fileReader.result;
+				populateForm(obj = document.getElementById('parseme').value);
+					 } 
+             fileReader.readAsText(fileTobeRead); 
+         } 
+         else { 
+             alert("Please select text file"); 
+         }
+ 
+    }, false);
+} 
+ else { 
+     alert("Files are not supported"); 
+ } 
+  // AutoGrowTextArea(document.getElementById("Comments"));
+  Checkifinbrowser();
+    Checkboxes()
+  
+var n = document.getElementById("Explation").value 
+var n=n.replace(/\<br>/gm, "\r");
+document.getElementById("Explation").value =n;
+var n = document.getElementById('Instructions').value 
+var n=n.replace(/\<br>/gm, "\r");
+document.getElementById('Instructions').value =n;
+
+ }
+ 
+
+
+function SetDateTime(TType,TheFld, FocusFld) {
+
+//id="tformat" value="Local"
+var txt;
+
+var myprompt;
+
+var d = new Date(),
+
+thisyear = d.getFullYear();
+
+thismonth= d.getMonth();
+
+thisday = d.getDate();
+if (thisday < 10) { thisday = "0" + thisday}
+var monname;
+
+h = (d.getHours()<10?'0':'') + d.getHours()
+
+m = (d.getMinutes()<10?'0':'') + d.getMinutes()
+
+s = (d.getSeconds()<10?'0':'') + d.getSeconds();
+
+var now = new Date();
+
+var utch = now.getUTCHours();
+
+if (utch < 10) { utch = "0"+utch};
+
+var utcs = now.getUTCMinutes();
+
+if (utcs < 10) { utcs = "0"+utcs};
+
+var myUTCtime = utch+":"+utcs+"Z";
+
+var utcstr = d.toUTCString();
+
+var localt = d.toLocaleTimeString();
+
+var isostr = d.toISOString();
+var UTCyear = d.getUTCFullYear();
+//monthname = shortmonth (thismonth);
+var UTCmon = d.getUTCMonth();  
+var UTCmon = UTCmon+1;
+if (UTCmon < 10) { UTCmon = "0" + UTCmon}
+
+var UTCdate = d.getUTCDate();  
+thismonth = thismonth + 1;
+  if (thismonth < 10) { thismonth = "0" + thismonth}
+//if (thismonth < 10) { thismonth = "0" + thismonth}
+
+myUTCdate = UTCyear+'-'+UTCmon+'-'+UTCdate;
+switch (TType) {
+
+case 'hms' :
+
+myprompt = h + ':' + m + ':' + s;
+
+var RightNow = prompt("Time:", myprompt);
+
+document.getElementById(TheFld).value = RightNow;
+
+break;
+
+case 'hm' :
+
+
+
+ var myprompt = h + ':' + m;
+
+var RightNow = prompt("Time:", myprompt);
+
+document.getElementById(TheFld).value = RightNow;
+
+break;
+
+case 'm-d-y': myprompt = thismonth+ '-' + thisday+ '-'+ thisyear;
+
+var RightNow = prompt("Date:", myprompt);
+
+document.getElementById(TheFld).value = RightNow;
+
+break;
+
+case 'm/d/y': myprompt = thismonth+ '/' + thisday+ '/'+ thisyear;
+
+var RightNow = prompt("Date:", myprompt);
+
+document.getElementById(TheFld).value = RightNow;
+
+break;
+
+case 'd mmm y': myprompt = thisday+ ' ' + monthname+ ' '+ thisyear;
+
+var RightNow = prompt("Date:", myprompt);
+
+document.getElementById(TheFld).value = RightNow;
+
+break;
+
+case 'mmm-d-y': myprompt = thismonth+'-'+thisday+ '-' + thisyear;
+
+var RightNow = prompt("Date:", myprompt);
+
+document.getElementById(TheFld).value = RightNow;
+
+break;
+
+case 'localampm': var myprompt = localt;
+
+var RightNow = prompt("Local time:", myprompt);
+
+document.getElementById(TheFld).value = RightNow;
+
+break;
+
+case 'fulldate': 
+
+
+var myprompt = thisyear+ '-'+thismonth+'-'+thisday;
+
+
+
+
+var RightNow = prompt("Date:", myprompt);
+
+document.getElementById(TheFld).value = RightNow;
+
+break;
+
+case 'fulldatetime': 
+
+var myprompt = thisyear+'-'+thismonth+ '-'+thisday+' '+h + ':' + m ;
+
+}
+}
+function hidereply(){
+ var x = document.getElementById("ACK");
+    x.style.display = "none";
+}
+function Showreply(){
+ var x = document.getElementById("ACK");
+    x.style.display = "block";
+}
+function hide6409B(){
+var x = document.getElementById("6409B");
+    x.style.display = "none";
+
+document.getElementById('pgtitle').innerHTML = "ARC Disaster Requisition FORM 6409 Acknowledgement of Reciept";
+ }
+function Showe6409B(){
+document.getElementById('pgtitle').innerHTML = "ARC Disaster Requisition FORM 6409B";
+ var x = document.getElementById("6409B");
+    x.style.display = "block";
+}
+
+function Flip2() {
+z =  document.getElementById("whichform").value;
+if (z=='ACK') {
+hide6409B();
+document.getElementById("PAGEsUBJECT").value ="Acknowledgement of ARC FORM 6409";
+document.getElementById("pgtitle").innerHTML ="Acknowledgement of ARC FORM 6409";
+
+}
+  else {
+
+    Showe6409B();
+document.getElementById("PAGEsUBJECT").value ="ARC FORM 6409B";
+document.getElementById("pgtitle").innerHTML ="ARC FORM 6409B";
+}
+  }
+
+function Checkboxes(){
+
+if (PT1b.value =="X") { document.getElementById('PT1').checked=true;}
+if (PT2b.value=="X") { document.getElementById('PT2').checked=true;}
+if (PT3b.value=="X") { document.getElementById('PT3').checked=true;}
+
+if (PT4b.value=="X") { document.getElementById('PT4').checked=true;}
+if (PT5b.value=="X") { document.getElementById('PT5').checked=true;}
+if (PT6b.value=="X") { document.getElementById('PT6').checked=true;}
+if (OtherPb.value=="X") { document.getElementById('OtherPb').checked=true;}
+
+
+}
+function Checkifinbrowser() {
+ var x= document.getElementById("testCall").value; 
+ var n = x.search("{Msg");
+ if (n>-1) { 
+ document.getElementById('Submit').style.visibility='hidden';
+  alert('You are running this form outside of Winlink.\n \nWhen you have completed the form, SAVE the data and then give or send the SAVED data file to the radio operator. The operator will load the SAVED data into the correct form and send via winlink. ');
+ } else {document.getElementById('Submit').style.visibility='visible';  }
+}
+
+</script>
+</head>
+
+<body >
+<form  style="font-family: Arial;" pbzloc="3" onsubmit="return confirm('To complete your form submission, click OK and close the open browser window. You will return to the new message window so you can post your message to the outbox');" method="post" id="myform" enctype="multipart/form-data" action="http://{FormServer}:{FormPort}">
+  <table width="90%"  border="1" cellspacing="0" cellpadding="6">
+    <tr valign="middle">
+      <td height="50" colspan="4"><p><img src="data:image/png;base64,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" name="_img1" align="middle" class="image">
+	  	  &nbsp;&nbsp;&nbsp;&nbsp;
+
+	  <span class="style15" style="font-weight: bold;">&nbsp;&nbsp;&nbsp;&nbsp;<span class="style15">Disaster Receipt Form &ndash; Form 6409-B<br />
+          </span><span class="style6"><span class="formtext">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          
+          </span><span class="formtext"></span><span class="style31">
+<input type="file" id="txtfiletoread" accept=".txt"  style="display: none;"/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="style32"><a href="#pop1" class="style7"><span style="color: rgb(204, 0, 0);">Form 6409B Instructions</span></a> </span></span></span></p></td>
+    </tr>
+    <tr bgcolor="ddd9c3">
+      <td colspan="4"><span class="style12">DR# (if applicable): &nbsp;
+          <input readonly name="DRnum" type="text" id="DRnum" value="{var DRnum}" size="30" maxlength="30" />
+&nbsp;&nbsp;DR Name:&nbsp;&nbsp;
+<input readonly name="DRName" type="text" id="DRName" value="{var DRName}" />
+&nbsp;&nbsp; &nbsp;&nbsp;Date:&nbsp;
+<input readonly name="Date" type="text" id="Date" value="{var Date}" size="12" />
+&nbsp; &nbsp;&nbsp; &nbsp;Requisition # : &nbsp;
+<input readonly name="Reqnumber" type="text" id="Reqnumber" value="{var Reqnumber}" size="10" maxlength="10" />
+      </span><span class="style12"><b><b>
+      <textarea name="parseme" cols="60" id="parseme" style="display: none;"></textarea>
+    </b></b></span></td>
+    </tr>
+    <tr class="style9">
+      <td width="47%" bordercolor="#999999"><div align="left"><span class="style12" ><span class="style13"> &nbsp;</span>Requestor Name :
+                <input readonly name="ReqName" type="text" id="ReqName" value="{var ReqName}" size="50" maxlength="50" />
+      </span></div></td>
+      <td width="53%" bordercolor="#999999"><div align="left"><span class="style12" ><span class="style13">&nbsp;</span>Signature:
+                <input readonly  name="reqSignature" type="text" id="reqSignature" value="{var reqSignature}" size="50" maxlength="50" />
+      </span></div></td>
+    </tr>
+    <tr class="style9">
+      <td bordercolor="#999999"><div align="left"><span class="style12" ><span class="style13">&nbsp;</span>Title :
+                <input readonly name="title" type="text" id="title" value="{var title}" size="50" maxlength="50" />
+      </span></div></td>
+      <td bordercolor="#999999"><div align="left"><span class="style12" > <span class="style13">&nbsp;</span>Phone:
+                <input  readonly name="reqPhone" type="text" id="reqPhone" value="{var reqPhone}" size="50" maxlength="50" />
+      </span></div></td>
+    </tr>
+    <tr bgcolor="ddd9c3">
+      <td colspan="4"><span class="style12"><strong>Delivery Information </strong></span></td>
+    </tr>
+    <tr>
+      <td colspan="4"><span class="style12">&nbsp;Site POC Name :&nbsp;
+          <input readonly name="POC" type="text" id="POC" value="{var POC}" size="40" maxlength="40" />
+&nbsp; Phone:&nbsp;
+<input readonly name="pocphone" type="text" id="pocphone" value="{var pocphone}" size="25" maxlength="25" />
+&nbsp; <span style="font-weight: normal;"> Email:&nbsp;&nbsp;
+<input readonly name="pocemail" type="text" id="pocemail" value="{var pocemail}" size="35" maxlength="30" />
+</span></span></td>
+    </tr>
+    <tr>
+      <td colspan="4"><span class="style12">Address: <span style="font-weight: normal;">
+      <input readonly name="POCAddress" type="text" id="POCAddress" value="{var POCAddress}" size="80" maxlength="70" />
+      </span></span></td>
+    </tr>
+    <tr>
+      <td colspan="4"><span class="style12">&nbsp;City<span style="font-weight: normal;">:</span><span class="style14">&nbsp; <span style="font-weight: normal;">
+      <input readonly  name="pocCity" type="text" id="pocCity" value="{var pocCity}" size="50" maxlength="45" />
+      </span></span> &nbsp;&nbsp;State:<span class="style14"> <b style="font-weight: normal;"> <b style="font-weight: normal;">
+      <input readonly name="pocst" type="text" id="pocst" value="{var pocst}" size="30" maxlength="25" />
+      </b> </b> <span style="font-weight: normal;">&nbsp;Zip:&nbsp;&nbsp;
+      <input readonly name="poczip" type="text" id="poczip" value="{var poczip}" size="16" maxlength="15" />
+&nbsp;<span style="font-weight: normal;">&nbsp; </span></span></span></span></td>
+    </tr>
+    <tr bgcolor="ddd9c3">
+      <td colspan="4"><span class="style12"><strong>Description of product(s) and/or service(s)</strong></span></td>
+    </tr>
+    <tr>
+      <td colspan="4"><table width="100%"  border="1" cellpadding="1" cellspacing="0" bordercolor="#999999">
+        <tr>
+          <td width="9%"><div align="center"><span class="style14">Stock No. </span></div></td>
+          <td width="9%"><div align="center"><span class="style14">Quantity</span></div></td>
+          <td width="15%"><div align="center"><span class="style14">Unit of measure <br />
+        (EA/PK/CS/BX)</span></div></td>
+          <td width="10%"><div align="center" class="style14">Total QTY (each)</div></td>
+          <td width="46%"><span class="style14">Description</span></td>
+          <td width="11%"><div align="center"><strong class="style14">Date needed </strong></div></td>
+        </tr>
+        <tr>
+          <td style="width: 4%; vertical-align: top; text-align: justify;"><div align="center" class="style14">
+              <input name="stock1" type="text" id="stock1" value="{var stock1}" onChange="javascript:this.value=this.value + ' *'" size="10" maxlength="10" />
+          </div></td>
+          <td style="width: 5%; vertical-align: top; text-align: justify;"><div align="center" class="style14">
+              <input name="Qty1" style="text-align:center" type="text" id="Qty1" value="{var Qty1}" size="10" maxlength="10" onChange="javascript:this.value=this.value + ' *'"/>
+          </div></td>
+          <td style="height: 15px; width: 5%; vertical-align: top; text-align: justify;"><div align="center" class="style14">
+              <input name="unit1" style="text-align:center" type="text" id="unit1" value="{var unit1}" size="18" maxlength="18" onChange="javascript:this.value=this.value + ' *'"/>
+          </div></td>
+          <td style="width: 5%; vertical-align: top; text-align: justify;"><div align="center" class="style14">
+              <input name="tot1" style="text-align:center" type="text" id="tot1" value="{var tot1}" size="10" maxlength="10" onChange="javascript:this.value=this.value + ' *'"/>
+          </div></td>
+          <td style="vertical-align: top; text-align: justify;"><input name="descp1" type="text" id="descp1" value="{var descp1}" onChange="javascript:this.value=this.value + ' *'" size="75" maxlength="70" /></td>
+          <td style="vertical-align: top; text-align: justify;"><div align="left">
+              <input name="date1" type="text" id="date1" value="{var date1}" onChange="javascript:this.value=this.value + ' *'" size="15" maxlength="15" />
+          </div></td>
+        </tr>
+        <tr>
+          <td style="width: 4%; vertical-align: top; text-align: justify;"><div align="center" class="style14">
+              <input name="stock2" type="text" id="stock2" value="{var stock2}" size="10" onChange="javascript:this.value=this.value + ' *'" maxlength="10" />
+          </div></td>
+          <td style="width: 5%; vertical-align: top; text-align: justify;"><div align="center" class="style14">
+              <input name="Qty2" style="text-align:center" type="text" id="Qty2" value="{var Qty2}" onChange="javascript:this.value=this.value + ' *'" size="10" maxlength="10" />
+          </div></td>
+          <td style="height: 15px; width: 5%; vertical-align: top; text-align: justify;"><div align="center" class="style14">
+              <input name="unit2"style="text-align:center" type="text" id="unit2" value="{var unit2}" onChange="javascript:this.value=this.value + ' *'" size="18" maxlength="18" />
+          </div></td>
+          <td style="width: 5%; vertical-align: top; text-align: justify;"><div align="center" class="style14">
+              <input name="tot2"style="text-align:center" type="text" id="tot2" value="{var tot2}" size="10" onChange="javascript:this.value=this.value + ' *'" maxlength="10" />
+          </div></td>
+          <td style="vertical-align: top; text-align: justify;"><input name="descp2" type="text" id="descp2" value="{var descp2}" size="75" onChange="javascript:this.value=this.value + ' *'" maxlength="70" /></td>
+          <td style="vertical-align: top; text-align: justify;"><div align="left">
+              <input name="date2" type="text" id="date2" value="{var date2}" size="15"onchange="javascript:this.value=this.value + ' *'"  maxlength="15" />
+          </div></td>
+        </tr>
+        <tr>
+          <td style="width: 4%; vertical-align: top; text-align: justify;"><div align="center" class="style14">
+              <input name="stock3" type="text" id="stock3" value="{var stock3}" size="10" onChange="javascript:this.value=this.value + ' *'" maxlength="10"  />
+          </div></td>
+          <td style="width: 5%; vertical-align: top; text-align: justify;"><div align="center" class="style14">
+              <input name="Qty3"style="text-align:center"  type="text" id="Qty3" value="{var Qty3}" size="10" onChange="javascript:this.value=this.value + ' *'" maxlength="10" />
+          </div></td>
+          <td style="height: 15px; width: 5%; vertical-align: top; text-align: justify;"><div align="center" class="style14">
+              <input name="unit3" style="text-align:center" type="text" id="unit3" value="{var unit3}" size="18" onChange="javascript:this.value=this.value + ' *'" maxlength="18" />
+          </div></td>
+          <td style="width: 5%; vertical-align: top; text-align: justify;"><div align="center" class="style14">
+              <input name="tot3" style="text-align:center" type="text" id="tot3" value="{var tot3}" size="10"onchange="javascript:this.value=this.value + ' *'" maxlength="10" />
+          </div></td>
+          <td style="vertical-align: top; text-align: justify;"><input name="descp3" type="text" id="descp3" value="{var descp3}" size="75"onchange="javascript:this.value=this.value + ' *'" maxlength="70" /></td>
+          <td style="vertical-align: top; text-align: justify;"><div align="left">
+              <input name="date3" type="text" id="date3" value="{var date3}" size="15"onchange="javascript:this.value=this.value + ' *'"  maxlength="15" />
+          </div></td>
+        </tr>
+        <tr>
+          <td style="width: 4%; vertical-align: top; text-align: justify;"><div align="center" class="style14">
+              <input name="stock4" type="text" id="stock4" value="{var stock4}" size="10" onChange="javascript:this.value=this.value + ' *'" maxlength="10" />
+          </div></td>
+          <td style="width: 5%; vertical-align: top; text-align: justify;"><div align="center" class="style14">
+              <input name="Qty4" style="text-align:center"ype="text" id="Qty4" value="{var Qty4}" size="10" onChange="javascript:this.value=this.value + ' *'" maxlength="10" />
+          </div></td>
+          <td style="height: 15px; width: 5%; vertical-align: top; text-align: justify;"><div align="center" class="style14">
+              <input name="unit4" style="text-align:center"type="text" id="unit4" value="{var unit4}" size="18"onchange="javascript:this.value=this.value + ' *'" maxlength="18" />
+          </div></td>
+          <td style="width: 5%; vertical-align: top; text-align: justify;"><div align="center" class="style14">
+              <input name="tot4" style="text-align:center"type="text" id="tot4" value="{var tot4}" size="10"onchange="javascript:this.value=this.value + ' *'"  maxlength="10" />
+          </div></td>
+          <td style="vertical-align: top; text-align: justify;"><input name="descp4" type="text" id="descp4" value="{var descp4}" size="75" onChange="javascript:this.value=this.value + ' *'" maxlength="70" /></td>
+          <td style="vertical-align: top; text-align: justify;"><div align="left">
+              <input name="date4" type="text" id="date4" value="{var date4}" size="15"onchange="javascript:this.value=this.value + ' *'"  maxlength="15" />
+          </div></td>
+        </tr>
+        <tr>
+          <td style="width: 4%; vertical-align: top; text-align: justify;"><div align="center" class="style14">
+              <input name="stock5" type="text" id="stock5" value="{var stock5}" size="10" onChange="javascript:this.value=this.value + ' *'" maxlength="10" />
+          </div></td>
+          <td style="width: 5%; vertical-align: top; text-align: justify;"><div align="center" class="style14">
+              <input name="Qty5" style="text-align:center"type="text" id="Qty5" value="{var Qty5}" size="10"onchange="javascript:this.value=this.value + ' *'" maxlength="10" />
+          </div></td>
+          <td style="height: 15px; width: 5%; vertical-align: top; text-align: justify;"><div align="center" class="style14">
+              <input name="unit5" type="text"style="text-align:center" id="unit5" value="{var unit5}" size="18"onchange="javascript:this.value=this.value + ' *'" maxlength="18" />
+          </div></td>
+          <td style="width: 5%; vertical-align: top; text-align: justify;"><div align="center" class="style14">
+              <input name="tot5" type="text"style="text-align:center" id="tot5" value="{var tot5}" size="10" onChange="javascript:this.value=this.value + ' *'" maxlength="10" />
+          </div></td>
+          <td style="vertical-align: top; text-align: justify;"><input name="descp5" type="text" id="descp5" value="{var descp5}" size="75" onChange="javascript:this.value=this.value + ' *'" maxlength="70" /></td>
+          <td style="vertical-align: top; text-align: justify;"><div align="left">
+              <input name="date5" type="text" id="date5" value="{var date5}" size="15"onchange="javascript:this.value=this.value + ' *'" maxlength="15" />
+          </div></td>
+        </tr>
+        <tr>
+          <td style="width: 4%; vertical-align: top; text-align: justify;"><div align="center" class="style14">
+              <input name="stock6" type="text" id="stock6" value="{var stock6}" size="10" onChange="javascript:this.value=this.value + ' *'" maxlength="10" />
+          </div></td>
+          <td style="width: 5%; vertical-align: top; text-align: justify;"><div align="center" class="style14">
+              <input name="Qty6" style="text-align:center"type="text" id="Qty6" value="{var Qty6}" size="10"onchange="javascript:this.value=this.value + ' *'"  maxlength="10" />
+          </div></td>
+          <td style="height: 15px; width: 5%; vertical-align: top; text-align: justify;"><div align="center" class="style14">
+              <input name="unit6"style="text-align:center"type="text" id="unit6" value="{var unit6}" size="18" onChange="javascript:this.value=this.value + ' *'" maxlength="18" />
+          </div></td>
+          <td style="width: 5%; vertical-align: top; text-align: justify;"><div align="center" class="style14">
+              <input name="tot6" style="text-align:center"type="text" id="tot6" value="{var tot6}" size="10" maxlength="10" />
+          </div></td>
+          <td style="vertical-align: top; text-align: justify;"><input name="descp6" type="text" id="descp6" value="{var descp6}" size="75" onChange="javascript:this.value=this.value + ' *'" maxlength="70" /></td>
+          <td style="vertical-align: top; text-align: justify;"><div align="left">
+              <input name="date6" type="text" id="date6" value="{var date6}" size="15" onChange="javascript:this.value=this.value + ' *'" maxlength="15" />
+          </div></td>
+        </tr>
+        <tr>
+          <td style="width: 4%; vertical-align: top; text-align: justify;"><div align="center" class="style14">
+              <input name="stock7" type="text" id="stock7" value="{var stock7}" size="10" onChange="javascript:this.value=this.value + ' *'" maxlength="10" />
+          </div></td>
+          <td style="width: 5%; vertical-align: top; text-align: justify;"><div align="center" class="style14">
+              <input name="Qty7"style="text-align:center"type="text" id="Qty7" value="{var Qty7}" size="10" onChange="javascript:this.value=this.value + ' *'" maxlength="10" />
+          </div></td>
+          <td style="height: 15px; width: 5%; vertical-align: top; text-align: justify;"><div align="center" class="style14">
+              <input name="unit7"style="text-align:center" type="text" id="unit7" value="{var unit7}" size="18"onchange="javascript:this.value=this.value + ' *'"  maxlength="18" />
+          </div></td>
+          <td style="width: 5%; vertical-align: top; text-align: justify;"><div align="center" class="style14">
+              <input name="tot7"style="text-align:center" type="text" id="tot7" value="{var tot7}" size="10" onChange="javascript:this.value=this.value + ' *'" maxlength="10" />
+          </div></td>
+          <td style="vertical-align: top; text-align: justify;"><input name="descp7" type="text" id="descp7" value="{var descp7}" size="75"onchange="javascript:this.value=this.value + ' *'"  maxlength="70" /></td>
+          <td style="vertical-align: top; text-align: justify;"><div align="left">
+              <input name="date7" type="text" id="date7" value="{var date7}" size="15" onChange="javascript:this.value=this.value + ' *'" maxlength="15" />
+          </div></td>
+        </tr>
+        <tr>
+          <td style="width: 4%; vertical-align: top; text-align: justify;"><div align="center" class="style14">
+              <input name="stock8" type="text" id="stock8" value="{var stock8}" size="10" onChange="javascript:this.value=this.value + ' *'" maxlength="10" />
+          </div></td>
+          <td style="width: 5%; vertical-align: top; text-align: justify;"><div align="center" class="style14">
+              <input name="Qty8"style="text-align:center" type="text" id="Qty8" value="{var Qty8}" size="10" onChange="javascript:this.value=this.value + ' *'" maxlength="10" />
+          </div></td>
+          <td style="height: 15px; width: 5%; vertical-align: top; text-align: justify;"><div align="center" class="style14">
+              <input name="unit8"style="text-align:center" type="text" id="unit8" value="{var unit8}" size="18" onChange="javascript:this.value=this.value + ' *'" maxlength="18" />
+          </div></td>
+          <td style="width: 5%; vertical-align: top; text-align: justify;"><div align="center" class="style14">
+              <input name="tot8" type="text"style="text-align:center" id="tot8" value="{var tot8}" size="10"onchange="javascript:this.value=this.value + ' *'"  maxlength="10" />
+          </div></td>
+          <td style="vertical-align: top; text-align: justify;"><input name="descp8" type="text" id="descp8" value="{var descp8}" size="75"onchange="javascript:this.value=this.value + ' *'"  maxlength="70" /></td>
+          <td style="vertical-align: top; text-align: justify;"><div align="left">
+              <input name="date8" type="text" id="date8" value="{var date8}" size="15"onchange="javascript:this.value=this.value + ' *'" maxlength="15" />
+          </div></td>
+        </tr>
+        <tr>
+          <td style="width: 4%; vertical-align: top; text-align: justify;"><div align="center" class="style14">
+              <input name="stock9" type="text" id="stock9" value="{var stock9}" size="10" onChange="javascript:this.value=this.value + ' *'" maxlength="10" />
+          </div></td>
+          <td style="width: 5%; vertical-align: top; text-align: justify;"><div align="center" class="style14">
+              <input name="Qty9"style="text-align:center" type="text" id="Qty9" value="{var Qty9}" size="10" onChange="javascript:this.value=this.value + ' *'" maxlength="10" />
+          </div></td>
+          <td style="height: 15px; width: 5%; vertical-align: top; text-align: justify;"><div align="center" class="style14">
+              <input name="unit9"style="text-align:center" type="text" id="unit9" value="{var unit9}" size="18" onChange="javascript:this.value=this.value + ' *'" maxlength="18" />
+          </div></td>
+          <td style="width: 5%; vertical-align: top; text-align: justify;"><div align="center" class="style14">
+              <input name="tot9" type="text"style="text-align:center" id="tot9" value="{var tot9}" size="10"onchange="javascript:this.value=this.value + ' *'"  maxlength="10" />
+          </div></td>
+          <td style="vertical-align: top; text-align: justify;"><input name="descp9" type="text" id="descp9" value="{var descp9}" size="75"onchange="javascript:this.value=this.value + ' *'"  maxlength="70" /></td>
+          <td style="vertical-align: top; text-align: justify;"><div align="left">
+              <input name="date9" type="text" id="date9" value="{var date9}" size="15"onchange="javascript:this.value=this.value + ' *'" maxlength="15" />
+          </div></td>
+        </tr>
+        <tr>
+          <td style="width: 4%; vertical-align: top; text-align: justify;"><div align="center" class="style14">
+              <input name="stock10" type="text" id="stock10" value="{var stock10}" size="10" onChange="javascript:this.value=this.value + ' *'" maxlength="10" />
+          </div></td>
+          <td style="width: 5%; vertical-align: top; text-align: justify;"><div align="center" class="style14">
+              <input name="Qty10"style="text-align:center" type="text" id="Qty10" value="{var Qty10}" size="10" onChange="javascript:this.value=this.value + ' *'" maxlength="10" />
+          </div></td>
+          <td style="height: 15px; width: 5%; vertical-align: top; text-align: justify;"><div align="center" class="style14">
+              <input name="unit10"style="text-align:center" type="text" id="unit10" value="{var unit10}" size="18" onChange="javascript:this.value=this.value + ' *'" maxlength="18" />
+          </div></td>
+          <td style="width: 5%; vertical-align: top; text-align: justify;"><div align="center" class="style14">
+              <input name="tot10" type="text"style="text-align:center" id="tot10" value="{var tot10}" size="10"onChange="javascript:this.value=this.value + ' *'"  maxlength="10" />
+          </div></td>
+          <td style="vertical-align: top; text-align: justify;"><input name="descp10" type="text" id="descp10" value="{var descp10}" size="75"onchange="javascript:this.value=this.value + ' *'"  maxlength="70" /></td>
+          <td style="vertical-align: top; text-align: justify;"><div align="left">
+              <input name="date10" type="text" id="date10" value="{var date10}" size="15"onchange="javascript:this.value=this.value + ' *'" maxlength="15" />
+          </div></td>
+        </tr>
+      </table></td>
+    </tr>
+    <tr>
+      <td colspan="4"><p class="style35 style9">&nbsp;&nbsp;<span class="style36">&nbsp;* modifed from 6409 order </span></p>
+      <p class="style35 style9">Notes
+        <input name="NOTES" type="hidden" id="NOTES" value="{var NOTES}">
+        <br>
+      <span class="style12"><span style="width:750px; margin: 10px;  word-wrap:break-word; display:inline-block;">{var NOTES}</span> </span>     </p></td>
+    </tr>
+    <tr valign="top">
+      <td colspan="4"><span class="style12">
+        </span>
+		<div id="6409B">
+        <table width="100%"  border="1" cellspacing="0" cellpadding="0">
+          <tr>
+            <td height="25" colspan="2" bgcolor="ddd9c3"><div align="center"><span class="style34">Acknowledgement by person receiving product(s) and/or service(s).</span></div></td>
+          </tr>
+          <tr>
+            <td height="44" colspan="2">&nbsp; &nbsp;&nbsp; &nbsp;I hereby certify that I have received all product(s) and/or service(s) listed above.<br />
+&nbsp;If all product(s) and/or service(s) have not been received, provide explanation in the space below.</td>
+          </tr>
+          <tr>
+            <td height="83" colspan="2">Discrepancies:<br />
+              <span class="style12">
+              <textarea name="Discrepancies" cols="100" rows="2" id="Discrepancies" onkeyup="AutoGrowTextArea(this)"></textarea>
+              </span></td>
+          </tr>
+          <tr>
+            <td height="33" colspan="2"><span class="style12"><span class="style13">&nbsp;</span>Received by Print Name:</span><span class="style12">
+            <input name="AKName" type="text" id="AKName" size="45" maxlength="40" required="required"/>
+            </span></td>
+          </tr>
+          <tr>
+            <td height="28" colspan="2"><span class="style12"><span class="style13">&nbsp;</span>Received by Signature:</span> <span class="style12">
+            <input name="AKSig" type="text" id="AKSig" size="45" maxlength="40" />
+            </span></td>
+          </tr>
+          <tr>
+            <td width="47%" height="25"><span class="style12"><span class="style13">&nbsp;</span>Date:
+                <input  title="Click to change the date or overwrite" required="required" name="AKDate" id="AKDate" size="11" maxlength="10" onClick="SetDateTime('mmm-d-y',this.id)" />
+            </span></td>
+            <td width="53%"><span class="style12"><span class="style13">&nbsp;</span>Time of arrival:
+                <input title="Click to change the time or overwrite" name="AKTime" id="AKTime" size="9" maxlength="9" onClick="SetDateTime('hm',this.id)" />
+            </span></td>
+          </tr>
+          <tr>
+            <td colspan="2"><span class="style12"><span class="style13">&nbsp;</span>Group: </span><span class="style12"> <span class="style12"> <span class="style12"><span class="style12">
+            <span class="style12"><span class="style12"><span class="style12"><span class="style12">
+            <span class="style12"><span class="style12"><span class="style12"><span class="style12"><span class="style12"><span class="style12"><span class="style12"><span class="style12">
+            <span class="style12"><span class="style12"><span class="style12"><span class="style12"><span class="style12"><span class="style12"><span class="style12"><span class="style12"><span class="style12"><span class="style12"><span class="style12"><span class="style12"><span class="style12"><span class="style12"><span class="style12"><span class="style12">
+            <input name="AKGroup" type="text" id="AKGroup" size="45" maxlength="40" />
+            </span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span> </span></span></span></span></span></span></span></span> </span></span></span></span> </span></span></span></span></td>
+          </tr>
+        </table>
+        <br>
+        <span style="font-family: Calibri;"><span
+
+style="color: rgb(128, 0, 0);"><span style="font-size: 12px;">&nbsp;
+          <input class="SubmitBtn1" enctype="multipart/form-data"
+
+id="Submit" method="Post" name="Submit" size="8" style="height: 28px;  "
+
+value="Submit" type="submit"  />
+&nbsp; &nbsp;</span></span></span>        </div>
+        <span class="style12"></span>
+<p><span class="style17"> DCS JT DMWT Disaster Requisition (F6409) V.2.0 2015.02.13 </span><span class="style12"> <span class="formtext11">
+        <input name="Templateversion" type="hidden" id="templateversion" value="ARC 6509B  v. 0.11" />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input name="testCall" type="hidden" id="testCall" value="{MsgSender}" size="14" maxlength="13" />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="style12" style="font-weight: bold;">
+<input name="Sender" type="hidden" id="Sender" value="{Sender}">
+</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="style10 "><span class="formtext11"></span>ARC 6509B v. 0.11</span></span></p></td>
+    </tr>
+  </table>
+</div>
+
+
+<div id="pop1" class="pop-up"><!-- The pop-up block -->
+
+<div class="popBox"><!-- If the content becomes larger than the pop-up this div will scroll the content -->
+
+<div class="popScroll"><!-- Test for help starts here -->
+
+<p> </p>
+
+<h2>ARC 6409B</h2>
+<p class="style1">The Disaster Receipt Form (6409-B) is to acknowledge receipt of product(s) and or service(s) requested on the Disaster Requisition Form (6409) by Group/Activity on the DRO.</p>
+<p class="style1"><strong>DR #</strong>: Enter the DR # and year (If applicable).<br>
+  DR Name: Enter the DR Name.<br>
+  Requisition #: Requisition number from the corresponding F6409<br>
+  Site POC: Enter the POC name<br>
+POC Phone: Enter POC&rsquo;s Phone Number POC E-mail_ Enter POC&rsquo;s E-mail</p>
+<p class="style1"><strong>Description of product(s) and/or service(s)</strong><br>
+  Stock No.: Enter the Stock No. for the Item if known<br>
+  Quantity: Enter the # of Units of Measure if known<br>
+  Unit of Measure: Enter the Unit of Measure (EA-Each; PK-Pack;<br>
+CS-Case; BX-Box) if known</p>
+<p class="style1"><strong>Total Qty (Each): </strong>Enter the number Quantity x Unit of measure = Total Each. If unit of measure is not known enter total number of product needed.<br>
+  Description: Enter the description of the product(s) or service(s) Need by: Enter the date and time for when the product(s) or<br>
+service(s) are needed</p>
+<p class="style1"><strong>Acknowledgement by person receiving item</strong><br>
+  Checkbox: Certifies receipt of items<br>
+  Discrepancies: List any discrepancies here.<br>
+  Received by (Printed name): Enter the name of the recipient Received by (Signature): Enter the signature of the recipient Date: Enter date in mm-dd-yy format<br>
+  Time of Arrival: Enter arrival time<br>
+  Group: Enter the Recipient&rsquo;s Group/Activity/Position</p></p>
+</div>
+
+<!-- The close pop-up link correctly positioned at the end of the content block -->
+
+<a href="#links" class="close"><span>Back
+
+to links</span></a> </div>
+
+</div>
+
+</form>
+</body>
+</html>

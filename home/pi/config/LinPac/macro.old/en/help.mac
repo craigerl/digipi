@@ -1,0 +1,27 @@
+
+                  LinPac - available commands
+                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  //Activity               - print the time since last operator response  
+  //Bell                   - call operator by acoustic signal
+  //COMPress <on,off>      - Turn on Huffman compression - your client must
+                             support compression for this to work
+  //CStatus                - list of connected stations
+  //Disconnect             - end the QSO immediately
+  //Echo <text>            - send the text back
+  //Help                   - this help
+  //Info                   - print station info
+  //MHeard                 - list of heard stations
+  //Name <name>   	   - store your name
+  //Quit                   - normal end of QSO
+  //Read <filename>        - send text file
+  //RBin <filename>        - send binary file
+  //RPrg <filename>        - send the file using autobin protocol
+  //RTt                    - determine round trip time (linpac to linpac ping)
+  //SP <address> [subject] - write a Private message to user [opt. subject]
+  //SB <address> [subject] - write a Bulletin message to everyone [opt. subject]
+  //Users                  - list of connected stations
+  //VERsion                - print the version of LinPac
+  //Write <filename>       - Start writing to the text file (stop with "//W off")
+  //WBin <filename>        - Start writing to the binary file 
+                             (stop with "//WBin off")
+  //YPUT <filename>        - send the file using YAPP protocol

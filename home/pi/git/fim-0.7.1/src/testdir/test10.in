@@ -1,0 +1,24 @@
+# Scoped variables test.
+# we need an image in order for i: scoped variables to work
+load;
+display;
+reload;
+redisplay;
+stdout "-------------------";
+a=77777;
+stdout a;
+stdout "-------------------";
+stdout g:a;
+stdout "-------------------";
+g:a=77778;
+stdout g:a;
+stdout "-------------------";
+stdout a;
+stdout "-------------------";
+i:a=99999;
+stdout i:a;
+stdout "-------------------";
+# b: v:  are not active anymore
+# b:a=99999;
+# stdout b:a;
+# stdout "-------------------";

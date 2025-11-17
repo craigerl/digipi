@@ -1,0 +1,1356 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html;" charset="UTF-8" />
+    <style type="text/css">
+      @page 
+      { 
+        margin-left: 3px; 
+        margin-right: 3px; 
+        margin-top: 3px; 
+        margin-bottom: 10px; 
+     }
+      body  
+      {
+        font-family: ,Helvetica, Tahoma,'Arial Narrow', Arial, sans-serif;
+        font-size: 16pt;
+        orphans: 2; 
+        widows: 2 
+      }
+
+      p { margin-bottom: 0; color: black; text-align: left; }
+
+      label 
+      { 
+        vertical-align: middle;
+        color: black; 
+        font-family: 'Arial Narrow',Helvetica,Tahoma,Arial, sans-serif;
+      }
+
+      input
+      {
+        vertical-align: bottom;
+        height: 0.8rem;
+      }
+
+      table 
+      { 
+        border-collapse: collapse; 
+       
+        padding: 7px; 
+        margin: 0px; 
+        font-family: 'DejaVu Sans',Helvetica,Tahoma,Arial, sans-serif; 
+      }
+      
+      tr { height: 1.2rem; }
+      
+      td 
+      { 
+        text-align: left; 
+        color: black; 
+        padding-top: 0; 
+        padding-bottom: 0; 
+        padding-left: 6px; 
+        padding-right: 6px; 
+        font-size: 0.8rem;
+        line-height: .8rem;
+      }
+
+      .titleblklft
+      {
+        float: left; 
+        width: 40%; 
+        height: 0.6in; 
+        border: none; 
+        padding-left: 1.2em; 
+        padding-right: .5em; 
+        background-color: #ffffff; 
+        text-align: left; 
+        font-family: 'DejaVu Sans',Helvetica,Tahoma,Arial,sans-serif;
+        font-size: 0.8rem; 
+        color: black;
+      }
+      .titleblkrt
+      {
+        float: left; 
+        width: 40%; 
+        height: 0.6in; 
+        border: none; 
+        padding-left: 1.2em; 
+        padding-right: .5em; 
+        background-color: #ffffff; 
+        text-align: right; 
+        font-family: 'DejaVu Sans',Helvetica,Tahoma,Arial,sans-serif;
+        font-size: 0.8rem; 
+        color: black;
+      }
+      .grybox
+      {
+        background-color: #e0e0e0; 
+        border: 1px solid black; 
+        color: black; 
+        font-size: 0.8rem; 
+        text-align: right;
+      }
+      .gryboxlft
+      {
+        background-color: #e0e0e0; 
+        border-top: 1px solid black; 
+        border-bottom: 1px solid black; 
+        border-left: 1px solid black; 
+        border-right: none; 
+        padding-left: 6px; 
+        padding-right: 0;"
+ color: black; 
+        font-size: 0.8rem; 
+        text-align: right;
+      }
+      .gryboxrt
+      {
+        background-color: #e0e0e0; 
+        border-top: 1px solid black; 
+        border-bottom: 1px solid black; 
+        border-left: 0; 
+        border-right: 1px solid black; 
+        padding-left: 0; 
+        padding-right: 6px;
+        color: black; 
+        font-size: 0.8rem; 
+        text-align: right;
+      }
+      .gryboxnolr
+      {
+        background-color: #e0e0e0; 
+        border-top: 1px solid black; 
+        border-bottom: 1px solid black; 
+        border-left: 0; 
+        border-right: 0; 
+        padding-left: 0; 
+        padding-right: 6px;
+        color: black; 
+        font-size: 0.8rem; 
+        text-align: right;
+      }
+      .clrbox
+      {
+        vertical-align: middle; 
+        border: 1px solid black;
+        padding-left: 6px; 
+        padding-right: 6px;
+      }
+      .clrboxtop
+      {
+        vertical-align: middle; 
+        border-top: none; 
+        border-bottom: none; 
+        border-left: 1px solid black; 
+        border-right: 1px solid black;
+      }
+      .clrboxnolr
+      {
+        vertical-align: middle; 
+        border-top: 1px solid black; 
+        border-bottom: 1px solid black; 
+        border-left: none; 
+        border-right: none;
+      }
+      .clrboxlft
+      {
+        text-align: left; 
+        border-top: 1px solid black; 
+        border-bottom: 1px solid black; 
+        border-left: 1px solid black; 
+        border-right: none; 
+        padding-left: 6px; 
+        padding-right: 0;"
+      }
+      .clrboxrt
+      {
+        text-align: left; 
+        background-color: white; 
+        color: black; 
+        border-top: 1px solid black; 
+        border-bottom: 1px solid black; 
+        border-left: none; 
+        border-right: 1px solid black; 
+        padding-left: 0;
+      }
+      .clrboxnb
+      {
+        float: left; 
+        border: none; 
+        padding-left: 1.2em; 
+        padding-right: .5em; 
+        background-color: white; 
+        text-align: right; 
+        font-family: 'DejaVu Sans',Helvetica,Tahoma,Arial, serif; 
+        font-size: 11pt; 
+        color: black;
+      }
+      .smallnum { font-size: 5pt; text-align: center; }
+  
+    .FormReg {font-size: 11px; font-family:Arial, Helvetica, sans-serif}
+.SubmitBtn {font-size: 12px;
+font-family: Arial,Helvetica,sans-serif;
+font-weight: inherit;
+}
+.formtext {font-family: Arial, Helvetica, sans-serif;
+font-size: 10pt;
+font-weight: normal;
+}
+    .style3 {font-size: 0.8rem}
+    .style6 {font-family: Arial, Helvetica, sans-serif; font-size: 14px; font-weight: bold; }
+    .style7 {
+	font-size: 14px;
+	font-weight: bold;
+}
+    .style17 {font-size: 12px}
+.style23 {font-family: Arial, Helvetica, sans-serif;
+font-size: 20px;
+}
+.style24 {font-size: 12px; font-weight: bold; font-family: Arial, Helvetica, sans-serif; }
+.style25 {font-size: 12px;
+font-family: Arial, Helvetica, sans-serif;
+}
+.style9 {font-size: 12px}
+
+
+/*
+body {color:#000; background:#fff; font:100%/1.5 arial,sans-serif;}
+h2 {margin-top:0}
+*/
+/* Styling applied to classes only */
+/* Pop-up content shifted off-screen when not in view.
+Still readable by screen-reader software.
+When targeted it fills the browser window.
+*/
+.pop-up {position:absolute; top:0; left:-500em;}
+.pop-up:target {position:static; left:0;}
+/* The pop-up itself */
+.popBox {
+	background:#ffffff;
+	position:absolute;
+	left:30%;
+	right:30%;
+	top:20%;
+	bottom:25%;
+	z-index:10;
+	border:1px solid #3a3a3a;
+/* CSS3 where available: rounded corners, drop-shadow, and fade in. */
+border-radius:.25rem;
+box-shadow:0 .5rem .5rem rgba(0,0,0,.5);
+	opacity:0;
+	transition: opacity 0.8s ease-out;
+	visibility: visible;
+}
+:target .popBox {position:fixed; opacity:1;}
+/* Light box properties */
+.lightbox {
+display:none;
+text-indent:-200em;
+background-color:rgba(0,0,0,.4);
+width:100%;
+height:100%;
+position:fixed;
+top:0;
+left:0;
+bottom:0;
+right:0;
+z-index:5;
+}
+:target .lightbox {display:block;}
+/* The pop-ups close link, moved via CSS to the top right of the pop-up */
+.close:link,
+.close:visited {
+	position: absolute;
+	top: -0.75em;
+	right: -0.75em;
+	display: block;
+	width: 2em;
+	height: 2em;
+	line-height: 1.8;
+	padding: 0;
+	text-align: center;
+	text-decoration: none;
+	background-color: #000;
+	border: 2px solid #fff;
+	color: #fff;
+	border-radius: 50%;
+box-shadow: 0 0 .5rem .5rem rba(0,0,0,.5);
+	visibility: visible;
+}
+.close:before {content:"X";}
+.close:hover,
+.close:active,
+.close:focus {
+box-shadow: 0 0 .5rem .5rem rba(255,0,0,.5);
+background-color: #c00;
+color: #fff;
+}
+.close span {
+text-indent: -200em;
+display: block;
+}
+/* The pop-up content div will scroll if it has too much content */
+.popScroll {
+	position:absolute;
+	top: 1rem;
+	left: 1rem;
+	right: 1rem;
+	bottom: 1rem;
+	overflow-y: auto;
+*overflow-y: scroll;
+	padding-right: 0.5em;
+	visibility: visible;
+}
+.popScroll h2 {margin-top:0}
+.formtext1 {font-family: Arial, Helvetica, sans-serif;
+font-size: 10pt;
+font-weight: normal;
+}
+.style22 {color: #FF0000}
+    .style17 {font-size: 12px}
+.style23 {font-family: Arial, Helvetica, sans-serif;
+font-size: 20px;
+}
+.style9 {font-size: 12px}
+    </style>
+    </style>
+	<script>
+	function isNumberKey(evt)
+{
+var charCode = (evt.which) ? evt.which : event.keyCode
+if (charCode > 32 && (charCode < 45 || charCode > 57))
+//if (charCode > 32 && (charCode < 40 ))
+return false;
+return true;
+}
+	function Flip(theid,working) {
+x1 = document.getElementById(theid).value;
+if (x1 == '' || x1 == '') { document.getElementById(theid).value = working} 
+else { document.getElementById(theid).value = '';}
+}
+	
+	// Test auto collect
+
+function saveTextAsFile(fileNameToSaveAs, textToWrite) {
+var textToWrite = document.getElementById('parseme').value; 
+var fileNameToSaveAs = "SA-FIA Statistical Data " + DateforFile()+".txt";
+fileNameToSaveAs = prompt("", fileNameToSaveAs);
+
+  /* Saves a text string as a blob file*/  
+  var ie = navigator.userAgent.match(/MSIE\s([\d.]+)/),
+      ie11 = navigator.userAgent.match(/Trident\/7.0/) && navigator.userAgent.match(/rv:11/),
+      ieEDGE = navigator.userAgent.match(/Edge/g),
+      ieVer=(ie ? ie[1] : (ie11 ? 11 : (ieEDGE ? 12 : -1)));
+
+  if (ie && ieVer<10) {
+    console.log("No blobs on IE ver<10");
+    return;
+  }
+
+  var textFileAsBlob = new Blob([textToWrite], {
+    type: 'text/plain'
+  });
+
+  if (ieVer>-1) {
+    window.navigator.msSaveBlob(textFileAsBlob, fileNameToSaveAs);
+
+  } else {
+    var downloadLink = document.createElement("a");
+    downloadLink.download = fileNameToSaveAs;
+    downloadLink.href = window.URL.createObjectURL(textFileAsBlob);
+    downloadLink.onclick = function(e) { document.body.removeChild(e.target); };
+    downloadLink.style.display = "none";
+    document.body.appendChild(downloadLink);
+    downloadLink.click();
+  }
+}
+
+
+
+
+
+function destroyClickedElement(event)
+{
+    document.body.removeChild(event.target);
+}
+
+function loadFileAsText()
+{
+
+    var fileToLoad = document.getElementById("fileToLoad").files[0];
+ 
+    var fileReader = new FileReader();
+    fileReader.onload = function(fileLoadedEvent) 
+    {
+        var textFromFileLoaded = fileLoadedEvent.target.result;
+        document.getElementById("inputTextToSave").value = textFromFileLoaded;
+    };
+    fileReader.readAsText(fileToLoad, "UTF-8");
+}
+
+
+function DateforFile(RightNow) {
+var txt;
+var d = new Date(),
+thisyear = d.getFullYear();
+thismonth= d.getMonth();
+thismonth = thismonth+1;
+if (thismonth < 10) { thismonth = "0" + thismonth}
+
+thisday = d.getDate();
+if (thisday < 10) { thisday = "0" + thisday}
+
+h = (d.getHours()<10?'0':'') + d.getHours()
+m = (d.getMinutes()<10?'0':'') + d.getMinutes()
+var myprompt = thisyear+ '-'+thismonth+'-'+thisday+' '+h + '_' + m ;
+return myprompt;
+}
+
+function isObject(arg) {
+  return Object.prototype.toString.call(arg)==='[object Object]';
+}
+
+function formDataToObject(elForm) {
+  if (!elForm instanceof Element) return;
+  var fields = elForm.querySelectorAll('input, select, textarea'),
+    o = {};
+  for (var i=0, imax=fields.length; i<imax; ++i) {
+    var field = fields[i],
+      sKey = field.name || field.id;
+    if (field.type==='button' || field.type==='image' || field.type==='submit' || !sKey) continue;
+    switch (field.type) {
+      case 'checkbox':
+        o[sKey] = +field.checked;
+        break;
+      case 'radio':
+        if (o[sKey]===undefined) o[sKey] = '';
+        if (field.checked) o[sKey] = field.value;
+        break;
+      case 'select-multiple':
+        var a = [];
+        for (var j=0, jmax=field.options.length; j<jmax; ++j) {
+          if (field.options[j].selected) a.push(field.options[j].value);
+        }
+        o[sKey] = a;
+        break;
+      default:
+        o[sKey] = field.value;
+    }
+  }
+ // alert('Form data:\n\n' + JSON.stringify(o, null, 2));
+ document.getElementById('parseme').value = JSON.stringify(o, null, 2);
+//  return o;
+}
+
+function populateForm(o) {
+
+o =  JSON.parse(document.getElementById('parseme').value);
+ //if (!isObject(o)) return;
+if (!isObject(o)) return;
+  for (var i in o) {
+    var el = document.getElementById(i) || document.querySelector('[name=' + i + ']');
+    if (el.type==='radio') el = document.querySelectorAll('[name=' + i + ']');
+    switch (typeof o[i]) {
+      case 'number':
+        el.checked = o[i];
+        break;
+      case 'object':
+        if (el.options && o[i] instanceof Array) {
+          for (var j=0, jmax=el.options.length; j<jmax; ++j) {
+            if (o[i].indexOf(el.options[j].value)>-1) el.options[j].selected = true;
+          }
+        }
+        break;
+      default:
+        if (el instanceof NodeList) {
+          for (var j=0, jmax=el.length; j<jmax; ++j) {
+            if (el[j].value===o[i]) el[j].checked = true;
+          }
+        } else {
+          el.value = o[i];
+        }
+    }
+  }
+    Fixfields();
+
+
+}
+
+function SaveData() {
+	
+			formDataToObject(document.getElementById('myform'))
+			saveTextAsFile();
+			
+			//saveTextAsFile();
+			}
+
+//-------
+ function readBlob(opt_startByte, opt_stopByte) {
+  
+    var files = document.getElementById('files').files;
+    if (!files.length) {
+      alert('Please select a file!');
+      return;
+    }
+
+    var file = files[0];
+    var start = parseInt(opt_startByte) || 0;
+    var stop = parseInt(opt_stopByte) || file.size - 1;
+
+    var reader = new FileReader();
+
+    // If we use onloadend, we need to check the readyState.
+    reader.onloadend = function(evt) {
+      if (evt.target.readyState == FileReader.DONE) { // DONE == 2
+        document.getElementById('byte_content').textContent = evt.target.result;
+        document.getElementById('byte_range').textContent = 
+            ['Read bytes: ', start + 1, ' - ', stop + 1,
+             ' of ', file.size, ' byte file'].join('');
+      }
+    };
+
+    var blob = file.slice(start, stop + 1);
+    reader.readAsBinaryString(blob);
+  }
+    	
+  window.onload = function () { 
+ 
+ //Check the support for the File API support 
+ if (window.File && window.FileReader && window.FileList && window.Blob) {
+    var fileSelected = document.getElementById('txtfiletoread');
+	
+    fileSelected.addEventListener('change', function (e) { 
+         //Set the extension for the file 
+         var fileExtension = /text.*/; 
+         //Get the file object 
+         var fileTobeRead = fileSelected.files[0];
+        //Check of the extension match 
+         if (fileTobeRead.type.match(fileExtension)) { 
+             //Initialize the FileReader object to read the 2file 
+			
+             var fileReader = new FileReader(); 
+             fileReader.onload = function (e) { 
+                 var fileContents = document.getElementById('filecontents'); 
+                
+				document.getElementById('parseme').value =fileReader.result;
+				populateForm(obj = document.getElementById('parseme').value);
+					 } 
+             fileReader.readAsText(fileTobeRead); 
+         } 
+         else { 
+             alert("Please select text file"); 
+         }
+ 
+    }, false);
+} 
+ else { 
+     alert("Files are not supported"); 
+ } 
+ }
+	
+	
+	</script>
+    <title>Disaster Operations Statistical Report</title>
+  </head>
+  <body lang="en-US" dir="ltr" style="width: 100%; font-size: 1rem;">
+    <div style="width: 100%;">      </div>
+  <form  style="font-family: Arial;" pbzloc="3" onsubmit="return confirm('To complete your form submission, click OK and close the open browser window. You will return to the new message window so you can post your message to the outbox');" method="post" id="myform" enctype="multipart/form-data" action="http://{FormServer}:{FormPort}">
+  <div style="text-align: center;">
+<form  style="font-family: Arial;" pbzloc="3" onsubmit="return confirm('To complete your form submission, click OK and close the open browser window. You will return to the new message window so you can post your message to the outbox');" method="post" id="myform" enctype="multipart/form-data" action="http://{FormServer}:{FormPort}">
+<div id="pop1" class="pop-up"><!-- The pop-up block -->
+<div class="popBox"><!-- If the content becomes larger than the pop-up this div will scroll the content -->
+<div class="popScroll"><!-- Test for help starts here -->
+<p> </p>
+<h4>SA Disaster Operations Statistical Report</h4>
+<p align="left"><strong>Introduction. </strong><br />
+<br />  <span class="formtext"> 
+
+Contact area Salvation Army reps about this form.
+
+<br /><br />
+You can save your completed HTML to a text file. This will allow you to reload the Form.
+with ALL entered form data. You do this prior to submitting the form. Then you can open a new Form and load the saved HTML form data. 
+NOTE: Date and Times will be the previous, so change if needed. This is much like using FireFox and the addon Formlet. It will save the info
+as a text file with the Date and Time as the text file name. Now you can use any browser, save your form, (as many versions as you like), and then re-populate.
+<br />
+<br />
+
+
+
+
+
+Printing this form is dependent upon your selected
+
+printer and its settings. Various Web Browsers and and their viewing
+
+sizes are not all the same. Printing from a browsers print function
+
+may be different from the operating systems default print mode.
+
+Select what works for you, for both printing and viewing.
+
+You may print direct to the printer as a HTML or save as a
+
+PDF then print the PDF. In some instances Landscape mode may print
+
+better than Portrait. <br />
+</span>
+</p>
+
+. <td width="0%"></p>
+
+</div>
+
+<!-- The close pop-up link correctly positioned at the end of the content block -->
+
+<a href="#links" class="close"><span>Back
+
+to links</span></a> </div>
+
+</div>    <table width="95%"  border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td width="59%"><span class="style7">Disaster Operations Statistical Report<br>
+  FIA #730&nbsp;<br>
+        REV 1/31/2019 Express </span></td>
+        <td width="41%"><div align="right">
+          <div align="right" class="style6">THE SALVATION ARMY<br>
+          Southern Territory<br>
+        disaster.salvationarmyusa.org        </div></td>
+      </tr>
+      <tr>
+        <td colspan="2">  <div align="center">
+          <span class="style25">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="style25">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="style25">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="style25">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="style25">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="style25">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+          <input type="button" value=" Load SA-FIA Statistical Data " style="height: 28px;" onclick="document.getElementById('txtfiletoread').click();" />
+      <span class="style24"><span style="font-weight: bold;"> </span></span><span class="style25">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<small><span class="style23"><strong><small><big><small><big><span style="font-weight: normal;"><small><span class="style9"><a href="#pop1"><big style="color: rgb(204, 0, 0);">Form Info</big></a></span></small></span></big></small></big></small></strong></span><span class="style17"></span></small></span>      
+      <input type="file" id="txtfiletoread" accept=".txt"  style="display: none;"/>
+        </div></td>
+      </tr>
+  </table>
+
+    
+  </p>
+  <table style="width: 95%;">
+          <colgroup>
+          <col style="width: 10%; background-color: white;">
+          </colgroup>
+          <colgroup>
+          <col style="width: 40%; background-color: white;">
+          <col style="width: 10%; background-color: white;">
+          </colgroup>
+          <colgroup>
+          <col style="width: 40%; background-color: white;">
+          </colgroup>
+          <tr>
+            <td width="10%" height="22" class="gryboxlft"><div align="right"><strong>DISASTER:&nbsp; </strong></div></td>
+            <td width="39%" nowrap class="clrbox"><input name="Disaster" value="" type="text" size="38" maxlength="38"  required >
+                <strong>&nbsp;Task #
+                <input name="TaskNum" type="text" id="TaskNum" size="20">
+              </strong></td>
+            <td width="13%" class="grybox"><strong>COUNTRY:</strong></td>
+            <td width="38%" class="clrbox"><input name="Country" value="" type="text" size="45" maxlength="45"></td>
+          </tr>
+          <tr>
+            <td class="grybox"><strong>UNIT:</strong></td>
+            <td class="clrbox"><input name="Unit" value="" type="text" size="55" maxlength="50"  required >
+            </td>
+            <td class="grybox"><strong>COMMUNITY:</strong></td>
+            <td class="clrbox"><input name="Community" value="" type="text" size="45" maxlength="45"></td>
+          </tr>
+          <tr>
+            <td class="grybox"><strong>PERIOD:</strong></td>
+            <td class="clrboxlft"><span class="style3">
+                <label for="Single Day" class="formtext">Single Day</label>
+              <input  name="SingleDay" type="text" id="SingleDay" value="" size="30" maxlength="50">
+            </span><textarea name="parseme" cols="60" id="parseme" style="display: none;"></textarea>            </td><td colspan="2" class="formtext"><label for="Cumlative" class="formtext">Cumulative</label>
+                <input  name="Cumulative" value="" type="text" size="20" maxlength="20">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<label for="CumThru" >thru</label>
+&nbsp;&nbsp;      <input  name="CumThru" value="" type="text" size="20" maxlength="20">
+</span>            </td>
+          </tr>
+  </table>
+        <br>
+        <table style="width: 95%;">
+          <col style="width: 345px;">
+          <col style="width: 4px;">
+          <col style="width: 349px;">
+          <tr>
+            <td class="grybox" style="text-align: center;">
+              <strong>LOCATION DETAILS</strong> <i>(building, address, route)</i>
+            </td>
+            <td rowspan="2" class="clrboxtop">&nbsp;</td>
+            <td class="grybox" style="text-align: center;">
+              <strong>CONTACT NUMBERS</strong>&nbsp;
+              <span style="font-size: 10pt; font-weight: normal;">
+                <i>(phone,fax, e-mail):</i>
+              </span>
+            </td>
+          </tr>
+          <tr>
+            <td class="clrbox">
+              <input  name="Location" value="" type="text" size="70" maxlength="50">
+            </td>
+            <td class="clrbox">
+              <input  name="ContactNumbers" value="" type="text" size="60" maxlength="60">
+            </td>
+          </tr>
+    </table>
+        <br>
+        <table style="width: 95%; padding: 7px; margin: 0px;">
+          <col style="width: 8%;">
+          <col style="width: 12%;">
+          <col style="width: 12%;">
+          <col style="width: 12%;">
+          <col style="width: 12%;">
+          <col style="width: 18%">
+          <tr>
+            <td class="grybox" rowspan="2"><strong>FACILITY TYPE:</strong></td>
+            <td class="clrbox"><label for="FeedingOps">Feeding Operations</label>
+                <input  name="FeedingOpsb" type="checkbox" id="FeedingOpsb" value="YES" onClick="Flip('FeedingOps', 'YES')"/>
+                <input name="FeedingOps" type="hidden" id="FeedingOps">
+            </td>
+            <td class="clrbox"><label for="CmdPost">Command Post</label>
+                <input  name="CmdPostb" value="YES" type="checkbox"  onClick="Flip('CmdPost', 'YES')">
+                <input name="CmdPost" type="hidden" id="CmdPost">
+            </td>
+            <td class="clrbox"><label for="AssistCtr">Assistance Center</label>
+                <input  name="AssistCtrb" type="checkbox" id="AssistCtrb" value="YES"  onClick="Flip('AssistCtr', 'YES')">
+                <input name="AssistCtr" type="hidden" id="AssistCtr">
+            </td>
+            <td class="clrbox"><label for="StagingArea">Staging Area</label>
+                <input  name="StagingAreab" type="checkbox" id="StagingAreab" value="YES" onClick="Flip('StagingArea', 'YES')">
+                <input name="StagingArea" type="hidden" id="StagingArea">
+            </td>
+            <td class="clrbox"><label for="Shelter">Shelter</label>
+                <input  name="Shelterb" type="checkbox" id="Shelterb" value="YES" onClick="Flip('Shelter', 'YES')">
+                <input name="Shelter" type="hidden" id="Shelter">
+</td>
+          </tr>
+          <tr>
+            <td class="clrbox"><label for="Mobile">Mobile</label>
+              <input  name="Mobileb" type="checkbox" id="Mobileb" value="YES" onClick="Flip('Mobile', 'YES')">                
+              <input name="Mobile" type="hidden" id="Mobile">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <label for="Fixed">Fixed</label>
+      <input  name="Fixedb"  type="checkbox" id="Fixedb" value="YES" onClick="Flip('Fixed', 'YES')">
+      <input name="Fixed" type="hidden" id="Fixed">
+</td>
+            <td class="clrbox"><label for="PhoneBank">Phone Bank</label>
+                <input  name="PhoneBankb"  type="checkbox" id="PhoneBankb" value="YES" onClick="Flip('PhoneBank', 'YES')">
+                <input name="PhoneBank" type="hidden" id="PhoneBank">
+</td>
+            <td class="clrbox"><label for="DistCtr">Distribution Center</label>
+                <input  name="DistCtrb"  type="checkbox" id="DistCtrb" value="YES" onClick="Flip('DistCtr', 'YES')">
+                <input name="DistCtr" type="hidden" id="DistCtr">
+</td>
+            <td class="clrbox"><label for="Warehouse">Warehouse</label>
+                <input  name="Warehouseb"  type="checkbox" id="Warehouseb" value="YES" onClick="Flip('Warehouse', 'YES')">
+                <input name="Warehouse" type="hidden" id="Warehouse">
+</td>
+            <td class="clrbox"><label for="Other">Other</label>
+                <input  name="Other"  type="text" value="" size="25" maxlength="30">
+            </td>
+          </tr>
+    </table>
+        <br>
+        <table width="93%" style="width: 95%; padding: 7px; margin: 0px;">
+        <colgroup>
+        <col style="width: 25%;">
+        </colgroup>
+        <colgroup>
+        <col style="width: 10%;">
+        <col style=" width: 5%;">
+        </colgroup>
+        <colgroup>
+        <col style="width: 1%;">
+        </colgroup>
+        <colgroup>
+        <col style="width: 25%;">
+        </colgroup>
+        <colgroup>
+        <col style="width: 10%;">
+        <col style="width: 5%">
+        </colgroup>
+        <tr>
+          <td class="grybox" colspan="3" style="text-align: center;"><strong>DISASTER FOOD SERVICES:</strong> </td>
+          <td width="1%" rowspan="5" class="clrbox" >&nbsp;</td>
+          <td class="grybox" colspan="3" style="text-align: center;"><strong>MASS SHELTERING:</strong> </td>
+        </tr>
+        <tr>
+          <td width="42%" class="clrbox">Prepared Meals (hot and cold)</td>
+          <td width="5%" class="clrboxlft"><input  name="Meals"  type="text" value="0" size="4" min="0" onkeypress="return isNumberKey(event)" >
+          </td>
+          <td width="5%" class="clrboxrt smallnum">5202</td>
+          <td width="22%" class="clrbox">Lodging Provided</td>
+          <td width="5%" class="clrbox"><input  name="Logging"  type="text" value="0" size="4" min="0" onkeypress="return isNumberKey(event)"  >
+          </td>
+          <td width="20%" class="clrboxlft smallnum"><div align="left">5221</div></td>
+        </tr>
+        <tr>
+          <td class="clrbox">Drinks (coffee, soda, juice, water)</td>
+          <td class="clrboxlft"><input  name="Drinks"  type="text" value="0" size="4" min="0" onkeypress="return isNumberKey(event)"  ></td>
+          <td class="clrboxrt">&nbsp;</td>
+          <td colspan="3" class="grybox" style="text-align: center;"><strong>MEDICAL / SANITATION:</strong> </td>
+        </tr>
+        <tr>
+          <td class="clrbox">Snacks (donuts, cakes, chips)</td>
+          <td class="clrboxlft"><input  name="Snacks"  type="text" value="0" size="4" min="0" onkeypress="return isNumberKey(event)"  >
+          </td>
+          <td class="clrboxrt" style="font-size: 5pt"><div align="center">5206</div></td>
+          <td class="clrbox">Medical Services Provided</td>
+          <td class="clrboxlft"><input  name="MedSvc"  type="text" value="0" size="4" min="0" onkeypress="return isNumberKey(event)"  >
+          </td>
+          <td class="clrboxrt">&nbsp;</td>
+        </tr>
+        <tr>
+          <td colspan="3" class="clrbox">&nbsp;</td>
+          <td class="clrbox">Showers Provided</td>
+          <td class="clrboxlft"><input  name="Showers"  type="text" value="0" size="4" min="0" onkeypress="return isNumberKey(event)"  >
+          </td>
+          <td class="clrboxrt">&nbsp;</td>
+        </tr>
+    </table>
+        <br>  
+      <table style="width: 95%; padding: 7px; margin: 0px;">
+        <!-- left side -->
+        <colgroup><col style="width: 33%;"></colgroup>
+        <colgroup><col style="width: 10%;"><col style="width: 5%;"></colgroup>
+        <colgroup><col style="width: 2%; "></colgroup>
+        <!-- spacer -->
+        <colgroup><col style="width: 32%;"><col style="width: 10%;"></colgroup>
+        <!-- right side -->
+        <colgroup><col style="width: 25%;"></colgroup>
+        <colgroup><col style="width: 5%;"></colgroup>
+        <colgroup><col style="width: 5%;"></colgroup>
+        <colgroup><col style="width: 20%;"></colgroup>
+        <colgroup><col style="width: 35%;"></colgroup>
+        <colgroup>
+          <col style="width: 25%;">
+          <col style="width: 20%;">
+          <col style="width: 10%;">
+        </colgroup>
+        <!-- tables definitions -->
+        <tr>
+          <td colspan="3" class="grybox" style="text-align: center;">
+            <strong>EMERGENCY FINANCIAL AID:</strong>
+          </td>
+          <td class="clrboxtop" rowspan="18" colspan="1">&nbsp;</td>
+          <td colspan="3"  class="grybox" style="text-align: center;">
+            <strong>IN-KIND DISTRIBUTION:</strong>
+          </td>
+        </tr>
+        <tr>
+          <td class="clrbox">Client Interviews</td>
+          <td class="clrbox">
+            <input  name="Interviews"  type="text" value="0" size="3" min="0" max="10000">
+          </td>
+          <td class="clrbox smallnum">6310</td>
+          <td class="clrboxnolr">Blankets (per item)</td>
+          <td class="clrboxlft">
+            <input  name="Blankets"  type="text" value="0" size="4" min="0"" onkeypress="return isNumberKey(event)"   max="10000">
+          </td>
+          <td class="clrboxrt">&nbsp;</td>
+        </tr>
+        <tr>
+          <td class="clrbox">
+            Referrals to Other Agencies
+          </td>
+          <td class="clrbox">
+            <input  name="Referals"  type="text" value="0" size="4" min="0" " onkeypress="return isNumberKey(event)"  max="10000">
+          </td>
+          <td class="clrbox smallnum">6410</td>
+          <td class="clrboxnolr">Bibles, Brochures, Tracts (per item)</td>
+          <td class="clrboxlft">
+            <input  name="BiblesEtc"  type="text" value="0" size="4" min="0" " onkeypress="return isNumberKey(event)"  max="10000">
+          </td>
+          <td class="clrboxrt">&nbsp;</td>
+        </tr>
+        <tr>
+          <td class="clrbox">Total Cases Opened</td>
+          <td class="clrbox">
+            <input  name="CasesOpened"  type="text" value="0" size="4" min="0" " onkeypress="return isNumberKey(event)"   max="10000">
+          </td>
+          <td class="clrbox">&nbsp;</td>
+          <td class="clrboxnolr">Cleanup Kits (per kit)</td>
+          <td class="clrboxlft">
+            <input  name="CleanupKits"  type="text" value="0" size="4" min="0" " onkeypress="return isNumberKey(event)"   max="10000">
+          </td>
+          <td class="clrboxrt smallnum">5236</td>
+        </tr>
+        <tr>
+          <td colspan="1" class="clrbox">Total Individuals Assisted</td>
+          <td class="clrboxlft">
+            <input  name="TotAssisted"  type="text" value="0" size="4" min="0" " onkeypress="return isNumberKey(event)"  max="10000">
+          </td>
+          <td class="clrbox smallnum">5125</td>
+          <td class="clrbox">Cleaning / Rebuild (per order)</td>
+          <td class="clrboxlft">
+            <input  name="CleanRebuild"  type="text" value="0" size="4" min="0" " onkeypress="return isNumberKey(event)"  max="10000">
+          </td>
+          <td class="clrboxrt">&nbsp;</td>
+        </tr>
+        <tr>
+          <td colspan="3" class="grybox" style="text-align: left"><strong>FINANCIAL ASSISTANCE:</strong></td>
+          <td class="clrbox">Comfort Kits (per kit)</td>
+          <td class="clrboxlft">
+            <input  name="ComfortKits"  type="text" value="0" size="4" min="0" " onkeypress="return isNumberKey(event)"  max="10000">
+          </td>
+          <td class="clrboxrt smallnum">5236</td>
+        </tr>
+        <tr>
+          <td class="clrbox" style="font-size: 10pt;"><strong>Vouchers</strong></td>
+          <td class="clrbox" style="font-size: 10pt;"><strong># Issued</strong></td>
+          <td class="clrbox" style="font-size: 9pt;"><strong>Total Cost</strong></td>
+          <td class="clrbox">Clothing (per item)</td>
+          <td clsas="clrboxlft">
+            <input  name="Clothing"  type="text" value="0" size="4" min="0" " onkeypress="return isNumberKey(event)"  max="10000">
+</td>
+          <td class="clrboxrt smallnum">5230</td>
+        </tr>
+        <tr>
+          <td class="clrbox">Cleanup / Reconstruction</td>
+          <td class="clrbox">
+            <input  name="CleanupRecons"  type="text" value="0" size="4" min="0" " onkeypress="return isNumberKey(event)"  max="10000">
+          </td>
+          <td nowrap class="clrbox"><input  name="CleanupReconstot"  type="text" id="CleanupReconstot" value="0" size="6" min="0" " onkeypress="return isNumberKey(event)"  max="10000"></td>
+          <td class="clrbox">Furniture (per item)</td>
+          <td class="clrboxlft">
+            <input  name="Furniture"  type="text" value="0" size="4" min="0" " onkeypress="return isNumberKey(event)"  max="10000">
+          </td>
+          <td class="clrboxrt smallnum">5232</td>
+        </tr>
+        <tr>
+          <td class="clrbox">Clothing</td>
+          <td class="clrbox">
+            <input  name="ClothingVouchers"  type="text" value="0" size="4" min="0" " onkeypress="return isNumberKey(event)"  max="10000">
+          </td>
+          <td nowrap class="clrbox smallnum"><div align="left">
+            <input  name="ClothingVoucherstot"  type="text" id="ClothingVoucherstot" value="0" size="6" min="0" " onkeypress="return isNumberKey(event)"  max="10000">
+          5231</div></td>
+          <td class="clrbox">Groceries / Food Boxes (per order)</td>
+          <td class="clrboxlft">
+            <input  name="FoodBoxes"  type="text" value="0" size="4" min="0" " onkeypress="return isNumberKey(event)"  max="10000">
+          </td>
+          <td class="clrboxrt smallnum">5207</td>
+        </tr>
+        <tr>
+          <td class="clrbox">Energy</td>
+          <td class="clrbox">
+            <input  name="Energy"  type="text" value="0" size="4" min="0" " onkeypress="return isNumberKey(event)"  max="10000">
+          </td>
+          <td nowrap class="clrbox smallnum"><div align="left">
+            <input  name="Energytot"  type="text" id="Energytot" value="0" size="6" min="0"  onkeypress="return isNumberKey(event)"  max="10000">
+          5238</div></td>
+          <td class="clrbox">Ice (per bag)</td>
+          <td class="clrboxlft">
+            <input  name="IceBags"  type="text" value="0" size="4" min="0" " onkeypress="return isNumberKey(event)"  max="10000">
+          </td>
+          <td class="clrboxrt">&nbsp;</td>
+        </tr>
+        <tr>
+          <td class="clrbox">Furniture</td>
+          <td class="clrboxlft">
+            <input name="FurnitureVouchers"  type="text" value="0" size="4" min="0" onkeypress="return isNumberKey(event)"   max="9999">
+          </td>
+          <td nowrap class="clrbox smallnum"><div align="left">
+            <input  name="FurnitureVoucherstot"  type="text" id="FurnitureVoucherstot" value="0" size="6" min="0" " onkeypress="return isNumberKey(event)"   max="10000">
+          5233</div></td>
+          <td class="clrbox">Infant Supplies (per order)</td>
+          <td class="clrboxlft">
+            <input  name="BabySupplyOrders"  type="text" value="0" size="4" min="0" " onkeypress="return isNumberKey(event)"  max="10000">
+          </td>
+          <td class="clrboxrt">&nbsp;</td>
+        </tr>
+        <tr>
+          <td class="clrbox">Gift Cards / Debit Cards</td>
+          <td class="clrbox">
+            <input  name="GiftDbCards"  type="text" value="0" size="4" min="0" " onkeypress="return isNumberKey(event)"  max="9999">
+          </td>
+          <td nowrap class="clrbox smallnum"><div align="left">
+            <input  name="GiftDbCardstot"  type="text" id="GiftDbCardstot" value="0" size="6" min="0" " onkeypress="return isNumberKey(event)"  max="10000">
+          5245</div></td>
+          <td class="clrbox">Tarps / Plastic Sheeting (per item)</td>
+          <td class="clrboxlft">
+            <input  name="Tarps"  type="text" value="0" size="4" min="0" " onkeypress="return isNumberKey(event)"   max="10000">
+          </td>
+          <td class="clrboxrt">&nbsp;</td>
+        </tr>
+        <tr>
+          <td class="clrbox">Groceries</td>
+          <td class="clrboxlft">
+            <input  name="GroceryOrders"  type="text" value="0" size="4" min="0"  " onkeypress="return isNumberKey(event)"  max="100000">
+          </td>
+          <td nowrap class="clrbox smallnum"><div align="left">
+            <input  name="GroceryOrderstot"  type="text" id="GroceryOrderstot" value="0" size="6" min="0"  onkeypress="return isNumberKey(event)"   max="10000">
+          5207</div></td>
+          <td class="clrbox">Toys (per order)</td>
+          <td class="clrboxlft">
+            <input  name="ToyOrders"  type="text" value="0" size="4" min="0" max="10000">
+          </td>
+          <td class="clrboxrt smallnum">5250</td>
+        </tr>
+        <tr>
+          <td class="clrbox">Housing (Rent / Mortgage)</td>
+          <td class="clrbox">
+            <input  name="Rent"  type="text" value="0" size="4" min="0"  onkeypress="return isNumberKey(event)"  max="10000">
+          </td>
+          <td nowrap class="clrbox smallnum"><div align="left">
+            <input  name="Renttot"  type="text" id="Renttot" value="0" size="6" min="0"  onkeypress="return isNumberKey(event)"  max="10000">
+          5223</div></td>
+          <td class="clrbox">Water (per gallon or case)</td>
+          <td class="clrboxlft">
+            <input  name="H2OGal"  type="text" value="0" size="4" min="0" max="10000">
+          </td>
+          <td class="clrboxrt">&nbsp;</td>
+        </tr>
+        <tr>
+          <td class="clrbox">Transient Lodging (Hotel)</td>
+          <td class="clrbox">
+            <input  name="LodgingVouchers"  type="text" value="0" size="4" min="0"  onkeypress="return isNumberKey(event)"  max="9999">
+          </td>
+          <td nowrap class="clrbox smallnum"><div align="left">
+            <input  name="LodgingVoucherstot"  type="text" id="LodgingVoucherstot" value="0" size="6" min="0" onkeypress="return isNumberKey(event)"  max="10000">
+          5222</div></td>
+          <td colspan="3" class="grybox">&nbsp;</td>
+        </tr>
+        <tr>
+          <td class="clrbox">Transportation</td>
+          <td class="clrbox">
+            <input  name="TransportVouchers"  type="text" value="0" size="4" min="0" onkeypress="return isNumberKey(event)" max="9999">
+</td>
+          <td nowrap class="clrbox smallnum"><div align="left">
+            <input  name="TransportVoucherstot"  type="text" id="TransportVoucherstot" value="0" size="6" min="0" onkeypress="return isNumberKey(event)"  max="10000">
+          5241</div></td>
+          <td colspan="5" class="clrboxnolr">
+            <strong><label for="Notes">NOTES:</label></strong> (254 char max) <input  name="Notes1"  type="text" value="" size="50" maxlength="54">
+          </td>
+        </tr>
+        <tr>
+          <td class="clrbox">Other (specify)</td>
+          <td class="clrbox">
+            <input  name="OtherVouchers"  type="text" value="" size="18" maxlength="100">
+          </td>
+          <td nowrap class="clrbox"><input  name="OtherVoucherstot"  type="text" id="OtherVoucherstot" value="0" size="6" min="0" onkeypress="return isNumberKey(event)" max="10000"></td>
+          <td colspan="3">
+            <input  name="Notes2"  type="text" value="" size="70" maxlength="100">
+          </td>
+        </tr>
+        <tr>
+          <td class="clrbox"><strong>TOTALS:</strong></td>
+          <td class="clrbox">
+            <input  name="TotalVouchers"  type="text" value="0" size="4" min="0" onkeypress="return isNumberKey(event)" max="50000">
+          </td>
+          <td nowrap class="clrbox"><input  name="TotalVoucherstot"  type="text" id="TotalVoucherstot" value="0" size="6" min="0" onkeypress="return isNumberKey(event)" max="10000"></td>
+          <td colspan="3" class="clrbox">
+            <input  name="Notes3"  type="text" value="" size="70" maxlength="100">
+          </td>
+        </tr>
+    </table>
+      <br>
+      <table style="width: 95%;">
+        <!-- table rows -->
+        <tr>
+          <td colspan="3" class="grybox" style="text-align: center;"><strong>EMOTIONAL &amp; SPIRITUAL CARE</strong> </td>
+          <td width="13%" class="clrboxtop" >&nbsp;</td>
+          <td colspan="4" class="grybox" style="text-align: center;"><strong>FINANCE ADMINISTRATION</strong> </td>
+        </tr>
+        <tr>
+          <td width="33%" class="clrbox"> Spiritual&nbsp;Care&nbsp;Provided&nbsp;Prayer)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td>
+          <td width="4%" class="clrbox"><input  name="Prayer"  type="text" value="0" size="4" min="0"onkeypress="return isNumberKey(event)" max="9999">
+          </td>
+          <td width="7%" class="clrboxlft smallnum">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6310&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td>
+          <td class="clrboxtop">&nbsp;</td>
+          <td width="11%" class="clrbox"><strong>Personnel&nbsp;&nbsp;&nbsp;</strong></td>
+          <td width="14%" class="clrbox"><strong>Number&nbsp;on&nbsp;Site</strong></td>
+          <td width="2%" class="clrbox">&nbsp;</td>
+          <td width="12%" class="clrbox"><strong>Hours&nbsp;Served</strong></td>
+        </tr>
+        <tr>
+          <td class="clrbox">Adult Seekers</td>
+          <td class="clrbox"><input  name="AdultSeekers"  type="text" value="0" size="4" min="0" onkeypress="return isNumberKey(event)" max="9999">
+          </td>
+          <td class="clrbox smallnum">2405</td>
+          <td class="clrboxtop">&nbsp;</td>
+          <td class="clrbox">Officers</td>
+          <td class="clrbox"><input  name="SiteOfficers"  type="text" value="0" size="4" min="0" onkeypress="return isNumberKey(event)" max="10000">
+          </td>
+          <td class="clrbox smallnum">4350</td>
+          <td class="clrbox"><input  name="OfficerHrs"  type="text" value="0" size="4" min="0"onkeypress="return isNumberKey(event)"  max="10000">
+          </td>
+          <td width="4%" class="clrbox smallnum">4350</td>
+        </tr>
+        <tr>
+          <td class="clrbox">Youth Seekers (Under Age 14)</td>
+          <td class="clrbox" ><input  name="Youths"  type="text" value="0" size="4" min="0"onkeypress="return isNumberKey(event)"  max="10000">
+          </td>
+          <td class="clrbox smallnum">2415</td>
+          <td class="clrboxtop">&nbsp;</td>
+          <td class="clrbox">Employees</td>
+          <td class="clrbox"><input  name="EmpOnSite"  type="text" value="0" size="4" min="0" onkeypress="return isNumberKey(event)" max="10000"></td>
+          <td class="clrbox smallnum">4360</td>
+          <td class="clrbox" ><input  name="EmpHrs"  type="text" value="0" size="4" min="0" onkeypress="return isNumberKey(event)" max="10000">
+          </td>
+          <td class="clrbox smallnum">4360</td>
+        </tr>
+        <tr>
+          <td class="clrbox">Mental&nbsp;Health&nbsp;Care&nbsp;Provided&nbsp;(CISM)</td>
+          <td class="clrbox"><input  name="MentalHealth"  type="text" value="0" size="4" min="0" onkeypress="return isNumberKey(event)" max="10000">
+          </td>
+          <td class="clrbox smallnum">6310</td>
+          <td class="clrboxtop">&nbsp;</td>
+          <td class="clrbox">Volunteers</td>
+          <td class="clrbox"><input  name="VolOnSite"  type="text" value="0" size="4" min="0"onkeypress="return isNumberKey(event)"  max="10000">
+          </td>
+          <td class="clrbox smallnum">4130</td>
+          <td class="clrbox"><input  name="VolunteerHrs"  type="text" value="0" size="4" min="0"onkeypress="return isNumberKey(event)" max="10000">
+          </td>
+          <td class="clrbox smallnum">4130</td>
+        </tr>
+        <tr>
+          <td class="clrbox">&nbsp;</td>
+          <td class="clrbox">&nbsp;</td>
+          <td class="clrbox">&nbsp;</td>
+          <td class="clrboxtop">&nbsp;</td>
+          <td class="clrbox"><strong>Totals</strong></td>
+          <td class="clrbox">&nbsp;</td>
+          <td class="clrbox">&nbsp;</td>
+        </tr>
+        <tr>
+          <td class="grybox">&nbsp;</td>
+          <td class="grybox" style="text-align: center;"><strong>#</strong></td>
+          <td class="grybox smallnum">&nbsp;</td>
+          <td class="grybox" style="text-align: center; font-size: .9rem;"><strong>ATTENDANCE</strong></td>
+          <td class="clrboxnolr">&nbsp;</td>
+          <td class="clrboxnolr">&nbsp;</td>
+          <td class="clrboxnolr">&nbsp;</td>
+          <td class="clrboxnolr">&nbsp;</td>
+          <td class="clrboxrt">&nbsp;</td>
+        </tr>
+        <tr>
+          <td class="clrbox">Worship&nbsp;Services</td>
+          <td class="clrbox"><input  name="WorshipServices"  type="text" value="0" size="4" min="0" onkeypress="return isNumberKey(event)" max="10000">
+          </td>
+          <td class="clrbox smallnum">2360</td>
+          <td  class="clrbox"><input  name="Worshipers"  type="text" value="0" size="4" min="0"onkeypress="return isNumberKey(event)"  max="10000">
+          </td>
+          <td class="clrbox smallnum">2360</td>
+          <td  class="clrbox">&nbsp;</td>
+          <td colspan="4"  class="clrbox">&nbsp;</td>
+        </tr>
+        <tr>
+          <td class="clrbox">Memorial&nbsp;Services</td>
+          <td class="clrbox"><input  name="MemServices"  type="text" value="0" size="4" min="0" onkeypress="return isNumberKey(event)" max="10000">
+          </td>
+          <td class="clrbox smallnum">2350</td>
+          <td class="clrbox"><input  name="MemServicesattend"  type="text" value="0" size="4" min="0"onkeypress="return isNumberKey(event)"  max="10000">
+          </td>
+          <td class="clrbox smallnum">2350</td>
+        </tr>
+    </table>
+      <br>
+      <table style="width: 95%;" >
+        <col style="width: 27%;">
+        <col style="width: 25%;">
+        <col style="width: 10%;">
+        <tr>
+          <td class="gryboxlft"><strong>SUBMITTED BY:</strong></td>
+          <td colspan="3"  class="gryboxnolr">&nbsp;</td>
+          <td class="gryboxrt smallnum">&nbsp;</td>
+        </tr>
+        <tr>
+          <td  class="clrbox">
+            <label for="SubmittedName"><strong>NAME</strong></label>&nbsp;
+            <input  name="SubmittedName"  type="text" value="" size="25" maxlength="50"  required >
+          </td>
+          <td colspan="2"  class="clrbox">
+            <label for="SubmittedName"><strong>TITLE</strong></label>&nbsp;
+            <input  name="SubmittedTitle"  type="text" value="" size="40" maxlength="50">
+          </td>
+          <td colspan="2"  class="clrboxrt">
+            &nbsp;<label for="SubmittedName"><strong>DATE SUBMITTED</strong></label>&nbsp;&nbsp;
+            <input  placeholder = "Enter Date" name="SubmittedDate"  type="text"></td>
+        </tr>
+    </table>
+      <br>  
+      <table style="width: 45%;">
+          <col style="width: 15%">
+          <col style="width: 15%">
+          <col style="width: 15%">
+          <col style="width: 1%">
+          <tr>
+            <td colspan="4" style="text-align: center; background-color: black; border: 2px solid #00000a;"><span style="font-family: Arial, serif; font-size: 12pt; color: #aaaaaa;">FOR COMMAND USE ONLY:</span>    </td>
+          </tr>
+          <tr>
+            <td class="gryboxrt" style="text-align: center;">
+              <strong>Current</strong>
+            </td>
+            <td class="grybox" style="text-align: center;">
+              <strong>Operational Assets</strong>
+            </td>
+            <td class="grybox" style="text-align: center;">
+              <strong>Unduplicated Totals</strong>
+            </td>
+            <td class="gryboxrt">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+          </tr>
+          <tr>
+            <td class="grybox">
+              <input  name="CurTotCanteens"  type="text" value="0" size="4" min="0"onkeypress="return isNumberKey(event)" max="10000">
+            </td>
+            <td class="grybox" style="text-align: center;">Mobile Canteens</td>
+            <td  class="grybox">
+              <input  name="UndupTotCanteens"  type="text" value="0" size="4" min="0"onkeypress="return isNumberKey(event)" max="10000">
+            </td>
+            <td class="gryboxrt smallnum">
+              &nbsp;&nbsp;&nbsp;&nbsp;4325&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+          </tr>
+          <tr>
+            <td class="grybox">
+              <input  name="CurTotVehicles"  type="text" value="0" size="4" min="0"onkeypress="return isNumberKey(event)" max="10000">
+            </td>
+            <td class="grybox" style="text-align: center;">Other&nbsp;S.A.&nbsp;Vehicles</td>
+            <td class="grybox">
+              <input  name="UnDupVehicles"  type="text" value="0" size="4" min="0"onkeypress="return isNumberKey(event)" max="10000">
+            </td>
+            <td class="gryboxrt smallnum" style="text-align: center;">4320</td>
+          </tr>
+          <tr>
+            <td class="grybox">
+              <input  name="AssistCtrs"  type="text" value="0" size="4" min="0"onkeypress="return isNumberKey(event)" max="10000">
+            </td>
+            <td class="grybox" style="text-align: center;">Assistance&nbsp;Centers</td>
+            <td class="grybox">
+              <input  name="UnDupAssistCtrs"  type="text" value="0" size="4" min="0"onkeypress="return isNumberKey(event)" max="10000">
+            </td>
+            <td class="grybox smallnum" style="text-align: center;">&nbsp;</td>
+          </tr>
+          <tr>
+            <td class="grybox">
+              <input  name="CmdPosts"  type="text" value="0" size="4" min="0"onkeypress="return isNumberKey(event)" max="10000">
+            </td>
+            <td class="grybox" style="text-align: center;">Command&nbsp;Posts</td>
+            <td class="grybox">
+              <input  name="UnDupCmdPosts"  type="text" value="0" size="4" min="0"onkeypress="return isNumberKey(event)" max="10000">
+            </td>
+            <td class="grybox">&nbsp;</td>
+          </tr>
+          <tr>
+            <td  class="grybox">
+              <input  name="DistCtrs"  type="text" value="0" size="4" min="0"onkeypress="return isNumberKey(event)" max="10000">
+            </td>
+            <td  class="grybox" style="text-align: center;">Distribution&nbsp;Centers</td>
+            <td  class="grybox">
+              <input  name="UnDupDistCtrs"  type="text" value="0" size="4" min="0"onkeypress="return isNumberKey(event)" max="10000">
+            </td>
+            <td class="grybox">&nbsp;</td>
+          </tr>
+          <tr>
+            <td class="grybox">
+              <input  name="FeedingFacilities"  type="text" value="0" size="4" min="0"onkeypress="return isNumberKey(event)" max="10000">
+            </td>
+            <td class="grybox" style="text-align: center;">Feeding&nbsp;Facilities</td>
+            <td class="grybox">
+              <input  name="UnDupFeedingFacilities"  type="text" value="0" size="4" min="0"onkeypress="return isNumberKey(event)" max="10000">
+            </td>
+            <td class="grybox">&nbsp;</td>
+          </tr>
+          <tr>
+            <td class="grybox">
+              <input  name="PhoneBanks"  type="text" value="0" size="4" min="0"onkeypress="return isNumberKey(event)" max="10000">
+            </td>
+            <td class="grybox" style="text-align: center;">Phone&nbsp;Banks</td>
+            <td class="grybox">
+              <input  name="UnDupPhoneBanks"  type="text" value="0" size="4" min="0"onkeypress="return isNumberKey(event)" max="10000">
+            </td>
+            <td class="grybox">&nbsp;</td>
+          </tr>
+          <tr>
+            <td class="grybox">
+              <input  name="Shelters"  type="text" value="0" size="4" min="0"onkeypress="return isNumberKey(event)" max="10000">
+            </td>
+            <td class="grybox" style="text-align: center;">Shelters</td>
+            <td class="grybox">
+              <input  name="UnDupShelters"  type="text" value="0" size="4" min="0"onkeypress="return isNumberKey(event)" max="10000">
+            </td>
+            <td class="grybox">&nbsp;</td>
+          </tr>
+          <tr>
+            <td class="grybox">
+              <input  name="StagiingAreas"  type="text" value="0" size="4" min="0"onkeypress="return isNumberKey(event)" max="10000">
+            </td>
+            <td class="grybox" style="text-align: center;">Staging&nbsp;Areas</td>
+            <td class="grybox">
+              <input  name="UnDupStagingAreas"  type="text" value="0" size="4" min="0"onkeypress="return isNumberKey(event)" max="10000">
+            </td>
+            <td class="grybox">&nbsp;</td>
+          </tr>
+          <tr>
+            <td class="grybox">
+              <input  name="Warehouses"  type="text" value="0" size="4" min="0"onkeypress="return isNumberKey(event)" max="10000">
+            </td>
+            <td class="grybox" style="text-align: center;">Warehouses</td>
+            <td class="grybox">
+              <input name="UnDupWarehouses" type="text" value="0" size="4" min="0"onkeypress="return isNumberKey(event)" max="10000">
+            </td>
+            <td class="grybox">&nbsp;</td>
+          </tr>
+          <tr>
+            <td class="grybox">
+              <input  name="OtherSAFacilities"  type="text" value="0" size="4" min="0"onkeypress="return isNumberKey(event)" max="10000">
+            </td>
+            <td class="grybox" style="text-align: center;">
+              Other&nbsp;S.A.&nbsp;Facilities
+            </td>
+            <td class="grybox">
+              <input  name="UnDupSAFacils"  type="text" value="0" size="4" min="0"onkeypress="return isNumberKey(event)" max="10000">
+            </td>
+            <td class="grybox">&nbsp;</td>
+          </tr>
+          <tr>
+            <td class="grybox">
+              <input  name="GovEOCs"  type="text" value="0" size="4" min="0"onkeypress="return isNumberKey(event)" max="10000">
+            </td>
+            <td class="grybox" style="text-align: center;">Govn&rsquo;t&nbsp;EOCs*</td>
+            <td class="grybox">
+              <input  name="UnDupGovEOCs"  type="text" value="0" size="4" min="0"onkeypress="return isNumberKey(event)" max="10000">
+            </td>
+            <td class="grybox smallnum" style="text-align: center;">4330</td>
+          </tr>
+          <tr>
+            <td class="grybox">
+              <input  name="GovDRCs"  type="text" value="0" size="4" min="0"onkeypress="return isNumberKey(event)" max="10000">
+            </td>
+            <td class="grybox" style="text-align: center;">Govn&rsquo;t&nbsp;DRCs*</td>
+            <td class="grybox">
+              <input  name="UnDupGovDRCs"  type="text" value="0" size="4" min="0"onkeypress="return isNumberKey(event)" max="10000">
+            </td>
+            <td class="grybox smallnum" style="text-align: center;">4340</td>
+          </tr>
+          <tr>
+            <td colspan="4"  class="grybox" style="text-align: center;">
+              <strong>* where The Salvation Army has representation</strong>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="4" class="grybox" style="text-align: left">
+              <label for="OficeNotes"><strong>Notes:</strong></label>
+            <input  name="OfficeNotes"  type="text" size="60" maxlength="1256" placeholder="place your notes here">            </td>
+          </tr>
+    </table>
+        <p align="center"><span class="FormReg"><span class="formtext"><span style="font-family: Calibri;"><small>
+        &nbsp;<big>
+        <input type="button" value="Save SA-FIA Statistical Data "  style="height: 28px; color: blue;"onclick="SaveData()" />
+        </big>&nbsp;
+<input value="Submit" style="height: 28px; width: 70px; color: green;" size="8" name="Submit" method="Post" id="Submit" enctype="multipart/form-data" class="SubmitBtn" type="submit" />
+        </small></span></span>&nbsp; <span class="formtext">
+        <input value="Reset Form " name="ResetForm" style="height: 28px; width: 85px; color: rgb(204, 0, 0);" type="reset" />
+        </span>&nbsp; &nbsp; </span>          <b><span style="height: 28px; width: 70px;font-weight: normal;"> </span></b></p>
+  </form>
+      <p align="center">&nbsp;</p>
+      <div class="smallnum">
+        &copy; Copyright 2018 The Salvation Army and SATERN<br>
+        Custom designed for by AD5XJ for SATERN Winlink version 1.2</div>
+  </body>
+</html>

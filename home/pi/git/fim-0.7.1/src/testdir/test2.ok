@@ -1,0 +1,9 @@
+integer variables evaluation works
+negated integer variables evaluation works
+double negated integer variables evaluation works
+triply negated integer variables evaluation works
+integer variables comparison works
+integer variables to expression comparison works
+integer variables works
+integer variables self inequality works
+basic integer variables test success

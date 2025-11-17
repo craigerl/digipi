@@ -1,0 +1,18 @@
+this test will break if user configuration breaks in.
+so it is temporary :)
+#executing: echo 'ciao'
+#expanding alias: next -> goto '+1'
+#executing: goto '+1'
+#executing: reload 
+#expanding alias: aalib_fix -> if(_device_string=~'^aa'){aalib_fix_do;scale 'a';}
+#expanding alias: cacalib_fix -> getenv 'DISPLAY';if(_device_string=~'^ca' && ENV_DISPLAY==''){cacalib_fix_do;scale 'a';}
+#executing: getenv 'DISPLAY'
+#executing: redisplay 
+#executing: scale 'b'
+#executing: reload 
+#expanding alias: aalib_fix -> if(_device_string=~'^aa'){aalib_fix_do;scale 'a';}
+#expanding alias: cacalib_fix -> getenv 'DISPLAY';if(_device_string=~'^ca' && ENV_DISPLAY==''){cacalib_fix_do;scale 'a';}
+#executing: getenv 'DISPLAY'
+#executing: redisplay 
+#executing: scale 'b'
+#executing: quit 

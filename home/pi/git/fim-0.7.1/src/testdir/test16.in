@@ -1,0 +1,10 @@
+# Directory load test.
+stdout "this is a minimal test case for directory load capability";
+#stdout _filelistlen;
+#stdout offl;
+offl=_filelistlen;
+list "pushdir" "../../media";
+#stdout _filelistlen;
+if(_filelistlen==ofll) { stdout "no new file loaded  ?"; }
+if(_filelistlen!=offl) { stdout "some files loaded: ok"; }
+stdout "end of test";

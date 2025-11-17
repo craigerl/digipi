@@ -1,0 +1,11 @@
+LinPac version %V channel %K
+Type //I for info, //H for command list.
+
+:IF %(exist STN_NICKNAME) = 1
+Welcome, %STN_NICKNAME !
+:ELSE
+Welcome, %N !
+:ENDIF
+:IF %A >= 120
+Last sysop activity was %A sec. ago. Try //B if he doesn't respond.
+:ENDIF

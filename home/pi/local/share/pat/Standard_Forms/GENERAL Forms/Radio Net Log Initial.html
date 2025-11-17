@@ -1,0 +1,1210 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<title>Info Form</title>
+
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<style type="text/css">
+body, td, th {
+font-family: Arial,Helvetica,sans-serif;
+font-size: 12px;
+}
+.zentriert {
+font-size: 12px;
+}
+input, select {
+padding: 1px;
+-moz-border-radius-topleft: 1px;
+-moz-border-radius-topright: 1px;
+-moz-border-radius-bottomright: 1px;
+-moz-border-radius-bottomleft: 1px;
+font-family: Arial,Helvetica,sans-serif;
+font-size: 12px;
+}
+textarea {
+margin: 8px;
+padding: 8px;
+-moz-border-radius-topleft: 1px;
+-moz-border-radius-topright: 1px;
+-moz-border-radius-bottomright: 1px;
+-moz-border-radius-bottomleft: 1px;
+font-family: Arial,Helvetica,sans-serif;
+font-size: 12px;
+}
+.rechtsbuendig {
+font-size: 12px;
+}
+.SubmitBtn {
+font-size: 12px;
+}
+.version {
+margin: 5px;
+color: #666666;
+position: relative;
+left: 0px;
+top: 3px;
+font-size: 12px;
+}
+#TextHeader {
+background-color: #dddddd;
+font-size: 12px;
+}
+</style>
+<style>
+/*
+body {color:#000; background:#fff; font:100%/1.5 arial,sans-serif;}
+h2 {margin-top:0}
+*/
+/* Styling applied to classes only */
+/* Pop-up content shifted off-screen when not in view.
+Still readable by screen-reader software.
+When targeted it fills the browser window.
+*/
+.pop-up {
+	position:absolute;
+	top:0;
+	left:-500em;
+	visibility: visible;
+}
+.pop-up:target {position:static; left:0;}
+/* The pop-up itself */
+.popBox {
+	background:#ffffff;
+	position:absolute;
+	left:20%;
+	right:20%;
+	top:15%;
+	bottom:15%;
+	z-index:15;
+	border:1px solid #3a3a3a;
+/* CSS3 where available: rounded corners, drop-shadow, and fade in. */
+border-radius:.25rem;
+box-shadow:0 .5rem .5rem rgba(0,0,0,.5);
+	opacity:0;
+	transition: opacity 0.8s ease-out;
+	visibility: visible;
+}
+:target .popBox {position:fixed; opacity:1;}
+/* Light box properties */
+.lightbox {
+display:none;
+text-indent:-200em;
+background-color:rgba(0,0,0,.4);
+width:100%;
+height:100%;
+position:fixed;
+top:0;
+left:0;
+bottom:0;
+right:0;
+z-index:5;
+}
+:target .lightbox {display:block;}
+/* The pop-ups close link, moved via CSS to the top right of the pop-up */
+.close:link,
+.close:visited {
+	position: absolute;
+	top: -0.75em;
+	right: -0.75em;
+	display: block;
+	width: 2em;
+	height: 2em;
+	line-height: 1.8;
+	padding: 0;
+	text-align: center;
+	text-decoration: none;
+	background-color: #000;
+	border: 2px solid #fff;
+	color: #fff;
+	border-radius: 50%;
+box-shadow: 0 0 .5rem .5rem rba(0,0,0,.5);
+	visibility: visible;
+}
+.close:before {content:"X";}
+.close:hover,
+.close:active,
+.close:focus {
+box-shadow: 0 0 .5rem .5rem rba(255,0,0,.5);
+background-color: #c00;
+color: #fff;
+}
+.close span {
+text-indent: -200em;
+display: block;
+}
+/* The pop-up content div will scroll if it has too much content */
+.popScroll {
+	position:absolute;
+	top: 1rem;
+	left: 1rem;
+	right: 1rem;
+	bottom: 1rem;
+	overflow-y: auto;
+*overflow-y: scroll;
+	padding-right: 0.5em;
+	visibility: visible;
+}
+.popScroll h2 {margin-top:0}
+</style>
+<style type="text/css">
+.formtext {font-family: Arial, Helvetica, sans-serif;
+font-size: 11pt;
+font-weight: normal;
+}
+.style7 {color: #FF0000;
+	font-size: 10px;
+}
+.style7 {font-size: 10px}
+.style9 {
+	font-size: 10;
+	font-weight: bold;
+}
+.formbold {font-size: 12px; font-weight: bold; font-family:Arial, Helvetica, sans-serif}
+
+ input[type=button] {
+
+  border: 2px solid #0f88f2;;
+   border-radius:.25rem;
+  
+  font-size: 14px;
+  padding: 2px 2px;
+ background-color: white;
+  text-decoration: none;
+  margin: 2px 2px;
+  cursor: pointer;
+}
+input[type=submit] {
+ border: 2px solid green;
+  border-radius:.25rem;
+  background-color: white;
+ 
+  padding: 2px 2px;
+  font-size: 14px;
+   cursor: pointer;
+}
+input[type=reset] {
+ border: 2px solid red;
+ border-radius:.25rem;
+  background-color: white;
+ 
+  padding: 2px 2px;
+  font-size: 14px;
+   cursor: pointer;
+}
+input[type=regular] {
+ border: 2px solid #999999;
+  border-radius:.25rem;
+width:45px;
+  background-color: white;
+ 
+  padding: 2px 2px;
+  font-size: 12px;
+   cursor: pointer;
+}
+.style12 {font-size: 12px; font-weight: bold; }
+.style13 {color: #FF0000}
+.style23 {font-size: 12px;}
+
+</style>
+<script>
+
+function TimeNow(Timefld, FocusFld) {
+
+var txt;
+
+var d = new Date(),
+
+h = (d.getHours()<10?'0':'') + d.getHours()
+
+m = (d.getMinutes()<10?'0':'') + d.getMinutes()
+
+s = (d.getSeconds()<10?'0':'') + d.getSeconds();
+
+var myprompt = h + ':' + m ;
+
+var RightNow = prompt("Time:", myprompt);
+
+document.getElementById(Timefld).value = RightNow;
+
+
+
+
+}
+
+
+function shortmonth(monthnum) {
+var monthname;
+shortmonths = ["JAN", "FEB", "MAR","APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"] ;
+monthname = shortmonths [monthnum];s
+return monthname; }
+</script>
+<script>
+function SetDateTime(TType,TheFld) {
+
+var myprompt;
+var d = new Date(),
+thisyear = d.getFullYear();
+thismonth= d.getMonth();
+
+thisday = d.getDate();
+var submonth = thismonth+1; ;
+if (submonth < 10) { submonth = "0"+submonth};
+var subday = thisday;
+
+if (thisday < 10) { thisday = "0"+thisday};
+var monname;
+h = (d.getHours()<10?'0':'') + d.getHours()
+m = (d.getMinutes()<10?'0':'') + d.getMinutes()
+s = (d.getSeconds()<10?'0':'') + d.getSeconds();
+var now = new Date();
+var utch = now.getUTCHours();
+if (utch < 10) { utch = "0"+utch};
+var utcs = now.getUTCMinutes();
+if (utcs < 10) { utcs = "0"+utcs};
+var myUTCtime = utch+":"+utcs+"Z";
+var utcstr = d.toUTCString();
+var localt = d.toLocaleTimeString();
+var isostr = d.toISOString();
+monthname = shortmonth (thismonth);
+var thismonth = thismonth + 1;
+if (thismonth < 10) { thismonth = "0"+thismonth};
+
+
+switch (TType) {
+case 'hms' :
+myprompt = h + ':' + m ;
+var RightNow = prompt("Time:", myprompt);
+document.getElementById(TheFld).value = RightNow;
+break;
+case 'hm' :
+myprompt = h + ':' + m;
+var RightNow = prompt("Time:", myprompt);
+document.getElementById(TheFld).value = RightNow;
+break;
+case 'm-d-y': myprompt = thismonth+ '-' + thisday+ '-'+ thisyear;
+var RightNow = prompt("Date:", myprompt);
+document.getElementById(TheFld).value = RightNow;
+break;
+case 'm/d/y': myprompt = thismonth+ '/' + thisday+ '/'+ thisyear;
+var RightNow = prompt("Date:", myprompt);
+document.getElementById(TheFld).value = RightNow;
+break;
+case 'd mmm y': myprompt = thisday+ ' ' + monthname+ ' '+ thisyear;
+var RightNow = prompt("Date:", myprompt);
+document.getElementById(TheFld).value = RightNow;
+break;
+case 'mmm-d-y': myprompt = monthname+'-'+thisday+ '-' + thisyear;
+var RightNow = prompt("Date:", myprompt);
+document.getElementById(TheFld).value = RightNow;
+break;
+case 'localampm': var myprompt = localt;
+var RightNow = prompt("Local time:", myprompt);
+document.getElementById(TheFld).value = RightNow;
+break;
+case 'fulldate': var myprompt = thisyear+ '-'+thismonth+'-'+thisday;
+var RightNow = prompt("Date:", myprompt);
+document.getElementById(TheFld).value = RightNow;
+break;
+case 'fulldatetime': var myprompt = thisyear+'-'+thismonth+ '-'+thisday+' '+h + ':' + m ;
+var RightNow = prompt("Date time:", myprompt);
+document.getElementById(TheFld).value = RightNow;
+break;
+case 'autofulldatetime': var RightNow = thisyear+'-'+thismonth+ '-'+thisday+' '+h + ':' + m ;
+//var RightNow = prompt("Date time:", myprompt);
+document.getElementById(TheFld).value = RightNow;
+//var ORTimestamp = thisyear+submonth+subday+h+m+s;
+//document.getElementById('TimeStampOR').value = ORTimestamp; break;
+case 'iso': var myprompt = isostr;
+var RightNow = prompt("Date time:", myprompt);
+document.getElementById(TheFld).value = RightNow;
+break;
+case 'utc': var myprompt = utcstr;
+var RightNow = prompt("Date time:", myprompt);
+document.getElementById(TheFld).value = RightNow;
+break;
+case 'zulu': var myprompt = isostr;
+myprompt = isostr.replace("T", " "); slen = myprompt.length;
+myprompt = myprompt.substr(0, slen-5)+'Z';
+var RightNow = prompt("Date time:", myprompt);
+document.getElementById(TheFld).value = RightNow;
+break;
+case 'UTChm': var myprompt = myUTCtime;
+var RightNow = prompt("Date time:", myprompt);
+document.getElementById(TheFld).value = RightNow;
+break;
+}
+}; 
+function AutoGrowTextArea(textField)
+{
+if (textField.clientHeight < textField.scrollHeight)
+{
+textField.style.height = textField.scrollHeight + "px";
+if (textField.clientHeight < textField.scrollHeight)
+{
+textField.style.height = (textField.scrollHeight * 2 - textField.clientHeight) + "px";
+}
+}
+}
+function Countthelines(f) { var text1 = f
+var text2 = text1.replace(/\s+$/,"");
+var split2 = text2.split("\n"); var mytotal = split2.length * 17;
+if (mytotal < 150) {
+mytotal = 150;
+}
+var tstr = mytotal.toString();
+return tstr;
+}
+function newfix(f){
+var ThisText = document.getElementById(f).value;
+var makeit = Countthelines(ThisText);
+document.getElementById(f).style.height = makeit+"px"; }
+function Fixarea() {
+newfix("msg");
+newfix("reply");
+AutoGrowTextArea(document.getElementById("Comments"));
+
+}
+function RWS(str){
+var text2 = str.replace(/\s+$/,"");
+return text2.trim();
+}
+
+function Flip(theid) {
+x1 = document.getElementById(theid).value;
+if (x1 == '' || x1 == '[ ]') { document.getElementById(theid).value = '[ X ]'};
+if (x1 == '[ X ]'){ document.getElementById(theid).value = '[ ]'};
+}
+
+
+// export to excel
+function ExporttoExcel(fileNameToSaveAs, textToWrite) {
+var textToWrite = document.getElementById('parseme').value; 
+//var excelheader = '"'+document.getElementById('NameA').value +'","'+document.getElementById('NameB').value +'","'+document.getElementById('NameB').value;
+//var textToWrite = excelheader + '"\r' + textToWrite;
+var fileNameToSaveAs = "Radio Net Log  " + DateforFile()+".csv";
+fileNameToSaveAs = prompt("", fileNameToSaveAs);
+if (fileNameToSaveAs == null){return};
+  /* Saves a text string as a blob file*/  
+  var ie = navigator.userAgent.match(/MSIE\s([\d.]+)/),
+      ie11 = navigator.userAgent.match(/Trident\/7.0/) && navigator.userAgent.match(/rv:11/),
+      ieEDGE = navigator.userAgent.match(/Edge/g),
+      ieVer=(ie ? ie[1] : (ie11 ? 11 : (ieEDGE ? 12 : -1)));
+
+  if (ie && ieVer<10) {
+    console.log("No blobs on IE ver<10");
+    return;
+  }
+
+  var textFileAsBlob = new Blob([textToWrite], {
+    type: 'text/plain'
+  });
+
+  if (ieVer>-1) {
+    window.navigator.msSaveBlob(textFileAsBlob, fileNameToSaveAs);
+
+  } else {
+    var downloadLink = document.createElement("a");
+    downloadLink.download = fileNameToSaveAs;
+    downloadLink.href = window.URL.createObjectURL(textFileAsBlob);
+    downloadLink.onclick = function(e) { document.body.removeChild(e.target); };
+    downloadLink.style.display = "none";
+    document.body.appendChild(downloadLink);
+    downloadLink.click();
+  }
+}
+
+// end export
+function ExportData() {
+		var mydata= "";
+		mydata=mydata +'Call Sign, Location, Check in, Check out, Comments'+'\n';
+		//var mydata=mydata +'"'+ document.getElementById('Call Sign').value+'",'; 
+				//var mydata=mydata +'"'+ document.getElementById('Location').value+'",'; 
+				//var mydata=mydata +'"'+ document.getElementById('Check in').value+'",'; 
+				///var mydata=mydata +'"'+ document.getElementById('Check Out').value+'",'; 
+				//var mydata=mydata +'"'+ document.getElementById('Comments').value+'"\n'; 
+	for (x = 65; x <90; x++) {
+
+        //var tabs = lines[line].split('\t',11);
+		Letter = String.fromCharCode(x);
+//alert (Letter);
+        // if (document.getElementById(Letter+1).value !== ''){
+		 var mydata=mydata +'"'+ document.getElementById(Letter+1).value+'",';
+		 	//alert (document.getElementById(Letter+1).value);
+			var mydata=mydata +'"'+ document.getElementById(Letter+2).value+'",';
+			//alert (mydata);
+		 	var mydata=mydata +'"'+ document.getElementById(Letter+3).value+'",';
+			var mydata=mydata +'"'+ document.getElementById(Letter+4).value+'",';
+			
+		var mydata=mydata+'"'+document.getElementById(Letter+5).value+'"\n';
+						
+			document.getElementById('parseme').value = mydata;
+			//}
+			 }   
+
+		
+			document.getElementById('parseme').value = mydata;
+			
+			ExporttoExcel();
+			
+			//saveTextAsFile();
+			}
+
+// Test auto collect
+// Add parseme
+//    <textarea name="parseme" cols="60" id="parseme" style="display: none;"></textarea>
+function saveTextAsFile(fileNameToSaveAs, textToWrite) {
+var textToWrite = document.getElementById('parseme').value; 
+var fileNameToSaveAs = "Radio Net Log " + DateforFile()+".txt";
+fileNameToSaveAs = prompt("", fileNameToSaveAs);
+if (fileNameToSaveAs == null){return};
+  /* Saves a text string as a blob file*/  
+  var ie = navigator.userAgent.match(/MSIE\s([\d.]+)/),
+      ie11 = navigator.userAgent.match(/Trident\/7.0/) && navigator.userAgent.match(/rv:11/),
+      ieEDGE = navigator.userAgent.match(/Edge/g),
+      ieVer=(ie ? ie[1] : (ie11 ? 11 : (ieEDGE ? 12 : -1)));
+
+  if (ie && ieVer<10) {
+    console.log("No blobs on IE ver<10");
+    return;
+  }
+
+  var textFileAsBlob = new Blob([textToWrite], {
+    type: 'text/plain'
+  });
+
+  if (ieVer>-1) {
+    window.navigator.msSaveBlob(textFileAsBlob, fileNameToSaveAs);
+
+  } else {
+    var downloadLink = document.createElement("a");
+    downloadLink.download = fileNameToSaveAs;
+    downloadLink.href = window.URL.createObjectURL(textFileAsBlob);
+    downloadLink.onclick = function(e) { document.body.removeChild(e.target); };
+    downloadLink.style.display = "none";
+    document.body.appendChild(downloadLink);
+    downloadLink.click();
+  }
+}
+
+
+
+
+
+function destroyClickedElement(event)
+{
+    document.body.removeChild(event.target);
+}
+
+function loadFileAsText()
+{
+
+    var fileToLoad = document.getElementById("fileToLoad").files[0];
+ 
+    var fileReader = new FileReader();
+    fileReader.onload = function(fileLoadedEvent) 
+    {
+        var textFromFileLoaded = fileLoadedEvent.target.result;
+        document.getElementById("inputTextToSave").value = textFromFileLoaded;
+    };
+    fileReader.readAsText(fileToLoad, "UTF-8");
+}
+
+
+function DateforFile(RightNow) {
+var txt;
+var d = new Date(),
+thisyear = d.getFullYear();
+thismonth= d.getMonth();
+thismonth = thismonth+1;
+if (thismonth < 10) { thismonth = "0" + thismonth}
+
+thisday = d.getDate();
+if (thisday < 10) { thisday = "0" + thisday}
+
+h = (d.getHours()<10?'0':'') + d.getHours()
+m = (d.getMinutes()<10?'0':'') + d.getMinutes()
+var myprompt = thisyear+ '-'+thismonth+'-'+thisday+' '+h + '_' + m ;
+return myprompt;
+}
+
+function isObject(arg) {
+  return Object.prototype.toString.call(arg)==='[object Object]';
+}
+
+function formDataToObject(elForm) {
+  if (!elForm instanceof Element) return;
+  var fields = elForm.querySelectorAll('input, select, textarea'),
+    o = {};
+  for (var i=0, imax=fields.length; i<imax; ++i) {
+    var field = fields[i],
+      sKey = field.name || field.id;
+    if (field.type==='button' || field.type==='image' || field.type==='submit' || !sKey) continue;
+    switch (field.type) {
+      case 'checkbox':
+        o[sKey] = +field.checked;
+        break;
+      case 'radio':
+        if (o[sKey]===undefined) o[sKey] = '';
+        if (field.checked) o[sKey] = field.value;
+        break;
+      case 'select-multiple':
+        var a = [];
+        for (var j=0, jmax=field.options.length; j<jmax; ++j) {
+          if (field.options[j].selected) a.push(field.options[j].value);
+        }
+        o[sKey] = a;
+        break;
+      default:
+        o[sKey] = field.value;
+    }
+  }
+ // alert('Form data:\n\n' + JSON.stringify(o, null, 2));
+ document.getElementById('parseme').value = JSON.stringify(o, null, 2);
+//  return o;
+}
+
+function populateForm(o) {
+
+o =  JSON.parse(document.getElementById('parseme').value);
+ //if (!isObject(o)) return;
+if (!isObject(o)) return;
+  for (var i in o) {
+    var el = document.getElementById(i) || document.querySelector('[name=' + i + ']');
+    if (el.type==='radio') el = document.querySelectorAll('[name=' + i + ']');
+    switch (typeof o[i]) {
+      case 'number':
+        el.checked = o[i];
+        break;
+      case 'object':
+        if (el.options && o[i] instanceof Array) {
+          for (var j=0, jmax=el.options.length; j<jmax; ++j) {
+            if (o[i].indexOf(el.options[j].value)>-1) el.options[j].selected = true;
+          }
+        }
+        break;
+      default:
+        if (el instanceof NodeList) {
+          for (var j=0, jmax=el.length; j<jmax; ++j) {
+            if (el[j].value===o[i]) el[j].checked = true;
+          }
+        } else {
+          el.value = o[i];
+        }
+    }
+  }
+  AutoGrowTextArea(document.getElementById("Comments"));
+}
+
+function SaveData() {
+	
+			formDataToObject(document.getElementById('myform'))
+			saveTextAsFile();
+			
+			//saveTextAsFile();
+			}
+
+//-------
+ function readBlob(opt_startByte, opt_stopByte) {
+  
+    var files = document.getElementById('files').files;
+    if (!files.length) {
+      alert('Please select a file!');
+      return;
+    }
+
+    var file = files[0];
+    var start = parseInt(opt_startByte) || 0;
+    var stop = parseInt(opt_stopByte) || file.size - 1;
+
+    var reader = new FileReader();
+
+    // If we use onloadend, we need to check the readyState.
+    reader.onloadend = function(evt) {
+      if (evt.target.readyState == FileReader.DONE) { // DONE == 2
+        document.getElementById('byte_content').textContent = evt.target.result;
+        document.getElementById('byte_range').textContent = 
+            ['Read bytes: ', start + 1, ' - ', stop + 1,
+             ' of ', file.size, ' byte file'].join('');
+      }
+    };
+
+    var blob = file.slice(start, stop + 1);
+    reader.readAsBinaryString(blob);
+  }
+    	
+  window.onload = function () { 
+ 
+ //Check the support for the File API support 
+ if (window.File && window.FileReader && window.FileList && window.Blob) {
+    var fileSelected = document.getElementById('txtfiletoread');
+	
+    fileSelected.addEventListener('change', function (e) { 
+         //Set the extension for the file 
+         var fileExtension = /text.*/; 
+         //Get the file object 
+         var fileTobeRead = fileSelected.files[0];
+        //Check of the extension match 
+         if (fileTobeRead.type.match(fileExtension)) { 
+             //Initialize the FileReader object to read the 2file 
+			
+             var fileReader = new FileReader(); 
+             fileReader.onload = function (e) { 
+                 var fileContents = document.getElementById('filecontents'); 
+                
+				document.getElementById('parseme').value =fileReader.result;
+				populateForm(obj = document.getElementById('parseme').value);
+			 } 
+             fileReader.readAsText(fileTobeRead); 
+         } 
+         else { 
+             alert("Please select text file"); 
+         }
+ 
+    }, false);
+} 
+ else { 
+     alert("Files are not supported"); 
+ } 
+getit();
+Checkifinbrowser();
+
+ }
+ 
+ 	function RestoreTitle() {
+
+var RightNow = document.getElementById('Title').value;
+
+document.getElementById('Title').value = RightNow;
+document.getElementById('SubjectText').innerHTML = RightNow;
+//document.getElementById('loadbtn').value = 'Load '+RightNow+ ' Incident Status data' ;
+//document.getElementById('savebtn').value = 'Save '+RightNow+ ' Incident Status data' ;
+store();
+}
+
+function SetupTitle() {
+var myprompt = '';
+var RightNow = prompt("Enter Agency/Group Title",   myprompt);
+if (RightNow.length == 0) { RightNow = ' ';}
+document.getElementById('Title').value = RightNow;
+document.getElementById('SubjectText').innerHTML = RightNow;
+//document.getElementById('loadbtn').value = 'Load '+RightNow+ ' Incident Status data' ;
+//document.getElementById('savebtn').value = 'Save '+RightNow+ ' Incident Status data' ;
+store();
+}
+   function store(){
+ 	var formatted= document.getElementById("Title");
+     localStorage.setItem("CustomInfotitle", formatted.value);
+    }
+
+	function getit() {
+		var formatted= document.getElementById("Title");
+	var storedValue = localStorage.getItem("CustomInfotitle");
+	document.getElementById('Title').value = storedValue;
+	RestoreTitle();
+	
+	}
+	function Checkifinbrowser() {
+ var x= document.getElementById("testCall").value; 
+ var n = x.search("{Msg");
+ if (n>-1) { 
+ document.getElementById('Submit').style.visibility='hidden';
+  alert('You are running this form outside of Winlink.\n \nWhen you have completed the form, SAVE the data and then give or send the SAVED data file to the radio operator. The operator will load the SAVED data into the correct form and send via winlink. ');
+ } else {document.getElementById('Submit').style.visibility='visible';  }
+}
+
+function Checkifinbrowser() {
+ var x= document.getElementById("testCall").value; 
+ var n = x.search("{Msg");
+ if (n>-1) { 
+ document.getElementById('Submit').style.visibility='hidden';
+  alert('You are running this form outside of Winlink.\n \nWhen you have completed the form, SAVE the data and then give or send the SAVED data file to the radio operator. The operator will load the SAVED data into the correct form and send via winlink. ');
+ } else {document.getElementById('Submit').style.visibility='visible';  }
+}
+
+function parsestring(mType) {
+var mytext = document.getElementById('parseme2').value;
+var myType = mType;
+var lines = mytext.split('\n', 25);
+    for(var line = 0; line < lines.length; line++){
+		//alert ('Line '+line);lines.length 
+		//alert ('lines '+lines.length );
+var x = line ; //alert(line+' line at 717 '+ x);
+var Letter = String.fromCharCode(x+65);
+     if (line <25) {  var tabs = lines[line].split('\t',5);
+//alert(tabs);
+//alert (Letter);
+         	if (tabs[0] != null){document.getElementById(Letter+1).value =tabs[0]};
+		 	if (tabs[1] != null){document.getElementById(Letter+2).value = tabs[1]};
+			
+			if (tabs[2] != null){document.getElementById(Letter+3).value = tabs[2]};
+			if (tabs[3] != null){document.getElementById(Letter+4).value = tabs[3]};
+			if (tabs[4] != null){document.getElementById(Letter+5).value = tabs[4]};
+						
+			 }
+			
+			}
+	 alert ('Data has been parsed.');   
+	 document.getElementById('lnk').click();
+	}
+function selectaddress(){  
+ location.href="#pop3";  
+}  
+
+function isNumberKey(evt)
+{
+var charCode = (evt.which) ? evt.which : event.keyCode
+if (charCode < 48 || charCode > 57)
+return false;
+return true;
+}
+</script>
+</head>
+<body>
+<div style="text-align: center;">&nbsp;
+<form  style="font-family: Arial;" pbzloc="3" onsubmit="return confirm('To complete your form submission, click OK and close the open browser window. You will return to the new message window so you can post your message to the outbox');" method="post" id="myform" enctype="multipart/form-data" action="http://{FormServer}:{FormPort}">
+<div id="pop1" class="pop-up"><!-- The pop-up block -->
+<div class="popBox"><!-- If the content becomes larger than the pop-up this div will scroll the content -->
+<div class="popScroll"><!-- Test for help starts here -->
+<p> </p>
+<h2>General Purpose Log Form</h2>
+<p align="left"><strong>Purpose.</strong> <br />
+<br />
+The form allows you determine the column names. You define what you are
+using the form for.
+Use can be to indicate inventory, list of staff members, event
+check-ins, whatever you need.<br />
+</p>
+<p align="left"> <strong>Preparation.</strong><br />
+<br />
+Define the forms use and give a brief description in the two fields top
+left.
+Then you create whatever column name you need for each category.
+You have 30 numbered rows to use for your data.<br />
+<br />
+Form also sends the information as plain text, properly formatted in
+the message body for Non-Express users.
+</p>
+<strong>More Information</strong><br /><br />
+<p align="left">You can save your completed HTML to a text file. This will allow you to reload the template
+with ALL entered form data. You do this prior to submitting the form. Then you can open a new form and load the saved HTML form data. 
+NOTE: Date and Times will be the previous, so change if needed. It will save the info
+as a text file with the Date and Time as a file name. Now you can use any browser, save your form, (as many versions as you like), and then re-populate.
+<br />
+<br />You can also save the Information Form info to a TAB style spreadshhet if desired. 
+<br /><br />
+<p align="left">Printing this form is dependent upon your selected
+
+printer and its settings. Various Web Browsers and and their viewing
+
+sizes are not all the same. Printing from a browsers print function
+
+may be different from the operating systems default print mode.
+
+Select what works for you, for both printing and viewing.
+
+You may print direct to the printer as a HTML or save as a
+
+PDF then print the PDF. In some instances Landscape mode may print
+
+better than Portrait. <br />
+</div>
+<!-- The close pop-up link correctly positioned at the end of the content block -->
+<a class="close" href="#links"><span>Back
+to links</span></a> </div>
+</div>
+ <div class="pop-up" id="pop3">
+    <!-- The pop-up block -->
+    <div class="popBox">
+      <!-- If the content becomes larger than the pop-up this div will scroll the content -->
+      <div class="popScroll">
+        <p> </p>
+        <h3>Copy and Paste Data From Spreadsheet</h3>
+        <span class="style23">
+        <p align="left">Copy the data from the spreadsheet and paste in box below, then click "Parse Data"<br />
+		Tab delineation only. Ensure fields match & do not exceed form field lengths, or data entries will not be correct. 
+        </p>
+        <textarea name="parseme2" cols="78" rows="6" id="parseme2" placeholder="Paste spreadsheet data here" ></textarea> 
+		<BR />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type=button value="Parse Data" onClick="parsestring('P');">
+		
+		
+        </span>
+        <p align="left"></p>
+        <a href="#links">Close this window</a> </div>
+      <!-- The close pop-up link correctly positioned at the end of the content block -->
+      <a id="lnk" href="#links" class="close"><span>Back to links</span></a>
+      </div>
+  </div>
+<table width="778" height="900" border="0" align="center">
+<tbody>
+<tr>
+<td>
+<table width="1555" height="1187" border="1" cellpadding="4" cellspacing="0" bordercolor="#999999" style="background-color: rgb(250, 250, 255); width: 876px; height: 1237px;">
+<tbody>
+<tr valign="top" bgcolor="#dee9f9">
+<td height="80"  colspan="2" nowrap="nowrap" style="text-align: center;"><p><big><span style="font-weight: bold;">Radio Net Log</span><br /> 
+<span  id="SubjectText"><strong>WINLINK </strong></span>
+</big></p>
+  <p align="left"><b><big>
+    <input type="button" value="  Setup  " onclick="SetupTitle()" />
+  </big></b><span class="style7"><big>&nbsp;Click to add your agency or group</big></span><big><small>
+  <input type="file" id="txtfiletoread" accept=".txt"  style="display: none;"/>
+  </small></big></p></td>
+</tr>
+<tr valign="top">
+<td width="44%" height="101"  style="width: 45%; vertical-align: top; text-align: center;">
+<p align="left"><strong>1. Incident Name:</strong> <b>
+  <input name="Incident_Name" id="Incident_Name"  tabindex=1name="Incident_Name" title="Name given for this event or this forms use." size="40" maxlength="40" />
+</b>      </p>
+<p align="left"><span style="font-weight: bold;">3. Name /Position (NCS): </span><b>
+  <input title="Name given for this event or this forms use." id="NCS" maxlength="40" name="NCS"  tabindex=6 size="40" />
+</b></p>
+<p align="left"><span style="font-weight: normal;"><strong>4. Name /Position (Backup):</strong> <b>
+  <input title="Name given for this event or this forms use." id="BackupNCS" maxlength="30" name="BackupNCS" tabindex=7 size="30" />
+</b></span><br style="color: rgb(0, 102, 0);" />
+      <textarea name="parseme" cols="60" id="parseme" style="display: none;"></textarea>
+  </p>
+</td>
+<td width="56%"  style="width: 45%; vertical-align: top; text-align: center;">
+  <table width="382" border="0" cellpadding="2" cellspacing="2" style="width: 416px; height: 87px;">
+    <tbody>
+      <tr>
+        <td colspan="4"><div align="center"><strong> 2. Operational Period</strong>:<span class="formbold"><span class=""><small>
+            <input name="Title" type="hidden" id="Title" value=" Net Log" />
+        </small></span></span></div></td>
+      </tr>
+      <tr>
+        <td width="27%" style="width: 28%;"><strong>2a. Date From<big>:</big></strong></td>
+        <td width="19%"><div align="left"><strong>
+              <input size="12" name="DateFrom" id="DateFrom" maxlength="12" onclick="SetDateTime('fulldate',this.id)"  tabindex=2 required="required" />
+        </strong></div></td>
+        <td width="23%"><strong>Date To:</strong></td>
+        <td width="31%"><div align="left"><strong>
+            <input size="12" name="DateTo" id="DateTo" maxlength="12" onclick="SetDateTime('fulldate',this.id)" tabindex=3required="required" />
+        </strong></div></td>
+      </tr>
+      <tr>
+        <td><strong>2b. Time From:</strong></td>
+        <td><div align="left"><strong>
+            <input title="Local 24 hr time" size="10" name="TimeFrom" id="TimeFrom" onclick="TimeNow('TimeFrom')" tabindex=4 maxlength="10" required="required" />
+        </strong></div></td>
+        <td><strong> Time To:</strong></td>
+        <td><div align="left"><strong>
+              <input title="Local 24 hr time" size="10" name="TimeTo" id="TimeTo" maxlength="10" onclick="TimeNow('TimeTo')"  tabindex=5required="required" />
+        </strong></div></td>
+      </tr>
+    </tbody>
+  </table>
+  <b><b>
+  <input type="button" value=" Load Form Data " onclick="document.getElementById('txtfiletoread').click();" />
+  </b></b></td>
+</tr>
+<tr valign="top">
+<td height="930"  colspan="3" style="vertical-align: top; text-align: center;"><div align="center">
+  <p><a href="javascript:selectaddress();">Paste Data from a Spreadsheet</a> </p>
+  </div>
+  <table width="100%"  border="1" cellspacing="0" cellpadding="3">
+  <tr>
+    <td width="3%" rowspan="2"><div align="center"><strong>#</strong></div></td>
+    <td width="7%" rowspan="2"><div align="center"><strong> Call Sign </strong></div></td>
+    <td width="13%" rowspan="2"><div align="center"><strong> Location or<br />
+        Tactical Call </strong></div></td>
+    <td colspan="2"><div align="center"><strong>Station</strong></div></td>
+    <td width="57%" rowspan="2"><div align="center"><strong>Comments</strong> <br />
+        (be brief) </div></td>
+  </tr>
+  <tr>
+    <td width="10%"><div align="center">Check in </div></td>
+  <td width="10%"><div align="center">Check out </div></td>
+  </tr>
+  <tr bgcolor="#fff2cc">
+    <td><div align="center">1</div></td>
+    <td><input name="A1"  id="A1"type="text" size="10" maxlength="10"  /></td>
+    <td><input name="A2" id="A2" type="text" size="15" maxlength="15" /></td>
+    <td><input style="text-align:center"  name="A3" id="A3"type="text" size="8" maxlength="8"onclick="TimeNow('A3')" ></td>
+    <td><input style="text-align:center" name="A4" id="A4" type="text" size="8" maxlength="8" onclick="TimeNow('A4')" /></td>
+    <td><div align="left">
+      <input name="A5"type="text" id="A5" size="50" maxlength="50" />
+    </div></td>
+  </tr>
+  <tr>
+    <td><div align="center">2</div></td>
+      <td><input name="B1"  id="B1" type="text" size="10" maxlength="10" /></td>
+    <td><input name="B2"id="B2"type="text" size="15" maxlength="15" /></td>
+    <td><input style="text-align:center"  name="B3" id="B3"type="text" size="8" maxlength="8"onclick="TimeNow('B3')" ></td>
+    <td><input style="text-align:center" name="B4" id="B4" type="text" size="8" maxlength="8" onclick="TimeNow('B4')" /></td>
+    <td><div align="left">
+      <input name="B5" id="B5" type="text" size="50" maxlength="50" />
+    </div></td>
+
+  </tr>
+  <tr bgcolor="#fff2cc">
+    <td><div align="center">3</div></td>
+    <td><input name="C1" id="C1"  type="text"  size="10" maxlength="10" /></td>
+    <td><input name="C2"  id="C2" type="text" size="15" maxlength="15" /></td>
+    <td><input style="text-align:center"  name="C3" id="C3"type="text" size="8" maxlength="8"onclick="TimeNow('C3')" /></td>
+    <td><input style="text-align:center" name="C4" id="C4" type="text" size="8" maxlength="8" onclick="TimeNow('C4')" /></td>
+    <td><div align="left">
+        <input name="C5" type="text" id="C5" size="50" maxlength="50" />
+    </div></td>
+  </tr>
+  <tr>
+    <td><div align="center">4</div></td>
+    <td><input name="D1" id="D1" type="text" size="10" maxlength="10" /></td>
+    <td><input name="D2" id="D2" type="text" size="15" maxlength="15" /></td>
+    <td><input style="text-align:center"  name="D3" id="D3"type="text" size="8" maxlength="8"onclick="TimeNow('D3')" /></td>
+    <td><input style="text-align:center" name="D4" id="D4" type="text" size="8" maxlength="8" onclick="TimeNow('D4')" /></td>
+    <td><div align="left">
+        <input name="D5" id="D5" type="text" size="50" maxlength="50" />
+    </div></td>
+  </tr>
+  <tr bgcolor="#fff2cc">
+    <td><div align="center">5</div></td>
+    <td><input name="E1" id="E1" type="text" size="10" maxlength="10" /></td>
+    <td><input name="E2" id="E2"type="text" size="15" maxlength="15" /></td>
+    <td><input style="text-align:center"  name="E3" id="E3"type="text" size="8" maxlength="8"onclick="TimeNow('E3')" /></td>
+    <td><input style="text-align:center" name="E4" id="E4" type="text" size="8" maxlength="8" onclick="TimeNow('E4')" /></td>
+    <td><div align="left">
+        <input name="E5" id="E5" type="text" size="50" maxlength="50" />
+    </div></td>
+  </tr>
+  <tr>
+    <td><div align="center">6</div></td>
+    <td><input name="F1" id="F1"  type="text" size="10" maxlength="10" /></td>
+    <td><input name="F2" id="F2" type="text" size="15" maxlength="15" /></td>
+    <td><input style="text-align:center"  name="F3" id="F3"type="text" size="8" maxlength="8"onclick="TimeNow('F3')" /></td>
+    <td><input style="text-align:center" name="F4" id="F4" type="text" size="8" maxlength="8" onclick="TimeNow('F4')" /></td>
+    <td><div align="left">
+        <input name="F5" id="F5"type="text" size="50" maxlength="50" />
+    </div></td>
+  </tr>
+  <tr bgcolor="#fff2cc">
+    <td><div align="center">7</div></td>
+    <td><input name="G1" id="G1"type="text" size="10" maxlength="10" /></td>
+    <td><input name="G2"  id="G2" type="text" size="15" maxlength="15" /></td>
+    <td><input style="text-align:center"  name="G3" id="G3"type="text" size="8" maxlength="8"onclick="TimeNow('G3')" /></td>
+    <td><input style="text-align:center" name="G4" id="G4" type="text" size="8" maxlength="8" onclick="TimeNow('G4')" /></td>
+    <td><div align="left">
+        <input name="G5" id="G5" type="text" size="50" maxlength="50" />
+    </div></td>
+  </tr>
+  <tr>
+    <td><div align="center">8</div></td>
+    <td><input name="H1" id="H1" type="text" size="10" maxlength="10" /></td>
+    <td><input name="H2" id="H2"type="text" size="15" maxlength="15" /></td>
+    <td><input style="text-align:center"  name="H3" id="H3"type="text" size="8" maxlength="8"onclick="TimeNow('H3')" /></td>
+    <td><input style="text-align:center" name="H4" id="H4" type="text" size="8" maxlength="8" onclick="TimeNow('H4')" /></td>
+    <td><div align="left">
+        <input name="H5" id="H5" type="text" size="50" maxlength="50" />
+    </div></td>
+  </tr>
+  <tr bgcolor="#fff2cc">
+    <td><div align="center">9</div></td>
+    <td><input name="I1" id="I1"type="text" size="10" maxlength="10" /></td>
+    <td><input name="I2" id="I2"type="text" size="15" maxlength="15" /></td>
+    <td><input style="text-align:center"  name="I3" id="I3"type="text" size="8" maxlength="8"onclick="TimeNow('I3')" /></td>
+    <td><input style="text-align:center" name="I4" id="I4" type="text" size="8" maxlength="8" onclick="TimeNow('I4')" /></td>
+    <td><div align="left">
+        <input name="I5" id="I5"type="text" size="50" maxlength="50" />
+    </div></td>
+  </tr>
+  <tr>
+    <td><div align="center">10</div></td>
+    <td><input name="J1" id="J1"type="text" size="10" maxlength="10" /></td>
+    <td><input name="J2" id="J2"type="text" size="15" maxlength="15" /></td>
+    <td><input style="text-align:center"  name="J3" id="J3"type="text" size="8" maxlength="8"onclick="TimeNow('J3')" /></td>
+    <td><input style="text-align:center" name="J4" id="J4" type="text" size="8" maxlength="8" onclick="TimeNow('J4')" /></td>
+    <td><div align="left">
+        <input name="J5" id="J5" type="text" size="50" maxlength="50" />
+    </div></td>
+  </tr>
+  <tr bgcolor="#fff2cc">
+    <td><div align="center">11</div></td>
+    <td><input name="K1" id="K1" type="text" size="10" maxlength="10" /></td>
+    <td><input name="K2"  id="K2" type="text" size="15" maxlength="15" /></td>
+    <td><input style="text-align:center"  name="K3" id="K3"type="text" size="8" maxlength="8"onclick="TimeNow('K3')" /></td>
+    <td><input style="text-align:center" name="K4" id="K4" type="text" size="8" maxlength="8" onclick="TimeNow('K4')" /></td>
+    <td><div align="left">
+        <input name="K5" id="K5" type="text" size="50" maxlength="50" />
+    </div></td>
+  </tr>
+  <tr>
+    <td><div align="center">12</div></td>
+    <td><input name="L1"  id="L1" type="text" size="10" maxlength="10" /></td>
+    <td><input name="L2"  id="L2" type="text" size="15" maxlength="15" /></td>
+    <td><input style="text-align:center"  name="L3" id="L3"type="text" size="8" maxlength="8"onclick="TimeNow('L3')" /></td>
+    <td><input style="text-align:center" name="L4" id="L4" type="text" size="8" maxlength="8" onclick="TimeNow('L4')" /></td>
+    <td><div align="left">
+        <input name="L5" id="L5" type="text" size="50" maxlength="50" />
+    </div></td>
+  </tr>
+  <tr bgcolor="#fff2cc">
+    <td><div align="center">13</div></td>
+    <td><input name="M1" id="M1"type="text" size="10" maxlength="10" /></td>
+    <td><input name="M2" id="M2" type="text" size="15" maxlength="15" /></td>
+    <td><input style="text-align:center"  name="M3" id="M3"type="text" size="8" maxlength="8"onclick="TimeNow('M3')" /></td>
+    <td><input style="text-align:center" name="M4" id="M4" type="text" size="8" maxlength="8" onclick="TimeNow('M4')" /></td>
+    <td><div align="left">
+        <input name="M5" id="M5" type="text" size="50" maxlength="50" />
+    </div></td>
+  </tr>
+  <tr>
+    <td><div align="center">14</div></td>
+    <td><input name="N1" id="N1" type="text" size="10" maxlength="10" /></td>
+    <td><input name="N2"id="N2" type="text" size="15" maxlength="15" /></td>
+    <td><input style="text-align:center"  name="N3" id="N3"type="text" size="8" maxlength="8"onclick="TimeNow('N3')" /></td>
+    <td><input style="text-align:center" name="N4" id="N4" type="text" size="8" maxlength="8" onclick="TimeNow('N4')" /></td>
+    <td><div align="left">
+        <input name="N5" id="N5" type="text" size="50" maxlength="50" />
+    </div></td>
+  </tr>
+  <tr bgcolor="#fff2cc">
+    <td><div align="center">15</div></td>
+    <td><input name="O1" id="O1"type="text" size="10" maxlength="10" /></td>
+    <td><input name="O2"  id="O2" type="text" size="15" maxlength="15" /></td>
+    <td><input style="text-align:center"  name="O3" id="O3"type="text" size="8" maxlength="8"onclick="TimeNow('O3')" /></td>
+    <td><input style="text-align:center" name="O4" id="O4" type="text" size="8" maxlength="8" onclick="TimeNow('O4')" /></td>
+    <td><div align="left">
+        <input name="O5" id="O5" type="text" size="50" maxlength="50" />
+    </div></td>
+  </tr>
+  <tr>
+    <td><div align="center">16</div></td>
+    <td><input name="P1" id="P1"type="text" size="10" maxlength="10" /></td>
+    <td><input name="P2" id="P2"type="text" size="15" maxlength="15" /></td>
+    <td><input style="text-align:center"  name="P3" id="P3"type="text" size="8" maxlength="8"onclick="TimeNow('P3')" /></td>
+    <td><input style="text-align:center" name="P4" id="P4" type="text" size="8" maxlength="8" onclick="TimeNow('P4')" /></td>
+    <td><div align="left">
+        <input name="P5" id="P5" type="text" size="50" maxlength="50" />
+    </div></td>
+  </tr>
+  <tr bgcolor="#fff2cc">
+    <td><div align="center">17</div></td>
+    <td><input name="Q1" id="Q1"type="text" size="10" maxlength="10" /></td>
+    <td><input name="Q2" id="Q2" type="text" size="15" maxlength="15" /></td>
+    <td><input style="text-align:center"  name="Q3" id="Q3"type="text" size="8" maxlength="8"onclick="TimeNow('Q3')" /></td>
+    <td><input style="text-align:center" name="Q4" id="Q4" type="text" size="8" maxlength="8" onclick="TimeNow('Q4')" /></td>
+    <td><div align="left">
+        <input name="Q5"id="Q5"  type="text" size="50" maxlength="50" />
+    </div></td>
+  </tr>
+  <tr>
+    <td><div align="center">18</div></td>
+    <td><input name="R1"id="R1"type="text" size="10" maxlength="10" /></td>
+    <td><input name="R2" id="R2"type="text" size="15" maxlength="15" /></td>
+    <td><input style="text-align:center"  name="R3" id="R3"type="text" size="8" maxlength="8"onclick="TimeNow('R3')" /></td>
+    <td><input style="text-align:center" name="R4" id="R4" type="text" size="8" maxlength="8" onclick="TimeNow('R4')" /></td>
+    <td><div align="left">
+        <input name="R5" id="R5"type="text" size="50" maxlength="50" />
+    </div></td>
+  </tr>
+  <tr bgcolor="#fff2cc">
+    <td><div align="center">19</div></td>
+    <td><input name="S1" id="S1" type="text" size="10" maxlength="10" /></td>
+    <td><input name="S2" id="S2" type="text" size="15" maxlength="15" /></td>
+    <td><input style="text-align:center"  name="S3" id="S3"type="text" size="8" maxlength="8"onclick="TimeNow('S3')" /></td>
+    <td><input style="text-align:center" name="S4" id="S4" type="text" size="8" maxlength="8" onclick="TimeNow('S4')" /></td>
+    <td><div align="left">
+        <input name="S5" id="S5" type="text" size="50" maxlength="50" />
+    </div></td>
+  </tr>
+  <tr>
+    <td><div align="center">20</div></td>
+    <td><input name="T1" id="T1"type="text" size="10" maxlength="10" /></td>
+    <td><input name="T2" id="T2"type="text" size="15" maxlength="15" /></td>
+    <td><input style="text-align:center"  name="T3" id="T3"type="text" size="8" maxlength="8"onclick="TimeNow('T3')" /></td>
+    <td><input style="text-align:center" name="T4" id="T4" type="text" size="8" maxlength="8" onclick="TimeNow('T4')" /></td>
+    <td><div align="left">
+        <input name="T5" id="T5" type="text" size="50" maxlength="50" />
+    </div></td>
+  </tr>
+  <tr bgcolor="#fff2cc">
+    <td><div align="center">21</div></td>
+    <td><input name="U1" id="U1"type="text" size="10" maxlength="10" /></td>
+    <td><input name="U2" id="U2"type="text" size="15" maxlength="15" /></td>
+    <td><input style="text-align:center"  name="U3" id="U3"type="text" size="8" maxlength="8"onclick="TimeNow('U3')" /></td>
+    <td><input style="text-align:center" name="U4" id="U4" type="text" size="8" maxlength="8" onclick="TimeNow('U4')" /></td>
+    <td><div align="left">
+        <input name="U5" id="U5" type="text" size="50" maxlength="50" />
+    </div></td>
+  </tr>
+  <tr>
+    <td><div align="center">22</div></td>
+    <td><input name="V1"id="V1"  type="text" size="10" maxlength="10" /></td>
+    <td><input name="V2" id="V2"  type="text" size="15" maxlength="15" /></td>
+    <td><input style="text-align:center"  name="V3" id="V3"type="text" size="8" maxlength="8"onclick="TimeNow('V3')" /></td>
+    <td><input style="text-align:center" name="V4" id="V4" type="text" size="8" maxlength="8" onclick="TimeNow('V4')" /></td>
+    <td><div align="left">
+        <input name="V5" id="V5" type="text" size="50" maxlength="50" />
+    </div></td>
+  </tr>
+  <tr bgcolor="#fff2cc">
+    <td><div align="center">23</div></td>
+   <td><input name="W1"id="W1"  type="text" size="10" maxlength="10" /></td>
+    <td><input name="W2" id="W2"  type="text" size="15" maxlength="15" /></td>
+    <td><input style="text-align:center"  name="W3" id="W3"type="text" size="8" maxlength="8"onclick="TimeNow('W3')" /></td>
+    <td><input style="text-align:center" name="W4" id="W4" type="text" size="8" maxlength="8" onclick="TimeNow('W4')" /></td>
+    <td><div align="left">
+        <input name="W5" id="W5" type="text" size="50" maxlength="50" />
+    </div></td>
+  </tr>
+  <tr>
+    <td><div align="center">24</div></td>
+    <td><input name="X1" id="X1"  type="text" size="10" maxlength="10" /></td>
+    <td><input name="X2" id="X2" type="text" size="15" maxlength="15" /></td>
+    <td><input style="text-align:center"  name="X3" id="X3"type="text" size="8" maxlength="8"onclick="TimeNow('X3')" /></td>
+    <td><input style="text-align:center" name="X4" id="X4" type="text" size="8" maxlength="8" onclick="TimeNow('X4')" /></td>
+    <td><div align="left">
+        <input name="X5" id="X5" type="text" size="50" maxlength="50" />
+    </div></td>
+  </tr>
+  <tr bgcolor="#fff2cc">
+    <td><div align="center">25</div></td>
+    <td><input name="Y1" id="Y1"type="text" size="10" maxlength="10" /></td>
+    <td><input name="Y2" id="Y2" type="text" size="15" maxlength="15" /></td>
+    <td><input style="text-align:center"  name="Y3" id="Y3"type="text" size="8" maxlength="8"onclick="TimeNow('Y3')" /></td>
+    <td><input style="text-align:center" name="Y4" id="Y4" type="text" size="8" maxlength="8" onclick="TimeNow('Y4')" /></td>
+    <td><div align="left">
+        <input name="Y5" id="Y5" type="text" size="50" maxlength="50" />
+    </div></td>
+  </tr>
+</table>
+
+  <div align="left">
+ <br />
+&nbsp;&nbsp;&nbsp;Sender's Comments or Additional&nbsp; Information&nbsp;<br />
+&nbsp; &nbsp;
+  <textarea title="Be brief" cols="130" rows="4" name="Comments" id="Comments"  onkeyup="AutoGrowTextArea(this)" onchange="this.value=RWS(this.value)"></textarea>
+    </p>
+    <p align="right">PAGE
+        <input name="PageOf" placeholder="Page #" onkeypress="return isNumberKey(event)" type="text" id="PageOf" required="required" size="5" maxlength="4" />
+        OF
+        <input name="PageTo" placeholder="Page #" onkeypress="return isNumberKey(event)" type="text" id="PageTo" required="required" size="5" maxlength="4" />
+        <input type="file" id="txtfiletoread" accept=".txt"  style="display: none;"/>
+        </p>
+  </div></td>
+</tr>
+<tr valign="top">
+<td height="44" colspan="3" style="text-align: justify;">&nbsp;<span class="formtext"><span style="font-family: Calibri;">&nbsp;</span></span>
+  <input class="SubmitBtn" enctype="multipart/form-data" id="Submit" method="post" name="Submit" size="6"  value="Submit" type="submit" />
+<span style="font-weight: bold;"><b><span style="font-weight: normal;"><big>&nbsp;<span class="formtext"><span style="font-family: Calibri;">&nbsp;<big> </big></span></span></big></span></b><b><span style="font-weight: normal;"><big>&nbsp;<span class="formtext"><span style="font-family: Calibri;">&nbsp;<big> </big></span></span></big></span></b> </span>
+<input class="BtnFormat2" value="Reset Form " name="ResetForm" type="reset" />
+&nbsp; <b><span style="font-weight: normal;"><big> &nbsp;<span class="formtext"><span style="font-family: Calibri;">&nbsp;<big>
+<input type="button" value="Save Form  Data"  onclick="SaveData()" />
+</big>&nbsp; <small> </small> </span></span>&nbsp;
+<input type="button" value="Export Data to Spreadsheet Format"  onclick="ExportData()" />
+<input name="testCall" type="hidden" id="testCall" value="{MsgSender}" size="14" maxlength="13" />
+<input name="Templateversion" type="hidden"
+
+                                    id="Templateversion" value="Radio Net Log v 1.2" />
+&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;<span style="font-weight: bold;"> </span><span class="style9"><span style="font-weight: normal;"><big></big></span></span>&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;<span style="font-weight: bold;"> </span><span class="style9"><span style="font-weight: normal;"><big></big></span></span>&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;<span style="font-weight: bold;"> </span><span class="style9"><span style="font-weight: normal;"><big></big></span></span>&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;<span style="font-weight: bold;"> </span><span class="style9"><span style="font-weight: normal;"><big></big></span></span>&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;<span style="font-weight: bold;"> </span><span class="style9"><span style="font-weight: normal;"><big></big></span></span>&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;<span class="SubmitBtn" style="font-weight: bold;"> </span><span class="style12"><span style="font-weight: normal;"><big>&nbsp;<span class="style13">&nbsp;</span>V . 1.2</big></span></span> <span class="SubmitBtn">&nbsp;&nbsp; </span>&nbsp;&nbsp; &nbsp;&nbsp;</big></span></b></td>
+</tr>
+</tbody>
+</table>
+<center pbzloc="5"></center>
+</td>
+</tr>
+</tbody>
+<!-- popup starts here -->
+</table>
+</form>
+</div>
+</body></html>

@@ -1,0 +1,184 @@
+Specification of conversd's protocol.
+
+This file is part of the Tampa PingPong conversd-Distribution
+
+$Revision: 1.1.1.1 $$Date: 2001/10/10 13:29:59 $
+
+This file is _very_ far away from being complete, but I think a description
+of the host command is needed for you to implement your own conversds.
+
+A connection may have four states: UNKNOWN, USER, OBSERVER or HOST.
+When a connection is established, it falls into the UNKNOWN state.
+
+State UNKNOWN knows about four commands:
+
+ /NAME <call> [channel]
+	- this command makes a user login, i.e. the state will be changed
+	  USER, the sign on message will be displayed user's name set to
+	  call, and channel will be entered. The latter is optional, if
+	  not enterted, channel 0 will be selected. The channel number
+	  must be in the range of 0..32767 due to older conventions.
+
+ /..HOST <hostname> [software [facilities]]
+	- the command is sent by the connecting host to join the HOST
+	  state. The host name must be given, the software string and
+	  facility string is optional. Software sting may be up to eight
+	  characters long. The facility string consists of single letters
+	  already assigned are:
+	    a - "away feature" (old style - will expire Dec, 31th 1995)
+	    d - "destination forwarding"
+	    m - "channel modes"
+	    p - "ping pong link measurement"
+	    u - "udat command extension and user command understood both"
+	    A - "away feature" (new style)
+	    n - "TNOS-style" nickname support
+          If you like to assign new characters, please drop me a note
+          with a brief description of the feature... I will include it
+          in further specifications.
+
+ /ONLINE <a|l|q>
+	- it is the same as the normal "who" command in the USER state
+	  except you don't need to login...
+
+ /CSTAT
+        - This is the normal "links" command called in the USER state. No
+          login is necessary.
+
+State HOST accepts the following commands:
+
+ /..AWAY <user> <host> <time> [text]                       (OPTIONAL)
+	- mark user@host on channel as being away. If text is not present
+	  he is back again. The given text should be stored in your
+	  conversd to give a hint to the users doing a private message
+	  to an away-being person. Time indicates, when the command was
+	  issued       (* WARNING format changed at pp-3.01 -> 3.02 *)
+
+ /..CMSG <user> <channel> <text>                          (NECESSARY)
+	- channel message. user wrote it to the whole channel. text
+	  should be delivered to all users on this channel, and to
+	  all hosts who are a downstream for a user in this channel.
+	  Be aware of duplicating strings ! if user is "conversd",
+	  this a broadcast Message. Then no formatting should be done.
+
+ /..DEST <host> <time> [software]                          (OPTIONAL)
+	- The host is reachable for the other node via me in time seconds.
+          The aim host is running the named software.
+
+ /..ECMD <user> <cmdname> [parameters]                     (OPTIONAL)
+	- If 'user' is "conversd", then this host is broadcasting the
+          existance of an extended command named 'cmdname'. In this case
+          'parameters' is ignored.
+
+          Otherwise, this is a request from 'user' to execute the command
+          'cmdname', with 'parameters' passed to the command. Any/All
+          hosts supporting this command can respond, assuming that each
+          one passes the command on down the line, or can act on the command
+          and finish the command.
+
+ /..HELP <user> <cmdname>                                 (OPTIONAL)
+	- This is a request from 'user' to retrieve the help information
+	  for command 'cmdname', which is an extended ECMD somewhere on the
+	  system. Any/All hosts supporting this command can respond, assuming
+	  that each one passes the command on down the line, or can act on
+	  the command and finish the command.
+
+ /..INVI <from> <user> <channel>                          (NECESSARY)
+	- An invitation from from is sent to user via the whole network.
+	  if the user is found on your system, he should be informed
+	  about the invitation and an answer string should be sent to
+	  from using the UMSG command.
+
+ /..LOOP <host>                                            (OPTIONAL)
+	- Indicates that a routing loop has been discovered. This
+          connection should be dropped upon receipt of this message.
+
+ /..MODE <channel> <options>                               (OPTIONAL)
+	- set channel to mode options. possible options are:
+	  +i - invisible channel, its existence is not displayed
+	  +l - local channel, no text forwarding is performed
+	  +m - moderated channel, only channel operators may write
+	  +p - private channel, invitation needed to join into
+	  +s - secret channel, no channel number is displayed
+	  +t - topics may be set only by channel operators.
+
+ /..OBSV <user> <host> <timestamp> <fromchan> <tochan> [@|text]
+                                                           (OPTIONAL)
+	- user@host left fromchan and joined tochan at time timestamp
+          as an OBSERVER ONLY. This places the user in OBSERVER state.
+	  text is his personal name (like in the UDAT field). A '@'
+	  in the text field indicates an empty personal note.
+          If tochan == -1 (user leaves channel) the additional text
+          indicates the reason for the signoff...
+
+ /..OPER <fromname> <channel> <user>                       (OPTIONAL)
+	- user becomes either channel-operator or operator
+          (if channel==-1). from set this status for user.
+
+ /..PING                                                   (OPTIONAL)
+	- a pong answer is requested. no arguments are given to ping.
+
+ /..PONG <time>                                            (OPTIONAL)
+	- time is your own measured time (i.e. ping sent to pong re-
+	  ceived). Special values:
+	    -1: you don't do measurements.
+	     0: I did not make measurements yet, but it's implemented.
+
+ /..ROUT <dest> <user> <ttl>                               (OPTIONAL)
+	- user queried his server for the route to a given host in
+	  the network. Upon receipt of such a request, send back a
+	  personal conversd response to <user> containing this string:
+	  "*** route: <myname> -> <downstreamname> -> <dest>" While
+	  Collecting all these messages, the user will learn the
+	  individual route to his desired destination. A ttl greater
+	  than 0 indicates that this query should be forwared to the
+	  next hop.
+
+ /..SYSI <user> <host>|all                       (OPTIONAL/SUGGESTED)
+	- 'user' requests system information for 'host' or all systems.
+	  At the MINIMUM, the email address of the convers sysop
+	  should be available via this command.
+
+ /..TOPI <user> <host> <time> <channel> [text]             (OPTIONAL)
+	- user@host set up a new topic at time (seconds passed since
+          Jan, 1 1970) on channel. The topic is given in the text.
+	  If text is empty, the topic is removed only. If your host
+	  holds a newer topic, it should not be changed and forwarded...
+
+ /..UADD <user> <host> <nickname> <channel> [text]         (OPTIONAL)
+	- user@host sets his personal description to text (or removes
+          it). Also the 'nickname' is set. Since there is overlap
+          between the /..UADD, /..UDAT, and /..USER commands, this
+          is primarily used for setting the nickname, and for compatibility
+          with early versions of TNOS, which did not support the /..UDAT
+          command.
+
+ /..UDAT <user> <host> [text]                             (NECESSARY)
+	- user@host sets his personal description to text (or removes
+	  it). This field is _obsolete_ ! The personal description is
+	  transmitted via the /..USER command. In internet converse
+	  it is still used, so I check out the environment.
+
+ /..UMSG <from> <to> <text>                               (NECESSARY)
+	- from sends a private message to to. The contents of text
+	  should not be formattet if from is "conversd".
+
+ /..USER <user> <host> <timestamp> <fromchan> <tochan> [@|text]
+                                                          (NECESSARY)
+	- user@host left fromchan and joined tochan at time timestamp.
+	  text is his personal name (like in the UDAT field). A '@'
+	  in the text field indicates an empty personal note.
+          If tochan == -1 (user leaves channel) the additional text
+          indicates the reason for the signoff...
+
+
+All HOST state commands that are NOT supported or recognized must be
+passed on unmodified to all connected hosts.
+
+The OBSERVER state is a subset of the USER state, and only allows commands
+that produce NO output to others.
+
+I hope this helps you to implement your own playground...
+
+Fred Baumgarten, dc6iq@insu1.etec.uni-karlsruhe.de, dc6iq@db0sao.ampr.org
+
+Updated for Tampa PingPong by Brian A. Lantz, ko4ks@ko4ks.ampr.org, brian@lantz.com 

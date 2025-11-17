@@ -1,0 +1,1368 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>ICS309 Communications Log</title>
+
+<style type="text/css">
+
+<!--
+
+@media print {
+.form-control, .form-control.nobug {
+
+border: 0;
+
+outline: 0;
+
+box-shadow: none;
+
+font-size:14px;
+
+}
+
+.form-control.nobug {
+
+transition: none; /*-- THIS IS IMPORTANT -- */
+
+}
+
+input, textarea {
+
+outline: none !important;
+
+box-shadow: none;
+
+border: none;
+
+overflow: visible;
+
+font-family: Arial, Helvetica, sans-serif;
+
+font-size: 11px;
+
+}
+}
+
+.formtext {
+
+font-family: Arial, Helvetica, sans-serif;
+
+font-size: 11pt;
+
+font-weight: normal;
+
+margin: 10px;
+
+}
+
+#TextHeader {
+background-color: #dddddd;
+font-size: 10px;
+font-family: Arial,Helvetica,sans-serif;
+}
+
+.upload-btn-wrapper {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.btn {
+  border: 2px solid gray;
+  color: gray;
+  background-color: white;
+  padding: 8px 20px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.upload-btn-wrapper input[type=file] {
+  font-size: 50px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;}
+  
+  <!--
+
+TD{ bgcolor="#ffffff" valign="top"}
+
+.SubmitBtn {font-size: 12px;
+
+font-family: Arial,Helvetica,sans-serif;
+
+font-weight: inherit;
+
+}
+
+.upload-btn-wrapper {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.btn {
+  border: 2px solid gray;
+  color: gray;
+  background-color: white;
+  padding: 8px 20px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.upload-btn-wrapper input[type=file] {
+  font-size: 50px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;}
+/*
+
+body {color:#000; background:#fff; font:100%/1.5 arial,sans-serif;}
+
+h2 {margin-top:0}
+
+*/
+
+/* Styling applied to classes only */
+
+/* Pop-up content shifted off-screen when not in view.
+
+Still readable by screen-reader software.
+
+When targeted it fills the browser window.
+
+*/
+.pop-up {
+	position:absolute;
+	top:0;
+	left:-500em;
+	visibility: visible;
+}
+
+.pop-up:target {position:static; left:0;}
+
+/* The pop-up itself */
+
+.popBox {
+	background:#ffffff;
+	position:absolute;
+	left:20%;
+	right:20%;
+	top:10%;
+	bottom:30%;
+	z-index:10;
+	border:1px solid #3a3a3a;
+
+/* CSS3 where available: rounded corners, drop-shadow, and fade in. */
+
+border-radius:.25rem;
+
+box-shadow:0 .5rem .5rem rgba(0,0,0,.5);
+	opacity:0;
+	transition: opacity 0.8s ease-out;
+	visibility: visible;
+}
+
+:target .popBox {position:fixed; opacity:1;}
+
+/* Light box properties */
+
+.lightbox {
+
+display:none;
+
+text-indent:-200em;
+
+background-color:rgba(0,0,0,.4);
+
+width:100%;
+
+height:100%;
+
+position:fixed;
+
+top:0;
+
+left:0;
+
+bottom:0;
+
+right:0;
+
+z-index:5;
+
+}
+
+:target .lightbox {display:block;}
+
+/* The pop-ups close link, moved via CSS to the top right of the pop-up */
+
+.close:link,
+
+.close:visited {
+	position: absolute;
+	top: -0.75em;
+	right: -0.75em;
+	display: block;
+	width: 2em;
+	height: 2em;
+	line-height: 1.8;
+	padding: 0;
+	text-align: center;
+	text-decoration: none;
+	background-color: #000;
+	border: 2px solid #fff;
+	color: #fff;
+	border-radius: 50%;
+
+box-shadow: 0 0 .5rem .5rem rba(0,0,0,.5);
+	visibility: visible;
+}
+
+.close:before {content:"X";}
+
+.close:hover,
+
+.close:active,
+
+.close:focus {
+
+box-shadow: 0 0 .5rem .5rem rba(255,0,0,.5);
+
+background-color: #c00;
+
+color: #fff;
+
+}
+
+.close span {
+
+text-indent: -200em;
+
+display: block;
+
+}
+
+/* The pop-up content div will scroll if it has too much content */
+
+.popScroll {
+	position:absolute;
+	top: 1rem;
+	left: 1rem;
+	right: 1rem;
+	bottom: 1rem;
+	overflow-y: auto;
+
+*overflow-y: scroll;
+	padding-right: 0.5em;
+	visibility: visible;
+}
+
+.popScroll h2 {margin-top:0}
+}
+.style32 {font-size: 14px}
+.style7 {color: #FF0000;
+	font-size: 10px;
+}
+.style7 {font-size: 10px}
+.formbold {font-size: 12px; font-weight: bold; font-family:Arial, Helvetica, sans-serif}
+.style35 {color: #2A5F00}
+.style36 {color: #2A5F00; font-size: 14px; }
+.style38 {
+	font-size: 12px;
+	color: #FF0000;
+	font-style: italic;
+}
+  input[type=button] {
+
+  border: 2px solid #0f88f2;;
+   border-radius:.25rem;
+  color: black;
+  padding: 2px 2px;
+  text-decoration: none;
+  margin: 2px 2px;
+  cursor: pointer;
+}
+input[type=submit] {
+ border: 2px solid green;
+  border-radius:.25rem;
+  background-color: white;
+  color: black;
+  padding: 2px 2px;
+  font-size: 14px;
+   cursor: pointer;
+}
+input[type=reset] {
+ border: 2px solid red;
+ border-radius:.25rem;
+  background-color: white;
+  color: black;
+  padding: 2px 2px;
+  font-size: 14px;
+   cursor: pointer;
+}
+input[type=black] {
+ border: 2px solid #999999;
+  border-radius:.25rem;
+  width: 60px;
+  background-color: white;
+  color: black;
+  padding: 2px 2px;
+  font-size: 14px;
+   cursor: pointer;
+}
+input[type=black1] {
+ border: 2px solid #999999;
+  border-radius:.25rem;
+  width: 145px;
+  background-color: white;
+  color: black;
+  padding: 2px 2px;
+  font-size: 14px;
+   cursor: pointer;
+}
+.style39 { font-size: 12px;}
+body,td,th {
+	font-family: Arial, Helvetica, sans-serif;
+}
+.style42 {font-family:Arial, Helvetica, sans-serif; font-weight: bold;}
+.style43 {font-size: 12}
+</style>
+ <script>
+ 
+ 	function RestoreTitle() {
+
+var RightNow = document.getElementById('Title').value;
+
+//document.getElementById('Title').value = RightNow;
+document.getElementById('SubjectText').innerHTML = RightNow;
+store();
+}
+
+function SetupTitle() {
+var myprompt = '';
+var RightNow = prompt("Enter Agency/Group Title",   myprompt);
+if (RightNow.length == 0) { RightNow = ' ';}
+document.getElementById('Title').value = RightNow;
+document.getElementById('SubjectText').innerHTML = RightNow;
+
+store();
+}
+   function store(){
+ 	var formatted= document.getElementById("Title");
+     localStorage.setItem("CustomICS309", formatted.value);
+    }
+
+	function getit() {
+		var formatted= document.getElementById("Title");
+	var storedValue = localStorage.getItem("CustomICS309");
+	document.getElementById('Title').value = storedValue;
+	RestoreTitle();
+	
+	}
+ 
+ 
+ 
+ 
+ function DateNow2(Timefld, FocusFld) {
+
+var txt;
+
+var d = new Date(),
+
+ thisyear = d.getFullYear();
+
+ thismonth= d.getMonth();
+
+ thismonth = thismonth + 1;
+if (thismonth < 10) { thismonth = "0" + thismonth}
+
+
+
+ thisday = d.getDate();
+if (thisday < 10) { thisday = "0" + thisday}
+
+
+h = (d.getHours()<10?'0':'') + d.getHours()
+
+m = (d.getMinutes()<10?'0':'') + d.getMinutes()
+
+s = (d.getSeconds()<10?'0':'') + d.getSeconds();
+
+
+
+var myprompt = thisyear+ '-'+thismonth+'-'+thisday+' '+h + ':' + m ;
+var RightNow = prompt("Date/Time:", myprompt);
+
+document.getElementById(Timefld).value = RightNow;
+}
+
+
+ function DateNow(Timefld, FocusFld) {
+
+var txt;
+
+var d = new Date(),
+
+ thisyear = d.getFullYear();
+
+ thismonth= d.getMonth();
+
+ thismonth = thismonth + 1;
+if (thismonth < 10) { thismonth = "0" + thismonth}
+
+
+
+ thisday = d.getDate();
+if (thisday < 10) { thisday = "0" + thisday}
+
+
+h = (d.getHours()<10?'0':'') + d.getHours()
+
+m = (d.getMinutes()<10?'0':'') + d.getMinutes()
+
+s = (d.getSeconds()<10?'0':'') + d.getSeconds();
+
+
+
+var myprompt = thisyear+ '-'+thismonth+'-'+thisday+' '+h + ':' + m ;
+
+
+
+var RightNow = prompt("Date/Time:", myprompt);
+
+document.getElementById(Timefld).value = RightNow;
+
+
+
+}
+function TimeNow(Timefld, FocusFld) {
+
+var txt;
+
+var d = new Date(),
+
+h = (d.getHours()<10?'0':'') + d.getHours()
+
+m = (d.getMinutes()<10?'0':'') + d.getMinutes()
+
+s = (d.getSeconds()<10?'0':'') + d.getSeconds();
+
+var myprompt = h + ':' + m ;
+
+var RightNow = prompt("Time:", myprompt);
+
+document.getElementById(Timefld).value = RightNow;
+
+document.getElementById(FocusFld).focus();
+
+
+
+}
+//after time now
+
+
+
+function DateTime() {  
+//  alert ("atdatetime");
+var txt;  
+  
+var myprompt;  
+  
+var d = new Date(),  
+  
+thisyear = d.getFullYear();  
+  
+thismonth= d.getMonth();  
+  
+thisday = d.getDate();  
+  var UTCdate = d.getUTCDate();  
+var monname;  
+  
+h = (d.getHours()<10?'0':'') + d.getHours()  
+  
+m = (d.getMinutes()<10?'0':'') + d.getMinutes()  
+  
+var Localtime = h + m+'L ';  
+  
+var now = new Date();  
+  
+var utch = now.getUTCHours();  
+  
+if (utch < 10) { utch = '0'+utch};  
+  
+var utcs = now.getUTCMinutes();  
+  
+if (utcs < 10) { utcs = '0'+utcs};  
+  
+var myUTCtime = utch+""+utcs;  
+  
+var utcstr = d.toUTCString();  
+  
+var localt = d.toLocaleTimeString();  
+  
+var isostr = d.toISOString();  
+  
+monthname = shortmonth (thismonth);  
+  
+thismonth = thismonth + 1;  
+  if (thismonth < 10) { thismonth = "0" + thismonth}
+
+var UTCmon = d.getUTCDate();  
+  
+var UTCmon = d.getUTCMonth();  
+var UTCmon = UTCmon+1;
+if (UTCmon < 10) { UTCmon = "0" + UTCmon}
+
+var utcmonthname = shortmonth (UTCmon);  
+  
+//var UTCmmdd =utcmonthname + " "+UTCdate+" "+thisyear;  
+  
+//var Localdate = monthname+' '+thisday+" "+thisyear;  
+var UTCmmdd =thisyear + "-"+UTCmon+"-"+UTCdate;  
+  	
+var Localdate = thisyear+'-'+thismonth+'-'+thisday;
+  
+var Rightnow =UTCmmdd;  
+  
+if (document.getElementById('tformat').checked) { Rightnow = Localdate};  
+  
+document.getElementById('Mdate').value = Rightnow;  
+  
+var Rightnow = myUTCtime;  
+  
+if (document.getElementById('tformat').checked) { Rightnow = Localtime};  
+  
+document.getElementById('Mtime').value = Rightnow;  
+  
+// if(FocusFld !== null && FocusFld !== '') {document.getElementById(FocusFld).focus()} --/  
+  
+};  
+function RWS(str){
+
+var text2 = str.replace(/\s+$/,"");
+var aquote = '"';
+var text2=text2.replace(/\“/g, aquote); 
+var text2=text2.replace(/\”/g, aquote); 
+var text2=text2.replace(/\’/g, "'"); 
+var text2=text2.replace(/\‘/g, "'"); 
+
+ text2 = text2.replace(/[\u2018|\u2019|\u201A]/gm, "\'");
+    // smart double quotes
+	text2 = text2.replace(/[\u201C|\u201D|\u201E]/g, "\"");
+	//text2 = text2.replace(/\u00201c/g, aquote);
+//text2 = text2.replace(/[\u+201D]/gm, aquote);
+    // ellipsis
+   // text2 = text2.replace(/\u2026/g, "...");
+    // dashes
+    //text2 = text2.replace(/[\u2013|\u2014]/g, "-");
+    // circumflex
+ //   text2 = text2.replace(/\u02C6/g, "^");
+    // open angle bracket
+    //text2 = text2.replace(/\u2039/g, "");
+    // spaces
+    //text2 = text2.replace(/[\u02DC|\u00A0]/g, " ");
+return text2.trim();
+
+}	function selectaddress(){  
+ location.href="#pop3";  
+ 
+}  
+//-------
+ function readBlob(opt_startByte, opt_stopByte) {
+  
+    var files = document.getElementById('files').files;
+    if (!files.length) {
+      alert('Please select a file!');
+      return;
+    }
+
+    var file = files[0];
+    var start = parseInt(opt_startByte) || 0;
+    var stop = parseInt(opt_stopByte) || file.size - 1;
+
+    var reader = new FileReader();
+
+    // If we use onloadend, we need to check the readyState.
+    reader.onloadend = function(evt) {
+      if (evt.target.readyState == FileReader.DONE) { // DONE == 2
+        document.getElementById('byte_content').textContent = evt.target.result;
+        document.getElementById('byte_range').textContent = 
+            ['Read bytes: ', start + 1, ' - ', stop + 1,
+             ' of ', file.size, ' byte file'].join('');
+      }
+    };
+
+    var blob = file.slice(start, stop + 1);
+    reader.readAsBinaryString(blob);
+  }
+    	
+  window.onload = function () { 
+ 
+ //Check the support for the File API support 
+ if (window.File && window.FileReader && window.FileList && window.Blob) {
+    var fileSelected = document.getElementById('txtfiletoread');
+	
+    fileSelected.addEventListener('change', function (e) { 
+         //Set the extension for the file 
+         var fileExtension = /text.*/; 
+         //Get the file object 
+         var fileTobeRead = fileSelected.files[0];
+        //Check of the extension match 
+         if (fileTobeRead.type.match(fileExtension)) { 
+             //Initialize the FileReader object to read the 2file 
+			
+             var fileReader = new FileReader(); 
+             fileReader.onload = function (e) { 
+                 var fileContents = document.getElementById('filecontents'); 
+                
+				document.getElementById('parseme').value =fileReader.result;
+				       parsestring("F");   } 
+             fileReader.readAsText(fileTobeRead); 
+         } 
+         else { 
+             alert("Please select text file"); 
+         }
+ 
+    }, false);
+} 
+ else { 
+     alert("Files are not supported"); 
+ } 
+getit();
+Checkifinbrowser();
+ }
+//function saveTextAsFile(fileNameToSaveAs, textToWrite, Fsuffix)
+function saveTextAsFile(Fsuffix) {
+var textToWrite = document.getElementById('parseme').value; 
+mytitle = document.getElementById('Title').value; 
+var fileNameToSaveAs = mytitle+" ICS309 " + DateforFile()+"."+Fsuffix;
+fileNameToSaveAs = prompt("", fileNameToSaveAs);
+if (fileNameToSaveAs == null){return};
+
+  /* Saves a text string as a blob file*/  
+  var ie = navigator.userAgent.match(/MSIE\s([\d.]+)/),
+      ie11 = navigator.userAgent.match(/Trident\/7.0/) && navigator.userAgent.match(/rv:11/),
+      ieEDGE = navigator.userAgent.match(/Edge/g),
+      ieVer=(ie ? ie[1] : (ie11 ? 11 : (ieEDGE ? 12 : -1)));
+
+  if (ie && ieVer<10) {
+    console.log("No blobs on IE ver<10");
+    return;
+  }
+
+  var textFileAsBlob = new Blob([textToWrite], {
+    type: 'text/plain'
+  });
+
+  if (ieVer>-1) {
+    window.navigator.msSaveBlob(textFileAsBlob, fileNameToSaveAs);
+
+  } else {
+    var downloadLink = document.createElement("a");
+    downloadLink.download = fileNameToSaveAs;
+    downloadLink.href = window.URL.createObjectURL(textFileAsBlob);
+    downloadLink.onclick = function(e) { document.body.removeChild(e.target); };
+    downloadLink.style.display = "none";
+    document.body.appendChild(downloadLink);
+    downloadLink.click();
+  }
+}
+
+
+
+
+
+function destroyClickedElement(event)
+{
+    document.body.removeChild(event.target);
+}
+
+function loadFileAsText()
+{
+
+    var fileToLoad = document.getElementById("fileToLoad").files[0];
+ 
+    var fileReader = new FileReader();
+    fileReader.onload = function(fileLoadedEvent) 
+    {
+        var textFromFileLoaded = fileLoadedEvent.target.result;
+        document.getElementById("inputTextToSave").value = textFromFileLoaded;
+    };
+    fileReader.readAsText(fileToLoad, "UTF-8");
+}
+
+
+function DateforFile(RightNow) {
+var txt;
+var d = new Date(),
+thisyear = d.getFullYear();
+thismonth= d.getMonth();
+thismonth = thismonth+1;
+if (thismonth < 10) { thismonth = "0" + thismonth}
+
+thisday = d.getDate();
+if (thisday < 10) { thisday = "0" + thisday}
+
+h = (d.getHours()<10?'0':'') + d.getHours()
+m = (d.getMinutes()<10?'0':'') + d.getMinutes()
+s = (d.getSeconds()<10?'0':'') + d.getSeconds();
+var myprompt = thisyear+ '-'+thismonth+'-'+thisday+' '+h + '_' + m ;
+return myprompt;
+}
+
+function shortmonth(monthnum) {
+var monthname;
+shortmonths = ["JAN", "FEB", "MAR","APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"] ;
+monthname = shortmonths [monthnum];
+return monthname;
+}
+function DateTime(TType,TheFld, FocusFld) {
+var txt;
+var myprompt;
+var d = new Date(),
+thisyear = d.getFullYear();
+thismonth= d.getMonth();
+thisday = d.getDate();
+var monname;
+h = (d.getHours()<10?'0':'') + d.getHours()
+m = (d.getMinutes()<10?'0':'') + d.getMinutes()
+s = (d.getSeconds()<10?'0':'') + d.getSeconds();
+var now = new Date();
+var utch = now.getUTCHours();
+if (utch < 10) { utch = "0"+utch};
+var utcs = now.getUTCMinutes();
+if (utcs < 10) { utcs = "0"+utcs};
+var myUTCtime = utch+":"+utcs+"";
+var utcstr = d.toUTCString();
+var localt = d.toLocaleTimeString();
+var isostr = d.toISOString();
+monthname = shortmonth (thismonth);
+thismonth = thismonth + 1;
+switch (TType) {
+case 'hms' :
+myprompt = h + ':' + m + ':' + s;
+var RightNow = prompt("Time:", myprompt);
+document.getElementById(TheFld).value = RightNow;
+break;
+case 'hm' :
+myprompt = h + ':' + m;
+var RightNow = prompt("Time:", myprompt);
+document.getElementById(TheFld).value = RightNow;
+break;
+case 'm-d-y': myprompt = thismonth+ '-' + thisday+ '-'+ thisyear;
+var RightNow = prompt("Date:", myprompt);
+document.getElementById(TheFld).value = RightNow;
+break;
+case 'm/d/y': myprompt = thismonth+ '/' + thisday+ '/'+ thisyear;
+var RightNow = prompt("Date:", myprompt);
+document.getElementById(TheFld).value = RightNow;
+break;
+case 'DateStamp-m-d-y': var RightNow = thismonth+ '-' + thisday+ '-'+ thisyear;
+document.getElementById(TheFld).value = RightNow;
+break;
+case 'd mmm y': myprompt = thisday+ ' ' + monthname+ ' '+ thisyear;
+var RightNow = prompt("Date:", myprompt);
+document.getElementById(TheFld).value = RightNow;
+break;
+case 'mmm-d-y': myprompt = monthname+'-'+thisday+ '-' + thisyear;
+var RightNow = prompt("Date:", myprompt);
+document.getElementById(TheFld).value = RightNow;
+break;
+case 'localampm': var myprompt = localt;
+var RightNow = prompt("Local time:", myprompt);
+document.getElementById(TheFld).value = RightNow;
+break;
+case 'fulldate': var myprompt = thisyear+ '-'+thismonth+'-'+thisday;
+var RightNow = prompt("Date:", myprompt);
+document.getElementById(TheFld).value = RightNow;
+break;
+case 'fulldatetime': var myprompt = thisyear+'-'+thismonth+ '-'+thisday+' '+h + ':' + m + ':' + s;
+var RightNow = prompt("Date time:", myprompt);
+document.getElementById(TheFld).value = RightNow;
+break;
+case 'iso': var myprompt = isostr;
+var RightNow = prompt("Date time:", myprompt);
+document.getElementById(TheFld).value = RightNow;
+break;
+case 'utc': var myprompt = utcstr;
+var RightNow = prompt("Date time:", myprompt);
+document.getElementById(TheFld).value = RightNow;
+break;
+case 'zulu': var myprompt = isostr;
+myprompt = isostr.replace("T", " "); slen = myprompt.length;
+myprompt = myprompt.substr(0, slen-5)+'Z';
+var RightNow = prompt("Date time:", myprompt);
+document.getElementById(TheFld).value = RightNow;
+break;
+case 'UTChm': var myprompt = myUTCtime;
+var RightNow = prompt("Date time:", myprompt);
+document.getElementById(TheFld).value = RightNow;
+break;
+}
+// if(FocusFld !== null && FocusFld !== '') {document.getElementById(FocusFld).focus()} --/
+};
+function AutoGrowTextArea(textField){
+//alert (textField.clientHeight );
+//textField.style.height = textField.scrollHeight + "px";
+if (textField.clientHeight < textField.scrollHeight)
+{
+textField.style.height = (textField.scrollHeight * 2 - textField.clientHeight) + "px";
+}
+}
+
+function Countthelines(f) { var text1 = f;
+
+var text2 = text1.replace(/\s+$/,"");
+var split2 = text2.split("\n"); 
+var ar = text2.length /100;
+var mytotal = (split2.length+ar) * 15.5;
+
+
+//var mytotal = split2.length * 15.5;
+//alert("#lines "+mytotal)
+//if (mytotal < 300) {
+//mytotal = 150;
+//}
+var tstr = mytotal.toString();
+return tstr;
+}
+function newfix(f){
+var ThisText = document.getElementById(f).value;
+var makeit = Countthelines(ThisText);
+
+document.getElementById(f).style.height = makeit+"px"; 
+
+}
+
+function Fixarea() {
+
+newfix('Message');
+ document.getElementById('Message').value
+AutoGrowTextArea('Message');
+
+}
+function RWS(str){
+var text2 = str.replace(/\s+$/,"");
+return text2.trim();
+}
+function ExportData() {
+var exheader= "Time,From,To,Subject"+"\n"
+	var mydata= "";
+	var mydata= exheader;
+
+         	for (x = 1; x <31; x++) {
+
+        //var tabs = lines[line].split('\t',11);
+         	
+				var mydata=mydata + document.getElementById('Time'+x).value+",";
+		 		var mydata=mydata+document.getElementById('To'+x).value+",";
+				var mydata=mydata+document.getElementById('From'+x).value+",";
+				var mydata=mydata+'"'+document.getElementById('Sub'+x).value+'"';
+				var mydata=mydata+"\n";
+			}
+			
+			
+			
+			var mydata=mydata+"\n";
+		
+
+			document.getElementById('parseme').value = mydata;
+			
+			saveTextAsFile('csv');
+			
+			//saveTextAsFile();
+			}
+
+function SaveData() {
+	var mydata= "";
+
+         	for (x = 1; x <31; x++) {
+
+        //var tabs = lines[line].split('\t',11);
+         	
+				var mydata=mydata + document.getElementById('Time'+x).value+"\t";
+		 		var mydata=mydata+document.getElementById('To'+x).value+"\t";
+				var mydata=mydata+document.getElementById('From'+x).value+"\t";
+				var mydata=mydata+document.getElementById('Sub'+x).value+"\t";
+				var mydata=mydata+"\n";
+			}
+	
+			
+			var mydata=mydata + document.getElementById('Task').value+"\t";
+			var mydata=mydata + document.getElementById('TaskName').value+"\t";
+						
+			var mydata=mydata + document.getElementById('ActivityDateTime1').value+"\t";
+			var mydata=mydata + document.getElementById('OpPer').value+"\t";
+						
+			var mydata=mydata + document.getElementById('OpName').value+"\t";
+			var mydata=mydata + document.getElementById('OperId').value+"\t";
+
+			
+			
+			
+			var mydata=mydata+"\n";
+		
+
+			document.getElementById('parseme').value = mydata;
+			
+			saveTextAsFile('txt');
+			
+			//saveTextAsFile();
+			}
+			
+function Cleardata(){
+if(confirm('Are you sure?')){
+for (x = 1; x <31; x++) 
+{
+document.getElementById('Time'+x).value ='';
+document.getElementById('To'+x).value ='';
+document.getElementById('From'+x).value='';
+document.getElementById('Sub'+x).value ='';;
+}
+}
+}
+
+function parsestring2(mType) {
+	var mytext = document.getElementById('parseme2').value;
+var myType = mType;
+	
+var lines = mytext.split('\n');
+    for(var line = 0; line < lines.length - 1; line++){
+        // By tabs
+		//alert (lines[line]);
+		var x = line +1;
+
+		
+     if (line <30) { 
+	  	var tabs = lines[line].split('\t',4);
+
+         	if (tabs[0] != null){document.getElementById('Time'+x).value =tabs[0]};
+			if (tabs[1] != null){document.getElementById('To'+x).value =tabs[1] };
+			if (tabs[2] != null){document.getElementById('From'+x).value =tabs[2] };
+			if (tabs[3] != null){document.getElementById('Sub'+x).value =tabs[3] };
+
+		}
+			}
+			 alert ('Data has been parsed.');   
+	 document.getElementById('lnk').click();
+			}
+			
+			
+		//
+
+
+	
+	function selectaddress(){  
+ location.href="#pop3";  
+} 
+function parsestring(mType) {
+	var mytext = document.getElementById('parseme').value;
+var myType = mType;
+	
+var lines = mytext.split('\n');
+    for(var line = 0; line < lines.length - 1; line++){
+        // By tabs
+		//alert (lines[line]);
+		var x = line +1;
+
+		
+     if (line <30) { 
+	  	var tabs = lines[line].split('\t',4);
+
+         	if (tabs[0] != null){document.getElementById('Time'+x).value =tabs[0]};
+			if (tabs[1] != null){document.getElementById('To'+x).value =tabs[1] };
+			if (tabs[2] != null){document.getElementById('From'+x).value =tabs[2] };
+			if (tabs[3] != null){document.getElementById('Sub'+x).value =tabs[3] };
+
+		}
+			
+			
+			if (line >29) { 
+
+			// now the other parts
+			var tabs = lines[line].split('\t',6);
+			//
+							//
+			if (tabs[0] != null){document.getElementById('Task').value =tabs[0] };
+			if (tabs[1] != null){document.getElementById('TaskName').value =tabs[1] };
+			if (tabs[2] != null){document.getElementById('ActivityDateTime1').value =tabs[2] };
+			if (tabs[3] != null){document.getElementById('OpPer').value =tabs[3] };
+			if (tabs[4] != null){document.getElementById('OpName').value =tabs[4] };
+			if (tabs[5] != null){document.getElementById('OperId').value =tabs[5] }
+			}
+			}
+			}
+			function Checkifinbrowser() {
+ var x= document.getElementById("testCall").value; 
+ var n = x.search("{Msg");
+ if (n>-1) { 
+ document.getElementById('Submit').style.visibility='hidden';
+  alert('You are running this form outside of Winlink.\n \nWhen you have completed the form, SAVE the data and then give or send the SAVED data file to the radio operator. The operator will load the SAVED data into the correct form and send via winlink. ');
+ } else {document.getElementById('Submit').style.visibility='visible';  }
+}
+ </script>
+</head>
+<body>
+<div style="text-align: center;">
+<form action="http://{FormServer}:{FormPort}" enctype="multipart/form-data" id="ICS309" method="post" onsubmit="return confirm('To complete your form submission, click OK and close the open browser window. You will return to the new message window so you can post your message to the outbox');" pbzloc="0">
+  <div align="left"><span></span><b><big>
+    <input type="button" value="Setup" onclick="SetupTitle()" />
+    </big></b><span class="style7"><big>&nbsp;<span class="style32">Click to add agency or group</span><small><span style="font-style: italic;">&nbsp;&nbsp;</span></small></big></span>
+    <input type="file" id="txtfiletoread" accept=".txt"  style="display: none;"/>
+    <big><small><span style="font-style: italic;">&nbsp;&nbsp;&nbsp; </span></small></big>&nbsp;
+  </div>
+  <div id="pop1" class="pop-up">
+<div class="popBox">
+<div class="popScroll"><!-- Test for help starts here -->
+<p> </p>
+ICS 309 General Purpose Communications Log Purpose: <br />
+<br /> <p align="left">
+The 309 Communications Log allows you to record details of message traffic and is
+used by either an individual on an event or a Net Control Operator
+(NCO). These logs provide the basic reference from which to extract
+basic logged communications traffic. <br />
+<p align="left">Preparation:<br />
+<br />
+The Comm Log is initiated and maintained by the Net Control Operator
+(NCO) or the individual operator. Completed logs are submitted to the
+supervisor who forwards them to the Documentation Unit. </p>
+<p align="left"> Distribution:<br />
+<br />
+The Documentation Unit maintains a file of all Comm Logs. All completed
+original forms MUST be forwarded to the Documentation Unit. </p>
+<p align="left">Comment:<br />
+<br />
+This form is NOT the ICS309 Communications Message Log that is built into Winlink Express.
+That tool creates a PDF record of inbound/outbound message traffic information.</p><br />
+<strong>More Information</strong><br /><br />
+<p align="left">You can save your completed HTML to a text file. This will allow you to reload the ICS309
+with ALL entered form data. You do this prior to submitting the form. Then you can open a new 309 and load the saved HTML form data. 
+NOTE: Dates and Times will be the previous, so change if needed. It will save the info
+as a text file with the Date and Time as the text file name. Now you can use any browser, save your form, (as many versions as you like), and then re-populate.
+<br />
+<br />
+<p align="left">Import a ".txt" file with tab-delimited data by using the "Load ICS309 Data" button. 
+The data should be in this format:
+Time      From       To       Subject
+Note that the "Save ICS309 Data" saves the ICS309 data in the same format.
+Tab delimited data can be copied and pasted easily into spreadsheets.
+<br /><br />
+ NOTE on printing. <br />
+
+<br />
+
+Printing this form is dependent upon your selected
+
+printer and its settings. Various Web Browsers and and their viewing
+
+sizes are not all the same. Printing from a browsers print function
+
+may be different from the operating systems default print mode.
+
+Select what works for you, for both printing and viewing.
+
+You may print direct to the printer as a HTML or save as a
+
+PDF then print the PDF. In some instances Landscape mode may print
+
+better than Portrait. <br /><br />
+
+</div>
+<!-- The close pop-up link correctly positioned at the end of the content block --><a href="#links" class="close"><span>Back to links</span></a>
+</div>
+</div>
+ <div class="pop-up" id="pop3">
+    <!-- The pop-up block -->
+    <div class="popBox">
+      <!-- If the content becomes larger than the pop-up this div will scroll the content -->
+      <div class="popScroll">
+        <p> </p>
+        <h3>Copy and Paste up to 30 lines Data From Spreadsheet</h3>
+        <span class="style23">
+        <p align="left">Copy the data from the spreadsheet and paste in box below, then click "Parse Data".<br />
+		Tab delineation only. Ensure fields match & do not exceed form field lengths, or data entries will not be correct. 
+        </p>
+        <textarea name="parseme2" cols="78" rows="6" id="parseme2" placeholder="Paste spreadsheet data here" ></textarea> 
+		<BR />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type=button value="Parse Data" onClick="parsestring2('P');">
+		
+		
+        </span>
+        <p align="left"></p>
+        <a href="#links">Close this window</a> </div>
+      <!-- The close pop-up link correctly positioned at the end of the content block -->
+      <a id="lnk" href="#links" class="close"><span>Back to links</span></a>
+    </div>
+  </div>
+<table align="left" border="0" width="778">
+<tbody>
+<tr>
+<td>
+  <table style="background-color: rgb(250, 250, 255); width: 768px; height: 859px;" border="1" bordercolor="#999999" cellpadding="4" cellspacing="0">
+    <tbody>
+      <tr>
+        <td valign="top"  style="vertical-align: top; text-align: center;"><p style="background-color: white;"><b>&nbsp; &nbsp; &nbsp;&nbsp;&nbsp; <big><big><span style="font-style: italic;">COMMUNICATIONS LOG</span></big> &nbsp;</big></b><big>(ICS 309</big><big><small>)<br /> 
+          <span  id="SubjectText"> </span>                    </small></big></p>
+            <div align="center"><big><small> <span class="style39"><a href="#pop1"><big style="color: rgb(204, 0, 0);">Form Info</big></a></span></small></big><big><small><span style="font-style: italic;"><br />
+            </span></small></big></div></td>
+        <td valign="middle" class="style39" style="text-align: center; vertical-align: top;"><p class="style43"><big><small>Task #</small>&nbsp;&nbsp;
+              <input maxlength="7" size="8" name="Task" id="Task"  />        
+          </big>&nbsp;</p>
+          </td>
+        <td nowrap="nowrap" class="style39" style="text-align: center; vertical-align: top;"><p class="style43">Date/Time Prepared: 
+              <input tabindex="2" required="required" placeholder="Click to Add Date/Time" name="ActivityDateTime1" maxlength="18" id="ActivityDateTime1" size="20" onclick="DateNow2('ActivityDateTime1', 'Activities1')" />        
+          </p>
+          </td>
+      </tr>
+      <tr>
+        <td valign="top" style="text-align: center; vertical-align: top;">
+          <div align="left" class="style39">For Operational Period #&nbsp;
+              <input maxlength="15" size="16" name="OpPer" id="OpPer"/>
+              <span class="style42"><span class=""><small>
+              <input name="Title" type="hidden" id="Title" value="Set up title" />
+              </small></span></span></div></td>
+        <td style="text-align: center; vertical-align: top;" colspan="2"><div align="left"><span class="style39"> Task Name&nbsp;                <input maxlength="50" size="50" name="TaskName"  id="TaskName" "/>
+        </span></div></td>
+      </tr>
+      <tr>
+        <td valign="top" style="text-align: top; vertical-align: top;"><span class="style39"> Operator Name&nbsp;
+            <input required="required" maxlength="35" size="40" name="OpName" id="OpName" />
+        </span></td>
+        <td valign="top" style="text-align: center; vertical-align: top;"><span class="style39">
+        Station ID
+            <input title="Your Call sign or assigned ID" required="required" maxlength="13" size="14" name="OperId" id="OperId" tabindex="6"/>
+        </span></td>
+        <td style="vertical-align: top; text-align: center;" colspan="2"><span class="style39"> <small><span style="color: rgb(0, 153, 0);"><big>Express Sender</big></span>
+              <input title="This is the Call or Tactical that is being used to send form." readonly="readonly" maxlength="16" size="16" name="MsgSender"  id="MsgSender"value="{MsgSender}" />
+              </small></span></td>
+      </tr>
+      <tr bgcolor="#f8f8ff">
+        <td colspan="3" nowrap="nowrap" style="text-align: center; vertical-align: top; ">
+          <div align="left">
+    <input type="button" value=" Load ICS309 Data " onclick="document.getElementById('txtfiletoread').click();" />
+&nbsp;&nbsp;&nbsp;<big><small><span style="font-style: italic;">&nbsp;&nbsp;<span class="style32">PAGE #</span></span> &nbsp;</span></small>
+<input name="Page" id="Page" value="1" size="3" maxlength="2" />
+<small><span style="font-style: italic;">&nbsp;&nbsp;&nbsp;<span class="style36">Track &amp; Increment your page #'s </span></span><span class="style35"><span class="style38">(Default is 1)</span></span> <span style="font-style: italic;"><span class="style35">&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="style32">&nbsp;</span></span><span class="style32"><a href="javascript:selectaddress();">Paste Data from a Spreadsheet</a></span> <span style="font-style: italic;"><span class="style35">&nbsp;</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="style32">&nbsp;</span></span><span class="style32"><a href="javascript:Cleardata();" class="style39">CLEAR Data</a></span></small></big></div></td></tr>
+      <tr>
+        <td height="955" colspan="3" style="vertical-align: top; text-align: center;"><table style="text-align: left; width: 792px; height: 736px;" border="1" cellpadding="2" cellspacing="2">
+            <tbody>
+              <tr>
+                <td style="text-align: center; vertical-align: top;">DATE/TIME&nbsp;</td>
+                <td colspan="2" style="text-align: center; vertical-align: top;">STATION ID &nbsp; <br />
+                  FROM&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; TO  &nbsp;  &nbsp; </td>
+                <td style="text-align: center; vertical-align: top;">SUBJECT  <textarea name="parseme" cols="80" rows="3" id="parseme" placeholder="Paste spreadsheet data here"  style="display: none;"></textarea></td>
+              </tr>
+              <tr>
+                <td><input maxlength="23" size="24" name="Time1" id="Time1" onclick="DateNow2('Time1', 'To1')" placeholder="Click for Date/Time" /></td>
+                <td><input maxlength="13" size="14" name="To1" id="To1" /></td>
+                <td><input maxlength="13" size="14" name="From1"id="From1"/></td>
+                <td><input maxlength="90" size="90" name="Sub1" id="Sub1" /></td>
+              </tr>
+              <tr>
+                <td><input maxlength="23" size="24" name="Time2" id="Time2" onclick="DateNow2('Time2', 'To2')" placeholder="Click for Date/Time" /></td>
+                <td><input maxlength="13" size="14" name="To2" id="To2" /></td>
+                <td><input maxlength="13" size="14" name="From2" id="From2" /></td>
+                <td><input maxlength="90" size="90" name="Sub2"id="Sub2" /></td>
+              </tr>
+              <tr>
+                <td><input maxlength="23" size="24" name="Time3" id="Time3" onclick="DateNow2('Time3', 'To3')" placeholder="Click for Date/Time" /></td>
+                <td><input maxlength="13" size="14" name="To3" id="To3" /></td>
+                <td><input maxlength="13" size="14" name="From3" id="From3" /></td>
+                <td><input maxlength="90" size="90" name="Sub3"  id="Sub3" /></td>
+              </tr>
+              <tr>
+                <td><input maxlength="23" size="24" name="Time4" id="Time4" onclick="DateNow2('Time4', 'To4')" placeholder="Click for Date/Time" /></td>
+                <td><input maxlength="13" size="14" name="To4" id="To4" /></td>
+                <td><input maxlength="13" size="14" name="From4" id="From4"/></td>
+                <td><input maxlength="90" size="90" name="Sub4" id="Sub4"/></td>
+              </tr>
+              <tr>
+                <td><input maxlength="23" size="24" name="Time5" id="Time5" onclick="DateNow2('Time5', 'To5')" placeholder="Click for Date/Time" /></td>
+                <td><input maxlength="13" size="14" name="To5" id="To5" /></td>
+                <td><input maxlength="13" size="14" name="From5" id="From5" /></td>
+                <td><input maxlength="90" size="90" name="Sub5" id="Sub5"/></td>
+              </tr>
+              <tr>
+                <td><input maxlength="23" size="24" name="Time6" id="Time6" onclick="DateNow2('Time6', 'To6')" placeholder="Click for Date/Time" /></td>
+                <td><input maxlength="13" size="14" name="To6" id="To6" /></td>
+                <td><input maxlength="13" size="14" name="From6"  id="From6" /></td>
+                <td><input maxlength="90" size="90" name="Sub6" id="Sub6"/></td>
+              </tr>
+              <tr>
+                <td><input maxlength="23" size="24" name="Time7" id="Time7" onclick="DateNow2('Time7', 'To7')" placeholder="Click for Date/Time" /></td>
+                <td><input maxlength="13" size="14" name="To7" id="To7" /></td>
+                <td><input maxlength="13" size="14" name="From7"  id="From7"/></td>
+                <td><input maxlength="90" size="90" name="Sub7" id="Sub7" /></td>
+              </tr>
+              <tr>
+                <td><input maxlength="23" size="24" name="Time8" id="Time8" onclick="DateNow2('Time8', 'To8')" placeholder="Click for Date/Time" /></td>
+                <td><input maxlength="13" size="14" name="To8" id="To8" /></td>
+                <td><input maxlength="13" size="14" name="From8" id="From8" /></td>
+                <td><input maxlength="90" size="90" name="Sub8" id="Sub8" ></td>
+              </tr>
+              <tr>
+                <td><input maxlength="23" size="24" name="Time9" id="Time9" onclick="DateNow2('Time9', 'To9')" placeholder="Click for Date/Time" /></td>
+                <td><input maxlength="13" size="14" name="To9" id="To9" /></td>
+                <td><input maxlength="13" size="14" name="From9" id="From9"  /></td>
+                <td><input maxlength="90" size="90" name="Sub9"  id="Sub9" /></td>
+              </tr>
+              <tr>
+                <td><input maxlength="23" size="24" name="Time10" id="Time10" onclick="DateNow2('Time10', 'To10')" placeholder="Click for Date/Time" /></td>
+                <td><input maxlength="13" size="14" name="To10" id="To10" /></td>
+                <td><input maxlength="13" size="14" name="From10"  id="From10" /></td>
+                <td><input maxlength="90" size="90" name="Sub10" id="Sub10"/></td>
+              </tr>
+              <tr>
+                <td><input maxlength="23" size="24" name="Time11" id="Time11" onclick="DateNow2('Time11', 'To11')" placeholder="Click for Date/Time" /></td>
+                <td><input maxlength="13" size="14" name="To11" id="To11" /></td>
+                <td><input maxlength="13" size="14" name="From11" id="From11"/></td>
+                <td><input maxlength="90" size="90" name="Sub11" id="Sub11"/></td>
+              </tr>
+              <tr>
+                <td><input maxlength="23" size="24" name="Time12" id="Time12" onclick="DateNow2('Time12', 'To12')" placeholder="Click for Date/Time" /></td>
+                <td><input maxlength="13" size="14" name="To12" id="To12" /></td>
+                <td><input maxlength="13" size="14" name="From12" id="From12" /></td>
+                <td><input maxlength="90" size="90" name="Sub12" id="Sub12"/></td>
+              </tr>
+              <tr>
+                <td><input maxlength="23" size="24" name="Time13" id="Time13" onclick="DateNow2('Time13', 'To13')" placeholder="Click for Date/Time" /></td>
+                <td><input maxlength="13" size="14" name="To13" id="To13" /></td>
+                <td><input maxlength="13" size="14" name="From13"  id="From13" /></td>
+                <td><input maxlength="90" size="90" name="Sub13" id="Sub13" /></td>
+              </tr>
+              <tr>
+                <td><input maxlength="23" size="24" name="Time14" id="Time14" onclick="DateNow2('Time14', 'To14')" placeholder="Click for Date/Time" /></td>
+                <td><input maxlength="13" size="14" name="To14" id="To14" /></td>
+                <td><input maxlength="13" size="14" name="From14" id="From14"/></td>
+                <td><input maxlength="90" size="90" name="Sub14" id="Sub14"/></td>
+              </tr>
+              <tr>
+                <td><input maxlength="23" size="24" name="Time15" id="Time15" onclick="DateNow2('Time15', 'To15')" placeholder="Click for Date/Time" /></td>
+                <td><input maxlength="13" size="14" name="To15" id="To15" /></td>
+                <td><input maxlength="13" size="14" name="From15" id="From15"/></td>
+                <td><input maxlength="90" size="90" name="Sub15" id="Sub15"  /></td>
+              </tr>
+              <tr>
+                <td><input maxlength="23" size="24" name="Time16" id="Time16" onclick="DateNow2('Time16', 'To16')" placeholder="Click for Date/Time" /></td>
+                <td><input maxlength="13" size="14" name="To16" id="To16" /></td>
+                <td><input maxlength="13" size="14" name="From16" id="From16" /></td>
+                <td><input maxlength="90" size="90" name="Sub16" id="Sub16"  /></td>
+              </tr>
+              <tr>
+                <td><input maxlength="23" size="24" name="Time17" id="Time17" onclick="DateNow2('Time17', 'To17')" placeholder="Click for Date/Time" /></td>
+                <td><input maxlength="13" size="14" name="To17" id="To17" /></td>
+                <td><input maxlength="13" size="14" name="From17" id="From17" /></td>
+                <td><input maxlength="90" size="90" name="Sub17" id="Sub17"></td>
+              </tr>
+              <tr>
+                <td><input maxlength="23" size="24" name="Time18" id="Time18" onclick="DateNow2('Time18', 'To18')" placeholder="Click for Date/Time" /></td>
+                <td><input maxlength="13" size="14" name="To18" id="To18" /></td>
+                <td><input maxlength="13" size="14" name="From18"  id="From18" /></td>
+                <td><input maxlength="90" size="90" name="Sub18" id="Sub18"  /></td>
+              </tr>
+              <tr>
+                <td><input maxlength="23" size="24" name="Time19" id="Time19" onclick="DateNow2('Time19', 'To19')" placeholder="Click for Date/Time" /></td>
+                <td><input maxlength="13" size="14" name="To19" id="To19" /></td>
+                <td><input maxlength="13" size="14" name="From19"  id="From19" /></td>
+                <td><input maxlength="90" size="90" name="Sub19" id="Sub19" /></td>
+              </tr>
+              <tr>
+                <td><input maxlength="23" size="24" name="Time20" id="Time20" onclick="DateNow2('Time20', 'To20')" placeholder="Click for Date/Time" /></td>
+                <td><input maxlength="13" size="14" name="To20" id="To20" /></td>
+                <td><input maxlength="13" size="14" name="From20"  id="From20" /></td>
+                <td><input maxlength="90" size="90" name="Sub20" id="Sub20" /></td>
+              </tr>
+              <tr>
+                <td><input maxlength="23" size="24" name="Time21" id="Time21" onclick="DateNow2('Time21', 'To21')" placeholder="Click for Date/Time" /></td>
+                <td><input maxlength="13" size="14" name="To21" id="To21" /></td>
+                <td><input maxlength="13" size="14" name="From21" id="From21" /></td>
+                <td><input maxlength="90" size="90" name="Sub21" id="Sub21" /></td>
+              </tr>
+              <tr>
+                <td><input maxlength="23" size="24" name="Time22" id="Time22" onclick="DateNow2('Time22', 'To22')" placeholder="Click for Date/Time" /></td>
+                <td><input maxlength="13" size="14" name="To22" id="To22" /></td>
+                <td><input maxlength="13" size="14" name="From22"  id="From22" /></td>
+                <td><input maxlength="90" size="90" name="Sub22" id="Sub22" /></td>
+              </tr>
+              <tr>
+                <td><input maxlength="23" size="24" name="Time23" id="Time23" onclick="DateNow2('Time23', 'To23')" placeholder="Click for Date/Time" /></td>
+                <td><input maxlength="13" size="14" name="To23" id="To23" /></td>
+                <td><input maxlength="13" size="14" name="From23"  id="From23"  /></td>
+                <td><input maxlength="90" size="90" name="Sub23" id="Sub23" /></td>
+              </tr>
+              <tr>
+                <td><input maxlength="23" size="24" name="Time24" id="Time24" onclick="DateNow2('Time24', 'To24')" placeholder="Click for Date/Time" /></td>
+                <td><input maxlength="13" size="14" name="To24" id="To24" /></td>
+                <td><input maxlength="13" size="14" name="From24"  id="From24"/></td>
+                <td><input maxlength="90" size="90" name="Sub24"  id="Sub24"/></td>
+              </tr>
+              <tr>
+                <td><input maxlength="23" size="24" name="Time25" id="Time25" onclick="DateNow2('Time25', 'To25')" placeholder="Click for Date/Time" /></td>
+                <td><input maxlength="13" size="14" name="To25" id="To25" /></td>
+                <td><input maxlength="13" size="14" name="From25"  id="From25" /></td>
+                <td><input maxlength="90" size="90" name="Sub25" id="Sub25" /></td>
+              </tr>
+              <tr>
+                <td><input maxlength="23" size="24" name="Time26" id="Time26" onclick="DateNow2('Time26', 'To26')" placeholder="Click for Date/Time" /></td>
+                <td><input maxlength="13" size="14" name="To26" id="To26" /></td>
+                <td><input maxlength="13" size="14" name="From26"  id="From26"/></td>
+                <td><input maxlength="90" size="90" name="Sub26"  id="Sub26"/></td>
+              </tr>
+              <tr>
+                <td><input maxlength="23" size="24" name="Time27" id="Time27" onclick="DateNow2('Time27', 'To27')" placeholder="Click for Date/Time" /></td>
+                <td><input maxlength="13" size="14" name="To27" id="To27" /></td>
+                <td><input maxlength="13" size="14" name="From27" id="From27"/></td>
+                <td><input maxlength="90" size="90" name="Sub27"  id="Sub27"/></td>
+              </tr>
+              <tr>
+                <td><input maxlength="23" size="24" name="Time28" id="Time28" onclick="DateNow2('Time28', 'To28')" placeholder="Click for Date/Time" /></td>
+                <td><input maxlength="13" size="14" name="To28" id="To28" /></td>
+                <td><input maxlength="13" size="14" name="From28"  id="From28"/></td>
+                <td><input maxlength="90" size="90" name="Sub28" id="Sub28" /></td>
+              </tr>
+              <tr>
+                <td><input maxlength="23" size="24" name="Time29" id="Time29" onclick="DateNow2('Time29', 'To29')" placeholder="Click for Date/Time" /></td>
+                <td><input maxlength="13" size="14" name="To29" id="To29" /></td>
+                <td><input maxlength="13" size="14" name="From29"  id="From29"/></td>
+                <td><input maxlength="90" size="90" name="Sub29" id="Sub29" /></td>
+              </tr>
+              <tr>
+                <td><input maxlength="23" size="24" name="Time30" id="Time30" onclick="DateNow2('Time30', 'To30')" placeholder="Click for Date/Time" /></td>
+                <td><input maxlength="13" size="14" name="To30" id="To30" /></td>
+                <td><input maxlength="13" size="14" name="From30"  id="From30" /></td>
+                <td><input maxlength="90" size="90" name="Sub30"  id="Sub30"/></td>
+              </tr>
+            </tbody>
+        </table>
+          <div align="left"></div></td>
+      </tr>
+      <tr>
+        <td height="33" colspan="3" style="vertical-align: top; text-align: left;">&nbsp;<span style="color: rgb(153, 0, 0);"></span><span style="color: rgb(153, 0, 0);"></span>&nbsp;<big>
+        <input type="button" value="Save ICS309 Data"  onclick="SaveData()" />
+&nbsp; &nbsp;</big>
+            <input class="SubmitBtn" enctype="multipart/form-data" id="Submit" method="post" name="Submit" size="6"  value="Submit" type="submit" />
+    &nbsp;<span style="font-weight: bold;"></span>
+            <input class="BtnFormat2" value="Reset Form " name="ResetForm" type="reset" />
+&nbsp; &nbsp;
+<input type="black1" value="Export Data to CSV file"  onclick="if(confirm('Export to CSV allows for export to spreadsheets and compatibility with the Winlink generated ICS309 in CSV format.')) {ExportData()}" />
+</big></span></b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input name="testCall" type="hidden" id="testCall" value="{MsgSender}" size="14" maxlength="13" />
+&nbsp;&nbsp;
+<input name="Templateversion" type="hidden"
+
+                                    id="Templateversion" value="ICS 309 v13.9" />
+<span class="style39">Ver 13.9 </span></td>
+      </tr>
+    </tbody>
+  </table>
+  <center pbzloc="5"></center>
+</td>
+</tr>
+</tbody>
+</table>
+<div align="left"></div>
+</form>
+</div>
+</body></html>

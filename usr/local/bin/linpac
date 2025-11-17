@@ -1,0 +1,182 @@
+#! /bin/bash
+############################################################################
+# LinPac startup script (model 0.20 )                                      #
+############################################################################
+
+if [ -z $HOME ]; then
+  echo 'Cannot determine your home directory - $HOME is not set'
+  exit 1
+fi
+
+#PREFIX=/usr/local
+VERSION=0.29
+DIRNAME=LinPac
+HOMEDIR=$HOME/$DIRNAME
+#SHAREDIR=$PREFIX/share/linpac
+SHAREDIR="DO NOT USE SHAREDIR"
+
+PKG_MAILDIR=/usr/local/share/linpac/mail
+PKG_BINDIR=/usr/local/libexec/linpac
+PKG_MACRODIR=/usr/local/share/linpac/macro
+PKG_SHAREDIR=/usr/local/share/linpac
+
+if [ ! -d $HOMEDIR ]; then
+  echo
+  echo 'Hello dear user. You seem to run LinPac for the first time.'
+  echo 'LinPac has to create a directory in your home directory for storing'
+  echo 'your personal configuration.'
+  echo
+  echo 'For creating your personal configuration please answer following questions:'
+  until [ ! -z $CALLSIGN ]; do
+    echo
+    echo Your callsign:
+    read CALLSIGN
+  done
+  CALL=`echo $CALLSIGN | tr [a-z] [A-Z]`
+  until [ ! -z $BBSCALL ]; do
+    echo
+    echo Enter your home BBS callsign with SSID :
+    read BBSCALL
+  done
+  BBSCALL=`echo $BBSCALL | tr [a-z] [A-Z]`
+  BBS_CALL=`echo $BBSCALL | cut -f1 -d-`
+  until [ ! -z $BBSPORT ]; do
+    echo
+    echo Enter the name of port to connect $BBSCALL
+    read BBSPORT
+  done
+  echo
+  echo Enter the digipeaters used to connect $BBSCALL or press enter 
+  echo when no digipeaters are used:
+  read DIGIPTS
+  DIGIS=`echo $DIGIPTS | tr [a-z] [A-Z]`
+  until [ ! -z $HIADDR ]; do
+    echo
+    echo Enter the full hierarchical address of $BBSCALL
+    echo '(e.g. #MOR.CZE.EU)'
+    read HIADDR
+  done
+  HADDR=$BBS_CALL.`echo $HIADDR | tr [a-z] [A-Z]`
+  echo
+  echo Thank you, $CALL
+  BBSADDR="$BBSPORT:$BBSCALL $DIGIS"
+  
+  echo Please wait a moment for creating your personal configuration
+
+  mkdir $HOMEDIR
+
+  #create subdirectories
+  mkdir $HOMEDIR/bin
+  mkdir $HOMEDIR/macro
+  mkdir $HOMEDIR/save
+  mkdir $HOMEDIR/user
+  mkdir $HOMEDIR/log
+  mkdir -p $HOMEDIR/mail/$BBS_CALL
+  mkdir $HOMEDIR/plugins
+  
+  if [ ! -d /var/ax25/mail/$BBS_CALL ]; then
+    mkdir -p /var/ax25/mail/$BBS_CALL
+  fi
+
+  #copy 'mail'
+  #cd $SHAREDIR/mail
+  cd $PKG_MAILDIR
+  for FILE in *; do
+    if [ ! -x $FILE ]; then
+      cp $FILE $HOMEDIR/mail/$FILE
+    fi
+  done
+
+  #copy 'bin'
+  #cd $SHAREDIR/bin
+  cd $PKG_BINDIR
+  for FILE in *; do
+    ln -s $PKG_BINDIR/$FILE $HOMEDIR/bin/$FILE
+  done
+  cp $PKG_SHAREDIR/commands $HOMEDIR/bin
+
+  #copy 'macro'
+  #cp -r $SHAREDIR/macro/* $HOMEDIR/macro/
+  cp -r $PKG_MACRODIR/* $HOMEDIR/macro/
+  #sed "s/#CALL#/$CALL/; s/#BBS#/$BBSADDR/; s/#ADDR#/$HADDR/; s/#PORT#/$BBSPORT/" < $SHAREDIR/macro/init.mac > $HOMEDIR/macro/init.mac
+  sed "s/#CALL#/$CALL/; s/#BBS#/$BBSADDR/; s/#ADDR#/$HADDR/; s/#PORT#/$BBSPORT/" < $PKG_MACRODIR/init.mac > $HOMEDIR/macro/init.mac
+
+  #copy root
+  #cd $SHAREDIR
+  cd $PKG_SHAREDIR
+  cp station.data $HOMEDIR
+  cp *.ctt $HOMEDIR
+  cp encodings $HOMEDIR
+  
+  echo $VERSION > $HOMEDIR/plugins/version
+
+  echo Installation done.
+  echo Press ENTER to run LinPac
+  read ENTER
+
+else ############ LinPac already installed, check the version ##############
+  
+  OLDVER=`cat $HOMEDIR/plugins/version 2> /dev/null`
+
+  if [ "$OLDVER" != "$VERSION" ]; then
+    echo -e "\nLinPac version was updated to $VERSION \n"\
+               "\nSome macros may have been updated in this version.\n"\
+               "\nWould you like to update the macros in your home directory?"\
+               "\n(Your current macros will be backed up to the macro.old directory).\n"\
+               "\nIf you answer NO to the following question,"\
+               "LinPac won't ask you next time.\n"
+    echo -n "Continue updating [Y/n]? "
+    read ANSWER
+    ANSWER=`echo $ANSWER | cut -c1 | tr [a-z] [A-Z]`
+    if [ "$ANSWER" != "N" ]; then
+      cd $HOMEDIR
+      [ -d macro.old ] && rm -rf macro.old
+      cp -r macro macro.old
+      cp -r $PKG_MACRODIR/* macro
+      cp -f macro.old/init.mac macro
+      cp -f macro.old/info.mac macro
+      cp -f macro.old/home.mac macro
+      cp $PKG_SHAREDIR/*.ctt .
+      cp $PKG_SHAREDIR/encodings .
+    fi
+  echo $VERSION > $HOMEDIR/plugins/version
+  fi
+fi
+
+#PATCH991003# Setup new installed plugins for current user
+if [ ! -d $HOMEDIR/plugins ]; then
+  mkdir $HOMEDIR/plugins
+fi
+cd $PKG_SHAREDIR/plugins
+for PLUGIN in *; do
+  if [ -x $PLUGIN ]; then
+    if [ ! -f $HOMEDIR/plugins/$PLUGIN ]; then
+      echo 'New LinPac plugin found !'
+      echo -n Plugin $PLUGIN
+      . $PKG_SHAREDIR/plugins/$PLUGIN
+      echo ... Installation done.
+      echo
+      cd $PKG_SHAREDIR/plugins
+      date +%y%m%d > $HOMEDIR/plugins/$PLUGIN
+    fi
+  fi
+done
+
+#PATCH011216# Check the links in bin directory
+cd $PKG_BINDIR
+for FILE in *; do
+  if [ $FILE != commands ]; then
+    if [ ! -f $HOMEDIR/bin/$FILE ]; then
+      rm -f $HOMEDIR/bin/$FILE
+      ln -s $PKG_BINDIR/$FILE $HOMEDIR/bin/$FILE
+    fi
+  fi
+done
+
+cd $HOMEDIR
+#export PATH=$PATH:$SHAREDIR/mail:$SHAREDIR/tools
+# Starting with v0.20 the lbapi program has been moved from the tools
+# directory to the $PKG_BINDIR
+export PATH=$PATH:$PKG_BINDIR/mail:$PKG_BINDIR
+$PKG_BINDIR/linpac $*
+exit $?

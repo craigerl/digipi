@@ -1,0 +1,515 @@
+FIM(1)                                                                        General Commands Manual                                                                        FIM(1)
+
+NAME
+       fim - Fbi (linux framebuffer imageviewer) IMproved, an universal image viewer
+
+SYNOPSIS
+       fim [{options}] [--] {imagepath} [{imagepaths}]
+       fim --output-device [fb|sdl|gtk|ca|aa|dumb][={gfxopts}]
+       ... | fim [{options}] [--] [{imagepaths}] -
+       fim [{options}] [--] [{files}] - < {file_name_list_text_file}
+       fim --image-from-stdin [{options}] < {imagefile}
+       fim --script-from-stdin [{options}] < {scriptfile}
+       fim --help[=s|d|l|m] [{help-item} ...]
+
+DESCRIPTION
+       fim  is  a `swiss army knife' for displaying image files.  It is capable of displaying image files using different graphical devices while offering a uniform look and feel.
+       Key bindings are customizable and specified in an initialization file.  Interaction with standard input and output is possible, especially in shell  scripts.   An  internal
+       scripting  language specialized for image viewing allows image navigation, scaling, manipulation of internal variables, command aliases, and Vim-like autocommands.  The in‐
+       ternal language can be interacted with via a command line mode capable of autocompletion and history (the readline mode).  Further features are display of EXIF  tags,  JPEG
+       comments, EXIF rotation/orientation, load of "description files", faster load via image caching, command recording, and much more.
+
+       As  a  default, fim displays the specified file(s) on the detected, most convenient graphical device. This can be with SDL if running under X, an ASCII-art driver (aalib or
+       libcaca) if running behind ssh without X forwarding, or the linux framebuffer device. Graphical file formats BMP, PCX are supported natively, while JPEG,  PNG,  GIF,  TIFF,
+       PPM,  PGM,  PBM,  QOI,  AVIF,  WEBP are supported via third party libraries.  Further formats are supported via external converters.  For XCF (Gimp's) images, 'xcftopnm' or
+       'xcf2pnm' is used.  For FIG vectorial images, 'fig2dev' is used.  For DIA vectorial images, 'dia' is used.  For NEF raw camera images, 'dcraw' is used.  For  SVG  vectorial
+       images, 'inkscape' is used.  For other formats ImageMagick's 'convert' is used.  The converter is given 15 seconds for the conversion before a timeout.
+
+       If {imagepath} is a file, its format is guessed not by its name but by its contents. See the _file_loader variable to change this default.
+
+       If  {imagepath}  is a directory, load files of supported formats contained there. If {imagepath} contains a trailing slash (/), it is treated as a directory; otherwise that
+       is checked via stat(2). To change this default, see description of the _pushdir_re variable and the --no-stat-push and --recursive options.
+
+       This man page describes fim command line options and usage.  See man fimrc(5) for a full specification of the fim  language,  commands,  keysyms,  autocommands,  variables,
+       aliases, examples for a configuration file and readline usage samples.
+
+USAGE
+       You may invoke fim from an interactive shell and control it with the keyboard, as you would do with any image viewer with reasonable key bindings.
+
+       fim  is  keyboard  oriented: there are no user menus or buttons available.  If you need some feature or setting which is not accessible from the default keyboard configura‐
+       tion, you probably need a custom configuration or simply need to type a custom command. For these, you can use the internal command and configuration language.
+
+       See options --read-from-stdin, --script-from-stdin, and --image-from-stdin for more script-oriented usages.
+
+       The full commands specification is also accessible at runtime using the internal help system (typing :help).
+
+OPTIONS
+       Accepted command line {options}:
+
+       --     Treat arguments after -- as filenames.  Treat arguments before -- as command line options if these begin with -, and as filenames otherwise.
+
+       -a, --autozoom
+              Enable autozoom. Automagically pick a reasonable zoom factor when displaying a new image (as in fbi).
+
+       -b[24|1], --binary[=24|1]
+              Display contents of binary files (of any filetype) as these were raw 24 or 1 bits per pixel pixelmaps.  The width of this image will not  exceed  the  value  of  the
+              _preferred_rendering_width variable.  Regard this as an easter bunny option.
+
+       --as-text
+              Display  contents  of  files  (of  any  filetype)  as these were text.  The width of this image will not exceed the value of the _preferred_rendering_width variable.
+              Non-printable characters are then displayed as " ".  Regard this as another easter bunny option.
+
+       --cd-and-readdir
+              Step in the directory of the first file to be loaded, push other files from that directory, and jump back to the first file.  Useful when invoking from a desktop en‐
+              vironment.
+
+       -c {commands}, --execute-commands {commands}
+              Execute  {commands} after reading the initialization file, just before entering the interactive mode.  No semicolon (;) is required at the end of {commands}.  Do not
+              forget quoting {commands} in a manner suitable to your shell.  So  -c next  is fine as it is.   A  more  complicated  example,  with  quotings:  -c  '*2;2pan_up;dis‐
+              play;while(1){align  "bottom";sleep  "1" ; align "top"}' (with the single quotes) tells fim to: double the displayed image size, pan twice up, display the image, and
+              finally do an endless loop consisting of bottom and top aligning, alternated.
+
+       -C {commands}, --execute-commands-early {commands}
+              Similar to the --execute-commands option, but execute {commands} earlier, just before reading the initialization file.  If {commands} takes the special 'early'  form
+              =var=val, it assigns value val to variable var immediately, before the interpreter is started, and with no value quoting needed.
+
+              For example, -C '_scale_style=" "' starts fim no auto-scaling; the equivalent early form is: -C '=_scale_style= '.
+
+       -d {fbdev}, --device {fbdev}
+              Framebuffer device to use. Default is the one your vc is mapped to (as in fbi).
+
+       --dump-reference-help[=man]
+              Dump to stdout language reference help and quit.
+
+       --dump-default-fimrc
+              Dump default configuration (the one hardcoded in the fim executable) to standard output and quit.
+
+       -E {scriptfile}, --execute-script {scriptfile}
+              Execute {scriptfile} after the default initialization file is read, and before executing --execute-commands commands.
+
+       -f {fimrc}, --etc-fimrc {fimrc}
+              Specify   an  alternative  system-wide  initialization  file  (default:  /usr/local/etc/fimrc),  to  be  read  prior  to  any  other  configuration  file.  See  also
+              --no-etc-fimrc-file.
+
+       -F {commands}, --final-commands {commands}
+              Similar to the --execute-commands option, but execute {commands} after exiting the interactive mode, just before terminating the program.
+
+       -h[s|d|l|m], --help[=s|d|l|m]
+              Print program invocation help, and exit. Depending on the option, output can be: short, descriptive, long from man,  or  complete  man.  For  each  further  argument
+              {help-item} passed to fim, an individual help message is shown. If {help-item} starts with a /, it is treated as a search string (not a regexp, though).
+
+       -k {keysym}, --keysym-press {keysym}
+              Execute  any command bound (via the bind command) to a specified keysym at startup. A keysym can be prefixed by a repetition count number. You can specify the option
+              multiple times to simulate multiple keystrokes. Presses entered via --keysym-press are processed with the same priority as those entered via --chars-press, that  is,
+              as they appear. See man fimrc(5) for a list of keysyms and the use of bind.
+
+       -K {chars}, --chars-press {chars}
+              Input  one  or  more keyboard characters at program startup (simulate keyboard presses). This option can be specified multiple times. Each additional time (or if the
+              string is empty), a press of Enter (ASCII code 0x0D) key is prepended. Examples: -K '' simulates press of an Enter;  -K ':next;' activates the command line and enter
+              "next;"  without executing it;  -K ":next;" -K "next" executes "next", stays in the command line and enter keys "next";  -K ":next;" -K "" -K "next" executes "next",
+              leaves the command line, and executes in sequence any command bound to keys 'n', 'e', 'x', 't'. Presses entered via --chars-press are processed with the same  prior‐
+              ity as those entered via --keysym-press, that is, as they appear.
+
+       -D {filename}, --load-image-descriptions-file {filename}
+              Load image descriptions from file {filename}. Each line begins with the basename of an image file, followed by a Tab character (or a different character if specified
+              via --image-descriptions-file-separator), then the description text. The description text is copied into the i:_comment variable of the image at load time,  overrid‐
+              ing  the  comment possibly loaded from the file (e.g. JPEG, PNG or TIFF comment). If a '@' followed by an identifier {identifier} is encountered, and i:{var} is set,
+              its value is substituted here. If "@#" is encountered, the remainder of the description line is ignored. Special comment lines like "#!fim:{var}={val}" lead  i:{var}
+              to  be  assigned  value  {val}  (unquoted)  at  image  loading  time  (cached  variable),  unless  {var}  starts with an underscore ('_'). Special comment lines like
+              "#!fim:@{var}={val}" create a  variable  {var}  that  are  only  valid  in  expanding  @{var}  in  comments.  Special  comment  lines  like  "#!fim:{var}@={val}"  or
+              "#!fim:@{var}@={val}  (notice  @  before =) also expand whatever @{identifier} encountered in {val} . Special comment lines like "#!fim:+={val}" add {val} to current
+              description. Special comment lines like "#!fim:^={val}" set {val} to be the base of each description. Special comment lines like "#!fim:!=" reset  all  cached  vari‐
+              ables.  Special  comment  lines  like  "#!fim:/={dir}" prepend {dir} to each file's basename. Special comment lines like "#!fim:\={dir}" prepend {dir} to each file's
+              name. Special description text (to be associated to an image) begins with markers:  with "#!fim:=", the last description line is reused; with "#!fim:+", what follows
+              is  appended  to the last description line; with "#!fim:^", what follows is prepended to the last description line; with "#!fim:s/{f}/{t}", the last description line
+              is used and substituted substring {t} to occurrences of substring {f} ({f} and {t} cannot contain newlines or a '/'). If {val} is empty that variable is unset. These
+              variables  are  stored  also in an internal index used by the limit command. This option sets _caption_over_image=2, so that a caption is displayed over the image. A
+              description file beginning with "#!fim:desc" can be loaded without specifying this switch.
+
+       -S {sepchar}, --image-descriptions-file-separator {sepchar}
+              A character to be used as a separator between the filename and the description part of lines specified just before a --load-image-descriptions-file.
+
+       -i, --image-from-stdin
+              Read one single image from the standard input (the image data, not the filename).  May not work with all supported file formats.  In the image list, this image takes
+              the special name "<STDIN>".
+
+       --mark-from-image-descriptions-file {filename}
+              Set those files specified in {filename} (see --load-image-descriptions-file for the file format) as marked (see the list command).
+
+       -m {vmode}, --mode {vmode}
+              Name  of  the  video  mode  to  use  video  mode  (must  be  listed  in  /etc/fb.modes).  Default is not to change the video mode.  In the past, the XF86 config file
+              (/etc/X11/XF86Config) used to contain Modeline information, which could be fed to the modeline2fb perl script (distributed with fbset).  On many  modern  xorg  based
+              systems,  there  is  no direct way to obtain a fb.modes file from the xorg.conf file.  So instead one could obtain useful fb.modes info by using the (fbmodes (no man
+              page AFAIK)) tool, written by bisqwit.  An unsupported mode should make fim exit with failure.  But it is possible the kernel could trick fim  and  set  a  supported
+              mode automatically, thus ignoring the user set mode.
+
+       -N, --no-rc-file
+              No personal initialization file is read (default is ~/.fimrc) at startup.
+
+       --no-etc-fimrc-file
+              No system-wide initialization file is read (default is /usr/local/etc/fimrc) at startup. See also --etc-fimrc.
+
+       --no-internal-config
+              No internal default configuration at startup (uses internal variable _no_default_configuration). Will only provide a minimal working configuration.
+
+       --no-commandline
+              With internal command line mode disabled.
+
+       --no-history-save
+              Do not save execution history at finalization (uses internal variable _save_fim_history).
+
+       --no-history-load
+              Do not load execution history at startup.
+
+       --no-history
+              Do not load or save execution history at startup.
+
+       -p, --script-from-stdin
+              Read commands from stdin before entering in interactive mode.
+
+       -o [fb|sdl|gtk|ca|aa|dumb][={gfxopts}], --output-device [fb|sdl|gtk|ca|aa|dumb][={gfxopts}]
+              Use  the  specified  device  (one among fb|sdl|gtk|ca|aa|dumb) as fim video output device, overriding automatic checks.  If the device is empty and followed by {gfx‐
+              opts}, it will be selected automatically.  The available devices depend on the current environment and on the configuration and compilation options.  You can get the
+              list of available output devices issuing fim --version.  The possible values to {gfxopts} that we describe here can also be passed as "display 'reinit' {gfxopts}" --
+              see man fimrc for this.  The device name with options (perhaps with modifications due to auto-detection) is stored in variable _device_string.  The fb option selects
+              the  Linux framebuffer. Presence of {gfxopts} with value 'S' (e.g. 'fb=S') makes framebuffer initialization more picky: it does not tolerate running in a screen ses‐
+              sion.  The ca option (coloured ASCII-art) can be specified as ca[={['w']['h']['H']['d:'DITHERMODE]}] ; if supplied, 'w' selects windowed mode,  provided  libcaca  is
+              running  under X; by default (or with 'W'), windowed mode is being turned off internally during initialization by unsetting the DISPLAY environment variable. If 'd:'
+              is present, the DITHERMODE following it will be passed as dither algorithm string (alternatively, it  can  be  a  non-negative  number,  too).   The  aa  (monochrome
+              ASCII-art) option can be specified as aa[={['w'|'W']}]; if supplied, 'w' selects windowed mode, provided aalib is running under X; by default (or with 'W'), windowed
+              mode is being turned off internally during initialization by unsetting the DISPLAY environment variable.  Please note that the readline (internal command line) func‐
+              tionality    in    ca    and    aa    modes    is    limited.     If    the    graphical    windowed   mode   is    sdl    or    gtk    it   can   be   followed   by
+              ={['w']['m']['r']['h']['W']['M']['R']['H'][width[:height]]['%']}, where width and height are integer numbers specifying the desired resolution  (if height not speci‐
+              fied,  it  takes the value of width); the 'w' character requests windowed mode (instead of 'W' for fullscreen); the 'm' character requests mouse pointer display; the
+              'h' character requests help grid map draw (can be repeated for variants); the 'r' character requests support for window resize; the '%' character requests  to  treat
+              width  and  height as percentage of possible window resolution. The same letters uppercase request explicit negation of the mentioned features.  Additionally, in gtk
+              mode: 'b' hides the menu bar, 'e' starts with empty menus, 'f' rebuilds the menus, and 'D' removes the menus. Note: the gtk mode is a recent addition  and  may  have
+              defects. The sdl mode works best with libsdl-2; libsdl-1.2 support is being discontinued.
+               The imlib2 option requests imlib2 and is unfinished: do not use it.
+               The dumb test mode is there only for test purposes and is not interactive.
+
+       --offset {bytes-offset[{:upper-offset}|{+offset-range}]}
+              Use  the specified offset (in bytes) for opening the specified files. If :upper-offset is specified, further bytes until upper-offset are probed. If +offset-range is
+              specified instead, that many additional bytes are to be probed.  Use this option to search  damaged  file  systems  for  image  files.  Appending  a  modifier  among
+              'K','M','G' (case irrelevant) to an offset number changes the unit to be respectively 2^10, 2^20, or 2^30 bytes.
+
+       --pread-cmd {cmd-filter-pipeline}
+              Specify  a  shell  command  with {cmd-filter-pipeline}. If the current filename matches "^[/A-Za-z0-9_.][/A-Za-z0-9_.-]*$", it is be substituted to any occurrence of
+              '{}'. The resulting command output is assumed to be file data, which is read, decoded, and displayed.  This works by setting the internal _pread_cmd variable  (empty
+              by default).
+
+       -P, --text-reading
+              Enable textreading mode.  This has the effect that fim displays images scaled to the width of the screen, and aligned to the top.  If the images you are watching are
+              text pages, all you have to do to get the next piece of text is to press space (in the default key configuration, of course).
+
+       -s {value}, --scroll {value}
+              Set scroll steps for internal variable _steps (default is "20%").
+
+       --slideshow {number}
+              Interruptible slideshow mode. Wait for {number} of seconds (can have a decimal part, and is assigned to the _slideshow_sleep_time variable) after each image.  Imple‐
+              mented   by   executing   reload;   i:fresh=1;   while(_fileindex  <=  _filelistlen-_loop_only_once){sleep  _slideshow_sleep_time;  next;}  _loop_only_once=0;  sleep
+              _slideshow_sleep_time;  as a first command. Can be interrupted by : or Esc. The other keys execute accordingly to their function but do not interrupt the  slideshow.
+              Like in fbi, this cycles forever, unless --once is specified.
+
+       --sanity-check
+              Perform a quick sanity check, just after the initialization, and terminate.
+
+       -t, --no-framebuffer
+              fim  Use an ASCII Art driver. If present, use either of libcaca (coloured), or aalib (monochrome). For more, see (man fimrc), (info aalib) or (apropos caca)).  If no
+              ASCII Art driver had been enabled at compile time, fim does not display any image at all.
+
+       -T {terminal}, --vt {terminal}
+              The {terminal} is to be used as virtual terminal device file (as in fbi).  See (chvt (1)), (openvt (1)) for more info about this.  Use (con2fb (1)) to map a terminal
+              to a framebuffer device.
+
+       --reverse
+              Reverse files list before browsing (can be combined with the other sorting options).
+
+       --sort Sort files list before browsing according to full filename.
+
+       --sort-basename
+              Sort files list before browsing according to file basename's.
+
+       --sort-mtime
+              Sort files list before browsing according to file modification time.
+
+       --sort-fsize
+              Sort files list before browsing according to file size.
+
+       -u, --random
+              Randomly shuffle the files list before browsing (seed depending on time() function).
+
+       --random-no-seed
+              Pseudo-random shuffle the files list before browsing (no seeding).
+
+       -v, --verbose
+              Be verbose: show status bar.
+
+       --verbose-load
+              Load files verbosely (repeat option to increase verbosity).
+
+       --verbose-font-load
+              Load font verbosely (sets _fbfont_verbosity).
+
+       --verbose-interpreter
+              Execute interpreter verbosely (Sets immediately _debug_commands="ackCm" if specified once, _debug_commands="ackCmmi" if specified  twice).
+
+       -V, --version
+              Print to stdout program version, compile flags, enabled features, linked libraries information, supported filetypes/file loaders, and then exit.
+
+       -w, --autowidth
+              Scale the image according to the screen width.
+
+       -=, --no-auto-scale
+              Do not scale the images after loading (sets '_scale_style=" "';).
+
+       --autowindow
+              Resize the window size (if supported by the video mode) to the image size. Don't use this with other image scaling options.
+
+       --no-stat-push
+              Sets _push_checks=0 before initialization, thus disabling file/dir existence checks with stat(2) at push push time (and speeding up startup).
+
+       -H, --autoheight
+              Scale the image according to the screen height.
+
+       -W {scriptfile}, --write-scriptout {scriptfile}
+              All  the characters that you type are recorded in the file {scriptfile}, until you exit fim.  This is useful if you want to create a script file to be used with "fim
+              -c" or ":exec" (analogous to Vim's -s and ":source!").  If the {scriptfile} file exists, it is not touched (as in Vim's -w).
+
+       -L {fileslistfile}, --read-from-file {fileslistfile}
+              Read file list from a file: each line one file to load (similar to --read-from-stdin; use --read-from-stdin-elds to control line breaking).
+
+        -, --read-from-stdin
+              Read file list from stdin: each line one file to load; use with --read-from-stdin-elds to control line breaking).
+
+              Note that these three standard input reading functionalities (-i,-p and -) conflict : if two or more of them occur in fim invocation, fim exits  with  an  error  and
+              warn about the ambiguity.
+
+              See the section INVOCATION EXAMPLES below to read some useful (and unique) ways of employing fim.
+
+       --read-from-stdin-elds {delimiter-char}
+              Specify  an  endline delimiter character for breaking lines read via -/--read-from-stdin/--read-from-file (which shall be specified after this). Line text before the
+              delimiter are be treated as names of files to load; the text after is ignored. This is  also  useful  e.g.  to  load  description  files  (see  --load-image-descrip‐
+              tions-file) as filename list files. Default is the newline character (0x0A); to specify an ASCII NUL byte (0x00) use ''.
+
+       -A, --autotop
+              Align images to the top border (by setting '_autotop=1' after initialization).
+
+       -q, --quiet
+              Quiet execution mode. Sets _display_status=0;_display_busy=0;.
+
+       -r {{width:height}|'fullscreen'}, --resolution {{width:height}|'fullscreen'}
+              Set  resolution  specification in pixels dimensions. Supported only by GTK and SDL. Will be appended to the argument to --output-device. Shorthand value 'fullscreen'
+              is translated as 'W'.
+
+       -R[{exp}], --recursive[={exp}]
+              Push      files/directories      to      the      files      list      recursively.      The      expression      in       variable       _pushdir_re       (default:
+              ".(JPG|PNG|GIF|BMP|TIFF|TIF|JPEG|JFIF|PPM|PGM|PBM|PCX|QOI|AVIF|WEBP)$")  lists  extensions  of filenames which are loaded in the list. You can overwrite its value by
+              optionally passing an expression {exp} here as argument. If starting with '+' or '|', the expression following is to be appended to it.
+
+       -X, --no-pipe-load
+              Do not load via external converter programs: only use built-in file decoders.
+
+       -B, --background-recursive
+              Push files/directories to the files list recursively, in background during program execution. Any sorting options are ignored. Experimental feature, unfinished.
+
+       --load-shadow-directory {dirname}
+              Add {dirname} to the shadow directory list. Then 'scale "shadow"' temporarily substitutes the image being displayed with that of the first  same-named  file  located
+              under a shadow directory. Useful to browse low-res images, but still being able to quickly view the hi-res original residing in a shadow directory. This works as in‐
+              tended as long as unique filenames are involved.
+
+       -/ {pattern}, --/ {pattern}
+              After startup jump to pattern; short for -c '/' {pattern}.
+
+       --// {pattern}
+              After startup jump to pattern; as -c '/'{pattern} but with search on the full path (with _re_search_opts="f").
+
+       -1, --once
+              If running --slideshow, loop only once (as in fbi).
+
+PROGRAM RETURN STATUS
+       The program return status is 0 on correct operation; 252 on unsupported device specification; 248 on bad input; 255 on a generic error; 42  on  a  signal-triggered  program
+       exit;  or a different value in case of an another error.
+        The return status may be controlled by the use of the quit command.
+
+COMMON KEYS AND COMMANDS
+       The following keys and commands are default hardcoded in the minimal configuration. These are working by default before any configuration file loading, and before the hardcoded config loading (see variable _fim_default_config_file_contents).
+
+        n    goto '+1f'
+        p    goto '-1f'
+        +    scale '+'
+        -    scale '-'
+        h    pan 'left'
+        l    pan 'right'
+        k    pan 'up-'
+        j    pan 'down+'
+        q    quit
+       You can type a number before a command binding to iterate the assigned command:
+       3k    3pan 'up-'
+
+       :       enter command line mode (here one can use readline bindings as C-r, C-s, M-b, M-f, ...)
+       :{number}       jump to {number}^th image in the list
+       :^           jump to first image in the list
+       :$           jump to last image in the list
+       :*{factor}      scale the image by {factor}
+       :{scale}%       scale the image to the desired {scale}
+       :+{scale}%       scale the image up to the desired percentage {scale} (relatively to the original)
+       :-{scale}%       scale the image down to the desired percentage {scale} (relatively to the original)
+
+       /{regexp}       entering the pattern {regexp} (with '/') makes fim jump to the next image whose filename matches {regexp}
+       /*.png$         entering this pattern (with '/') makes fim jump to the next image whose filename ends with 'png'
+       /png       a shortcut for '/.*png.*'
+
+       2,4 stdout '{}'     print three filenames to standard output.
+
+       !{syscmd}      executes the {syscmd} quoted string as an argument to the  "system" fim command.
+
+       You can visualize all of the default bindings invoking fim --dump-default-fimrc | grep bind .
+       You can visualize all of the default aliases invoking fim  --dump-default-fimrc | grep alias .
+
+       The Return vs. Space key thing can be used to create a file list while reviewing the images and use the list for batch processing later on.
+
+       All of the key bindings are reconfigurable; see the default fimrc file for examples on this, or read the complete manual: the FIM.TXT file distributed with fim.
+
+AFFECTING ENVIRONMENT VARIABLES
+       FBFONT         (just like in fbi) a Linux consolefont font file.
+       If using a gzipped font file, the zcat program is used to uncompress it (via execvp(3)).
+       If FBFONT is unset, the following files are probed and the first existing one is selected:
+
+       /usr/share/kbd/consolefonts/cp866-8x16.psf.gz
+       /usr/share/consolefonts/Uni3-TerminusBoldVGA14.psf.gz
+       /usr/lib/kbd/consolefonts/lat9-16.psf.gz
+       /usr/share/consolefonts/lat1-16.psf
+       /usr/share/consolefonts/lat1-16.psf.gz
+       /usr/share/consolefonts/lat1-16.psfu.gz
+       /usr/share/kbd/consolefonts/lat1-16.psf
+       /usr/share/kbd/consolefonts/lat1-16.psf.gz
+       /usr/share/kbd/consolefonts/lat1-16.psfu.gz
+       /usr/lib/kbd/consolefonts/lat1-16.psf
+       /usr/lib/kbd/consolefonts/lat1-16.psf.gz
+       /usr/lib/kbd/consolefonts/lat1-16.psfu.gz
+       /lib/kbd/consolefonts/lat1-16.psf
+       /lib/kbd/consolefonts/lat1-16.psf.gz
+       /lib/kbd/consolefonts/lat1-16.psfu.gz
+       /lib/kbd/consolefonts/Lat2-VGA14.psf.gz
+       /lib/kbd/consolefonts/Lat2-VGA16.psf.gz
+       /lib/kbd/consolefonts/Lat2-VGA8.psf.gz
+       /lib/kbd/consolefonts/Uni2-VGA16.psf.gz
+       /usr/share/consolefonts/default8x16.psf.gz
+       /usr/share/consolefonts/default8x9.psf.gz
+       /usr/share/consolefonts/Lat15-Fixed16.psf.gz
+       /usr/share/consolefonts/default.psf.gz
+       fim://
+
+       If the special fim:// string is specified, a hardcoded font is used.
+       FBGAMMA        (just like in fbi) gamma correction (applies to dithered 8 bit mode only). Default is 1.0.
+       FRAMEBUFFER    (just like in fbi) user set framebuffer device file (applies only to the fb mode).
+       If unset, fim probes for /dev/fb0.
+       TERM      (only in fim) influences the output device selection algorithm, especially if $TERM=="screen".
+       SSH_TTY   if set and no output device specified, assume we're over ssh, and give precedence to ca, then aa (if present).
+       TERMUX_VERSION if set and no output device specified, assume we're over termux, and give precedence to ca, then aa (if present).
+       WAYLAND_DISPLAY     if set and no output device specified, assume we're over Wayland, and give precedence to gtk, then sdl, then ca, then aa (if present).
+       DISPLAY   If this variable is set, then the gtk driver has precedence, then sdl.
+
+COMMON PROBLEMS
+       fim  -o  fb needs read-write access to the framebuffer devices (/dev/fbN or /dev/fb/N), i.e you (our your admin) have to make sure fim can open the devices in rw mode.  The
+       IMHO most elegant way is to use pam_console (see /etc/security/console.perms) to chown the devices to the user logged in on the console.  Another  way  is  to  create  some
+       group,  chown  the  special files to that group and put the users which are allowed to use the framebuffer device into the group.  You can also make the special files world
+       writable, but be aware of the security implications this has.  On a private box it might be fine to handle it this way through.
+
+       If using udev, you can edit: /etc/udev/permissions.d/50-udev.permissions and set these lines like here:
+        # fb devices
+        fb:root:root:0600
+        fb[0-9]*:root:root:0600
+        fb/*:root:root:0600
+
+       fim -o fb also needs access to the linux console (i.e. /dev/ttyN) for sane console switch handling.  That is obviously no problem for console logins, but any kind of pseudo
+       tty (xterm, ssh, screen, ...) will not work.
+
+INVOCATION EXAMPLES
+       fim --help -R -B
+       # get help for options -R and -B
+
+       fim media/
+       # load files from the directory media/
+
+       fim -R media/ --sort
+       # open files found by recursive traversal of directory media, then sorting the list
+
+       find /mnt/media/ -name *.jpg | fim -
+       # read input files list from standard input
+
+       find /mnt/media/ -name *.jpg | shuf | fim -
+       # read input files list from standard input, randomly shuffled
+
+       cat script.fim | fim -p images/*
+       # read a script file script.fim from standard input before displaying files in the directory images
+
+       scanimage ... | tee scan.ppm | fim -i
+       # read the image scanned from a flatbed scanner as soon as it is read
+
+       h5topng -x 1 -y 2 dataset.hdf -o /dev/stdout | fim -i
+       # visualize a slice from an HDF5 dataset file
+
+       fim * > selection.txt
+       # output the file names marked interactively with the 'list "mark"' command in fim to a file
+
+       fim * | fim -
+       # output the file names marked with 'm' in fim to a second instance of fim, in which these could be marked again
+
+       fim -c 'pread "vgrabbj -d /dev/video0 -o png";reload'
+       # display an image grabbed from a webcam
+
+       fim -o aa -c 'pread "vgrabbj -d /dev/video0 -o png";reload;system "fbgrab" "asciime.png"'
+       # if running in framebuffer mode, saves a png screenshot with an ASCII rendering of an image grabbed from a webcam
+
+       fim -c 'while(1){pread "vgrabbj -d /dev/video0 -o png";reload;sleep 1;};'
+
+       # display a sequence of images grabbed from a webcam; circa 1 per second
+
+NOTES
+       This manual page is neither accurate nor complete. In particular, issues related to driver selection shall be described more accurately. Also the accurate sequence of auto‐
+       commands execution, variables application is critical to understanding fim, and should be documented.  The filename "<STDIN>" is reserved for images read from standard  in‐
+       put (view this as a limitation), and thus handling files with such name may incur in limitations.
+
+BUGS
+       fim  has  bugs. Please read the BUGS file shipped in the documentation directory to discover the known ones.  There are also inconsistencies in the way the internal command
+       line works across the different graphical devices.
+
+FILES
+       /usr/local/share/doc/fim
+                      The directory with fim documentation files.
+
+       /usr/local/etc/fimrc
+                      The system-wide fim initialization file (executed at startup, after executing the hardcoded configuration).
+
+       ~/.fimrc       The personal fim initialization file (executed at startup, after the system-wide initialization file).
+
+       ~/.fim_history File where to load from or save command history. See (man fimrc(5),  man readline(3)).
+
+       ~/.inputrc     If fim is built with GNU readline support, it is susceptible to changes in the user set ~/.inputrc configuration file contents.  For details, see (man  read‐
+                      line(3)).
+
+SEE ALSO
+       Other fim man pages: fimgs(1), fimrc(1).
+       Conversion programs: convert(1), dia(1), xcftopnm(1), fig2dev(1), inkscape(1).
+       Related programs: fbset(1), con2fb(1), vim(1), mutt(1), exiftool(1), exiftags(1), exiftime(1), exifcom(1), fbi(1), fbida(1), feh(1), qiv(1), sxiv(1), fbgrab(1).
+       Related documentation: fbdev(4), vcs(4), fb.modes(8), fbset(8), setfont(8).
+
+AUTHOR
+       Michele Martone <dezperado _CUT_ autistici _CUT_ org> is the author of fim, "Fbi IMproved".
+
+COPYRIGHT
+       Copyright (C) 2007-2024 Michele Martone <dezperado _CUT_ autistici _CUT_ org> (author of fim)
+       Copyright (C) 1999-2004 Gerd Hoffmann <kraxel _CUT_ bytesex.org> is the author of "fbi", upon which fim was originally based.
+
+       This  program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; ei‐
+       ther version 2 of the License, or (at your option) any later version.
+
+       This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR  A  PARTICULAR
+       PURPOSE.  See the GNU General Public License for more details.
+
+       You  should  have  received a copy of the GNU General Public License along with this program; if not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth
+       Floor, Boston, MA 02110-1301 USA.
+
+                                                                           (c) 2007-2024 Michele Martone                                                                     FIM(1)

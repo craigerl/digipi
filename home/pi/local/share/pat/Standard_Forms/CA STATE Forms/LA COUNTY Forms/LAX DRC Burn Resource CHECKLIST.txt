@@ -1,0 +1,114 @@
+Form:LAX DRC Burn Resource CHECKLIST.html,LAX DRC Burn Resource CHECKLIST Viewer.html
+To:
+
+Subject:BURN RESOURCE CENTER CHECKLIST LIST, <var facility>
+
+Msg:  
+DEPARTMENT OF HEALTH SERVICES COUNTY OF LOS ANGELES
+REFERENCE NO. 1138.1
+
+SUBJECT: BURN RESOURCE CENTER REQUIRED
+EQUIPMENT/SUPPLIES/PHARMACEUTICALS
+
+FACILITY: <var facility>
+------------
+** EQUIPMENT    [REQUIRED MINIMUM QUANTITY*]
+ACTUAL QUANTITY
+
+Video equipment for bronchoscope   [1 each] 
+<var CO1>
+
+Fluid Infusion Warmer   [3 each] 
+<var CO3>
+
+IV Pumps (dual channel)    [12 each] 
+<var CO5>
+
+Thermal Mylar Blanket   [24]
+<var CO7>
+
+Thermal Blanket  Forced Air Warming Blanket (Bair HuggarTM)   [2 each]
+<var CO9>
+
+Video laryngoscope  (Glidescope) with Pediatric & Adult blades   [2 each] 
+<var CO11>
+
+Cauterizer (Bovie)   [1]
+<var CO13>
+
+Cautery Disposable Tips   [12]
+<var CO15>
+
+Cautery Grounding Pads   [24]
+<var CO17>
+-------
+
+** PHARMACEUTICALS   [REQUIRED  MINIMUM QUANTITY*]
+ACTUAL QUANTITY
+
+Silver Sulfadiazine 1%  Any Size   [14,400grams]
+<var CO2>
+
+Bacitracin (28.4 gm tube)   [36 each] 
+<var CO4>
+
+Cyanide Antidote Kit or CyanoKit   [5 kits] 
+<var CO6>
+
+Midazolam 5mg/ml   [360 vials/ampules]
+<var CO8>
+
+Naloxone 0.4mg/ml   [360 vials/ampules]
+<var CO10>
+
+Morphine Sulfate 10mg/ml   [720 vials/ampules]
+<var CO12>
+
+Lactated Ringers Solution 1 liter bags   [250 bags]
+<var CO14>
+
+D5 Lactated Ringers Solution  500 cc bags    [100 bags] 
+<var CO16>
+----
+** BURN WOUND CARE SUPPLIES
+
+SUPPLIES    [REQUIRED  MINIMUM QUANTITY*]
+
+Burn Debridement/ Escharotomy Tray    [24 trays]
+<var CO18>
+
+Dry Burn Dressing (32X36)    [600 each] 
+<var CO19>
+
+Gauze Bandage 4" Rolls    [400 each] 
+<var CO20>
+
+Tubular Elastic Net Bandage (Size #1, 5, 6, 7, 10, 22)    [36 each size] 
+<var CO21>
+-----
+Notes/Comments
+<var CO22>
+
+--
+Approved by Name: <var Approvedby>
+Received by: <var Receivedby>
+
+------------------------------------
+Express Sending Station: <MsgSender>
+Senders Express Version: <ProgramVersion>
+Senders Template Version: <var Templateversion>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

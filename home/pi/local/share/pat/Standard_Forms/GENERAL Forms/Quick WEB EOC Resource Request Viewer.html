@@ -1,0 +1,211 @@
+<!doctype html>
+<!--
+MISSOURI DPS RESOURCE REQUEST DATA INPUT FORM v1.1.0 5/11/2015
+Minimum fields to comply with Missouri's implementation of WebEOC.
+By Ken Humbertson W0KAH
+-->
+<html>
+<head>
+<meta charset="utf-8">
+<title>MO DPS Resource Request</title>
+<style>
+	
+body,td,th {
+	font-family: Arial, Helvetica, sans-serif;
+}
+.style1 {font-family: Arial, Helvetica, sans-serif}
+.style7 {color: #FF0000}
+.style9 {font-size: 12px}
+.style10 {font-size: 14px}
+.style11 {color: #2A5F00}
+</style>
+<body leftmargin="6" topmargin="3">
+<form>
+  <table width="800" height="321" border="1" cellpadding="0" cellspacing="0" bgcolor="#f8f8ff">
+    <tr>
+      <td><table width="100%" cellpadding="1" cellspacing="1" bgcolor="#f8f8ff">
+        <tr valign="middle">
+          <td width="13%" height="56"  colspan="1" align="center"><div align="center"><span class="style9">Message No.</span><br />
+                <input name="MesNum" type="text" readonly value="{var MesNum}" size="15">
+          </div></td>
+          <td width="24%" colspan="1" align="center"><div align="center"><span class="style9">Originating Station</span><br>
+                <input name="OrigSta" type="text" readonly value="{var OrigSta}" size="20">
+          </div></td>
+          <td width="20%" colspan="1" align="center"><div align="center"><span class="style9">Place of Origin</span><br />
+                <input name="PlOrig" readonly type="text" value="{var PlOrig}">
+          </div></td>
+          <td width="19%"  colspan="1" align="center" class="style9"><div align="center"><span >Time Filed<br />
+                <input name="TimFil" readonly type="text" value="{var TimFil}">
+          </span></div></td>
+          <td width="24%" colspan="1" align="center" background="#f8f8ff"><div align="center"><span class="style9">Destination</span><br />
+                <input name="DestSta" readonly type="text" value="{var DestSta}"size="30">
+                <br>
+          </div></td>
+        </tr>
+      </table></td>
+    </tr>
+    <tr>
+      <td height="96" valign="top"><h4 align="center"> Resource Request Data Input Form <br>
+        {var Title} </h4>
+        <!--
+Minimum Fields:
+Mission Name
+Detailed Description
+For each resource (up to 5 possible on 1 request):
+Priority:
+	Life Safety/Immediate (4 hrs)
+    Priority (12 hrs)
+    Routine (24 hrs)
+    Long-Term (96 hrs)
+    Extended (over 96 hrs)
+Resource Name (what is it)
+Requested Reporting Location
+Assigned to
+Status
+-->
+        <table width="100%" cellspacing="1" cellpadding="1">
+          <tr valign="middle" >
+            <td width="22" colspan="1" align="center" valign="bottom"><div align="right"><span class="style7">1.</span></div></td>
+            <td width="304" colspan="1" align="center"><span class="style9">Request - Limit 50 Char.<br />
+      {Mission Name}</span><br />
+      <input name="IReq" type="text" readonly value="{var IReq}" size="50" maxlength="50"></td>
+            <td width="32" colspan="1" align="center" valign="bottom"><div align="right"><span class="style7">2.</span></div></td>
+            <td width="134" colspan="1" align="center" valign="bottom"><span class="style9">Date</span>
+                <input name="Ddate"  id="Ddate" readonly type="text" value="{var Ddate}" size="10"></td>
+            <td width="23" colspan="1" align="center" valign="bottom" class="style7"><div align="right">3.</div></td>
+            <td width="221" colspan="1" align="center" valign="bottom"><span class="style9">Time Reported<br>
+              </span>              <input name="Trptd" readonly type="text" value="{var Trptd}">              </td>
+            <td width="24" colspan="1" align="center" valign="bottom" class="style7"><div align="right">4.</div></td>
+            <td width="266" colspan="8" align="center"><span class="style9">Originating Agency<br />
+      Id Number
+          <br>
+</span>        
+            <input name="Oaid" readonly type="text" value="{var Oaid}"></td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td height="97" valign="top"><table width="100%" cellspacing="1" cellpadding="1">
+        <tr>
+          <td width="14" colspan="1" align="center" valign="center"><span class="style7"><br>
+            5.</span></td>
+          <td width="388" colspan="1" align="center" valign="top"><p><span class="style9">Requesting Official Name and Contact Info<br />
+              {Requestor Contact Info}</span></p>
+            <p align="left" class="style10"><span style="width:350px; margin: 10px;background-color: white; word-wrap:break-word; display:inline-block;">{var Ronci}</span>
+			</p>
+            <p>             <br>
+            </p></td>
+          <td width="27" colspan="1" align="center" valign="center"><div align="right"><span class="style7"><br>
+            6.</span></div></td>
+          <td width="352" colspan="1" align="center" valign="top"><p align="center"><span class="style9">Request - Detailed Description <br>
+            REF Box 1</span></p>
+            <p align="left" class="style10"><span style="width:350px; margin: 10px;background-color: white;  word-wrap:break-word; display:inline-block;">{var DDreq} </span>
+            </p></td>
+        </tr>
+      </table></td>
+    </tr>
+    <tr>
+      <td height="193" valign="top"><h4 align="center">&nbsp;&nbsp; Resource Details </h4>
+        <h4 align="left">Request Priority (Precedence)</h4>
+        <table width="782" cellspacing="1" cellpadding="1">
+          <tr>
+            <td width="13" colspan="1" align="center" valign="center" class="style7">7.</td>
+            <td colspan="2" align="center" valign="bottom" class="style9"><div align="left">&nbsp;&nbsp;<span class="style10" style="background-color: white;" >{var Precedence} </span></div></td>
+            <td width="156" colspan="1" align="center" valign="bottom" class="style9">&nbsp;</td>
+            <td width="153" colspan="1"  align="center" valign="bottom" class="style9">&nbsp;</td>
+            <td colspan="2"  align="center" valign="bottom" class="style9">&nbsp;</td>
+            <td width="129" colspan="2"  align="center" valign="bottom" class="style9">&nbsp;</td>
+          </tr>
+        </table>
+        <br>
+        <h4 class="style1">Resource Name (what are you requesting)</h4>
+        <!--
+* Other
+AIR MISSION
+COMMUNICATIONS
+COTS/BLANKETS
+DEBRI CLEARANCE
+FIRE
+FOOD
+FUEL
+GENERATORS
+GROUND TRANSPORT
+HAZMAT
+HEAVY EQUIPMENT
+LABOR
+MEDICAL
+MoNG
+Pet ISSUES
+PUMPS
+ROCK
+SAND
+SANDBAGS
+SANDBAG MACHINES
+SECURITY
+SHELTERS
+STAFF (IST, LEOC, ETC)
+TARPS
+VOLUNTEERS
+WATER/ICE
+WATERCRAFT
+-->        <span class="style7">8.</span>
+<span class="style10" style="background-color: white;">{var Res1}</span><br />
+<br />
+<table width="100%" cellspacing="1" cellpadding="1">
+  <tr>
+    <td width="20" colspan="1" align="left" valign="center" class="style7">9.</td>
+    <td width="767" colspan="1" align="left" valign="top"><p class="style9">Deliver To Location,<span class="style11"> and if POC is different from Box 5., official Contact Info is indicated:</span> </p>
+      <p class="style10"><span style="background-color: white;">{var DelToLoc}</span></p></td>
+  </tr>
+</table>
+<p ><span class="style9">    <!--
+Assigned
+In Progress
+Complete
+Need More Information
+Forwarded
+Rejected
+Cancelled
+En Route
+Demobilized
+On Site
+Unable To Fill
+-->
+  </span> <span class="style7">10.</span>  
+  <span class="style10" style="background-color: white;">Status: {var Stat}</span></p></td>
+    </tr>
+    <tr>
+      <td height="150" valign="top"><p>Amateur Radio Use Only </p>
+      <table width="100%" cellspacing="1" cellpadding="1">
+          <tr>
+            <td width="23" colspan="1" align="left" valign="center"><span class="style7">11</span>.</td>
+            <td  colspan="1" align="left" valign="center"><span class="style9">Acknowledging<br />
+              Callsign:
+                  <br>
+                  <input name="AKCall" readonly type="text" id="AKCall" value="{var AKCall}" size="20">
+</span>              </td>
+            <td width="23" colspan="1" align="center" valign="center"><span class="style7">12</span>.</td>
+            <td width="152" colspan="1" align="left" valign="center"><span class="style9">WebEOC<br />
+              Tracking#
+                </span>
+              <input name="WEOCTR" readonly type="text" id="WEOCTR" value="{var WEOCTR}" size="20"></td>
+            <td width="23" colspan="1" align="center" valign="center"><span class="style7">13</span>.</td>
+            <td width="152" colspan="1" align="left" valign="center"><span class="style9">WebEOC<br />
+              Date Filed:
+                </span>
+              <input name="WEOCDF" readonly type="text" id="WEOCDF" value="{var WEOCDF}" size="20"></td>
+            <td width="23" colspan="1" align="center" valign="center"><span class="style7">14</span>.</td>
+            <td width="163" colspan="1" align="left" valign="center"><span class="style9">WebEOC<br />
+              Time Filed:
+                  <input name="WEOCTF" readonly type="text" id="WEOCTF" value="{var WEOCTF}" size="20">
+</span>                      </td>
+          </tr>
+        </table>        
+      <p align="left">&nbsp;</p></td>
+    </tr>
+  </table>
+</form>
+
+</body>
+</html>

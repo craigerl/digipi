@@ -1,0 +1,24 @@
+
+                   LinPac - dostupne prikazy
+                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  //Activity          - vypis cas od poslednej reakcie operatora
+  //Bell              - zavolaj operatora zvukovym signalom
+  //CStatus           - vypis zoznam pripojenych stanic
+  //Disconnect        - ukonci spojenie okamzite
+  //Echo <text>       - posli text naspat
+  //Help              - tato napoveda
+  //Info              - vypis informacie o stanici
+  //MHeard            - vypis zoznam nedavno pocutych stanic
+  //Name <name>	      - uloz meno
+  //Quit              - ukonci spojenie normalne
+  //Read <filename>   - posli textovy subor
+  //RBin <filename>   - posli binarny subor
+  //RPrg <filename>   - posli subor pouzitim protokolu autobin
+  //RTt               - zisti cas odozvy stanice
+  //Users             - vypis zoznam pripojenych stanic
+  //VERsion           - vypis verziu softveru
+  //Write <filename>  - zacni zapisovat do textoveho suboru (ukonci "//W off")
+  //WBin <filename>   - zacni zapisovat do binarneho suboru 
+  			(ukonci "//WBin off")
+  //YPUT <filename>   - posli subor pouzitim protokolu YAPP

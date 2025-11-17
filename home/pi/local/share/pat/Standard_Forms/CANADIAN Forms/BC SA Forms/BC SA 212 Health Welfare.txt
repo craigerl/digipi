@@ -1,0 +1,57 @@
+Form: BC_EDS_SA_212_Health_Welfare_Initial.html,BC_EDS_SA_212_Health_Welfare_Viewer.html
+
+To: 
+Def: Contactname=VA7JCM
+Subject: BC SA EDS212-<var T11_Target_Lastname_req>, <var SentTime1>, <var RadioOp>
+
+Msg:
+Health and welfare Information Request Form
+-----------------------------------------
+PERSON MAKING INQUIRY
+
+FIRST NAME: <var T01_First_Name_req>
+LAST NAME: <var T02_Last_Name_req>
+ADDRESS: <var T02_Last_Name_req>
+CITY: <var T04_City>
+PROV: <var T05_Prov>
+POST CODE: <var T06_Poscode>
+EMAIL ADDRESS: <var T09_Email_Address_req>
+PHONE/MOBILE <var T09_Email_Address_req>
+-----------------------------------------
+
+PERSON INQUIRY ABOUT
+
+FIRST NAME: <var T10_Target_Firstname_req>
+LAST NAME: <var T11_Target_Lastname_req>
+ADDRESS: <var T12_Target_Address>
+CITY: <var T13_Target_City>
+PROVINCE: <var T14_Target_Prov>
+POST CODE <var T15_Target_Postcode>
+EMAIL: <var T16_Target_Email>
+TELPHONE: <var T17_Target_Telephone>
+CELLPHONE: <var T18_Target_cellphone>
+
+ADDITIONAL COMMENTS:
+
+<var T19_Comments>
+
+-----------------------------------------
+
+RADIO XMT
+
+RELAY OPERATOR: <var RelayOp>
+RECVD: <var RcTime1>
+SENT: <var SentTime1>
+RADIO OPERATOR: <var RadioOp>
+RCVD DATE & TIME:<var RcTime2>
+
+------------------------------------
+
+Express Sending Station: <MsgSender>
+Senders Express Version: <ProgramVersion>
+Senders Template Version: <var Templateversion>
+
+
+
+
+

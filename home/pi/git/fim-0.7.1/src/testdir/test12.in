@@ -1,0 +1,27 @@
+# scaling and aalib test.
+stdout "* loaded "._filelistlen." files";
+autocmd "" "" "";
+#_autocmd_trace_stack=1;
+stdout "asymmetric scaling test";
+load;
+
+i:ascale=1;
+i:scale=2;
+magnify;
+reduce;
+display;
+#stdout i:width;
+#stdout i:swidth;
+stdout i:swidth==i:width;
+stdout i:swidth==2*i:width;
+
+stdout "";
+
+i:ascale=2;
+i:scale=2;
+if(_device_string=="aalib") { ascale=ascale*2; } # see src/fimrc's aalib specific lines
+magnify;
+reduce;
+display;
+stdout i:swidth==2*i:width;
+stdout i:swidth==i:width;

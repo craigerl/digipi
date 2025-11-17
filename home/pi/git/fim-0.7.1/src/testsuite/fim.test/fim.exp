@@ -1,0 +1,18 @@
+# stub
+
+send_user "This test file is still a stub\n"
+
+set timeout 1
+
+set test fimversion
+send ""
+expect	{
+	-re ".*" {pass "$test"}
+}
+
+set test stdout
+send ""
+expect	{
+	-re ".*" {pass "$test"}
+}
+

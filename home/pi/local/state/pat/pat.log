@@ -1,0 +1,13 @@
+2025/05/28 21:19:42 RigCtl Radio ready. Dial frequency is 145.050.00 MHz.
+2025/05/28 21:19:42 Starting HTTP service (http://0.0.0.0:8080)...
+2025/05/28 21:20:02 QSY ax25+linux: 145730
+2025/05/28 21:20:05 Connecting to NB6S-8 (ax25+linux)...
+2025/05/28 21:20:10 Connected to NB6S-8 (AX.25)
+Welcome to the NB6S-8 dual mode gateway on 145.730 MHz - direct or via MTVNOD
+[WL2K-5.0-B2FWIHJM$]
+;PQ: 80909166
+CMS via NB6S >
+>FF
+FQ
+2025/05/28 21:20:21 Disconnected.
+2025/05/28 21:20:22 QSX ax25+linux: 145730.000

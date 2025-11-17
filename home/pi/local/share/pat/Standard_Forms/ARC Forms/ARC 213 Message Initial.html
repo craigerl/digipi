@@ -1,0 +1,1377 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>ARC 213 Initial</title>
+
+
+
+<style type="text/css">
+
+<!--
+
+@media print {
+.form-control, .form-control.nobug {
+
+border: 0;
+
+outline: 0;
+
+box-shadow: none;
+
+font-size:14px;
+
+}
+
+.form-control.nobug {
+
+transition: none; /*-- THIS IS IMPORTANT -- */
+
+}
+
+input, textarea {
+
+outline: none !important;
+
+box-shadow: none;
+
+border: none;
+
+overflow: visible;
+
+font-family: Arial, Helvetica, sans-serif;
+
+font-size: 11px;
+
+}
+}
+
+.formtext {
+
+font-family: Arial, Helvetica, sans-serif;
+
+font-size: 11pt;
+
+font-weight: normal;
+
+margin: 10px;
+
+}
+
+#TextHeader {
+background-color: #dddddd;
+font-size: 10px;
+font-family: Arial,Helvetica,sans-serif;
+}
+
+.upload-btn-wrapper {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.btn {
+  border: 2px solid gray;
+  color: gray;
+  background-color: white;
+  padding: 8px 20px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.upload-btn-wrapper input[type=file] {
+  font-size: 50px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;}
+  
+  <!--
+
+TD{ bgcolor="#ffffff" valign="top"}
+
+.SubmitBtn {font-size: 12px;
+
+font-family: Arial,Helvetica,sans-serif;
+
+font-weight: inherit;
+
+}
+
+.upload-btn-wrapper {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.btn {
+  border: 2px solid gray;
+  color: gray;
+  background-color: white;
+  padding: 8px 20px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.upload-btn-wrapper input[type=file] {
+  font-size: 50px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;}
+/*
+
+body {color:#000; background:#fff; font:100%/1.5 arial,sans-serif;}
+
+h2 {margin-top:0}
+
+*/
+
+/* Styling applied to classes only */
+
+/* Pop-up content shifted off-screen when not in view.
+
+Still readable by screen-reader software.
+
+When targeted it fills the browser window.
+
+*/
+.pop-up {
+	position:absolute;
+	top:0;
+	left:-500em;
+	visibility: visible;
+}
+
+.pop-up:target {position:static; left:0;}
+
+/* The pop-up itself */
+
+.popBox {
+	background:#ffffff;
+	position:absolute;
+	left:25%;
+	right:25%;
+	top:10%;
+	bottom:25%;
+	z-index:10;
+	border:1px solid #3a3a3a;
+
+/* CSS3 where available: rounded corners, drop-shadow, and fade in. */
+
+border-radius:.25rem;
+
+box-shadow:0 .5rem .5rem rgba(0,0,0,.5);
+	opacity:0;
+	transition: opacity 0.8s ease-out;
+	visibility: visible;
+}
+
+:target .popBox {position:fixed; opacity:1;}
+
+/* Light box properties */
+
+.lightbox {
+
+display:none;
+
+text-indent:-200em;
+
+background-color:rgba(0,0,0,.4);
+
+width:100%;
+
+height:100%;
+
+position:fixed;
+
+top:0;
+
+left:0;
+
+bottom:0;
+
+right:0;
+
+z-index:5;
+
+}
+
+:target .lightbox {display:block;}
+
+/* The pop-ups close link, moved via CSS to the top right of the pop-up */
+
+.close:link,
+
+.close:visited {
+	position: absolute;
+	top: -0.75em;
+	right: -0.75em;
+	display: block;
+	width: 2em;
+	height: 2em;
+	line-height: 1.8;
+	padding: 0;
+	text-align: center;
+	text-decoration: none;
+	background-color: #000;
+	border: 2px solid #fff;
+	color: #fff;
+	border-radius: 50%;
+
+box-shadow: 0 0 .5rem .5rem rba(0,0,0,.5);
+	visibility: visible;
+}
+
+.close:before {content:"X";}
+
+.close:hover,
+
+.close:active,
+
+.close:focus {
+
+box-shadow: 0 0 .5rem .5rem rba(255,0,0,.5);
+
+background-color: #c00;
+
+color: #fff;
+
+}
+
+.close span {
+
+text-indent: -200em;
+
+display: block;
+
+}
+
+/* The pop-up content div will scroll if it has too much content */
+
+.popScroll {
+	position:absolute;
+	top: 1rem;
+	left: 1rem;
+	right: 1rem;
+	bottom: 1rem;
+	overflow-y: auto;
+
+*overflow-y: scroll;
+	padding-right: 0.5em;
+	visibility: visible;
+}
+
+.popScroll h2 {margin-top:0}
+}
+
+.style7 {font-size: 12px}
+
+.style11 {
+
+	font-size: 9pt;
+
+	color: #000000;
+
+}
+
+.style14 {font-size: 20pt}
+.style17 {color: #FF0000}
+.style19 {color: #000000}
+.style10 {font-size: 10pt}
+.style15 {font-size: 14px; font-family: Arial, Helvetica, sans-serif; }
+.style20 {font-size: 24px}
+
+input[type=button] {
+
+  border: 2px solid #0f88f2;;
+   border-radius:.25rem;
+  color: black;
+    background-color: white;
+
+  padding: 2px 2px;
+  text-decoration: none;
+  margin: 2px 2px;
+  cursor: pointer;
+}
+input[type=submit] {
+ border: 2px solid green;
+  border-radius:.25rem;
+  background-color: white;
+  color: black;
+  padding: 2px 2px;
+  font-size: 14px;
+   cursor: pointer;
+}
+input[type=reset] {
+ border: 2px solid red;
+ border-radius:.25rem;
+  background-color: white;
+  color: black;
+  padding: 2px 2px;
+  font-size: 14px;
+   cursor: pointer;
+}
+input[type=black1] {
+ border: 2px solid #999999;
+   width:225px;
+  border-radius:.25rem;
+
+  background-color: white;
+  color: black;
+  padding: 2px 2px;
+  font-size: 14px;
+   cursor: pointer;
+}
+
+</style>
+
+<script>
+
+function shortmonth(monthnum) {
+
+var monthname;
+
+shortmonths = ["JAN", "FEB", "MAR","APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"] ;
+
+monthname = shortmonths [monthnum];
+
+return monthname; }
+
+
+
+function SetDateTime(TType,TheFld, FocusFld) {
+
+//id="tformat" value="Local"
+var txt;
+
+var myprompt;
+
+var d = new Date(),
+
+thisyear = d.getFullYear();
+
+thismonth= d.getMonth();
+
+thisday = d.getDate();
+if (thisday < 10) { thisday = "0" + thisday}
+var monname;
+
+h = (d.getHours()<10?'0':'') + d.getHours()
+
+m = (d.getMinutes()<10?'0':'') + d.getMinutes()
+
+s = (d.getSeconds()<10?'0':'') + d.getSeconds();
+
+var now = new Date();
+
+var utch = now.getUTCHours();
+
+if (utch < 10) { utch = "0"+utch};
+
+var utcs = now.getUTCMinutes();
+
+if (utcs < 10) { utcs = "0"+utcs};
+
+var myUTCtime = utch+":"+utcs+"Z";
+
+var utcstr = d.toUTCString();
+
+var localt = d.toLocaleTimeString();
+
+var isostr = d.toISOString();
+var UTCyear = d.getUTCFullYear();
+//monthname = shortmonth (thismonth);
+var UTCmon = d.getUTCMonth();  
+var UTCmon = UTCmon+1;
+if (UTCmon < 10) { UTCmon = "0" + UTCmon}
+
+var UTCdate = d.getUTCDate();  
+thismonth = thismonth + 1;
+if (thismonth < 10) { thismonth = "0" + thismonth}
+
+myUTCdate = UTCyear+'-'+UTCmon+'-'+UTCdate;
+switch (TType) {
+
+case 'hms' :
+
+myprompt = h + ':' + m + ':' + s;
+
+var RightNow = prompt("Time:", myprompt);
+
+document.getElementById(TheFld).value = RightNow;
+
+break;
+
+case 'hm' :
+
+//var cformat =document.getElementById('tformat').checked;
+var myprompt = h + ':' + m;
+var RightNow = prompt("Time:", myprompt);
+
+document.getElementById(TheFld).value = RightNow;
+
+break;
+
+case 'm-d-y': myprompt = thismonth+ '-' + thisday+ '-'+ thisyear;
+
+var RightNow = prompt("Date:", myprompt);
+
+document.getElementById(TheFld).value = RightNow;
+
+break;
+
+case 'm/d/y': myprompt = thismonth+ '/' + thisday+ '/'+ thisyear;
+
+var RightNow = prompt("Date:", myprompt);
+
+document.getElementById(TheFld).value = RightNow;
+
+break;
+
+case 'd mmm y': myprompt = thisday+ ' ' + monthname+ ' '+ thisyear;
+
+var RightNow = prompt("Date:", myprompt);
+
+document.getElementById(TheFld).value = RightNow;
+
+break;
+
+case 'mmm-d-y': myprompt = monthname+'-'+thisday+ '-' + thisyear;
+
+var RightNow = prompt("Date:", myprompt);
+
+document.getElementById(TheFld).value = RightNow;
+
+break;
+
+case 'localampm': var myprompt = localt;
+
+var RightNow = prompt("Local time:", myprompt);
+
+document.getElementById(TheFld).value = RightNow;
+
+break;
+
+case 'fulldate': 
+
+//var cformat =document.getElementById('tformat').checked;
+var myprompt = thisyear+ '-'+thismonth+'-'+thisday;
+
+
+
+
+var RightNow = prompt("Date:", myprompt);
+
+document.getElementById(TheFld).value = RightNow;
+
+break;
+
+case 'fulldatetime': 
+
+var myprompt = thisyear+'-'+thismonth+ '-'+thisday+' '+h + ':' + m ;
+
+var RightNow = prompt("Date time:", myprompt);
+
+document.getElementById(TheFld).value = RightNow;
+
+break;
+
+case 'autodate': var RightNow = thisyear+'-'+thismonth+ '-'+thisday ;
+
+//var RightNow = prompt("Date time:", myprompt);
+
+document.getElementById(TheFld).value = RightNow;
+
+break;
+
+case 'autotime': var RightNow = h + ':' + m ;
+
+//var RightNow = prompt("Date time:", myprompt);
+
+document.getElementById(TheFld).value = RightNow;
+
+break;
+
+case 'iso': var myprompt = isostr;
+
+var RightNow = prompt("Date time:", myprompt);
+
+document.getElementById(TheFld).value = RightNow;
+
+break;
+
+case 'utc': var myprompt = utcstr;
+
+var RightNow = prompt("Date time:", myprompt);
+
+document.getElementById(TheFld).value = RightNow;
+
+break;
+
+case 'zulu': var myprompt = isostr;
+
+myprompt = isostr.replace("T", " "); slen = myprompt.length;
+
+myprompt = myprompt.substr(0, slen-5);
+
+var RightNow = prompt("Date time:", myprompt);
+
+document.getElementById(TheFld).value = RightNow;
+
+break;
+
+case 'UTChm': var myprompt = myUTCtime;
+
+var RightNow = prompt("Date time:", myprompt);
+
+document.getElementById(TheFld).value = RightNow;
+
+break;
+
+}
+
+// if(FocusFld !== null && FocusFld !== '') {document.getElementById(FocusFld).focus()} --/
+
+}; 
+
+
+
+
+function DateTime() {  
+//  alert ("atdatetime");
+var txt;  
+  
+var myprompt;  
+  
+var d = new Date(),  
+  
+thisyear = d.getFullYear();  
+  
+thismonth= d.getMonth();  
+  
+thisday = d.getDate();  
+  var UTCdate = d.getUTCDate();  
+var monname;  
+  
+h = (d.getHours()<10?'0':'') + d.getHours()  
+  
+m = (d.getMinutes()<10?'0':'') + d.getMinutes()  
+  
+var Localtime = h + m+'L ';  
+  
+var now = new Date();  
+  
+var utch = now.getUTCHours();  
+  
+if (utch < 10) { utch = '0'+utch};  
+  
+var utcs = now.getUTCMinutes();  
+  
+if (utcs < 10) { utcs = '0'+utcs};  
+  
+var myUTCtime = utch+""+utcs;  
+  
+var utcstr = d.toUTCString();  
+  
+var localt = d.toLocaleTimeString();  
+  
+var isostr = d.toISOString();  
+  
+monthname = shortmonth (thismonth);  
+  
+thismonth = thismonth + 1;  
+  if (thismonth < 10) { thismonth = "0" + thismonth}
+
+var UTCmon = d.getUTCDate();  
+  
+var UTCmon = d.getUTCMonth();  
+var UTCmon = UTCmon+1;
+if (UTCmon < 10) { UTCmon = "0" + UTCmon}
+
+var utcmonthname = shortmonth (UTCmon);  
+  
+//var UTCmmdd =utcmonthname + " "+UTCdate+" "+thisyear;  
+  
+//var Localdate = monthname+' '+thisday+" "+thisyear;  
+var UTCmmdd =thisyear + "-"+UTCmon+"-"+UTCdate;  
+  	
+var Localdate = thisyear+'-'+thismonth+'-'+thisday;
+  
+var Rightnow =UTCmmdd;  
+  
+if (document.getElementById('tformat').checked) { Rightnow = Localdate};  
+  
+document.getElementById('Mdate').value = Rightnow;  
+  
+var Rightnow = myUTCtime;  
+  
+if (document.getElementById('tformat').checked) { Rightnow = Localtime};  
+  
+document.getElementById('Mtime').value = Rightnow;  
+  
+// if(FocusFld !== null && FocusFld !== '') {document.getElementById(FocusFld).focus()} --/  
+  
+};  
+function RWS(str){
+
+var text2 = str.replace(/\s+$/,"");
+var aquote = '"';
+var text2=text2.replace(/\“/g, aquote); 
+var text2=text2.replace(/\”/g, aquote); 
+var text2=text2.replace(/\’/g, "'"); 
+var text2=text2.replace(/\‘/g, "'"); 
+
+ text2 = text2.replace(/[\u2018|\u2019|\u201A]/gm, "\'");
+    // smart double quotes
+	text2 = text2.replace(/[\u201C|\u201D|\u201E]/g, "\"");
+	//text2 = text2.replace(/\u00201c/g, aquote);
+//text2 = text2.replace(/[\u+201D]/gm, aquote);
+    // ellipsis
+   // text2 = text2.replace(/\u2026/g, "...");
+    // dashes
+    //text2 = text2.replace(/[\u2013|\u2014]/g, "-");
+    // circumflex
+ //   text2 = text2.replace(/\u02C6/g, "^");
+    // open angle bracket
+    //text2 = text2.replace(/\u2039/g, "");
+    // spaces
+    //text2 = text2.replace(/[\u02DC|\u00A0]/g, " ");
+return text2.trim();
+
+}	function selectaddress(){  
+ location.href="#pop3";  
+ 
+}  
+//-------
+ function readBlob(opt_startByte, opt_stopByte) {
+  
+    var files = document.getElementById('files').files;
+    if (!files.length) {
+      alert('Please select a file!');
+      return;
+    }
+
+    var file = files[0];
+    var start = parseInt(opt_startByte) || 0;
+    var stop = parseInt(opt_stopByte) || file.size - 1;
+
+    var reader = new FileReader();
+
+    // If we use onloadend, we need to check the readyState.
+    reader.onloadend = function(evt) {
+      if (evt.target.readyState == FileReader.DONE) { // DONE == 2
+        document.getElementById('byte_content').textContent = evt.target.result;
+        document.getElementById('byte_range').textContent = 
+            ['Read bytes: ', start + 1, ' - ', stop + 1,
+             ' of ', file.size, ' byte file'].join('');
+      }
+    };
+
+    var blob = file.slice(start, stop + 1);
+    reader.readAsBinaryString(blob);
+  }
+    	
+  window.onload = function () { 
+ 
+ //Check the support for the File API support 
+ if (window.File && window.FileReader && window.FileList && window.Blob) {
+    var fileSelected = document.getElementById('txtfiletoread');
+	
+    fileSelected.addEventListener('change', function (e) { 
+         //Set the extension for the file 
+         var fileExtension = /text.*/; 
+         //Get the file object 
+         var fileTobeRead = fileSelected.files[0];
+        //Check of the extension match 
+         if (fileTobeRead.type.match(fileExtension)) { 
+             //Initialize the FileReader object to read the 2file 
+			
+             var fileReader = new FileReader(); 
+             fileReader.onload = function (e) { 
+                 var fileContents = document.getElementById('filecontents'); 
+                
+				document.getElementById('parseme').value =fileReader.result;
+				       parsestring("F");   } 
+             fileReader.readAsText(fileTobeRead); 
+         } 
+         else { 
+             alert("Please select text file"); 
+         }
+ 
+    }, false);
+} 
+ else { 
+     alert("Files are not supported"); 
+ } 
+
+ SetDateTime('autodate','Mdate');
+ SetDateTime('autotime','Mtime')
+Checkifinbrowser();
+ }
+
+function saveTextAsFile(fileNameToSaveAs, textToWrite) {
+var textToWrite = document.getElementById('parseme').value; 
+var fileNameToSaveAs = "ARC 213 INITIAL " + DateforFile()+".txt";
+fileNameToSaveAs = prompt("", fileNameToSaveAs);
+
+  /* Saves a text string as a blob file*/  
+  var ie = navigator.userAgent.match(/MSIE\s([\d.]+)/),
+      ie11 = navigator.userAgent.match(/Trident\/7.0/) && navigator.userAgent.match(/rv:11/),
+      ieEDGE = navigator.userAgent.match(/Edge/g),
+      ieVer=(ie ? ie[1] : (ie11 ? 11 : (ieEDGE ? 12 : -1)));
+
+  if (ie && ieVer<10) {
+    console.log("No blobs on IE ver<10");
+    return;
+  }
+
+  var textFileAsBlob = new Blob([textToWrite], {
+    type: 'text/plain'
+  });
+
+  if (ieVer>-1) {
+    window.navigator.msSaveBlob(textFileAsBlob, fileNameToSaveAs);
+
+  } else {
+    var downloadLink = document.createElement("a");
+    downloadLink.download = fileNameToSaveAs;
+    downloadLink.href = window.URL.createObjectURL(textFileAsBlob);
+    downloadLink.onclick = function(e) { document.body.removeChild(e.target); };
+    downloadLink.style.display = "none";
+    document.body.appendChild(downloadLink);
+    downloadLink.click();
+  }
+}
+
+
+
+
+
+function destroyClickedElement(event)
+{
+    document.body.removeChild(event.target);
+}
+
+function loadFileAsText()
+{
+
+    var fileToLoad = document.getElementById("fileToLoad").files[0];
+ 
+    var fileReader = new FileReader();
+    fileReader.onload = function(fileLoadedEvent) 
+    {
+        var textFromFileLoaded = fileLoadedEvent.target.result;
+        document.getElementById("inputTextToSave").value = textFromFileLoaded;
+    };
+    fileReader.readAsText(fileToLoad, "UTF-8");
+}
+
+function TimeNow(Timefld, FocusFld) {
+var txt;
+var d = new Date(),
+thisyear = d.getFullYear();
+thismonth= d.getMonth();
+thismonth = thismonth+1;
+if (thismonth < 10) { thismonth = "0" + thismonth}
+
+thisday = d.getDate();
+if (thisday < 10) { thisday = "0" + thisday}
+
+h = (d.getHours()<10?'0':'') + d.getHours()
+m = (d.getMinutes()<10?'0':'') + d.getMinutes()
+s = (d.getSeconds()<10?'0':'') + d.getSeconds();
+var myprompt = thisyear+ '-'+thismonth+'-'+thisday+' '+h + ':' + m ;
+var RightNow = prompt("", myprompt);
+document.getElementById(Timefld).value = RightNow;
+} 
+function DateforFile(RightNow) {
+var txt;
+var d = new Date(),
+thisyear = d.getFullYear();
+thismonth= d.getMonth();
+thismonth = thismonth+1;
+if (thismonth < 10) { thismonth = "0" + thismonth}
+
+thisday = d.getDate();
+if (thisday < 10) { thisday = "0" + thisday}
+
+h = (d.getHours()<10?'0':'') + d.getHours()
+m = (d.getMinutes()<10?'0':'') + d.getMinutes()
+s = (d.getSeconds()<10?'0':'') + d.getSeconds();
+var myprompt = thisyear+ '-'+thismonth+'-'+thisday+' '+h + '_' + m ;
+return myprompt;
+}
+
+function shortmonth(monthnum) {
+var monthname;
+shortmonths = ["JAN", "FEB", "MAR","APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"] ;
+monthname = shortmonths [monthnum];
+return monthname;
+}
+function DateTime(TType,TheFld, FocusFld) {
+var txt;
+var myprompt;
+var d = new Date(),
+thisyear = d.getFullYear();
+thismonth= d.getMonth();
+thisday = d.getDate();
+var monname;
+h = (d.getHours()<10?'0':'') + d.getHours()
+m = (d.getMinutes()<10?'0':'') + d.getMinutes()
+s = (d.getSeconds()<10?'0':'') + d.getSeconds();
+var now = new Date();
+var utch = now.getUTCHours();
+if (utch < 10) { utch = "0"+utch};
+var utcs = now.getUTCMinutes();
+if (utcs < 10) { utcs = "0"+utcs};
+var myUTCtime = utch+":"+utcs+"";
+var utcstr = d.toUTCString();
+var localt = d.toLocaleTimeString();
+var isostr = d.toISOString();
+monthname = shortmonth (thismonth);
+thismonth = thismonth + 1;
+switch (TType) {
+case 'hms' :
+myprompt = h + ':' + m + ':' + s;
+var RightNow = prompt("Time:", myprompt);
+document.getElementById(TheFld).value = RightNow;
+break;
+case 'hm' :
+myprompt = h + ':' + m;
+var RightNow = prompt("Time:", myprompt);
+document.getElementById(TheFld).value = RightNow;
+break;
+case 'm-d-y': myprompt = thismonth+ '-' + thisday+ '-'+ thisyear;
+var RightNow = prompt("Date:", myprompt);
+document.getElementById(TheFld).value = RightNow;
+break;
+case 'm/d/y': myprompt = thismonth+ '/' + thisday+ '/'+ thisyear;
+var RightNow = prompt("Date:", myprompt);
+document.getElementById(TheFld).value = RightNow;
+break;
+case 'DateStamp-m-d-y': var RightNow = thismonth+ '-' + thisday+ '-'+ thisyear;
+document.getElementById(TheFld).value = RightNow;
+break;
+case 'd mmm y': myprompt = thisday+ ' ' + monthname+ ' '+ thisyear;
+var RightNow = prompt("Date:", myprompt);
+document.getElementById(TheFld).value = RightNow;
+break;
+case 'mmm-d-y': myprompt = monthname+'-'+thisday+ '-' + thisyear;
+var RightNow = prompt("Date:", myprompt);
+document.getElementById(TheFld).value = RightNow;
+break;
+case 'localampm': var myprompt = localt;
+var RightNow = prompt("Local time:", myprompt);
+document.getElementById(TheFld).value = RightNow;
+break;
+case 'fulldate': var myprompt = thisyear+ '-'+thismonth+'-'+thisday;
+var RightNow = prompt("Date:", myprompt);
+document.getElementById(TheFld).value = RightNow;
+break;
+case 'fulldatetime': var myprompt = thisyear+'-'+thismonth+ '-'+thisday+' '+h + ':' + m + ':' + s;
+var RightNow = prompt("Date time:", myprompt);
+document.getElementById(TheFld).value = RightNow;
+break;
+case 'iso': var myprompt = isostr;
+var RightNow = prompt("Date time:", myprompt);
+document.getElementById(TheFld).value = RightNow;
+break;
+case 'utc': var myprompt = utcstr;
+var RightNow = prompt("Date time:", myprompt);
+document.getElementById(TheFld).value = RightNow;
+break;
+case 'zulu': var myprompt = isostr;
+myprompt = isostr.replace("T", " "); slen = myprompt.length;
+myprompt = myprompt.substr(0, slen-5)+'Z';
+var RightNow = prompt("Date time:", myprompt);
+document.getElementById(TheFld).value = RightNow;
+break;
+case 'UTChm': var myprompt = myUTCtime;
+var RightNow = prompt("Date time:", myprompt);
+document.getElementById(TheFld).value = RightNow;
+break;
+}
+// if(FocusFld !== null && FocusFld !== '') {document.getElementById(FocusFld).focus()} --/
+};
+function AutoGrowTextArea(textField){
+//alert (textField.clientHeight );
+//textField.style.height = textField.scrollHeight + "px";
+if (textField.clientHeight < textField.scrollHeight)
+{
+textField.style.height = (textField.scrollHeight * 2 - textField.clientHeight) + "px";
+}
+}
+
+function Countthelines(f) { var text1 = f;
+
+var text2 = text1.replace(/\s+$/,"");
+var split2 = text2.split("\n"); 
+var ar = text2.length /100;
+var mytotal = (split2.length+ar) * 15.5;
+
+
+//var mytotal = split2.length * 15.5;
+//alert("#lines "+mytotal)
+//if (mytotal < 300) {
+//mytotal = 150;
+//}
+var tstr = mytotal.toString();
+return tstr;
+}
+function newfix(f){
+var ThisText = document.getElementById(f).value;
+var makeit = Countthelines(ThisText);
+
+document.getElementById(f).style.height = makeit+"px"; 
+
+}
+
+function Fixarea() {
+
+newfix('Message');
+ document.getElementById('Message').value
+AutoGrowTextArea('Message');
+
+}
+function RWS(str){
+var text2 = str.replace(/\s+$/,"");
+return text2.trim();
+}
+
+function SaveData() {
+	var mydata= "";
+
+         	var mydata=mydata + document.getElementById('DR_num').value+"\t";
+			var mydata=mydata + document.getElementById('inc_name').value+"\t";
+			var mydata=mydata + document.getElementById('MSG_num').value+"\t";
+			var mydata=mydata + document.getElementById('Priority2').value+"\t";
+			var mydata=mydata + document.getElementById('to_name').value+"\t";
+			var mydata=mydata + document.getElementById('fm_name').value+"\t";
+			var mydata=mydata + document.getElementById('Subjectline').value+"\t";
+			var mydata=mydata + document.getElementById('Mdate').value+"\t";
+			var mydata=mydata + document.getElementById('Mtime').value+"\t";
+			var n = document.getElementById('Message').value;
+		n = n.replace(/(?:\r\n|\r|\n)/g, '<br>');
+		
+		var mydata=mydata +n+"\t";
+			var mydata=mydata + document.getElementById('Approved_Name').value+"\t";
+			var mydata=mydata + document.getElementById('Approved_PosTitle').value+"\t";
+						//var mydata=mydata + document.getElementById('ShowDR').value+"\t";
+			//var mydata=mydata + document.getElementById('txtStr').value+"\t";
+			
+		var mydata=mydata+"\n";
+		
+
+			document.getElementById('parseme').value = mydata;
+			
+			saveTextAsFile();
+			
+			//saveTextAsFile();
+			}
+			
+
+
+function parsestring(mType) {
+	var mytext = document.getElementById('parseme').value;
+	mytext= fixcurly(mytext);
+var myType = mType;
+var lines = mytext.split('\n', 13);
+
+    for(var line = 0; line < lines.length - 1; line++){
+        // By tabs
+		//alert (lines[line]);
+var x = line +1;
+
+     if (line <3) {  var tabs = lines[line].split('\t',13);
+		//var x = line +1;
+            	if (tabs[0] != null){document.getElementById('DR_num').value =tabs[0] };			
+				if (tabs[1] != null){document.getElementById('inc_name').value =tabs[1]};
+				if (tabs[2] != null){document.getElementById('MSG_num').value =tabs[2]};
+				if (tabs[3] != null){document.getElementById('Priority2').value =tabs[3] };	
+			if (tabs[4] != null){document.getElementById('to_name').value =tabs[4] };
+			if (tabs[5] != null){document.getElementById('fm_name').value =tabs[5] };
+			if (tabs[6] != null){document.getElementById('Subjectline').value =tabs[6] };
+			if (tabs[7] != null){document.getElementById('Mdate').value =tabs[7] };
+			if (tabs[8] != null){document.getElementById('Mtime').value =tabs[8] };
+			var n = tabs[9]};
+					var n=n.replace(/\<br>/gm, "\r");
+			if (tabs[9] != null){document.getElementById('Message').value =n};
+			Fixarea();
+			AutoGrowTextArea('Message');
+			if (tabs[10] != null){document.getElementById('Approved_Name').value =tabs[10] };
+			if (tabs[11] != null){document.getElementById('Approved_PosTitle').value =tabs[11] };		
+
+				Fixcurlymsg();
+			}
+			}
+
+
+
+		
+		//
+
+
+	
+	function selectaddress(){  
+ location.href="#pop3";  
+} 
+
+function checkop2() {
+if (document.getElementById('ShowDR').value === 'true') {
+document.getElementById("Op2").checked = true;}
+}
+
+function unhide() {
+var b2= document.getElementById('Op2').checked;
+var x2 = document.getElementById("mShowDR"); 
+  if (b2 == true) {
+  x2.style.display = "inline-block";
+   document.getElementById('ShowDR').value ="true" ;
+  } else {
+  x2.style.display = "none";
+   document.getElementById('ShowDR').value ="false" ;
+    document.getElementById('txtStr').value ="" ;
+   
+   
+ } 
+ 
+  }
+  
+  function makestr(){
+ d1 =document.getElementById("DR_num").value; 
+ d2 =document.getElementById("Priority2").value; 
+ var txtStr="Red Cross DR#:"+d1+"          "+"  Precedence: "+d2;
+//document.getElementById("txtStr").value = txtStr; 
+  }
+  
+   function fixcurly (n) {
+       n=n.replace(/[\u2018\u2019]/g, "'")   // smart single quotes
+       n=n.replace(/[\u201C\u201D]/g, '"');  // smart double quotes
+
+return n;
+}
+function Fixcurlymsg() {
+n = document.getElementById("Message").value
+       n=n.replace(/[\u2018\u2019]/g, "'")   // smart single quotes
+       n=n.replace(/[\u201C\u201D]/g, '"');  // smart double quotes
+ document.getElementById("Message").value = n
+
+}
+function Checkifinbrowser() {
+ var x= document.getElementById("testCall").value; 
+ var n = x.search("{Msg");
+ if (n>-1) { 
+ document.getElementById('Submit').style.visibility='hidden';
+  alert('You are running this form outside of Winlink.\n \nWhen you have completed the form, SAVE the data and then give or send the SAVED data file to the radio operator. The operator will load the SAVED data into the correct form and send via winlink. ');
+ } else {document.getElementById('Submit').style.visibility='visible';  }
+}
+
+</script>
+
+
+
+</head>
+<body >
+<form  style="font-family: Arial;" pbzloc="3" onsubmit="return confirm('To complete your form submission, click OK and close the open browser window. You will return to the new message window so you can post your message to the outbox');" method="post" id="myform" enctype="multipart/form-data" action="http://{FormServer}:{FormPort}">
+
+<table style="width: 895px; height: 453px;" border="1" cellpadding="3" cellspacing="0">
+
+<colgroup><col width="657" /></colgroup> <tbody>
+
+<tr valign="top" >
+
+<td height="31">
+
+  <div align="left">
+    <p><span class="style6"><span class="western"><img src="data:image/png;base64,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" name="_img1" align="middle" class="image" id="_img1" /> <b><span style="font-weight: bold;"><small><big><small><span class="style15" style="font-weight: bold;"><small><big><small>&nbsp; &nbsp; &nbsp;<strong><b> <font face="Liberation Sans, serif"><b>&nbsp;</b></font> <font face="Liberation Sans, serif"><b>&nbsp;</b></font> <font face="Liberation Sans, serif"><b>&nbsp;</b></font> <font face="Liberation Sans, serif"><b>&nbsp;</b></font> <font face="Liberation Sans, serif"><b>&nbsp;</b></font></b></strong></small></big></small></span></small></big></small></span></b></span>&nbsp; &nbsp;<span class="style20">ARC 213 General
+    
+Message</span></span></p>
+    <p align="center"><span class="style6"><span class="formtext">
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <input type="button" value=" Load ARC 213 INITIAL Data " onclick="document.getElementById('txtfiletoread').click();" />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="#pop1" class="style25 style7"><span style="color: rgb(204, 0, 0);">&nbsp;Form Instructions</span></a>
+       <input type="file" id="txtfiletoread" accept=".txt"  style="display: none;"/>
+      </span></span></p>
+  </div></td>
+
+</tr>
+
+<tr valign="middle">
+
+  <td height="28" class="formtext">
+    <table width="900" border="0" cellspacing="0" cellpadding="0">
+      <tr valign="top">
+        <td nowrap="nowrap"><span class="style19"> Red Cross DR#:</span>
+          <input placeholder="IF KNOWN" maxlength="18" name="DR_num" id="DR_num" size="18" onchange="makestr()"/>          <span class="style6">&nbsp; &nbsp; &nbsp;</span><span class="style19">Incident Name:</span>&nbsp;
+<input maxlength="34" name="inc_name" id="inc_name" size="35"/>
+&nbsp;&nbsp; <span class="style19">Message#:</span>
+<input placeholder="SUGGESTED" maxlength="18" name="MSG_num" id="MSG_num" size="18" onchange="makestr()"/>
+<span class="style19"> </span>
+           </td>
+        </tr>
+    </table>
+    </td>
+</tr>
+
+<tr valign="middle">
+  <td height="28" cclass="formtext">Precedence:    
+    <select id="Priority2" name="Priority2">
+      <option selected="selected" value="Routine">Routine</option>
+      <option value="Welfare">Welfare</option>
+      <option value="Priority">Priority</option>
+      <option value="EMERGENCY">EMERGENCY</option>
+        </select></td>
+</tr>
+<tr valign="middle">
+
+<td height="28" class="formtext"><span class="style17"><span class="style19">To (Name/Position):</span>&nbsp;</span>  <input name="to_name" id="to_name" size="60" maxlength="60" required="" /></td>
+
+</tr>
+
+<tr valign="middle">
+
+<td height="28" nowrap="nowrap" class="formtext">From (Name/Position):&nbsp; <input required="required" name="fm_name" id="fm_name" size="65" maxlength="60" /></td>
+
+</tr>
+
+<tr class="formtext">
+
+<td height="34" nowrap="nowrap"  >Subject:&nbsp;  <input name="Subjectline" id="Subjectline" size="55" maxlength="50" required="" />    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Date:&nbsp;  <input required="required" title="Click to change the date or overwrite" name="Mdate" id="Mdate" size="11" maxlength="10" onclick="SetDateTime('fulldate',this.id)" />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Time:&nbsp;  <input required="required" title="Click to change the time or overwrite" name="Mtime" id="Mtime" size="9" maxlength="9" onclick="SetDateTime('hm',this.id)" /></td>
+</tr>
+
+<tr valign="middle" class="formtext">
+
+<td> Message:<span class="style14">&nbsp;
+
+</span>
+
+  <p><span class="formtext"> <textarea onblur="this.value=fixcurly(this.value)" onkeyup="AutoGrowTextArea(this)" placeholder="Be Brief and Concise" id="Message" rows="10" cols="125" name="Message" onchange="AutoGrowTextArea(this)"></textarea> 
+  </span></p>
+
+</td>
+
+</tr>
+
+<tr valign="middle">
+
+<td style="height: 35px;"><span class="formtext">Approved by:&nbsp; </span>
+
+  <input name="Approved_Name" id="Approved_Name" size="35" maxlength="34" required="" />
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="formtext">&nbsp;Position
+
+/ Title: </span>&nbsp;<input required="required" name="Approved_PosTitle" id="Approved_PosTitle" size="35" maxlength="33" /> 
+
+<br />
+
+</td>
+
+</tr>
+
+<tr class="formtext">
+
+<td height="15">
+
+<div align="left"> <span class="formtext"><span style="font-family: Calibri;"><small>
+  <input type=button value="Save ARC 213 Initial Data"  onclick="SaveData()" />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <input value="Submit" style="height: 28px; width: 70px;" size="8" name="Submit" method="Post" id="Submit" enctype="multipart/form-data" class="SubmitBtn" type="submit" /></small></span></span><span class="formtext">
+<input class="BtnFormat2" value="Reset Form " name="ResetForm" type="reset" />
+ <input name="Templateversion" type="hidden" id="templateversion" value="ARC 213 V 1.6" />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input name="testCall" type="hidden" id="testCall" value="{MsgSender}" size="14" maxlength="13" />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Version ARC 213 1.6</span> <span class="style11"> </span>
+
+<textarea name="parseme" cols="80" rows="3" id="parseme" placeholder="Paste spreadsheet data here" style="display: none;"></textarea> 
+		<input type=button value="Parse Data" onClick="parsestring('P')" style="display: none;"></div>
+
+<div align="right"></td>
+
+    <div align="right"><span class="no-print"><span class="style10">&nbsp;</span></span></div>
+<span class="no-print"><span class="style10">&nbsp;</span><span class="style10">&nbsp;</span></span>
+</td>
+  <span class="no-print"><span class="style10">&nbsp;</span></span>&nbsp;
+
+
+</tr>
+
+</tbody>
+
+</table>
+<div id="pop1" class="pop-up"><!-- The pop-up block -->
+
+<div class="popBox"><!-- If the content becomes larger than the pop-up this div will scroll the content -->
+
+<div class="popScroll"><!-- Test for help starts here -->
+
+<p> </p>
+
+<h2>ARC 213 General Message</h2>
+
+<p align="left"><strong>Introduction. </strong><br />
+
+<br />
+
+This is a radio delivery based ARC 213 template. It is as close to a
+
+FEMA ICS213 as possible within the constraints of Winlink Express.
+Note the ARC 213 adds the Red Cross DR #, Precedence, and Message Number.
+
+<br />
+
+<br />
+
+<strong> NOTE on printing. </strong><br />
+
+<br />
+
+Printing this form is dependent upon your selected
+
+printer and its settings. Various Web Browsers and and their viewing
+
+sizes are not all the same. Printing from a browsers print function
+
+may be different from the operating systems default print mode.
+
+Select what works for you, for both printing and viewing.
+
+You may print direct to the printer or save as a
+
+PDF, then print the PDF. For this form LANDSCAPE mode may print
+
+better than Portrait. <br />
+
+</p>
+
+<p align="left"><strong>Purpose. </strong><br />
+
+<br />
+
+The ARC General Message is used by incident dispatchers or others
+
+to record
+
+incoming
+
+messages that cannot or should not be orally transmitted to the
+
+intended recipients. The ARC 213 may be used by the Incident Command
+
+Post or other
+
+incident personnel to transmit messages (e.g., resource orders,
+
+incident name change, other coordination / information issues, to the
+
+Incident
+
+Communications Center for transmission via radio or telephone to the
+
+addressee. The form is used to send any message or notification to
+
+incident personnel that requires hard-copy delivery. A digital delivery
+
+is best for complex requests or instructions.
+
+This sent ARC 213 has the message information in plain text
+
+within the
+
+message body so non-Express users can read, as they do not have the
+
+rendered HTML. <br />
+
+</p>
+
+<p align="left"> <strong>Preparation.<br />
+
+</strong><br />
+
+The ARC 213 may be initiated by incident dispatchers or any other
+
+personnel on an incident. Amateur Radio communicators make use of the
+
+213 for messages beyond the incident and for wider purposes than
+
+designed. This is a good use of this versatile form.<br />
+
+<br />
+
+To Reply you may type in the message as given or copy and paste the
+
+information
+
+from the sender, (if not you), by use of a USB Thumb Drive if so
+
+equipped. 
+
+<br />
+
+<br />
+
+If you receive an ARC 213 and need to REPLY, the message CANNOT be
+
+replied to from the viewed HTML as the entry boxes are locked.
+
+If needed you may print the inbound ARC 213 for
+
+delivery to obtain a response that can be typed in by you. Or obtain a
+
+plain text Reply from a USB Thumb Drive.
+
+<br />
+
+<br />
+
+To create the Reply 213 go to the message, double click the 213 in
+
+question and use the REPLY tab at the top.
+
+Now you may enter the response into the Reply box or copy and paste the
+
+response in. Then SUBMIT the completed ICS213 for Outbox posting.
+
+</p>
+
+<p align="left"><strong>Notes:</strong><br />
+
+<br />
+
+A copy of the ARC S213 should be sent to and maintained within the
+
+Documentation Unit. A copy of all your Express traffic is in your
+
+Sent Items folder. You may wish to create
+
+a Personal Folder for the event and move your desired traffic into it.
+
+Winlink Express has an Export/Import feature so you can
+
+save this folder on your desktop or elsewhere if desired. You can even
+
+send the folder to another Express user for them to import.
+ </p>
+<strong>More Information</strong><br /><br />
+You can save your completed form data to a text file. This will allow you to reload the ARC 213
+with ALL entered form data. You do this prior to submitting the form. Then you can open a new 213 and load the saved HTML form data. 
+NOTE: Date and Times will be the previous entered, so change if needed. This is much like using FireFox and the addon Formlet. It will save the info
+as a text file with the Date and Time as a file name. Now you can use any browser, save your form (as many versions as you like), and then re-populate.
+<br /><br />
+Remember this template has two parts, the "INITIAL" template and the "REPLY" template. You can save either HTML and the saved file names will be different.
+Just load the correct saved data file or the repopulated information may not be correct.</p>
+</div>
+
+<!-- The close pop-up link correctly positioned at the end of the content block -->
+
+<a href="#links" class="close"><span>Back
+
+to links</span></a> </div>
+
+</div>
+
+</body>
+</html>

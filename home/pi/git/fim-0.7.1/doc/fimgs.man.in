@@ -1,0 +1,57 @@
+.TH fimgs 1 "(c) 2007-2023 Michele Martone"
+.SH NAME
+fimgs - poor man's [http://]PostScript/pdf/dvi/cbr/rar/cbz/zip viewer based on fim
+.SH SYNOPSIS
+.B fimgs [ {fimgs-options} ] file [-- [{fim-options}]]
+.SH DESCRIPTION
+.B fimgs  
+is a wrapper script which takes a PostScript or pdf or .cbr or .rar or .cbz or .zip or .dvi or any of the above prefixed with http:// or https:// or ssh: as input, renders the pages using ghostscript into a temporary directory and finally calls \fB fim\fP to display them.
+
+In case of compressed archives (in ZIP or RAR formats), the images are decompressed into a directory and displayed using \fB fim\fP.
+In this case, only images contained in the archive will be displayed (no nested archives or pdf's or ps's or dvi's).
+
+The temporary directory name will be of the form $TMPDIR/fbps-$$.
+If the $TMPDIR environment variable is unset, /dev/shm and /var/tmp will be checked for existence and permissions. 
+The $$ above is the script process ID.
+The script deletes the temporary directory when \fB fim\fP terminates.
+
+In order to uncompress RAR archives, fimgs will use 'unrar-nonfree' or 'rar' or 'unrar-free'.
+
+In order to uncompress ZIP archives, fimgs will use 'zip'.
+
+In order to uncompress BZ2 files, 'bunzip2' will be used, if present.
+
+In order to uncompress TAR.GZ or TAR.BZ2 or TAR.XZ archives, fimgs will use 'tar'.
+
+In order to fetch http:// or https:// prefixed URLS, 'wget' will be used, if present.
+
+In order to fetch ssh: prefixed host:path locations, 'scp' will be used.
+
+In case of a CBZ, CBR, PDF, PS, or DVI file, will invoke \fB fim\fP with '--autotop --autowidth'.
+
+.SH OPTIONS
+To pass through options to \fB fim\fP, you may specify them after "--".
+
+Default options are '--autozoom'.
+
+.B -r {resolution}
+Specify resolution for the 'gs' -r option (e.g.: 96x96; default 120x120). 
+.TP
+
+.B -m
+Dump a man page for fimgs.
+.TP
+
+.B -p {password}
+Specify password for the 'gs' -p (password) option.
+.TP
+
+.B -h
+Will display a help message.
+.\" Additionally you can specify -l, -xl or -xxl to get the pages
+.\" rendered with 100, 120 or 150 dpi (default is 75).
+.SH SEE ALSO
+fim(1), fimrc(1), gs(1), fbi(1), fbgs(1), bash(1)
+,zip(1), rar(1), rar-free(1), unrar-free(1), tar(1), gzip(1)
+.SH AUTHOR
+Michele Martone <dezperado _ GUESS _ autistici.org>. 

@@ -1,0 +1,90 @@
+# This script tests auto width scaling capabilities of fim.
+autocmd "" "" "";
+alias "toggleAutoWidth" "i:autowidth=1-i:autowidth;g:auto_scale_v=0;reload;";
+load;
+display;
+# after load, images should have no relationship to screeen width:
+stdout "i:width==i:swidth  :".(i:width==i:swidth);
+stdout "i:height==i:sheight:".(i:height==i:sheight);
+
+if(1==0)
+{
+ 	stdout "i:width  :" .i:width;
+ 	stdout "i:swidth :".i:swidth;
+ 	stdout "i:height :".i:height;
+ 	stdout "i:sheight:".i:sheight;
+}
+i:autowidth=0;
+#stdout "ii";
+#i:autowidth=1;
+#stdout i:autowidth;
+#stdout i:autowidth;
+#stdout "ii";
+toggleAutoWidth;
+stdout "i:autowidth=".i:autowidth." (should be 1)";
+#stdout "ia:";
+#toggleAutoWidth;
+#stdout i:autowidth;
+reload;
+display;
+#magnify;
+reload;
+#if(0)
+#{
+#	stdout _screen_width;
+#	stdout i:swidth;
+#	stdout _screen_height;
+#	stdout i:sheight;
+#};
+#
+scaled_width= ((i:width *scale)/100.0);
+# aalib ascale not handled here
+scaled_height=((i:height*scale)/100.0);
+if(scaled_height<1) scaled_height=1; # fix for dumb driver
+if(_device_string=="aalib")
+{
+	scaled_width=scaled_width*2;
+}
+
+#stdout "_screen_width==i:swidth._screen_width:".(_screen_width==i:swidth);
+#stdout "_screen_height==i:sheight           :".(_screen_height==i:sheight);
+#stdout "_screen_height="._screen_height." != i:sheight=".i:sheight."     ";
+#stdout "_screen_height="._screen_height." != i:sheight=".scaled_height."     ";
+#stdout "_screen_width="._screen_width." != i:swidth=".scaled_width."     ";
+#stdout " _screen_width="._screen_width."  should equal   scaled_width=".scaled_width."     ";
+#stdout "_screen_height="._screen_height." should equal   scaled_height=".scaled_height."     ";
+
+#if ( (scaled_width!=i:swidth) || (scaled_height!=i:sheight) )
+if ( i:swidth > 2.0 )
+{
+if ( (scaled_width!=i:swidth) || (scaled_height!=i:sheight) )
+{
+	stdout "[!]";
+	stdout "something went wrong...";
+	stdout "scaled_height:".scaled_height;
+	stdout "scaled_width :".scaled_width;
+	stdout "sheight      :".i:sheight;
+	stdout "swidth       :".i:swidth;
+
+	stdout "_screen_height:"._screen_height;
+	stdout "_screen_width :"._screen_width;
+	stdout "i:height     :".i:height;
+	stdout "i:width      :".i:width;
+	stdout "i:scale      :".i:scale;
+	stdout "g:scale      :".g:scale;
+	stdout "scale      :".scale;
+}
+}
+else
+{
+	stdout "auto scaling test ok";
+}
+
+# auto height scaling test missing
+#stdout _screen_height==i:sheight;
+
+rc=0;
+if ( i:swidth > 2.0 )
+if(_screen_width!=i:swidth)stdout "PLEASE FINISH WRITING THIS TEST";
+#quit rc;
+

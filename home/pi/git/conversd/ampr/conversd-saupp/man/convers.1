@@ -1,0 +1,446 @@
+.\"
+.\"  This manual page section is maintained by Michael Meifert,
+.\"  <mime@dk3hg.hanse.de>. Since this information is availabe
+.\"  by readind the documentation files, I don't intend to work
+.\"  on the man pages this time. 
+.\"
+.\"  Thanks for his work on this documentaion file !
+.\"
+.\"
+.\"
+.PU
+.TH CONVERS 1 "3 May 1994 " "Ping-Pong Convers" "Ping-Pong Convers Manual"
+.SH NAME
+convers \- Ping-Pong convers for wampes 
+.SH SYNOPSIS 
+.B convers 
+[
+.RB -c
+.IR channel
+] [
+.RB -s
+.IR host:service
+] [
+.RB -a
+.IR audiodir
+] [
+.RB -l
+.IR logname
+] [
+.RB -t
+]
+.SH DESCRIPTION
+.TP 10
+.B convers
+is the user interface to conversd. Compared to a standard telnet connection
+to port 3600 there are some enhancements like the gnu readline library (command
+line history), shell escapes, and startup command file execution.
+.SH OPTIONS
+.TP 10
+.B -c
+specify the channel you want to log into. If this option is not set, the
+client will default to channel 0. 
+.TP
+.B -a
+set an alternate path for the phonems if the client is compiled with support
+for speech output.
+.TP
+.B -l
+set the pseudonym to use for this client session. If this is ommitted, the 
+client uses your system login name as default.
+.TP
+.B -s
+specify the socket the session will be established on. If ommitted, the
+client will use the compiled-in default values, according to the type of
+convers you want to log in (i.e. convers, lconvers, kaconvers, suconvers,
+wconvers)
+.TP
+.B -t
+with this option the speech output is enabled.
+.PP
+.SH FILES
+.TP 1.0i
+.B ~/.conversrc
+user's file of startup commands.
+.TP
+.B /usr/local/lib/phonemes
+default audio directory.
+.PP
+.SH CONVERS  User-Commands
+.TP
+.B /?
+Print help information
+.TP
+.B /Away [text]
+Mark user as being away
+.TP
+.B /ACtion text
+write action to channel
+.TP
+.B /ALl text
+send text to all users
+.TP
+.B /Beep
+toggle Beep-Mode
+.TP
+.B /Bell
+toggle Beep-Mode
+.TP
+.B /BYe
+Terminate the convers session
+.TP
+.B /Channel n
+Switch to channel n
+.TP
+.B /CHARset [in [out]]
+Change terminal emulation (default ansi)
+.TP
+.B /Destinations
+List reachable ping-pong hosts
+.TP
+.B /Exit
+Terminate the convers session
+.TP
+.B /EXClude user text
+Send Text to all on channel except user
+.TP
+.B /Filter [off|userlist]
+Sets a message filter. Messages (channel, personal and action) of users in
+userlist are no more shown.
+.TP
+.B /Help [command]
+Print help information
+.TP
+.B /HOsts
+List reachable ping-pong hosts
+.TP
+.B /Invite user
+Invite user to join your channel
+.TP
+.B /IMsg user text
+Send Text to all on channel except user
+.TP
+.B /IWrite user text
+Send Text to all on channel except user
+.TP
+.B /Join
+Switch to channel n
+.TP
+.B /Links [args]
+List or setup links (see \"help links\")
+.TP
+.B /LISt
+List all channels and topics
+.TP
+.B /LAst user
+List last appearances of user
+.TP
+.B /LEave [channel]
+Leaves specified or default channel
+.TP
+.B /Msg user|#channel text 
+Send message to a user or joined channel
+.TP
+.B /ME text
+write action to channel
+.TP
+.B /MOde #channel options
+Set channel options
+.TP
+.B /NOtify [calls]
+Send notice if one of calls signs on
+.TP
+.B /NOTE [text]
+set personal description
+.TP
+.B /Operator [number]
+become Operator
+.TP
+.B /Personal [text]
+set personal description
+.TP
+.B /PRompt abcd
+prompts a=query b=std c=ctrl-g d=ctrl-h
+.TP
+.B /Quit
+Terminate the convers session
+.TP
+.B /QUEry [user]
+Start/End a private conversation
+.TP
+.B /Send user text
+Send a private message to user
+.TP
+.B /Topic [#chan] [text]
+set channel topic
+.TP
+.B /Users [*|A|L|Q]
+List users and their channel numbers
+.TP
+.B /UPtime
+how long is this conversd up ?
+.TP
+.B /Verbose
+toggles verbose Flag
+.TP
+.B /VERSion
+show version information
+.TP
+.B /Who [*|A|L|Q]
+List users and their channel numbers
+.TP
+.B /WIdth [value]
+set/show terminal width
+.TP
+.B /WRite user text
+Send a private message to user
+.SH CONVERS 
+.B help <command>
+.TP 8
+.BR all
+If you are in /query mode, a text written with /all at the front will be 
+displayed as a normal convers text writtento all users on this channel.  
+.TP 8
+.BR away
+/away sets an away-text for the other users. called with no additional 
+arguments, you are marked as being back again.  
+.TP 8
+.BR beep
+The beep command toggles a warning bell (^G) being sent before every 
+message coming from another user. This command really is a subset of 
+the /prompt command, see there. 
+
+.TP 8
+.BR char
+With this command, you can tell the convers deamon which type of umlauts 
+you prefer to use. The Syntax is /char [intype [outtype]]. For example, 
+if you work on an Atari st you could say: "/char atari atari". If you 
+use a pc and like to write your own umlauts in TeX style, "/char tex pc" 
+may work. Play a bit around with this feature ! Special Thanks 
+to Thommy, <dl9sau@,thynet.sub.org> (Inter-net mail) 
+<dl9sau@db0sao.ampr.org> (AmPR-Net mail) who wrote this nice feature.
+Suggestions to this feature should be redirected to him :-) 
+
+.TP 8
+.BR dest
+All Pingpong hosts in the network being connected to each other are listed.
+The numbers shown in the list are response times in seconds.  
+
+.TP 8
+.BR excl
+The exclude command is the opposite of the /msg command. You can send 
+messages to all users on the channel except the one given as the first 
+parameter. Internally these messages are sent as private messages to the 
+users, so links are flooded a bit more :-)
+
+.TP 8
+.BR filt
+The filter command activates a message filter to prevent you from
+annoying messages of your very special friends. <userlist> is a list of
+calls, separated with blanks. "/filter" without an argument given
+displays the current status of the filter, "/filter off" will deactivate
+it.
+
+.TP 8
+.BR help
+The help command may be invoked with an additional parameter. I believe 
+you hacked in "help help" to see this, right ? :-). better try out 
+help options that are followed by an additional command. BTW: 
+the preceding "/" must not be given for the command's name 
+in help command. 
+
+.TP 8
+.BR invi
+An invitation tho the named user is sent. The invite is passed through 
+all convers nodes in the net. If the user is on another channel,
+he will be able to join your private channel. If he is online on a 
+unix machine, he will receive the invitation message via standard 
+broadcast by conversd. In the latter case he will be unable to join 
+a private channel directly. 
+
+.TP 8
+.BR join 
+Join another channel.  Unlike other other conversd implementations 
+Ping-Pong- conversd supports multiple channel joins the same time.  Thus the 
+old channel is not left.  You may do this by invoking "/leave".  
+
+.TP 8
+.BR last 
+The last sign on and sign of of the specified user is diplayed.  You 
+must at know his name then the data base will be searched to look up the 
+login/out time.  Special thanks to Wolfgang Tremmel for his basic work on 
+this item His email adresses are <dh2paf@db0sao.ampr.org> and 
+<tremmel@ira.uka.de>.
+
+.TP 8
+.BR leav 
+Invoking this command you will leave the actual channel or the 
+specified channel.  If the given channel is your last existence in the 
+convers channel, you'll quit the whole program.  
+
+.TP 8
+.BR link 
+The current link state is displayed.  In the standard version, host 
+name, link state, link round trip times, neighbour revision codes and 
+statetime followed by time of next try and count of connect tries (on 
+disconnected or connecting links) are shown, connected lines print out their 
+queue lengt and total transmit statistics. If you are sysop, you may also 
+set up or remove links at runtime. Adding a link might happen like 
+this:"/l dc6iq-u 2 4 unix:/tcp/.sockets/netcmd connect tcp dc6iq 
+3600" In this command a host called dc6iq-u will be entered into group 2 
+by by quality 4.  The link will be established by using WAMPES.
+
+.TP 8
+.BR list 
+All channels, their topics (if set), flags (if some) and users are 
+displayed.  
+
+.TP 8
+.BR me 
+If you want to display an action you take, you might use this command.  
+E.g.  entering the line "/me yawns" all connected users in this channel 
+will see a message like: "*** dc6iq yawns" 
+
+.TP 8
+.BR mode 
+The mode command is one of the most complicated ones.  It is invoked 
+with /mode <channel> <+|-><t|i|s|m|p|l|o<name>>.  Flags may be a set of the 
+following: 
+
+.B t 
+- channel topic may be set by channel operators only 
+
+.B i 
+- channel is invisible for users not on it 
+
+.B s 
+- channel is secrect, only its number not displayed 
+
+.B m 
+- channel is moderated, only channel-operators may talk 
+
+.B p 
+- channel is private, invitation needed to join here
+
+.B l 
+- channel is local, no text forwarding to other nodes (NYI) 
+
+.B o<name> 
+- make <name> a channel operator.
+
+The plus indicates an option to be set, a dash resets the option.  
+A combination of + and - is allowed so the following command will 
+work: "/mode 69 -s+todc6iq". Channel 69 is no longer secret, but 
+topics may be set only by channel operators. In addition the user 
+dc6iq becomes a channel operator.  
+
+.TP 8
+.BR msg 
+Send a text to one special user or a joined channel.  If the message 
+should be redirected to a channel, The command must be invoked in this 
+syntax: "/msg #<channel> <text>".  The adressee (if user) can indicate the 
+private character of the message due to additional asterisks in his received 
+lines. a mesage written by dc6iq to dc1ik looks like this: "/m dc1ik This 
+is a Test" will be received by dc1ik like this: "<*dc6iq*>: This is a 
+test".  
+
+.TP 8
+.BR noti 
+You are notified if one person out of the notification list appears on 
+any channel in this convers. E.g."/notify + dc1ik" adds the user dc1ik 
+to the notification list, "/notify - db4ut" removes him from the list.  
+The list is initially treated as if a plus "+"-sign was given, multiple 
+lists may be specified.  The following command would be legal and would 
+result in adding dc1ik, db4ut and dg3kcr to the list, while removing dc6iq 
+and dh2paf: "/notify dh2paf + dc1ik db4ut - dc6iq dh2paf 
++dg3kcr" Removing non-members to the list is ignored.
+
+.TP 8
+.BR oper 
+Invoking this command, a random number from 0..99999 will be displyed.  
+Take each digit, multiply with the corresponding digit in the secret number 
+at the configuration file, sum it and enter the number by invoking "/oper 
+<n>".  
+
+.TP 8
+.BR pers 
+A brief description can be set up, accessible to all users via the 
+"/who"- command.  A typical Message looks like this: "/pers Fred, 
+Buechig, JN49fb".  
+
+.TP 8
+.BR prom 
+The prompt command takes up to four arguments in one concatenated 
+string.  Thus "/prompt abcd" will set up "a" for the query prompt, "b" 
+for the standard prompt. "d" is the character to remove the prompt, and 
+"c" is displayed whenever a text is sent to you.  Normally you make "c" 
+a control-G (beep char) and "d" a backspace or delete character 
+(control-h or 0x7f).  
+
+.TP 8
+.BR quer 
+The username given as argument will be the only recipient for all 
+further texts.  They are send as private messages (just like /m).  With no 
+optional argument, the further texts go into the whole channel again.  
+
+.TP 8
+.BR quit 
+Passing this command to conversd, you will retire from the famous 
+Ping-Pong conversation.  I hope you enjoyed this stuff :-) 
+
+.TP 8
+.BR topi 
+A brief description of the channel topic can be set.  Other users can 
+look it up with the "/who quick" or "/list" commands.  If the channel 
+number is omitted, the topic will be set to the current channel, else to the 
+desired one.  if no #channel is given, the topic will appear on the current 
+channel, if speci- fied, the topic on that channel will be set (only if 
+youre logged on to that channel).
+
+.TP 8
+.BR upti 
+The uptime command tells us how long this conversd is up and running.  
+
+.TP 8
+.BR verb 
+The verbose flag is toggled.  You will be flooded with information if 
+you enable this feature.  
+
+.TP 8
+.BR vers  
+Print out version information to this software.  
+
+.TP 8
+.BR who 
+The who command supports up to four switches.  An "a" will diplay all 
+users and their Away texts, if set.  A "l" generates a _long_ list 
+containing personal texts, away texts and Queue informations.  A "q" gives 
+a brief list.  An asterisk "*" displays the users on your current channel 
+in normal mode.  
+
+.TP 8
+.BR whoi 
+This is a question to conversd. "/whois dc6iq" will show all 
+available informations about dc6iq, i.e.  joined channels, personal 
+description, away message and times.  
+
+.TP 8
+.BR widt 
+Tell conversd about your screen width.  Then formatted messages will 
+use the entire screen.  It is set to 80 by default.  
+
+.\" TODO Die Kommandos sollten ausgeschrieben sein, jedoch eine Erklaerung
+.\"      dabeistehen, welche Abkuerzungen verwendet werden koennen.
+
+.SH CAVEATS
+The client now sets "horizontal-scroll-mode on". This may conflict with
+the settings in your .inputrc. This only applys if you compiled the
+client with -DREADLINE.
+
+.SH AUTHORS
+The Ping-Pong convers package was written by Fred Baumgarten 
+(dc6iq@insl1.etec.uni-karlsruhe.de).
+Convert.c was written by Thomas Osterried (dl9sau@fub46.zedat.fu-berlin.de).
+Manual page by Michael Meifert (mime@dk3hg.hanse.de).
+Modifications by Matthias Welwarsky
+(Matthias.Welwarsky@ppp.th-darmstadt.de).

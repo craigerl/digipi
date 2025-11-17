@@ -1,0 +1,138 @@
+# gqview like configuration file for fim, according to http://gqview.sourceforge.net/docs/11_2_keyboard_shortcuts.html
+# copy this file to ~/.fimrc to have gqview keyboard shortcuts in fim
+# NOTE: it is not complete
+
+# Image Navigation
+
+# PageDown Left Click on image view Mouse Wheel down (*) Change to next image.
+bind "PageUp" "next;";
+# PageUp Middle Click on image view Mouse Wheel up (*) Change to previous image.
+bind "PageDown" "prev;";
+# Home Change to first image.  
+bind "Home" "0;";
+# End Change to last image.
+bind "End" "$;";
+
+# Image panning (image has keyboard focus) 
+
+# Arrow Keys Left Drag on image view [Shift] + Mouse Wheel (*) Pan image.
+bind "Up" "panup";
+bind "Right" "panright";
+bind "Down" "pandown";
+bind "Left" "panleft";
+# [Shift] + Arrow Keys Pan Image faster.
+# [Control] + Arrow Keys Pan to respective edge of image.
+# SpaceBar Change to next image.
+bind "Space" "next";
+# Backspace Change to previous image.
+bind "Backspace" "prev";
+
+# File Menu
+	
+# [Control] + N New Window
+# C Open a new empty collection window.
+# O Display open collection dialog.
+# F3 Open new search window.
+# D Open new Find Duplicates window.
+# [Shift] + P Open print dialog.
+# [Control] + F Create new folder in current path.
+# [Control] + C Copy selected images, opens destination selection dialog.  
+# [Control] + M Move selected images, opens destination selection dialog.
+# [Control] + R Rename selected images, opens rename dialog.
+# [Control] + D [Delete] Delete selected images.
+# [Control] + W Close window, GQview exits when last window is closed.
+# [Control] + Q Quit GQview.
+bind('C-q',"quit");
+
+# Edit Menu
+# [Control] + 1 ... 0 Run external edit command on selected images.
+# [Control] + A Select all images.
+# [Control] + [Shift] + A Unselect all images.
+# [Control] + P Open image properties window.
+# [Control] + O Open GQview preferences window.
+# ] Rotate image clockwise 90 degrees.
+# [ Rotate image counterclockwise 90 degree.
+# [Shift] + R Rotate image 180 degrees.
+# [Shift] + M Flip image horizontally (mirror).  
+# [Shift] + F Flip image vertically.
+# View Menu 
+
+# +, = [Control] + Mouse Wheel up Zoom image in.
+# - [Control + Mouse Wheel down Zoom image out.
+# Z Reset zoom to original size (1:1).
+bind 'z' "auto_scale;";
+# X Fit image to window size.
+# W Zoom image to fit window width.
+bind 'w' "auto_width_scale";
+# H Zoom image to fit window height.
+bind 'h' "auto_height_scale";
+# 1 Set zoom to 1:1
+bind '1' "100%;";
+# 2 Set zoom to 2:1
+bind '2' "200%;";
+# 3 Set zoom to 3:1
+bind '3' "300%;";
+# 4 Set zoom to 4:1
+bind '4' "400%;";
+# 7 Set zoom to 1:4
+bind '7' "25%;";
+# 8 Set zoom to 1:3
+bind '8' "33%;";
+# 9 Set zoom to 1:2
+bind '9' "50%;";
+# T Toggle display of thumbnails when in list view.
+
+# [Control] + L Display file list as detailed list view.
+# [Control] + I Display file list as icon view.
+# [Control] + T Toggle folder display between list and tree views.
+# R Refresh file list.
+# L Toggle floating of file display.
+# [Control] + H Toggle hiding of file display.
+# [Control] + E Toggle EXIF sidebar.
+# [Control] + S Toggle Sort Manager sidebar.
+# [Control] + K Toggle Keywords sidebar.
+# F V Toggle full screen.
+# I Toggle information overlay in full screen.
+# S Toggle slideshow.
+# P Toggle pause of slideshow.
+
+# Help Menu 
+# F1 Open User Manual in browser.
+
+# Collection Window 
+# Arrow Keys Move selection.
+# [Shift] + Arrow Keys Select multiple images.
+# [Control] + Arrow Keys Move focus without changing selection.
+# [SpaceBar] Select only image with focus.
+# [Control] + [SpaceBar] Toggle selection of image with focus.
+# [Home] Move focus to first image.
+# [End] Move focus to last image.  
+# [Control] + A Select all images.
+# [Control] + [Shift] + A Unselect all images.
+# [Delete] Remove selected image from collection, does not delete image from disk.
+# [Control] + L Add images from main window's file list.
+# [Control] + T Toggle display of icon filenames.
+# N Sort collection by name.
+# D Sort collection by file date.
+# B Sort collection by file size.
+# P Sort collection by file path.
+# I Sort collection by natural numerical order.
+# [Enter] View image with focus in main window.
+# V View image with focus in new window.
+# [Control] + 1 ... 0 Run external edit command on selected images.  
+# S Save collection.  
+# [Control] + S Save collection as, opens destination dialog.
+# A Append to collection, opens append dialog.
+# [Control] + C Copy selected images, opens destination selection dialog.
+# [Control] + M Move selected images, opens destination selection dialog.
+# [Control] + R Rename selected images, opens rename dialog.
+# [Control] + D Delete selected images.  
+# [Control] + P Open image properties window.
+# [Control] + W Close collection window.
+
+# Find Duplicates Window (same as Collection Window above, with the following additions)
+
+# 1	Select group 1 duplicates.
+# 2 Select group 2 duplicates.
+# C Open new collection window and add selected images.
+

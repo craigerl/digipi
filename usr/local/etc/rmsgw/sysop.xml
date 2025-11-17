@@ -1,0 +1,18 @@
+<sysops vcsAuthor="$Author: eckertb $" vcsId="$Id: sysop-template.xml 157 2013-12-07 12:29:28Z eckertb $" vcsRevision="$Revision: 157 $">
+  <sysop>
+    <Callsign>KX6XXX</Callsign>
+    <Password>XXXXXX</Password>
+    <GridSquare>CN99mv</GridSquare>
+    <SysopName>See FCC Record</SysopName>
+    <StreetAddress1>See FCC Record</StreetAddress1>
+    <StreetAddress2 />
+    <City>Anycity</City>
+    <State>CA</State>
+    <Country>United States</Country>
+    <PostalCode>99999</PostalCode>
+    <Email>no@user.org</Email>
+    <Phones>5305551212</Phones>
+    <Website>http://digipi.org</Website>
+    <Comments>Special events station.  Winlink LinuxRMS on DigiPi http://craiger.org/digipi/</Comments>
+  </sysop>
+</sysops>

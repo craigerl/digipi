@@ -1,0 +1,12 @@
+# kuickshow like configuration file for fim
+# copy this file to ~/.fimrc to have kuickshow keyboard shortcuts in fim
+# NOTE: it is not complete
+
+bind "PageUp"   "prev;";
+bind "PageDown" "next;";
+bind 'o' "100%;";
+bind 'w' "auto_width_scale";
+bind '+' "magnify";
+bind '-' "reduce";
+
+# missing : flipping and rotation, gamma, contrast, file editing ...

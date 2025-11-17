@@ -1,0 +1,1233 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"><head><!-- Credit to Original Radiogram Template by OE3VRW, Wolfgang Ruthner -->
+
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>IARU MESSAGE</title>
+<style type="text/css">
+
+@media print {
+#printPageButton {
+    display: none;
+  }
+.form-control, .form-control.nobug {
+
+border: 0;
+
+outline: 0;
+
+box-shadow: none;
+
+font-size:14px;
+
+}
+
+.form-control.nobug {
+
+transition: none; /*-- THIS IS IMPORTANT -- */
+
+}
+
+input, textarea {
+
+outline: none !important;
+
+box-shadow: none;
+
+border: none;
+
+overflow: visible;
+
+font-family: Arial, Helvetica, sans-serif;
+
+font-size: 11px;
+
+}
+
+.formtext {
+
+font-family: Arial, Helvetica, sans-serif;
+
+font-size: 11pt;
+
+font-weight: normal;
+
+}
+
+
+
+input[type=text], textarea {
+
+  -webkit-transition: all 0.30s ease-in-out;
+
+  -moz-transition: all 0.30s ease-in-out;
+
+  -ms-transition: all 0.30s ease-in-out;
+
+  -o-transition: all 0.30s ease-in-out;
+
+  outline: none;
+
+  padding: 3px 0px 3px 3px;
+
+  margin: 5px 1px 3px 0px;
+
+  border: 1px solid #666666;
+
+}
+
+ 
+
+input[type=text]:focus, textarea:focus {
+
+  box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+
+  padding: 3px 0px 3px 3px;
+
+  margin: 5px 1px 3px 0px;
+
+  border: 1px solid rgba(81, 203, 238, 1);
+
+}
+}
+
+.roter_Untergrund {
+
+background-color: #F00;
+
+}
+
+.RADIOGRAM {
+
+font-family: Arial, Helvetica, sans-serif;
+
+font-size: 28px;
+
+font-style: normal;
+
+font-weight: bold;
+
+color: #333;
+
+text-align: center;
+
+}
+
+.Kopfzeile {
+
+font-family: Arial, Helvetica, sans-serif;
+
+font-size: 12px;
+
+color: #000;
+
+text-align: center;
+
+background-color: #FFFFFF;
+
+}
+
+ZellenHintergrund {
+
+background-color: #000;
+
+}
+
+Zellenhintergrund {
+
+background-color: ##FFFFFF;
+
+}
+
+Zellenfeld {
+
+text-align: center;
+
+}
+
+HintergrundTabelle {
+
+background-color: ##FFFFFF;
+
+}
+
+.TabelleHintergrund {
+
+background-color: ##FFFFFF;
+
+text-align: left;
+
+}
+
+body,td,th {
+
+font-family: Arial, Helvetica, sans-serif;
+
+font-size: 12px;
+
+text-align: center;
+
+}
+
+rechtsbuendig {
+
+text-align: right;
+
+}
+
+rb {
+
+text-align: right;
+
+}
+
+.TabelleHintergrund tr td .Hintergrund_Tabelle {
+
+text-align: left;
+
+}
+
+.TabelleHintergrund tr td {
+
+text-align: left;
+
+}
+
+.zentriert {
+
+text-align: center;
+
+}
+
+input,select {
+
+border: 1px solid #4195fc; /* some kind of blue border */
+
+/* other CSS styles */
+
+/* round the corners */
+
+-webkit-border-radius: 4px;
+
+-moz-border-radius: 4px;
+
+border-radius: 4px;
+
+/* make it glow! */
+
+-webkit-box-shadow: 0px 0px 4px #4195fc;
+
+-moz-box-shadow: 0px 0px 4px #4195fc;
+
+box-shadow: 0px 0px 4px #4195fc; /* some variation of blue for the shadow */
+
+background-color: #f0f0fa;
+
+font-family: Arial, Helvetica, sans-serif;
+
+font-size: 13px;
+
+padding: 2px;
+
+}
+
+textarea {
+
+/* round the corners */
+
+-webkit-border-radius: 4px;
+
+-moz-border-radius: 4px;
+
+border-radius: 4px;
+
+/* make it glow! */
+
+-webkit-box-shadow: 0px 0px 4px #4195fc;
+
+-moz-box-shadow: 0px 0px 4px #4195fc;
+
+box-shadow: 0px 0px 4px #4195fc; /* some variation of blue for the shadow */
+
+background-color: #f3f3fa;
+
+font-family: Arial, Helvetica, sans-serif;
+
+font-size: 16px;
+
+padding: 10px;
+
+margin: 10px;
+
+}
+
+.MSGtext {
+
+font-family: Arial, Helvetica, sans-serif;
+
+font-size: 18px;
+
+}
+
+.SubmitBtn {
+
+font-family: Arial, Helvetica, sans-serif;
+
+font-size: 18px;
+
+}
+
+.FromText {
+
+font-family: Arial, Helvetica, sans-serif;
+
+font-size: 18px;
+
+color: #aaa;
+
+}
+
+.Download {
+
+font-family: Arial, Helvetica, sans-serif;
+
+font-size: 10px;
+
+color: #aaa;
+
+}
+
+.punctuation {
+
+margin-top: 15px;
+
+}
+
+.P2Pcheckbox {
+
+margin-bottom: 15px;
+
+}
+
+</style>
+
+<style>
+
+/*
+
+body {color:#000; background:#fff; font:100%/1.5 arial,sans-serif;}
+
+h2 {margin-top:0}
+
+*/
+
+/* Styling applied to classes only */
+
+/* Pop-up content shifted off-screen when not in view.
+
+Still readable by screen-reader software.
+
+When targeted it fills the browser window.
+
+*/
+
+.pop-up {position:absolute; top:0; left:-500em;}
+
+.pop-up:target {position:static; left:0;}
+
+/* The pop-up itself */
+
+.popBox {
+
+background:#ffffff;
+
+/* alternatively fixed width / height and negative margins from 50% */
+
+position:absolute; left:30%; right:30%; top:30%; bottom:30%;
+
+z-index:10;
+
+border:1px solid #3a3a3a;
+
+/* CSS3 where available: rounded corners, drop-shadow, and fade in. */
+
+border-radius:.25rem;
+
+box-shadow:0 .5rem .5rem rgba(0,0,0,.5);
+
+opacity:0;
+
+transition: opacity 0.8s ease-out;
+
+}
+
+:target .popBox {position:fixed; opacity:1;}
+
+/* Light box properties */
+
+.lightbox {
+
+display:none;
+
+text-indent:-200em;
+
+background-color:rgba(0,0,0,.4);
+
+width:100%;
+
+height:100%;
+
+position:fixed;
+
+top:0;
+
+left:0;
+
+bottom:0;
+
+right:0;
+
+z-index:5;
+
+}
+
+:target .lightbox {display:block;}
+
+/* The pop-ups close link, moved via CSS to the top right of the pop-up */
+
+.close:link,
+
+.close:visited {
+
+position: absolute;
+
+top: -0.75em;
+
+right: -0.75em;
+
+display: block;
+
+width: 2em;
+
+height: 2em;
+
+line-height: 1.8;
+
+padding: 0;
+
+text-align: center;
+
+text-decoration: none;
+
+background-color: #000;
+
+border: 2px solid #fff;
+
+color: #fff;
+
+border-radius: 50%;
+
+box-shadow: 0 0 .5rem .5rem rba(0,0,0,.5);
+
+}
+
+.close:before {content:"X";}
+
+.close:hover,
+
+.close:active,
+
+.close:focus {
+
+box-shadow: 0 0 .5rem .5rem rba(255,0,0,.5);
+
+background-color: #c00;
+
+color: #fff;
+
+}
+
+.close span {
+
+text-indent: -200em;
+
+display: block;
+
+}
+
+/* The pop-up content div will scroll if it has too much content */
+
+.popScroll {
+
+position:absolute;
+
+top: 0px;
+
+left: 992px;
+
+right: 1rem;
+
+bottom: 1rem;
+
+overflow-y: auto;
+
+*overflow-y: scroll;
+
+padding-right: 0.5em;
+
+}
+
+.popScroll h2 {margin-top:0}
+.style5 {font-size: 14px}
+.style11 {
+font-size: 9pt;
+
+color: #006600;
+}
+.style7 {	font-size: 24px;
+	font-style: italic;
+}
+</style>
+
+<script type="text/javascript">
+
+function myreset() {
+
+//document.getElementById('Priority').value = "Routine";
+
+//document.getElementById('Subjectline').value = "";
+
+//createSubjectLine();
+
+//changeBGColor();
+
+//createSubjectLine();
+
+return false;
+
+}
+
+function start() {
+
+init ();
+
+//document.getElementById('Priority').value = "Routine";
+
+//document.getElementById('Subjectline').value = "";
+
+//createSubjectLine();
+
+//changeBGColor();
+
+//translate();
+
+//createSubjectLine();
+
+//cookie_counter(); 
+
+}
+function isNumberKey(evt)
+{
+var charCode = (evt.which) ? evt.which : event.keyCode
+if (charCode > 32 && (charCode < 45 || charCode > 57))
+return false;
+}
+function init () {
+
+var True = true;
+
+var False = false;
+
+}
+
+var cnt;
+
+function wordcount(s) {
+
+s = s.replace(/(^\s*)|(\s*$)/gi,"");//exclude start and end white-space
+
+s = s.replace(/\n/g, " "); // Convert CR to spacing
+
+s = s.replace(/[ ]{2,}/gi," ");//2 or more space to 1
+
+cnt = s.split(' ').length; var ele = document.getElementById('check');
+
+ele.value = cnt;
+
+}
+
+function punctwrdcnt(s) {
+
+//PunktText();
+
+wordcount(s);
+
+}
+
+function PunktText() {
+
+var MSGText = document.getElementById('MessageTXT').value;
+
+var PunctVal = document.getElementById('punctuation'); if (PunctVal.checked == true) {
+
+MSGText = MSGText.replaceAll (',', ' COMMA');
+
+MSGText = MSGText.replaceAll ('.', ' DOT'); MSGText = MSGText.replaceAll ('-', ' DASH');
+
+MSGText = MSGText.replaceAll ('?', ' QUERY');
+
+MSGText = MSGText.replaceAll ('!', ' EXCLAMATION');
+
+MSGText = MSGText.replaceAll (':', ' COLON');
+
+MSGText = MSGText.replaceAll (';', ' SEMICOLON');
+
+MSGText = MSGText.replaceAll ('@', ' ATSIGN');
+
+MSGText = MSGText.replaceAll ('#', ' POUNDSIGN');
+
+MSGText = MSGText.replaceAll ('$', ' DOLLARSIGN');
+
+MSGText = MSGText.replaceAll ('%', ' PERCENTSIGN');
+
+MSGText = MSGText.replaceAll ('&', ' AMPERSAND');
+
+MSGText = MSGText.replaceAll ('%', ' PERCENTSIGN');
+
+MSGText = MSGText.replaceAll ('\'', ' APOSTROPHE');
+
+MSGText = MSGText.replaceAll ('(', ' OPENINGPARENTHESIS');
+
+MSGText = MSGText.replaceAll (')', ' CLOSINGPARENTHESIS');
+
+MSGText = MSGText.replaceAll ('{', ' OPENINGBRACE');
+
+MSGText = MSGText.replaceAll ('}', ' CLOSINGBRACE');
+
+MSGText = MSGText.replaceAll ('}', ' CLOSINGBRACE');
+
+MSGText = MSGText.replaceAll ('}', ' CLOSINGBRACE');
+
+MSGText = MSGText.replaceAll ('*', ' ASTERISK');
+
+MSGText = MSGText.replaceAll ('~', ' TILDE');
+
+MSGText = MSGText.replaceAll ('>', ' GREATERTHANSIGN');
+
+MSGText = MSGText.replaceAll ('<', ' LESSTHANSIGN');
+
+MSGText = MSGText.replaceAll ('"', ' QUOTE');
+
+MSGText = MSGText.replaceAll ('|', ' BAR');
+
+MSGText = MSGText.replaceAll ('\\', ' BACKSLASH');
+
+MSGText = MSGText.replaceAll ('/', ' FORWARDSLASH');
+
+MSGText = MSGText.replaceAll ('=', ' EQUALSIGN');
+
+MSGText = MSGText.replaceAll ('^', ' CARET');
+
+MSGText = MSGText.replaceAll ('_', ' UNDERSCORE');
+
+MSGText = MSGText.replaceAll ('[', ' OPENINGBRACKET');
+
+MSGText = MSGText.replaceAll (']', ' CLOSINGBRACKET');
+
+MSGText = MSGText.replaceAll ('+', ' PLUSSIGN');
+
+MSGText = MSGText.replaceAll ('`', ' GRAVEACCENT');
+
+}
+
+else {
+
+MSGText = MSGText.replaceAll (' COMMA', ',');
+
+MSGText = MSGText.replaceAll (' DOT', '.'); MSGText = MSGText.replaceAll (' DASH', '-');
+
+MSGText = MSGText.replaceAll (' QUERY', '?');
+
+MSGText = MSGText.replaceAll (' EXCLAMATION', '!');
+
+MSGText = MSGText.replaceAll (' COLON', ':');
+
+MSGText = MSGText.replaceAll (' SEMICOLON', ';');
+
+MSGText = MSGText.replaceAll (' ATSIGN', '@');
+
+MSGText = MSGText.replaceAll (' QUOTE', '\''); MSGText = MSGText.replaceAll (' POUNDSIGN', '#');
+
+MSGText = MSGText.replaceAll (' DOLLARSIGN', '$');
+
+MSGText = MSGText.replaceAll (' PERCENTSIGN', '%'); MSGText = MSGText.replaceAll (' APOSTROPHE', '\'');
+
+MSGText = MSGText.replaceAll (' OPENINGPARENTHESIS', '(');
+
+MSGText = MSGText.replaceAll (' CLOSINGPARENTHESIS', ')'); MSGText = MSGText.replaceAll (' OPENINGBRACE', '{');
+
+MSGText = MSGText.replaceAll (' CLOSINGBRACE', '}');
+
+MSGText = MSGText.replaceAll (' ASTERISK', '*');
+
+MSGText = MSGText.replaceAll (' TILDE', '~'); MSGText = MSGText.replaceAll (' GREATERTHANSIGN', '>');
+
+MSGText = MSGText.replaceAll (' LESSTHANSIGN', '<');
+
+MSGText = MSGText.replaceAll (' BAR', '|');
+
+MSGText = MSGText.replaceAll (' BACKSLASH', '\\');
+
+MSGText = MSGText.replaceAll (' FORWARDSLASH', '/');
+
+MSGText = MSGText.replaceAll (' EQUALSIGN', '=');
+
+MSGText = MSGText.replaceAll (' UNDERSCORE', '_');
+
+MSGText = MSGText.replaceAll (' OPENINGBRACKET', '[');
+
+MSGText = MSGText.replaceAll (' CLOSINGBRACKET', ']');
+
+MSGText = MSGText.replaceAll (' GRAVEACCENT', '`');
+
+}
+
+document.getElementById('MessageTXT').value = MSGText;
+
+wordcount(document.getElementById('MessageTXT').value);
+
+}
+
+String.prototype.replaceAll = function(search, replace) {
+
+if (replace === undefined) {
+
+return this.toString();
+
+}
+
+return this.split(search).join(replace);
+
+}
+
+function changeBGColor() {
+var MSGText = document.getElementById('MSG');
+var Priority = document.getElementById('Priority');
+if ("{var Priority}" == "Routine") { // green
+document.getElementById('top').bgColor = "#cfc";
+MSGText.style.background = "#cfc";
+
+}
+else if ("{var Priority}" == "Priority") { // yellow
+document.getElementById('top').bgColor = "#ff7";
+MSGText.style.background = "#ffc";
+}
+else if ("{var Priority}" == "Emergency") { // red
+document.getElementById('top').bgColor = "#fdd";
+MSGText.style.background = "#fdd";
+
+}
+
+
+}
+
+function translate() {
+
+var userLang = navigator.language || navigator.userLanguage; if (userLang == "de") {
+
+document.getElementById('Number').innerHTML = 'Nummer:';
+
+document.getElementById('PriorityText').innerHTML = 'Priorit&auml;t:';
+
+document.getElementById('Station').innerHTML = 'Absender:';
+
+document.getElementById('Words').innerHTML = 'Anzahl W&ouml;rter:';
+
+document.getElementById('Origin').innerHTML = 'Absender Ort:';
+
+document.getElementById('Time').innerHTML = 'Uhrzeit:';
+
+document.getElementById('Name').innerHTML = 'An Name:';
+
+document.getElementById('Address').innerHTML = 'Adresse:';
+
+document.getElementById('City').innerHTML = 'Ort:';
+
+document.getElementById('Message').innerHTML = 'Nachrichtentext:';
+
+document.getElementById('From').innerHTML = 'Absender:';
+
+document.getElementById('pcttext').innerHTML = 'Punktation zu Text?';
+
+document.getElementById('Submit').value = 'Absenden';
+
+}
+
+}
+
+
+function P2Pcheck() {
+
+if (document.getElementById('P2Pcheckbox').checked) {
+
+document.getElementById('P2PWLType').value = "P2P";
+
+}
+
+else {
+
+document.getElementById('P2PWLType').value = "WINLINK";
+
+}
+
+} function getCookieVal (offset) {
+
+var endstr = document.cookie.indexOf (";", offset);
+
+if (endstr == -1)
+
+endstr = document.cookie.length;
+
+return unescape(document.cookie.substring(offset, endstr));
+
+}
+
+function GetCookie () {
+
+var To = document.getElementById('To').value;
+
+var name = To.replace(";", "").toUpperCase(); var arg = name + "=";
+
+var alen = arg.length;
+
+var clen = document.cookie.length;
+
+var i = 0;
+
+while (i < clen) {
+
+var j = i + alen;
+
+if (document.cookie.substring(i, j) == arg)
+
+return getCookieVal (j);
+
+i = document.cookie.indexOf(" ", i) + 1;
+
+if (i == 0) break; }
+
+return null;
+
+}
+
+function SetCookie (name, value) {
+
+var To = document.getElementById('To').value;
+
+var name = To.replace(";", "").toUpperCase(); // var name = To;
+
+var argv = SetCookie.arguments;
+
+var argc = SetCookie.arguments.length;
+
+var expires = (2 < argc) ? argv[2] : null;
+
+var path = (3 < argc) ? argv[3] : null;
+
+var domain = (4 < argc) ? argv[4] : null;
+
+var secure = (5 < argc) ? argv[5] : false;
+
+document.cookie = name + "=" + escape (value) +
+
+((expires == null) ? "" : ("; expires=" + expires.toGMTString())) +
+
+((path == null) ? "" : ("; path=" + path)) +
+
+((domain == null) ? "" : ("; domain=" + domain)) +
+
+((secure == true) ? "; secure" : "");
+
+}
+
+function ResetCounts() {
+
+var To = document.getElementById('To').value;
+
+var name = To.replace(";", "").toUpperCase(); var counter = 1;
+
+var expdate = new Date();
+
+expdate.setTime(expdate.getTime() + (24 * 60 * 60 * 1000 * 365)); SetCookie(name, counter, expdate , "/", null, false);
+
+//location.reload();
+
+document.getElementById('NumberVal').value = 1;
+
+}
+
+function cookie_counter () {
+
+var expdate = new Date();
+
+var counter;
+
+// Set expiration date to a year from now.
+
+expdate.setTime(expdate.getTime() + (24 * 60 * 60 * 1000 * 365)); if(!(counter = GetCookie())) counter = 0;
+
+counter++;
+
+SetCookie("Callsign", counter, expdate, "/", null, false);
+
+document.getElementById('NumberVal').value = counter;
+
+} function ToChange ()
+
+{
+
+
+cookie_counter();
+
+}
+
+function AutoGrowTextArea(textField)
+
+{
+
+if (textField.clientHeight < textField.scrollHeight)
+
+{
+
+textField.style.height = textField.scrollHeight + "px";
+
+if (textField.clientHeight < textField.scrollHeight)
+
+{
+
+textField.style.height = (textField.scrollHeight * 2 - textField.clientHeight) + "px";
+
+}
+
+}
+
+}
+
+function Countthelines(f) { var text1 = f
+
+var text2 = text1.replace(/\s+$/,"");
+
+var split2 = text2.split("\n"); var mytotal = split2.length * 17;
+
+if (mytotal < 150) {
+
+mytotal = 150;
+
+}
+
+var tstr = mytotal.toString();
+
+return tstr;
+
+}
+
+function newfix(f){
+
+var ThisText = document.getElementById(f).value;
+
+var makeit = Countthelines(ThisText);
+
+document.getElementById(f).style.height = makeit+"px"; }
+
+function Fixarea() {
+
+newfix("Message");
+
+// newfix("reply");
+
+AutoGrowTextArea(document.getElementById("Message"));
+
+// AutoGrowTextArea(document.getElementById("reply"));
+
+}
+
+function RWS(str){
+
+var text2 = str.replace(/\s+$/,"");
+
+return text2.trim();
+
+}
+
+</script></head>
+
+<body onload="start(); changeBGColor();"">
+
+<form id="Registration" method="post" onsubmit="return confirm('To complete your form submission, click OK and close the open browser window. You will return to the new message window so you can post your message to the outbox');" action="http://{FormServer}:{FormPort}" enctype="multipart/form-data">
+
+<div id="pop1" class="pop-up"><!-- The pop-up block -->
+
+<div class="popBox"><!-- If the content becomes larger than the pop-up this div will scroll the content -->
+
+<div class="popScroll">
+
+<p> </p>
+
+<h2>Change Punctuation to Text </h2>
+
+<div align="left">
+
+<p>The change "Punctuation to Text" checkbox toggles the keyboard
+
+punctuation marks to text in accordance with NTS MPG-SENDING
+
+ON VOICE.<br />
+
+</p>
+
+<p> http://www.arrl.org/files/file/Public%20Service/MPG204A.pdf </p>
+
+</div>
+
+<p align="left">While this is an IARU based Radiogram the
+
+ARRL NTS procedures are applicable.
+
+<br />
+
+<br />
+
+In an effort to keep things as simple as
+
+possible the NTS has adopted the following standards for punctuation in
+
+a formal radiogram: Period = X-Ray Question Mark = Query As these are
+
+the most common punctuations and could be easily misconstrued as
+
+something else ALL periods in a message are expressed as an "X" (spoken
+
+"X-ray") and all question marks are spoken as the word "query" at the
+
+end of the sentence. Other punctuation is permitted but in an effort to
+
+keep the check to a minimum they are discouraged. </p>
+
+<p align="left">The documents states: "Remember that
+
+punctuation, other than X for period, is always written out as a word
+
+group and may be spelled if necessary.&#8221;<br />
+
+<br />
+
+Original form credits to OE3VRW, Wolfgang Ruthner </p>
+
+</div>
+
+<!-- The close pop-up link correctly positioned at the end of the content block --><a href="#links" class="close"><span>Back
+
+to links</span></a> </div>
+
+</div>
+
+<table width="900" border="1" cellpadding="1" cellspacing="0" style="width: 890px; height: 536px; text-align: left; margin-left: auto; margin-right: auto;">
+
+<tbody>
+
+<tr>
+
+<td style="text-align: center; background-color: rgb(255, 204, 153);" colspan="7" class="RADIOGRAM"><span style="font-style: italic;">&nbsp;IARU
+
+MESSAGE&nbsp;</span>&nbsp;&nbsp;<span style="font-weight: normal;"></span><span style="font-weight: normal;"><span class="style7"><small><small><small><span style="font-weight: normal;">International</span></small></small></small></span></span></td>
+
+</tr>
+
+<tr class="Kopfzeile">
+
+<td class="Kopfzeile" width="87">
+
+<p id="Number" title="Doubleclick to Reset Number" ondblclick="ResetCounts();" var="" expdate="new" date=""><strong>NUMBER</strong></p>
+
+</td>
+
+<td width="134">
+
+<p id="PriorityText"><strong>PRECEDENCE</strong></p>
+
+</td>
+
+<td width="184">
+
+<p id="Station"><strong>STATION OF ORIGIN</strong></p>
+
+</td>
+
+<td width="138">
+
+<p id="Words"><strong>WORD COUNT</strong></p>
+
+</td>
+
+<td width="204">
+
+<p id="Origin"><strong>PLACE OF ORIGIN</strong></p>
+
+</td>
+
+<td width="129" nowrap="nowrap">
+
+<p id="Time"><strong>FILING TIME</strong></p>
+</td>
+<td width="92" nowrap="nowrap"><strong>FILING DATE</strong></td>
+</tr>
+
+<tr bgcolor="#f8f8f8">
+
+<td nowrap="nowrap">{var SeqNum}</td>
+
+<td id = "top" nowrap="nowrap" >
+
+
+  <input name="Priority" type="hidden"" id="Priority" value="{var Priority}"/>
+  {var Priority}
+</span>
+</td>
+
+<td nowrap="nowrap"><label for="station"></label>   {var station}</td>
+
+<td nowrap="nowrap"><label for="check"></label> <label for="check"> {var check} </label></td>
+
+<td nowrap="nowrap">{var place}</td>
+
+<td nowrap="nowrap"> <label for="datetime"></label>
+
+{var Time1}
+
+</td>
+<td nowrap="nowrap">{var Date1} </td>
+</tr>
+
+<tr>
+
+<td  colspan="7">
+
+<table width="100%" height="379" border="1" cellpadding="4" cellspacing="0" class="TabelleHintergrund" style="width: 992px; height: 421px; text-align: left; margin-left: auto; margin-right: auto;">
+
+<tbody>
+
+<tr valign="top" bgcolor="#f8f8f8">
+
+<td nowrap="nowrap" style="text-align: center; vertical-align: top;">
+
+<p id="Name" align="left"><strong>TO:<br />
+  <span style="width:750px; margin: 15px;  word-wrap:break-word; display:inline-block;">{var Name} </span></strong></p>
+</td>
+
+</tr>
+
+<tr>
+
+<td style="text-align: center; height: 35px; background-color: white;"><div style="background-color: rgb(204, 204, 204);" align="left"><strong style="font-style: italic;">Special Delivery Instructions</strong>&nbsp;<span class="Hintergrund_Tabelle"><span class="Hintergrund_Tabelle"><strong> 
+
+  {var Delivery}</strong></span></span></div></td>
+
+</tr>
+
+<tr bgcolor=MSGText.style.background>
+
+<td height="49" id="MSG"  ><span class="MSGtext"><small>Message Text</small></span><br />
+  <table width="97%"  border="0" cellpadding="1" cellspacing="0" bgcolor="#FFFFFF">
+  <tr>
+    <td><span style="width:750px; margin: 5px;  word-wrap:break-word; display:inline-block;"><strong>{var Message}</strong></span></td>
+  </tr>
+</table>
+
+  <br />
+  <div align="center"></div></td>
+
+</tr>
+
+<tr>
+  <td class="Kopfzeile"><strong>FROM</strong>:<strong> {var From}</strong></td>
+  </tr>
+<tr valign="middle">
+  <td class="Kopfzeile"><strong><span class="style5">For radio operator use only:</span><br />
+    <br />
+  </strong>
+    <table width="100%"  border="1" cellspacing="0" cellpadding="2">
+      <tr valign="top" bgcolor="#FFFFFF">
+        <td width="20%" \><div align="center">RECEIVED FROM<strong><br />
+                    </strong> {var Rfrom}                   <strong><br />
+                    </strong></div></td>
+        <td width="11%" bgcolor="#FFFFFF"><strong>
+          <div align="center">TIME<strong><br />
+            </strong>{VAR RDate}          <br />
+                    <strong>         </strong></div></td>
+        <td width="8%"><div align="center">TIME<strong> <br />
+                    </strong>{VAR RTime}
+        </div></td>
+        <td width="22%"><div align="center">SENT TO <strong><br />
+                    </strong>
+                    {VAR SendTo}
+                    <strong>          <br />
+                    </strong></div></td>
+        <td width="14%"><div align="center">DATE<strong><br />
+                    </strong>{VAR SendDate}        </div></td>
+        <td width="14%"><div align="center">TIME<strong> <br />
+                    </strong>{VAR SendTime}        </div></td>
+      </tr>
+    </table>
+    <strong>    </strong></td>
+</tr>
+<tr>
+
+<td class="Kopfzeile"><span class="FromText"><span id="From"></span></span><span class="Download"><span style="color: rgb(204, 0, 0);"> <big><big>
+<input name="printPageButton" class="BtnFormat1" id="printPageButton" style="color: rgb(0, 0, 128);" onclick="javascript:window.print()" value=" Print " enctype="multipart/form-data" type="button" />
+</big></big>&nbsp;<span style="color: rgb(204, 0, 0);"></span> &nbsp; <span class="style11">&nbsp;</span></span></span>  <strong> 
+
+  <label for="WL2K_Subject"> </label> <label for="WL2K_Subject"></label>
+</strong><span class="Download"><span style="color: rgb(204, 0, 0);">
+  
+      </span></span> &nbsp; &nbsp; 
+  
+      <input name="Version" value="40" type="hidden" />
+  
+      &nbsp; 
+  
+      <input name="Viewer" value="Radiogram_Viewer.html" type="hidden" />
+&nbsp;&nbsp;
+&nbsp; &nbsp;
+  
+<input name="Type" id="P2PWLType" value="{MsgP2P}" type="hidden" />
+&nbsp; &nbsp; &nbsp;<span style="font-weight: normal;">&nbsp;&nbsp;
+  
+&nbsp; &nbsp;</span><span style="color: rgb(204, 102, 0);">&nbsp;&nbsp;</span> <span style="font-weight: normal; color: rgb(153, 51, 0);">
+  
+<input name="Subj" id="WL2K" value="WL2K"  checked="checked" type="hidden" />
+  
+<input name="Templateversion" type="hidden" id="Templateversion" value="42" />
+</span><span style="color: rgb(204, 0, 0);"><span style="font-weight: normal;"><span style="color: rgb(153, 51, 0);">Express </span><span style="font-weight: normal; color: rgb(153, 51, 0);">Ver 43&nbsp;(Original credits to OE3VRW)</span> </span></span></td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</td>
+
+</tr>
+
+</tbody>
+
+<!-- id here matches href in the activating link -->
+
+</table>
+
+</form>
+
+
+
+</body></html>

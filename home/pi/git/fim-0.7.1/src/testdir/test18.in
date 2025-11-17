@@ -1,0 +1,6 @@
+# String escaping test.
+# This file is part of the fim test suite.
+des="\"contents\"";
+stdout des;
+ses='\'contents\'';
+stdout ses;

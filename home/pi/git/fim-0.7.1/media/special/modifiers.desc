@@ -1,0 +1,25 @@
+# TODO: missing test for /=
+#!fim:/=
+# TODO: missing test for \=
+#!fim:\=
+#!fim:N=en
+#!fim:E@=@N
+#!fim:common=s
+#!fim:@T=t
+0.pcx	comm@E@T@common
+1.pcx	#!fim:^pre_
+2.pcx	comment
+3.pcx	#!fim:+_post
+4.pcx	komment
+5.pcx	#!fim:s/t/tar
+#!fim:+=_POST
+6.pcx	comment
+#!fim:^=PRE_
+7.pcx	#!fim:=comment
+#!fim:^=
+#!fim:!=
+8.pcx	comment
+#!fim:+=
+#!fim:common=
+9.pcx	comment@@@common@5_@#@ignore
+#!fim:,= # intentionally bad

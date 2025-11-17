@@ -1,0 +1,11 @@
+float variables evaluation works
+negated float variables evaluation works
+negated negated float variables evaluation works
+triply negated float variables evaluation work
+float variables to constant comparison works
+float variables to negated constant inequality works
+float variables to triply negated constant inequality works
+double negated float to constant variables comparison works
+float variables to constant comparison works
+float variables to constant inequality works
+basic float variables test success

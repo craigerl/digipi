@@ -1,0 +1,11 @@
+ $Id: FAQ.TXT 165 2008-10-19 07:38:08Z dezperado $
+
+Please consult the full FAQ section in the FIM.TXT file.
+
+Information about framebuffer is primarily in the man page, and the manual ( in the doc directory ).
+
+Information about the installation process is in the INSTALL file.
+
+Information about usage and much, much more is in doc/FIM.TXT
+
+Information about bugs and bug reporting is in the BUGS file and in the doc/FIM.TXT file.

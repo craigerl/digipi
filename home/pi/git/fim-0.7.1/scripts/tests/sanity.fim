@@ -1,0 +1,145 @@
+#!/usr/local/bin/fim -E
+
+# $Id: sanity.fim 203 2009-01-10 11:13:17Z dezperado $
+
+# this script is going to be replaced, or regenerated, from the tests contained in src/testdir.
+
+#!/usr/local/bin/fim -t -E 
+#!/usr/local/bin/fim --no-framebuffer  -E
+#!/usr/bin/env fim -E
+
+#
+# This script tests the Fim language correctness.
+# It is used during Fim maintenance, debugging, and developement.
+#
+# Fim should execute this script and return 0 if all tests pass.
+#
+
+if ( 1 ) { echo "if construct seems working"; }
+else { echo "if construct seems not working"; }
+
+if ( 0 ) { echo "if construct seems not working"; }
+else { echo "if construct seems working"; }
+
+if ( 0 == 0 ) { echo "equality works"; }
+else { echo "equality does not work"; return -1; }
+
+if ( 0 != 1 ) { echo "disequality works"; }
+else { echo "disequality does not work"; return -1; }
+
+if ( 40 == 50-10 ) { echo "basic integer arithmetics works"; }
+else { echo "basic integer arithmetics does not work"; return -1; }
+
+if ( 41 != 50-10 ) { echo "basic integer arithmetics works"; }
+else { echo "basic integer arithmetics does not work"; return -1; }
+
+iv=1;
+
+if ( iv )  { echo "integer variables work"; }
+else { echo "integer variables don't work"; return -1; }
+
+iv=0;
+
+if ( !iv ) { echo "integer variables work";  }
+else { echo "integer variables don't work"; return -1; }
+
+if ( !!iv ) { echo "integer variables don't work"; return -1; }
+else { echo "integer variables work";  }
+
+if ( !!!iv ) { echo "integer variables work";  }
+else { echo "integer variables don't work"; return -1; }
+
+if ( iv == 0 )  { echo "integer variables work"; }
+else { echo "integer variables don't work"; return -1; }
+
+if ( iv == 3*iv-2*iv )  { echo "integer variables work"; }
+else { echo "integer variables don't work"; return -1; }
+
+if ( iv != 3*iv-2*iv )  { echo "integer variables don't work"; return -1; }
+else { echo "integer variables work"; }
+
+if ( iv != iv )  { echo "integer variables don't work"; return -1; }
+else { echo "integer variables work"; }
+
+# Like in Vim, the following form is not correct for an arithmetic assignment:
+# fv=2.0;
+# The next one is the correct one:
+fv="2.0";
+
+if ( fv )  { echo "float variables work"; }
+else { echo "float variables don't work"; return -1; }
+
+if ( !fv ) { echo "float variables don't work"; return -1; }
+else { echo "float variables work"; }
+
+if ( !!fv )  { echo "float variables work"; }
+else { echo "float variables don't work"; return -1; }
+
+if ( !!!fv ) { echo "float variables don't work"; return -1; }
+else { echo "float variables work"; }
+
+if ( fv == "0.0" ) { echo "float variables don't work"; return -1; }
+else { echo "float variables work"; }
+
+if ( ! ( fv != "0.0" ) ) { echo "float variables don't work"; return -1; }
+else { echo "float variables work"; }
+
+if ( !!! ( fv != "0.0" ) ) { echo "float variables don't work"; return -1; }
+else { echo "float variables work"; }
+
+if ( !! ( fv == "0.0" ) ) { echo "float variables don't work"; return -1; }
+else { echo "float variables work"; }
+
+if ( fv == "2.0" )  { echo "float variables work"; }
+else { echo "float variables don't work"; return -1; }
+
+if ( fv != "3.0" )  { echo "float variables work"; }
+else { echo "float variables don't work"; return -1; }
+
+echo	"tab works";
+echo
+	"newline works";
+
+if
+( 1==1 )
+{
+	echo "multiline" " and multiarg constructs ".
+		"work"
+}
+else { return -1; }
+
+if( "aba"."a"=="a"."ba"."a" ){echo "string collation works";}
+else {echo "string collation does not work"; return -1;}
+
+if( "aba"!="a"."sba"."a" ){echo "string collation works";}
+else {echo "string collation does not work"; return -1;}
+
+if( "aba"=~"a.*a" ){echo "regular expressions work";}
+else {echo "regular expressions does not work"; return -1;}
+
+if( !("aba"=~"a.*a") ) {echo "single negations on regular expressions does not work"; return -1;}
+else {echo "single negations on regular expressions work";}
+
+# the following doesn't work in fim 0.3.
+if( !(!("aba"=~"a.*a")) ){echo "double negations on regular expressions work";}
+else {echo "double negations on regular expressions does not work"; }
+
+a=1;
+{a=5}
+if( a==5 ){echo "{command} constructs work";}
+else {echo "{command} constructs don't work";}
+
+{a=10;}
+if( a==10 ){echo "{command;} constructs work";}
+else {echo "{command;} constructs don't work";}
+
+#the following does not work
+#{a=20;;}
+
+if( a==20 ){echo "{command;;} constructs work";}
+else {echo "{command;;} constructs don't work";}
+
+
+rc=0;
+return rc;
+

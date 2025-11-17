@@ -1,0 +1,10 @@
+#!/bin/sh
+# $Id: pre-rmsgw-session 176 2014-10-27 09:07:54Z eckertb $
+
+CONFIG_FILE=$1; shift
+GWCALL=$1; shift
+AX25PORT=$1; shift
+CHANNEL=$1; shift
+CMS=$1; shift
+
+exit 0

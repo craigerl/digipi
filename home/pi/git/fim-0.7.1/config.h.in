@@ -1,0 +1,733 @@
+/* config.h.in.  Generated from configure.ac by autoheader.  */
+
+/* Define if building universal (internal helper macro) */
+#undef AC_APPLE_UNIVERSAL_BUILD
+
+/* custom CXXFLAGS */
+#undef CXXFLAGS
+
+/* Enable pdf support. */
+#undef ENABLE_PDF
+
+/* program to use for shell commands */
+#undef EXECSHELL
+
+/* */
+#undef FBI_AUTHOR
+
+/* */
+#undef FBI_AUTHOR_NAME
+
+/* Allows the user to specify a file loader */
+#undef FIM_ALLOW_LOADER_STRING_SPECIFICATION
+
+/* */
+#undef FIM_AUTHOR
+
+/* */
+#undef FIM_AUTHOR_EMAIL
+
+/* */
+#undef FIM_AUTHOR_NAME
+
+/* */
+#undef FIM_AUTOCMDS
+
+/* */
+#undef FIM_AUTOSKIP_FAILED
+
+/* */
+#undef FIM_BIG_ENDIAN
+
+/* */
+#undef FIM_BOZ_PATCH
+
+/* */
+#undef FIM_CACHE_DEBUG
+
+/* */
+#undef FIM_CHECK_DUPLICATES
+
+/* */
+#undef FIM_CHECK_FILE_EXISTENCE
+
+/* */
+#undef FIM_COMMAND_AUTOCOMPLETION
+
+/* */
+#undef FIM_CONFIGURATION
+
+/* */
+#undef FIM_DEFAULT_CONFIG
+
+/* */
+#undef FIM_DEFAULT_CONFIGURATION
+
+/* */
+#undef FIM_DEFAULT_CONSOLEFONT
+
+/* */
+#undef FIM_DEFAULT_KEY_CONFIG
+
+/* */
+#undef FIM_EXPERIMENTAL_ROTATION
+
+/* */
+#undef FIM_HANDLE_GIF
+
+/* */
+#undef FIM_HANDLE_QOI
+
+/* */
+#undef FIM_HANDLE_TIFF
+
+/* */
+#undef FIM_HAS_TIMEOUT
+
+/* */
+#undef FIM_ITERATED_COMMANDS
+
+/* */
+#undef FIM_KEEP_BROKEN_CONSOLE
+
+/* */
+#undef FIM_LINUX_CONSOLEFONTS_DIR_SCAN
+
+/* */
+#undef FIM_NAMESPACES
+
+/* */
+#undef FIM_NOFB
+
+/* */
+#undef FIM_NOFIMRC
+
+/* */
+#undef FIM_NOHISTORY
+
+/* */
+#undef FIM_PATHS_IN_MAN
+
+/* */
+#undef FIM_PIPE_IMAGE_READ
+
+/* */
+#undef FIM_RANDOM
+
+/* */
+#undef FIM_READ_DIRS
+
+/* */
+#undef FIM_READ_STDIN
+
+/* */
+#undef FIM_READ_STDIN_IMAGE
+
+/* */
+#undef FIM_RECORDING
+
+/* */
+#undef FIM_RECURSIVE_DIRS
+
+/* */
+#undef FIM_REMOVE_FAILED
+
+/* */
+#undef FIM_SKIP_KNOWN_FILETYPES
+
+/* */
+#undef FIM_SMART_COMPLETION
+
+/* */
+#undef FIM_SWITCH_FIXUP
+
+/* */
+#undef FIM_TMP_FILENAME
+
+/* */
+#undef FIM_TRY_CONVERT
+
+/* */
+#undef FIM_TRY_DCRAW
+
+/* */
+#undef FIM_TRY_DIA
+
+/* */
+#undef FIM_TRY_INKSCAPE
+
+/* */
+#undef FIM_TRY_XCF2PNM
+
+/* */
+#undef FIM_TRY_XCFTOPNM
+
+/* */
+#undef FIM_TRY_XFIG
+
+/* */
+#undef FIM_USE_DESIGNATED_INITIALIZERS
+
+/* */
+#undef FIM_USE_READLINE
+
+/* */
+#undef FIM_USE_ZCAT
+
+/* */
+#undef FIM_VERSION
+
+/* */
+#undef FIM_WANTS_SLOW_RESIZE
+
+/* */
+#undef FIM_WANT_CUSTOM_INFO_STATUS_BAR
+
+/* If defined, exiftool will be used to get additional file information
+   (EXPERIMENTAL). */
+#undef FIM_WANT_EXIFTOOL
+
+/* */
+#undef FIM_WANT_FB_CONSOLE_SWITCH_WHILE_LOADING
+
+/* Fim will be capable of marking files while viewing and outputting their
+   names on exit. */
+#undef FIM_WANT_FILENAME_MARK_AND_DUMP
+
+/* */
+#undef FIM_WANT_FONT_MAGNIFY_FACTOR
+
+/* Enable a hardcoded font in the executable. */
+#undef FIM_WANT_HARDCODED_FONT
+
+/* Internals shall use 64 bit integers. */
+#undef FIM_WANT_LONG_INT
+
+/* Scripting. (enabled by default) */
+#undef FIM_WANT_MOUSE
+
+/* Scripting. (enabled by default) */
+#undef FIM_WANT_NOSCRIPTING
+
+/* Output console. (enabled by default) */
+#undef FIM_WANT_NO_OUTPUT_CONSOLE
+
+/* */
+#undef FIM_WANT_POPEN_CALLS
+
+/* Enables raw bits rendering */
+#undef FIM_WANT_RAW_BITS_RENDERING
+
+/* */
+#undef FIM_WANT_SEEK_MAGIC
+
+/* */
+#undef FIM_WANT_STATIC_BINARY
+
+/* */
+#undef FIM_WANT_SYSTEM_CALLS
+
+/* Enables text rendering */
+#undef FIM_WANT_TEXT_RENDERING
+
+/* Fim windowing support */
+#undef FIM_WINDOWS
+
+/* */
+#undef FIM_WITH_AALIB
+
+/* Defined, if (EXPERIMENTAL, INCOMPLETE) libarchive support is enabled */
+#undef FIM_WITH_ARCHIVE
+
+/* BMP file support. */
+#undef FIM_WITH_BMP
+
+/* */
+#undef FIM_WITH_DEBUG
+
+/* AVIF file support. */
+#undef FIM_WITH_LIBAVIF
+
+/* */
+#undef FIM_WITH_LIBCACA
+
+/* */
+#undef FIM_WITH_LIBEXIF
+
+/* We have GTK */
+#undef FIM_WITH_LIBGTK
+
+/* We have libImlib */
+#undef FIM_WITH_LIBIMLIB2
+
+/* */
+#undef FIM_WITH_LIBJASPER
+
+/* Defined, if libpng support is enabled */
+#undef FIM_WITH_LIBPNG
+
+/* Defined if libsdl support is enabled, and set to 1 or 2. */
+#undef FIM_WITH_LIBSDL
+
+/* WebP file support. */
+#undef FIM_WITH_LIBWEBP
+
+/* Defined if sample bogus 'xyz' loader support is enabled. */
+#undef FIM_WITH_LIBXYZ
+
+/* Defined when framebuffer device support is turned off. */
+#undef FIM_WITH_NO_FRAMEBUFFER
+
+/* PCX file support. */
+#undef FIM_WITH_PCX
+
+/* QOI file support. */
+#undef FIM_WITH_QOI
+
+/* Defined, if UFRaw support is enabled */
+#undef FIM_WITH_UFRAW
+
+/* Define to 1 if you have the <avif/avif.h> header file. */
+#undef HAVE_AVIF_AVIF_H
+
+/* Define to 1 if you have the `bcmp' function. */
+#undef HAVE_BCMP
+
+/* Define to 1 if you have the `bcopy' function. */
+#undef HAVE_BCOPY
+
+/* Define to 1 if you have the `bzero' function. */
+#undef HAVE_BZERO
+
+/* Define to 1 if you have the <climits> header file. */
+#undef HAVE_CLIMITS
+
+/* Define to 1 if you have the <cstdio> header file. */
+#undef HAVE_CSTDIO
+
+/* Define to 1 if you have the <dirent.h> header file, and it defines `DIR'.
+   */
+#undef HAVE_DIRENT_H
+
+/* Define to 1 if you have the `drand48' function. */
+#undef HAVE_DRAND48
+
+/* Define to 1 if you have the <emscripten.h> header file. */
+#undef HAVE_EMSCRIPTEN_H
+
+/* If present, fgetln() will be used as a replacement for getline(). (on BSD)
+   */
+#undef HAVE_FGETLN
+
+/* Define to 1 if you have the `fileno' function. */
+#undef HAVE_FILENO
+
+/* Define to 1 if you have the <filesystem> header file. */
+#undef HAVE_FILESYSTEM
+
+/* We have FlexLexer.h */
+#undef HAVE_FLEXLEXER_H
+
+/* Define to 1 if you have the `fmemopen' function. */
+#undef HAVE_FMEMOPEN
+
+/* Define to 1 if you have the <fnmatch.h> header file. */
+#undef HAVE_FNMATCH_H
+
+/* Define to 1 if you have the <fontconfig/fcfreetype.h> header file. */
+#undef HAVE_FONTCONFIG_FCFREETYPE_H
+
+/* Define to 1 if you have the <fontconfig/fontconfig.h> header file. */
+#undef HAVE_FONTCONFIG_FONTCONFIG_H
+
+/* Define to 1 if fseeko (and presumably ftello) exists and is declared. */
+#undef HAVE_FSEEKO
+
+/* If present, will be used for stdin reading. (on GNU) */
+#undef HAVE_GETDELIM
+
+/* If present, the getenv function allows fim to read environment variables.
+   */
+#undef HAVE_GETENV
+
+/* If present, will be used for stdin reading. (on GNU) */
+#undef HAVE_GETLINE
+
+/* Define to 1 if you have the `getpagesize' function. */
+#undef HAVE_GETPAGESIZE
+
+/* Should live when _GNU_SOURCE, but it could be not the case. */
+#undef HAVE_GET_CURRENT_DIR_NAME
+
+/* Define to 1 if you have the <glob.h> header file. */
+#undef HAVE_GLOB_H
+
+/* Define to 1 if you have the <inttypes.h> header file. */
+#undef HAVE_INTTYPES_H
+
+/* Define to 1 if you have the <ioctl.h> header file. */
+#undef HAVE_IOCTL_H
+
+/* Define to 1 if you have the `curses' library (-lcurses). */
+#undef HAVE_LIBCURSES
+
+/* We have libdjvulibre */
+#undef HAVE_LIBDJVU
+
+/* Define to 1 if you have the <libexif/exif-data.h> header file. */
+#undef HAVE_LIBEXIF_EXIF_DATA_H
+
+/* Define to 1 if you have the `fl' library (-lfl). */
+#undef HAVE_LIBFL
+
+/* Define to 1 if you have the <libgen.h> header file. */
+#undef HAVE_LIBGEN_H
+
+/* We have libGraphicsMagick */
+#undef HAVE_LIBGRAPHICSMAGICK
+
+/* We have libjpeg */
+#undef HAVE_LIBJPEG
+
+/* Define to 1 if you have the `m' library (-lm). */
+#undef HAVE_LIBM
+
+/* Define to 1 if you have the `ncurses' library (-lncurses). */
+#undef HAVE_LIBNCURSES
+
+/* We have libpoppler (Warning: the API could still break! (as of
+   v.0.8.7--0.24.1)) */
+#undef HAVE_LIBPOPPLER
+
+/* We have libspectre */
+#undef HAVE_LIBSPECTRE
+
+/* Define to 1 if you have the <limits.h> header file. */
+#undef HAVE_LIMITS_H
+
+/* Define to 1 if you have the <linux/fb.h> header file. */
+#undef HAVE_LINUX_FB_H
+
+/* Define to 1 if you have the <linux/kd.h> header file. */
+#undef HAVE_LINUX_KD_H
+
+/* Define to 1 if you have the <linux/vt.h> header file. */
+#undef HAVE_LINUX_VT_H
+
+/* */
+#undef HAVE_MATRIX_MARKET_DECODER
+
+/* Define to 1 if you have the `memcmp' function. */
+#undef HAVE_MEMCMP
+
+/* Have memmem */
+#undef HAVE_MEMMEM
+
+/* Define to 1 if you have the `memset' function. */
+#undef HAVE_MEMSET
+
+/* Define to 1 if you have the <minix/config.h> header file. */
+#undef HAVE_MINIX_CONFIG_H
+
+/* Define to 1 if you have a working `mmap' system call. */
+#undef HAVE_MMAP
+
+/* Define to 1 if you have the <ndir.h> header file, and it defines `DIR'. */
+#undef HAVE_NDIR_H
+
+/* We have pipe() */
+#undef HAVE_PIPE
+
+/* Define to 1 if you have the <qoi.h> header file. */
+#undef HAVE_QOI_H
+
+/* Define to 1 if you have the `rand' function. */
+#undef HAVE_RAND
+
+/* Define to 1 if you have the `random' function. */
+#undef HAVE_RANDOM
+
+/* Define to 1 if you have the `regcomp' function. */
+#undef HAVE_REGCOMP
+
+/* We have <regex> */
+#undef HAVE_REGEX
+
+/* We have regex.h */
+#undef HAVE_REGEX_H
+
+/* Define to 1 if you have the <stdarg.h> header file. */
+#undef HAVE_STDARG_H
+
+/* Define to 1 if you have the <stdint.h> header file. */
+#undef HAVE_STDINT_H
+
+/* Define to 1 if you have the <stdio.h> header file. */
+#undef HAVE_STDIO_H
+
+/* Define to 1 if you have the <stdlib.h> header file. */
+#undef HAVE_STDLIB_H
+
+/* Define to 1 if you have the `strcpy' function. */
+#undef HAVE_STRCPY
+
+/* Define to 1 if you have the `strerror' function. */
+#undef HAVE_STRERROR
+
+/* Define to 1 if you have the <strings.h> header file. */
+#undef HAVE_STRINGS_H
+
+/* Define to 1 if you have the <string.h> header file. */
+#undef HAVE_STRING_H
+
+/* Define to 1 if you have the `strncmp' function. */
+#undef HAVE_STRNCMP
+
+/* Have sync */
+#undef HAVE_SYNC
+
+/* Define to 1 if you have the <sysexits.h> header file. */
+#undef HAVE_SYSEXITS_H
+
+/* Define to 1 if you have the <sys/dir.h> header file, and it defines `DIR'.
+   */
+#undef HAVE_SYS_DIR_H
+
+/* We have sys/ioctl.h */
+#undef HAVE_SYS_IOCTL_H
+
+/* Define to 1 if you have the <sys/mman.h> header file. */
+#undef HAVE_SYS_MMAN_H
+
+/* Define to 1 if you have the <sys/ndir.h> header file, and it defines `DIR'.
+   */
+#undef HAVE_SYS_NDIR_H
+
+/* Define to 1 if you have the <sys/param.h> header file. */
+#undef HAVE_SYS_PARAM_H
+
+/* Define to 1 if you have the <sys/resource.h> header file. */
+#undef HAVE_SYS_RESOURCE_H
+
+/* We have sys/select.h */
+#undef HAVE_SYS_SELECT_H
+
+/* Define to 1 if you have the <sys/stat.h> header file. */
+#undef HAVE_SYS_STAT_H
+
+/* Define to 1 if you have the <sys/time.h> header file. */
+#undef HAVE_SYS_TIME_H
+
+/* Define to 1 if you have the <sys/types.h> header file. */
+#undef HAVE_SYS_TYPES_H
+
+/* Define to 1 if you have the <sys/user.h> header file. */
+#undef HAVE_SYS_USER_H
+
+/* We have sys/wait.h */
+#undef HAVE_SYS_WAIT_H
+
+/* We have termios.h */
+#undef HAVE_TERMIOS_H
+
+/* Define to 1 if you have the <time.h> header file. */
+#undef HAVE_TIME_H
+
+/* Define to 1 if you have the <unistd.h> header file. */
+#undef HAVE_UNISTD_H
+
+/* Define to 1 if you have the <unix.h> header file. */
+#undef HAVE_UNIX_H
+
+/* Define to 1 if you have the <wchar.h> header file. */
+#undef HAVE_WCHAR_H
+
+/* Define to 1 if you have the <webp/decode.h> header file. */
+#undef HAVE_WEBP_DECODE_H
+
+/* Define to 1 if you have the <webp/demux.h> header file. */
+#undef HAVE_WEBP_DEMUX_H
+
+/* Define to 1 if you have the <wordexp.h> header file. */
+#undef HAVE_WORDEXP_H
+
+/* We have _regex.h */
+#undef HAVE__REGEX_H
+
+/* Name of package */
+#undef PACKAGE
+
+/* Define to the address where bug reports for this package should be sent. */
+#undef PACKAGE_BUGREPORT
+
+/* Define to the full name of this package. */
+#undef PACKAGE_NAME
+
+/* Define to the full name and version of this package. */
+#undef PACKAGE_STRING
+
+/* Define to the one symbol short name of this package. */
+#undef PACKAGE_TARNAME
+
+/* Define to the home page for this package. */
+#undef PACKAGE_URL
+
+/* Define to the version of this package. */
+#undef PACKAGE_VERSION
+
+/* The size of `int', as computed by sizeof. */
+#undef SIZEOF_INT
+
+/* The size of `int *', as computed by sizeof. */
+#undef SIZEOF_INT_P
+
+/* The size of `off_t', as computed by sizeof. */
+#undef SIZEOF_OFF_T
+
+/* The size of `size_t', as computed by sizeof. */
+#undef SIZEOF_SIZE_T
+
+/* Define to 1 if all of the C90 standard headers exist (not just the ones
+   required in a freestanding environment). This macro is provided for
+   backward compatibility; new code need not use it. */
+#undef STDC_HEADERS
+
+/* SVN REVISION */
+#undef SVN_REVISION
+
+/* SVN REVISION NUMBER */
+#undef SVN_REVISION_NUMBER
+
+/* Define if you want to use the included (GNU) regex.c. */
+#undef USE_GNU_REGEX
+
+/* Enable extensions on AIX 3, Interix.  */
+#ifndef _ALL_SOURCE
+# undef _ALL_SOURCE
+#endif
+/* Enable general extensions on macOS.  */
+#ifndef _DARWIN_C_SOURCE
+# undef _DARWIN_C_SOURCE
+#endif
+/* Enable general extensions on Solaris.  */
+#ifndef __EXTENSIONS__
+# undef __EXTENSIONS__
+#endif
+/* Enable GNU extensions on systems that have them.  */
+#ifndef _GNU_SOURCE
+# undef _GNU_SOURCE
+#endif
+/* Enable X/Open compliant socket functions that do not require linking
+   with -lxnet on HP-UX 11.11.  */
+#ifndef _HPUX_ALT_XOPEN_SOCKET_API
+# undef _HPUX_ALT_XOPEN_SOCKET_API
+#endif
+/* Identify the host operating system as Minix.
+   This macro does not affect the system headers' behavior.
+   A future release of Autoconf may stop defining this macro.  */
+#ifndef _MINIX
+# undef _MINIX
+#endif
+/* Enable general extensions on NetBSD.
+   Enable NetBSD compatibility extensions on Minix.  */
+#ifndef _NETBSD_SOURCE
+# undef _NETBSD_SOURCE
+#endif
+/* Enable OpenBSD compatibility extensions on NetBSD.
+   Oddly enough, this does nothing on OpenBSD.  */
+#ifndef _OPENBSD_SOURCE
+# undef _OPENBSD_SOURCE
+#endif
+/* Define to 1 if needed for POSIX-compatible behavior.  */
+#ifndef _POSIX_SOURCE
+# undef _POSIX_SOURCE
+#endif
+/* Define to 2 if needed for POSIX-compatible behavior.  */
+#ifndef _POSIX_1_SOURCE
+# undef _POSIX_1_SOURCE
+#endif
+/* Enable POSIX-compatible threading on Solaris.  */
+#ifndef _POSIX_PTHREAD_SEMANTICS
+# undef _POSIX_PTHREAD_SEMANTICS
+#endif
+/* Enable extensions specified by ISO/IEC TS 18661-5:2014.  */
+#ifndef __STDC_WANT_IEC_60559_ATTRIBS_EXT__
+# undef __STDC_WANT_IEC_60559_ATTRIBS_EXT__
+#endif
+/* Enable extensions specified by ISO/IEC TS 18661-1:2014.  */
+#ifndef __STDC_WANT_IEC_60559_BFP_EXT__
+# undef __STDC_WANT_IEC_60559_BFP_EXT__
+#endif
+/* Enable extensions specified by ISO/IEC TS 18661-2:2015.  */
+#ifndef __STDC_WANT_IEC_60559_DFP_EXT__
+# undef __STDC_WANT_IEC_60559_DFP_EXT__
+#endif
+/* Enable extensions specified by ISO/IEC TS 18661-4:2015.  */
+#ifndef __STDC_WANT_IEC_60559_FUNCS_EXT__
+# undef __STDC_WANT_IEC_60559_FUNCS_EXT__
+#endif
+/* Enable extensions specified by ISO/IEC TS 18661-3:2015.  */
+#ifndef __STDC_WANT_IEC_60559_TYPES_EXT__
+# undef __STDC_WANT_IEC_60559_TYPES_EXT__
+#endif
+/* Enable extensions specified by ISO/IEC TR 24731-2:2010.  */
+#ifndef __STDC_WANT_LIB_EXT2__
+# undef __STDC_WANT_LIB_EXT2__
+#endif
+/* Enable extensions specified by ISO/IEC 24747:2009.  */
+#ifndef __STDC_WANT_MATH_SPEC_FUNCS__
+# undef __STDC_WANT_MATH_SPEC_FUNCS__
+#endif
+/* Enable extensions on HP NonStop.  */
+#ifndef _TANDEM_SOURCE
+# undef _TANDEM_SOURCE
+#endif
+/* Enable X/Open extensions.  Define to 500 only if necessary
+   to make mbstate_t available.  */
+#ifndef _XOPEN_SOURCE
+# undef _XOPEN_SOURCE
+#endif
+
+
+/* Version number of package */
+#undef VERSION
+
+/* Define WORDS_BIGENDIAN to 1 if your processor stores words with the most
+   significant byte first (like Motorola and SPARC, unlike Intel). */
+#if defined AC_APPLE_UNIVERSAL_BUILD
+# if defined __BIG_ENDIAN__
+#  define WORDS_BIGENDIAN 1
+# endif
+#else
+# ifndef WORDS_BIGENDIAN
+#  undef WORDS_BIGENDIAN
+# endif
+#endif
+
+/* Define to 1 if `lex' declares `yytext' as a `char *' by default, not a
+   `char[]'. */
+#undef YYTEXT_POINTER
+
+/* Number of bits in a file offset, on hosts where this is settable. */
+#undef _FILE_OFFSET_BITS
+
+/* Define to 1 to make fseeko visible on some hosts (e.g. glibc 2.2). */
+#undef _LARGEFILE_SOURCE
+
+/* Define for large files, on AIX-style hosts. */
+#undef _LARGE_FILES
+
+/* Define to 1 if type `char' is unsigned and your compiler does not
+   predefine this macro.  */
+#ifndef __CHAR_UNSIGNED__
+# undef __CHAR_UNSIGNED__
+#endif
+
+/* Define to empty if `const' does not conform to ANSI C. */
+#undef const
+
+/* Define to `__inline__' or `__inline' if that's what the C compiler
+   calls it, or to nothing if 'inline' is not supported under any name.  */
+#ifndef __cplusplus
+#undef inline
+#endif

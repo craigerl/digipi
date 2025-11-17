@@ -1,0 +1,16 @@
+# eog like configuration file for fim
+# copy this file to ~/.fimrc to have eog keyboard shortcuts in fim
+# NOTE: it is not complete
+
+bind "PageUp"   "prev;";
+bind "PageDown" "next;";
+bind "Home" "0;";
+bind "End" "$;";
+# rotate by 90 degrees :
+# bind 'r' ...
+bind 'C-0' "100%;";
+bind 'C-+' "magnify";
+bind 'C--' "reduce";
+bind '+' "magnify";
+bind '-' "reduce";
+

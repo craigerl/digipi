@@ -1,0 +1,68 @@
+Form: BC_EOC_Expenditure_Authorization_initial.html,BC_EOC_Expenditure_Authorization_Viewer.html
+Subject: BC EOC Expenditure Authorization: Event: <var fld1>,  Priority: <var Pri> Date: <var fld2>, EMBC Task #: <var fld4> 
+SeqInc:
+Msg:  BC EOC Expenditure Authorization
+
+Event: <var fld1>
+Date: <var fld2>
+Time: <var fld5>
+EMBC Task #: <var fld4>
+EAF#:  <var fld3>
+Priority: <var Pri>
+
+Requesting Organization/Community & Authorized Representative
+
+Name:  <var fld6>
+Location: <var fld7>
+Telephone:  <var fld8>
+FAX:  <var fld9>
+Email: <var fld10>
+
+Description of Expenditure:
+<var fld11>
+
+Amount Requested:  <var fld12>
+Expenditure Not to Exceed: <var fld13>
+
+EOC Approvals
+
+Approved for Processing by: <var fld14>
+Position: <var fld16>
+Date/Time: <var fld18>
+
+Expenditure Request Approved by: <var fld15>
+Position: EOC Director (or designate): <var fld17>
+Date/Time: <var fld19>
+
+PREOC Approvals
+
+Approved for Processing by: <var fld20> 
+      {var fld21}
+
+Position: Operations Section Chief: <var fld23>
+Date/Time: <var fld25>
+
+Distribution
+
+EOC Director: <var fld27>
+EOC Operations Section: <var fld28>
+EOC Planning Section: <var fld29>
+EOC Logistics Section: <var fld30>
+EOC Finance & Admin Section: <var fld31>
+Other: <var fld32>   <var fld39>
+
+PREOC Director: <var fld33> 
+PREOC Operations Section: <var fld34> 
+PREOC Planning Section: <var fld35> 
+PREOC Logistics Section: <var fld36> 
+PREOC Finance & Admin Section: <var fld37> 
+Other: <var fld38>    <var fld40> 
+
+Comments:
+
+ <var fld41> 
+------------------------------------
+
+Express Sending Station: <MsgSender>
+Senders Express Version: <ProgramVersion>
+Senders Template Version: <var Templateversion>

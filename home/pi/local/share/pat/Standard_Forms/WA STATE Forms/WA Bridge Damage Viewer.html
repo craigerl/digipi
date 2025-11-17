@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html><head><!-- The purpose of this Incident Snapshot is to provide an initial assessment of impacted counties and tribal nations--><!-- to the State Emergency Operations Center following a disaster. This custom form has been developed for use in the --><!-- flmsg module of the Narrow Band Emergency Messaging System (NBEMS). --><!-- Chris Utzinger - KF7MJI 2/12/2015 --><!--Manhandled by Mike Judy - KG7MYX- April/May 2015 -->
+
+
+<title>Bridge Damage Report</title><meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8">
+<style>
+
+h1 {
+font-weight: bold;
+}
+textarea {
+word-wrap: normal;
+}
+input[type='submit'] {
+width: 200px;
+margin-left: 25px;
+}
+
+@media only screen and (max-width: 950px) {
+td>p {
+font-family: .5em, arial, sans-serif;
+}
+input[type="radio"] {
+display: block;
+}
+input[type="text"] {
+font-size: .9em;
+}
+textarea {
+font-size: .9em;
+}
+}
+@media only screen and (max-width: 700px) {
+#main_table,
+#entry_table,
+#guideline_table {
+min-width: 100%;
+}
+td>p {
+font-family: .3em, arial, sans-serif;
+}
+textarea {
+font-size: .7em;
+}
+}
+@media only screen and (max-width: 480px) {
+textarea {
+font-size: .35em;
+}
+}
+@media print {
+p {
+font-size: 10pt;
+}
+h1 {
+font-size: 12pt;
+}
+h2 {
+font-size: 12pt;
+}
+}
+.formtext {font-family: Arial, Helvetica, sans-serif;
+font-size: 11pt;
+font-weight: normal;
+}
+
+ input[type=button] {
+
+  border: 2px solid #0f88f2;;
+   border-radius:.25rem;
+  color: black;
+   font-size: 14px;
+  padding: 2px 2px;
+ background-color: white;
+  text-decoration: none;
+  margin: 2px 2px;
+  cursor: pointer;
+}
+input[type=submit] {
+ border: 2px solid green;
+  border-radius:.25rem;
+  background-color: white;
+  color: black;
+  padding: 2px 2px;
+  font-size: 14px;
+   cursor: pointer;
+}
+input[type=reset] {
+ border: 2px solid red;
+ border-radius:.25rem;
+  background-color: white;
+  color: black;
+  padding: 2px 2px;
+  font-size: 14px;
+   cursor: pointer;
+}
+.style2 {font-size: 16px; }
+.style3 {font-size: 18px}
+.style4 {font-size: 14pt}
+</style>
+
+<script>
+
+
+</script></head>
+<body>
+<div style="text-align: center;" class="container" id="top">
+  <div align="center">
+    <input type="file" id="txtfiletoread" accept=".txt"  style="display: none;"/>
+&nbsp;<br>
+  </div>
+  <form  style="font-family: Arial;" pbzloc="3" onsubmit="  document.getElementById('parseme').value =''; return confirm('To complete your form submission, click OK and close the open browser window. You will return to the new message window so you can post your message to the outbox');" method="post" id="myform" enctype="multipart/form-data" action="http://{FormServer}:{FormPort}">
+    <table width="950" border="0" cellpadding="3" cellspacing="0" bordercolor="#DD5145" id="maintable" style="height: 440px; text-align: left; margin-left: auto; margin-right: auto;">
+<tbody>
+<tr>
+<td width="950" style="text-align: center;  height: 40px;">
+<div align="left">
+  <input type="button" value=" Load WA Bridge Form data " onClick="document.getElementById('txtfiletoread').click();" />
+<textarea name="parseme" cols="60" id="parseme" style="display: none;"></textarea></div>
+<table width="100%"  border="1" cellspacing="0" cellpadding="7">
+  <tr>
+    <td colspan="4"><table width="950"  border="0" cellpadding="1" cellspacing="0">
+      <tr>
+        <td width="46%" height="126" valign="top"><p align="left"><strong>Washington State<br>
+        Department of Transportation </strong></p></td>
+        <td width="54%" valign="top"><p align="right"><strong>Bridge Damage Report Form </strong></p>
+            <p align="right" class="formtext"><span class="style4">{var bridgeStatus}&nbsp; &nbsp;</span> &nbsp; </p>
+            <p align="right" class="formtext">Time: {var InspectTime}</p>
+            <p align="right" class="formtext">Date: {var InspectDate}        </p></td>
+      </tr>
+    </table></td>
+    </tr>
+  <tr>
+    <td width="28%" valign="top"><div align="left"><span class="style2"><span class="formtext"> &nbsp;</span>Region<br>
+            <span class="formtext">
+&nbsp;{var Region}         </span></span></div></td>
+    <td colspan="3" valign="top"><div align="left"><span class="style2"><span class="formtext"> &nbsp;</span>Inspector's Name<br>
+            <span class="formtext"> &nbsp;</span>
+{var Inspector} </span></div></td>
+    </tr>
+  <tr>
+    <td valign="top"><div align="left"><span class="style2"><span class="formtext"> &nbsp;</span>Bridge Number<br>
+            <span class="formtext">
+             &nbsp;
+             {var BridgeNum}
+            </span>      <br>
+    </span></div></td>
+    <td colspan="2" valign="top"><div align="left"><span class="style2"><span class="formtext"> &nbsp;</span>Route<br>
+            <span class="formtext">
+             &nbsp;
+             {var Route}
+          </span> </span></div></td>
+    <td width="37%"><div align="left"><span class="style2"><span class="formtext"> &nbsp;</span>County<br>
+            <span class="formtext">
+&nbsp;{var County}</span> </span></div></td>
+  </tr>
+  <tr>
+    <td colspan="4" valign="top"><div align="left"><span class="style2"><span class="formtext"> &nbsp;</span>Location<br>
+            <span style="width:750px; margin: 10px;  word-wrap:break-word; display:inline-block;">
+            {var Location}</span>
+</span></div></td>
+    </tr>
+  <tr>
+    <td colspan="4" valign="top"><div align="left"><span class="style2"><span class="formtext">&nbsp;</span>Remarks<br>
+      </span>
+        <span class="style2"><span style="width:750px; margin: 10px;  word-wrap:break-word; display:inline-block;"> {var Remarks}</span> </span><br>
+    </div></td>
+    </tr>
+  <tr bgcolor="#dee9f9">
+    <td colspan="4" valign="top"><div align="center"><span class="style3">Emergency Bridge Inspection</span></div></td>
+  </tr>
+  <tr>
+    <td colspan="4" valign="top" class="formtext"><span class="style2">Check box that corresponds with any problems below:<br>
+        <strong>Note</strong>:Only check a box if you are going to close the bridge</span>.</td>
+  </tr>
+  <tr bgcolor="#f8f8ff" class="style2">
+    <td height="27" colspan="2" valign="top"><div align="left">
+{var A1} Bridge Approaches 
+          <input name="A1" type="hidden" id="A1" />
+    </div></td>
+  <td colspan="2" valign="top"><div align="left">Raised or lowered, cracks, or buckling</div></td>
+    </tr>
+  <tr class="style2">
+    <td colspan="2" valign="top"><div align="left">
+      {var A2} Wing Walls
+      <input name="A2" type="hidden" id="A2" />
+    </div></td>
+    <td colspan="2" valign="top"><div align="left">Cracks or spalling</div></td>
+  </tr>
+  <tr bgcolor="#f8f8ff" class="style2">
+    <td colspan="2" valign="top"><div align="left">
+{var A3}       Bridge Abutments
+      <input name="A3" type="hidden" id="A3" />
+    </div></td>
+    <td colspan="2" valign="top"><div align="left">Cracks or movement at the ground level</div></td>
+  </tr>
+  <tr class="style2">
+    <td colspan="2" valign="top"><div align="left">
+      {var A4} Bent Caps, and Columns
+          <input name="A4" type="hidden" id="A4" />
+    </div></td>
+    <td colspan="2" valign="top"><div align="left">Exposed rebar, bearing movement, missing keeper, chipped concrete, or movement at the ground level</div></td>
+  </tr>
+  <tr bgcolor="#f8f8ff" class="style2">
+    <td colspan="2" valign="top"><div align="left">
+      {var A5} Bearings
+          <input name="A5" type="hidden" id="A5" />
+    </div></td>
+    <td colspan="2" valign="top"><div align="left">Unseated, misalignment, sheared, or bent bolts</div></td>
+  </tr>
+  <tr class="style2">
+    <td colspan="2" valign="top"><div align="left">
+      {var A5}  
+      Beams or Girders
+      <input name="A6" type="hidden" id="A6" />
+    </div></td>
+    <td colspan="2" valign="top"><div align="left">Misalignment, bending or buckling, spalling, or missing bolts or rivets</div></td>
+  </tr>
+  <tr bgcolor="#f8f8ff" class="style2">
+    <td colspan="2" valign="top"><div align="left">
+      {var A6}  
+      Bridge Deck (top and underside)
+          <input name="A7" type="hidden" id="A7" />
+    </div></td>
+    <td colspan="2" valign="top"><div align="left">Cracks, missing pieces of concrete, or exposed rebar </div></td>
+  </tr>
+  <tr class="style2">
+    <td colspan="2" valign="top"> <div align="left">
+      {var A7}  
+      Hinge or Expansion Joints
+          <input name="A8" type="hidden" id="A8" />
+    </div></td>
+    <td colspan="2" valign="top"><div align="left">Misalignment, cracks, spalling, exposed rebar, or torn expansion materials </div></td>
+  </tr>
+  <tr bgcolor="#f8f8ff" class="style2">
+    <td colspan="2" valign="top"><div align="left">
+      {var A8}  
+      Hand Rail, Parapet, and Curb
+          <input name="A9" type="hidden" id="A9" />
+    </div></td>
+    <td colspan="2" valign="top"><div align="left">Misalignment, bowing, dips, or separations </div></td>
+  </tr>
+  <tr class="style2">
+    <td colspan="2" valign="top"><div align="left">
+      {var A9} Utilities and Surrounding Areas
+          <input name="A10" type="hidden" id="A10" />
+    </div></td>
+    <td colspan="2" valign="top"><div align="left">Disturbed soil, soil liquefaction, damaged utilities, sand blows, and surrounding structure damage.</div></td>
+  </tr>
+  <tr bgcolor="#f8f8ff" class="style2">
+    <td colspan="2" valign="top"><div align="left">
+      {var A11}  
+      Seismic Restraint Devices
+          <input name="A11" type="hidden" id="A11" />
+    </div></td>
+    <td colspan="2" valign="top"><div align="left">Bent, fractured, broken</div></td>
+  </tr>
+</table>
+<h1 align="left" class="style2">How to tag a bridge properly:</h1>
+<p align="left" class="style2">If Bridge is <strong>OK</strong>, apply<strong> GREEN</strong> tape with the date, time, and inspector's initials to right hand side of the bridge on the approaching corner.</p>
+<p align="left" class="style2">If <strong>closing</strong> a Bridge. apply<strong> RED</strong> tape with date. time, and inspector's initials to right hand side of the bridge on the approaching corner.<br>
+    </p>
+<p align="left" class="style2">DOT Form 300-002 Revised 05/2018<br>
+
+  <br>
+  {var Templateversion}<br>
+  <small><span class="formtext"><span style="font-family: Calibri;"><small><big><big><small><span style="font-family: Calibri;">
+  </span></small></big></big></small></span></span></small></td>
+</tr>
+</tbody>
+</table>
+<tb> </tb>
+<div class="row">
+<div class="col-lg-2">
+  <div align="left"></div>
+</div>
+</div>
+<!--end of row--> </form>
+</div>
+
+</body></html>

@@ -1,0 +1,70 @@
+--------------------------------------------------------------------------------
+	FIM Quick start ( the happy path ) :
+--------------------------------------------------------------------------------
+
+in the fim directory, invoke:
+
+ # make 
+ # make test
+ # ls -l fim
+ # chmod +x ./src/fimgs.sh 
+ # ./src/fimgs.sh media/*.pdf
+
+ And in order to have a *working* configuration file, issue:
+ # cp fimrc ~/.fimrc
+ ( a correct configuration file --- if at all --- is essential to the
+ proper working of FIM )
+--------------------------------------------------------------------------------
+		BUILDING
+--------------------------------------------------------------------------------
+	
+If you get problems with compilation, please send me an email with 
+the output of:
+
+ # make report
+
+Problems may arise if fim fails finding its libraries.. 
+
+
+--------------------------------------------------------------------------------
+		USAGE
+--------------------------------------------------------------------------------
+
+There is no good documentation currently about the internal language, as i have 
+not yet finished working on it.
+
+But to warm up with FIM, it is indicated to use the commands in the fimrc file.
+The ./fimrc file is the one fim loads at startup.
+It contains commands that bind keys to commands, aliases and such things.
+
+WARNING : DO NOT QUIT FIM WITH CONTROL-C ! IT CAN BREAK YOUR CONSOLE AND YOU
+WILL NEED TO DO DIRTY TRICKS TO RESTORE ITS GRAPHICS CAPABILITIES.
+USE q INSTEAD!
+WARNING : DO NOT QUIT FIM WITH CONTROL-D ! AS ABOVE
+
+WARNING : DO NOT USE THE BINDINGS CONTROL-C, CONTROL-D, CONTROL-S, as they are 
+probably already signal-bound by the underlying terminal!!
+
+TIP : If the program hangs and gets terminated, leaving the console useless, DON'T PANIC!
+Don't try to switch console -- better type blindly 'fim *' (or its path)
+even if you don't see anything. This will restart it, and probably restore the console!
+
+Invocation : ./fim picture.jpg ..
+
+Default configuration bindings:
+ q quit
+ hjkl as in vim :)
+ n/PageUp next
+ p/PageDown prev
+ C-a auto scale
+ w auto width scale
+ : enter command line mode
+ Enter exit command line mode
+ + magnify
+ - reduce
+ C-+ increase scaling factor
+ C-- decrease scaling factor
+
+(C stays for Control)
+
+--------------------------------------------------------------------------------

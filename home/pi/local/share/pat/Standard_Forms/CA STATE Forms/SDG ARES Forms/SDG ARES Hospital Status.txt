@@ -1,0 +1,111 @@
+Form: SDG_ARES_Hospital_Status_Initial.html,SDG_ARES_Hospital_Status_Viewer.html
+
+To: 
+Subject:SDG Hospital Status-<var sd1A>-<var BLOCK0>
+SeqInc:
+Msg:
+BLOCK 0   ---> <var BLOCK0>
+
+[0A] Operational Period
+
+  Date From: <var sd0A>    Date To:  <var sd0C>
+  Time From: <var sd0B>    Time To:  <var sd0D>
+
+BLOCK 1	FACILITY ID
+ 
+1A	Facility Name:  <var sd1A>
+1B	Facility City or Neighborhood:  <var sd1B>
+1C	Facility Street Address:  <var sd1C>
+1D	IC Name:  <var sd1D>
+1E	IC Phone:  <var sd1E>
+1F	Other Contact Name:  <var sd1F>	
+1G	Other Contact Phone:  <var sd1G>	
+1H	Communications:  <var sd1HWwebeoc> <var sd1HRadio> <var sd1Phone> <var sd1HARES> <var sd1HOther>	
+1K	Remarks: <var sd1I>
+
+BLOCK 2	CURRENT OPERATIONAL STATUS
+ 				
+2A	Current Operational Status:  <var sd2A>	
+2B	Remarks: <var sd2B>
+	
+BLOCK 3	NEXT OPERATIONAL PERIOD
+ 		
+3A	Next Operational Period: <var sd3A>	
+
+BLOCK 4	DAMAGE ASSESSMENT 
+		
+4A	Damage Assessment:  <var sd4A>
+4B	Evacuating Hospital:  <var sd4B>
+4C	Internal Disaster:  <var sd4C>
+4D	Flooding:  <var sd4D>
+4E	Remarks: <var sd4E>
+
+BLOCK 5	SERVICES (YES or NO)
+	
+5A 	All Services Are Available:  <var sd5A>
+5B	Emergency Department Functioning:  <var sd5B>
+5C	Laboratory Functioning:  <var sd5C>
+5D	Operation Rooms Functioning:  <var sd5D>
+5E	Pharmacy Functioning:  <var sd5E>
+5F	Radiology Functioning:  <var sd5F>
+5G	Nutrition/Environmental Functioning:  <var sd5G>
+5H	Behavioral Health Unit Functioning: <var sd5H>
+5I	Remarks: <var sd5I>
+
+BLOCK 6	UTILITY STATUS (YES or NO)
+		
+6A	All Utilities Normal:  <var sd6A>
+6B	Elevator:  <var sd6B>
+6C	HVAC:  <var sd6C>
+6D	Information Services (IT):  <var sd6D>
+6E	Natural Gas:  <var sd6E>
+6F	Phone:  <var sd6F>
+6G	Water:  <var sd6G>
+6H	Waste Water/Sewer:  <var sd6H>
+6I	Electrical:  <var sd6I>
+6J	Electrical Generator Tested:  <var sd6J>
+6K	Gen Fuel Status:  <var sd6K>
+6M	Remarks: <var sd6L>
+
+BLOCK 7	CRITICAL NEEDS
+	
+7A	Food/Water:  <var sd7A>
+7B	Linen/Laundry:  <var sd7B>
+7C	Medical/Surgical Supplies:  <var sd7C>
+7D	Pharmaceuticals:  <var sd7D>
+7E	Staffing:  <var sd7E>
+7F	Remarks and Supplies Needed: <var sd7F>
+
+BLOCK 8	HOW LONG WITHOUT ASSISTANCE
+		
+8A	How Long Without Assistance:  <var sd8A>	
+8B	Remarks: <var sd8B>	
+
+BLOCK 9	EVACUATION
+					
+Evacuation ("TRAIN" Categories)   TOTAL COUNT:
+
+9A	Ambulatory to Evacuate (BLUE):  <var sd9A>				
+9B	Basic Life Support (BLS) to Evacuate (GREEN):  <var sd9B>				
+9C	Advanced Life Support (ALS) to Evacuate (YELLOW):  <var sd9C>				
+9D	Critical Care Transport (CCT) (ORANGE):  <var sd9D>			
+9E	Specialized (RED):  <var sd9E>				
+9F	Remarks: <var sd9F>			
+
+BLOCK 10	SURGE	 COUNT
+
+10A	Casualty Information (in last 12 hours):  <var sd10A>			
+10B	Patients Not Yet Seen:  <var sd10B>			
+10C	Patients Treated and Released:  <var sd10C>				
+10D	Patients Admitted (in last 12 hours):  <var sd10D>			
+10E	Remarks:
+	<var sd10E>			
+
+BLOCK 11   OTHER REMARKS: <var  sd11REMARKS>
+		 
+BLOCK 12  EVENT TYPE ---> [<var EventType>]
+
+-----------------------------------------
+Senders Base Call: <Callsign>
+Senders Express Version: <ProgramVersion>
+Senders Template Version: <var Templateversion>

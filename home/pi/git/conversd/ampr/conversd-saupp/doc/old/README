@@ -1,0 +1,159 @@
+Hi Unix and WAMPES Users !
+
+$Revision: 1.1.1.1 $$Date: 2001/10/10 13:29:59 $
+
+This is the Ping-Pong conversd source, derived from WAMPES' conversd by Dieter
+Deyke <deyke@@mdddhd.fc.hp.com>. It is also used in the Internet for ham radio
+conversation groups. You should have received the following files:
+
+	Configure		- The installation bash script
+	INSTALL			- installation notes
+	CHANGES			- The history of changes
+	CREDITS			- who intended the work
+	README			- You have it, since you are reading it
+	README.OS2		- Information for the use with OS/2
+	SPECS			- This file describes the communication
+				  via the links
+	Makefile.in		- This one makes compilation easier
+				  if a "Configure" was done first.
+                                  gnu make needed !
+	ba_stub.c		- tiny buildsaddr.c which uses kernel
+				  TCP/IP only.
+	convers.c		- the user interface to conversd.
+	conversd.c		- the daemon itself
+	conversd.h		- some declarations
+	convert.c		- dl9sau's iso program
+	convert.h		- and declarations
+        getdefs.c		- determine predefines set by your CC
+	makefile.os2		- Makefile for OS/2
+	makefile.dep		- and the dependencies
+	mailgate.c		- interface to mail transport layer
+	user.c			- the user commands to conversd
+	user.h			- prototypes therefore
+	host.c			- the host commands to conversd
+	host.h			- guess it :-)
+	online.c		- shows the users being online
+	os2.h			- global definitions for OS/2
+
+Additionally a slightly modified GNU-readline package is supplied. The WAMPES
+package will be found by the Configure shell script that creates the Makefile
+then.
+
+Newer releases of this software might be found in the anonymous ftp directory
+at insu1.etec.uni-karlsruhe.de ~/pub/hamradio/convers/convers.
+
+The "standard" TCP-Port to be used with conversd is 3600, the belonging names
+associated to a standard convers are:
+
+ /usr/local/sbin/conversd                 - This is the daemon itself
+ /usr/local/etc/convers.conf              - configuration file
+ /usr/local/bin/convers                   - The user interface to conversd
+ /usr/local/bin/online                    - shows current users without
+                                            logging in into convers
+ /usr/local/etc/convers.motd              - motto of the day, once per login
+ /usr/local/etc/convers.issue             - general text, seen at connect time
+ /var/local/spool/convers/convers.log     - convers logins are logged here
+ /var/local/spool/convers/personals       - directory keeping personal texts
+ /var/local/spool/convers/sockets/convers - unix domain conversd socket
+ /tcp/.sockets/netcmd                     - socket used w/ WAMPES-connections
+ $(HOME)/.conversrc                       - user's file of startup commands
+
+The directories /usr/local/etc, /usr/local/sbin, /var/spool/convers may not
+exist on you computer. Then /tcp is used instead (historical compatibility).
+
+There are some secondary names to conversd implemented for special purposes
+into my package. You don't need to install them they just provide additional
+ports for internal converse groups.
+
+*******************************************************************************
+PLEASE: DO NOT connect the Internet convers to the Packet convers. This is
+        NOT ALLOWED in Germany yet. License conditions are about to change
+        hopefully later this year.
+*******************************************************************************
+
+If you have the ability to join multiple conversation groups, just set up a
+secondary conversd with a different name (currently supported are lconversd,
+kaconversd, wconversd for secondary names). Then another TCP port is selected
+for this conversd (Use the source, Luke - ist rather easy to understand this
+part in main()). Don't forget to set up a corresponding user client with the
+same "first name" i.e. either lconversd, kaconversd or wconversd.
+
+Here is a typical convers.conf file for an ampr-net host:
+-----
+dc6iq-u 12345
+# This is just a comment
+dc1ik-u 1 1 dc1ik-u:3600
+db0sao 2 1 unix:/tcp/.sockets/netcmd connect tcp db0sao 3600
+db0me 3 1 unix:/tcp/.sockets/netcmd connect ax25 db0me
+dc6iq-p 4 1 mailgate fred@behind-firewall.company.com
+-----
+
+The first line sets up your host name (dc6iq-u in this case), the sysop secret
+number and the conversd net embedding (i.e. internet or amprnet - the latter
+being default), the second is a comment (possible comment lines start with
+either ';' or '#', nobody guessed it ?), line number three tells our conversd
+to connect dc1ik-u on port number 3600 for its conversd. The two conversd's
+establish a link between each other and then swap user information. It is done
+via direct kernel TCP/IP - not using WAMPES. Line number four does the same to
+db0sao, but uses a TCP connection established by WAMPES. The last line does
+the same to db0me, but instead of a TCP/IP connect a simple AX.25 connection
+is established to db0me (It's not an IP-Host :-)). The last entry establishes
+a communication between conversd nodes via mail as transport layer. I am working
+on this feature right now - so it really does not work yet...
+
+Each host entry has an two numbers behind it's supposed name. They are called
+"group" and "quality". Each group will have exactly one connection to be set
+up. If a connection goes down the next hosts of this group will be tried.
+In this manner, an alternate host might be connected, if a known route either
+doesn't work any more or is temporarily out of order. The quality parameter
+tells us how many retries should be performed before switching to the next
+group member.
+
+This feature is not yet implemented. These numbers are just place holders for
+later versions of pp-conversd. Ensure different groups for each entry right
+now. Set all qualities to 1.
+
+*******************************************************************************
+
+ ! ! !     D O N T   T R Y   O U T   T H I S   F E A T U R E   Y E T     ! ! !
+
+WARNING: First, the GROUP Feature is not yet implemented. Second, when it
+         appears (look for announcement here), NEVER set up link table
+         entries on both sides of a link. Don't do this even now !!
+         In future, this may cause heavy traffic to the net when link loops
+         are being established. More:
+
+         THE WHOLE REST OF THE NET WILL BE INOPERATIVE FOR A LONG TIME !!!
+
+*******************************************************************************
+
+Here is a typical convers.conf file for the internet
+-----
+myname 12345 internet
+# who to connect ?
+testsite 1 1 foo.bar.org:2354
+-----
+
+Here the internet site foo.bar.org on TCP port 2354 is connected. Please _note_
+the KEYWORD "internet" after your host name ! It is needed, because /pers won't
+work properly if omitted...
+
+*******************************************************************************
+
+WARNING: DO NOT connect two nodes on the same net. This will produce horrible
+         traffic and endless Loops. Even do not do this with Dieter Deykes
+         conversd implementation, if you join a net of 'non-Dieters' converses.
+
+*******************************************************************************
+
+If you are using OS/2 as the base system for conversd, you should read the
+file README.OS2.
+
+This README should help you to set up your conversd. Additional information and
+questions concerning this implementation of the conversd should be sent to:
+
+	<dc6iq@insu1.etec.uni-karlsruhe.de>    (Internet)
+	<DC6IQ@DB0SAO.#BW.DEU.EU>      (Packet AX.25-BBS)
+	<dc6iq@db0sao.ampr.org>           (Packet TCP/IP)
+
+73's, Fred Baumgarten

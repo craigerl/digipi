@@ -1,0 +1,77 @@
+# List push/remove test (will fail on disabled pcx support -- FIXME).
+# This file is part of the fim test suite.
+#autocmd "PreReload"   ".*txt" "_file_loader='Text'";
+#autocmd "PostReload"   ".*txt" "_file_loader=''";
+stdout "List/limit test: BEGIN.";
+cd "../../media/numbers_pcx";
+#list "push" "1.txt" "2.txt" "3.txt" "4.txt" "5.txt" "6.txt" "7.txt" "8.txt" "9.txt" ;
+list;
+if( _last_cmd_output != "../..//media/image.jpg ../..//media/fim.png ../..//media/image.png " ) stdout "wrong first list: "._last_cmd_output; else stdout "first list ok";
+list "push" "1.pcx" "2.pcx" "3.pcx" "4.pcx" "5.pcx" "6.pcx" "7.pcx" "8.pcx" "9.pcx" ;
+list;
+if( _last_cmd_output != "../..//media/image.jpg ../..//media/fim.png ../..//media/image.png 1.pcx 2.pcx 3.pcx 4.pcx 5.pcx 6.pcx 7.pcx 8.pcx 9.pcx " ) stdout "wrong pushed list: "._last_cmd_output; else stdout "pushed list ok";
+list "remove" "../..//media/image.png" ;
+list "remove" "../..//media/fim.png" ;
+list "remove" "../..//media/image.jpg" ;
+list;
+if( _last_cmd_output != "1.pcx 2.pcx 3.pcx 4.pcx 5.pcx 6.pcx 7.pcx 8.pcx 9.pcx " ) stdout "wrong after-remove list: "._last_cmd_output; else stdout "after-remove list ok";
+list "filesnum";
+if( _last_cmd_output != "9" ) stdout "wrong after-remove list len: "._last_cmd_output; else stdout "after-remove list len ok";
+stdout _filelistlen;
+#
+list "marked" ; # empty
+2;
+list "mark" ;
+7;
+list "mark" ;
+list "marked" ; # two
+#
+stdout _filelistlen;
+limit "!" "marked" ; # 2 and 7
+list;
+if( _last_cmd_output != "2.pcx 7.pcx " ) stdout "wrong limited list: "._last_cmd_output; else stdout "limited list ok";
+#
+list "reverse";
+list;
+if( _last_cmd_output != "7.pcx 2.pcx " ) stdout "wrong reverse list: "._last_cmd_output; else stdout "reverse list ok";
+#
+list "sort";
+list;
+if( _last_cmd_output != "2.pcx 7.pcx " ) stdout "wrong sortd list: "._last_cmd_output; else stdout "sorted list ok";
+#
+list "clear";
+list;
+if( _last_cmd_output != "" ) stdout "wrong cleared list: "._last_cmd_output; else stdout "cleared list ok";
+#
+limit; # unlimit
+#
+list;
+if( _last_cmd_output != "1.pcx 2.pcx 3.pcx 4.pcx 5.pcx 6.pcx 7.pcx 8.pcx 9.pcx " ) stdout "wrong last list: "._last_cmd_output; else stdout "last list ok";
+#
+list "clear";
+list;
+if( _last_cmd_output != "" ) stdout "wrong cleared list: "._last_cmd_output; else stdout "cleared list ok";
+#
+if( _filelistlen != 0 ) stdout "wrong cleared list len: "._filelistlen; else stdout "cleared list len ok";
+#
+#
+list "dumpmarked"; 
+if( _last_cmd_output != "" ) stdout "dumpmarked not quiet"._last_cmd_output; else stdout "dumpmarked quiet -- ok";
+list "unmarkall";
+if( _last_cmd_output != "" ) stdout "unmarkall not quiet"._last_cmd_output; else stdout "unmarkall quiet -- ok";
+list "markall";
+stdout 'TODO -- why: '._last_cmd_output.' ?';
+# TODO: also need list "unmark";
+#
+cd "..";
+list "pushdir" "numbers_pcx";
+list "sort";
+list;
+if( _last_cmd_output != "numbers_pcx/0.pcx numbers_pcx/1.pcx numbers_pcx/2.pcx numbers_pcx/3.pcx numbers_pcx/4.pcx numbers_pcx/5.pcx numbers_pcx/6.pcx numbers_pcx/7.pcx numbers_pcx/8.pcx numbers_pcx/9.pcx " ) stdout "wrong pushdir list: "._last_cmd_output; else stdout "pushdir list ok";
+#
+stdout "List/limit test: DONE.";
+#
+# TODO: still need:
+# variables vars pushdirr random_shuffle sort_basename sort_mtime sort_fsize swap pop
+#
+# marked files output list will follow

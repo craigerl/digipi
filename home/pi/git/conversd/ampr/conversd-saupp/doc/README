@@ -1,0 +1,149 @@
+
+  Hessu's Tampa Ping-Pong conversd URO modified version 1.4
+
+  This is a derivative of TPP-1.14. This is a maintenance / clean-up
+  release, and does not contain new major features. It is released only
+  to help new conversd operators get all the right patches for tpp-1.14
+  and get the thing compiled on modern systems without too much grief.
+  A major clean up of the source tree has also been done, to make
+  bugfixing and enhancements an easier task.
+  
+ Fixes in HTPPU-1.4:
+	- Edited file Makefile so that user blocking of /join 0
+	  (join channel 0) has been lifted by default. This was
+	  brought to my attention/request by Doug wb2yxy. After
+	  evaluating the usage (or lack there of to be more exact)
+	  of the conversd protocol on internet and on our bands
+	  I felt as if this request was justified in doing. Spamnet
+	  hubs using HTPPU-1.3 have reported great success in using
+	  this daemon as such..so as they say "if it ain't broke, don't
+	  fix it". Version number has also been bumped up with the
+	  change and comments.  Thanks to <all> who have run this
+	  cosmetically modified version :-)
+
+ Fixes in HTPPU-1.3:
+        - Fixed Y2K logging issue found by Steve N1JFU when doing the
+     	  /last command. If a user was found logged in after January 1,
+	  2000 the year appeared as 100 instead of 2000
+	
+	- Shortened version number(s) from a three number numerical 
+	  sequence to a two for more compatabilities with other
+	  convers softwares reporting such.
+
+ Fixes in HTPPU-1.24:
+	- Commented out /cstat and /dest commands due to crashing of the
+	  conversd server. More notations are in the ChangeLog file.
+
+  Fixes in HTPPu-1.23:
+
+	- Fixed bug in /bjack command 
+		If the nickname was such a total where it would cause the
+		display of the /bjack command to go beyond 80 characters
+		to the screen it would cause conversd to exit. This is not
+		good. Increased buffers from [80] to [2048] JUST to be on 
+		the safe side. It shouldn't affect the UX environments. I
+		may even decrease this to a lower value in the future.
+
+	- Fixed bug in the /cut command
+		Same issue as with the /bjack command.
+
+	- Fixed bug in the /roll command
+		Same issue as with the /bjack command.
+
+  Re-added the following in HTPPu-1.22:
+        - /nickname command. 
+        - /smiley command.
+	- /roll command.
+	- /cut command.
+  
+  Added the following NEW commands:
+
+	- /bjack command.
+		This command allows the user to play a simulated game of
+		BlackJack 21-stud. It is based off of the /cut command
+		process.
+
+	- /spam command.
+		This command will execute what looks like the 'daemon' is
+		saying to the channel. Daemon strings can be edited pretty
+		much "on the fly" in a file called spam.txt located in the
+		/opt/conversd/etc directory with the smiley.txt file. The
+		current default search settings are for [10] lines. If you
+		wish to increase the amount of sayings (and this holds true
+		for the smiley command and file) you MUST increase this
+		setting in the tnos.c file FIRST! Failure to do so will
+		either cause conversd to appearantly continue to display
+		the last string in the file, or it will not display your
+		new adds, depending on what you are doing with it.
+	
+  Notable differences to TPP and PP:
+
+	- Removed everything that is not needed by the server
+	  (the clients, mailgate stuff, bundled libraries). Everyone is
+	  using either telnet or a better client program like colrconv or
+	  tkconv anyway, right?
+	- Cleaned and reindented source for readability (-kr -i8, ansi
+	  function prototypes), new Makefile
+	- Runs on libc6/glibc, libc5, 64 bit Linux/Alpha without modification
+	- Does not include the old OS/2 port (the port was made for some
+	  obsolete non-Winsock TCP sockets thing anyway)
+	- Removed the Configure script, instead made the source comply
+	  better to the standards (should probably run on most if not all
+	  POSIX compliant UNIX systems with ANSI C compilers, with minor
+	  header file fixes and usually -DNO_SNPRINTF)
+	- Removed obsolete and duplicate commands, and also ones that
+	  I and my friends don't like to have in convers (/cq is filtered
+	  completely, /cut, /nick, etc don't work locally). In my opinion
+	  adding duplicate commands for the same function (in hope that it
+	  would be easier for the new user to find the function he is
+	  looking for) does not help, but makes it harder to learn.
+	  Thus, i've removed all of the alias commands Brian added, and
+	  made it more like the original conversd in this respect.
+	- Optional channel 0 banning. Compile with -DBAN_ZERO and local
+	  users cannot access the channel. The channel is still forwarded to
+	  all links though.
+	- DefaultChan directive in configuration file (it MUST be set and
+	  cannot be set to 0).
+	- Built-in access lists for better security (by Tomi, OH2BNS)
+	- Remembers who set the topic on a channel
+	- Better and more configurable logging
+	- Better configuration file parser, and better documented example
+	  configuration file
+
+  It also contains most of the patches we've received from Brian and others
+  after the release of tpp-1.14.
+  
+  Read the INSTALL document for installation instructions.
+  
+  Tested systems (compiles out of the box, basic functionality tested):
+
+ RedHat Linux 4.1/i386, libc 5.3.12, gcc 2.7.2.3, Linux 2.0.36
+ RedHat Linux 5.2/i386, glibc 2.0.7, gcc 2.7.2.3, Linux 2.2.1
+ RedHat Linux 5.2/alpha, glibc 2.0.7, egcs 1.03a, Linux 2.0.35
+ RedHat Linux 4.2/sparc/sun4c, libc 5.3.12, gcc 2.7.2.1, Linux 2.0.30
+ Debian GNU/Linux 1.3/i386, libc 5.4.33, gcc 2.7.2.1, Linux 2.0.35
+ Debian GNU/Linux 2.0/i386, glibc 2.0.7, gcc 2.7.2.3, Linux 2.0.36
+ Solaris 2.5.1/UltraSparc/sun4u, gcc 2.7.2
+ Solaris 2.6/UltraSparc/sun4u, gcc 2.7.2.3
+ AIX 4.1/PowerPC, gcc 2.7.2.1 (Tomi)
+ AIX 4.2/PowerPC, gcc 2.7.2.3
+ HP-UX B.10.20 A/PA-RISC, gcc 2.8.1 (Tomi)
+ HP-UX B.10.20 A/PA-RISC, gcc 2.7.2.2
+ Digital Unix 4.0E/Alpha, DEC C V5.8-009
+ SGI Irix 6.2/MIPS R4400 IP22, bundled cc
+
+  YMMV. 8-)
+
+ Amount of beverages consumed during development:
+     4.5 litres of Coca-Cola
+     10 pans of tea (Twinings: Earl Grey, Lady Grey, English Breakfast)
+     4 beers (0.33l, Olvi/Sandels, Finnish lager)
+     2 ciders (0.33l, Woodpecker, half dry)
+
+  - Hessu, OH7LZB
+    hessu@hes.iki.fi
+
+	&
+
+  - Brian, N1URO
+    n1uro@n1uro.com

@@ -1,0 +1,13 @@
+Form: USGS DYFI.html
+To: dyfi_reports_automated@usgs.gov
+Subject: DYFI Automatic Entry - Winlink <var EVENTType>
+Readonly:True
+Msg:
+
+--- BEGIN json ---
+
+<var parseme>
+
+--- END json ---
+
+[No changes or editing of this message are allowed]

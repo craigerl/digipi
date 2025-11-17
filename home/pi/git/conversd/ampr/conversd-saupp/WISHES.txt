@@ -1,0 +1,49 @@
+@(#) $Id: WISHES.txt,v 1.1.1.1 2002/01/28 01:51:35 dl9sau Exp $
+
+- service access to convers for conversd messages, for e.g. privmsg
+  "*** you have new mail at ..."
+- no: partly done: compression (on link layer ax25 //COMP standard) - also for permlinks.
+    needs config file option, or a /profile also for permlinks?
+    need a config option for non-8bit capable sockets (shell login for e.g.
+    with standard axspawn)
+  -> the //comp standard is not binary clean. not usable on permlinks.
+     will need to look after gzip or bzip2 compression
+- crc on compressed links? - disconnect on crc errors?
+- authentication when connecting permlinks (flexnet standard, md5auth, etc..)
+- when user authentication, then resume of convers-sessions on the same
+  node
+- /op should be able to change profile (password), if necessary
+- better /..DEST handling
+- connect-dialogue through digipeaters to a neighbour
+
+- work in progress: a protocol standard for convers client programs, to
+  get rid of the multible parsing problems while designing a GUI-convers
+  client which could understand every conversd-version being around.
+  thomas <dg1rtf> is currently working on an irc-client implementation for
+  convers.
+
+- done: /history for the last n lines on a channel
+- done: iso problems with ^N without ^O on /pers, /topic, ..
+  will need to work on /charset.
+- done: evaluate "\r*** DB0LUC: Link failure with DB0BLN\r\r" on permlinks
+- done: better AX25-connect code (digipeaters, sourcecall)
+- done: netrom / rose / ... support
+- done: listeners for unix and incoming ax25 connections
+-> hmm, what we want is the ultimative socket-code to connect to a
+   socket type what-o-ever the future will bring ;)))
+   i've some ideas - we'll C..
+  done: ;)))
+
+- done: optimize appendstring (some data has trailling spaces)
+
+- more languages (/lang) for /help [thlingon, etc.. ;-]
+- more readable layout of the english helpfile
+
+- a /timer command for periodicaly sheduling convers commands
+- paclen autodetermination through ioctl(fd, ..). config for permlink?
+
+- GNU autoconf
+- install-dialogue
+- debian package
+
+- better feedback from you and your users concerning any bugs you've found..

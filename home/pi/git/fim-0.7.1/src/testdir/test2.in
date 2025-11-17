@@ -1,0 +1,29 @@
+iv=1;
+
+if ( iv )  { stdout "integer variables evaluation works"; }
+else { stdout "integer variables evaluation doesn't work";  }
+
+iv=0;
+
+if ( !iv ) { stdout "negated integer variables evaluation works";  }
+else { stdout "negated integer variables evaluation doesn't work";  }
+
+if ( !!iv ) { stdout "double negated integer variables evaluation doesn't work";  }
+else { stdout "double negated integer variables evaluation works";  }
+
+if ( !!!iv ) { stdout "triply negated integer variables evaluation works";  }
+else { stdout "triply negated integer variables evaluation doesn't work";  }
+
+if ( iv == 0 )  { stdout "integer variables comparison works"; }
+else { stdout "integer variables comparison don't work";  }
+
+if ( iv == 3*iv-2*iv )  { stdout "integer variables to expression comparison works"; }
+else { stdout "integer variables to expression comparison don't work";  }
+
+if ( iv != 3*iv-2*iv )  { stdout "integer variables to expression inequality don't work";  }
+else { stdout "integer variables works"; }
+
+if ( iv != iv )  { stdout "integer variables self inequality does't work";  }
+else { stdout "integer variables self inequality works"; }
+
+stdout "basic integer variables test success";

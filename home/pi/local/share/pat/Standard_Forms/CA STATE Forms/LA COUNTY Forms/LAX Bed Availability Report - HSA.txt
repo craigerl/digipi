@@ -1,0 +1,54 @@
+Form:LAX Bed Availability_Initial.html,LAX Bed Availability_Report_Viewer.html
+To:
+
+Subject: BED AVAILABILITY REPORT for <var Hospital>, <var ReportDate>  <var Time1>
+	
+
+Msg:  
+DEPARTMENT OF HEALTH SERVICES COUNTY OF LOS ANGELES
+(HOSPITALS) REFERENCE NO. 1122.1
+
+SUBJECT: BED AVAILABILITY REPORT
+
+Hospital Name:	<var Hospital>
+Hospital Service Level:	<var ServiceLevel>  
+Time of HSL:	<var Timehsl>
+
+BED AVAILABILITY	# Available Immediately	within 24 Hours <var IN24HR>	within 72 Hours <var IN72HR>
+
+1  Medical/Surgical	<var A1>	<var A2>	<var A3>
+2  Telemetry	<var B1>	<var B2>	<var B3>
+3  Adult ICU	<var C1>	<var C2>	<var C3>
+4  Pediatric ICU	<var D1>	<var D2>	<var D3>
+5  Neonatal ICU	<var E1>	<var E2>	<var E3>
+6  Pediatric Bed	<var F1>	<var F2>	<var F3>
+7  Obstetrics/Gynecology	<var G1>	<var G2>	<var G3>
+8  Trauma	<var H1>	<var H2>	<var H3>
+9  Burn	<var I1>	<var I2>	<var I3>
+10  Negative Pressure/Isolation	<var J1>	<var J2>	<var J3>
+11  Psychiatric	<var K1>	<var K2>	<var K3>
+12  Operating Room	<var L1>	<var L2>	<var L3>
+13  Other: <var otherservicea>	<var O1>	<var O2>	<var O3>
+14  Ventilator	<var N1>	<var N2>	<var N3>
+15  Mass Decontamination Facility Available	<var MassDecon>
+
+------------------------
+Report Completed by:	<var Name>
+PHONE NUMBER:	<var Phone>
+Date:	<var ReportDate>
+Time:	<var Time1>
+
+Additional Comments:	<var Comments>
+
+------------------------------------
+
+Express Sending Station:	<MsgSender>
+Senders Express Version:	<ProgramVersion>
+Senders Template Version:	<var Templateversion>
+
+
+
+
+
+
+

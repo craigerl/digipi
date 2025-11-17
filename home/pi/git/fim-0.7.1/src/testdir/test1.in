@@ -1,0 +1,37 @@
+
+# These scripts tests the Fim language correctness.
+# They are used during Fim maintenance, debugging, and developement.
+#
+# Fim should execute this and other scripts and quit 0 if all tests pass.
+
+if ( 1 ) { stdout "if construct seems working"; }
+else { stdout "if construct seems not working"; }
+
+if ( 0 ) { stdout "if construct seems not working"; }
+else { stdout "if construct seems working"; }
+
+if ( 0 == 0 ) { stdout "equality works"; }
+else { stdout "equality does not work"; quit -1; }
+
+if ( 0 != 1 ) { stdout "disequality works"; }
+else { stdout "disequality does not work"; quit -1; }
+
+if ( 40 == 50-10 ) { stdout "basic integer arithmetics works"; }
+else { stdout "basic integer arithmetics does not work"; quit -1; }
+
+if ( 41 != 50-10 ) { stdout "basic integer arithmetics works"; }
+else { stdout "basic integer arithmetics does not work"; quit -1; }
+
+if ( 1 | 2 ) { stdout "basic integer bitwise OR works"; }
+else { stdout "basic integer bitwise OR does not work"; quit -1; }
+
+if ( ! 0 ) { stdout "basic integer bitwise OR works"; }
+else { stdout "basic integer bitwise OR does not work"; quit -1; }
+
+if ( 1 & 3 ) { stdout "basic integer bitwise AND works"; }
+else { stdout "basic integer bitwise AND does not work"; quit -1; }
+
+if ( !( 1 & 0) ) { stdout "basic integer bitwise AND works"; }
+else { stdout "basic integer bitwise AND does not work"; quit -1; }
+
+stdout "basic integer arithmetic test success";

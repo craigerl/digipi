@@ -1,0 +1,48 @@
+TO: KF7RSF
+CC: KA7OZO
+Subj: <Callsign> - <DateTime> - Quarterly Test Report V2
+
+MSG:
+1. Reporting County:
+2. Location of Station where this connectivity test was conducted:
+3. EOC Callsign used in this OADN quarterly connectivity test:
+
+Oregon HF Pactor Connectivity Test
+4. Station Contacted Call Sign (W7ODN, K7ODN or other Oregon Station):
+5. Date of Contact:
+6. Time of Contact:
+7. Frequency:
+8. Throughput observed (bytes/minute):
+9. Comments:
+
+Outside Oregon HF Pactor Connectivity Test
+10. Station Contacted Call Sign:
+11. Date of Contact:
+12. Time of Contact:
+13. Frequency:
+14. Throughput observed (bytes/minute):
+15. Comments:
+
+VHF RMS Packet Connectivity Test
+16. Location of gateway used (out of county if possible):
+17. Gateway Callsign:
+18. Frequency:
+19. Connection made via (enter direct or the specific path used):
+20: Comments
+
+21. Problems identified that can be solved locally:
+
+22. Problems identified that need follow-up by OADN Development Team
+
+23. Name of operator performing test: 
+24. Call Sign of operator:
+25. Position:
+
+-------Reply Section Below-----
+26. Reply message:
+27. Reply Date/Time:
+28. Replying person name:
+29. Replying person position:
+_____________________________________________________
+Oregon ARES/RACES: QUARTERLY TEST REPORT V2 11/24/2018
+

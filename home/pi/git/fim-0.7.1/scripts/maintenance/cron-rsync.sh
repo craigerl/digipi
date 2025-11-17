@@ -1,0 +1,25 @@
+#!/bin/sh
+#
+# $Id: cron-rsync.sh.in 633 2014-11-16 22:13:14Z dezperado $
+#
+# This script is intended to work on machines which I administer which are connected to the
+# internet and which can take backups of fim, nightly and gently.
+#
+# It should be run as a cron sheduled job:
+#
+# e.g.:
+# @daily          /usr/bin/rsync -avz dezperado@code.autistici.org:/svn/fim/ /home/dez/backup/fim
+#
+# @daily          cron-rsync.sh
+# @daily          FIM_BACKUPDIR=/var/backups/fim cron-rsync.sh
+# @weekly         FIM_REPUSER=antani FIM_BACKUPDIR=/var/backups/fim /usr/local/bin/cron-rsync.sh
+
+R=${FIM_REPURL:="http://http://svn.savannah.nongnu.org/svn/fbi-improved/"};
+U=${FIM_REPUSER:="dezperado"}
+BP=${FIM_BACKUPDIR:="/backups/fim"}
+R=`echo $R | sed s/^http:..//g`
+RSYNC="/usr/bin/rsync -avz"
+C="$RSYNC $U@$R $BP"
+echo "ok, let's backup using command $C" 
+echo $C || echo "failed backup : $C"
+

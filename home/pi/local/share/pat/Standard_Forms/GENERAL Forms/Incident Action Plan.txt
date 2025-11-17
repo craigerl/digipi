@@ -1,0 +1,41 @@
+Form: Incident Action Plan Initial.html,Incident Action Plan Viewer.html
+
+To: 
+Subject: <var Title> IAP-<var Name>-[<var Type>]	
+Msg:Incident Action Plan
+
+Date/Time: <var ActivityDateTime1>  
+
+Report Type: [<var Type>]
+
+Incident Name: <var Name>
+
+Prepared By: <var Preparedby>    Title: <var prepTitle>
+
+
+1. Name of Incident: <var Detail_1>
+
+2. Area of Operations: <var Detail_2>
+
+3. Objectives: <var Detail_3>
+
+4. Current Status: <var Detail_4>
+
+5. Upcoming Tactics: <var Detail_5>
+
+6. Assignments: <var Detail_6>
+
+7. Safety Issues: <var Detail_7>
+
+8. Resources: <var Detail_8>
+
+9. Communications: <var Detail_9>
+
+------------------------
+Express Sending Station: <MsgSender>
+Senders Express Version: <ProgramVersion>
+Senders Template Version: <var Templateversion>
+
+
+
+

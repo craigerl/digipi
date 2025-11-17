@@ -1,0 +1,6 @@
+#!/usr/bin/expect  --
+set timeout 1
+eval spawn -noecho [ lrange $argv 0 end ]
+send q
+# interact # would break fbtests
+

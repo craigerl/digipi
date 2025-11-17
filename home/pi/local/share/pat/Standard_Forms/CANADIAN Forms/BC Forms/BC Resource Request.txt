@@ -1,0 +1,64 @@
+Form: BC_Resource_Request_initial.html,BC_Resource_Request_Viewer.html
+Subject: BC Resource Request:  Task No <var fld5>,  <var fld1> <var fld2>, Priority: <var fld4> 
+SeqInc:
+Msg:  BC RESOURCE REQUEST
+
+Date of Request: <var fld1>
+Time of Request: <var fld2>
+Request No.: <var fld3>
+Priority: <var fld4>
+Task No.:  <var fld5>
+
+Requested by: 
+Name: <var fld6>
+Dept/Agency/Function:  <var fld7>
+Contact Number:  <var fld8>
+
+What is being Requested? 
+Resource Type/Kind:  <var fld9>
+Quanity: <var fld10>
+Units of Measure:  <var fld11>
+When Required:  <var fld12>
+Mission (Purpose for Resource)
+<var fld13>
+Resource must come with: <var fld14><var fld15><var fld16><var fld17><var fld18><var fld19><var fld20>
+Other: <var fld21>
+
+Special Instructions (e.g. Safety message, ingress/egress routes...)
+
+<var fld22>
+
+Forward Request To: (Organization/Agency/Vendor who ultimately obtains resource – use required fields only)
+Contact Name/Position:  <var fld23>
+Organization/ Agency/Vendor: <var fld24> 
+Contact No.:  <var fld25>
+Estimated Cost:  $<var fld26>
+Actions Taken:
+
+<var fld27>
+
+Delivery/Assigned Location (use required fields only)
+Location/ Site Name:  <var fld28>
+Street Address:  <var fld29>
+City, Province:  <var fld30>
+Report To:  <var fld31>
+Contact Number:  <var fld32>
+Intersection Street 1: <var fld33>
+Intersection Street 2: <var fld34>
+
+Completed by:  <var fld35>
+Function/Title:  <var fld36>
+Date & Time:  <var fld37>
+Entered: <var fld38>
+
+Financial Approval
+Spending Authority: <var fld39>
+Function/Title:  <var fld40>
+Signature:  <var fld41>
+Distribution:   <var fld42><var fld43><var fld43><var fld45>  Other:  <var fld46>
+
+------------------------------------
+
+Express Sending Station: <MsgSender>
+Senders Express Version: <ProgramVersion>
+Senders Template Version: <var Templateversion>

@@ -1,0 +1,38 @@
+Form:Winlink_Check_out_Initial.html,Winlink_Check_out_Viewer.html
+
+To:<var MsgTo>
+
+Subject: Express Check Out [<var Status>]-<var MsgSender>-<var Location>
+
+
+Msg:
+-
+<var Title> Check-Out
+Status: [<var Status>]
+Station secured at: <var DateTime>
+Calls Signs of On-Site Operator(s): <var Assigned>
+Location: <var Location>
+GPS Coordinates: <var GPS2>   MGRS Coordinates: <var MGRS>  Grid Square: <var Grid>
+What3Words: <var w3w>
+Call/Tactical Sender: <var MsgSender>
+
+-------------------------------------------------------------
+Comments:
+
+<var Comments>  
+
+-------------------------------------------------------------
+Info Below Used for Copy and Paste to Spreadsheet
+
+TAB Delimited:
+
+<var Title>	<var DateTime>	<var MsgSender>	<var Assigned>	<var Location>	<var GPS2>	<var MGRS>	<var Grid>	<var w3w>	<var Commentstab>
+
+Semicolon Delimited Values: 
+
+<var Title>;<var DateTime>;<var MsgSender>;<var Assigned>;<var Location>;<var GPS2>;<var MGRS>;<var Grid>;<var w3w>;<var Commentstab>
+
+----------
+<var Templateversion>
+
+

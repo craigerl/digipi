@@ -1,0 +1,23 @@
+@(#) $Id: INSTALL,v 1.2 2004/05/31 10:25:52 dl9sau Exp $
+
+1. edit the makefile, where the binaries, config files, etc.. have to go.
+   I suggest /var/cache/conversd/ where the /pers, /last data go, in
+   accordance to the LINUX FHS (if you have a previous convers version,
+   i suggest to backup the old directory and move it away)
+2. make install
+3. if this is your first time you install: make install-all
+   cave: every conversd configuration file is overwritten!
+3. edit /usr/local/etc/conversd/*conf.
+   READ WITH CARE
+4. i suggest to add convers to /etc/services
+5. a good way to start conversd is to add
+	wc:1234:respawn:/usr/local/sbin/ppconversd -f </dev/null >/dev/null 2>&1
+   to /etc/inittab. start it once with telinit Q.
+6. make /usr/local/etc/conversd/convers.help.de the helpfile for the
+   default language with the unix command
+     cd /usr/local/etc/conversd/; ln -s conversd.help.de convers.help
+   english is the default, done by the makefile
+7. see doc/TIPS.txt for some tricky setups
+
+You are welcome to send bug-reports to thomas@x-berg.in-berlin.de or
+DL9SAU @ DB0TUD.#SAX.DEU.EU

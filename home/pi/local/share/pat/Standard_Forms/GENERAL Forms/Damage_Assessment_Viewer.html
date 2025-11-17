@@ -1,0 +1,502 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+    <meta http-equiv="content-type" content="application/xhtml+xml; charset=utf-8" />
+    
+    <title>Initial DamagE</title>
+	<style type="text/css">
+	@media print {
+
+#printPageButton {
+    display: none;
+  }
+  .form-control, .form-control.nobug {
+border: 0;
+outline: 0;
+box-shadow: none;
+font-size:12px;
+}
+.form-control.nobug {
+transition: none; /*-- THIS IS IMPORTANT -- */
+}
+ input {
+         outline: none !important;
+		box-shadow: none;
+		border: none;
+		}
+}
+
+body, td, th {
+font-family: Arial,Helvetica,sans-serif;
+font-size: 12px;
+font-weight: inherit;
+}
+.zentriert {
+font-size: 12px;
+font-family: Arial,Helvetica,sans-serif;
+font-weight: inherit;
+}
+input, select {
+padding: 1px;
+-moz-border-radius-topleft: 2px;
+-moz-border-radius-topright: 2px;
+-moz-border-radius-bottomright: 2px;
+-moz-border-radius-bottomleft: 2px;
+font-family: Arial,Helvetica,sans-serif;
+font-size: 12px;
+font-weight: inherit;
+}
+textarea {
+padding: 1px;
+-moz-border-radius-topleft: 2px;
+-moz-border-radius-topright: 2px;
+-moz-border-radius-bottomright: 2px;
+-moz-border-radius-bottomleft: 2px;
+font-family: Arial,Helvetica,sans-serif;
+font-size: 12px;
+font-weight: inherit;
+}
+.rechtsbuendig {
+font-size: 12px;
+font-family: Arial,Helvetica,sans-serif;
+font-weight: inherit;
+}
+.SubmitBtn {
+font-size: 12px;
+font-family: Arial,Helvetica,sans-serif;
+font-weight: inherit;
+}
+.version {
+color: #666666;
+position: relative;
+left: 0px;
+top: 3px;
+font-size: 12px;
+font-family: Arial,Helvetica,sans-serif;
+font-weight: inherit;
+}
+.style3 {font-family: Arial, Helvetica, sans-serif}
+    .style4 {font-size: 14px}
+    .style5 {color: #000000}
+    </style></head>
+<body>
+    <span style="font-family:  Arial, Helvetica, sans-serif;"> </span>
+    <form action="http://{FormServer}:{FormPort}" enctype="multipart/form-data" id="Initial Damage" method="post" pbzloc="1">
+      <table style="width: 840px; height: 743px;" align="center" border="0">
+        <tbody>
+          <tr>
+            <td><span style="font-family:  Arial, Helvetica, sans-serif;">&nbsp;</span>
+              <table style="font-size: 14px; width: 834px; height: 785px;" border="1" bordercolor="#999999" cellpadding="4" cellspacing="0">
+                <tbody>
+                  <tr>
+                    <td bgcolor="#dee9f9" style="height: 5%; text-align: center; vertical-align: middle; ;"><p style="font-family: Arial, Helvetica, sans-serif;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-size: 16px;">Initial
+                                  Damage Assessment / Windshield Survey</span></p>
+                      <p style="font-family: Arial, Helvetica, sans-serif;"><span class="style4">{var Title} </span></p></td>
+                  </tr>
+                  <tr>
+                    <td style="text-align: center; vertical-align: top;"><div align="left" class="style3"><span style="font-style: italic;">&nbsp;<br />
+                      </span><big><small><b>&nbsp;&nbsp;</b></small>Jurisdiction 
+                      <input name="Jur" size="50" maxlength="45" title="Enitity survey is being done for." value="{var Jur}" readonly="readonly" />
+                      &nbsp;
+                        &nbsp; Mission
+                          or Incident # &nbsp;
+                      <input name="MisNum" size="30" maxlength="25" value="{var MisNum}" readonly="readonly" />
+                      </big>
+                    </div></td>
+                  </tr>
+                  <tr>
+                    <td style="text-align: center; vertical-align: top;"><div align="left" class="style3"><big><br />
+                      </big><small><b>&nbsp;</b></small><big><small>
+                      <input value="{var Status}" name="Status" size="20" maxlength="19" readonly="readonly" />
+                          </small></big><small><b>&nbsp;</b></small><big>&nbsp; <span style="color: rgb(153, 0, 0);">Event&nbsp;</span>&nbsp;
+                          <input name="Event" size="30" maxlength="25" value="{var Event}" readonly="readonly" />
+                          
+                      &nbsp;&nbsp;
+                        <span style="color: rgb(255, 102, 0);"><span style="color: rgb(0, 102, 0);">If
+                            OTHER; Description</span> &nbsp;</span>
+                          <input name="Other" size="40" maxlength="35" title="Describe OTHER type of event if needed." value="{var Other}" readonly="readonly" />
+                        &nbsp; </big></div></td>
+                  </tr>
+                  <tr>
+                    <td valign="top" bgcolor="#f8f8ff" style="text-align: center; vertical-align: top; "><div align="left" class="style3"><big><br />
+                        Survey Area &nbsp;
+                    <input name="SurArea" size="45" maxlength="40" value="{var SurArea}" readonly="readonly" />
+&nbsp; Survey Team &nbsp;
+                    <input name="SurArea" size="45" maxlength="40" value="{var SurTeam}" readonly="readonly" />
+                    </big></div></td>
+                  </tr>
+                  <tr>
+                    <td style="text-align: center; width: 50%; vertical-align: top;"><div align="left" class="style3"><big><br />
+                    <small><b>&nbsp;&nbsp;</b></small>Start Date of Event&nbsp;&nbsp;</big>                        
+                        <input name="DateTime1" size="15" maxlength="14" value="{var DateTime1}" readonly="readonly" />
+&nbsp; &nbsp;
+                      &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;<big style="color: rgb(204, 0, 0);">Date of this
+                        Survey&nbsp;</big>
+                      <input name="{Date}" size="11" maxlength="10" value="{var Date}" title="Can be overwritten if needed." readonly="readonly" />
+                        <big style="color: rgb(204, 0, 0);">&nbsp;</big>&nbsp;</div></td>
+                  </tr>
+                  <tr>
+                    <td colspan="4" style="text-align: center; vertical-align: top;">
+                      <table style="text-align: left; " border="1" cellpadding="2" cellspacing="0">
+                        <tbody>
+                          <tr>
+                            <td width="401" class="style3" style="text-align: center; vertical-align: top; background-color: white;"><span style="font-style: italic;"><br />
+                              </span></td>
+                            <td width="54" style="background-color: rgb(51, 204, 0); text-align: center; vertical-align: top;">Affected<br />
+                              10 %</td>
+                            <td width="49" style="text-align: center; vertical-align: top; background-color: yellow;">Minor<br />
+                              25 %</td>
+                            <td width="54" style="text-align: center; vertical-align: top; background-color: rgb(255, 102, 102);">Major<br />
+                              50 %</td>
+                            <td width="56" style="text-align: center; vertical-align: top; background-color: white; font-weight: bold;">Totaled<br />
+                              <span style="font-weight: normal;">100 %</span></td>
+                            <td width="58" style="text-align: center; vertical-align: top; font-style: italic;">Total <br />
+Number</td>
+                            <td width="74" style="text-align: center; vertical-align: top; font-style: italic;">$
+                              Loss&nbsp;</td>
+                          </tr>
+                          <tr>
+                            <td style="vertical-align: top; background-color: rgb(204, 204, 204); text-align: justify;"><span style="font-weight: bold;">CATEGORY &nbsp; </span>&nbsp;
+                              &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                              &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                              &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;
+                              &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;
+                              &nbsp;&nbsp;</td>
+                            <td style="text-align: center; vertical-align: top; background-color: rgb(204, 204, 204);">#</td>
+                            <td style="background-color: rgb(204, 204, 204); text-align: center; vertical-align: top;">#</td>
+                            <td style="background-color: rgb(204, 204, 204); text-align: center; vertical-align: top;">#</td>
+                            <td style="background-color: rgb(204, 204, 204); text-align: center; vertical-align: top;">#</td>
+                            <td style="background-color: rgb(204, 204, 204); text-align: center; vertical-align: top;">Count</td>
+                            <td style="background-color: rgb(204, 204, 204); text-align: center; vertical-align: top;">$
+                              Estimate</td>
+                          </tr>
+                          <tr valign="top">
+                            <td>HOUSES</td>
+                            <td>
+                              <div align="center">
+                                <input name="Aff1"  style="text-align: center" size="5" maxlength="4" value="{var Aff1}" readonly="readonly" />
+                              </div></td>
+                            <td><div align="center">
+                              <input name="Min1"  style="text-align: center" size="5" maxlength="4" value="{var Min1}" readonly="readonly" />
+                            </div></td>
+                            <td><div align="center">
+                              <input name="Maj1"  style="text-align: center"size="5" maxlength="4" value="{var Maj1}" readonly="readonly" />
+                            </div></td>
+                            <td><div align="center">
+                              <input name="Des1"  style="text-align: center"size="5" maxlength="4" value="{var Des1}" readonly="readonly" />
+                            </div></td>
+                            <td><div align="center">
+                                <input name="total1"  style="text-align: center"type="text"  id="total1" value="{var total1}" size="6"maxlength="6" \/>
+                            </div></td>
+                            <td style="text-align: center; vertical-align: top;"><input name="Dollar1" style="text-align: right"size="10" maxlength="9" value="{var Dollar1}" readonly="readonly" /></td>
+                          </tr>
+                          <tr valign="top">
+                            <td>APARTMENT COMPLEX</td>
+                            <td><div align="center">
+                              <input name="Aff2"  style="text-align: center" size="5" maxlength="4" value="{var Aff2}" readonly="readonly" />
+                            </div></td>
+                            <td><div align="center">
+                              <input name="Min2" style="text-align: center"size="5" maxlength="4" value="{var Min2}" readonly="readonly" />
+                            </div></td>
+                            <td><div align="center">
+                              <input name="Maj2" style="text-align: center"size="5" maxlength="4" value="{var Maj2}" readonly="readonly" />
+                            </div></td>
+                            <td><div align="center">
+                              <input name="Des2" style="text-align: center"size="5" maxlength="4" value="{var Des2}" readonly="readonly" />
+                            </div></td>
+                            <td><div align="center">
+                                <input name="total2" style="text-align: center"type="text"  id="total2" value="{var total2}" size="6"maxlength="4"  />
+                            </div></td>
+                            <td style="text-align: center; vertical-align: top;"><input name="Dollar2" style="text-align: right"size="10" maxlength="9" value="{var Dollar2}" readonly="readonly" /></td>
+                          </tr>
+                          <tr valign="top">
+                            <td>MOBILE HOMES</td>
+                            <td><div align="center">
+                              <input name="Aff3" style="text-align: center"size="5" maxlength="4" value="{var Aff3}" readonly="readonly" />
+                            </div></td>
+                            <td><div align="center">
+                              <input name="Min3" style="text-align: center"size="5" maxlength="4" value="{var Min3}" readonly="readonly" />
+                            </div></td>
+                            <td><div align="center">
+                              <input name="Maj3" style="text-align: center"size="5" maxlength="4" value="{var Maj3}" readonly="readonly" />
+                            </div></td>
+                            <td><div align="center">
+                              <input name="Des3" style="text-align: center"size="5" maxlength="4" value="{var Des3}" readonly="readonly" />
+                            </div></td>
+                            <td><div align="center">
+                                <input name="total3" style="text-align: center" type="text"  id="total3" value="{var total3}" size="5"maxlength="4" readonly/>
+                            </div></td>
+                            <td style="text-align: center; vertical-align: top;"><input name="Dollar3"  style="text-align: right"size="10" maxlength="9" value="{var Dollar3}" readonly="readonly" /></td>
+                          </tr>
+                          <tr valign="top">
+                            <td>RESIDENTIAL HIGH RISE BUILDING&nbsp;</td>
+                            <td><div align="center">
+                              <input name="Aff4" style="text-align: center"size="5" maxlength="4" value="{var Aff4}" readonly="readonly" />
+                            </div></td>
+                            <td><div align="center">
+                              <input name="Min4" style="text-align: center"size="5" maxlength="4" value="{var Min4}" readonly="readonly" />
+                            </div></td>
+                            <td><div align="center">
+                              <input name="Maj4" style="text-align: center"size="5" maxlength="4" value="{var Maj4}" readonly="readonly" />
+                            </div></td>
+                            <td><div align="center">
+                              <input name="Des4" style="text-align: center"size="5" maxlength="4" value="{var Des4}" readonly="readonly" />
+                            </div></td>
+                            <td><div align="center">
+                                <input name="total4" style="text-align: center"type="text"  id="total4" value="{var total4}" size="5"maxlength="4" readonly />
+                            </div></td>
+                            <td style="text-align: center; vertical-align: top;"><input name="Dollar4"  style="text-align: right"size="10" maxlength="9" value="{var Dollar4}" readonly="readonly" /></td>
+                          </tr>
+                          <tr valign="top">
+                            <td>COMMERCIAL HIGH RISE BUILDING</td>
+                            <td><div align="center">
+                              <input name="Aff5" style="text-align: center"size="5" maxlength="4" value="{var Aff5}" readonly="readonly" />
+                            </div></td>
+                            <td><div align="center">
+                              <input name="Min5" style="text-align: center"size="5" maxlength="4" value="{var Min5}" readonly="readonly" />
+                            </div></td>
+                            <td><div align="center">
+                              <input name="Maj5" style="text-align: center"size="5" maxlength="4" value="{var Maj5}" readonly="readonly" />
+                            </div></td>
+                            <td><div align="center">
+                              <input name="Des5" style="text-align: center"size="5" maxlength="4" value="{var Des5}" readonly="readonly" />
+                            </div></td>
+                            <td><div align="center">
+                                <input name="total5" style="text-align: center"type="text"  id="total5" value="{var total5}" size="5"maxlength="4" readonly/>
+                            </div></td>
+                            <td style="text-align: center; vertical-align: top;"><input name="Dollar5"  style="text-align: right"size="10" maxlength="9" value="{var Dollar5}" readonly="readonly" /></td>
+                          </tr>
+                          <tr valign="top">
+                            <td>PUBLIC BUILDINGS</td>
+                            <td><div align="center">
+                              <input name="Aff6" style="text-align: center"size="5" maxlength="4" value="{var Aff6}" readonly="readonly" />
+                            </div></td>
+                            <td><div align="center">
+                              <input name="Min6" style="text-align: center"size="5" maxlength="4" value="{var Min6}" readonly="readonly" />
+                            </div></td>
+                            <td><div align="center">
+                              <input name="Maj6" style="text-align: center"size="5" maxlength="4" value="{var Maj6}" readonly="readonly" />
+                            </div></td>
+                            <td><div align="center">
+                              <input name="Des6" style="text-align: center"size="5" maxlength="4" value="{var Des6}" readonly="readonly" />
+                            </div></td>
+                            <td><div align="center">
+                                <input name="total6" style="text-align: center"type="text"  id="total6" value="{var total6}" size="5"maxlength="4" readonly/>
+                            </div></td>
+                            <td style="text-align: center; vertical-align: top;"><input name="Dollar6"  style="text-align: right"size="10" maxlength="9" value="{var Dollar6}" readonly="readonly" /></td>
+                          </tr>
+                          <tr valign="top">
+                            <td>SMALL BUSINESS</td>
+                            <td><div align="center">
+                              <input name="Aff7" style="text-align: center" size="5" maxlength="4" value="{var Aff7}" readonly="readonly" />
+                            </div></td>
+                            <td><div align="center">
+                              <input name="Min7" style="text-align: center"size="5" maxlength="4" value="{var Min7}" readonly="readonly" />
+                            </div></td>
+                            <td><div align="center">
+                              <input name="Maj7" style="text-align: center"size="5" maxlength="4" value="{var Maj7}" readonly="readonly" />
+                            </div></td>
+                            <td><div align="center">
+                              <input name="Des7" style="text-align: center"size="5" maxlength="4" value="{var Des7}" readonly="readonly" />
+                            </div></td>
+                            <td><div align="center">
+                                <input name="total7" style="text-align: center"type="text"  id="total7" value="{var total7}" size="5"maxlength="4" readonly />
+                            </div></td>
+                            <td style="text-align: center; vertical-align: top;"><input name="Dollar7"  style="text-align: right" size="10" maxlength="9" value="{var Dollar7}" readonly="readonly" /></td>
+                          </tr>
+                          <tr valign="top">
+                            <td>FACTORIES / INDUSTRIAL COMPLEX</td>
+                            <td><div align="center">
+                              <input name="Aff8" style="text-align: center" size="5" maxlength="4" value="{var Aff8}" readonly="readonly" />
+                            </div></td>
+                            <td><div align="center">
+                              <input name="Min8" style="text-align: center"size="5" maxlength="4" value="{var Min8}" readonly="readonly" />
+                            </div></td>
+                            <td><div align="center">
+                              <input name="Maj8" style="text-align: center"size="5" maxlength="4" value="{var Maj8}" readonly="readonly" />
+                            </div></td>
+                            <td><div align="center">
+                              <input name="Des8" style="text-align: center"size="5" maxlength="4" value="{var Des8}" readonly="readonly" />
+                            </div></td>
+                            <td><div align="center">
+                                <input name="total8" style="text-align: center"type="text"  id="total8" value="{var total8}" size="5"maxlength="4" readonlyn"n" />
+                            </div></td>
+                            <td style="text-align: center; vertical-align: top;"><input name="Dollar8"  style="text-align: right"size="10" maxlength="9" value="{var Dollar8}" readonly="readonly" /></td>
+                          </tr>
+                          <tr valign="top">
+                            <td>ROADS</td>
+                            <td><div align="center">
+                              <input name="Aff9"style="text-align: center" size="5" maxlength="4" value="{var Aff9}" readonly="readonly" />
+                            </div></td>
+                            <td><div align="center">
+                              <input name="Min9" style="text-align: center"size="5" maxlength="4" value="{var Min9}" readonly="readonly" />
+                            </div></td>
+                            <td><div align="center">
+                              <input name="Maj9" style="text-align: center"size="5" maxlength="4" value="{var Maj9}" readonly="readonly" />
+                            </div></td>
+                            <td><div align="center">
+                              <input name="Des9" style="text-align: center"size="5" maxlength="4" value="{var Des9}" readonly="readonly" />
+                            </div></td>
+                            <td><div align="center">
+                                <input name="total9" style="text-align: center"type="text"  id="total9" value="{var total9}" size="5"maxlength="4" readonly/>
+                            </div></td>
+                            <td style="text-align: center; vertical-align: top;"><input name="Dollar9"  style="text-align: right"size="10" maxlength="9" value="{var Dollar9}" readonly="readonly" /></td>
+                          </tr>
+                          <tr valign="top">
+                            <td>BRIDGES</td>
+                            <td><div align="center">
+                              <input name="Aff10" style="text-align: center"size="5" maxlength="4" value="{var Aff10}" readonly="readonly" />
+                            </div></td>
+                            <td><div align="center">
+                              <input name="Min10" style="text-align: center"size="5" maxlength="4" value="{var Min10}" readonly="readonly" />
+                            </div></td>
+                            <td><div align="center">
+                              <input name="Maj10" style="text-align: center"size="5" maxlength="4" value="{var Maj10}" readonly="readonly" />
+                            </div></td>
+                            <td><div align="center">
+                              <input name="Des10" style="text-align: center"size="5" maxlength="4" value="{var Des10}" readonly="readonly" />
+                            </div></td>
+                            <td><div align="center">
+                                <input name="total10" style="text-align: center"type="text"  id="total10" value="{var total10}" size="5"maxlength="4" readonly/>
+                            </div></td>
+                            <td style="text-align: center; vertical-align: top;"><input name="Dollar10"  style="text-align: right"size="10" maxlength="9" value="{var Dollar10}" readonly="readonly" /></td>
+                          </tr>
+                          <tr valign="top">
+                            <td>ELECTRICAL DISTRIBUTION</td>
+                            <td><div align="center">
+                              <input name="Aff11" style="text-align: center"size="5" maxlength="4" value="{var Aff11}" readonly="readonly" />
+                            </div></td>
+                            <td><div align="center">
+                              <input name="Min11" style="text-align: center"size="5" maxlength="4" value="{var Min11}" readonly="readonly" />
+                            </div></td>
+                            <td><div align="center">
+                              <input name="Maj11" style="text-align: center"size="5" maxlength="4" value="{var Maj11}" readonly="readonly" />
+                            </div></td>
+                            <td><div align="center">
+                              <input name="Des11" style="text-align: center"size="5" maxlength="4" value="{var Des11}" readonly="readonly" />
+                            </div></td>
+                            <td><div align="center">
+                                <input name="total11" style="text-align: center"type="text"  id="total11" value="{var total11}" size="5"maxlength="4" readonly/>
+                            </div></td>
+                            <td style="text-align: center; vertical-align: top;"><input name="Dollar11"  style="text-align: right"size="10" maxlength="9" value="{var Dollar11}" readonly="readonly" /></td>
+                          </tr>
+                          <tr valign="top">
+                            <td style="text-align: left; vertical-align: middle;">SCHOOLS</td>
+                            <td><div align="center">
+                              <input name="Aff12" style="text-align: center"size="5" maxlength="4" value="{var Aff12}" readonly="readonly" />
+                            </div></td>
+                            <td><div align="center">
+                              <input name="Min12" style="text-align: center"size="5" maxlength="4" value="{var Min12}" readonly="readonly" />
+                            </div></td>
+                            <td><div align="center">
+                              <input name="Maj12" style="text-align: center"size="5" maxlength="4" value="{var Maj12}" readonly="readonly" />
+                            </div></td>
+                            <td><div align="center">
+                              <input name="Des12" style="text-align: center" size="5" maxlength="4" value="{var Des12}" readonly="readonly" />
+                            </div></td>
+                            <td><div align="center">
+                                <input name="total12" style="text-align: center"type="text"  id="total12" value="{var total12}" size="5"maxlength="4" readonly="readonly" />
+                            </div></td>
+                            <td style="text-align: center; vertical-align: top;"><input name="Dollar12"  style="text-align: right"size="10" maxlength="9" value="{var Dollar12}" readonly="readonly" /></td>
+                          </tr>
+                          <tr valign="top">
+                            <td style="text-align: center; vertical-align: top;"><div align="left">
+                              <input name="Other13" id="Other13" value="{var Other13}" size="80" maxlength="70" readonly="readonly" />
+                            </div></td>
+                            <td><div align="center">
+                              <input name="Aff13" style="text-align: center"size="5" maxlength="4" value="{var Aff13}" readonly="readonly" />
+                            </div></td>
+                            <td><div align="center">
+                              <input name="Min13" style="text-align: center"size="5" maxlength="4" value="{var Min13}" readonly="readonly" />
+                            </div></td>
+                            <td><div align="center">
+                              <input name="Maj13" style="text-align: center"size="5" maxlength="4" value="{var Maj13}" readonly="readonly" />
+                            </div></td>
+                            <td><div align="center">
+                              <input name="Des13" style="text-align: center"size="5" maxlength="4" value="{var Des13}" readonly="readonly" />
+                            </div></td>
+                            <td><div align="center">
+                                <input name="total13" style="text-align: center"type="text"  id="total13" value="{var total13}" size="5"maxlength="4" readonly/>
+                            </div></td>
+                            <td style="text-align: center; vertical-align: top;"><input name="Dollar13"  style="text-align: right" size="10" maxlength="9" value="{var Dollar13}" readonly="readonly" /></td>
+                          </tr>
+                          <tr valign="top">
+                            <td style="text-align: center; vertical-align: top;"><div align="left">
+                              <input name="Other14" id="Other14" value="{var Other14}"size="80" maxlength="70" readonly="readonly" />
+                            </div></td>
+                            <td><div align="center">
+                              <input name="Aff14" style="text-align: center"size="5" maxlength="4" value="{var Aff14}" readonly="readonly" />
+                            </div></td>
+                            <td><div align="center">
+                              <input name="Min14" style="text-align: center"size="5" maxlength="4" value="{var Min14}" readonly="readonly" />
+                            </div></td>
+                            <td><div align="center">
+                              <input name="Maj14"style="text-align: center" size="5" maxlength="4" value="{var Maj14}" readonly="readonly" />
+                            </div></td>
+                            <td><div align="center">
+                              <input name="Des14"style="text-align: center" size="5" maxlength="4" value="{var Des14}" readonly="readonly" />
+                            </div></td>
+                            <td><div align="center">
+                                <input name="total14" style="text-align: center"type="text"  id="total14" value="{var total14}" size="5"maxlength="4" readonly />
+                            </div></td>
+                            <td style="text-align: center; vertical-align: top;"><input name="Dollar14"  style="text-align: right" size="10" maxlength="9" value="{var Dollar14}" readonly="readonly" /></td>
+                          </tr>
+                          <tr valign="top">
+                            <td style="text-align: center; vertical-align: top;"><div align="left">
+                              <input name="Other15" id="Other15" value="{var Other15}" size="80" maxlength="70" readonly="readonly" />
+                            </div></td>
+                            <td><div align="center">
+                              <input name="Aff15"style="text-align: center" size="5" maxlength="4" value="{var Aff15}" readonly="readonly" />
+                            </div></td>
+                            <td><div align="center">
+                              <input name="Min15" style="text-align: center"size="5" maxlength="4" value="{var Min15}" readonly="readonly" />
+                            </div></td>
+                            <td style="height: 18.9333px;"><div align="center">
+                              <input name="Maj15" style="text-align: center"size="5" maxlength="4" value="{var Maj15}" readonly="readonly" />
+                            </div></td>
+                            <td><div align="center">
+                              <input name="Des15" style="text-align: center"size="5" maxlength="4" value="{var Des15}" readonly="readonly" />
+                            </div></td>
+                            <td><div align="center">
+                                <input name="total15" style="text-align: center" type="text"  id="total15" value="{var total15}" size="5"maxlength="4" readonly/>
+                            </div></td>
+                            <td style="text-align: center; vertical-align: top;"><input name="Dollar15"  style="text-align: right"size="10" maxlength="9" value="{var Dollar15}" readonly="readonly" /></td>
+                          </tr>
+                          <tr>
+                            <td height="27" colspan="6" style="text-align: center; vertical-align: top;"><div align="left">
+                            </div>                              <div align="right">Total Dollar Amount: 
+                            </div></td>
+                            <td style="text-align: center; vertical-align: top;"><input name="Dollar16" size="10" maxlength="9" value="{var Dollar16}" readonly="readonly" /></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="4" style="vertical-align: top; text-align: justify;"><span style="font-family: Arial, Helvetica, sans-serif; color: black;"><big style="font-weight: bold;">COMMENTS</big>&nbsp;(if any
+                        by the survey team)<br />
+                        <br />
+                      </span><span style="font-family: Arial, Helvetica, sans-serif;">
+                        <big>{var Comments}<br /></big></span></td>
+                  </tr>
+                  <tr>
+                    <td><span style="font-family:  Arial, Helvetica, sans-serif;"></span>&nbsp; <big><big>
+                    </big></big>&nbsp;&nbsp;<span style="font-family:  Arial, Helvetica, sans-serif;"><small>&nbsp;<span style="color: rgb(128, 0, 0);"> &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span></small></span><span class="style5"><big><small>Express Sender</small> </big></span>&nbsp;
+<input value="{var MsgSender}" name="MsgSender" size="16" maxlength="16" readonly="readonly" title="Call sign or tactical being used to send mail"  />
+<span style="font-family:  Arial, Helvetica, sans-serif;"></span><span style="font-family:  Arial, Helvetica, sans-serif;"><small><span style="color: rgb(128, 0, 0);"></span><span style="color: rgb(128, 0, 0);"></span></small></span><span style="font-family:  Arial, Helvetica, sans-serif;"><small><span style="color: rgb(128, 0, 0);"></span></small></span>&nbsp;<span style="font-family:  Arial, Helvetica, sans-serif;"><small><span style="font-family:  Arial, Helvetica, sans-serif;"><small>&nbsp;&nbsp;</small></span><span style="font-family:  Arial, Helvetica, sans-serif;"><small>&nbsp;&nbsp;</small></span><span style="font-family:  Arial, Helvetica, sans-serif;"><small>&nbsp;&nbsp;</small></span><span style="font-family:  Arial, Helvetica, sans-serif;"><small>&nbsp;&nbsp;</small></span><span style="font-family:  Arial, Helvetica, sans-serif;"><small>&nbsp;&nbsp;</small></span> <span style="font-family:  Arial, Helvetica, sans-serif;"><small><span style="font-size: 12px;"><big><small> <big>Ver 11.3</big></small></big></span></small></span></small></span></td>
+</tr>
+</tbody>
+</table>
+<span style="font-family:  Arial, Helvetica, sans-serif;"><br />
+<small>&nbsp;</small></span></td>
+</tr>
+</tbody>
+</table>
+</form>
+</body></html>

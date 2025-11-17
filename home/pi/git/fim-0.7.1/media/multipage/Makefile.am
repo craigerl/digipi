@@ -1,0 +1,45 @@
+subdir = media/multipage
+
+EXTRA_DIST= sample.tex \
+	numbers_one_to_ten.tiff
+
+MULTIPAGESAMPLE=sample
+MULTIPAGESAMPLES=
+CLEANFILES = $(MULTIPAGESAMPLES) *.log
+
+all: $(MULTIPAGESAMPLES)
+
+if WITH_TEX
+MULTIPAGESAMPLES+=$(MULTIPAGESAMPLE).dvi
+$(MULTIPAGESAMPLE).dvi: $(MULTIPAGESAMPLE).tex
+	tex $<
+endif
+
+if WITH_TEX
+if WITH_DVIPS
+MULTIPAGESAMPLES+=$(MULTIPAGESAMPLE).ps
+$(MULTIPAGESAMPLE).ps: $(MULTIPAGESAMPLE).dvi
+	dvips $<
+endif
+endif
+
+if WITH_TEX
+if WITH_DVIPDF
+if WITH_PDF2DJVU
+MULTIPAGESAMPLES+=$(MULTIPAGESAMPLE).djvu
+$(MULTIPAGESAMPLE).djvu: $(MULTIPAGESAMPLE).pdf
+	pdf2djvu $< > $@
+endif
+endif
+endif
+
+if WITH_TEX
+if WITH_DVIPDF
+MULTIPAGESAMPLES+=$(MULTIPAGESAMPLE).pdf
+$(MULTIPAGESAMPLE).pdf: $(MULTIPAGESAMPLE).dvi
+	dvipdf $<
+endif
+endif
+
+#clean:
+#	rm -f *.log *.dvi *.pdf *.djvu *.ps

@@ -1,0 +1,15 @@
+@(#) $Id: THANKS.txt,v 1.1.1.1 2002/03/03 12:07:15 dl9sau Exp $
+
+Special thanks for this version go to:
+- the db0tud team for their nice system
+- Lutz <dl9cu> for his efforts in testing and making the test-network
+  larger..
+- The db0sgl team for the hints how to connect a permlink through tnt using
+  unix sockets and the wampes-compatible command set.
+- Jens <dh6bb> for the german /lang file and various good ideas
+- Robert <dl1nc> for his suggestions (esp. concerning compatibilty)
+- Thomas <dg1trf> for his great work on the irc client protocol
+- Wolfram <dl3ami> for his intensive testing of the irc-client mode and
+  excellent bugreports
+
+- all the other previous developers of this code

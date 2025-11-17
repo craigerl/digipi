@@ -1,0 +1,1188 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+    <meta http-equiv="content-type" content="application/xhtml+xml; charset=utf-8" />
+    
+    <title>HICS 254</title>
+	<style type="text/css">
+body, td, th {
+font-family: Arial,Helvetica,sans-serif;
+font-size: 12px;
+}
+.zentriert {
+font-size: 12px;
+font-family: Arial,Helvetica,sans-serif;
+}
+input, select {
+padding: 1px;
+font-family: Arial,Helvetica,sans-serif;
+font-size: 12px;
+}
+textarea {
+margin: 8px;
+padding: 8px;
+font-family: Arial,Helvetica,sans-serif;
+font-size: 12px;
+}
+.rechtsbuendig {
+font-size: 12px;
+font-family: Arial,Helvetica,sans-serif;
+}
+.SubmitBtn {
+font-size: 12px;
+font-family: Arial,Helvetica,sans-serif;
+}
+.version {
+margin: 5px;
+color: #666666;
+position: relative;
+left: 0px;
+top: 1px;
+font-family: Arial,Helvetica,sans-serif;
+font-size: 12px;
+}
+#TextHeader {
+background-color: #dddddd;
+font-size: 10px;
+font-family: Arial,Helvetica,sans-serif;
+}
+
+.upload-btn-wrapper {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.btn {
+  border: 2px solid gray;
+  color: gray;
+  background-color: white;
+  padding: 8px 20px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.upload-btn-wrapper input[type=file] {
+  font-size: 50px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;}
+    </style>
+    <style>
+/*
+body {color:#000; background:#fff; font:100%/1.5 arial,sans-serif;}
+h2 {margin-top:0}
+*/
+/* Styling applied to classes only */
+/* Pop-up content shifted off-screen when not in view.
+Still readable by screen-reader software.
+When targeted it fills the browser window.
+*/
+.pop-up {
+	position:absolute;
+	top:0;
+	left:-500em;
+	visibility: visible;
+}
+.pop-up:target {position:static; left:0;}
+/* The pop-up itself */
+.popBox {
+	background:#ffffff;
+	position:absolute;
+	left:25%;
+	right:25%;
+	top:10%;
+	bottom:10%;
+	z-index:10;
+	border:1px solid #3a3a3a;
+/* CSS3 where available: rounded corners, drop-shadow, and fade in. */
+border-radius:.25rem;
+box-shadow:0 .5rem .5rem rgba(0,0,0,.5);
+	opacity:0;
+	transition: opacity 0.8s ease-out;
+	visibility: visible;
+}
+:target .popBox {position:fixed; opacity:1;}
+/* Light box properties */
+.lightbox {
+display:none;
+text-indent:-200em;
+background-color:rgba(0,0,0,.4);
+width:100%;
+height:100%;
+position:fixed;
+top:0;
+left:0;
+bottom:0;
+right:0;
+z-index:5;
+}
+:target .lightbox {display:block;}
+/* The pop-ups close link, moved via CSS to the top right of the pop-up */
+.close:link,
+.close:visited {
+	position: absolute;
+	top: -0.75em;
+	right: -0.75em;
+	display: block;
+	width: 2em;
+	height: 2em;
+	line-height: 1.8;
+	padding: 0;
+	text-align: center;
+	text-decoration: none;
+	background-color: #000;
+	border: 2px solid #fff;
+	color: #fff;
+	border-radius: 50%;
+box-shadow: 0 0 .5rem .5rem rba(0,0,0,.5);
+	visibility: visible;
+}
+.close:before {content:"X";}
+.close:hover,
+.close:active,
+.close:focus {
+box-shadow: 0 0 .5rem .5rem rba(255,0,0,.5);
+background-color: #c00;
+color: #fff;
+}
+.close span {
+text-indent: -200em;
+display: block;
+}
+/* The pop-up content div will scroll if it has too much content */
+.popScroll {
+	position:absolute;
+	top: 1rem;
+	left: 1rem;
+	right: 1rem;
+	bottom: 1rem;
+	overflow-y: auto;
+*overflow-y: scroll;
+	padding-right: 0.5em;
+	visibility: visible;
+}
+.popScroll h2 {margin-top:0}
+.style2 {font-size: 10px}
+    .style3 {
+	color: #FF0000;
+	font-style: italic;
+}
+  input[type=button] {
+
+  border: 2px solid #0f88f2;;
+   border-radius:.25rem;
+  color: black;
+  padding: 2px 2px;
+ background-color: white;
+  text-decoration: none;
+  margin: 2px 2px;
+  cursor: pointer;
+}
+input[type=submit] {
+ border: 2px solid green;
+  border-radius:.25rem;
+  background-color: white;
+  color: black;
+  padding: 2px 2px;
+  font-size: 14px;
+   cursor: pointer;
+}
+input[type=reset] {
+ border: 2px solid red;
+ border-radius:.25rem;
+  background-color: white;
+  color: black;
+  padding: 2px 2px;
+  font-size: 14px;
+   cursor: pointer;
+}
+input[type=black1] {
+ border: 2px solid #999999;
+   width:225px;
+  border-radius:.25rem;
+
+  background-color: white;
+  color: black;
+  padding: 2px 2px;
+  font-size: 14px;
+   cursor: pointer;
+}
+  input[type=button] {
+
+  border: 2px solid #0f88f2;;
+   border-radius:.25rem;
+  color: black;
+  padding: 2px 2px;
+ background-color: white;
+  text-decoration: none;
+  margin: 2px 2px;
+  cursor: pointer;
+}
+input[type=submit] {
+ border: 2px solid green;
+  border-radius:.25rem;
+  background-color: white;
+  color: black;
+  padding: 2px 2px;
+  font-size: 14px;
+   cursor: pointer;
+}
+input[type=reset] {
+ border: 2px solid red;
+ border-radius:.25rem;
+  background-color: white;
+  color: black;
+  padding: 2px 2px;
+  font-size: 14px;
+   cursor: pointer;
+}
+input[type=black1] {
+ border: 2px solid #999999;
+   width:225px;
+  border-radius:.25rem;
+
+  background-color: white;
+  color: black;
+  padding: 2px 2px;
+  font-size: 14px;
+   cursor: pointer;
+}
+  input[type=button] {
+
+  border: 2px solid #0f88f2;;
+   border-radius:.25rem;
+  color: black;
+  padding: 2px 2px;
+ background-color: white;
+  text-decoration: none;
+  margin: 2px 2px;
+  cursor: pointer;
+}
+input[type=submit] {
+ border: 2px solid green;
+  border-radius:.25rem;
+  background-color: white;
+  color: black;
+  padding: 2px 2px;
+  font-size: 14px;
+   cursor: pointer;
+}
+input[type=reset] {
+ border: 2px solid red;
+ border-radius:.25rem;
+  background-color: white;
+  color: black;
+  padding: 2px 2px;
+  font-size: 14px;
+   cursor: pointer;
+}
+input[type=black1] {
+ border: 2px solid #999999;
+   width:225px;
+  border-radius:.25rem;
+width:120px;
+  background-color: white;
+  color: black;
+  padding: 2px 2px;
+  font-size: 14px;
+   cursor: pointer;
+}
+
+    .style4 {font-size: 16px}
+    </style>
+    <script>
+
+function saveTextAsFile(fileNameToSaveAs, textToWrite) {
+var textToWrite = document.getElementById('parseme').value; 
+var fileNameToSaveAs = "HICS254 " + DateforFile()+".txt";
+fileNameToSaveAs = prompt("", fileNameToSaveAs);
+
+  /* Saves a text string as a blob file*/  
+  var ie = navigator.userAgent.match(/MSIE\s([\d.]+)/),
+      ie11 = navigator.userAgent.match(/Trident\/7.0/) && navigator.userAgent.match(/rv:11/),
+      ieEDGE = navigator.userAgent.match(/Edge/g),
+      ieVer=(ie ? ie[1] : (ie11 ? 11 : (ieEDGE ? 12 : -1)));
+
+  if (ie && ieVer<10) {
+    console.log("No blobs on IE ver<10");
+    return;
+  }
+
+  var textFileAsBlob = new Blob([textToWrite], {
+    type: 'text/plain'
+  });
+
+  if (ieVer>-1) {
+    window.navigator.msSaveBlob(textFileAsBlob, fileNameToSaveAs);
+
+  } else {
+    var downloadLink = document.createElement("a");
+    downloadLink.download = fileNameToSaveAs;
+    downloadLink.href = window.URL.createObjectURL(textFileAsBlob);
+    downloadLink.onclick = function(e) { document.body.removeChild(e.target); };
+    downloadLink.style.display = "none";
+    document.body.appendChild(downloadLink);
+    downloadLink.click();
+  }
+}
+
+
+
+
+
+function destroyClickedElement(event)
+{
+    document.body.removeChild(event.target);
+}
+
+function loadFileAsText()
+{
+
+    var fileToLoad = document.getElementById("fileToLoad").files[0];
+ 
+    var fileReader = new FileReader();
+    fileReader.onload = function(fileLoadedEvent) 
+    {
+        var textFromFileLoaded = fileLoadedEvent.target.result;
+        document.getElementById("inputTextToSave").value = textFromFileLoaded;
+    };
+    fileReader.readAsText(fileToLoad, "UTF-8");
+}
+
+function TimeNow(Timefld, FocusFld) {
+var txt;
+var d = new Date(),
+thisyear = d.getFullYear();
+thismonth= d.getMonth();
+thismonth = thismonth+1;
+if (thismonth < 10) { thismonth = "0" + thismonth}
+
+thisday = d.getDate();
+if (thisday < 10) { thisday = "0" + thisday}
+
+h = (d.getHours()<10?'0':'') + d.getHours()
+m = (d.getMinutes()<10?'0':'') + d.getMinutes()
+s = (d.getSeconds()<10?'0':'') + d.getSeconds();
+var myprompt = thisyear+ '-'+thismonth+'-'+thisday+' '+h + ':' + m ;
+var RightNow = prompt("", myprompt);
+document.getElementById(Timefld).value = RightNow;
+} 
+function DateforFile(RightNow) {
+var txt;
+var d = new Date(),
+thisyear = d.getFullYear();
+thismonth= d.getMonth();
+thismonth = thismonth+1;
+if (thismonth < 10) { thismonth = "0" + thismonth}
+
+thisday = d.getDate();
+if (thisday < 10) { thisday = "0" + thisday}
+
+h = (d.getHours()<10?'0':'') + d.getHours()
+m = (d.getMinutes()<10?'0':'') + d.getMinutes()
+s = (d.getSeconds()<10?'0':'') + d.getSeconds();
+var myprompt = thisyear+ '-'+thismonth+'-'+thisday+' '+h + '_' + m ;
+return myprompt;
+}
+</script>
+
+<script>
+function shortmonth(monthnum) {
+var monthname;
+shortmonths = ["JAN", "FEB", "MAR","APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"] ;
+monthname = shortmonths [monthnum];
+return monthname;
+}
+function DateTime(TType,TheFld, FocusFld) {
+var txt;
+var myprompt;
+var d = new Date(),
+thisyear = d.getFullYear();
+thismonth= d.getMonth();
+thisday = d.getDate();
+var monname;
+h = (d.getHours()<10?'0':'') + d.getHours()
+m = (d.getMinutes()<10?'0':'') + d.getMinutes()
+s = (d.getSeconds()<10?'0':'') + d.getSeconds();
+var now = new Date();
+var utch = now.getUTCHours();
+if (utch < 10) { utch = "0"+utch};
+var utcs = now.getUTCMinutes();
+if (utcs < 10) { utcs = "0"+utcs};
+var myUTCtime = utch+":"+utcs+"Z";
+var utcstr = d.toUTCString();
+var localt = d.toLocaleTimeString();
+var isostr = d.toISOString();
+monthname = shortmonth (thismonth);
+thismonth = thismonth + 1;
+switch (TType) {
+case 'hms' :
+myprompt = h + ':' + m + ':' + s;
+var RightNow = prompt("Time:", myprompt);
+document.getElementById(TheFld).value = RightNow;
+break;
+case 'hm' :
+myprompt = h + ':' + m;
+var RightNow = prompt("Time:", myprompt);
+document.getElementById(TheFld).value = RightNow;
+break;
+case 'm-d-y': myprompt = thismonth+ '-' + thisday+ '-'+ thisyear;
+var RightNow = prompt("Date:", myprompt);
+document.getElementById(TheFld).value = RightNow;
+break;
+case 'm/d/y': myprompt = thismonth+ '/' + thisday+ '/'+ thisyear;
+var RightNow = prompt("Date:", myprompt);
+document.getElementById(TheFld).value = RightNow;
+break;
+case 'DateStamp-m-d-y': var RightNow = thismonth+ '-' + thisday+ '-'+ thisyear;
+document.getElementById(TheFld).value = RightNow;
+break;
+case 'd mmm y': myprompt = thisday+ ' ' + monthname+ ' '+ thisyear;
+var RightNow = prompt("Date:", myprompt);
+document.getElementById(TheFld).value = RightNow;
+break;
+case 'mmm-d-y': myprompt = monthname+'-'+thisday+ '-' + thisyear;
+var RightNow = prompt("Date:", myprompt);
+document.getElementById(TheFld).value = RightNow;
+break;
+case 'localampm': var myprompt = localt;
+var RightNow = prompt("Local time:", myprompt);
+document.getElementById(TheFld).value = RightNow;
+break;
+case 'fulldate': var myprompt = thisyear+ '-'+thismonth+'-'+thisday;
+var RightNow = prompt("Date:", myprompt);
+document.getElementById(TheFld).value = RightNow;
+break;
+case 'fulldatetime': var myprompt = thisyear+'-'+thismonth+ '-'+thisday+' '+h + ':' + m + ':' + s;
+var RightNow = prompt("Date time:", myprompt);
+document.getElementById(TheFld).value = RightNow;
+break;
+case 'iso': var myprompt = isostr;
+var RightNow = prompt("Date time:", myprompt);
+document.getElementById(TheFld).value = RightNow;
+break;
+case 'utc': var myprompt = utcstr;
+var RightNow = prompt("Date time:", myprompt);
+document.getElementById(TheFld).value = RightNow;
+break;
+case 'zulu': var myprompt = isostr;
+myprompt = isostr.replace("T", " "); slen = myprompt.length;
+myprompt = myprompt.substr(0, slen-5)+'Z';
+var RightNow = prompt("Date time:", myprompt);
+document.getElementById(TheFld).value = RightNow;
+break;
+case 'UTChm': var myprompt = myUTCtime;
+var RightNow = prompt("Date time:", myprompt);
+document.getElementById(TheFld).value = RightNow;
+break;
+}
+// if(FocusFld !== null && FocusFld !== '') {document.getElementById(FocusFld).focus()} --/
+};
+function AutoGrowTextArea(textField)
+{
+
+if (textField.clientHeight < textField.scrollHeight)
+{
+textField.style.height = textField.scrollHeight + "px";
+if (textField.clientHeight < textField.scrollHeight)
+{
+textField.style.height = (textField.scrollHeight * 2 - textField.clientHeight) + "px";
+}
+}
+}
+function Countthelines(f) { var text1 = f
+var text2 = text1.replace(/\s+$/,"");
+var split2 = text2.split("\n"); var mytotal = split2.length * 17;
+if (mytotal < 150) {
+mytotal = 150;
+}
+var tstr = mytotal.toString();
+return tstr;
+}
+function newfix(f){
+var ThisText = document.getElementById("SpecialInstructions").value;
+var makeit = Countthelines(ThisText);
+document.getElementById(f).style.height = makeit+"px"; }
+
+function Fixarea() {
+newfix("SpecialInstructions");
+AutoGrowTextArea("SpecialInstructions");
+
+}
+function RWS(str){
+var text2 = str.replace(/\s+$/,"");
+return text2.trim();
+}
+function Collect(){
+var datatosave;
+datatosave = "ICS-205"+ "\r";
+
+document.getElementById("Saveme").value = datatosave;
+
+}
+
+function SaveData() {
+	var mydata= "";
+		// note get header info
+		
+		//var mydata=mydata + document.getElementById('Incident_Name').value+"\t";
+		//var mydata=mydata + document.getElementById('ActivityDateTime2').value+"\t";
+		//var mydata=mydata + document.getElementById('DateFrom').value+"\t";
+		//var mydata=mydata + document.getElementById('DateTo').value+"\t";
+		//var mydata=mydata + document.getElementById('TimeFrom').value+"\t";
+		//var mydata=mydata + document.getElementById('TimeTo').value+"\t";
+		
+		
+		
+		
+	for (x = 1; x <11; x++) {
+
+        //var tabs = lines[line].split('\t',11);
+         	
+			var mydata=mydata + document.getElementById('Tag'+x).value+"\t";
+			
+		 		var mydata=mydata+document.getElementById('Med'+x).value+"\t";
+
+			var mydata=mydata+document.getElementById('Name'+x).value+"\t";
+		
+			var mydata=mydata+document.getElementById('Sex'+x).value+"\t";
+			
+			var mydata=mydata+document.getElementById('Dob'+x).value+"\t";
+			var mydata=mydata+document.getElementById('TriaCat'+x).value+"\t";
+			var mydata=mydata+document.getElementById('Loc'+x).value+"\t";
+			var mydata=mydata+document.getElementById('Loct'+x).value+"\t";
+			
+			var mydata=mydata+document.getElementById('Disp'+x).value+"\t";
+
+			var mydata=mydata+document.getElementById('Dispt'+x).value+"\t";
+						var mydata=mydata+"\n";
+			document.getElementById('parseme').value = mydata;
+			
+			 }   
+			 
+			 // note get header info
+		var mydata=mydata + document.getElementById('Incident_Name').value+"\t";
+		var mydata=mydata + document.getElementById('Page').value+"\t";
+		var mydata=mydata + document.getElementById('Page1').value+"\t";
+		var mydata=mydata + document.getElementById('OpNum').value+"\t";
+		var mydata=mydata + document.getElementById('DateFrom').value+"\t";
+		var mydata=mydata + document.getElementById('TimeFrom').value+"\t";
+		var mydata=mydata + document.getElementById('DateTo').value+"\t";
+		var mydata=mydata + document.getElementById('TimeTo').value+"\t";
+		
+		var mydata=mydata + document.getElementById('PreparedName').value+"\t";
+		var mydata=mydata + document.getElementById('Date_Time').value+"\t";
+				var mydata=mydata + document.getElementById('Time').value+"\t";
+		var mydata=mydata + document.getElementById('Facility').value+"\t";
+		var mydata=mydata + document.getElementById('Area').value+"\t";
+		var mydata=mydata+"\n";
+		
+
+			document.getElementById('parseme').value = mydata;
+			
+			saveTextAsFile();
+			
+			//saveTextAsFile();
+			}
+			
+
+
+function parsestring(mType) {
+	var mytext = document.getElementById('parseme').value;
+	var myType = mType;
+	var lines = mytext.split('\n');
+
+    for(var line = 0; line < lines.length- 1 ; line++){
+        // By tabs
+		//alert (lines[line]);
+		var x = line +1;
+
+     		if (line <10) {  var tabs = lines[line].split('\t',10);
+         	if (tabs[0] != null){document.getElementById('Tag'+x).value =tabs[0]};
+		 	if (tabs[1] != null){document.getElementById('Med'+x).value = tabs[1]};
+			
+			if (tabs[2] != null){document.getElementById('Name'+x).value = tabs[2]};
+			if (tabs[3] != null){document.getElementById('Sex'+x).value = tabs[3]};
+			if (tabs[4] != null){document.getElementById('Dob'+x).value = tabs[4]};
+			if (tabs[5] != null){document.getElementById('TriaCat'+x).value = tabs[5]};
+			if (tabs[6] != null){document.getElementById('Loc'+x).value = tabs[6]};
+			if (tabs[7] != null){document.getElementById('Loct'+x).value = tabs[7]};
+			if (tabs[8] != null){document.getElementById('Disp'+x).value = tabs[8]};
+			if (tabs[9] != null){document.getElementById('Dispt'+x).value = tabs[9]};
+			if (tabs[10] != null){document.getElementById('Remarks'+x).value = tabs[10]};
+			
+			 }   // end loop
+			//}
+			 // now the header & footerto fill
+			
+			if (myType == "F") {
+			     var tabs = lines[line].split('\t',13);
+				
+			 if (tabs[0] != null){document.getElementById('Incident_Name').value = tabs[0]};
+			  if (tabs[1] != null){document.getElementById('Page').value = tabs[1]};
+			  if (tabs[2] != null){document.getElementById('Page1').value = tabs[2]};
+			  if (tabs[3] != null){document.getElementById('OpNum').value = tabs[3]};
+				if (tabs[4] != null){document.getElementById('DateFrom').value = tabs[4]};
+			  if (tabs[5] != null){document.getElementById('TimeFrom').value = tabs[5]};
+			if (tabs[6] != null){document.getElementById('DateTo').value = tabs[6]};
+			if (tabs[7] != null){document.getElementById('TimeTo').value = tabs[7]};
+			if (tabs[8] != null){document.getElementById('PreparedName').value = tabs[8]};
+			if (tabs[9] != null){document.getElementById('Date_Time').value = tabs[9]};
+			if (tabs[10] != null){document.getElementById('Time').value = tabs[10]};
+			if (tabs[11] != null){document.getElementById('Facility').value = tabs[11]};
+			if (tabs[12] != null){document.getElementById('Area').value = tabs[12]};
+
+					
+					
+					
+					
+			}
+			}
+}
+
+
+		
+		//
+
+
+	
+	function selectaddress(){  
+ location.href="#pop3";  
+} 
+ 
+//-------
+
+  function readBlob(opt_startByte, opt_stopByte) {
+      alert('at blob!');
+    var files = document.getElementById('files').files;
+    if (!files.length) {
+      alert('Please select a file!');
+      return;
+    }
+
+    var file = files[0];
+    var start = parseInt(opt_startByte) || 0;
+    var stop = parseInt(opt_stopByte) || file.size - 1;
+
+    var reader = new FileReader();
+
+    // If we use onloadend, we need to check the readyState.
+    reader.onloadend = function(evt) {
+      if (evt.target.readyState == FileReader.DONE) { // DONE == 2
+        document.getElementById('byte_content').textContent = evt.target.result;
+        document.getElementById('byte_range').textContent = 
+            ['Read bytes: ', start + 1, ' - ', stop + 1,
+             ' of ', file.size, ' byte file'].join('');
+      }
+    };
+
+    var blob = file.slice(start, stop + 1);
+    reader.readAsBinaryString(blob);
+  }
+  
+  window.onload = function () { 
+ //Check the support for the File API support 
+ if (window.File && window.FileReader && window.FileList && window.Blob) {
+    var fileSelected = document.getElementById('txtfiletoread');
+    fileSelected.addEventListener('change', function (e) { 
+         //Set the extension for the file 
+         var fileExtension = /text.*/; 
+         //Get the file object 
+         var fileTobeRead = fileSelected.files[0];
+        //Check of the extension match 
+         if (fileTobeRead.type.match(fileExtension)) { 
+             //Initialize the FileReader object to read the 2file 
+             var fileReader = new FileReader(); 
+             fileReader.onload = function (e) { 
+                 var fileContents = document.getElementById('filecontents'); 
+                
+				document.getElementById('parseme').value =fileReader.result;
+				       parsestring("F");   } 
+             fileReader.readAsText(fileTobeRead); 
+         } 
+         else { 
+             alert("Please select text file"); 
+         }
+ 
+    }, false);
+} 
+ else { 
+     alert("Files are not supported"); 
+ } 
+ Checkifinbrowser();
+ }
+
+ function Checkifinbrowser() {
+
+ var x= document.getElementById("testCall").value; 
+ var n = x.search("{Msg");
+ if (n>-1) { 
+ document.getElementById('Submit').style.visibility='hidden';
+  alert('You are running this form outside of Winlink.\n \nWhen you have completed the form, SAVE the data and then give or send the SAVED data file to the radio operator. The operator will load the SAVED data into the correct form and send via winlink. ');
+ } else {document.getElementById('Submit').style.visibility='visible';  }
+} 
+
+</script></head>
+<body style="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);" alink="#000099" link="#000099" vlink="#990099">
+    &nbsp;<br />
+    <form action="http://{FormServer}:{FormPort}" enctype="multipart/form-data" id="HICS 254" method="post" onsubmit="return confirm('To complete your form submission, click OK and close the open browser window. You will return to the new message window so you can post your message to the outbox');" pbzloc="0">
+      <div id="pop1" class="pop-up"><!-- The pop-up block -->
+        <div class="popBox"><!-- If the content becomes larger than the pop-up this div will scroll the content -->
+          <div class="popScroll">
+            <p> </p>
+            <h2>HICS 254 - DISASTER VICTIM/PATIENT TRACKING</h2>
+            <p><strong>PURPOSE</strong>:<br />
+              The HICS 254 Disaster Victim/Patient Tracking records the triage,
+              treatment, and disposition of victims/patients of the event
+              seeking
+              medical attention</p>
+            <p align="left"><strong>NOTES</strong><br />
+              The form is completed upon arrival of the first patient and
+              updated
+              periodically. Copies of the form are sent to the Planning Section
+              Patient Tracking Manager each hour or as arranged, and at the end
+              of
+              each operational
+              period until disposition of the last victim(s) are known. If
+              additional
+              pages are needed, use another HICS 254 and repaginate as needed.</p>
+            <p align="left"><strong>1. Incident Name:<br />
+              </strong>Enter the name assigned to the incident.</p>
+            <p align="left"><strong>2. Operational Period</strong><br />
+              Enter the start date (mm/dd/yyyy) and time (24-hour clock) and end
+              date
+              and time for the operational period to which the form applies.<br />
+              <br />
+              <strong>3. Area</strong><br />
+              Enter the triage or specific treatment area (e.g., Triage,
+              Immediate
+              Treatment Area).<br />
+              <br />
+              <strong>Field Tag Number</strong><br />
+              Enter field triage tag number.</p>
+            <p align="left"><strong>Medical Record Number</strong>
+              <br />
+              Enter hospital medical record number if available.<br />
+              <br />
+              <strong>Name</strong><br />
+              Enter the full name of victim/patient.</p>
+            <p align="left"> <strong>Sex</strong><br />
+              Enter sex: M for male, F for female, or leave blank.</p>
+            <p align="left"><strong>DOB / Age</strong><br />
+              Enter date of birth and age, numbers only.</p>
+            <p align="left"><strong>Triage Category</strong><br />
+              Enter the triage category assigned to patient:<br />
+			  Immediate - Delayed - Minor - Expectant - Expired</p>
+            <p align="left"><strong>Location</strong><br />
+              Enter location of procedure.<br />
+              <br />
+              <strong>Disposition</strong><br />
+              Enter the disposition category:<br />
+			  (D) Discharge (A) Admit (S) Surgery (T) Transfer (M) Morgue
+			  <br /><br />
+			  <strong>Disposition Time</strong><br />	
+			  Enter the disposition Time, 24 hour clock.<br />	  	  
+              <br />
+              <strong>Prepared by</strong><br />
+              Enter the name of the person preparing the form. Since this is a
+              radio
+              delivered form, a typed name is same as signature. Enter
+              date (m/d/y), time prepared (24-hour clock), and Facility.</p>
+			  <strong>More Information</strong><br /><br />
+You can save your completed HTML to a text file. This will allow you to reload the ICS 254
+with ALL entered form data. You do this prior to submitting the form. Then you can open a new 254 and load the saved HTML form data. 
+NOTE: Date and Times will be the previous, so change if needed. This is much like using FireFox and the addon Formlet. It will save the info
+as a text file with the Date and Time as a file name. Now you can use any browser, save your form, (as many versions as you like), and then re-populate.
+<br />
+<br />
+			  This form also allows for pasting data from a spreadsheet with TAB delineation.
+			  You would create a spreadsheet to MATCH the HTML template for data in "3. Area".
+			  Do not exceed the data entry box input lengths or the info will not be seen properly if printed.
+			  You can do 10 columns and up to 10 rows of data.
+			  It is suggested you experiment and test to understand how this works.
+			  Once mastered it can be a time saver in the field for data entry.<br /><br />
+			  <strong> NOTE on printing. </strong><br />
+
+<br />
+
+Printing this form is dependent upon your selected
+
+printer and its settings. Various Web Browsers and and their viewing
+
+sizes are not all the same. Printing from a browsers print function
+
+may be different from the operating systems default print mode.
+
+Select what works for you, for both printing and viewing.
+
+You may print direct to the printer as a HTML or save as a
+
+PDF then print the PDF. In some instances Landscape mode may print
+
+better than Portrait. <br />
+
+</p>
+		  </div>
+          <!-- The close pop-up link correctly positioned at the end of the content block --><a href="#links" class="close"><span>Back
+        to links</span></a> </div>
+      </div>
+	  
+	    <div class="pop-up" id="pop3">
+    <!-- The pop-up block -->
+    <div class="popBox">
+      <!-- If the content becomes larger than the pop-up this div will scroll the content -->
+      <div class="popScroll">
+        <p> </p>
+        <h2>Copy and Paste Data From Spreadsheet</h2>
+        <span class="style13">
+        <p align="left">Copy the data from the spreadsheet, then click the button "Parse Data"<br />
+		TAB delineation and entry data needs to not exceed HTML entry box input lengths.<br />
+		10 columns and up to 10 rows of information.
+        </p>
+        <textarea name="parseme" cols="80" rows="3" id="parseme" placeholder="Paste spreadsheet data here" ></textarea> 
+		<input type=button value="Parse Data" onClick="parsestring('P')">
+		
+		
+        </span>
+        <p align="left"></p>
+      <a href="#links">Close this window</a> </div>
+      <!-- The close pop-up link correctly positioned at the end of the content block -->
+      <a href="#links" class="close"><span>Back to links</span></a> </div>
+  </div>
+      <table style="width: 1214px; height: 856px;" align="center" border="0">
+        <tbody>
+          <tr>
+            <td pbzloc="17">
+              <table style="background-color: rgb(250, 250, 255); width: 1119px; height: 881px;" pbzloc="11" border="1" bordercolor="#999999" cellpadding="1" cellspacing="0">
+                <tbody>
+                  <tr valign="top">
+                    <td colspan="3" style="vertical-align: top; background-color: rgb(204, 255, 255);"><div align="center">
+                      <p class="style4"> HICS254 -
+                      DISASTER VICTIM / PATIENT TRACKING<br />
+                      &nbsp; <span style="font-style: italic;">HICS -
+                      Hospital Incident Command System</span>
+                      </p>
+                      
+                      </div><p align="center"><span style="font-style: italic;"><span style="color: rgb(204, 0, 0);"> &nbsp;
+                            <input type="black1"value="Form Instructions" onclick="location.href = '#pop1'" />
+                      </span><br />
+                        </span></p></td>
+                  </tr>
+                  <tr>
+                    <td style="width: 50%; text-align: center; vertical-align: top;"><div align="left"><br />
+                      &nbsp;&nbsp; 1.
+                      Incident Name&nbsp;&nbsp;                      <input required="required" id="Incident_Name" maxlength="65" name="Incident_Name" size="70"  />
+                      <br />
+                      <br />
+                      <span style="color: rgb(204, 0, 0);">&nbsp;&nbsp; &nbsp;&nbsp; </span>Page<span style="color: rgb(204, 0, 0);"> </span>
+                      <input style="color: rgb(204, 0, 0);" maxlength="2" size="3" name="Page" id="Page" required="required" />
+                      <span >&nbsp;Of&nbsp;&nbsp;
+                      <input style="color: rgb(204, 0, 0);" required="required" maxlength="2" size="3" name="Page1" id="Page1" />&nbsp;&nbsp;&nbsp;&nbsp;</small>  <input type="button" value=" Load HICS254 Data " onclick="document.getElementById('txtfiletoread').click();" /> 
+                      <br />
+                        <small>
+                                            </div></td>
+<td style="width: 50%; vertical-align: top; text-align: justify;" colspan="2">&nbsp;&nbsp;
+<div align="left"> &nbsp;&nbsp;2. Operational Period
+&nbsp; &nbsp; (#): &nbsp;
+  <input maxlength="4" size="5" name="OpNum" id="OpNum" />
+  <br />
+  <br />
+&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;  Date From &nbsp;<b>
+  <input maxlength="12" id="DateFrom" name="DateFrom" size="12" placeholder="mm-dd-yyyy" />
+&nbsp; &nbsp;</b>To &nbsp;<b>
+  <input maxlength="12" id="DateTo" name="DateTo" size="12" placeholder="mm-dd-yyyy" />
+  <br />
+  <br />
+  </b>&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; Time From &nbsp;<b>
+  <input maxlength="10" id="TimeFrom" name="TimeFrom" size="10" placeholder="hh:mm" /> 
+  </b>&nbsp;
+&nbsp;&nbsp; &nbsp;To &nbsp;<b>
+  <input maxlength="10" id="TimeTo" name="TimeTo" size="10" placeholder="hh:mm" />
+  </b><b><br />
+  </b><br />
+</div></td>
+</tr>
+<tr>
+<td style="text-align: center; vertical-align: top;" colspan="3">
+<p align="left">&nbsp;&nbsp; 3. Area (Triage or Specific Treatment Area)
+  &nbsp;&nbsp;&nbsp; &nbsp;<strong>
+  <input name="Area" id="Area" size="40" maxlength="40" />
+  </strong> 
+ 
+&nbsp;   <input type="file" id="txtfiletoread" accept=".txt" style="display: none;" />
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;<a href="javascript:selectaddress();">Paste Field Data Below from a Spreadsheet </a></p>
+<table style="width: 1113px; height: 550px;" border="1" cellpadding="1" cellspacing="1">
+<tbody>
+<tr>
+<td id="TextHeader" style="font-weight: bold; vertical-align: top; text-align: center; background-color: rgb(204, 255, 255);">Field
+Tag Number</td>
+<td id="TextHeader" style="font-weight: bold; text-align: center; vertical-align: top; background-color: rgb(204, 255, 255);">Medical
+Record #</td>
+<td style="font-weight: bold; vertical-align: top; text-align: center; background-color: rgb(204, 255, 255);" id="TextHeader">Name<br />
+<span style="font-weight: normal;">(Last
+Name, First Name)</span></td>
+<td style="font-weight: bold; vertical-align: top; text-align: center; background-color: rgb(204, 255, 255);" id="TextHeader">Sex</td>
+<td id="TextHeader" style="font-weight: bold; text-align: center; vertical-align: top; background-color: rgb(204, 255, 255);">DOB
+- Age<br />
+<span style="font-weight: normal;">(Use
+numbers only)</span></td>
+<td id="TextHeader" style="font-weight: bold; text-align: center; vertical-align: top; background-color: rgb(204, 255, 255);">Triage
+Category</td>
+<td id="TextHeader" style="font-weight: bold; text-align: center; vertical-align: top; background-color: rgb(204, 255, 255);">Location&nbsp;of
+Procedures <br />
+<span style="font-weight: normal;">(CT,
+X-ray, Etc)</span></td>
+<td valign="top" style="font-weight: bold; background-color: rgb(204, 255, 255); text-align: center;"><small></small><small><span class="style2">Procedure Time </span><br />
+        <span style="font-weight: normal;"><br />
+      </span></small></td>
+<td id="TextHeader" style="font-weight: bold; text-align: center; vertical-align: top; background-color: rgb(204, 255, 255);">Disposition&nbsp;</td>
+<td style="font-weight: bold; text-align: center; vertical-align: top; background-color: rgb(204, 255, 255);" id="TextHeader">Disposition Time</td>
+</tr>
+<tr>
+<td style="height: 10px;"><input maxlength="9" name="Tag1" id="Tag1"size="10" /></td>
+<td><input size="18" name="Med1"  maxlength="16" id="Med1" /></td>
+<td><input id="Name1" maxlength="30" name="Name1" size="35" /></td>
+<td>
+<input size="3" name="Sex1" id="Sex1"></td>
+<td><input maxlength="15" name="Dob1" id="Dob1"size="16" /></td>
+<td>
+<input maxlength="15" name="TriaCat1" id="TriaCat1"size="16" />
+<br />
+</td>
+<td><input name="Loc1" id="Loc1" size="15" maxlength="13" /></td>
+<td><input maxlength="8" name="Loct1" id
+="Loct1" size="10" /></td>
+<td>
+<input name="Disp1" id="Disp1" size="15" maxlength="13" />
+<br />
+</td>
+<td>
+<input maxlength="8" name="Dispt1" id="Dispt1" size="10" /></td>
+</tr>
+<tr>
+<td><input id="Tag2" maxlength="9" name="Tag2" size="10" /></td>
+<td><input id="Med2" maxlength="16" name="Med2" size="18" /></td>
+<td><input id="Name2" maxlength="30" name="Name2" size="35" /></td>
+<td>
+  <input size="3" name="Sex2" id="Sex2" />
+</td>
+<td><input maxlength="15" name="Dob2" id="Dob2"size="16" /></td>
+<td>
+  <input maxlength="15" name="TriaCat2" id="TriaCat2"size="16" />
+</td>
+<td><input name="Loc2" id="Loc2" size="15" maxlength="13" /></td>
+<td><input maxlength="8" name="Loct2" id
+="Loct2" size="10" /></td>
+<td>
+  <input name="Disp2" id="Disp2" size="15" maxlength="13" />
+</td>
+<td>
+<input maxlength="8" name="Dispt2" id="Dispt2" size="10" /></td>
+</tr>
+<tr>
+<td><input id="Tag3" maxlength="9" name="Tag3" size="10" /></td>
+<td><input id="Med3" maxlength="16" name="Med3" size="18" /></td>
+<td><input id="Name3" maxlength="30" name="Name3" size="35" /></td>
+<td>
+  <input size="3" name="Sex3" id="Sex3" />
+</td>
+<td><input maxlength="15" name="Dob3" id="Dob3"size="16" /></td>
+<td>
+  <input maxlength="15" name="TriaCat3" id="TriaCat3"size="16" />
+</td>
+<td><input maxlength="13" name="Loc3" id="Loc3" size="15" /></td>
+<td><input maxlength="8" name="Loct3" id="Loct3" size="10" /></td>
+<td>
+  <input name="Disp3" id="Disp3" size="15" maxlength="13" />
+</td>
+<td>
+<input maxlength="8" name="Dispt3" id="Dispt3" size="10" /></td>
+</tr>
+<tr>
+<td><input id="Tag4" maxlength="9" name="Tag4" size="10" /></td>
+<td><input maxlength="16" name="Med4" id="Med4" size="18" /></td>
+<td><input id="Name4" maxlength="30" name="Name4" size="35" /></td>
+<td>
+  <input size="3" name="Sex4" id="Sex4" />
+</td>
+<td><input maxlength="15" name="Dob4" id="Dob4"size="16" /></td>
+<td>
+  <input maxlength="15" name="TriaCat4" id="TriaCat4"size="16" />
+</td>
+<td><input name="Loc4" id="Loc4" size="15" maxlength="13" /></td>
+<td><input maxlength="8" name="Loct4" id="Loct4" size="10" /></td>
+<td>
+  <input name="Disp4" id="Disp4" size="15" maxlength="13" />
+</td>
+<td>
+<input maxlength="8" name="Dispt4" id="Dispt4"size="10" /></td>
+</tr>
+<tr>
+<td><input id="Tag5" maxlength="9" name="Tag5" size="10" /></td>
+<td><input id="Med5" maxlength="16" name="Med5" size="18" /></td>
+<td><input id="Name5" maxlength="30" name="Name5" size="35" /></td>
+<td>
+  <input size="3" name="Sex5" id="Sex5" />
+</td>
+<td><input maxlength="15" name="Dob5" id="Dob5"size="16" /></td>
+<td>
+  <input maxlength="15" name="TriaCat5" id="TriaCat5"size="16" />
+</td>
+<td><input name="Loc5" id="Loc5" size="15" maxlength="13" /></td>
+<td><input maxlength="8" name="Loct5" id="Loct5" size="10" /></td>
+<td>
+  <input name="Disp5" id="Disp5" size="15" maxlength="13" />
+</td>
+<td>
+<input maxlength="8" name="Dispt5" id="Dispt5"size="10" /></td>
+</tr>
+<tr>
+<td><input id="Tag6" maxlength="9" name="Tag6" size="10" /></td>
+<td><input id="Med6" maxlength="16" name="Med6" size="18" /></td>
+<td><input id="Name6" maxlength="30" name="Name6" size="35" /></td>
+<td>
+  <input size="3" name="Sex6" id="Sex6" />
+</td>
+<td><input maxlength="15" name="Dob6" id="Dob6"size="16" /></td>
+<td>
+  <input maxlength="15" name="TriaCat6" id="TriaCat6"size="16" />
+</td>
+<td><input name="Loc6" id="Loc6" size="15" maxlength="13" /></td>
+<td><input maxlength="8" name="Loct6" id="Loct6" size="10" /></td>
+<td>
+  <input name="Disp6" id="Disp6" size="15" maxlength="13" />
+</td>
+<td>
+<input maxlength="8" name="Dispt6" id="Dispt6"  size="10" /></td>
+</tr>
+<tr>
+<td><input id="Tag7" maxlength="9" name="Tag7" size="10" /></td>
+<td><input id="Med7" maxlength="16" name="Med7" size="18" /></td>
+<td><input id="Name7" maxlength="30" name="Name7" size="35" /></td>
+<td>
+  <input size="3" name="Sex7" id="Sex7" />
+</td>
+<td><input maxlength="15" name="Dob7" id="Dob7"size="16" /></td>
+<td>
+  <input maxlength="15" name="TriaCat7" id="TriaCat7"size="16" />
+</td>
+<td><input name="Loc7" id="Loc7" size="15" maxlength="13" /></td>
+<td><input maxlength="8" name="Loct7" id="Loct7" size="10" /></td>
+<td>
+  <input name="Disp7" id="Disp7" size="15" maxlength="13" />
+</td>
+<td>
+<input maxlength="8" name="Dispt7"  id="Dispt7"size="10" /></td>
+</tr>
+<tr>
+<td><input id="Tag8" maxlength="9" name="Tag8" size="10" /></td>
+<td><input id="Med8" maxlength="16" name="Med8" size="18" /></td>
+<td><input id="Name8" maxlength="30" name="Name8" size="35" /></td>
+<td>
+  <input size="3" name="Sex8" id="Sex8" />
+</td>
+<td><input maxlength="15" name="Dob8" id="Dob8"size="16" /></td>
+<td>
+  <input maxlength="15" name="TriaCat8" id="TriaCat8"size="16" />
+</td>
+<td><input name="Loc8" id="Loc8" size="15" maxlength="13" /></td>
+<td><input maxlength="8" name="Loct8" id="Loct8" size="10" /></td>
+<td>
+  <input name="Disp8" id="Disp8" size="15" maxlength="13" />
+</td>
+<td>
+<input maxlength="8" name="Dispt8" id="Dispt8"size="10" /></td>
+</tr>
+<tr>
+<td><input id="Tag9" maxlength="9" name="Tag9" size="10" /></td>
+<td><input id="Med9" maxlength="16" name="Med9" size="18" /></td>
+<td><input id="Name9" maxlength="30" name="Name9" size="35" /></td>
+<td>
+  <input size="3" name="Sex9" id="Sex9" />
+</td>
+<td><input maxlength="15" name="Dob9" id="Dob9"size="16" /></td>
+<td>
+  <input maxlength="15" name="TriaCat9" id="TriaCat9"size="16" />
+</td>
+<td><input name="Loc9" id="Loc9" size="15" maxlength="13" /></td>
+<td><input maxlength="8" name="Loct9" id="Loct9" size="10" /></td>
+<td>
+  <input name="Disp9" id="Disp9" size="15" maxlength="13" />
+</td>
+<td><input maxlength="8" name="Dispt9"  id="Dispt9" size="10" /></td>
+</tr>
+<tr>
+<td><input id="Tag10" maxlength="9" name="Tag10" size="10" /></td>
+<td><input id="Med10" maxlength="16" name="Med10" size="18" /></td>
+<td><input id="Name10" maxlength="30" name="Name10" size="35" /></td>
+<td>
+  <input size="3" name="Sex10" id="Sex10" />
+</td>
+<td><input maxlength="15" name="Dob10" id="Dob10"size="16" /></td>
+<td>
+  <input maxlength="15" name="TriaCat10" id="TriaCat10"size="16" />
+</td>
+<td><input name="Loc10" id="Loc10" size="15" maxlength="13" /></td>
+<td><input maxlength="8" name="Loct10" id="Loct10" size="10" /></td>
+<td>
+  <input name="Disp10" id="Disp10" size="15" maxlength="13" />
+</td>
+<td><input maxlength="8" name="Dispt10" id="Dispt10"  size="10" /></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr>
+<td style="height: 30px; text-align: center; vertical-align: middle;" colspan="3"><div align="left"><b><span style="font-weight: normal;"><br />
+&nbsp;&nbsp; 4.</span><span style="font-weight: normal;">
+  Prepared By</span></b><big>:</big><b>
+&nbsp;
+  <input required="required" maxlength="40" size="45" id="PreparedName" name="PreparedName" placeholder="Name here same as signature." />
+&nbsp;</b><b>&nbsp;&nbsp;</b>Date
+  <input title="Can be overwritten if needed." maxlength="11" size="12" id="Date_Time" name="Date_Time" onclick="DateTime('fulldate',this.id)" placeholder="Click for Date" required="required" />
+&nbsp;Time:<b>
+&nbsp;</b>
+  <input maxlength="10" size="11" id="Time" name="Time" onclick="DateTime('hm',this.id)" placeholder="Click for Time" required="required" />
+  <b>
+&nbsp; <span style="color: rgb(153, 0, 0);">&nbsp;</span></b>Facility<span style="color: rgb(153, 0, 0);">:</span><b><span style="color: rgb(153, 0, 0);">&nbsp;</span>
+&nbsp;
+  <input required="required" maxlength="40" size="45" name="Facility" id="Facility" placeholder="Use full name of facility." />
+&nbsp;&nbsp;
+  <br />
+&nbsp; &nbsp;&nbsp;</b><b><b>
+</b></b></div></td>
+</tr>
+<tr>
+<td colspan="3"><input type="button" value="Save HICS254 Data"  onclick="SaveData()" />
+<big> &nbsp;<big></big><big></big>
+  <input class="SubmitBtn" enctype="multipart/form-data" id="Submit" method="Post" name="Submit" value=" Submit " type="submit" /></big>
+&nbsp; <input class="BtnFormat2" value="Reset Form " name="ResetForm"  type="reset" />
+&nbsp;
+&nbsp; &nbsp;<span class="style3"> &nbsp;&nbsp;
+</span><span style="color: rgb(204, 0, 0);">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp;&nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp;<span style="font-style: italic;">&nbsp;<span style="font-weight: bold;">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><small>&nbsp;</small> &nbsp;Vers 8.2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+<input name="testCall" type="hidden" id="testCall" value="{MsgSender}" size="14" maxlength="13" />
+<input name="Templateversion" type="hidden"
+
+                                    id="Templateversion" value="HICS 254 v 8.2" />
+</span></td>
+</tr>
+</tbody>
+</table>
+<br />
+</td>
+</tr>
+</tbody>
+</table>
+</form>
+</body></html>

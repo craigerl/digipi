@@ -1,0 +1,152 @@
+#!/bin/bash
+#			r m s c h a n s t a t
+# $Revision: 69 $
+# $Author: eckertb $
+# $Id: rmschanstat 69 2008-08-26 23:16:49Z eckertb $
+#
+# RMS Gateway
+#
+# Copyright (c) 2004-2008 Hans-J. Barthen - DL5DI
+# Copyright (c) 2008 Brian R. Eckert - W3SG
+#
+# Questions or problems regarding this program can be emailed
+# to linux-rmsgw@w3sg.org
+#
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+#
+# Description:
+#	Basic channel status checker script for Linux RMS Gateway ACI
+#	operations.
+#
+# Usage:
+#	rmschanstat <type> <name> <call>
+# where:
+#	type is the type of channel (e.g., ax25)
+#	name is the name of the channel
+#	call is the callsign associated with the channel
+#
+# To support the ACI, the program exits with a status of zero (0) if the
+# channel is available and non-zero exit status if the channel is not
+# deemed available. The ACI uses this fact to determine what to do for
+# the status update to the Winlink 2000 system.
+#
+# Note: only type 'ax25' is recognized at this time, but the script should
+# be useful as a base for other specialized setups. The channel definitions
+# found in /usr/local/etc/rmsgw/channels.xml have a <statuschecker> element which
+# provides the name of the script/program and arguments for the ACI to call
+# to query the availablity of the channel.
+#
+#set -x
+
+export LC_ALL=C
+export PATH=/bin:/usr/bin:/sbin:/usr/sbin:/usr/local/bin
+
+declare -a CHANNEL
+declare -a INTERFACE
+declare -a IP
+
+#
+# where is the axports file?
+#
+#craiger AXPORTS=@axports@
+AXPORTS=/etc/ax25/axports
+
+#
+# grab arguments and assign to meaningful variables
+#
+TYPE="$1"
+NAME="$2"
+CALL="$3"
+
+if [ $# -ne 3 ]; then
+    echo "Usage: $0 <type> <name> <call>"
+    exit 2
+fi
+
+if [ "${TYPE}" = "ax25" ]; then
+    #
+    # locate the port definition
+    #
+    # NOTE: there is a space and a tab between the []'s below
+    CHANNEL=($(egrep "^${NAME}[ 	]+" ${AXPORTS}))
+    if [ -z "${CHANNEL}" ]; then
+	echo "channel ${NAME} unavailable"
+	exit 1
+    fi
+
+    #
+    # look for the IP address of the port
+    #
+    set -o noglob
+#    IP=($(ps ax | grep attach | egrep "${NAME}[ 	]+" | egrep -o '[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}' ))
+    IP=($(ps ax | grep attach | sed -n -e "s/^.*${NAME} //p" ))
+
+# debug:
+# IP=($(cat /tmp/test123 | grep attach | egrep "${NAME}[ 	]+" | egrep -o '[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}' ))
+# echo "IP: ${IP}"
+
+    set +o noglob
+
+    if [ -z "${IP}" ]; then
+	echo "port ${NAME} unavailable"
+	exit 1
+    fi
+
+    #
+    # get the interface using this IP address
+    # (pos 7 when using ax25, pos 8 for 6pack)
+    #
+
+
+    INTERFACE=($(ifconfig | egrep -B 2 ${IP}))
+    if [ -z "${INTERFACE}" ]; then
+        echo "interface with ${IP} unavailable"
+        exit 1
+    fi
+
+    #
+    # is the call listening on that specific interface?
+    #
+    INTERFACE=$(echo $INTERFACE | tr -d ':')
+
+    set -o noglob
+    STATUS=($(netstat --protocol=${TYPE} -l | grep "${INTERFACE[0]}" | grep "${CALL}" | grep -i "LISTENING"))
+    set +o noglob
+
+    if [ -z "${STATUS}" ]; then
+	echo "status for interface ${INTERFACE[0]} unavailable"
+	exit 1
+    else
+        echo "channel ${NAME} with callsign ${CALL} on interface ${INTERFACE[0]} up"
+        exit 0
+    fi
+
+fi
+
+
+if [ "${TYPE}" = "tnt" ]; then
+    if [ -e /var/run/tnt-pt.pid ]; then
+        echo "channel ${TYPE} up"
+        exit 0
+    else
+        echo "channel ${TYPE} down"
+        exit 1
+    fi
+fi
+
+#
+# did not detect channel available earlier, default to down/unavailable
+#
+exit 1

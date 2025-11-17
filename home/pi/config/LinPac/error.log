@@ -1,0 +1,11 @@
+03/03/22 11:47 Logging started
+03/03/22 11:48 LinPac going down (quit)
+13/10/23  5:53 Logging started
+11/27/2023 17:22 Logging started
+./bin/bell: error while loading shared libraries: liblinpac.so.6: cannot open shared object file: No such file or directory
+11/27/2023 17:22 Logging started
+10/05/2025 19:07 Logging started
+sources.cc: could not write to socket, ev.chn
+10/05/2025 20:34 LinPac going down (quit)
+10/05/2025 20:36 Logging started
+10/05/2025 20:36 LinPac going down (quit)

@@ -1,0 +1,25 @@
+Hello World !
+
+There is an important change in pp-conversd 3.02. I just wiped out the channel
+number in the /..AWAY internode command. This leads to incompatibilities
+to the older versions in the net and perhaps other systems using /..AWAY.
+
+Another thing is the new storage of the log files for /last. Wolfgang, dh2paf
+never thought about logfiles being larger than some hundred users, but at
+internet sites we use to have some more of them :-)
+
+So I decided to use a hashing algorithm on the user names to keep searching
+(and insertion) times smaller. Actually some sysops might want to get rid of
+these logfiles, all they have to do is having a look into Makefile.in.
+There is a declaration called CDEF8. Uncomment this line, and the logfiles
+are gone. Another method is not to create the following directory :-)
+
+All sysops should remove their old logfiles, since they won't be read in
+any more. Instead of this file, a new directory (in the old convention it is
+/tcp/log for FSSTND compatibles it is /var/local/spool/convers/log) should be
+created. There the new files will reside.
+
+I think I'll eat those lousy CDEF lienes later and put them into the
+*convers.conf file. So have a look at these README.version-number files.
+
+73, Fred

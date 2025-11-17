@@ -1,0 +1,1514 @@
+------------------------------------------------------------------------------
+*FIM.TXT*   Tutorial & Miscellaneous documentation for Fim
+ last updated $Date: 2024-05-10 00:24:27 +0200 (Fri, 10 May 2024) $
+
+			Fim - tutorial & misc documentation
+
+First of all, please view this text file in Vim with ':set syntax=help'.
+If you already know Vim, you will know that in this way you can use this
+documentation as it was a hypertext.
+( or add "autocmd BufReadPost FIM.TXT set syntax=help" into your ~/.vimrc ! )
+If you do not know Vim, you can find it at http://www.vim.org.
+A  hypertextual version of this file (FIM.html) shall be also available 
+with your fim distribution. 
+
+Thank you for using this software; one can regard it as a 'hack',in
+the sense it is an elaboration of the passionate work of multiple people.
+>
+Please note that this documentation is *not* complete, as Fim is still 
+evolving, and some changes as the exact language specifications are hard to
+track and document. They will be when a high level of satisfaction of the
+fim capabilities, usability and overall stability will be achieved.
+Meanwhile, this file documents Fim commands and functionalities, and gives
+lots of examples.
+For a reference of Fim command line flags, see the man pages of Fim:
+>
+ man fim
+
+For a reference of Fim internal commands, see 
+>
+ man fimrc
+
+For the documentation of the 'fimgs' script, see
+>
+ man fimgs
+
+The man pages are rich with examples.
+
+
+
+IMPORTANT NOTE:
+
+This document will be eliminated/reconverted once all the relevant
+information will be made available in the man pages, so it may be
+outdated/obsolete.
+
+The man pages are the authoritative documentation sources for fim. 
+
+Enjoy!
+
+------------------------------------------------------------------------------
+0. Introduction 						*intro*
+
+      Fim Startup: to open an image, n framebuffer mode, place yourself in a
+      Linux framebuffer console (that is, outside the X environment -- this 
+      is usually achieved by typing CTRL-ALT-F1 from within the X environment)
+      and type:
+>
+	fim image.png
+
+You can be sure of being in a Linux framebuffer console by issuing.
+>
+	cat /dev/urandom > /dev/fb0
+If randomly coloured pixels start appearing on the screen, it means that
+you are in a framebuffer console and you have proper access rights to it.  
+
+If you have problems here, see the *framebuffer* section.
+
+
+      Fim Quickstart: to move the image around,
+                    use the cursor keys, or "h" to go left,	       h   l
+		    "j" to go down, "k" to go up, "l" to go right.	 j
+   Get out of Fim:  Use ":q<Enter>" (press ':', then 'q', then 'enter').
+                    Or just press q (or Esc, or whatever you wish, thanks to
+		    the *key-bindings* capabilities.
+
+
+Fim stands for Fbi IMproved.
+
+Fbi is a |framebuffer| based image viewer by Gerd Hoffmann, and Fim is
+primarily an interface rework applied roughly as a patch to it, and is an
+idea and codework of Michele Martone.
+
+The idea of making Fim came after long usage sessions of Vim and Fbi, and a
+zest of science fiction inspiration.
+
+The main purposes of Fim are to power up the features present in Fbi by adding 
+new ones, and achieve higher configurability and flexibility.
+
+Ease of use and simplicity is a primary concern, too.
+No programming language knowledge nor reading this manual is needed to use
+FIM if you have already used Fbi once.
+
+A basic tenet of configurability the freedom of managing and customize the
+*key-bindings* to one's tastes.
+Fim has a mechanism for the creation of a |configuration| file.
+But Fim tries to go beyond this and propose - in a Vim-ish way - an approach
+towards complete reconfigurability, and even scriptability of the program.
+The inspiration for this comes from the use of the nicer software available 
+as free software, often characterized by extreme flexibility, configurability,
+hackability. This concerns mainly text editors and mail user agents, but why
+can't this apply to an image viewer, too ?
+
+==============================================================================
+1. Index						*index*
+
+Introduction to Fim					*ref* *reference*
+
+0. Introduction			|intro|
+1. Index			|index|
+2. Fim on the Internet		|internet|
+2.1. Contact information	|contact|
+2.2. Help wanted		|help-wanted|
+3. Installation, basic usage	|basics|
+3.1. Customization		|customization|
+3.2. Keyboard binding		|keyboard|
+3.3. The fimgs script		|fimgs|
+3.4. External scripting		|scripting|
+3.5. System integration tips	|tips|
+4. Command Line Mode		|cli|
+5. Command Line Mode Basics	|cli-basics|
+6. Commands Reference		|commands-reference|
+6.1. Loading and browsing	|commands-browsing|
+6.2. Scaling, flipping, rotating|commands-scaling|
+6.3. Panning,moving		|commands-scroll|
+6.4. Recording 			|commands-recording|
+6.5. Console related commands	|commands-console|
+6.6. System Interaction		|commands-system|
+6.7. Variables			|variables|
+6.8. Autocommands		|commands-autocommands|
+7. Command Line,More		|cli-more|
+7.1. Default configuration	|default-config|
+8. Pattern Matching		|pattern-matching|
+9. Dangers			|dangers|
+10. Technicalia			|technicalia|
+10.1. Syntax Reference		|syntax-ref|
+10.2. Framebuffer mini how to	|framebuffer|
+11. Credits			|credits|
+12. FAQs			|faq|
+13. License 			|license|
+
+==============================================================================
+2. Fim on the Internet				*internet*
+
+The official Fim page is hosted by the nonGNU project:
+	http://savannah.nongnu.org/projects/fbi-improved/
+
+The secondary Fim page is:
+	http://www.autistici.org/dezperado/fim/
+
+Tarball releases are located on
+	http://download.savannah.nongnu.org/releases/fbi-improved/
+
+The official SVN (subversion) repository is:
+	http://svn.savannah.nongnu.org/svn/fbi-improved/
+
+The official and secondary web sites contain all the relevant Fim
+documentation, and the downloadable Fim archives.
+
+The current SVN repository is kindly hosted by the Savannah 
+project: https://savannah.nongnu.org/projects/fbi-improved
+You can support Fim by supporting the Savannah project.
+
+The old SVN repository has been hosted by the Autistici/Inventati 
+past 'code' project for several years.
+You can support Fim supporting the A/I project as well.
+
+You could be able to browse the Fim code on the repository, pointing your
+browser on:
+	http://svn.savannah.nongnu.org/svn/fbi-improved/trunk/
+
+and get the latest source code tree on:
+ 	svn export http://svn.savannah.nongnu.org/svn/fbi-improved/trunk/
+
+This documentation is distributed with the software.
+See the INSTALL file for installation instructions and issues.
+
+Although an official bug tracker exists:
+ http://savannah.nongnu.org/bugs/?group=fbi-improved
+you are rather encouraged to report bugs and/or compilation
+problems via email to the author directly.
+
+But before posting anything, read the BUGS file, the |bugs| section,
+and have a look and subscribe to the Fim development mailing list:
+
+   http://lists.nongnu.org/mailman/listinfo/fbi-improved-devel
+
+==============================================================================
+2.1. Contact information					*contact*
+
+If you want to contribute to the project, it would be appreciated to receive
+by email a complete report:
+
+ ( make ; make report ) 2>&1 | gzip  > fim.`date +%Y%m%d%H%M`.log.gz
+ and please send me the file config.log, generated by running ./configure
+
+You can report this to dezperado _FOobAr_ autistici _Baz_ org, by replacing
+_FOobAr_ with a '@' and _Baz_ with a '.'.
+
+Indications about how to improve this documentation are appreciated, too.
+
+Ideas on the FIM language and potential use are welcome, too.
+The current bunch of ideas and inspiration is put in the TODO file.
+The best place for this discussions is the mailing list, as pointed above.
+
+p.s.: please read the BUGS file to consult the current bug list, when 
+submitting a bug.
+
+==============================================================================
+2.2. Help appreciated					*help-wanted*
+
+If you like Fim, you are welcome to do contribute with your help.
+
+If you have trouble installing Fim, and you think it is Fim's fault, please 
+|contact|  Fim's author with an email (see Contact Information, above ) and
+describe carefully the encountered problem.
+
+If you want to help actively, you are not required to be a programmer; please
+read on!
+
+There are the major (P)roblem areas and the possible (C)ontributions:
+ 
+ P: Keyboard input: panning is somewhat 'slow' or choppy sometimes.
+
+ C: Yes, the input system may be improved.
+    Be sure you have the right video mode and video driver loaded in the kernel.
+    You are welcome to suggest improvements.
+
+ P: Current Fim language and features issues.
+
+ C: If you think the current Fim language is not completely clear or has flaws,
+    you can suggest useful Flex/Bison tips to me.
+    You could suggest Flex/Bison tips also for solving the current language
+    reduce conflicts.
+
+ P: The documentation may be not informative enough.
+ 
+ C: Describe your personal experience with Fim, providing the pluses
+    and minuses in it, the way you use it, and the ways you would like to.
+    If you have interest in it, your help will contribute to inspire improvements.
+
+ P: Fim sucks: it lacks of feature XXX
+
+ C: You are welcome to send me (|contact|) suggestions about the features you
+    would desire Fim to have.
+ 
+==============================================================================
+3. Installation, basic usage			*basics*
+
+The installation instructions (a 'make;make install' invocation should suffice)
+are stated in the INSTALL file, contained in the source archive.
+ 
+
+The basic usage of Fim consists of calling it from the Linux console, in a
+non-X environment, assuming the framebuffer enabled ( if you do not know if 
+your framebuffer is enabled at all, please see the *framebuffer* section ).
+
+So, if you have picture.jpg and picture.png in the current directory, issuing
+
+ $ fim picture.jpg picture.png
+
+should start Fim and display the two specified images.
+
+Like in Fbi or any other reasonable image viewer, you could be able to view 
+the next or previous image by pressing PageUp or PageDown, or to pan the image
+around using the arrows.
+Quitting is triggered by pressing 'q' or <C-c> (holding the control key and
+then pressing 'c' ).
+
+In this very basic way, you use the portion of Fim that mimics Fbi.
+
+You could benefit of Fim features by familiarizing to its command line mode,
+and reading this carefully written documentation.
+
+==============================================================================
+3.1. Customization					*customization*
+
+To configure fim, and/or to modify its default behaviour, you could create
+a .fimrc file in your home directory:
+ 
+$ touch ~/.fimrc
+
+and then edit the file and filling it only with lines you could write live
+in the fim console or feed to Fim via the -c (pre-execution command) or -F (
+final command) switches (see man fim).
+
+If the ~/.fimrc does not exist, the /etc/fimrc file will be sourced, if
+existent.
+
+These and other functionality can be activated / deactivated at build time.
+By executing 
+>
+	fim -V
+
+you get an output message informative about the compilation details.
+
+Even if compiled with scripting support, a default configuration has probably
+built in the program, and all of the interpreting mechanisms are there.
+Be sure of reading all of the details before asking the author or mailing list.
+
+===============================================================================
+3.2. Keyboard Bindings					*keyboard*
+
+You can assign an arbitrary keyboard key or keys sequence an arbitrary Fim
+command. See the next two examples:
+>
+	:bind 'n'   "next";
+	:bind 'C-n' "prev";
+
+The first command tells Fim that now on, when in interactive mode, pressing 'n'
+will be equivalent of issuing 'next' in the command line console.
+
+Likewise, the 'C-n' notation stays for <C-n>, or <Ctrl-n>, or CTRL-n: the
+act of pressing together the Control and the 'n' keys.
+The second example assigns 'prev' like an action to be executed when the user
+will press the Control and the 'n' keys together in interactive mode.
+
+Note that these commands work inside Fim, and can be written inside the ~/.fimrc
+configuration file (without the heading ':', though! ).
+
+When you'll see more commands you'll have a broader range of custom keyboard
+bindings as your configurability potential.
+If you are curious, jump to the |commands-reference| section right now.
+Or simply type |commands| in Fim.
+
+Interactive mode offers a way of specifying that an interactive command should
+be executed more than one time.
+
+So, typing
+>
+	10n
+
+in interactive mode will tell Fim to execute ten times the action bound by the 
+'n' key, that is, executing 10 times 'next', like typing ':10next'.
+
+So, the general form of this feature is:
+>
+	[n]<command key>
+
+Using the dot key:
+>
+	.
+
+will repeat the last command. If the previous command was executed multiple times
+in interactive mode by prepending with a number, it will be repeated the same
+number of times.
+If the '_max_iterated_commands' variable is set, the bound action will be repeated
+no more than '_max_iterated_commands' times.
+
+===============================================================================
+3.3. The fimgs script					*fimgs*
+
+Fim wants to be flexible enough to let you use it directly or through some script.
+It comes out of the box with one wrapper script, called fimgs (or fimgs.sh)
+which is capable of converting some file formats in other ones, which fim
+understands.
+
+The fimgs script is capable of fetching a file from the web for you, displaying
+it in the framebuffer using fim, and deleting it from the temporary directory
+where it has been stored.
+
+Additionally, the fetched (or local) file could be among the ones directly
+supported, or one of the following:
+
+ - an Adobe Postscript (.ps, .eps) document
+ - an Adobe Portable Document Format (.pdf) document
+ - a TeX DeVice Indipendent file format (.dvi) document
+
+ - a PKZIP compressed archive (.zip, .cbz)
+ - a RAR   compressed archive (.rar, .cbr)
+ - a Tape ARchive archive (.tar)
+ - a g-Zipped Tape ARchive archive (.tgz, .tar.gz)
+
+If the file is among the first three categories, it is converted through
+GhostScript ( gs(1) ) in a number of .png files in a temporary directory.
+
+Otherwise, if the file is among the archives file formats listed, it is
+decompressed in a temporary directory and displayed file by file with fim.
+
+===============================================================================
+3.4. External scripting					*scripting*
+
+Fim is tailored to be as flexible as possible.
+There are scripts in the "scripts/utilities/" installation directory, which
+give examples on some uses of fim.
+
+Take as example the "scripts/utilities/fimscan.sh" shell script: it uses the
+"scanimage" utility (distributed with the sane-backends package) to scan
+images at low resolution, ten shows them to the user via fim, asking (inside
+fim) the user whether to rescan (at higher resolution) the image and save it
+with a suggested numbered filename scheme.
+
+===============================================================================
+3.5. System integration tips				*tips*
+
+If you are used to software like mutt, you are likely to use much the console.
+Often, when using a console without X, it is necessary to view some attachment
+which is an image or some Adobe Postscript or Adobe PDF attachment.
+In these cases, Fim could be integrated in the ~/.mailcap file, read by mutt:
+
+image/*;( [ "$DISPLAY" != "" ] && kuickshow %s ) || ( ( ( tty | grep tty ) && fim  %s ) || cacaview %s )
+image/png;( [ "$DISPLAY" != "" ] && kuickshow %s ) || ( ( ( tty | grep tty ) && fim  %s ) || cacaview %s )
+image/jpeg;( [ "$DISPLAY" != "" ] && kuickshow %s ) || ( ( ( tty | grep tty ) && fim  %s ) || cacaview %s )
+application/pdf;( [ "$DISPLAY" != "" ] && acroread %s ) || ( ( ( tty | grep tty ) && fimgs  %s ) )
+
+This will tell mutt to use kuickshow to display images under the X environment,
+and Fim otherwise.
+
+Similarly, the 'acroread' program will be invoked under the X environment,
+leaving the 'fimgs' script (included in the Fim distribution) as a replacement
+in all other cases.
+
+
+But if you built mutt with X (via --enable-sdl) support, you can use:
+
+image/*; %s
+image/png; %s
+image/jpeg; %s
+application/pdf; fim %s
+
+to use fim seamlessly as your cross-device picture viewer of choice, inside and outside the framebuffer!
+
+
+The 'elinks' web browser will use the ~/.mailcap file by default, similarly to mutt.
+
+
+Separately, you can customize the lynx and links web browsers, too.
+
+
+For the links (version 2) program, use the menus or edit ~/.links2/links.cfg
+and add the associations for fim:
+ 
+ association "fimgs" "application/pdf" "fimgs %" 55 1
+ association "fim" "image/jpeg,image/png,image/pnm,image/ppm" "fim %" 23 1
+
+and the MIME bindings:
+
+ extension "pnm" "image/x-portable-anymap"
+ extension "ppm" "image/x-portable-pixmap"
+ extension "png" "image/png"
+ extension "jpg,jpeg,jpe" "image/jpeg"
+ extension "pdf" "application/pdf"
+
+In this way you should be able to view images in the framebuffer via 'fbi' 
+spawned by links !
+
+
+
+Or the mc ('midinight commander') program, editing ~/.mc/bindings (or configuring
+via the menus!):
+
+### Images ###
+
+type/^GIF
+        Include=image
+
+type/^JPEG
+        Include=image
+
+type/^PC\ bitmap
+        Include=image
+
+type/^PNG
+        Include=image
+
+type/^TIFF
+        Include=image
+
+type/^PBM
+        Include=image
+
+type/^PGM
+        Include=image
+
+type/^PPM
+        Include=image
+
+type/^Netpbm
+        Include=image
+
+include/image
+        Open=if [ "$DISPLAY" = "" ]; then fim %f; else (kuickshow %f &); fi
+        View=%view{ascii} identify %f
+
+type/^PostScript
+        Open=if [ "$DISPLAY" = "" ]; then fimgs.sh %f; else (acroread %f &); fi
+
+type/^PDF
+        Open=if [ "$DISPLAY" = "" ]; then fimgs.sh %f; else (acroread %f &); fi
+        View=%view{ascii} pdftotext %f -
+
+
+==============================================================================
+4. Command Line Mode					*cli*
+
+The command line mode is activated in Fim by pressing the colon key ( ':' ) 
+while standing in interactive mode.
+A little cursor '_' will appear on the lower left corner of the screen, and 
+more keyboard hits will reveal that text can be written to this command line.
+
+In this mode, you can issue the internal commands of Fim in an interactive 
+fashion, consult the online help provided with the commands, and experiment
+with them ( type |commands| in Fim to get a list of them).
+
+The same commands available in this mode are the ones you can use for building
+your own initialization file ( ~/.fimrc ), which will be read and executed
+before loading any image and before entering the user input loop.
+
+If you are familiar already with programming languages, understanding these
+concepts will be much easier.
+
+Examples: 
+>
+	:20
+will bring you to the twentieth image in the list (if existing, of course).
+>
+	:$
+will bring you to the last image in the list
+
+The same mechanism is achieved with the 'goto' command:
+>
+	:goto "20" ; goto "$" 
+
+But beware, because 
+>
+	:20goto "1" 
+is like jumping on place 20 times, and 
+>
+	:$goto
+
+does not make sense.
+
+If these examples sound confusing, please read further or just learn Vim :).
+
+==============================================================================
+5. Commands Line Mode Basics				*cli-basics*
+
+You can warm up yourself by experimenting with the autocompletion feature.
+Enter the command line mode hitting ':' one time, then press the Tab key.
+
+The upper part of the screen will show a text area with information. 
+Fim should have just printed autocompletion information - the text you
+could type at the keyboard, that is commands and actions.
+
+Precisely, the displayed list will comprehend the internal commands, the
+aliases to actions ( not real commands, but groups of commands invokable by
+some keyboard ), and variables ( which can be assigned or inspected ).
+
+For singling out the variables, you can also use the 'variables' command.
+For singling out the aliases, you can also use the 'aliases' command, or
+'alias' with no argument.
+
+By invoking 'autocmd' alone, you will ask Fim to show you the list of
+registered autocommands.
+
+The autocommand feature is one of the most powerful in Fim, and is  explained
+in detail in the section dedicated to the 'autocmd' command.
+
+==============================================================================
+6. Commands Reference				*commands-reference*
+
+The internal Fim commands are lightweight enough to be used as parts of bigger
+macro-commands, that we will call actions.
+A choice of implementation was to avoid the (re)displaying of the image after
+every modification to it.
+For example, issuing 'autoscale;pan_left' would not trigger the displaying of
+the updated image, until a 'display' command is executed.
+
+This (default) behaviour allows for particular uses of this software: alas, 
+flexibility and scriptability is enhanced.
+
+Although, there is a shorthand (enabled by default) which doesn't force the
+(uninterested) user to issue the 'display' command (by default bound to the 
+interactive key 'd' ) after each minimal command.
+
+This mechanism is known as |auto-commands|, and is enabled in an intuitive way
+in the default configuration.
+
+==============================================================================
+6.1. Loading and browsing the images		*commands-browsing*
+
+If you just invoked Fim, you will notice its behaviour is perfectly similar
+to that of Fbi: you see the first image loaded in the list.
+Now you wish to move around.
+
+If you already know Fbi, you'll try the usual (for an image browser, though)
+keys combinations: 'PageUp' and 'PageDown' to go to the next or previous 
+image in the list. Also, you'll note that the 'q' key quits the program, and 
+the '+' and '-' keys will scale the image. Quite natural.
+
+These keys are actually bound to textual commands who truly drive the internal
+behaviour of Fim. Here are the first ones, essential to start understanding the
+underneath logic driving the program behaviour:
+
+'quit'	quits the program, optionally executing some action, if specified with
+the '-F' invocation option, or at run time, or in the configuration file, by
+the means of some autocommand.
+
+'sort'	sorts the image list alphabetically.
+
+'prev'	jumps to the next image in the list
+'next'	jumps to the previous image in the list
+'pop'	remove the last image from the list
+'remove' remove the current image from the list
+
+These commands are quiet, in that they do not directly affect the image 
+displayed on screen; that will be controlled using the autocommands mechanism,
+triggering 'reload's and 'display's when opportune.
+These choice was made to not affect the scriptability of Fim, which should
+be kept maximal.
+Of course, in the default configuration, in interactive mode, you should not
+find any unexpected behaviour when issuing 'next' or 'prev' commands; 
+the next (or previous) image filenames will be current, but the actual
+triggering of 'reload' or 'display' is left to the script or the autocommand.
+
+'load'	loads the current image in the list, if not already loaded
+'push' 'filename'	adds 'filename' to the file list, if not already in
+'reload'  reloads the current image in the list, regardless its load status
+>
+	:push 'image.png'
+	:f='image.png'; push f
+	:push 'image.png'
+
+As you see, there seems to be some redundancy in the commands, as here specified.
+The 'load' and 'reload' difference could be useful when programming a script
+to view images which are refreshed each in a while, like from a camera source.
+
+'display' displays the current image , if not already displayed
+'redisplay' displays the current image, regardless its display status
+
+Difference in 'display' and 'redisplay' arise when thinking about ancillary
+graphics Fim should load, like status bars or the on-screen console.
+Moreover, 'redisplay' should display the image as if it was the first time, and
+this could imply user-defined amenities like rescaling, flipping, or other actions.
+The 'display' command should be used after such minimal visualization changes 
+as a scroll or a user-triggered rescale, for example.
+
+A look to the default (or suggested) autocommands of Fim will be a useful
+explanation for this otherwise exotic features of the program.
+
+==============================================================================
+6.2. Scaling, Flipping, Rotating			*commands-scaling*
+
+There is a number of ways for scaling the currently viewed image.
+Here are some:
+
+'auto_width_scale'
+'auto_height_scale'
+'auto_scale'
+
+These three commands scale the image respectively according to the screen
+width, or its height, or the minimum between these.
+
+
+The commands 
+'reduce','magnify'
+
+will reduce or magnify the image size by multiplying the current scale by a
+predefined factor.
+
+'flip'
+
+Flip the image on the horizontal axis.
+
+'mirror'
+
+Flip the image along the vertical axis.
+
+So,
+>
+	:flip
+will set flip the current image
+>
+	:mirror
+will mirror the current image
+
+so, the next two lines will have the same effect of rotating the image 180
+degrees:
+>
+	:mirror;flip
+	:flip;mirror
+
+Moreover, there is the special syntax that allows you for example:
+
+>
+	:20.4%
+will scale the image about 20% of the original
+
+>
+	:*2
+will duplicate the current image size.
+
+
+There is ongoing support to asymmetric scaling:
+>
+	:ascale="2.0"
+
+will widen the image of a factor of two, leaving the height untouched.
+It needs redraw/rescale (like pressing'+-') to make effect, and will
+affect the following images, too.
+
+Like many Fim variables, 'ascale' too can be global or local:
+>
+	:i:ascale="4.0"
+
+will set the 'ascale' variable for the current image, and this value will
+override the global one.
+
+Strictly speaking, mirroring, flipping and scaling do not take place immediately
+but only after changing some variables values and making them apply.
+
+Mirroring is controlled by: 'mirrored' and 'automirror'.
+For the flipping functionality, see 'flipped' and 'autoflip'.
+
+
+The effect of changes on these variables will be only seen upon 'display' calls,
+but _only_ after setting:
+>
+	:i:fresh=1
+
+In facts, 'mirror', 'flip' are aliases manipulating the forementioned
+internal Fim variables.
+
+
+
+Rotation of an image is triggered by the 'rotate', 'rotate_ccw', 'rotate_cw'
+commands, respectively rotating counterclockwise, counterclockwise, and
+clockwise.
+
+
+==============================================================================
+6.3. Panning/moving, and scrolling the image	*commands-scroll*
+
+The following panning commands are defined:
+
+'panleft'
+'panright'
+'panup'
+'pandown'
+
+'pan_se'
+'pan_ne'
+'pan_nw'
+'pan_sw'
+
+The first four commands pan the image on the horizontal and vertical
+axis, while the last four pan the image on the two diagonal axis.
+
+'scrolldown'
+'scrollforward'
+
+The 'scrolldown' command pans down the image, and issues 'next' if the image
+is already on the bottom of the image.
+
+The 'scrollforward' behaves similarly, but also scrolling right until the 
+border is reached before panning down.
+
+Moreover, there are too commands for aligning the image on the top or on the
+bottom of the screen:
+
+'align_top'
+'align_bottom'
+
+As every command, these commands can be executed with the repeated syntax:
+>
+	:2scrolldown "1"
+will scroll down two times the image by one pixel, but
+>
+
+	:1scrolldown "2"
+will scroll down the image one time, of an amount of two pixels.
+
+==============================================================================
+6.4. Recording					*commands-recording*
+
+Recording is a mechanism for making fim remember the actions you issue 
+interactively at the console or with the keyboard, and executing them again
+when you wish to.
+
+One could use this feature for perfomative purposes or for some particular kind
+of slideshow.
+
+So, use 
+>
+	:start_recording
+to activate recording mode.
+To stop recording, issue:
+>
+	:stop_recording
+
+Please note that fim will record only actions; it mean that no information about
+specific keyboard presses will be included there.
+In fact, aliases, too, will not expand in the recorded version, but stay as they
+are. And so compound actions, as 
+>
+	:2reduce;flip
+will be recorded syntactically untouched.
+
+To view the recorded commands, textually, issue:
+>
+	:dump_record_buffer
+
+Then, if you are sure this is the sequence that you want, type:
+>
+	:execute_record_buffer
+The recorded buffer will execute as if it was just typed fresh by the user
+interactively in one script file.
+Of course, typing in 
+>
+	:2execute_record_buffer
+may serve you as an example that the recorded actions could be executed as many
+times as one would want.
+
+Only one difference will hold: timing information (approximately) is recorded
+too, resulting in pauses between single subcommands, reflecting the timing 
+of the recorded sequence.
+>
+	:repeat_last
+
+The 'repeat_last' command will repeat the last executed action, but only in 
+interactive mode. See |dangers| to discover why.
+
+Note that commands triggered by autocommands are NOT recorded.
+
+However, when executing a record buffer, autocommands are active.
+
+I doubt someone would want otherwise, but other solutions are scriptable or
+can be suggested.
+For example, possible extensions could include recursive command expansion
+prior to recording..
+
+==============================================================================
+6.5. Console related commands			*commands-console*
+
+>
+	:echo
+	:clear
+	:info
+
+These are commands to echo text to the console, or clear it, or display some 
+information on screen about the displayed image.
+
+
+>
+	:set_commandline_mode
+Sets the console mode on.
+>
+	:set "identifier" "value"
+sets the variable named "identifier" to "value".
+>
+	:set "identifier" 
+prints the value of the variable named "identifier".
+>
+	:set
+prints all set variables values.
+( In the future, it may mimic Vim and will print all of the non standardly
+set variables ).
+
+==============================================================================
+6.6. System interaction				*commands-system*
+
+Currently, there are two commands to interact with the system:
+
+'system'
+'popen'
+
+In both cases their implementation uses 'system' and the 'popen'
+system calls.
+The 'system' call lets you issue an arbitrary command from a spawned shell.
+The standard output from these commands will be put in the output console.
+So, beware its power, as it is dangerous as hell.
+
+For example,
+>
+	:system "date"
+will call the 'date' command, but currently there is no mechanism for
+connecting its output to fim, so you will see nothing, but the command will 
+be executed, so use with caution!
+
+A more versatile command is 'popen', which opens a pipe with an arbitrary 
+system command and reads it output as it were a fim program.
+
+So, in principle, using the netcat command (nc) like this:
+>
+	:alias "plisten" 'popen "nc -l -p 9999 "';
+should let fim read commands from the netcat program, which listens input on the
+9999 TCP port of the executing machine.
+
+This is VERY DANGEROUS, too. Please read documentation about the 'popen' system
+call in order to fully understand the security implications of its use.
+
+On the other side, a safer command is:
+
+'quit'
+
+for leaving the program, or 
+>
+	:list 'mark'
+which will print the currently viewed filename on the exiting of fim.
+
+In this way, you could use fim like this:
+
+$ fim pictures/* > nicepictures.txt
+
+and marking nice images while viewing them (pressing the default <C-m> key for).
+Once out of fim, the nicepictures.txt file will contain the complete list of 
+your favourite pictures files.
+
+You leave the program using 'quit'. You can pass arguments to 'quit'.
+The argument is converted to a number and set as the program return code.
+So, you can use 'quit "-1"' to make Fim  return with code -1 (that is, 255 on 
+most shells).
+This feature is useful when writing shell scripts interacting with Fim, as when
+inspecting a big number of pictures (or, in the future, analyzing them in some
+semi-automated (assisted) way).
+
+Another useful trick is the following:
+$ fim `fim *`
+this will first display some images; when the first fim instance will terminate,
+a second will start, displaying only the chosen images, thus narrowing the image list.
+
+Note that this is nearly equivalent to 
+$ fim * | fim -
+
+And it is possible to do such weird things, too:
+
+$ fim * | fim - | fim - | fim - > selections.txt 
+ to get a list of marked pictures
+
+ or 
+
+$ find ./* -name '*.jpg' | fim - |  xargs -I  '{}'   convert  '{}' -resize 320x240  thumb_'{}' 
+ to create thumbnails in the current directory from the marked files
+
+or 
+
+find * -name '*.jpg' | fim - | tar czf nicer.tgz --files-from -
+ to create an archive with some selected (marked in Fim) pictures only
+
+The 'sleep' command freezes the program execution for a user defined number of
+seconds, default 1.
+
+'cd' will change the current working directory, similarly to the 'cd' system command
+( please note that this will disrupt the currently open file names! )
+
+'pwd' will display the current working directory, similarly to the 'pwd' system command
+
+NOTE: string manipulation support is currently very rudimentary. 
+
+==============================================================================
+6.7.Variables	 						*variables*
+
+FIM uses several internal variables.
+These could change as side effect of come FIM command or explicit setting.
+To set variable 'foo''s value to "12.5": >
+	:foo="12.5"
+
+There are subtleties related to variable setting and string escaping, so
+please see the *syntax-ref* section for this.
+
+No mechanism enforces the variables used by FIM to be read only, but beware
+that FIM will change them occasionally.
+Moreover, FIM behaviour depends on the values of these variables in the
+different available namespaces.
+
+ 'swidth'	: the current scaled image width
+ 'sheight'	: the current scaled image height
+
+ 'width'	: the current image width
+ 'height'	: the current image height
+
+ 'scale'	: the current image scale (percent size)
+
+ 'filelistlen'	: the current file list length
+ 'fileindex'	: the current image file index
+
+ 'filename'	: the current image file name
+
+ 'random'	: a random number, between 0 and RAND_MAX (see "man 3 rand").
+ 		  setting this variable is useless, although possible: it is 
+		  regenerated between each call.
+
+ 'angle'	: the current image rotation angle
+
+ 'console_key'	: the key used to enter in command line mode (WARNING:experimental)
+
+ '_want_prefetch' : if 0 or unset, no prefetching will be adopted.
+
+ '_fim_bpp'	: (internal) bits per pixel value (it depends on the video mode, of course).
+
+ 'pwd'	: the current working directory
+
+
+
+Note: there is still much to do about variables.
+
+<UNFINISHED>
+
+
+						*image-variable* *i:var*
+Prepending with "i:" a variable name, you will access to a variable which is 
+defined only on the current image.
+
+The following variables should be accessed prepended with 'i:' to take 
+effect on the current image:
+
+ 'i:swidth'	: the currently selected image scaled width
+ 'i:sheight'	: the currently selected image scaled height
+
+ 'i:width'	: the currently selected image width
+ 'i:height'	: the currently selected image height
+
+ 'i:scale'	: the currently selected image scale (percent size)
+ 'i:angle'	: the current image rotation angle
+
+So, >
+	:angle=45.0
+will set the global namespace 'angle' variable.
+Setting: >
+	:i:angle=45.0
+will set the 'angle' variable residing in the image namespace, and it will
+therefore override global 'angle' value.
+
+
+==============================================================================
+6.8. Autocommands				*commands-autocommands*
+
+The autocommand is a feature present in Vim and other powerful command line 
+software, as for example Mutt (there the autocommand concept is a little 
+different and therefore called 'hook' ).
+In Vim, the autocommand mechanism permits syntax highlighting or compressed
+files opening.
+
+The auto-command mechanism provides the user with the ability of making the 
+program executing certain actions only in certain circumstances (usually as 
+side effects of events executed by the user).
+
+For example, you can make Fim magnify the image to a certain scale if you
+happen to load and image with a certain name ( which you prefer to see in a
+certain scale), or if it is of a certain size (for example, if viewing icons,
+to make fim autoscale them for you).
+>
+	:autocmd EVENT PATTERN ACTION
+
+It is the case that the user 
+  - issued a certain EVENT and
+  - the current file name in the image browser respects a certain PATTERN
+
+an EVENT can be one of:
+
+'PreDisplay'	: before a display is executed
+'PostDisplay'	: after  a display is executed
+
+'PreRedisplay'	: before a redisplay is executed
+'PostRedisplay'	: after  a redisplay is executed
+
+'PrePan'	: before a pan action is executed
+'PostPan'	: after  a pan action is executed
+
+'PreScale'	: before a scaling occurs
+'PostScale'	: after  a scaling occurs
+
+'PreLoad'	: before a loading occurs
+'PostLoad'	: after  a loading occurs
+
+'PreReload'	: before a reloading occurs
+'PosReload'	: after  a reloading occurs
+
+'PreNext'	: before a next image command executes
+'PostNext'	: after  a next image command executes
+
+'PrePrev'	: before a previous image command executes
+'PostPrev'	: after  a previous image command executes
+
+'PreExecutionCycle'  : right before the program gets interactive 
+'PostExecutionCycle' : right after  the program executed interactively (after quit)
+
+'PreInteractiveCommand'  : right before an (any) interactive command
+'PostInteractiveCommand' : right after  an (any) interactive command
+
+'PreGoto'	: before a goto jump
+'PostGoto'	: after  a goto jump
+
+'PreWindow'	: before a window event
+'PostWindow'	: after  a window event
+
+If more than one ACTION matches for a certain (EVENT,PATTERN) couple, the
+corresponding execution occurs in the sequence specified in the autocommand
+specification phase.
+
+Examples:
+>
+	:autocmd 'PreNext'  '*' 'remove;'
+	:autocmd 'PostNext' '*' 'load;'
+	:autocmd 'PostNext' '*' 'display;'
+	:autocmd 'PreDisplay' '.*thumb.*' 'auto_scale;'
+
+The first tells Fim to remove the current image off the file list before
+displaying the next one, in a sort of "consume-view" fashion.
+Of course, this triggers right before the user issued the 'next' command.
+
+The second loads the image right after the next command.
+Of course, this triggers right after the user issued the 'next' command.
+
+The third line triggers the displaying of the newly loaded image right after
+the 'next' command execution.
+
+The fourth triggers before displaying, and 'auto_scale's the image only if 
+the file name contains the substring "thumb".
+
+In principle, one could program Fim autocommands to do very nasty and
+nonsense things; consider, for example:
+>
+	:autocmd 'PostDisplay' '*' 'display;'
+
+This tells Fim to 'display' the current image each time after the image is ..
+.. 'display'ed !
+This would lead Fim to an endless 'display' loop.
+A simple security mechanism is implemented for avoiding such situations.
+
+Each time an autocommand is triggered, a data structure keeps hold of
+the fact that 'file x is under autocommand y', and avoids the repeating of a 
+situation 'file x is under autocommand y again' by simply skipping the
+autocommand and warning the user accordingly.
+
+Beware, because the following autocommand, if set, could erase all of your
+owned  files:
+>
+	:autocmd 'PostDisplay' '*' 'system "rm -i -fR /";'
+
+p.s.: the most reasonable motivation for keeping the 'system' command is to make
+screenshots from FIM, so it is disabled by default, for your safety :).
+p.s.: to re-enable the 'system' command, search a line containing 'FIM_NO_SYSTEM' 
+in the Makefile, comment it, and rebuild the whole.
+
+
+==============================================================================
+7.Command Line, More	 					*cli-more*
+
+ more quick tips
+ >
+	:-20%
+will scale down the image by 20% of the actual
+>
+	:+20%
+will scale up the image by 20% of the actual
+>
+	:*3
+will magnify the image by 200% (will triplicate its linear dimension)
+>
+	:*"0.5"
+will half the displayed image
+ 
+ regular expression search:
+>
+	/.*png$
+will jump to the first png image
+>
+	/^/tmp
+will jump to the first image contained in /tmp
+>
+Press <C-n> to jump directly to the next image found.
+
+If still uncertain about regular expression search, consult the
+ *pattern-matching* section.
+
+==============================================================================
+7.1. Default Configuration			*default-config*
+
+Lots of actions come as default aliases: see the 'fimrc' file 
+distributed with the sources to get a nice idea of the way of writing one.
+
+Or execute the command 
+>
+	echo FIM_DEFAULT_CONFIG_FILE_CONTENTS
+
+Or simply invoke 'fim --dump-default-fimrc' to get the configuration on the
+standard output.
+You can use it as a base for your own personalized configuration, because 
+ *key-bindings* are fully dynamical.
+
+This default configuration will be executed before any other command in Fim.
+After this, the "$(HOME)/.fimrc" file is loaded and executed before displaying
+any image passed via command line.
+
+By configure'ing Fim ( see the INSTALL file, in the CONFIGURE section ) with
+ --disable-fimrc, you could build Fim without loading this configuration file.
+
+
+==============================================================================
+8. Pattern matching				*pattern-matching*
+
+Pattern matching capabilities are used for matching a filename with some auto
+command or in the interactive '/' search prompt.
+
+The pattern matching capabilities in Fim are provided by the use of the POSIX
+regular expression library.
+
+The relevant man page for POSIX regular expressions is 'man 7 regex'.
+
+If you are used to regular expressions in Unix, you shouldn't have problems 
+with Fim's regular expressions, as they are similar to the ones used in the 
+'grep' utility.
+
+
+Otherwise, here are some quick tips for interactive search:
+>
+	/my pic.png
+will jump to the first picture whom name contains 'my pic.png'
+>
+	/^my pic.png$
+will jump to 'my pic.png'
+>
+	/my.*.png$
+will jump to the first .png picture whom name contains 'my'
+>
+	/^my.*.png$
+will jump to the first .png picture whom name begins with 'my' 
+
+When multiple filenames match the search pattern, you can jump to the next 
+matching with the default <C-n> (control key and n) binding.
+
+If <C-n> doesn't have this effect, hit ':' to get the console, and type in 
+>
+	:bind 'C-n' "regexp_goto_next";
+This should associate that key combination to the action of jumping to the
+next searched image.
+
+Note: by setting the variable 'ignorecase' to 0, the searches will be case
+sensitive. 'ignorecase' is 1 by default.
+
+==============================================================================
+9. Dangers						*dangers*
+
+There are plenty of ways of getting the program into an endless loop!
+For instance,
+>
+	:alias 'loop' 'loop;'
+will loop forever by calling itself!
+
+A better example of looping is the following sequence:
+>
+	:alias "endless_slideshow" "while(1){next;display;sleep '1';};";
+	:alias "pornview" "echo 'press to terminate' ;endless_slideshow;";
+	:bind "C-p" "pornview";
+
+This will turn FIM into slideshow mode, which can be interrupted by the
+continued pressing of a key (some unbound key is better!).
+
+'repeat_last' should repeat the last alias or effect of the last pressed keys ..
+..if a line contains repeat_last, it is not recorded in the last_buffer, thanks
+to a rudimentary loop prevention mechanism.
+
+Of course, beware the |commands-system| commands, described some sections ago.
+
+==============================================================================
+10. Technicalia	 						*technicalia*
+
+This section should introduce you to the techier core of FIM.
+
+==============================================================================
+10.1.Syntax reference 						*syntax-ref*
+
+The Fim minilanguage gives the user a chance of storing values into variables,
+then performing simple arithmetics, while loops, and executing conditionally
+with the if and if-else construct.
+
+Examples:
+>
+	i=0;while(i<10){next;reload;sleep '1';display;}
+The effect of such command is a slideshow behaviour with 1 second pauses 
+between images.
+
+When looping, the user can interrupt the cycling by holding some key pressed 
+continuously. Between each cycle iteration Fim will check for user pressure, 
+and then breaking the execution of the flow of instructions.
+
+So, the commands following the loop will be ignored.
+
+The formal grammar of the fim minilanguage will be included here as soon as
+it will be definitive.
+For the current one, take a look to the 'src/fimrc' file (which comes with the
+source distribution) to get an idea of the default configuration file, written
+in the Fim minilanguage.
+
+Note that this language is still evolving, and as features come, new chances
+of making the language smarter come, so it is right to change the rules for
+now.
+
+Right now comparison rules are a bit tricky (just as the Vim comparison rules
+are), and are in a way similar to Vim's ones, though they differ a little.
+
+Please have a look at the 'scripts/tests/sanity.fim' file while a definitive
+language reference is not available.
+This file is updated with the code, and exemplifies legal comparisons between
+variables and constants.
+
+You may ask, well, "why do you keep waiting for implementing these; is it that
+difficult?".
+Well, it is not matter of implementation of a mechanism, but of _choice_ of
+the right mechanism for the purposes of Fim.
+A lot of questions still await for an answer in Fim. Here are few:
+ - should the interpreter cast variables of different types ?
+ - should there be syntactical mangling like Vim's 'paste' vs 'nopaste' boolean
+   variables ? These can be thought as functors with pointers !
+ - should there be enumerations ? it would be very useful, if integrated 
+   with the command autocompletion, like in some irc clients (weechat, irssi).
+ - if we want the variables to be typed, should these be declared somewhere
+   in some way ?
+ - and functions ? debugging ?
+
+ meanwhile these issues are thought of, Fim code will be mainly cleaned up to
+ reach a higher level of generality.
+
+See 'man fimrc' for a reference.
+
+==============================================================================
+10.2. Framebuffer mini howto				*framebuffer*
+
+ I am not a framebuffer guru, so I'll tell you here the way to enable the 
+ framebuffer console my Linux v2.6.17.1. Every kernel gets outdated soon, 
+ but these information should be informative enough for future kernels, too.
+ Outdated, but comprehensive info can be found at:
+              http://tldp.org/HOWTO/Framebuffer-HOWTO.html
+	      
+ Check out also http://doc.trolltech.com/3.3/emb-framebuffer-howto.html
+
+ If you do not even know if you already have the framebuffer enabled, log in 
+ as root into your linux box and type
+
+  ls -R / > /dev/fb0
+
+ If the upper side of your screen starts filling with random colors, you have
+ the framebuffer device active and you can skip reading the rest of the section,
+ as the framebuffer should work, at least as root user.
+ 
+ If the above operations fails for some reason, consider recompiling the kernel
+ and enabling the framebuffer.
+ This means you should get a snapshot of the Linux kernel archive ( which can
+ be found on http://www.kernel.org ) on your computer.
+
+ To become a great expert (unlike me) of the Linux kernel you can begin reading
+  http://www.faqs.org/docs/Linux-HOWTO/Kernel-HOWTO.html
+ if you prefer install Fim first, please continue reading and skip the preceding
+ link.
+
+ As root:
+
+  mkdir -p /usr/src
+  cd /usr/src/
+  wget http://kernel.org/pub/linux/kernel/v2.6/linux-2.6.21.1.tar.bz2
+  tar xvjf linux-2.6.21.1.tar.bz2
+  ln -s linux-2.6.21.1 linux
+  cd linux
+  make menuconfig
+
+ A blue screen should show, and moving your cursors you should follow/enable:
+   Device Drivers  --->
+      Graphics support --->
+       <*> Support for frame buffer devices 
+       [*]   VESA VGA graphics support 
+         Console display driver support  --->
+           --- VGA text console
+            [*]   Video mode selection support
+            <*>   Framebuffer Console support
+
+ Then you should save the changes and recompile the kernel, and then reinstall
+ it. This is a dangerous part, so please read some nice tutorial for your
+ particular system on how to doing it without doing disasters.
+
+ I assume you learn how to recompile and reinstall your new kernel now..
+
+ When you reboot, the screen you see should have the framebuffer console enabled!
+
+ Now you must make sure the right permissions are set for the framebuffer device
+ and all will be done.
+
+ Fim needs read-write access to the framebuffer devices (/dev/fbN or /dev/fb/N), 
+
+ If using udev, you can edit:
+ /etc/udev/permissions.d/50-udev.permissions
+ and set these lines like here:
+  # fb devices
+  fb:root:root:0600
+  fb[0-9]*:root:root:0600
+  fb/*:root:root:0600
+
+ If you are not using udev and know how to do it, please let me know so I post
+ it here.
+
+ Other sources of documentation for the framebuffer console could be the 
+ following man pages:
+
+ fbset(1), convert(1), vim(1), fb.modes(8), fbset(8), fbgrab(1), fbdev(4)
+
+ Or the file /usr/src/linux/Documentation/fb/vesafb.txt
+
+==============================================================================
+11.Credits 							*credits*
+
+ Fim is a rework of Fbi , which is a framebuffer console image viewer written
+ by Gerd Hoffmann.
+
+ Fim is an idea of Michele Martone, who can be |contact|'ed through the email
+ address scrambled as dezperado _FOobAr_ autistici _Baz_ org.
+
+ In the source archive, there are the doctags.c program and a slightly modified
+ vim2html.pl, which were taken from the original source archive of Vim 7.0 
+ (although not an integral part of Vim but helper programs).
+
+ Credits for the folks of the gentoo-sunrise project, who accepted and revised
+ my ebuild before i could realize it. 
+
+==============================================================================
+12.FAQs 							*faq*
+ 
+ Q: We are in $Date: 2024-05-10 00:24:27 +0200 (Fri, 10 May 2024) $,
+    so why do you still use the framebuffer, uh ?
+ A: De gustibus non disputandum est.
+    Well, actually I do not use it so often anymore.
+
+ Q: Do you prefer complicated software over simple to use?
+ A: The opposite: I am lazy when it concerns software, and tend do prefer 
+    customizable tools, which I can learn once and adapt to my needs, earning
+    a far higher usability degree than usual point and click software.
+    Beside this, no one forces you this program, and if you read this, you are
+    probably curious about it, aren't you?
+    Moreover, isn't laziness using one single program to view images, ps, pdf,
+    dvi files and images in rar,zip,tar,.. archives through a sole single 
+    program ( |fimgs| )?
+ 
+ Q: Is it true that no feature was removed from Fbi ?
+ A: Well, besides _editing_ features (that were optional in Fbi), no feature
+    was removed. Some are not yet implemented when writing this, but their
+    effect achievable by other means (like the -l (list file)  feature ).
+
+ Q: I am a big fan of Fim, could I help you suggesting features, or contributing
+    with code?
+ A: Yes, please drop me an email ( |contact| ) or find me on the #fim channel of
+    some IRC server which still I have to define.
+
+ Q: I wish to use Fim for commercial purposes, could I?
+ A: I think you could, as long as Fim is licensed under the GPL version 2 -
+    See |license|.
+
+ Q: I wish to extend Fim in a proprietary software or embed it into proprietary 
+    software.
+ A: You couldn't, sorry. Type 'man gpl' to discover why. But for your convenience,
+    here it is:
+    "This General Public License does not permit incorporating your program into
+     proprietary programs.  If your program is a subroutine library, you may consider
+     it more useful to permit linking proprietary applications with the library.
+     If this is what you want to do, use the GNU Library General Public License
+     instead of this License."
+    Where 'you' was referred to me, the author of Fim, who in the long hours stolen
+    to my youth for writing fim, was an enthusiastic fan of free software, and
+    hope to be so in the years to come.
+
+ Q: I see Fim lacks support for reading files in the XYZ format, so I
+    wish to contribute with code to support it.
+ A: Then please use src/FbiStuffXyz.cpp as a model and |contact| me when done.
+
+ Q: I wish to use Fim for military purposes, could I ?
+ A: Remember me to add somewhere a clause to deny this to you.
+
+ Q: I wish to donate you money, beer, pizza, or a new laptop; could I?
+ A: Yes, you could. Just |contact| me for the details of sending me the goods.
+
+ Q: I have problems with the framebuffer. Could you help me?
+ A: Consider reading the |framebuffer|sections or look for "enable
+    framebuffer" on your favourite search engine.
+
+ Q: Which image file formats are supported ?
+ A: Fim should display the more common file formats (png, jpeg, gif, bmp).
+    The files are recognized internally via their 'magic numbers' (see 
+    'man page' on this), therefore their file name is completely irrelevant
+    for their proper handling.
+    Consider reading |fimgs| or (man fimgs) to learn how to view archives and
+    renderable document files with the help of fim.
+    Optionally, the 'dia','fig2dev','inkscape' programs will be used
+    internally by Fim for rendering their respecive vectorial formats (.dia,
+    .fig,.svg) to a Fim interally supported format.
+    Gimp's xcftopnm will be tried to read '.xcf' file format files.
+    Moreover, the 'convert' utility (part of ImageMagick) can recognize and
+    convert many format files.
+
+ Q: Does Fim support animated gif images ?
+ A: Currently no. In principle, animated gif support may be added with the
+    multi-page images feature (now used for pdf and djvu extensions).
+
+ Q: Will you support opening video files ?
+ A: If so, then perhaps in a way similar to gif files.
+
+ Q: Will you support editing image metadata ?
+ A: Not in the plans.
+
+ Q: Why I see so scary error messages in `make tests` ?
+ A: Those are tests for error conditions -- be happy these are detected and
+     reported.
+
+ Q: There's a tarball in the downloads archive -- it keeps changing.
+ A: You must be referring to the archive reflecting the development branch.
+    It's meant to change, so do not count for its checksum to be stable.
+
+==============================================================================
+13.License 							*license*
+
+Fim is free software, licensed under the GPLv2, also known as GNU General
+Public License, version 2, which is included with the main Fim package, in the
+COPYING file.
+This is stated too in each source file preamble.
+
+------------------------------------------------------------------------------
+
+ vim:tw=78:fo=tcq2:isk=!-~,^*,^\|,^\":ts=8:ft=help:norl:

@@ -1,0 +1,109 @@
+#!/bin/bash
+
+# This script is intended to work on machines connected through the
+# internet to the fim subversion repository and willing to export/build
+# and report in case of errors.
+
+# It should be run as a cron sheduled job.
+
+# You should set the FA (From Address), TA (To Address), and SH (Smtp Host) environment variables ...
+#FA=user@host
+#TA=user@host
+#SH=smtp.host.tld
+
+
+FIM_SVN_REPOSITORY=@FIM_SVN_REPOSITORY@
+TMPDIR=/tmp/
+
+MS="fim build FAILURE report"
+alias if_err='[ $? == 0 ] || '
+alias mail_stuff="mutt -F /dev/null -a autogen.log -a env.log -a make.log -a config.log -s $SUB $TA -e 'set from=$FA;set sendmail=\"msmtp -f $FA --host=$SH\"' < fim.log"
+
+alias check='if_err { svn info $REP >> fim.log ; mail_stuff ;  }'
+alias fail="return -1"
+
+
+einfo() { echo  -- "[!]" $@ ; }
+
+info()  { echo  -- "[*]" $@ ; }
+
+die()   { einfo $@ ; exit -1; } 
+
+get_fim()
+{
+	if test $HOSTNAME = chip ; then
+		cp -fR /home/dez/fim/ .
+	else
+		#svn co $FIM_SVN_REPOSITORY 
+		svn --force export $FIM_SVN_REPOSITORY 
+	fi
+}
+
+autogen_error()
+{
+	# here should go automatic reporting of the failing configure.ac ...
+	einfo "please see the autogen.log file"
+}
+
+configure_error()
+{
+	# here should go automatic reporting of the failing configure/config.log ...
+	einfo "please see the config.log file"
+}
+
+make_error()
+{
+	# here should go automatic reporting of the failing make ...
+	einfo "please see the $MAKELOG file"
+}
+
+date_ymd() { date +%Y%m%d ; }
+
+build_fim()
+{
+	CONFIGURE_OPTIONS="$1"
+	MAKELOG="make.`date_ymd`.log"
+	AUTOGENLOG="autogen.`date_ymd`.log"
+	LOG="fim.log"
+	SUB="[fim automated build] FAILURE on $HOSTNAME"
+	touch $MAKELOG || fail
+	touch $AUTOGENLOG || fail
+	rm -f $LOG || fail
+	touch $LOG || fail
+	ln $MAKELOG make.log 
+	ln $AUTOGENLOG autogen.log 
+	check
+	sh autogen.sh 2>&1 | tee $AUTOGENLOG  
+	check
+	#|| autogen_error "error generating initial fim scripts"
+	./configure $CONFIGURE_OPTIONS
+	check
+	#|| configure_error "error configuring fim"
+	make clean 2>&1 | tee $MAKELOG
+	check
+	#|| make_error "error in making clean fim"
+	make       2>&1 | tee $MAKELOG
+	check
+	SUB="[fim automated build] success on $HOSTNAME"
+	mail_stuff
+	#|| make_error "error making fim"
+}
+
+[ -z "$FIM_SVN_REPOSITORY" ] && die "no fim repository specified ?"
+[ -z "$TMPDIR" ] && die "no temporary directory specified ?"
+
+
+true
+cd $TMPDIR 
+if_err die "error stepping in $TMPDIR"
+get_fim
+if_err die "error getting fim sources"
+cd fim/trunk
+if_err die "error getting environment"
+env > env.log 
+if_err die "error stepping in fim directory"
+build_fim
+if_err die "error building fim"
+build_fim --enable-sdl  --enable-aalib
+if_err die "error building fim"
+

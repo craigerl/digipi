@@ -1,0 +1,477 @@
+	$Id: TODO 1576 2018-01-28 22:33:17Z dezperado $
+
+This file is a melange of ideas aimed towards further development.
+If you are interested into Fim internals, philosophy, or get some 
+inspiration, you are welcome to give a look here.
+You can propose ideas to the fim-devel mailing list:
+  fbi-improved-devel@nongnu.org 
+
+Warning : This file is outdated; actual development notes are taken elsewhere.
+
+-------------------------------------------------------------------------------
+	Misc Current development directions
+
+
+20141130	disabling convert or bmp can break test8 -- shall fix this, perhaps by ignoring the *.svg file there.
+20141130	shall support a dual configure style: for each $LIBRARY, $FIM_LIBRARY_LIBS/$FIM_LIBRARY_CXXFLAGS and LIBS/CXXFLAGS.
+20141130	rename configure options w.r.t. program options; e.g. --raw-bits-rendering to -o  bit1/ -o bit24
+20141130	configure output shall fit in one screen
+20141129	the configure is not well made w.r.t. exif, jasper, ...
+20141129	setGlobalVariable -> setGV
+20141129	setGlobalVariable("i:",FIM_VID_WANT_AUTOCENTER,1);
+20141123	clean up Image::getInfo
+20141122	document/expand the FIM_WANT_EXPERIMENTAL_BASENAME functionality.
+20140830	need a precise control of scaling rules and viewports cache, as well to extend the viewport cache to scaled images
+20131107	fix --disable-scripting case !
+20131107	this is spurious: fim::string execute(const std::vector<fim::string> &args)
+20131107	getIntVariable(varname) -> getIntVariable(varname, domain)
+20131010	text/ascii/bits ascii renderer as funny fallback renderers
+20131010	shall configure default tmpdir to /dev/shmem/something
+20131009	may interface to http://www.feep.net/libtar/
+20130902	add a simple menu e.g.: using Motif (http://www.opengroup.org/desktop/motif.html), or buttons; e.g.: using X: http://www.x.org/releases/X11R7.7/doc/libX11/libX11/libX11.html#XEvent
+20130829	interface to a library for gestures, someday.
+20130824	need a "verbose pressed keys" mode, to help when guessing key bindings.
+20130725	shall add autodetection of file format to "fim -"
+20130702	"nextindir" function
+20130702	http://dvdhrm.wordpress.com/2012/12/10/kmscon-introduction/
+20130620	need a minimal ppm file for testing
+20130523	fix the bug when loading say, a a/1.fake  and getting the files list shortened by two instead of one.
+20130505	glob() on non existent files
+20130412	may use a library like http://www.littlecms.com/
+20120811	need proper jpeg error handling
+20120805	feeding a .png named PS file can lead to segfault. why ?
+20120804	should create a general 'filter' autocmd trigger
+20120804	negate and desaturate should be either applied instantly or accumulated in queue as transformations
+20120718	" - multiple internal windows with indipendent images displayed at once" is discontinued!
+20120705	some day would be nice to use dnotify
+20120407	to clone a whole fim instance in a new process
+20120130	to open svg files "natively"
+20120129	for scalings that are multiples of an integer, may write a specific code
+20120108	use zzuf; e.g.: for ((seed=0;seed<4;++seed));do zzuf -I jpg -s $seed src/fim media/ -c quit ; done 
+20111202	seem like an empty eps file crashes fim
+20111122	fim inverts the colours of eps files
+20111112	font resources:
+		psf tools: http://www.seasip.info/Unix/PSF
+		sigma consolefont: http://homepage.ntlworld.com/zarniwhoop/consolefonts/sigma.html
+		an old kbd HOWTO http://www.win.tue.nl/~aeb/linux/kbd/font-formats-1.html
+		psf format specs: http://tph16.tuwien.ac.at/cgi-bin/dwww/usr/share/doc/console-tools/file-formats/psf
+		an ancient article about linux 2.4 font handling: http://linuxgazette.net/issue91/loozzr.html
+		a bibliography (loosely related to psf): http://fontforge.sourceforge.net/bibliography.html
+20111111	may use libgunzip / gzip decoding library ?
+20111107	what about uploading nightly versions to savannah ? shall upload fim to savannah !
+20111025	seems like putting an invalid entry in the fonts list breaks list scanning
+20111016	in the cookbook: how to 'catch' images in a directory full of oddly named files ?
+20111008	decouple strings location from executable (e.g.: allow for a memory-mapped help/strings file)
+20111005	imlib2 shall be suggested among devices on device fail. on hlst3, 'w' rendering bug. screen-patch should be optional at runtime when selecting the fbdev device
+20111005	enable verbose keys specific to a device
+20111003	http://tronche.com/gui/x/xlib/input/keyboard-encoding.html#KeySym
+20110930	hand-based panning in fim; see feh
+20110930	fim+sdl with an extra monitor aside fails. but mplayer seems to work, in this case. why ?
+20110929	shall give a recipe and render possible to view a 100%-scaled image with zero scaling.
+20110927	fix the bug opening the gif icon in media/ through graphicsmagick; manifests on hlst3
+20110926	every bit of fim functioning shall be documented
+20110926	fim manual sections in hardcoded strings shall be systematically coherent 
+20110926	shall be able to open movie files and displaying them (not cacheably), frame by frame
+20110926	shall handle timeout handling when reading from a pipe
+20110922	plugins shall be able to return variables
+20110921	need mipmap scaled versions of images; plugins as the opencv one may operate on a selected mipmap, and then incrementally go up
+20110913	shall use AC_ARG_VAR in configure.ac, so ./configure --help displays the 'precious' variables
+20110909	tty control stuff (e.g.:saved_attributes_) shall be compile time optional
+20110907	vedi liburiparser
+20110904	buffering stdin/whatever shall be tmpname/fd backed
+20110904	shall introduce more verbosity levels
+20110904	see http://barre.nom.fr/medical/samples/ for sample DICOM files
+20110902	'cd' should (may?) have vim's semantics
+20110902	every command should be profilable: how ?
+20110902	need fim-recipes (1) to collect misc wisdom
+20110901	should provide an easy and benchmarkable method (variable based) to load a big list of files (thousands) with maximum speed (that is, without checking the signatures)
+20110831	insert macros here and there for random or controlled error injection
+20110831	whenever possible, error strings shall be printed out escaped; if not possible, this should be reported.
+20110831	program return codes should reflect failure reason (e.g.: generic unspecified, input, internal, device, memory exhaustion, etc)
+20110830	should provide some statistics/microbenchmarks; e.g.: pixels/s in resize, or bytes/s in disk I/O, etc.
+20110830	write an 'interruptible' interface for heavier functions
+20110830	very big files should be allowed to be read with no big copy 
+20110830	smaller files should be allowed to be read with copy (so, a single from-disk copy)
+20110829	I am not sure whether --cd-and-readdir works; shall write an accurate test for this
+20110824	need statistics on memory usage, from within fim.
+20110824	need help [ "grep" | "find" ]
+20110823	need to interface to zip.h and libzip -- and define a 'buffered', or 'virtual' files abstraction
+20110917	should build a separate fim-main program, in order to generate a valid man help when the user manual will not be online (e.g.: in a minimalistically configured fim, with all inner docs cut out)
+20110820	should have a way to disable terminal control flow (thus allowing C-s, C-q)
+20110817	need macros to check for allowed width/height/bpp/... values
+20110816	fim.h should be an #include-only container !
+20110816	repeat should become a standard argument of commands
+20110801	is there a way to make fim load . if no file is specified ?
+20110801	a pensarci bene, bottoni in sdl mode non sono poi cosi' impossibili
+20110724	program 'fimtutor' as 'fim --tutorial'
+20110724	Ctrl-C shall prompt for quitting (or optionally, quit), interrupting any interruptible task
+20110724	allow plugins which can only load metainfo (user variables) from under-loading files  (e.g.: plugins using specialized libraries)
+20110713	semi-colons terminating commands can be misleading 
+20110713	parse errors should be verbose
+20110713	dez@nino:~ $ fim -c 'variables;stdout _last_system_output;quit'
+20110711	autocompletion of varname = <unescaped variable value>  would be both cool and useful
+20110711	shall give the user chance to specify the position of an autocommand (e.g.: -1, +1, etc) within the current autocommands list
+20110711	shall give the user chance to push dirs contents sorted
+20110709	need to write to fim-users mentioning the ChangeLog and the solved bugs
+20110709	grep .. | sed .. | fim_h_autocmds.h
+20110709	grep .. | sed .. | fim_h_error_codes.h
+20110709	grep .. | sed .. | fim_h_variables.h
+20110711	may use ESC as a readline-exiting key
+20110702	bind '\\' 'scale "100%"'; # is not accepted; this is bad
+20110701	shall establish a policy in using #error
+20110701	an easy way for window resize on 'next', in sdl mode
+20110629	use CHAR_BIT in src/FbiStuffBit1.cpp
+20110624	vedi se e' possibile 'goto last' e se PostNext e' ancora li da qualche parte 
+20110623	2. does not work
+20110623	one may add :{+number} 
+20110623	missing :+//
+20110622	test7 was modified to work after some horrible page/cache hacks. consider rewriting the test
+20110622	the cache/goto code now is a complete mess (page-wise next interacts with cache)
+20110622	shall fix the FIM_HORRIBLE_CACHE_INVALIDATING_HACK
+20110620	the lock/unlock usage style in the SDL case may not be correct in many situations, leading to system lock errors
+20110620	sdl is still flawed without an interactive shell underneath; libreadline used in non-callback mode uses the terminal, and this is bad (verify this by running from within nautilus scripts)
+20110620	need a user friendly, self-uninstalling warning message on empty files list, on startup
+20110620	tab based files autocompletion has problems (may show only partial results)
+20110620	init feature-check routine with some regexp/regsubst functionality testing
+20110621	shall expose a regexp substition command
+20110619	need an option for non-name-based, but loader-based directory scanning
+
+-------------------------------------------------------------------------------
+Documentation features/fixes:
+
+20110129	incongruences in FIM.TXT: the system command is declared to be non active. this is wrong.
+20090512 	TODO : implement a regexp-based search, to give the user hints. (20090512) (like vim's helpgrep, helpfind)
+20090418	fimtutor
+
+-------------------------------------------------------------------------------
+Major language clarity features/fixes:
+
+20110620	many commands shall be documented conditionally
+20110517	may consider distinguishing "options" from "variables", as vim does
+20110507	need a special mention for special variables (and their namespaces), in the documentation
+20070417	It has come the time to decide the future developments of Fim.
+	A lot of doubts arose. Here they are:
+	- integration of the command line completion with the lexer/parser, to gain consistency
+	- decisions about the nature of the language:
+	  - should the variables be accessed like Bash,Perl, or C?
+	  - should strings exist?
+	  - should arrays exist ?
+	  - should types exist ?
+	  - should boolean options exist (like in Vim's paste/nopaste) ?
+	  - should multi (quad/..) options exist (like in Mutt) ?
+	- could it be nice to attach options set to an image/browser (e.g.: 
+	  autowidth in only a window in a multiwindow scenario )?
+	- integration with external libraries/scripts/etc.. ?
+
+	These issues need reflection and study of the practical and theoretical
+	advantages/possibilities/limitations of the alternatives.
+	Meanwhile, the current development effort will be focused on enhancing
+	the existing code, possibly not adding features but enhancing the code
+	structure and converting the odd Fbi code in elegant, or possibly more
+	optimized, (especially the hacked, critical parts concerning mirroring
+	and flipping! ) Fim code.
+20070903	these features are currently going to be worked in the near future:
+			- arbitrary long key sequence bindings (mutt-like)
+			- shortcuts algebra for commands
+			- parameter passing to commands 
+			- variables scoped inside viewport (v:), window (w:), image (i: or l:), global (g:), script (s:)
+			- (to study) lookup tables to string to integer token conversion of variable names 
+			  (to gain speedup and increase variables impact)
+			- (to study) active variables - variables triggering actions
+			- vim like 'set', 'let', 'unlet' commands..
+
+-------------------------------------------------------------------------------
+Minor language clarity features/fixes:
+
+20110615	scale_increment & co -> in the "default aliases" section
+20110615	set_commandline_mode -> cmdline on ; set_interactive_mode -> cmdline off ; clear -> console [clear|info]
+20110615	color [negate|gray]
+20110615	redisplay = display 'force' ; reload = load 'force'
+20110615	info [size|width|...]
+20110613	need a single variable for flip,mirror, and eventually rotation (e.g.:fmr90)
+20110613	shall reintroduce many composite commands tokens (e.g.: "pan 'up'")
+20110612	scrolldown,scrollforward -> [pan|scroll] forward|read
+20110612	dump_key_codes -> dump key_codes|variables|commands|aliases
+20110612	clear -> console clear
+20110612	shall rename from _varname to v:varname, whenever this has sense.
+20110610	shall unify the scaling-control variables
+20110504	aa driver swaps pageup/pagedown ?
+20071127	histall, histdell
+20071006	implement mechanisms or policies for namespace inheritage on windows split
+
+-------------------------------------------------------------------------------
+Major and tricky (time consuming) features:
+
+20111003	need a function checking if all sym_keys in some device are populated.
+20110604	may consider usage of ffmpeg's libswscale for image scaling
+20110615	collate/permute args in aliases (for ensuring primitive recursive computability, with some other features) ?
+20110530	in some contexts, using libsvga (see http://www.svgalib.org/jay/beginners_guide/beginners_guide.html) may be interesting 
+20110516	shall foresee a mechanism for `stacked decoding'of `container' files (e.g.: gz,tar,tar.gz,bz,...)
+20110516	shall foresee support for dynamically lodaded modules, for a number of operations (e.g.: file decoding/loading using custom external programs or libraries); see also http://tldp.org/HOWTO/Program-Library-HOWTO/dl-libraries.html
+20110506	shall see libicu http://userguide.icu-project.org/, for internationalization/unicode
+20110127	consider making the program ready for GNU gettext: http://www.gnu.org/software/hello/manual/gettext/index.html#Top
+20110117	could develop a "stack of windows" idea, for zooming or such stuff.
+20110108	use static_cast, for it is not ambiguous with conversions
+20090512	argument to aliases
+20080127	think about a multi-monitor strategy for a single instance of Fim: note that currently it is possible to specify a framebuffer device (therefore a monitor) via -d (--device)
+
+-------------------------------------------------------------------------------
+Minor but tricky (time consuming) features/issues:
+
+20110618	cd dir ; push /regexp/
+20110617	may honour command line options parsing features of aalib 
+20110521	autocompletion shall be escaped (for opening filenames containing quoting chars)
+20110612	using up and down keys in / mode seems to recall general history, not search history (even in old fim revisions)!
+20110615	'3g'-like interactive command ? right now, it will repeat 3 times 'g', but we may internally switch the while to a special argument
+20110530	need some "emergency" command and/or mechanism for freeing/reclaiming memory (e.g.:caches, buffers)
+20110507	the generated man output shall print out examples which are also a correctness test
+20110202	DICOM integration ? see libmdc2-dev / man medcon
+20110503	it would be cool to allow bindings valid in consolemode
+20080430	find a way to catch the console signal C-s in fim in a way to make C-s bindable
+20080313	make each cpp file include exactly the header files used
+20080216	add textureview mode
+20091214	consider using libmagic
+20090810	:|ocr -   or    :<scan -
+20090218	implement a printf() like interface for customizing the status bar information (format specifiers)
+20090401	should use aa_getevent
+20081230	need of a square angle rotation support, especially for reading text documents
+20081230	multipage caching and prefetching support still missing
+20080502	reintroduce X custom font support
+20071127	fim -q --quiet, vs warning on first run ?
+20071127	proposal of a 'cropped view' functionality to ease sequent joint pages reading
+20080430	add support for probing/scanning in byte ranges in file systems/files for known image types
+20070812	study the benefits of integration with libraries like:
+		DirectFB : for a simpler driver and display mechanism
+		SDL : to use X ( 20081018 : enable it at configure time with ./configure --enable-sdl )
+		MXK : for fancy input devices and capabilities
+		BOOST
+		integrate with external libraries for image analysis (like ANIMAL)
+20070812	integrate the freshmeat-submit script (now seems like the freshmeat api is broken)
+
+-------------------------------------------------------------------------------
+Minor and easy (not time consuming) feature:
+
+20110620	need an option for displaying the filename as a relative path	
+20110601	shall use fim_byte_t instead of unsigned char's
+20110523	shall use autocommands for printing out status messages on loading,prefetching,etc 
+20110615	shall prepare thorough test cases for scale and page goto subcases
+20110528	may introduce a push/pop mechanism for the status bar
+20080430	use tmpfile() instead FIM_TMP_FILENAME 
+20080414	to use mkstemp() in src/FbiStuff.cpp
+20080414	introduce fim_fatal(), fim_warn(), fim_fail(), ...
+20080414	use rand48, and more options on random behaviour
+20091017	actually, postscript header can be optional for postscript rendering. shall we introduce forced ps rendering?
+20090820	should offer EXIF data to fim displaying
+20091004	should deny execution of sick things as 'alias "n" "n"'
+20091004	scroll amount should be a string. e.g.: "20%","20",".2"
+20091004	in book viewing mode (and a single loaded file), typing :N should jump to the N'th inner page : DOCUMENT THIS FEATURE
+20091004	PostLoad -> PostFileRead
+20090513	_seek_magic : if set, this pattern will be searched before going to the next image or seek_next {pattern} ?, associando ad Image l'offset .. (a' la multipage)
+20090318	minicheck to detect wrong permissions on fb file ?!
+20081228	marked pictures should have at least some asterisk and the user should be able to unmark them.
+20080903	introduce a variable for handling centering style : sticky, proportional, smart, ... (see Viewport)
+
+-------------------------------------------------------------------------------
+Test & correctness oriented features:
+
+20110620	use cpp instead of grep when autogenerating doc files
+20110612	the parser should be strictly checked for leaks
+20110612	need a runtime method for diverting stdout ? may ease debugging.
+20110602	need a test for the goodness of the 'random' variable numbers.
+20110516	invoking fim in sdl mode with very low resolutions/window sizes is crashy. this is bad.
+20110515	shall preprocessor-conditionally catch std::exception's and cout'ing this info or activate some debug channel.
+20110515	shall use clear() resize(0) instead of clear() alone (which does not resize arrays)
+20110515	shall check against end() after each erase() operation on vectors
+20110507	need a macro to avoid X == "" comparisons
+20110129	all of the scripts/rc scripts should be tested for compliance
+20110108	use google's cpplint for a cleaner code: http://google-styleguide.googlecode.com/svn/trunk/cpplint/cpplint.py 
+20110108	apply the 'explicit' keywords to constructors
+20101007	the use find_key_for_bound_cmd() should be avoided in status line update 
+20091220	consider distributing a font file or simply to embed a freely licensed one in the sources, with an eye on portability
+20091116	write some miniprogram for debugging keyboard input.
+20091004	pdf picture viewing is memory greedy - be it a leak ?
+20090820	should add a quick sanity check flag ( e.g.: --sanity-check )
+20090711	should develop some quick benchmark to evaluate some drawing operations (e.g.: blanking, color fill, etc)
+20090603	fix Adobe CS3 created jpg files opening
+20090530	        crop        = gTrue; // fix this
+20090419	serious exception handling for out of memory conditions for push_back's and stuff
+20090412	fbi bugs: http://bugs.debian.org/cgi-bin/pkgreport.cgi?pkg=fbi
+20090404	could use dejagnu for interactive (keyboard interaction based) testing
+		http://www.kegel.com/xgcc3/ng1.txt, although first tests with expect (http://expect.nist.gov/) showed it
+		doesn't handle well input exchange with fim
+20090318	static checkers ?
+		stllint : aszt.inf.elte.hu/~gsd/s/cikkek/concepts/2006/GregorSchuppSPE05.pdf
+		cppcheck : http://sourceforge.net/projects/cppcheck/
+		using astyle for code readability ?
+		could use flawfinder
+20090305	moritz suggests fimgs with :
+		src/fim -c 'autoheight=0;autowidth=0;v:auto_scale_v=0;'\
+			'autocmd "PostRedisplay" "" "g:oscale=scale;";'\
+			'autocmd "PostReload" "" "scale g:oscale.\"%\";";'     *pages*
+20090223	http://www.cubewano.org/oink <- use this automated checker, as well as other tools, possibily at least for format string vulnerabilities
+20090224	to test better, develop some simple string functions and f(){}, a=f(x,y) , f , f x y , in vim style if possible, regexp_search
+20090212	fix problems deriving from missing binaries and stuff
+20090110	write a test case with memory constraints (in a way to stress say, failing mallocs)
+20090108	write a test for corrupt image resilience (testing skip functionalities)
+20081229	write a malloc and calloc wrapper, for the future
+20081221	get rid of designated initializers (-pedantic) for ISO-C++
+20080509	very long strings in input may cause problems :)
+20070812	examine fbi's weak points like http://freshmeat.net/articles/view/2203/ and fix them in Fim, if present.
+
+-------------------------------------------------------------------------------
+Minor but not easy (time consuming) features:
+
+20110516	shall enable building with SDL only, without using Unix syscalls.
+20081227	http://www-masu.ist.osaka-u.ac.jp/~kakugawa/TeX-Guy/ for dvi support
+20080908	pdflib would be a nice try to view pdf files from within fim, but multiple anonymous images should be supported
+
+-------------------------------------------------------------------------------
+Optimization related ideas:
+
+20090213	rewrite the core in a way to avoid convert_line: there is a potentially big performance gain
+20080826	refine and optimize the rotation mechanism into a smarter, smoother, rendering based one
+20090108	write some multi-mode optimizing blitting code generating m4 macro
+
+-------------------------------------------------------------------------------
+Documentation related ideas:
+
+20071230	UNIX domain sockets communication and multithreaded Fim
+20071230	A decent Features section in the web site, from the top.
+20071127	in-depth study of Vim documentation to uniform languages as much as possible
+20071127	prepare a cookbook
+20071127	inspiration : #  vim +':help eval'
+
+
+-------------------------------------------------------------------------------
+Language related ideas:
+
+20080502	find a syntactical solution for ;; handling (extra semicolons) in the parser
+20080223	fine grain the grammar using whitespaces too
+20080216	add a third optional argument to bind : a description
+20071127	possible namespaces : 
+	 w:... window variables
+	 g:... global variables
+	 l:... local  variables
+	 s:... script variables
+	 t:... tab    variables
+	 v:... vim    variables 
+20071127	functions, return status, stdout, stderr ?
+20071025	introduce a namespace : 'e:', to get environment variables!
+20070921	argument passing to aliases, bash like ?! or vim-like ? 
+20070920	as much as possible of Vim's language intuitive syntax
+
+-------------------------------------------------------------------------------
+Debug related ideas:
+
+20080414	follow -Weffc++ g++ flag guidelines, and -Werror
+20080414	instead of malloc() to use calloc() and MALLOC_PERTURB, M_PERTURB on mallopt()
+20080414	use mtrace() sometimes, MALLOC_TRACE=mout
+20080414	use the dmalloc library (DMALLOC_OPTIONS), ElectricFence,
+20080414	use valgrind
+20080414	use mudflap library
+20080414	compile with -D_GLIBCXX_DEBUG for having a bug-aware C++ standard library
+20080414	experiment with libsegfault, <execinfo.h>
+20080414	use lint from time to time
+20080414	to add scripts to check for memory leaks and related bugs and build problems,
+		in a way contributors could run cron scripts with svn export / build capabilities
+
+-------------------------------------------------------------------------------
+Debian oriented stuff:
+
+20090226	debianize:
+		dpkg-buildpackage -rfakeroot -k0x0xE0E669C8EF1258B8
+ 		fakeroot debian/rules binary
+		http://www.debian.org/doc/debian-policy/
+		http://www.debian.org/doc/maint-guide/ch-build.en.html
+		http://pbuilder.alioth.debian.org/#IRCchannel
+		http://www.ibm.com/developerworks/linux/library/l-debpkg.html
+		http://www.debian-administration.org/articles/488
+		http://www.debian-administration.org/articles/337
+		debuild -us -uc
+		http://people.debian.org/~codehelp/#sponsor
+		http://dl.bytesex.org/releases/fbida/ida_0.21.dsc
+20090223	dput, dupload, svn-autoreleasedeb, devscripts, debsecan
+
+
+-------------------------------------------------------------------------------
+Optimization:
+
+20070418	Got ~400% speedup on image display thanks to trivial changes in
+	the drawing code : memset and memcpy instead of assignments, and a less
+	trivial change by swapping RGB channels on loading time instead that on
+	drawing time. The analysis was made with the gprof profiler, nicely.
+
+Maybe one day me or some contributor will read 
+	http://www.cvl.isy.liu.se/ScOut/Publications/PaperInfo/sf05.html
+	or
+Example 4.14 of the Intel Architecture SW Manual Optimization explains how to
+and find some useful idea.
+use PSHUFLW,PSHUFW,PSHUFD to reverse contiguous words in registers.
+
+-------------------------------------------------------------------------------
+
+This file is often outdated : Fim is far better than it seems here :)
+
+Please read the FIM.TXT file and the fimrc template to discover nice Fim features.
+
+	OPEN   BUGS:
+
+20080323	65535 byte limit for a script size (stored in a fim::string) causes problems
+		( see scripts/tests/maxlenscript.fim for this )
+20070210	fix properly the file parser and max script filelength limit
+20070129	control 4 crashes the prog with code 42 ... why ? :)
+
+	MISSING SMALL FIXES:
+20070303	fix rar and zip dependencies in Makefiles and such for fimgs.sh
+20070303	see if while-nesting is a real danger combined with interruption handling
+20070303	update the while construct documentation and fix the while command execution bugs 
+20070303	add an interface for setting exitBinding (now Enter!)
+20070210	add an interface to modify key bindings and keycode bindings.
+20070401	variables : $VARNAME or $(VARNAME) or VARNAME ?
+
+	SCIENCE FICTION WISHED ADD-ONS:
+20070307	someday: to integrate with a speech recognizer for command issuing
+20070323	image understanding language - based pattern selection
+20070401	?= /semanticexp/ operator
+
+	ADD:
+20070401	find's -exec '{}' ';' -like predicate syntax
+20070125	add pipe to other commands and exec and system (screenshot with fbgrab, for example)
+20070128	add support for command renaming with checks...
+20070130	proper signal handing for while cycle interruption..
+20070201	cwd,ls,pwd,stat,file...
+
+	MISC IDEAS :
+20070303
+		load cfg, save cfg
+		flip=yes|no
+		scale=i|i:i|:i|i:|
+		fit  =width|height|none|image|min|max
+		center=t|b|l|r|tl|tr|bl|br|center
+		orientation=90|... [cw|ccw] | flip
+		mirror=yes|no
+		persistent_options= word*|'*'
+		transient_options = word*
+		logfile=...
+		debugfile=..
+		cwd=word
+		negative=..
+		interpolator=..
+		options_style=stacked|trasient|permanent_save	
+			function : 
+		[n]%[r|l]
+		+|-n[%]
+20070401	better variable handling : boolean variables, conversion, 'no' prefixing,
+		completion fitting the language rules..
+
+	DATES:
+20061223	inception
+20070202	stress testing (1000+d-) gave : CommandConsole.cpp:577: "pipe error"
+20070204	make stricter the policy of recording (only aliases and/or lines.complete the time behaviour
+	IDEAS
+20070210	eliminate the fresh variable from the config?
+20070216	eliminate image tearing by studying the framebuffer device
+		repeat_last N ?!
+	TIPS
+20070302	use __FUNCTION__ : is not ANSI, but GCC
+

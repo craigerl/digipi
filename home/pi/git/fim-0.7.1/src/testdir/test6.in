@@ -1,0 +1,22 @@
+
+a=1;
+{a=5}
+if( a==5 ){stdout "{command} constructs work";}
+else {stdout "{command} constructs don't work";}
+
+{a=10;}
+if( a==10 ){stdout "{command;} constructs work";}
+else {stdout "{command;} constructs don't work";}
+
+#the following does not work
+{a=20;;}
+
+if( a==20 ){stdout "{command;;} constructs work";}
+else {stdout "{command;;} constructs don't work";}
+
+
+stdout "please note that the 'quit' command is still untested";
+rc=0;
+stdout "command blocking test success";
+quit rc;
+

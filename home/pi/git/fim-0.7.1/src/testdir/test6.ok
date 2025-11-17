@@ -1,0 +1,5 @@
+{command} constructs work
+{command;} constructs work
+{command;;} constructs work
+please note that the 'quit' command is still untested
+command blocking test success

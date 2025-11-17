@@ -1,0 +1,18 @@
+# jump to the third image:
+3;
+# jump to first image:
+^;
+# jump to last image:
+$;
+# magnify the image two times:
+*2;
+# scale the image to the 30% of the original:
+30%;
+# scale the image up by 30%:
++30%;
+# scale the image down by 30%:
+-30%;
+# jump to the next image whose filename matches the ".*jpg" regular expression:
+/.*jpg;
+# execute the "date" system command
+!"date";

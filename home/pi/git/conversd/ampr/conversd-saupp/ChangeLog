@@ -1,0 +1,1251 @@
+@(#) $Id: ChangeLog,v 1.14 2009/06/22 00:41:25 dl9sau Exp $
+
+$Log: ChangeLog,v $
+Revision 1.14  2009/06/22 00:41:25  dl9sau
+	tnos.c: fix of possible array corruption (sizeof + 1)
+
+Revision 1.13  2008-08-03 21:19:36  thomas
+	fix: change_pers_and_nick() smashed struct connection cp.
+	symtom: nicknames could only be changed but not removed
+	bug: cp->name[0] became 0, and thus the file .../nicknames/<name>
+	     could not be unlinked.
+
+Revision 1.12  2008-02-16 18:31:58  dl9sau
+	fix: ask_pw_sys(): do not query for the same numbers
+
+Revision 1.11  2007/09/16 10:07:11  dl9sau
+	- md5.h: fix for 64bit Plattforms
+
+Revision 1.10  2005/04/17 14:42:43  dl9sau
+	work ECMD command:
+		- has null pointer exception
+		- was a strongly discouraged implementation
+			-> disabled this questionable "feature"
+
+Revision 1.9  2005/02/15 16:31:28  dl9sau
+	made conversd-saupp compile on macosx (should also compile on
+	freebsd again)
+
+Revision 1.8  2005/02/14 01:19:19  dl9sau
+	correction for help file: /nick command
+
+Revision 1.7  2004/12/18 18:10:05  dl9sau
+	access.c: ACC_HOST_SECURE and ACC_USER are now allowed to work
+
+Revision 1.6  2004/11/19 11:42:40  dl9sau
+	Fix: when much data is sent at once (for e.g. endless history
+	settings) then the user connection may have died due to "bad link"
+	(more than 50*1024 bytes in the outqueue).
+	With this fix, it's checked if the first line in the outqueue is
+	older then 2min.
+
+Revision 1.5  2004/09/11 20:34:07  dl9sau
+	important bugfix in /mode command.
+	  this had bad side effects.
+	  symtom: "user is observer" when doing mode +o.
+
+Revision 1.4  2004/01/14 16:01:11  dl9sau
+	last_command: buffer was too small.
+
+Revision 1.3  2003/11/25 11:58:28  dl9sau
+        - gcc3.3 now compiles saupp without warnings; had to change the
+          name of the function log()
+        - conversd.c: trigger message for users which are not in a channel
+        - README.saupp: fixed typo for cvs checkout
+
+Revision 1.2  2003/11/11 01:10:40  dl9sau
+	- Historical versions (like the old 1.61, and the full development
+	  history for 1.62a (which is marked as branch DEVEL) are now in
+	  conversd-saupp-devel-history instead of this location).
+	- This repository starts with subversion 0251 (20031111).
+	-  Please do not use the old DEVEL tree anymore.
+
+Revision 1.1.1.1  2003/11/11 02:42:54  dl9sau
+	DEVEL 1.62a now in HEAD
+
+Revision 1.115.6.1.4.107  2003/11/11 02:42:54  dl9sau
+	- bugfix on multible alternative connections for 2nd, .. backup link
+	- changed subversion to 0251
+
+Revision 1.115.6.1.4.106  2003/09/21 09:25:26  dl9sau
+	- bugfix: those nick deletions which are received with /..NJ
+		were ignored
+	- the ugly bug where the host field was missing in a NJ message
+		still occurs, but very seldomly. until i'll find the
+		problem, i made assurances in h_host_command,
+		send_user_change_msg and h_netjoin_command in order to
+		not accept these buggy messages.
+	- changed sub-version to 0250
+
+Revision 1.115.6.1.4.105  2003/09/18 22:04:17  dl9sau
+	- added join_flood protection to channel_command if a user
+	  joins a private channel. the informational message which
+	  is sent to the current channel users was abused.
+	  when receiving a message from for e.g. from another convers
+	  that te1st wished to join your channel and you do not like
+	  to see this message, you may use "/filterwords te1st".
+	  then cou still could talk about the abouser te1st, but you'll
+	  get no messages abt te1st anymour.
+	- topic command: striped '***' at the end of the command where
+          they were useless
+	- changed sub-version to 2049
+
+Revision 1.115.6.1.4.104  2003/09/15 22:19:17  dl9sau
+	bugfix in irc client mode:
+		nick change was always lowercase
+
+Revision 1.115.6.1.4.103  2003/09/14 23:29:16  dl9sau
+	fixed typo of sm0rux's call
+
+Revision 1.115.6.1.4.102  2003/09/08 17:12:47  dl9sau
+	IMPORTANT bugfix:
+	  since sub-version 0244 (2003/09/03) we accidently sent mode changes
+	  back to the permink neighbor we received them from
+          -> changed sub-version to 0247
+
+Revision 1.115.6.1.4.101  2003/09/07 13:17:28  dl9sau
+	- bugfix: when permlink connects, chanops were not announced
+	  to local convers users (normal, irc-mode)
+        - changed subversion to 0246
+
+Revision 1.115.6.1.4.100  2003/09/05 15:11:37  dl9sau
+	- New option "/li acl" for manipulating the access list in order
+	  not to be forced to reboot if you add a new link partner which
+	  will be blocked by your current access list (conversd.conf).
+	- Documented this option in convers.help{,de}
+	- Changed sub-version to 0245
+
+Revision 1.115.6.1.4.99  2003/09/03 20:49:52  dl9sau
+	- bugfix: nick change:
+	   was not distibuted when user is an irc-mode user.
+        - compatibility fix:
+           - send n!u@h notation on UserMODE change events to irc-clients,
+             as far as possible (will only have effekt on the local server,
+             because the conversd protocol does not transfer the originator
+             for a mode or op change).
+           - irssi sends "+o+o+o nick1 nick2 nick3". will now recognize
+             this behaviour
+           - will echo mode changes back to the client, because some
+             irc-clients rely on it.
+	- tnos.c: minor fix with nickname_length
+	- help file for irc: added tip for /quote
+
+Revision 1.115.6.1.4.98  2003/08/09 00:35:33  dl9sau
+	beauty enhencements:
+	  - new ts5() function, nicer output of some functions
+	  - changed ts4() for nicer "/sysi" output (idea from pontus, sm0rux)
+	  - take care: many functions t3() depend on current the t3 format;
+		this should not be changed
+
+Revision 1.115.6.1.4.97  2003/07/27 15:30:28  dl9sau
+	/timestamp: when the last timestamped message was > 24h ago,
+		    report the days between the timestamp of the last message
+		    and the current.
+
+Revision 1.115.6.1.4.96  2003/07/26 12:03:32  dl9sau
+	- New command for normal convers mode: /timestamp
+	  - changed conversd.{c,h} user.{c,h} version.h
+	  - added help
+	- changed sub version to 0242
+
+Revision 1.115.6.1.4.95  2003/03/21 10:14:01  dl9sau
+	- bugfix in opless channel handler
+	- changed subversion number to 0241
+
+Revision 1.115.6.1.4.94  2003/03/09 16:04:42  dl9sau
+	- bugfix in log_user_change (calls with extensions have been
+	  logged to the wrong hash-file); /last then found only
+          older timestamps (where the "tidy" name was referenced)
+	- check_opless_channels seems functional now -> activated
+	- changed default for
+            CHIST_MAXLINES from 16 to 64 lines
+            CHIST_EXPIRES  from  2 to  8 hours
+          also updated description in example conversd.conf
+	- changed subversion number to 0240
+
+Revision 1.115.6.1.4.93  2003/03/03 12:02:40  dl9sau
+	check_opless_channel() has a bug. disabling this new feature
+	until i've the time to trace it
+
+Revision 1.115.6.1.4.92  2003/03/02 12:20:19  dl9sau
+	- access.c: get_tidy_name() now checks for ':' too
+	- conversd.c:
+	  - user_check() for unwanted users, intended for
+	      bad users coming from remote nodes
+		-> makes them "observer"
+		-> they could not do anything causing net traffic
+	  - new check_opless_channels() functionality which servers for an op
+	    to channels without op.
+	  - more active ctcp / notice parsing
+        - host.c, tnos.c:
+	  - more user_check()
+	- host.c:
+	  - example NJ description fix
+	  - logging of NJ protocol violation
+	  - observer checks
+	- user.c:
+	  - mode_command: no ops for observer or bad calls from user_check()
+		(observer was already right. but now the error description
+		became also corrected)
+	- changed subversion number to 0239
+
+Revision 1.115.6.1.4.91  2003/02/01 15:16:24  dl9sau
+	- more work on german convers help file (dl3sbb)
+	- note on make-all (use with care!)
+	- changed Makefile to give a warning when doing a make install-all
+
+Revision 1.115.6.1.4.90  2003/01/18 14:08:09  dl9sau
+	re_bind_listener() with wrong euid permissions
+
+Revision 1.115.6.1.4.89  2003/01/14 22:32:54  dl9sau
+	/name foo did not went to default channel (if != 0), because
+	isnumber() returned true on empty string.
+
+Revision 1.115.6.1.4.88  2003/01/12 22:51:57  dl9sau
+	- fixed problems with calls beginning with a number. a new function
+	  isnumber() does this job now, instead of constructs like
+		if (atoi(arg) > 0 || !strcasecmp(arg, "0")) ...
+	- subversion number changed to 0237
+
+Revision 1.115.6.1.4.87  2003/01/12 14:54:06  dl9sau
+	- IMPORTANT bugfix in NJ routine:
+		some users on channel 0 were not announced due to
+			if (!p->chan_list && p->channel > 0)
+		instead of
+			if (!p->chan_list && p->channel >= 0)
+	- h_operator: on reconnect, the local operator status got lost
+		if a /..OPER for the own call was received
+	- multible logins on the same channel were discarded; testing
+		new algorithm
+	- /sysi <host>: testing new sysi information layout which is
+		much better readable. hope it will not break any userscripts
+	- changed subversion number to 0236
+
+Revision 1.115.6.1.4.86  2003/01/05 23:34:12  dl9sau
+	- fixed bug in topic remove within irc mode
+	- looked at c == ' ' occurences and changed them by isspace()
+	- leading blank restauration in h_cmsg_command now with a better
+	  algorithm. now also in h_umsg_command.
+	- removed unused functions in tnos.c
+
+Revision 1.115.6.1.4.85  2003/01/04 23:55:25  dl9sau
+	convers client:
+	  - fixed potential overflow
+	  - typo in RL_READLINE_VERSION check
+
+Revision 1.115.6.1.4.84  2003/01/04 02:16:37  dl9sau
+	- now actively disconnecting idle incoming sessions which are
+	  still of type CT_UNKOWN 15min after connect (due to portscans,
+	  DOSattacks, etc..)
+	- changed version number to 0235
+
+Revision 1.115.6.1.4.83  2003/01/03 22:30:26  dl9sau
+        - helpfiles:
+            tom <dl3sbb> cleaned up the german documentation
+        - Makefile:
+            moved symlink for default config file from install-bin to install-conf
+        - convers client:
+          - c_cc[VMIN] = 1 initialization necessary for readline() to work
+            properly. debian woody on sparc has (errornously?) stty min 0
+            by default
+          - there's an error with libreadline4 where rl_event_hook is
+            buggy when multible lines are read at once. it's unknown
+            for how long this bug exists. it's documented in
+              http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=144585
+            this patch fixes the problem, which may occur again if
+            libreadline will not be fixed in future versions:
+              rl_event_hook = 0;
+              if (RL_READLINE_VERSION <= 0x042)
+                rl_event_hook = (Function *) do_select_call;
+          - cleaned up getopt() args for the various compiletime versions
+            (convers, rawconvers, ax25)
+	  - changed subversion to 0234
+
+Revision 1.115.6.1.4.81  2002/11/21 18:10:58  dl9sau
+	beauty fixes (netjoin in host.c, convers service name in irc.c)
+
+Revision 1.115.6.1.4.80  2002/11/17 11:22:19  dl9sau
+	user.c and help files:
+	  last command with "-n" option. default is now 1 entry / user.
+
+Revision 1.115.6.1.4.79  2002/11/13 15:00:06  dl9sau
+	- fix in flood protection specific part of user.c:
+	  (unreferenced via after permlink disconnect)
+	- host.c: better nickname handling for remotely received away and
+	  topic messages
+	- auto-learned nicknames now case-sensitive
+	- fixed typos in conversd.help and conversd.help.de
+	- changed subversion number to 0231
+
+Revision 1.115.6.1.4.78  2002/11/10 11:21:56  dl9sau
+	conversd.c and user.c: /trigger option for less verbose operation
+	actualized convers.help*
+
+Revision 1.115.6.1.4.77  2002/10/27 14:11:35  dl9sau
+	- ba_stub.c:
+	  - bugfix. gethostbyname() returns, when multi on in
+	    hosts.conf, a valid IP (from hosts) (if any), but due to
+	    the resolver error, errno was set. this caused in some
+	    environments that a host will not be connected even if
+	    resolvable
+	  - now using inet_aton() instead of inet_ntoa()
+	- conversd.c:
+	  "Connecting.." log message now with cp->sockame info
+	- tnoc.c:
+	  conv_random(arg) now with "currtime" instead of time(0),
+	  because time(0) will always be equal
+	- version.h: changed subversion to 0229
+
+Revision 1.115.6.1.4.76  2002/10/22 10:07:05  dl9sau
+	added dyndns feature (forward dns resolving) for Access list
+	entries. names with fqdn are resolved and the current IP is compared
+	with the one of the incoming connection. the resolved IP is
+	being cached for up to 3 minutes (avoid DOS attaks).
+	access.c: the code
+	conversd.conf: description of the featured
+
+Revision 1.115.6.1.4.75  2002/10/21 23:04:02  dl9sau
+	conversd.c: on expiration of auto-learned hosts and known link,
+		we send DEST 0 to all neighbors. all assurance are made
+		that they never learned such a dest from us, but how knows..
+
+Revision 1.115.6.1.4.74  2002/10/19 19:50:44  dl9sau
+        - lock connecting host we refuse due to loop prevention (when we
+          found his name in the DEST list)
+
+Revision 1.115.6.1.4.73  2002/10/15 08:38:54  dl9sau
+	- added squit response in the case our neighbor sais squit to us
+	  (host.c)
+
+Revision 1.115.6.1.4.72  2002/10/15 01:19:45  dl9sau
+	- new access control: ACC_DROP
+	  drops incoming connections silently (withour logging), and fast.
+	  this is userful if you have an rmnc, periodically polling you.
+	  added doku in etc/conversd.conf example.
+	- sessions on inet sockets with ACC_BAN were not actively closed.
+	  this is not a good idea, because it's potentially DOS'able
+	- on inet session rejects in ACC_BAN condx, the reason was not sent
+	- typo in host.c in the SQUIT code (received squits were forwarded
+	  as /\377200SQUIT - which was ignored at the remote side)
+	- /oper (/sys) command:
+		- now logging as L_AUTH, not L_ERR, since this is what
+		  we expect
+		- log now also if /sysi is disabled
+	- version.h: reverted to manual date stamps
+
+Revision 1.115.6.1.4.71  2002/10/14 20:25:06  dl9sau
+        corrected CHinfo to CHInfo in  etc/convers.help
+        and etc/convers.help.de
+        
+Revision 1.115.6.1.4.70  2002/10/08 00:05:01  dl9sau
+        compatibility fix for htppu conversd:
+                /sysi all closed permlink on receive of the answer, because
+                htppu sends "\n*** \n" due to a bug.
+                we (mis)interprete this as an error message of an ax25-
+                digipeater (i.e. "*** link failure with ...")
+	changed version subnumber to 0223
+
+Revision 1.115.6.1.4.67  2002/10/06 20:43:30  dl9sau
+	fixes for linux on mips CPU
+
+Revision 1.115.6.1.4.66  2002/10/06 10:20:13  dl9sau
+	beauty: say channel number on topic change only when receipient
+	is currently on another channel
+
+Revision 1.115.6.1.4.65  2002/10/02 08:35:32  dl9sau
+	bugfix in all_command (segfaulted when run from profile after
+	login of an /irc mode user)
+
+Revision 1.115.6.1.4.64  2002/09/20 22:57:34  dl9sau
+	conversd.c:
+	  - bugfix (buffer overvlow) while reading from CT_USER
+	  - sul problem with delay of CT_UNKNOWN -> CT_USER
+	  - now reading input buffer even if CT_CLOSED (it's for the kernel
+	    health ;)
+	  - version.h: built date is now set automatically by the compiler
+	convers.c:
+	  - now safe to signals (tty input INTR, SUSP or QUIT)
+	  - do_select_call() after initial writes -> now display of
+	    conversd greating is more robust (esp. for deny messages)
+
+Revision 1.115.6.1.4.63  2002/09/06 09:33:54  dl9sau
+	fixed problems with ksirc client (logon with wrong order
+	of NICK and USER)
+
+Revision 1.115.6.1.4.62  2002/08/31 15:22:36  dl9sau
+	fix in config.c for secretnum == 0
+
+Revision 1.115.6.1.4.61  2002/08/19 00:01:27  dl9sau
+	- fix in /who r
+
+Revision 1.115.6.1.4.60  2002/08/01 00:53:58  dl9sau
+	"/lo [call] channel" now capable of '#1999' notation for channels
+
+Revision 1.115.6.1.4.59  2002/07/19 19:56:10  dl9sau
+	- bad field length of %4.4 for version number in /? command header
+	- typo in german doku
+
+Revision 1.115.6.1.4.58  2002/07/19 19:36:13  dl9sau
+	small bufgix in /..MODE +T
+
+Revision 1.115.6.1.4.57  2002/07/17 18:45:04  dl9sau
+	- /who r 's output could be too long in the /pers part;
+	  now adjusting to cp->width.
+  	  if you really want to know the whole long pers of a user, please
+	  use the /whois user command
+	- /who t did not append "***" as prompt
+	- /paclen and /witdh now with a limit (MAX_MTU), because max unsigned
+	  int 2147483647 is irritating, and we really do correct this anyway
+	- german convers help beautified (thanks to jens dh6bb)
+
+Revision 1.115.6.1.4.56  2002/07/09 14:53:25  dl9sau
+	testing new ideas how to handle "autolearned" destinations
+
+Revision 1.115.6.1.4.55  2002/07/08 15:44:28  dl9sau
+	some beauty on /last in irc mode
+
+Revision 1.115.6.1.4.54  2002/07/07 16:54:47  dl9sau
+	new optional authentication (aprs standard)
+	enable with
+	  AcceptAPRSpass 1
+	in your conversd.conf
+
+Revision 1.115.6.1.4.53  2002/07/07 13:30:29  dl9sau
+	- sortet /last output (user.c)
+	- now fixing logfiles on startup (conversd.c)
+
+Revision 1.115.6.1.4.52  2002/07/05 14:07:10  dl9sau
+	beautyfied output on /links:
+	- static links first
+	  - first those without backup link
+	  - then primaries with their correspondent backup links
+	- learned links
+	  - in connected state
+	  - in disconnected state
+
+Revision 1.115.6.1.4.51  2002/06/24 10:37:05  dl9sau
+	importang bugfix:
+	on receiption of a user change message with "foo<>broken" user
+	change messages, neither SQUIT nor the user_change_messages to -1
+	were interpreted locally ant sent to other permlinks
+
+Revision 1.115.6.1.4.50  2002/06/18 08:50:09  dl9sau
+	changed MAX_MTU. after a bit IP stack hacking i assume the
+	the propability of problems rises if MTU is >1500
+
+Revision 1.115.6.1.4.49  2002/06/17 11:19:18  dl9sau
+	more work on timers andalternative-link-connection code
+
+Revision 1.115.6.1.4.48  2002/06/16 15:58:39  dl9sau
+	fix for a condition of infititive accepts() when a socket dies
+	(for e.g. ifconfig bpq0 down). this may be the problem found on
+	some nodes. nevertheless, this fixes a bug. died listeners are
+	now periodically checked if they're available again.
+
+Revision 1.115.6.1.4.47  2002/06/15 19:52:25  dl9sau
+	new (testing): alternative links to the same host (currently only
+	configurable via conversd.conf).
+
+Revision 1.115.6.1.4.46  2002/06/13 09:32:44  dl9sau
+        - imoportant bugfix for saupp subversion 0201: sent DEST 0 back
+	  to the permlink where the information came from
+
+Revision 1.115.6.1.4.45  2002/06/13 00:12:21  dl9sau
+	- new feature: /sys md5 or /sys sys (syntax like /auth) for
+	  operator access. a new entry in the config file (SecretPass).
+	  added info to example conversd.conf and the help files
+	- ch0 now without modes (except for +t). modes on #0 "through" saupps
+	  will be blocked. this is, because a mode #0 +i (invite only)
+	  may block users of for e.g. some old ppconversd's even to sign on.
+	- destination list expiration
+	- fix in update_destinations(): hmalloc() (not hcalloc() was invoked).
+	  this lead to some strange situations where d->connected was tested,
+	  but the flag was already "set" (with a random number)
+	  - thus partly rewrote update_destinations() in the rtt == 0,
+	    d->rtt = 0, d->link = 0 segment, too.
+	- permlink connect: saupp seems sometimes to wait for hours, before
+	  trying to reconnect a broken permlink. it should not (MAX_WAITTIME
+	  is 3h). no time to trace. made a q&d fix in order to gain time ;))
+	  	if (p->retrytime > currtime + MAX_WAITTIME) {
+	  		log(L_ERR, "debug: correcting retrytime [s]: p->
+	  		retrytime %ld - currtime %ld = %ld && > %ld", p->retrytime, currtime, p->retryti
+	  		me - currtime, MAX_WAITTIME);
+	  		p->retrytime = currtime + MAX_WAITTIME;
+	  	}
+
+Revision 1.115.6.1.4.44  2002/06/02 15:31:05  dl9sau
+	important bugfix. on link failure, we learned hosts again
+	after DEST 0 on h_user... signoff
+
+Revision 1.115.6.1.4.43  2002/06/01 17:42:20  dl9sau
+	conversd did not connect his backup link
+
+Revision 1.115.6.1.4.42  2002/05/31 15:03:55  dl9sau
+	fixed problem with loop protection, when a host connects his
+	primary, has still a fallback link, and the primary knows the
+	connecting host as learned host. he does not know if it's a
+	configuration error, or which permlink the connecting host
+	has to disconnect. all we can do is, to send /..HOST, and then
+	disconnect. this way we could tell the connecting site, that
+	the connection to his primary is possible.
+	a saupp conevrsd will then recognize the primary, and will
+	disconnect his fallback and this connection, wait a while (until
+	the net has recognized that the old link is dead) and try again.
+
+Revision 1.115.6.1.4.41  2002/05/31 13:03:37  dl9sau
+	- fix for /login without channel (made name empty)
+	- default channel = 0 and BanZero means "random channel".
+	  -> corrected /login info message
+
+Revision 1.115.6.1.4.40  2002/05/28 15:57:03  dl9sau
+	- new command: /filterwords - filters bad words in convers
+	- /filter is the default abbrev. for /filterusers
+	- channel history: now reports netsplits, and when no new data
+	  will arrive due to a channel leave (local, or other permlink)
+	  and no users are left from there
+
+Revision 1.115.6.1.4.39  2002/05/27 03:55:59  dl9sau
+	small bugfix (case sensitive hosts, esp. in h_netjoin_command)
+
+Revision 1.115.6.1.4.38  2002/05/26 14:26:43  dl9sau
+	new special channel: -3 -> ask for /lo <channel>
+
+Revision 1.115.6.1.4.37  2002/05/26 12:51:51  dl9sau
+        fixes: conversd was DOS attackable (when too many open files)
+
+Revision 1.115.6.1.4.36  2002/05/25 21:32:41  dl9sau
+	- better get_tidy_nickname()
+	- /filter @ now also switches filter off (consistency to other
+	  commands). changed doku too
+
+Revision 1.115.6.1.4.35  2002/05/25 19:43:42  dl9sau
+	substring filtering
+
+Revision 1.115.6.1.4.34  2002/05/25 19:04:28  dl9sau
+	fixed syslog problem. now reserving fd0.
+	-> change subversion to 0188
+
+	- bug tracing for strange phaenomen:
+	  sometimes there are no connections to conversd possible.
+	  seems to look like syslog uses a connection fd under some condxs
+	- CT_CLOSED check in process_input() and where it is called from
+	  (main loop, periodical_jobs, ..)
+	- better "foo<>bar broken" messages for some cases
+	- after a connection to a permlink has died, we now wait 30s
+	- smaller fixes in user.c and host.c
+
+Revision 1.115.6.1.4.32  2002/05/21 14:31:47  dl9sau
+	- rewrote UADD / UDAT ... handling (empowered send_user_change_msg(),
+	  which now announces nick changes too)
+	- nick and pers changes to feature-I hosts are now announced with
+	  the new NJ command.
+	- minor fixes
+
+Revision 1.115.6.1.4.31  2002/05/19 16:51:43  dl9sau
+	greater changes:
+	- fallback for sys/md5 password prompt if nodename is not callvalid
+	- do not display idle time if idle time == signon time (idle time
+	  of remote users is only acurate if actually a convers channel
+	  message has been seen)
+	- added NetworkJoin handler. FeatureID is "i". moved uquit and squit
+	  to this id. this is testing and may change!
+	- added SUL_PERS flood protection to h_uadd()
+	- added some sanity checks to config.c
+	- revertet UADD / UDAT handlig to normal behaviour (not fully
+	  testet)
+	- fix in h_host when loop handler is called without correkt cp->name
+	- fixes of race condxs in the new h_user_command() (parts of the new
+	  code (on channel join) moved to a new funktion make_new_user(),
+	  which is used also by h_netjoin_command()).
+	- seperated loop sanity check in a new function checkhost(), used
+	  by h_user_command() and h_netjoin_command()
+	- various smaller fixes
+
+Revision 1.115.6.1.4.30  2002/05/18 02:30:45  dl9sau
+	testing: more on effiency for UADD UDAT etc..
+
+Revision 1.115.6.1.4.29  2002/05/17 12:11:33  dl9sau
+	fix in send_quits
+
+Revision 1.115.6.1.4.28  2002/05/17 11:34:18  dl9sau
+	another bug in the new h_user() routine
+
+Revision 1.115.6.1.4.27  2002/05/17 08:31:55  dl9sau
+	*** important ***
+	bugfix in h_user while calling loop_handler() when neighbour
+	informed us about a new user at our own host -> caused segfault
+
+Revision 1.115.6.1.4.26  2002/05/17 00:16:13  dl9sau
+	minor changes
+
+Revision 1.115.6.1.4.25  2002/05/16 10:28:43  dl9sau
+        - completely rewrote h_user_command(). the old code was too obscure
+        - added argument for "nick changed" and "send op stat" to
+          send_personal_command
+        - ideas for fast netjoin. do not use
+
+Revision 1.115.6.1.4.23  2002/05/15 01:19:49  dl9sau
+	- a linux write() really sucks fix.
+	  hope now we are conform to how kernel 2.4.x likes peaceful programs
+
+Revision 1.115.6.1.4.22  2002/05/14 21:03:12  dl9sau
+	fix for ax25 login on restricted sockets. does work now
+
+Revision 1.115.6.1.4.21  2002/05/14 20:33:34  dl9sau
+	- more work to make things more efficient
+	- the UDAT and UADD code is _really_ ugly
+	  there's a need to set a new standard
+
+Revision 1.115.6.1.4.20  2002/05/14 15:30:36  dl9sau
+	- bugfixes (empty channels which remained)
+	- new CDAT command for exchanging channel creator and last sender
+	  to channel (added this to h_host too)
+	- channel locks for netsplit now repects creator
+	- h_user_command now autodetects channel creation time
+	- improved h_host:
+	    - faster exchange between saupps (send UDAT instead of UADD
+	      if nick changed)
+	    - changed order user info / topics
+	- work on h_squit feature
+
+Revision 1.115.6.1.4.19  2002/05/14 12:18:44  dl9sau
+	testing: ax25 login on socket with ACCESS RESTRICTED and no host
+	  allowed -> auto ax25 login on next free channel
+	-> seems now to work (version 0169)
+
+Revision 1.115.6.1.4.18  2002/05/14 00:28:44  dl9sau
+	- more work on squit. fixes
+	- some problem with channel expiration. not fully traced yet
+
+Revision 1.115.6.1.4.17  2002/05/13 02:05:15  dl9sau
+	squit autodetection when we receive a channel leave burst
+
+Revision 1.115.6.1.4.16  2002/05/13 01:27:19  dl9sau
+	this is a testing release. there may occur problems.
+
+Revision 1.115.6.1.4.15  2002/05/12 20:26:29  dl9sau
+	bugfix in new h_host routine
+
+Revision 1.115.6.1.4.14  2002/05/12 15:44:44  dl9sau
+	- sending /..DEST directly we received the /..HOST command
+	- optimized /..HOST routine to be more effizient on amprlinks
+	- a pers change with /..USER ... method leaded to a change of
+	  user's signon time.
+	- !cp->amprnet permlink announcement had no "linkfailure" reason
+
+Revision 1.115.6.1.4.13  2002/05/12 10:55:36  dl9sau
+	the new solution had some problems.
+
+Revision 1.115.6.1.4.12  2002/05/12 01:22:28  dl9sau
+	found a good solution for detecting remote netsplits, in order
+	to prevent local joins for channels which became "userless" due
+	to this event.
+
+Revision 1.115.6.1.4.11  2002/05/11 20:15:33  dl9sau
+	- more checking on "delayed" channels
+	- fix in conversd.c (last_run = currtime for periodicaly channel
+	  expiration)
+
+Revision 1.115.6.1.4.10  2002/05/11 19:11:27  dl9sau
+	- fix for my h_uadd handling in host.c and tnos.c (was not forwarded)
+
+Revision 1.115.6.1.4.9  2002/05/11 14:50:59  dl9sau
+        - added channel delayed removal according to rfc2811
+	- fixed typo in ircmode message in user.c
+	- work on loop detection (in host.c h_dest_command())
+	- better diagnostig in /..LOOP and the informational message
+	- fixed loop detection part2 (in h_user_command() (did not
+	  walk through the whole connection pointer list for searching the host)
+
+Revision 1.115.6.1.4.7  2002/05/10 12:25:13  dl9sau
+	work on loop diagnostic and prevention
+
+Revision 1.115.6.1.4.6  2002/05/08 12:46:32  dl9sau
+important bugfix:
+	linux 2.4.x uses -EAGAIN on write if the internal socket stack
+	of the kernel is full. this is no error, thus no reason to
+	disconnect, but we have to re-add the buffer to the message queue
+	and try again..
+
+Revision 1.115.6.1.4.5  2002/05/08 10:12:40  dl9sau
+	- bugfix:
+	   - important: the count for left users on channel was wrong,
+	     thus when a local user left as last one the channel, it may
+	     be not destroyed (!).
+	     the verbosity for special channel flags failed on those
+	     leaves, because the channel was destroyed before
+	     send_user_change_message()
+	   - changed sysop prompt to 5.5d -> leading zeroes do now work
+	- "debugchannel" now configurable (only needed in pp convers nets)
+	- using strcpy for "secret ", "invisible ", .. channel descriptions
+
+Revision 1.115.6.1.4.4  2002/05/07 09:56:27  dl9sau
+	more care on cp->operator == 2 (local op)
+
+Revision 1.115.6.1.4.3  2002/05/06 19:33:14  dl9sau
+	leading 0's on too short /oper digets
+
+Revision 1.115.6.1.4.2  2002/05/06 15:56:12  dl9sau
+	- moved join flood detection to noflood.c
+	- Makefile: -O2 -s is default now
+	- this new feature has a bit NO_{LOCAL,REMOTE}_JOIN_FLOOD (to be
+	  switchable off if it does not work)
+	- /banparms had a formating bug (beauty)
+	- user.c had a small problem when counting user's channel (cp->type
+	    == CT_HOST, instead of p->type - but this is just beauty)
+
+Revision 1.115.6.1.4.1  2002/05/06 11:08:23  dl9sau
+	- continuing to write the Changelog in DEVEL branch.
+	  will import old comments later.
+	- added doku for undokumented Maxlinks entry in conversd.conf,
+	  and reduced DEF_NR_PERMLINKS to 16. If you are a large hub,
+	  you may adjust the Maxlinks entry without recompile.
+
+-----------------------------
+
+Revision 1.115.6.1  2002/02/09 13:49:41  dl9sau
+	- merging from HEAD
+
+Revision 1.116  2002/02/08 21:43:26  dl9sau
+	- new: sorted user lists on /who /whois /list ..
+	- better secret / private channel handling. this fixes several
+	  bugs, esp. in /who r, /who #somesecretchannel, /who n, /who l,
+	  /who topic, /topic #all
+	- bugfix in /topic: /topic on channels you're not on..
+	- new /invite handling (rfc conform: invite on invite-only channels
+	  only if operator)
+	- warning: not extensively tested. will go in the pub now ;)
+
+Revision 1.115  2002/01/28 01:51:35  dl9sau
+	- added NEWS.txt
+	- applied patch for better orthographical conversd messages
+	  (thanks to robert <dl1nc>)
+
+Revision 1.114  2002/01/28 01:35:42  dl9sau
+	- fixed /pers handling (update for all local connections of
+	  the user)
+	- saupp used old /away standard. changed h_away_command()
+	  so both (the old and the new standard) are understood
+	  unfortunately, there are side-effects that older saupp's
+	  (and other conversd's) will ignore now the away command.
+	  if you have problems with other conversd's, change cp->oldaway = 1
+	  in conversd.c (remember that this will break
+	  ppconvers-compatibility again).
+        - /away had problems when announcing to other user's on the
+	  channel
+	- /who and /whois if you are on private or secret channels
+	  now shows the channel even if you are issuing the command
+	  on a second connection
+	- tests with negative channels showed, that a channel was
+	  created. changed this misbehaviour.
+
+Revision 1.113  2002/01/26 04:22:44  dl9sau
+	   *** found the bug ***
+        the segfault bug occured in free_connection(), because
+        _behind_ hfree(cp) i referenced 'while ((job = cp->jobs)) { .. }'
+        must be blind.. and it was a very hard job to track. will sleep
+        very good this night ;)
+
+	- other changes: cp->operator now has two values (as in ppconvers):
+          1 = learned from network (indicator in /who output)
+	  2 = operator success on the local node (could set up new links,
+              execute /wall, etc..)
+
+Revision 1.112  2002/01/23 14:11:22  dl9sau
+	- rewrote and reorganized /..UADD nickname handling
+	- there were problems in the context with /name command, when
+	  nickname was stored (multible messages or user change messages
+	  could have occured), and with the observer status distrib -> rewrote
+	  parts of /name.
+	- fixed bugs
+	    - that h_unknown command was not sent
+	    - that sysop status was not distributed
+	- changed subversion to 1074
+	- warning: still not found the segfault bug
+
+Revision 1.111  2002/01/15 01:05:03  dl9sau
+	- made convert() more robust
+	- fixed bug !(cp->type != CT_HOST) is CT_HOST, but the oposite
+	  was meant
+	- perhaps there layed the segfault problems in the last versions
+	- changed subversion to 1072
+
+Revision 1.110  2002/01/14 14:10:30  dl9sau
+	- /history +5 bug fixed (showed correct line number, but no lines)
+	- still tracing segfault problem (in since abt 7d)
+	- changed subversion to 1071
+
+Revision 1.109  2002/01/11 13:09:08  dl9sau
+	- on \n, cp->time_recv = currtime (because process_input()
+	  is not called)
+
+Revision 1.108  2002/01/09 17:19:27  dl9sau
+	- cron:
+	  new option for operator: list and remove cronjob of a user
+	  (on occasion of abuse)
+	- helpfile: dokumented the new "/cron ~user list" feature
+	- subversion changed to 1069
+
+Revision 1.107  2002/01/09 14:55:57  dl9sau
+	- trying better reconnect values when asking a permlink
+	  to connect again
+
+Revision 1.106  2002/01/09 14:19:41  dl9sau
+	- urgent fix:
+	  change in trigger permlink code (sent much too many \n's..)
+
+Revision 1.105  2002/01/09 12:29:47  dl9sau
+	- a smarter backup permlink timer algorithm
+
+Revision 1.104  2002/01/09 01:13:27  dl9sau
+	- Makefile: make sure $CONF_DIR exists, before installing
+	  the manual
+
+Revision 1.103  2002/01/08 23:48:50  dl9sau
+	- made /profile more verbose
+	- corrected helpfiles
+
+Revision 1.102  2002/01/08 21:56:35  dl9sau
+	- testing new behaviour:
+	  if a permlink is idle > 15min, reset the connection
+	  if he has a backup link, lock the retry +20min.
+	  there may be side effects, if links are very slow (ping every
+	  2h) and no conversd-messages are sent (no channels, no user
+	  writing, no destination updates). hope it will not happen.
+	  let's test it.
+
+Revision 1.101  2002/01/08 16:23:49  dl9sau
+	- log topic change on /history only when set by user
+
+Revision 1.100  2002/01/08 15:08:41  dl9sau
+	- convers user client now with libreadline
+
+Revision 1.99  2002/01/08 14:20:41  dl9sau
+	- bugfix in /notify: empty /notify was stored in /profile
+	- /notify message changed if list is empty
+	- /notify with higher prio than /nonick
+	- /nonick is depricated. helpfile changed.
+	- /nick @ now acts like /pers @ for deleting nicknames (instead of
+	  /nonick
+	- /profile run on /name now non-verbose
+
+Revision 1.98  2002/01/08 12:45:12  dl9sau
+	- /history:
+	  - improved verbosity
+	  - now storing topic and mode change
+	- set ibmpc ahead cp437, because users are comfort with..
+
+Revision 1.97  2002/01/06 17:34:11  dl9sau
+        *** Major changes ***
+        - new commands:
+          - /trigger (prevents you from beeing disconnected
+            from your digi while being very idle..)
+          - /cron is the crontab for periodicaly sheduled commands
+        - /history changed for supporting head / tail line numbers,
+          and /history is now configurable in conversd.conf with
+          the tags /history_lines and /history_expires.
+        - doku:
+           - helpfiles: added //comp, and the new commands /trigger and
+                /cron and updated /history description
+           - conversd.conf: description of the new history_lines and
+               history_expires parameters
+        - this leads to subversion 1060.
+
+Revision 1.95  2001/12/31 20:21:37  dl9sau
+	- q&d hack when ibm-charset users which do not use /charset
+
+Revision 1.94  2001/12/31 19:08:24  dl9sau
+	- added /history command
+	- better /charset handling (stripped ISO while not logged in as
+	  user. this fixes problems with 0x81..0x9f and 0..31 characters
+	  on latin1 terminals (like xterm)
+	- added euro to convert(), striped character sets and winlatin1
+	- changed subversion to 1058
+
+Revision 1.92  2001/12/30 17:09:25  dl9sau
+	- better handling when default channel is mode +p (fallback
+	  to random_channel)
+	- /join #0 for operator, even if ban_zero is active
+	- changed subversion to 1057
+
+Revision 1.91  2001/12/27 00:53:35  dl9sau
+	- character conversion now for CT_OBSERVER too
+
+Revision 1.90  2001/12/24 11:54:14  dl9sau
+	- changed ssid length in callvalid() from 6 to 9 chars (requested
+	  by users)
+
+Revision 1.89  2001/12/24 10:50:43  dl9sau
+        - after the work on /help yesterday, more cleanup on functions
+          with send_msg_to_user(), like /away, or /link.
+        - cleanup in display_links() and /link command, plus prompt and
+          last-newline beautifying
+	- /sysinfo local / remote differed -> unified
+	- added time information to /sysinfo. changed /time command in tnos.c
+        - filter remove now not only by "/filter off" but also with "-"
+        - /invite without argument now complains about it..
+        - a bit code-beautifying
+        - german doku for /filter added to the help file
+        - changed subversion to 1055
+
+Revision 1.87  2001/12/24 02:28:37  dl9sau
+	- send /help only to the user on his channel where he's involked
+	  it, even if he's logged in multible times
+
+Revision 1.86  2001/12/22 11:55:39  dl9sau
+	- convers operator may list / change / execute other user's profile
+
+Revision 1.85  2001/12/22 03:07:33  dl9sau
+        - locking for /profile, rip of command buf (closes various bugs
+          while executing / updating the profile
+        - security on filenames. no profile update while user is not logged on
+        - same profile for /name dl9sau, /name dl9sau-p, etc..
+        - beautified /whois output when long channel topics
+        - added 127.0.0.1 USER to example conversd.conf, with description
+          that this line is not present, cstat(1) or online(1) will not work
+        - /rtt is possible in CT_UNKNOWN state. now checking if *cp->name
+          is '\0'
+	- //COMP is not suitable for permlinks. disabled for CT_UNKOWN and
+	  CT_SERVER, because compression on permlinks with bad MTU has too
+	  much conditions here it'll not work (but that's not easy to
+	  determine)
+        - this leads to subversion 1053
+
+Revision 1.81  2001/12/21 01:35:57  dl9sau
+	- avoid writing a profile for a command when the user is
+	  not yet signed on
+
+Revision 1.80  2001/12/20 11:30:12  dl9sau
+	- bugfix in ax25 permlink connection code
+	- convers is now fully ax25 socket compatible
+
+Revision 1.79  2001/12/20 10:18:12  dl9sau
+	- testing: ax25 sockets for rawconvers
+
+Revision 1.78  2001/12/19 20:24:23  dl9sau
+	- bugfix: /personal did'nt work in subversion 1048, made a typo
+
+	- bugfix: remote buffer overflow when user sends long lines
+	  or has obscure /charset like postcript
+	  -> reduced input buffer for users to a resonable value,
+	     and fixed face-condition in convert.c
+	- assured in varoious functions that after strncpy() the buffer
+	  is null-terminated
+	- changed subversion to 1048
+
+Revision 1.76  2001/12/18 19:14:55  dl9sau
+	commented out helptext for non-active commands (/quote, /cq)
+
+Revision 1.74  2001/12/17 21:14:57  dl9sau
+	- sorry, subversion is 1047, not 1048
+
+	- cosmetic changes in Makefile concerning the various dependencies
+	  (nothing really worth to mention)
+
+Revision 1.71  2001/12/17 01:09:54  dl9sau
+	- bugfix in /whois: showed wrong idle timer
+	  (had cp->.. instead of p->..)
+	- beautify for idle info on /whois
+	- new idle timer concept
+	- idle BOFH option - must be changed in the source if you really
+	  need it
+	- fix in tnos.c for /time (rip() is senseless here).
+	  made buffer greater, just 2b sure
+	- changed subversion to 1048
+
+Revision 1.70  2001/12/16 15:27:36  dl9sau
+	- delete / ignore empty lines in conversrc/<user> (/profile)
+	- "/prompt -" or "/prompt off" disables prompt
+
+Revision 1.69  2001/12/16 05:03:31  dl9sau
+	- made it compile again on kernel 2.0.x on very old linuxes
+	  (tested on old slackware: libc5, gcc272, kernel-2.0.38)
+	  don't forget to comment out in Makefile:
+		-DFORKPTY and  -lutil if you don't have pty.h / libutil.so
+	- cleaned up the makefile
+	- changed subversion to 1045
+
+Revision 1.68  2001/12/15 15:39:43  dl9sau
+	- branch for subversion 1044
+	- please do NOT USE compression for perlinks (//comp is not
+	  binary compatible, and there are caveeats somewhere on the
+	  link layer when MTU is smaller).
+	  a streaming protocol will follow (libz or libbz2)
+
+Revision 1.67  2001/12/15 00:51:55  dl9sau
+	BUGFIXES
+	- found an old problem in /sysinfo host, where one line was sent
+	  not as UMSG but plain: "*** conversd@host is up for ..."
+   	  this lead to a disconnect decision in the new ax25-link-layer
+	  checker from earlier this week (-> urgend fix)
+	- compression code did'nt work. fixed it
+	- /link long shows now the compress ratio
+	- found, that on permlink no compression occurs. perhaps, the
+	  /\377\200 command is recognized as "uncompressable".
+	- changed version subversion to 1042. 1041 is unusable.
+
+	- added //comp compression code to conversd. you could enable
+	  it for permlinks with an entry in conversd.conf like
+		Link   db0tud  db0tud.ampr.org:4700 db0tud "//comp on\n"
+	  tested with linkt as user. hope there are no bugs
+	- fixed bug in /paclen for ax25 sockets (wrote AF_PACKET instead of
+	  AF_AX25 ;)
+
+Revision 1.65  2001/12/08 16:33:38  dl9sau
+	changed MTU for ax25 to 255
+
+Revision 1.64  2001/12/03 23:28:40  dl9sau
+	*** important bugfix in stored destinations! ***
+	when a destination was announced as quality 0, it's important to
+	store it's neighbour as NULLPERMLINK. otherwise, after a link-reorg
+	when a user@deadBefore host joines, it's mis-interpreted by the
+	loop-detection subsystem.
+
+Revision 1.62  2001/12/03 18:48:49  dl9sau
+	- bugfix (hopefully): updated 0-destinations to a new connecting
+	  permlink for his own name.
+
+Revision 1.61  2001/12/03 17:54:47  dl9sau
+
+	- new command: /rtt. it's functional with most packet terminal
+	  programs, but could be echoe'd by hand, too.
+
+Revision 1.60  2001/12/03 01:29:10  dl9sau
+        - modified rawconvers.c with a -DNO_IOCTL flag. it now may
+          be run directly out of axspawn for deligating for e.g.
+          permlinks (in the case you don't want directly use the ax25 Listener
+          of conversd)
+        - please read doc/TIPS.txt on that topic
+        - adapted the makefile
+
+Revision 1.58  2001/12/02 17:08:49  dl9sau
+	- Timezone configurable via conversd.conf. Default is GMT.
+	  use "localtime" on regional conversd's only.
+	- /lang default changed to /lang reset
+        - chowning old data-tree - that makes migration easier, if the
+	  permissions have changed, under which conversd runs
+        - added more whishes
+	- installation of help files moved from make install-conf to
+	  make install
+
+Revision 1.55  2001/12/02 02:24:10  dl9sau
+	- we now have a profile for users which is stored on the server:
+	  the /profile command.
+	  profile is automaticaly updated by the following commands:
+	    /charset, /language, /notify, /filter
+	    /width, /paclen, /idle, /beep, /prompt
+
+Revision 1.54  2001/11/28 15:16:54  dl9sau
+	- added /echo in german helpfile
+	- /cstat host only if CT_USER
+
+Revision 1.53  2001/11/26 19:15:49  dl9sau
+	- don't log CT_UNKNOWN connections (was very annoying on regulary
+	  flexnet connects)
+	- typo in example conversd.conf
+
+Revision 1.52  2001/11/25 23:30:12  dl9sau
+	  *** testing ***
+        - bugfix: send_operate_message() announced bad channel if user is
+          logged in more than once via two different permlinks
+        - user_check()'s idea that a convers user must be single in the
+          whole convers net is quite bad, because the nature of ampr
+          links is that they break; this will exclude a user from convers
+          until every host in the network will have learned that he's
+          signed off. but the user does not recognize. he's silently
+          excluded and his messages are thrown away. so imho user_check()
+          is not fully enough implemented (/name command still works,
+          /..oper is still being sent, while /..user is dropped, etc..),
+          and i deceided to go back to normal ppconversd-3.13 behaviour.
+
+Revision 1.51  2001/11/25 17:02:59  dl9sau
+	- helpfile updated
+	- make install-conf installed wrong helpfile
+	- more length for ssid in callvalid
+	- online.sh now with arguments
+
+Revision 1.47  2001/11/24 12:30:44  dl9sau
+	- changed mtu to 216 for all non-inet sockets
+
+Revision 1.46  2001/11/12 10:47:21  dl9sau
+	- added german helpfile. work in progress. preview
+
+Revision 1.45  2001/11/10 00:26:27  dl9sau
+	- improvements on channel topics: added "\n    " for respecting the
+	  layout
+
+Revision 1.44  2001/11/09 17:58:12  dl9sau
+        - bugfix: race condition while trying to connect to dummy-permlinks
+          without specified socket
+        - "/link add db0tud" will add db0tud as a dummy permlink
+        - new optional restriction on ax25 sockets on incomming connections.
+	  see conversd.conf and TIPS.txt
+        - ax25 may say /login <channel> or /name <channel> without the
+          need of specifying ther call as name.
+
+Revision 1.43  2001/11/08 10:11:34  dl9sau
+	- bugfix in buildsaddr(). ax25 sockets didn't work due to my
+	  previous errno concept.
+	- log if bind() or listen() fails (on our listen sockets)
+	- some minor changes
+	- changed version.h
+	- fixed bug in makefile
+	- added /echo command (time tests)
+
+Revision 1.41  2001/11/07 18:19:48  dl9sau
+	- found another bug i made. stable
+
+Revision 1.40  2001/11/07 13:36:03  dl9sau
+	- found the bug. now it should be stable
+
+	- bugfixes in conversd
+	- environment variable LOGNAME and convers client
+	  option -l activated
+	- reorg of etc/ files
+
+Revision 1.37  2001/11/06 18:17:29  dl9sau
+        - online, convers, ax25, axconv compile, are functional and install
+	  with the makefile
+	- added errno to buildsaddr()
+
+Revision 1.34  2001/11/05 23:36:55  dl9sau
+
+        *** Major changes with subversion 20011105-1012 ***
+
+        Rewrote a lot of stuff.
+        - we now have ax25, unix and inet sockets, and could even listen
+          for incoming ax25 connections. and access lists.
+        - cave: speacial meaning for default channel 0 (random access),
+          and new ban_zero option as well as callsign-validadation.
+          configurable in conversd.conf
+	- optimized appendstring / send routine (some data has trailling
+	  spaces). now could handle packet lent
+        - i submitted this code for testing. could not guarantee that it's
+          stable. we'll see soon
+        - added convers.c and online.c from conversd.c, but still not had
+          the time to look after it. currently it will not compile.
+	- added axconv.c. not tested. it is in use for years on
+	  unix nodes, where ax25-TNN or XNET nodes do login, get
+	  this wrapper and will be able to talk to the local conversd
+
+Revision 1.31  2001/10/31 13:36:16  dl9sau
+	- changed the helpfile location to ..../convers.help, unique
+	  for all conversd's
+
+Revision 1.30  2001/10/30 11:24:12  dl9sau
+	- readded wall_command from ppconvers
+	- added charset for mac / postscript (thanks to hb9jnx)
+
+Revision 1.28  2001/10/29 18:16:59  dl9sau
+        - added TIPS.txt
+	- described how to use conversd with using unix sockets
+	  to connect our permlinks via ax25 through the "TNT" program
+	- modified convers.conf and convers.help
+
+Revision 1.27  2001/10/28 22:31:31  dl9sau
+	- rewrote grat parts of send_user_change_message()
+	- personal text announcement in join messages like those the
+	  user gets with the personal_command()
+
+	- changed priority for /t command to /topic, not /time, etc..
+	- nickname now with 16 chars max
+	- testing: now displaying personal text on /join. - well, if
+	  it's not nice, i'll remove it. we'll C.
+	- changed doku
+
+Revision 1.25  2001/10/28 13:34:50  dl9sau
+	time correction against bad times (time in the future)
+
+Revision 1.24  2001/10/26 13:53:19  dl9sau
+	- Added multible paths to unix sockets.
+	- Imported /filter command from ppconvers
+	- modifications to helpfile and example conversd.conf
+
+Revision 1.23  2001/10/25 08:45:57  dl9sau
+	new online and cstat command - needs netcat
+
+	listen_port in dependence of our name
+
+Revision 1.21  2001/10/23 23:44:51  dl9sau
+	found a good working algorithm for the new active destination rtt
+	propagation
+
+Revision 1.19  2001/10/23 15:29:37  dl9sau
+	tested to remove trailing blanks before tx. not a good idea - have
+	you ever looked who calls appendstring and wants it what to send?
+	evil.. it's defenitely not linemode compatible, so we definitely
+	could not trivialy trim the line..
+
+	testing: new algorithm in distribution dest-lists in dependence
+	of the rtt to the neighbour we'll send them to.
+	hope it'll work as intendend and tested..
+
+Revision 1.16  2001/10/20 18:01:51  dl9sau
+	hack in update_destinations() for more actual link times
+
+Revision 1.15  2001/10/20 11:30:14  dl9sau
+	will move to SOFT_VERSION 1.62 soon.
+
+	modified version.h -> new SOFT_SUBVERSION tag, because the
+	/DEST lines became unnicely long. /DEST should only transimit
+	the main version. other information could be queried using
+	/sysinfo <host>
+
+Revision 1.13  2001/10/19 19:44:16  dl9sau
+	Rewrote /invi again. SuSE has a write(1) program which will
+	refuse if the user is not in utmp. Bad idea. So we'll try a
+	direct write(2). If conversd is not ruid(0), we can try write(1),
+	and SuSE looses ;)
+
+Revision 1.12  2001/10/18 17:09:17  dl9sau
+
+	- major changes -
+	Changed version to 1.61-990 (planing to go to 1.62 asap)
+
+	- now capable to operate on unix sockets again (needed by
+	  wampes users). therefore the connect code has greatly been
+	  extended. this affected the struct permlink too.
+	- new option in conversd.conf: unix_sockets /tcp/.sockets/
+	  (path in which for unix socket operations are allowed)
+	- optional command excecution after we've connected to a permlink
+	  before sending /..HOST
+	- /link command extended
+	- help file revised
+	- h_host_command() now refuses a host with the same hostname
+	  as we have (had problems where the remote site echoe'd
+	  our /..HOST command..)
+
+Revision 1.10  2001/10/17 09:54:14  dl9sau
+	in /leave and /bye, no reason-text for "observers".
+
+	/leave * foo means current channel.
+	added parantheses like at /quit, for differention to network messages
+
+	changes to the /leave command (optional reason text). made changes
+	in doku
+
+Revision 1.7  2001/10/16 22:29:30  dl9sau
+	/li add z 1 1 z:3600 y  failed. offbyone. must be drunken when i
+	changed it. -> fixed
+
+Revision 1.6  2001/10/15 11:10:34  dl9sau
+two bugs:
+        1. sent mode change to a neigbour multible times; added p->locked
+           new modes deleted old ones. changed to send them as one frame,
+           like we do with /HOST. cave: send_oper_msg made locks.
+        2. sent /link long to our neigbour. -> beautified /links command.
+
+Revision 1.4  2001/10/14 19:03:14  dl9sau
+	added cp->locked in sending h_user_command() in order to prevent sending
+	the user change message back to the neighbour we received it from.
+	this lead ppconversd's complained a loop, and they are right.
+
+20011014:
+        bugfix: conversd.c: cp->ibuf[1] = '0x377' etc.. had no effekt on gcc2.7
+                changed to (cp->ibuf[1] & 0xff) = '0x377'
+        cosmetic: added include for <pty.h> to ocnversd.c -> no warning of
+                missing predefinition
+        update: convers.help
+        feature: /lang command. providing dummy convers.help.de. more coming
+                soon. changed makefile accordingly. seems to be stable
+        source-tree: added ChangeLog

@@ -1,0 +1,23 @@
+# LinPac - Linux Packet Radio Terminal
+# Tento subor definuje prikazy LinPac-u pre spustitelne makra
+# Kazdy riadok zacina jednym prikazom
+# Ak nie je definovany nejaky prikaz, potom sa spusti makro <prikaz>.mac
+# (ak existuje)
+#
+# Polozky:
+# nazov_prikazu	prikaz_LinPacu
+#
+# Kazdy prikaz LinPac-u je definovany velkymi pismenami, ale moze
+# obsahovat aj male pismena.
+#
+activity	Activity
+comp	COMP
+connect	Connect
+conv	CONVers
+help	Help
+info	Info
+init	INIT
+quit	Quit
+users	Users
+users	CStatus
+pw	PW

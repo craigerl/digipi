@@ -1,0 +1,28 @@
+#!/bin/bash
+# $Id: remote-build.sh.in 221 2009-02-26 21:23:28Z dezperado $
+# This script is intended to test interactively a fim build on a remote machine.
+# It should be run interactively while build and fixing.
+
+FD=@PACKAGE@-@VERSION@
+DF=$FD.tar.gz
+UH=
+RD=
+alias fail="exit -1"
+alias if_err='[ $? == 0 ] || '
+
+[ -z "$FD"  ] && { fail; }
+[ -z "$UH" -a -z "$1" ] && { echo -e "usage: $0 user@host [directory]\n $DF will be copied and built there via ssh\n" ; fail ; }
+[ -z "$UH" -a -n "$1" ] && { UH=$1 ; }
+[ -z "$RD" -a -n "$2" ] && { RD=$2 ; }
+MS="fim build FAILURE report"
+
+make dist 
+[ -f "$DF"  ] || { fail; }
+if_err fail
+scp $DF $UH:$RD
+if_err fail
+ssh $UH "cd $RD && tar xzf $DF && cd $FD && ./configure && make" 
+if_err fail
+ssh $UH "rm -fR $RD/$FD" 
+if_err fail
+

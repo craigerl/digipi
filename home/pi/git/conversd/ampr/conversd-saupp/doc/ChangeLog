@@ -1,0 +1,80 @@
+
+htpp-1.20: - Feb 11 1999 - Hessu
+	- Removed everything that isn't needed (the clients, mailgate stuff, 
+	  unnecessary commands, bundled libraries).
+	- Ran it through indent -kr -i8.
+	- ANSIfied function prototypes.
+	- Cleaned up Makefile.
+	- Made tnos.c it's own module (not #included in the end of user.c).
+	- Fixed header files to include the right stuff.
+	- Removed all #ifdef __OS2__ stuff. The port was for some old
+	  and obsolete TCP/IP package anyway.
+	- Made it compile without barfing using -Wall -Wstrict-prototypes.
+	- Removed register keywords from variables, compilers are smarter
+	  than us these days anyway.
+	- Added some more error checking and logging in places.
+	- Fixed write_pid().
+	- Fixed a couple of bugs in destination list handling.
+	- Added a better and cleaner configuration file parser.
+	- Separated command line argument parsing and implemented it
+	  using getopt().
+	* Dumped libwrap and added access control lists in the config file
+	  (thanks go to Tomi, OH2BNS).
+	
+htpp-1.21: - Mar 13 1999 - Hessu
+	- Removed gethostbyaddr() from accept_connect_request(), was only
+	  used for logging, mostly useless and made accepting connections
+	  from non-resolvable hosts with unreachable DNS servers REALLY
+	  slow, blocking the whole server.
+	- Added checks for some illegal configuration file statements.
+
+htpp-1.22: - Apr 25 1999 - Hessu
+	- Fixed a security bug (allowing an DOS attack) in the /help command.
+	- Added a workaround to keep some certain ancient gods quiet.
+	- Ugly hack involving a sleep(10); to avoid fallback to primary link
+	  from looking like a loop and causing link vibration. Really closes
+	  the backup link before relinking and waits for the information to
+	  (hopefully) propagate to the primary server.
+
+htppu-1.22: - May 29 1999 - Brian
+	- Readded the following commands:
+	  nickname, roll, cut, smiley
+	- Added new commands:
+	  spam, bjack. See the README file on these.
+        - Increased string length for nickname usage to go beyond 10
+          characters 
+	- changed "link failure" text to my signature "stinky linky" 
+
+htppu-1.23: -  July 3 1999 - Brian
+	- Fixed bug in /bjack command where if the total displayed
+          characters of the combined nickname and command string exceeded
+	  80 characters, this caused htppu to exit. NOT GOOD eh? Fix was
+	  to increase the buffers from [80] to a higher value. Currently
+	  I have it set default for [2048]. While this is extremely high
+	  I have found it to be ok under debian linux kernel 2.0.36. I
+	  may change this in the future if I receive enough suggestions
+	  er...complaints :-)
+	- Fixed similar bug in regards to the /cut command.
+	  Same exact problem re: display length.
+	- Fixed similar bug in regards to the /roll command.
+
+htppu-1.24: - January 1 2000 - Brian (Happy New Year!)
+	- Commented out two commands that were previously incorporated into
+	  tpp/htpp/htppu. /dest and /cstat would occasionally crash the
+	  conversd server when used at times. Currently the cause is unknown
+	  and I do hope that a fix can be found and these commands restored.
+	  Currently I urge anyone who's using tpp/htpp/htppu to upgrade to
+	  htppu-1.24 or simply comment out these commands.
+
+htppu-1.3:  - January 30 2000 - Brian
+	- Fixed Y2K bug in user logging found by Steve N1JFU
+	- Shortened version numbers to be more compatable with other
+	  convers server software.
+	- Please note: Detailed information will now be found in the README
+	  file as the ChangeLog will be for breif summaries.
+
+htppu-1.4:  - December 6 2000 - Brian
+	- Changed Makefile so that channel 0 ban is lifted by request
+	  of Doug WB2YXY. After much though, I felt with the lack of
+	  users now on convers it was no longer needed to lock a user
+	  out of channel 0.

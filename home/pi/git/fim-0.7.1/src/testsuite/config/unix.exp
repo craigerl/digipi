@@ -1,0 +1,18 @@
+# stub
+
+proc fim_version {} {
+	global FIM
+	set tmp [exec  $FIM --version ]
+        regexp "$prompt *(\[^\n\]*)\n.*" $tmp tmp version
+        clone_output "[which $FIM] version $version\n"
+}
+proc fim_exit {} {
+}
+
+proc fim_start {arg} {
+        global FIM
+	spawn $FIM -c '' arg
+}
+
+fim_start ""
+

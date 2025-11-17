@@ -1,0 +1,10 @@
+@(#) $Id: NEWS.txt,v 1.2 2003/11/11 01:10:40 dl9sau Exp $
+
+- Nov 2003:
+  DEVEL Tree 1.62a is now in HEAD, because the old archive irritated
+  most downloaders. The old version (including 1.61) is now in
+  conversd-saupp-devel-history.
+
+- Jan 2002:
+  thomas <dg1rtf> started a client protokoll for conversd:
+  implementation of the rfc1459 irc-client protocol

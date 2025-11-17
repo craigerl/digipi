@@ -1,0 +1,22 @@
+* loaded 3 files
+../..//media/image.jpg ../..//media/fim.png ../..//media/image.png 
+*
+* before  reloads
+#cache check for  file  ../..//media/image.jpg at page 0
+#cache does not have    file image.jpg at page 0
+#cache loaded           file image.jpg at page 0
+#going to cache: file image.jpg at page 0
+* between reloads
+#unuse  file image.jpg at page 0  force:1  usageCounter_():1  cached_elements():1
+#cache suggested free  file image.jpg at page 0  forced=1
+#cache to free          file image.jpg at page 0  forced=1
+#cache erases           file image.jpg at page 0
+#cache check for  file  ../..//media/image.jpg at page 0
+#cache does not have    file image.jpg at page 0
+#cache loaded           file image.jpg at page 0
+#going to cache: file image.jpg at page 0
+* after  reloads
+#unuse  file image.jpg at page 0  force:0  usageCounter_():1  cached_elements():1
+#cache check for  file  ../..//media/image.jpg at page 0
+#unuse  file image.jpg at page 0  force:0  usageCounter_():1  cached_elements():1
+#cache erases also      file image.jpg at page 0

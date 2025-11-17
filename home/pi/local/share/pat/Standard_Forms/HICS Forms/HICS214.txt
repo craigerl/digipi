@@ -1,0 +1,95 @@
+Form: HICS214_Initial.html,HICS214_Viewer.html
+
+To: 
+Subject: HICS214-<var Incident_Name>-<var Facility> 
+
+Msg:
+Page #: <var Page>
+
+1. Incident Name: <var Incident_Name>
+Winlink Message Sender: <var MsgSender>
+
+2. Operational Period: 
+Date From: <var DateFrom> To: <var DateTo>
+Time From: <var TimeFrom> To: <var TimeTo>
+
+3. Name: <var Name>
+4: HIMT Position: <var ICS_Position1>
+
+5. ACTIVITY LOG:
+------------------------------
+DATE & TIME: <var ActivityDateTime1>
+ACTIVITY: <var Activities1>
+
+DATE & TIME: <var ActivityDateTime2>
+ACTIVITY: <var Activities2>
+
+DATE & TIME: <var ActivityDateTime3>
+ACTIVITY: <var Activities3>
+
+DATE & TIME: <var ActivityDateTime4>
+ACTIVITY: <var Activities4>
+
+DATE & TIME: <var ActivityDateTime5>  
+ACTIVITY: <var Activities5>
+
+DATE & TIME: <var ActivityDateTime6>  
+ACTIVITY: <var Activities6>
+
+DATE & TIME: <var ActivityDateTime7>  
+ACTIVITY: <var Activities7>
+
+DATE & TIME: <var ActivityDateTime8>  
+ACTIVITY: <var Activities8>
+
+DATE & TIME: <var ActivityDateTime9>  
+ACTIVITY: <var Activities9>
+
+DATE & TIME: <var ActivityDateTime10>  
+ACTIVITY: <var Activities10>
+
+DATE & TIME: <var ActivityDateTime11>  
+ACTIVITY: <var Activities11>
+
+DATE & TIME: <var ActivityDateTime12>  
+ACTIVITY: <var Activities12>
+
+DATE & TIME: <var ActivityDateTime13>  
+ACTIVITY: <var Activities13>
+
+DATE & TIME: <var ActivityDateTime14>  
+ACTIVITY: <var Activities14>
+
+DATE & TIME: <var ActivityDateTime15>  
+ACTIVITY: <var Activities15>
+
+DATE & TIME: <var ActivityDateTime16>  
+ACTIVITY: <var Activities16>
+
+DATE & TIME: <var ActivityDateTime17>  
+ACTIVITY: <var Activities17>
+
+DATE & TIME: <var ActivityDateTime18>  
+ACTIVITY: <var Activities18>
+
+DATE & TIME: <var ActivityDateTime19>  
+ACTIVITY: <var Activities19>
+
+DATE & TIME: <var ActivityDateTime20>  
+ACTIVITY: <var Activities20>
+
+--------------------------------------------------------------
+6. PREPARED BY: <var PreparedName> 
+Date/Time: <var ActivityDateTime21>
+
+FACILITY: <var Facility>
+
+------------------------------------ 
+Express Sending Station: <MsgSender>
+Senders Express Version: <ProgramVersion>
+Senders Template Version: <var Templateversion>
+
+
+
+
+

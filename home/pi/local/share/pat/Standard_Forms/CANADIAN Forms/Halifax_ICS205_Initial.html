@@ -1,0 +1,633 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta content="application/xhtml+xml; charset=utf-8" http-equiv="content-type" /><title>HALIFAX ICS205- Initial</title>
+
+<style type="text/css">
+body, td, th {
+font-family: Arial,Helvetica,sans-serif;
+font-size: 12px;
+}
+.zentriert {
+font-size: 12px;
+font-family: Arial,Helvetica,sans-serif;
+}
+input, select {
+padding: 1px;
+font-family: Arial,Helvetica,sans-serif;
+font-size: 12px;
+}
+textarea {
+margin: 8px;
+padding: 8px;
+font-family: Arial,Helvetica,sans-serif;
+font-size: 12px;
+}
+.rechtsbuendig {
+font-size: 12px;
+font-family: Arial,Helvetica,sans-serif;
+}
+.SubmitBtn {
+font-size: 12px;
+font-family: Arial,Helvetica,sans-serif;
+}
+.version {
+margin: 5px;
+color: #666666;
+position: relative;
+left: 0px;
+top: 1px;
+font-family: Arial,Helvetica,sans-serif;
+font-size: 12px;
+}
+#TextHeader {
+background-color: #dddddd;
+font-size: 10px;
+font-family: Arial,Helvetica,sans-serif;
+}
+</style>
+<style>
+/*
+body {color:#000; background:#fff; font:100%/1.5 arial,sans-serif;}
+h2 {margin-top:0}
+*/
+/* Styling applied to classes only */
+/* Pop-up content shifted off-screen when not in view.
+Still readable by screen-reader software.
+When targeted it fills the browser window.
+*/
+.pop-up {position:absolute; top:0; left:-500em;}
+.pop-up:target {position:static; left:0;}
+/* The pop-up itself */
+.popBox {
+background:#ffffff;
+/* alternatively fixed width / height and negative margins from 50% */
+position:absolute; left:30%; right:30%; top:30%; bottom:30%;
+z-index:10;
+border:1px solid #3a3a3a;
+/* CSS3 where available: rounded corners, drop-shadow, and fade in. */
+border-radius:.25rem;
+box-shadow:0 .5rem .5rem rgba(0,0,0,.5);
+opacity:0;
+transition: opacity 0.8s ease-out;
+}
+:target .popBox {position:fixed; opacity:1;}
+/* Light box properties */
+.lightbox {
+display:none;
+text-indent:-200em;
+background-color:rgba(0,0,0,.4);
+width:100%;
+height:100%;
+position:fixed;
+top:0;
+left:0;
+bottom:0;
+right:0;
+z-index:5;
+}
+:target .lightbox {display:block;}
+/* The pop-ups close link, moved via CSS to the top right of the pop-up */
+.close:link,
+.close:visited {
+position: absolute;
+top: -0.75em;
+right: -0.75em;
+display: block;
+width: 2em;
+height: 2em;
+line-height: 1.8;
+padding: 0;
+text-align: center;
+text-decoration: none;
+background-color: #000;
+border: 2px solid #fff;
+color: #fff;
+border-radius: 50%;
+box-shadow: 0 0 .5rem .5rem rba(0,0,0,.5);
+}
+.close:before {content:"X";}
+.close:hover,
+.close:active,
+.close:focus {
+box-shadow: 0 0 .5rem .5rem rba(255,0,0,.5);
+background-color: #c00;
+color: #fff;
+}
+.close span {
+text-indent: -200em;
+display: block;
+}
+/* The pop-up content div will scroll if it has too much content */
+.popScroll {
+position:absolute;
+top: 1rem;
+left: 1rem;
+right: 1rem;
+bottom: 1rem;
+overflow-y: auto;
+*overflow-y: scroll;
+padding-right: 0.5em;
+}
+.popScroll h2 {margin-top:0}
+.formtext {font-family: Arial, Helvetica, sans-serif;
+font-size: 11pt;
+font-weight: normal;
+}
+.style10 {font-family: Arial, Helvetica, sans-serif;
+	font-size: xx-small;
+}
+.style12 {font-size: 12px; font-family: Arial, Helvetica, sans-serif}
+.style14 {font-size: 13px}
+</style>
+<script type="text/javascript">
+function TimeNow(Timefld, FocusFld) {
+var txt;
+var d = new Date(),
+thisyear = d.getFullYear();
+thismonth= d.getMonth();
+thismonth = thismonth+1;
+thisday = d.getDate();
+h = (d.getHours()<10?'0':'') + d.getHours()
+m = (d.getMinutes()<10?'0':'') + d.getMinutes()
+s = (d.getSeconds()<10?'0':'') + d.getSeconds();
+var myprompt = thisyear+ '-'+thismonth+'-'+thisday+' '+h + ':' + m ;
+var RightNow = prompt("", myprompt);
+document.getElementById(Timefld).value = RightNow;
+//document.getElementById(FocusFld).focus();
+} </script>
+
+<script>
+function AutoGrowTextArea(textField)
+{
+if (textField.clientHeight < textField.scrollHeight)
+{
+textField.style.height = textField.scrollHeight + "px";
+if (textField.clientHeight < textField.scrollHeight)
+{
+textField.style.height = (textField.scrollHeight * 2 - textField.clientHeight) + "px";
+}
+}
+}
+function Countthelines(f) { var text1 = f
+var text2 = text1.replace(/\s+$/,"");
+var split2 = text2.split("\n"); var mytotal = split2.length * 17;
+if (mytotal < 150) {
+mytotal = 150;
+}
+var tstr = mytotal.toString();
+return tstr;
+}
+function newfix(f){
+var ThisText = document.getElementById(f).value;
+var makeit = Countthelines(ThisText);
+document.getElementById(f).style.height = makeit+"px"; }
+function Fixarea() {
+newfix("msg");
+newfix("reply");
+AutoGrowTextArea(document.getElementById("msg"));
+AutoGrowTextArea(document.getElementById("reply"));
+}
+function RWS(str){
+var text2 = str.replace(/\s+$/,"");
+return text2.trim();
+}
+
+
+// Test auto collect
+// Add parseme
+//    <textarea name="parseme" cols="60" id="parseme" style="display: none;"></textarea>
+function saveTextAsFile(fileNameToSaveAs, textToWrite) {
+var textToWrite = document.getElementById('parseme').value; 
+var fileNameToSaveAs = "Halifax ICS205 " + DateforFile()+".txt";
+fileNameToSaveAs = prompt("", fileNameToSaveAs);
+
+  /* Saves a text string as a blob file*/  
+  var ie = navigator.userAgent.match(/MSIE\s([\d.]+)/),
+      ie11 = navigator.userAgent.match(/Trident\/7.0/) && navigator.userAgent.match(/rv:11/),
+      ieEDGE = navigator.userAgent.match(/Edge/g),
+      ieVer=(ie ? ie[1] : (ie11 ? 11 : (ieEDGE ? 12 : -1)));
+
+  if (ie && ieVer<10) {
+    console.log("No blobs on IE ver<10");
+    return;
+  }
+
+  var textFileAsBlob = new Blob([textToWrite], {
+    type: 'text/plain'
+  });
+
+  if (ieVer>-1) {
+    window.navigator.msSaveBlob(textFileAsBlob, fileNameToSaveAs);
+
+  } else {
+    var downloadLink = document.createElement("a");
+    downloadLink.download = fileNameToSaveAs;
+    downloadLink.href = window.URL.createObjectURL(textFileAsBlob);
+    downloadLink.onclick = function(e) { document.body.removeChild(e.target); };
+    downloadLink.style.display = "none";
+    document.body.appendChild(downloadLink);
+    downloadLink.click();
+  }
+}
+
+
+
+
+
+function destroyClickedElement(event)
+{
+    document.body.removeChild(event.target);
+}
+
+function loadFileAsText()
+{
+
+    var fileToLoad = document.getElementById("fileToLoad").files[0];
+ 
+    var fileReader = new FileReader();
+    fileReader.onload = function(fileLoadedEvent) 
+    {
+        var textFromFileLoaded = fileLoadedEvent.target.result;
+        document.getElementById("inputTextToSave").value = textFromFileLoaded;
+    };
+    fileReader.readAsText(fileToLoad, "UTF-8");
+}
+
+
+function DateforFile(RightNow) {
+var txt;
+var d = new Date(),
+thisyear = d.getFullYear();
+thismonth= d.getMonth();
+thismonth = thismonth+1;
+if (thismonth < 10) { thismonth = "0" + thismonth}
+
+thisday = d.getDate();
+if (thisday < 10) { thisday = "0" + thisday}
+
+h = (d.getHours()<10?'0':'') + d.getHours()
+m = (d.getMinutes()<10?'0':'') + d.getMinutes()
+var myprompt = thisyear+ '-'+thismonth+'-'+thisday+' '+h + '_' + m ;
+return myprompt;
+}
+
+function isObject(arg) {
+  return Object.prototype.toString.call(arg)==='[object Object]';
+}
+
+function formDataToObject(elForm) {
+  if (!elForm instanceof Element) return;
+  var fields = elForm.querySelectorAll('input, select, textarea'),
+    o = {};
+  for (var i=0, imax=fields.length; i<imax; ++i) {
+    var field = fields[i],
+      sKey = field.name || field.id;
+    if (field.type==='button' || field.type==='image' || field.type==='submit' || !sKey) continue;
+    switch (field.type) {
+      case 'checkbox':
+        o[sKey] = +field.checked;
+        break;
+      case 'radio':
+        if (o[sKey]===undefined) o[sKey] = '';
+        if (field.checked) o[sKey] = field.value;
+        break;
+      case 'select-multiple':
+        var a = [];
+        for (var j=0, jmax=field.options.length; j<jmax; ++j) {
+          if (field.options[j].selected) a.push(field.options[j].value);
+        }
+        o[sKey] = a;
+        break;
+      default:
+        o[sKey] = field.value;
+    }
+  }
+ // alert('Form data:\n\n' + JSON.stringify(o, null, 2));
+ document.getElementById('parseme').value = JSON.stringify(o, null, 2);
+//  return o;
+}
+
+function populateForm(o) {
+
+o =  JSON.parse(document.getElementById('parseme').value);
+ //if (!isObject(o)) return;
+if (!isObject(o)) return;
+  for (var i in o) {
+    var el = document.getElementById(i) || document.querySelector('[name=' + i + ']');
+    if (el.type==='radio') el = document.querySelectorAll('[name=' + i + ']');
+    switch (typeof o[i]) {
+      case 'number':
+        el.checked = o[i];
+        break;
+      case 'object':
+        if (el.options && o[i] instanceof Array) {
+          for (var j=0, jmax=el.options.length; j<jmax; ++j) {
+            if (o[i].indexOf(el.options[j].value)>-1) el.options[j].selected = true;
+          }
+        }
+        break;
+      default:
+        if (el instanceof NodeList) {
+          for (var j=0, jmax=el.length; j<jmax; ++j) {
+            if (el[j].value===o[i]) el[j].checked = true;
+          }
+        } else {
+          el.value = o[i];
+        }
+    }
+  }
+ // AutoGrowTextArea(document.getElementById("Objectives"));
+ //  AutoGrowTextArea(document.getElementById("weather"));
+ //   AutoGrowTextArea(document.getElementById("Safety"));
+}
+
+function SaveData() {
+	
+			formDataToObject(document.getElementById('myform'))
+			saveTextAsFile();
+			
+			//saveTextAsFile();
+			}
+
+//-------
+ function readBlob(opt_startByte, opt_stopByte) {
+  
+    var files = document.getElementById('files').files;
+    if (!files.length) {
+      alert('Please select a file!');
+      return;
+    }
+
+    var file = files[0];
+    var start = parseInt(opt_startByte) || 0;
+    var stop = parseInt(opt_stopByte) || file.size - 1;
+
+    var reader = new FileReader();
+
+    // If we use onloadend, we need to check the readyState.
+    reader.onloadend = function(evt) {
+      if (evt.target.readyState == FileReader.DONE) { // DONE == 2
+        document.getElementById('byte_content').textContent = evt.target.result;
+        document.getElementById('byte_range').textContent = 
+            ['Read bytes: ', start + 1, ' - ', stop + 1,
+             ' of ', file.size, ' byte file'].join('');
+      }
+    };
+
+    var blob = file.slice(start, stop + 1);
+    reader.readAsBinaryString(blob);
+  }
+    	
+  window.onload = function () { 
+ 
+ //Check the support for the File API support 
+ if (window.File && window.FileReader && window.FileList && window.Blob) {
+    var fileSelected = document.getElementById('txtfiletoread');
+	
+    fileSelected.addEventListener('change', function (e) { 
+         //Set the extension for the file 
+         var fileExtension = /text.*/; 
+         //Get the file object 
+         var fileTobeRead = fileSelected.files[0];
+        //Check of the extension match 
+         if (fileTobeRead.type.match(fileExtension)) { 
+             //Initialize the FileReader object to read the 2file 
+			
+             var fileReader = new FileReader(); 
+             fileReader.onload = function (e) { 
+                 var fileContents = document.getElementById('filecontents'); 
+                
+				document.getElementById('parseme').value =fileReader.result;
+				populateForm(obj = document.getElementById('parseme').value);
+			 } 
+             fileReader.readAsText(fileTobeRead); 
+         } 
+         else { 
+             alert("Please select text file"); 
+         }
+ 
+    }, false);
+} 
+ else { 
+     alert("Files are not supported"); 
+ } 
+//var txt = document.getElementById('parseme').value;
+//var myobject = txt;
+//populateForm(myobject);
+ }
+</script>
+</head>
+<body>
+<form  style="font-family: Arial;" pbzloc="3" onsubmit="return confirm('To complete your form submission, click OK and close the open browser window. You will return to the new message window so you can post your message to the outbox');" method="post" id="myform" enctype="multipart/form-data" action="http://{FormServer}:{FormPort}">
+
+<table style="height: 557px;" align="center" border="0">
+<tbody>
+<tr>
+<td width="929" pbzloc="17">
+<table width="892" height="773" border="1" cellpadding="6" cellspacing="0" bordercolor="#999999" style="background-color: rgb(250, 250, 255); width: 900px; height: 533px;" pbzloc="11">
+  <!--DWLayoutTable-->
+<tbody>
+<tr valign="top">
+<td colspan="5" style="vertical-align: top; background-color: rgb(255, 255, 204);"><div align="center"><strong>&nbsp; &nbsp; &nbsp; &nbsp;</strong>&nbsp;<big> <span style="font-weight: bold;">INCIDENT RADIO COMMUNICATIONS
+  PLAN &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;</span><small>(Halifax ICS205)</small>&nbsp;
+&nbsp;&nbsp;&nbsp;</big><span style="font-weight: bold;"></span> Ver 2.1<br />
+<br /> 
+  <input type="button" value=" Load Halifax ICS205 Data " onclick="document.getElementById('txtfiletoread').click();" />
+                <input type="file" id="txtfiletoread" accept=".txt"  style="display: none;"/>              
+                <big>&nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; </big></div></td>
+</tr>
+<tr>
+<td width="33%" valign="top" style="vertical-align: top; text-align: justify; height: 45px; width: 30%;">
+&nbsp;1. Incident Name:&nbsp;
+&nbsp;&nbsp;&nbsp;
+<p>&nbsp;&nbsp;
+    <input size="45" name="Incident_Name" maxlength="40" id="Incident_Name" required="required" title="Incident or Agency # optional." /> 
+    <textarea name="parseme" cols="60" id="parseme" style="display: none;"></textarea>
+</p>
+<p><textarea name="parseme" cols="60" id="parseme" style="display: none;"></textarea><br />
+</p>
+</td>
+<td width="17%" style="vertical-align: top; width: 20%; ">
+
+<div align="left">&nbsp;&nbsp;  2. Date / Time Prepared:
+</div>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      <input style="color: rgb(204, 0, 0);" tile="You may overwrite if needed." required="required" placeholder="Click to Add Date/Time" size="24" id="ActivityDateTime2" maxlength="23" name="ActivityDateTime2" onclick="TimeNow('ActivityDateTime2', 'Activities2')" />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </p></td>
+<td width="50%" colspan="3" valign="top"><table border="0" cellpadding="2" cellspacing="2" style="width: 416px; height: 87px;">
+  <!--DWLayoutTable-->
+  <tbody>
+    <tr>
+      <td colspan="4">&nbsp;3. Operational Period:</td>
+      </tr>
+    <tr>
+      <td width="109" style="width: 28%;">Date From<big>:</big></td>
+      <td width="101"><b>
+        <input size="12" name="DateFrom" id="DateFrom" maxlength="12" required="required" />
+      </b></td>
+      <td width="71">Date To:</td>
+      <td width="101"><b>
+        <input size="12" name="DateTo" id="DateTo" maxlength="12" required="required" />
+      </b></td>
+      </tr>
+    <tr>
+      <td>Time From:</td>
+      <td><b>
+        <input title="Local 24 hr time" size="10" name="TimeFrom" id="TimeFrom" maxlength="10" required="required" />
+      </b></td>
+      <td>Time To:</td>
+      <td><b>
+        <input title="Local 24 hr time" size="10" name="TimeTo" id="TimeTo" maxlength="10" required="required" />
+      </b></td>
+      </tr>
+    <tr>
+      <td height="2"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      </tr>
+  </tbody>
+</table></td>
+</tr>
+<tr>
+<td colspan="5" style="text-align: left; vertical-align: top;">
+<div align="left"></div>
+<table width="882" height="513"  border="1" cellpadding="4" cellspacing="0">
+  <tr>
+    <td width="12%"><span class="style14">4. System/Type</span></td>
+    <td width="12%"><span class="style14">Channel</span></td>
+    <td width="20%"><span class="style14">Function</span></td>
+    <td width="13%"><span class="style14">Frequency/Tone</span></td>
+    <td width="19%"><span class="style14">Assignment</span></td>
+    <td width="24%"><span class="style14">Remarks</span></td>
+  </tr>
+  <tr>
+    <td height="33"><input name="Sys1" type="text" id="Sys1" size="20" maxlength="19" /></td>
+    <td><input name="Channel1" type="text" id="Channel1" size="15" maxlength=14 /></td>
+    <td><input name="function1" type="text" id="function1" size="30" maxlength="28" /></td>
+    <td><input name="Freq1" type="text" id="Freq1" size="15" maxlength="14" /></td>
+    <td><input name="Assignment1" type="text" id="Assignment1" size="30" maxlength="28" /></td>
+    <td><input name="Remarks1" type="text" id="Remarks1" size="40" maxlength="38" /></td>
+  </tr>
+  <tr>
+    <td height="38"><input name="Sys2" type="text" id="Sys2" size="20" maxlength="19" /></td>
+    <td><input name="Channel2" type="text" id="Channel2" size="15" maxlength=14 /></td>
+    <td><input name="function2" type="text" id="function2" size="30" maxlength="28" /></td>
+    <td><input name="Freq2" type="text" id="Freq2" size="15" maxlength="14" /></td>
+    <td><input name="Assignment2" type="text" id="Assignment2" size="30" maxlength="28" /></td>
+    <td><input name="Remarks2" type="text" id="Remarks2" size="40" maxlength="38" /></td>
+  </tr>
+  <tr>
+    <td height="34"><input name="Sys3" type="text" id="Sys3" size="20" maxlength="19" /></td>
+    <td><input name="Channel3" type="text" id="Channel3" size="15" maxlength="14" /></td>
+    <td><input name="function3" type="text" id="function3" size="30" maxlength="28" /></td>
+    <td><input name="Freq3" type="text" id="Freq3" size="15" maxlength="14" /></td>
+    <td><input name="Assignment3" type="text" id="Assignment3" size="30" maxlength="28" /></td>
+    <td><input name="Remarks3" type="text" id="Remarks3" size="40" maxlength="38" /></td>
+  </tr>
+  <tr>
+    <td height="36"><input name="Sys4" type="text" id="Sys4" size="20" maxlength="19" /></td>
+    <td><input name="Channel4" type="text" id="Channel4" size="15" maxlength="14" /></td>
+    <td><input name="function4" type="text" id="function4" size="30" maxlength="28" /></td>
+    <td><input name="Freq4" type="text" id="Freq4" size="15" maxlength="14" /></td>
+    <td><input name="Assignment4" type="text" id="Assignment4" size="30" maxlength="28" /></td>
+    <td><input name="Remarks4" type="text" id="Remarks4" size="40" maxlength="38" /></td>
+  </tr>
+  <tr>
+    <td height="34"><input name="Sys5" type="text" id="Sys5" size="20" maxlength="19" /></td>
+    <td><input name="Channel5" type="text" id="Channel5" size="15" maxlength="14" /></td>
+    <td><input name="function5" type="text" id="function5" size="30" maxlength="28" /></td>
+    <td><input name="Freq5" type="text" id="Freq5" size="15" maxlength="14" /></td>
+    <td><input name="Assignment5" type="text" id="Assignment5" size="30" maxlength="28" /></td>
+    <td><input name="Remarks5" type="text" id="Remarks5" size="40" maxlength="38" /></td>
+  </tr>
+  <tr>
+    <td height="35"><input name="Sys6" type="text" id="Sys6" size="20" maxlength="19" /></td>
+    <td><input name="Channel6" type="text" id="Channel6" size="15" maxlength="14" /></td>
+    <td><input name="function6" type="text" id="function6" size="30" maxlength="28" /></td>
+    <td><input name="Freq6" type="text" id="Freq6" size="15" maxlength="14" /></td>
+    <td><input name="Assignment6" type="text" id="Assignment6" size="30" maxlength="28" /></td>
+    <td><input name="Remarks6" type="text" id="Remarks6" size="40" maxlength="38" /></td>
+  </tr>
+  <tr>
+    <td height="37"><input name="Sys7" type="text" id="Sys7" size="20" maxlength="19" /></td>
+    <td><input name="Channel7" type="text" id="Channel7" size="15" maxlength="14" /></td>
+    <td><input name="function7" type="text" id="function7" size="30" maxlength="28" /></td>
+    <td><input name="Freq7" type="text" id="Freq7" size="15" maxlength="14" /></td>
+    <td><input name="Assignment7" type="text" id="Assignment7" size="30" maxlength="28" /></td>
+    <td><input name="Remarks7" type="text" id="Remarks7" size="40" maxlength="38" /></td>
+  </tr>
+  <tr>
+    <td height="34"><input name="Sys8" type="text" id="Sys8" size="20" maxlength="19" /></td>
+    <td><input name="Channel8" type="text" id="Channel8" size="15" maxlength="14" /></td>
+    <td><input name="function8" type="text" id="function8" size="30" maxlength="28" /></td>
+    <td><input name="Freq8" type="text" id="Freq8" size="15" maxlength="14" /></td>
+    <td><input name="Assignment8" type="text" id="Assignment8" size="30" maxlength="28" /></td>
+    <td><input name="Remarks8" type="text" id="Remarks8" size="40" maxlength="38" /></td>
+  </tr>
+  <tr>
+    <td height="36"><input name="Sys9" type="text" id="Sys9" size="20" maxlength="19" /></td>
+    <td><input name="Channel9" type="text" id="Channel9" size="15" maxlength="14" /></td>
+    <td><input name="function9" type="text" id="function9" size="30" maxlength="28" /></td>
+    <td><input name="Freq9" type="text" id="Freq9" size="15" maxlength="14" /></td>
+    <td><input name="Assignment9" type="text" id="Assignment9" size="30" maxlength="28" /></td>
+    <td><input name="Remarks9" type="text" id="Remarks9" size="40" maxlength="38" /></td>
+  </tr>
+  <tr>
+    <td height="35"><input name="Sys10" type="text" id="Sys10" size="20" maxlength="19" /></td>
+    <td><input name="Channel10" type="text" id="Channel10" size="15" maxlength="14" /></td>
+    <td><input name="function10" type="text" id="function10" size="30" maxlength="28" /></td>
+    <td><input name="Freq10" type="text" id="Freq10" size="15" maxlength="14" /></td>
+    <td><input name="Assignment10" type="text" id="Assignment10" size="30" maxlength="28" /></td>
+    <td><input name="Remarks10" type="text" id="Remarks10" size="40" maxlength="38" /></td>
+  </tr>
+  <tr>
+    <td height="35"><input name="Sys11" type="text" id="Sys11" size="20" maxlength="19" /></td>
+    <td><input name="Channel11" type="text" id="Channel11" size="15" maxlength="14" /></td>
+    <td><input name="function11" type="text" id="function11" size="30" maxlength="28" /></td>
+    <td><input name="Freq11" type="text" id="Freq11" size="15" maxlength="14" /></td>
+    <td><input name="Assignment11" type="text" id="Assignment11" size="30" maxlength="28" /></td>
+    <td><input name="Remarks11" type="text" id="Remarks11" size="40" maxlength="38" />
+      </td>
+  </tr>
+  <tr>
+    <td height="35"><input name="Sys12" type="text" id="Sys12" size="20" maxlength="20" /></td>
+    <td><input name="Channel12" type="text" id="Channel12" size="15" maxlength="14" /></td>
+    <td><input name="function12" type="text" id="function12" size="30" maxlength="28" /></td>
+    <td><input name="Freq12" type="text" id="Freq12" size="15" maxlength="14" /></td>
+    <td><input name="Assignment12" type="text" id="Assignment12" size="30" maxlength="28" /></td>
+    <td><input name="Remarks12" type="text" id="Remarks12" size="40" maxlength="38" /></td>
+  </tr>
+  <tr>
+    <td height="35"><input name="Sys13" type="text" id="Sys13" size="20" maxlength="19" /></td>
+    <td><input name="Channel13" type="text" id="Channel13" size="15" maxlength="14" /></td>
+    <td><input name="function13" type="text" id="function13" size="30" maxlength="28" /></td>
+    <td><input name="Freq13" type="text" id="Freq13" size="15" maxlength="14" /></td>
+    <td><input name="Assignment13" type="text" id="Assignment13" size="30" maxlength="28" /></td>
+    <td><input name="Remarks13" type="text" id="Remarks13" size="40" maxlength="38" /></td>
+  </tr>
+  <tr>
+    <td height="35" colspan="4">5. PREPARED BY (Communications unit)&nbsp;      <input name="preparer" type="text" required="required" id="preparer" equired="required" size="45" maxlength="42" /></td>
+    <td colspan="2">SIGNATURE (Name)&nbsp;      <input name="signature" type="text" required="required" id="signature" equired="required" size="45" maxlength="43" /></td>
+    </tr>
+</table>
+<p align="left"><big>
+  <span class="formtext"><span style="font-family: Calibri;"><small><span class="style10"><span class="style12" ></span></span></small>&nbsp;<big>
+  <input type="button" value="Save Halifax ICS205  Data"  style="color: blue;"onclick="SaveData()" />
+  </big>&nbsp; <small> </small> &nbsp;</span></span>
+  <input value="Submit" style="color: green;" name="Submit" method="Post" id="Submit" enctype="multipart/form-data" class="SubmitBtn" type="submit" />
+</big><b><span style="font-weight: normal;">&nbsp; </span></b>
+<input style="color: rgb(204, 0, 0);" name="ResetForm" value="Reset Form " class="BtnFormat2" type="reset" />
+<b><span style="font-weight: normal;"> &nbsp;&nbsp;&nbsp;</span></b></p></td>
+</tr>
+</tbody>
+</table>
+<br />
+
+</td>
+</tr>
+</tbody>
+</table>
+</form>
+
+</body></html>

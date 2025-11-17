@@ -1,0 +1,109 @@
+Many bugs and potential bugs were fixed from TPP release 1.13, as well as added
+many features, including:
+
+*    Bug to away command, where it notified all with away info, fixed.
+
+*    Bug to read_configuration function, that caused WAMPES-style links
+        to fail, fixed.
+
+*    Bug to online program, where a personal ending in "***" caused a
+        premature ending to the display, fixed.
+
+*    The '/cstat' command allowed from users and observers.
+
+*    Several places in the code that were case significant and now
+        case insignificant.
+
+*    The server (Unix version) now forks off a copy, making the need
+        to start with a "&" unneeded.
+
+*    The server (Unix version) now can receive a 'kill -HUP' signal,
+        and when received, it drops all users and links, and starts fresh.
+
+*    The '/help' command will now ignore a leading '/' to the command name
+        being 'helped' with.
+
+*    A new '/who * <channel>' syntax that lists users on a specific
+        channel.
+
+*    Any operators are notified when any new links or destinations
+        are added.
+
+*    A new '/stats [[mode] [num]]' command added, to display rx/tx
+        statistics. The modes are 'daily' or 'hourly'. The 'num' is the
+        number of days/hours to display, up to a maximum of 60 (or the
+        number of days/hours uptime). The defaults are hourly mode, up to
+        60 hours.
+
+*    New convers.conf file command 'MaxLinks' to change number of
+        linked servers without re-compiling
+
+*    Added scanning of a convers.noaccess file, which contains names
+        of users that are to be denied access to the server.
+
+*    Data for the '/help' command is now in a convers.help file, allowing
+        easy customization.
+
+*    A piece that I missed in TPP 1.13: Added capability for retrieving
+        remotely help infomation for extended commands, using a new host
+        command '/..HELP'.
+
+*    New convers.conf file command 'LogLevel' to change current logging
+        verbosity level.
+
+*    Added multiple levels of logging verbosity, which can be set in the
+        convers.conf file, and can be toggled up/down by sending the
+        SIGUSR1 and SIGUSR2 signals (Unix version only for the signals).
+        Current levels are:
+
+  ALWAYS      /* always log */
+  NOTHING     /* log nothing at all */
+  WARNING     /* log critical events, startup, etc. */
+  CONFIG      /* plus log config interpretation */
+  LINKS       /* plus log significant events, link up/down, etc. */
+  CMDS        /* plus log cmd changes, channel creation, mode changes, etc. */
+  USERS       /* plus log user's entry/leaving/channel change - network wide */
+  HOSTCMDS    /* plus log all HOST commands received */
+
+*	Changed the algorithm used to produce the operator security number to
+	produce a TRUELY random number.
+
+*	Fixed bug which allowed you to 'receive' a destination of your own
+	hostname. If this happens, now, it gets bitbucketted.
+
+*	Cleaned up code in the /whois command to properly handle secret and
+	invisible channels.
+
+*	Cleaned up code in the quick /who listing, which if a channel were
+	BOTH secret and invisible, the secret took precedence. It is now the
+	more logical way, having 'invisible' taking precedence.
+
+*	Added the ability to retrieve remote '/links' listings from TPP
+	1.14-compatible servers. This was easy done by taking a syntax hole
+	in the /links command, and making it work. The four syntaxes for
+	the /links command are:
+
+	/links - droplink
+	/links hostname group quality hostname:port
+	/links remotehost
+	/links
+
+	The first removes the host named, 'droplink', by dropping that socket.
+	The second adds a new link (or drops the old link and updates information
+	on an existing link). The third requests the links display from the
+	remote host, 'remotehost'. And the final display displays the
+	links info from the current host.
+
+*	Added code to filter out invalid and corrupted /..USER commands. To
+	do this three assumptions are made:
+
+	* A proper username contains only printable characters.
+	* A proper hostname contains only printable characters.
+	* A proper hostname contains at least ONE non-digit.
+
+	Any /..USER entries that fails one or more of these assumption are
+	ignored.
+
+*	Fixed a '/whois' bug that wouldn't correctly display data for a user,
+	unless they were a LOCAL user.
+

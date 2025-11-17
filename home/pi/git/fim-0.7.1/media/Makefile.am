@@ -1,0 +1,2 @@
+subdir = media
+SUBDIRS = multipage

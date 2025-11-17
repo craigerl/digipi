@@ -1,0 +1,1571 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+
+
+
+<meta http-equiv="content-type" content="application/xhtml+xml; charset=utf-8" /><title>Severe WX Report Entry</title>
+
+
+
+<style type="text/css">
+
+
+
+.pop-up {
+	position:absolute;
+	top:0;
+	left:-500em;
+	visibility: visible;
+}  
+
+  
+
+.pop-up:target {position:static; left:0;}  
+
+  
+
+/* The pop-up itself */  
+
+  
+
+.popBox {
+
+	background:#ffffff;
+
+	position:absolute;
+
+	left:15%;
+
+	right:15%;
+
+	top:10%;
+
+	bottom:15%;
+
+	z-index:10;
+
+	border:1px solid #3a3a3a;
+
+  
+
+/* CSS3 where available: rounded corners, drop-shadow, and fade in. */  
+
+  
+
+border-radius:.25rem;  
+
+  
+
+box-shadow:0 .5rem .5rem rgba(0,0,0,.5);  
+
+	opacity:0;
+
+	transition: opacity 0.8s ease-out;
+
+	visibility: visible;
+
+}  
+
+  
+
+:target .popBox {position:fixed; opacity:1;}  
+
+  
+
+/* Light box properties */  
+
+  
+
+.lightbox {  
+
+  
+
+display:none;  
+
+  
+
+text-indent:-200em;  
+
+  
+
+background-color:rgba(0,0,0,.4);  
+
+  
+
+width:100%;  
+
+  
+
+height:100%;  
+
+  
+
+position:fixed;  
+
+  
+
+top:0;  
+
+  
+
+left:0;  
+
+  
+
+bottom:0;  
+
+  
+
+right:0;  
+
+  
+
+z-index:5;  
+
+  
+
+}  
+
+  
+
+:target .lightbox {display:block;}  
+
+  
+
+/* The pop-ups close link, moved via CSS to the top right of the pop-up */  
+
+  
+
+.close:link,  
+
+  
+
+.close:visited {
+
+	position: absolute;
+
+	top: -0.75em;
+
+	right: -0.75em;
+
+	display: block;
+
+	width: 2em;
+
+	height: 2em;
+
+	line-height: 1.8;
+
+	padding: 0;
+
+	text-align: center;
+
+	text-decoration: none;
+
+	background-color: #000;
+
+	border: 2px solid #fff;
+
+	color: #fff;
+
+	border-radius: 50%;
+
+  
+
+box-shadow: 0 0 .5rem .5rem rba(0,0,0,.5);
+
+	visibility: visible;
+
+}  
+
+  
+
+.close:before {content:"X";}  
+
+  
+
+.close:hover,  
+
+  
+
+.close:active,  
+
+  
+
+.close:focus {  
+
+  
+
+box-shadow: 0 0 .5rem .5rem rba(255,0,0,.5);  
+
+  
+
+background-color: #c00;  
+
+  
+
+color: #fff;  
+
+  
+
+}  
+
+  
+
+.close span {  
+
+  
+
+text-indent: -200em;  
+
+  
+
+display: block;  
+
+  
+
+}  
+
+  
+
+/* The pop-up content div will scroll if it has too much content */  
+
+  
+
+.popScroll {
+
+	position:absolute;
+
+	top: 1rem;
+
+	left: 1rem;
+
+	right: 1rem;
+
+	bottom: 1rem;
+
+	overflow-y: auto;
+
+  
+
+*overflow-y: scroll;  
+
+	padding-right: 0.5em;
+
+	visibility: visible;
+
+}  
+
+  
+
+.popScroll h2 {margin-top:0}  
+
+
+
+body, td, th {
+
+
+
+font-family: Arial, Helvetica, sans-serif;
+
+
+
+}
+
+
+
+.zentriert {
+
+
+
+text-align: center;
+
+
+
+}
+
+
+
+input, select {
+
+
+
+padding: 1px;
+
+
+
+-moz-border-radius-topleft: 2px;
+
+
+
+-moz-border-radius-topright: 2px;
+
+
+
+-moz-border-radius-bottomright: 2px;
+
+
+
+-moz-border-radius-bottomleft: 2px;
+
+
+
+font-family: Arial, Helvetica, sans-serif;
+
+
+
+font-size: 12px;
+
+
+
+text-align: left;
+
+
+
+font-weight: normal;
+
+
+
+font-style: normal;
+
+
+
+}
+
+
+
+textarea {
+
+
+
+padding: 1px;
+
+
+
+-moz-border-radius-topleft: 2px;
+
+
+
+-moz-border-radius-topright: 2px;
+
+
+
+-moz-border-radius-bottomright: 2px;
+
+
+
+-moz-border-radius-bottomleft: 2px;
+
+
+
+font-family: Arial, Helvetica, sans-serif;
+
+
+
+font-size: 12px;
+
+
+
+font-weight: normal;
+
+
+
+font-style: normal;
+
+
+
+}
+
+
+
+.rechtsbuendig {
+
+
+
+text-align: right;
+
+
+
+}
+
+
+
+.SubmitBtn {
+
+
+
+text-align: right;
+
+
+
+}
+
+
+
+.version {
+
+
+
+font-size: 10px;
+
+
+
+color: #666666;
+
+
+
+position: relative;
+
+
+
+left: 0px;
+
+
+
+top: 3px;
+
+
+
+}
+
+.style2 {font-weight: bold}
+
+
+
+hr.new1 {
+
+  border-top: 1px solid red;
+
+}
+
+.formtext {font-family: Arial, Helvetica, sans-serif;
+
+font-size: 11pt;
+
+font-weight: normal;
+
+}
+
+.formtext11 {font-family: Arial, Helvetica, sans-serif;
+
+
+
+font-size: 11pt;
+
+
+
+font-weight: normal;
+
+
+
+margin: 10px;
+
+}
+
+.style17 {font-size: 12px; font-family: Arial, Helvetica, sans-serif}
+
+.style27 {font-size: 12px}
+.style29 {font-size: 14px}
+</style>
+
+
+
+<script type="text/javascript">
+
+
+
+function TimeNow(Timefld, FocusFld) {
+
+
+
+var txt;
+
+
+
+var d = new Date(),
+
+
+
+thisyear = d.getFullYear();
+
+
+
+thismonth= d.getMonth();
+
+
+
+thismonth = thismonth+1;
+
+
+
+thisday = d.getDate();
+
+
+
+h = (d.getHours()<10?'0':'') + d.getHours()
+
+
+
+m = (d.getMinutes()<10?'0':'') + d.getMinutes()
+
+
+
+s = (d.getSeconds()<10?'0':'') + d.getSeconds();
+
+
+
+var myprompt = thisyear+ '-'+thismonth+'-'+thisday+' '+h + ':' + m ;
+
+
+
+var RightNow = prompt("Local Date/Time", myprompt);
+
+
+
+document.getElementById(Timefld).value = RightNow;
+
+
+
+document.getElementById(FocusFld).focus();
+
+
+
+} function AutoGrowTextArea(textField)
+
+
+
+{
+
+
+
+if (textField.clientHeight < textField.scrollHeight)
+
+
+
+{
+
+
+
+textField.style.height = textField.scrollHeight + "px";
+
+
+
+if (textField.clientHeight < textField.scrollHeight)
+
+
+
+{
+
+
+
+textField.style.height = (textField.scrollHeight * 2 - textField.clientHeight) + "px";
+
+
+
+}
+
+
+
+}
+
+
+
+}
+
+
+
+function Countthelines(f) { var text1 = f
+
+
+
+var text2 = text1.replace(/\s+$/,"");
+
+
+
+var split2 = text2.split("\n"); var mytotal = split2.length * 17;
+
+
+
+if (mytotal < 150) {
+
+
+
+mytotal = 150;
+
+
+
+}
+
+
+
+var tstr = mytotal.toString();
+
+
+
+return tstr;
+
+
+
+}
+
+
+
+function newfix(f){
+
+
+
+var ThisText = document.getElementById(f).value;
+
+
+
+var makeit = Countthelines(ThisText);
+
+
+
+document.getElementById(f).style.height = makeit+"px"; }
+
+
+
+function Fixarea() {
+
+
+
+newfix("Narrative");
+
+
+
+// newfix("reply");
+
+
+
+AutoGrowTextArea(document.getElementById("Narrative"));
+
+
+
+// AutoGrowTextArea(document.getElementById("reply"));
+
+
+
+}
+
+
+
+function RWS(str){
+
+
+
+var text2 = str.replace(/\s+$/,"");
+
+
+
+return text2.trim();
+
+
+
+}
+
+
+
+// add save load
+
+
+
+
+
+function saveTextAsFile(fileNameToSaveAs, textToWrite) {
+
+var textToWrite = document.getElementById('parseme').value; 
+
+var fileNameToSaveAs = "Severe WX " + DateforFile()+".txt";
+
+fileNameToSaveAs = prompt("", fileNameToSaveAs);
+
+
+
+  /* Saves a text string as a blob file*/  
+
+  var ie = navigator.userAgent.match(/MSIE\s([\d.]+)/),
+
+      ie11 = navigator.userAgent.match(/Trident\/7.0/) && navigator.userAgent.match(/rv:11/),
+
+      ieEDGE = navigator.userAgent.match(/Edge/g),
+
+      ieVer=(ie ? ie[1] : (ie11 ? 11 : (ieEDGE ? 12 : -1)));
+
+
+
+  if (ie && ieVer<10) {
+
+    console.log("No blobs on IE ver<10");
+
+    return;
+
+  }
+
+
+
+  var textFileAsBlob = new Blob([textToWrite], {
+
+    type: 'text/plain'
+
+  });
+
+
+
+  if (ieVer>-1) {
+
+    window.navigator.msSaveBlob(textFileAsBlob, fileNameToSaveAs);
+
+
+
+  } else {
+
+    var downloadLink = document.createElement("a");
+
+    downloadLink.download = fileNameToSaveAs;
+
+    downloadLink.href = window.URL.createObjectURL(textFileAsBlob);
+
+    downloadLink.onclick = function(e) { document.body.removeChild(e.target); };
+
+    downloadLink.style.display = "none";
+
+    document.body.appendChild(downloadLink);
+
+    downloadLink.click();
+
+  }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+function destroyClickedElement(event)
+
+{
+
+    document.body.removeChild(event.target);
+
+}
+
+
+
+function loadFileAsText()
+
+{
+
+
+
+    var fileToLoad = document.getElementById("fileToLoad").files[0];
+
+ 
+
+    var fileReader = new FileReader();
+
+    fileReader.onload = function(fileLoadedEvent) 
+
+    {
+
+        var textFromFileLoaded = fileLoadedEvent.target.result;
+
+        document.getElementById("inputTextToSave").value = textFromFileLoaded;
+
+    };
+
+    fileReader.readAsText(fileToLoad, "UTF-8");
+
+}
+
+
+
+
+
+function DateforFile(RightNow) {
+
+var txt;
+
+var d = new Date(),
+
+thisyear = d.getFullYear();
+
+thismonth= d.getMonth();
+
+thismonth = thismonth+1;
+
+if (thismonth < 10) { thismonth = "0" + thismonth}
+
+
+
+thisday = d.getDate();
+
+if (thisday < 10) { thisday = "0" + thisday}
+
+
+
+h = (d.getHours()<10?'0':'') + d.getHours()
+
+m = (d.getMinutes()<10?'0':'') + d.getMinutes()
+
+var myprompt = thisyear+ '-'+thismonth+'-'+thisday+' '+h + '_' + m ;
+
+return myprompt;
+
+}
+
+
+
+function isObject(arg) {
+
+  return Object.prototype.toString.call(arg)==='[object Object]';
+
+}
+
+
+
+function formDataToObject(elForm) {
+
+  if (!elForm instanceof Element) return;
+
+  var fields = elForm.querySelectorAll('input, select, textarea'),
+
+    o = {};
+
+  for (var i=0, imax=fields.length; i<imax; ++i) {
+
+    var field = fields[i],
+
+      sKey = field.name || field.id;
+
+    if (field.type==='button' || field.type==='image' || field.type==='submit' || !sKey) continue;
+
+    switch (field.type) {
+
+      case 'checkbox':
+
+        o[sKey] = +field.checked;
+
+        break;
+
+      case 'radio':
+
+        if (o[sKey]===undefined) o[sKey] = '';
+
+        if (field.checked) o[sKey] = field.value;
+
+        break;
+
+      case 'select-multiple':
+
+        var a = [];
+
+        for (var j=0, jmax=field.options.length; j<jmax; ++j) {
+
+          if (field.options[j].selected) a.push(field.options[j].value);
+
+        }
+
+        o[sKey] = a;
+
+        break;
+
+      default:
+
+        o[sKey] = field.value;
+
+    }
+
+  }
+
+ // alert('Form data:\n\n' + JSON.stringify(o, null, 2));
+
+ document.getElementById('parseme').value = JSON.stringify(o, null, 2);
+
+//  return o;
+
+}
+
+
+
+function populateForm(o) {
+
+
+
+o =  JSON.parse(document.getElementById('parseme').value);
+
+ //if (!isObject(o)) return;
+
+if (!isObject(o)) return;
+
+  for (var i in o) {
+
+    var el = document.getElementById(i) || document.querySelector('[name=' + i + ']');
+
+    if (el.type==='radio') el = document.querySelectorAll('[name=' + i + ']');
+
+    switch (typeof o[i]) {
+
+      case 'number':
+
+        el.checked = o[i];
+
+        break;
+
+      case 'object':
+
+        if (el.options && o[i] instanceof Array) {
+
+          for (var j=0, jmax=el.options.length; j<jmax; ++j) {
+
+            if (o[i].indexOf(el.options[j].value)>-1) el.options[j].selected = true;
+
+          }
+
+        }
+
+        break;
+
+      default:
+
+        if (el instanceof NodeList) {
+
+          for (var j=0, jmax=el.length; j<jmax; ++j) {
+
+            if (el[j].value===o[i]) el[j].checked = true;
+
+          }
+
+        } else {
+
+          el.value = o[i];
+
+        }
+
+    }
+
+  }
+
+    Fixfields();
+
+
+
+
+
+}
+
+
+
+function SaveData() {
+
+	
+
+			formDataToObject(document.getElementById('myform'))
+
+			saveTextAsFile();
+
+			
+
+			//saveTextAsFile();
+
+			}
+
+
+
+//-------
+
+ function readBlob(opt_startByte, opt_stopByte) {
+
+  
+
+    var files = document.getElementById('files').files;
+
+    if (!files.length) {
+
+      alert('Please select a file!');
+
+      return;
+
+    }
+
+
+
+    var file = files[0];
+
+    var start = parseInt(opt_startByte) || 0;
+
+    var stop = parseInt(opt_stopByte) || file.size - 1;
+
+
+
+    var reader = new FileReader();
+
+
+
+    // If we use onloadend, we need to check the readyState.
+
+    reader.onloadend = function(evt) {
+
+      if (evt.target.readyState == FileReader.DONE) { // DONE == 2
+
+        document.getElementById('byte_content').textContent = evt.target.result;
+
+        document.getElementById('byte_range').textContent = 
+
+            ['Read bytes: ', start + 1, ' - ', stop + 1,
+
+             ' of ', file.size, ' byte file'].join('');
+
+      }
+
+    };
+
+
+
+    var blob = file.slice(start, stop + 1);
+
+    reader.readAsBinaryString(blob);
+
+  }
+
+    	
+
+  window.onload = function () { 
+
+ 
+
+ //Check the support for the File API support 
+
+ if (window.File && window.FileReader && window.FileList && window.Blob) {
+
+    var fileSelected = document.getElementById('txtfiletoread');
+
+	
+
+    fileSelected.addEventListener('change', function (e) { 
+
+         //Set the extension for the file 
+
+         var fileExtension = /text.*/; 
+
+         //Get the file object 
+
+         var fileTobeRead = fileSelected.files[0];
+
+        //Check of the extension match 
+
+         if (fileTobeRead.type.match(fileExtension)) { 
+
+             //Initialize the FileReader object to read the 2file 
+
+			
+
+             var fileReader = new FileReader(); 
+
+             fileReader.onload = function (e) { 
+
+                 var fileContents = document.getElementById('filecontents'); 
+
+                
+
+				document.getElementById('parseme').value =fileReader.result;
+
+				populateForm(obj = document.getElementById('parseme').value);
+
+					 } 
+
+             fileReader.readAsText(fileTobeRead); 
+
+         } 
+
+         else { 
+
+             alert("Please select text file"); 
+
+         }
+
+ 
+
+    }, false);
+
+} 
+
+ else { 
+
+     alert("Files are not supported"); 
+
+ } 
+
+  Checkifinbrowser();
+
+ Fixfields();
+
+ getGPS();
+
+ }
+
+ 
+
+ function Fixfields() {
+
+AutoGrowTextArea(document.getElementById("Narrative"));
+
+
+
+//  AutoGrowTextArea(document.getElementById("Comm3"));
+
+}
+
+// function setcolors() {
+
+
+
+	function Flip(theid,working) {
+
+x1 = document.getElementById(theid).value;
+
+if (x1 == '' || x1 == '') { document.getElementById(theid).value = working} 
+
+else { document.getElementById(theid).value = '';}
+
+}
+
+
+
+function getGPS(){
+
+var ans = document.getElementById('GPS').value;
+
+if (ans  != '(Not available)'){
+
+ans = ans.replace(" ", ", "); } else {var ans = ''}
+
+document.getElementById('GPS').value = ans;
+
+}
+
+
+
+function Checkifinbrowser() {
+
+ var x= document.getElementById("testCall").value; 
+
+ var n = x.search("{Msg");
+
+ if (n>-1) { 
+
+ document.getElementById('Submit').style.visibility='hidden';
+
+  alert('You are running this form outside of Winlink.\n \nWhen you have completed the form, SAVE the data and then give or send the SAVED data file to the radio operator. The operator will load the SAVED data into the correct form and send via winlink. ');
+
+ } else {document.getElementById('Submit').style.visibility='visible';  }
+
+}
+
+
+
+</script>
+
+
+
+</head>
+
+
+
+<body>
+
+ <div style="text-align: center;">
+
+
+
+<form  style="font-family: Arial;" pbzloc="3" onsubmit="return confirm('To complete your form submission, click OK and close the open browser window. You will return to the new message window so you can post your message to the outbox');" method="post" id="myform" enctype="multipart/form-data" action="http://{FormServer}:{FormPort}">
+
+
+
+<table style="width: 1071px; height: 1056px;" align="center" border="0">
+
+
+
+<tbody>
+
+
+
+<tr>
+
+
+
+<td>
+
+
+
+<table width="869" height="949" border="3" cellpadding="2" cellspacing="0" bordercolor="#999999" style="font-size: 14px; width: 875px; height: 981px;">
+
+
+
+<tbody>
+
+
+
+<tr>
+
+
+
+<td bgcolor="#dee9f9" style="height: 15%; vertical-align: top; text-align: center; "><p><span class="style2">SEVERE WEATHER REPORT&nbsp;</span></p>
+
+ <input type="file" id="txtfiletoread" accept=".txt"  style="display: none;"/></td>
+
+
+
+</tr>
+
+
+
+<tr pbzloc="3">
+
+
+
+<td valign="top" style="text-align: center; vertical-align: top;"><div align="left">
+  <p class="style29"><span style="color: rgb(0, 0, 0); font-family: Arial, Helvetica, sans-serif; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;"><span style="color: rgb(0, 0, 0); font-family: Arial, Helvetica, sans-serif; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;">&nbsp;&nbsp;</span>Sender:
+
+        {var Call}</span></p>
+
+    <p>&nbsp;Report
+
+    
+
+  Date/Time: (local) &nbsp;
+
+    
+
+  {var ActivityDateTime1} 
+
+    
+
+   &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<span style="color: rgb(0, 0, 0); font-family: Arial, Helvetica, sans-serif; font-size: 12px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;">Report Version: {var Type}<br />
+
+   </span></p>
+
+</div></td>
+
+
+
+</tr>
+
+
+
+<tr>
+
+
+
+<td height="843" colspan="4" style="text-align: center; vertical-align: top;">
+
+
+
+<table height="254" border="1" cellpadding="2" cellspacing="0" style="text-align: left; width: 863px; height: 269px;">
+
+
+
+<tbody>
+
+
+
+<tr>
+
+
+
+<td style="vertical-align: middle; text-align: center;"><div align="left">
+
+  <p><span style="color: rgb(0, 102, 0);"><span style="color: black;">&nbsp; </span></span>Reporting Party
+
+          
+
+  Name:&nbsp;
+  {var RepName}
+  &nbsp; &nbsp;</p>
+
+  </div></td>
+
+
+
+</tr>
+
+
+
+<tr>
+
+
+
+<td style="text-align: center;"><div align="left">
+
+      <p><span style="color: rgb(0, 102, 0);"><span style="color: black;">&nbsp; </span></span>Reporting Party Phone Number:&nbsp;      
+
+    
+
+        {var Phone}
+
+          <textarea name="parseme" cols="60" id="parseme" style="display: none;"></textarea>    
+
+        </p>
+
+      </div></td>
+
+
+
+</tr>
+
+
+
+<tr>
+
+
+
+<td style="text-align: center;"><div align="left">
+
+      <p><span style="color: rgb(0, 102, 0);"><span style="color: black;">&nbsp; </span></span>Reporting Party Email Address:&nbsp;            
+        {var Email}
+
+    
+
+        </p>
+
+      </div></td>
+
+
+
+</tr>
+
+
+
+<tr>
+
+
+
+<td height="38" style="text-align: center; background-color: white;"><span style="font-style: italic; font-weight: bold;">EVENT AREA&nbsp;</span>
+
+
+
+&nbsp;</td>
+
+
+
+</tr>
+
+
+
+<tr>
+
+
+
+<td bgcolor="#f8f8ff" style="text-align: center; "><div align="left"><span style="color: rgb(0, 102, 0);"><span style="color: black;"><br />
+  &nbsp; </span></span>State/Province/Region:&nbsp;      {var Region}
+
+
+
+    &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;County:&nbsp;
+
+
+
+    {var County}
+</div></td>
+
+
+
+</tr>
+
+
+
+<tr>
+
+
+
+<td height="65" valign="top" bgcolor="#f8f8ff" style="text-align: center;"><div align="left">
+
+  <p><span style="color: rgb(0, 102, 0);"><span style="color: black;">&nbsp; </span></span>City:&nbsp;      {var City}
+
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;Other:&nbsp;  {var Other}
+
+  
+
+  <br />
+
+  
+
+  <br />
+
+  
+
+  <span style="color: rgb(0, 102, 0);"><span style="color: black;">&nbsp; </span></span>Decimal GPS Coordinates: &nbsp;
+
+    {var GPS}</p>
+
+  </div></td>
+
+
+
+</tr>
+
+
+
+</tbody>
+
+
+
+</table>
+
+
+
+<table style="text-align: left; width: 863px; " border="1" cellpadding="4" cellspacing="0">
+
+
+
+<tbody>
+
+
+
+<tr>
+
+
+
+<td  nowrap="nowrap" style="vertical-align: top; text-align: center;"><div align="left">
+  <p align="center"><span style="color: black; font-style: italic;"><span style="font-weight: bold; ">&nbsp;OBSERVED&nbsp;EVENT </span></span><span style="font-style: italic;"><span style="font-weight: bold;">CONDITIONS</span></span></p>
+  <hr class="new1" />
+  Flood: 
+    {var Flood} <br />
+  <hr class="new1" />
+  Hail:   
+
+    {var HailSize}
+
+      <hr class="new1">
+      HIgh Wind Speed: &nbsp;
+
+    {var Windspeed}
+
+&nbsp;&nbsp;&nbsp;&nbsp;
+
+  
+  <hr class="new1">
+  Tornado / Funnel Cloud: 
+
+  {var Tornado}
+
+<br />
+
+<hr class="new1" />
+Wind Damage: 
+
+  {var WindDamage}
+
+<hr class="new1" />
+Winter Precipitation: 
+
+  {var Precipitation}
+<hr class="new1" />
+Snow:
+
+  {var Snow} 
+  <hr class="new1" />
+
+Freezing Rain: 
+
+{var FreezingRain}
+
+<br />
+
+<hr class="new1" />
+
+Heavy Rain: 
+
+  {var Rain}
+
+    Time period: 
+
+    {var RainPeriod} 
+
+    <hr class="new1" />
+
+</span></div>
+</td>
+
+
+
+</tr>
+
+
+
+</tbody>
+
+
+
+</table>
+
+
+
+<span style="font-family: Calibri;">
+<hr />
+</span>
+<div align="left">&nbsp;Additional Information or Damage Descriptions<br />
+    <span style="width:750px; margin: 10px;  word-wrap:break-word; display:inline-block;">{var Narrative}</span><br />
+    <hr />
+    <br />
+&nbsp;<span style="font-size: 14px;">&nbsp;Severe WX. 2.6</span><span style="font-style: italic;"><span class="style27"><span style="font-style: italic;"><span style="font-style: italic;"><span class="style17"><span class="formtext11"> <span style="font-style: italic;"><span style="font-style: italic;"><span style="font-style: italic;"> <span style="font-style: italic;"><span style="font-style: italic;"><span style="font-style: italic;"><span style="font-style: italic;"><span style="font-style: italic;"><span style="font-style: italic;">
+  <input name="Templateversion" type="hidden" id="templateversion" value="Severe WX. 2.6" />
+  </span></span></span></span></span></span></span></span></span></span></span></span></span></span></span>
+  </p>
+  
+
+  
+</div></td>
+
+
+
+</tr>
+
+
+
+</tbody>
+
+
+
+</table>
+
+
+
+<br />
+
+
+
+&nbsp;</td>
+
+
+
+</tr>
+
+
+
+</tbody>
+
+
+
+</table>
+
+
+
+</form>
+
+
+
+</div>
+
+
+
+</body></html>

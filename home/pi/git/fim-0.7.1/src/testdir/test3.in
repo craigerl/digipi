@@ -1,0 +1,33 @@
+fv=2.1;
+
+if ( fv )  { stdout "float variables evaluation works"; }
+else { stdout "float variables evaluation doesn't work"; quit -1; }
+
+if ( !fv ) { stdout "negated float variables evaluation doesn't work"; quit -1; }
+else { stdout "negated float variables evaluation works"; }
+
+if ( !!fv )  { stdout "negated negated float variables evaluation works"; }
+else { stdout "negated negated float variables evaluation doesn't work"; quit -1; }
+
+if ( !!!fv ) { stdout "triply negated float variables evaluation doesn't work"; quit -1; }
+else { stdout "triply negated float variables evaluation work"; }
+
+if ( fv == "0.0" ) { stdout "float variables to constant comparison doesn't work"; quit -1; }
+else { stdout "float variables to constant comparison works"; }
+
+if ( ! ( fv != "0.0" ) ) { stdout "float variables to negated constant inequality doesn't work"; quit -1; }
+else { stdout "float variables to negated constant inequality works"; }
+
+if ( !!! ( fv != "0.0" ) ) { stdout "float variables to triply negated constant inequality doesn't work"; quit -1; }
+else { stdout "float variables to triply negated constant inequality works"; }
+
+if ( !! ( fv == "0.0" ) ) { stdout "double negated float to constant variables comparison doesn't work"; quit -1; }
+else { stdout "double negated float to constant variables comparison works"; }
+
+if ( fv == "2.1" )  { stdout "float variables to constant comparison works"; }
+else { stdout "float variables to constant comparison doesn't work"; quit -1; }
+
+if ( fv != "3.0" )  { stdout "float variables to constant inequality works"; }
+else { stdout "float variables to constant inequality doesn't work"; quit -1; }
+
+stdout "basic float variables test success";

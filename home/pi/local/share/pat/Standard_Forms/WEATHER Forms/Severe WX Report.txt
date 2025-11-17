@@ -1,0 +1,65 @@
+Form: Severe WX Report.html, Severe WX Report viewer.html
+
+To:
+Subject: Severe WX Report <var Region> <var County> [<var Type>]
+
+Msg:
+Severe WX Report <var Region> <var County> 
+
+Report Date/Time: <var ActivityDateTime1>  
+
+Report Status: [<var Type>]
+
+Message Sender: <var Call>
+
+Reporting Party: <var RepName>
+
+Phone Number: <var Phone>
+
+Email: <var Email>
+
+
+EVENT AREA
+
+State or Region: <var Region>
+
+County: <var County>
+
+City: <var City>
+
+Other: <var Other>
+
+GPS: <var GPS>
+
+
+OBSERVED EVENT CONDITIONS
+
+Flood: <var Flood>
+
+Hail: <var HailSize>
+
+High Wind Speed:  <var Windspeed>
+
+Tornado / Funnel Cloud: <var Tornado>
+
+Wind Damage: <var WindDamage>
+
+Winter Precipitation: <var Precipitation>
+
+Snow: <var Snow>
+
+Freezing Rain: <var FreezingRain>
+
+Heavy Rain: <var Rain>   
+Rain period: <var RainPeriod>
+
+Additional Information or Comments:
+
+<var Narrative>
+
+------------------------------------
+Express Sending Station: <MsgSender>
+Senders Express Version: <ProgramVersion> 
+Senders Template Version: <var Templateversion>
+
+

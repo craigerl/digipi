@@ -1,0 +1,16 @@
+# A test for command basename.
+alias 'dump' "stdout _last_cmd_output; stdout '*';";
+basename '/';
+dump;
+basename '/path';
+dump;
+basename '/path/';
+dump;
+basename '/path/to';
+dump;
+basename '/path/to/';
+dump;
+basename '/path/to/foo';
+dump;
+basename '/path/to/foo/';
+dump;

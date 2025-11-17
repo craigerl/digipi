@@ -1,0 +1,487 @@
+$Revision: 1.1.1.1 $$Date: 2001/10/10 13:29:59 $
+
+In This file you may find my history of changes. Not that interesting for
+users, but sometimes sysops should have a closer look...
+
+So: Whats new ?
+
+----------------------------
+revision 3.05
+moved netinet/in.h to the right position... It was late in the evening...
+ But the first big revision in 3.01 was after all rather ok :-)
+----------------------------
+revision 3.04
+another one: use getargcs instead of getarg for feature string.
+AWAY docs in SPECS updated
+----------------------------
+revision 3.03
+as usual, some tiny bugs were introduced in 3.02:
+if not doing LOGGGING - include netinet/in.h for linux environment
+ (used for the unix-socket workaround)
+return invitation message on success (grmbl)
+----------------------------
+revision 3.02
+away setups now affect _all_ users@samehost  ( WARNING !!! the internode
+ format has changed - inform your neighbour links !!! IMPORTANT !!! )
+no modes on channel 0 warning no longer sent to CT_HOST
+had a quick look into speaking code... must be revised... any volunteers ?
+invitation appears on every login screen of user (if writable)
+login as user conversd now rejected
+online bug (sigsegv on no params) fixed.
+uptime command fixed
+channel list now sorted by channel numbers
+You may disallow users spawning into shells (affects convers client) -
+ see CDEF9 at Makefile
+added workaround for linux: kernel panic later than 1.1.76 :-(
+----------------------------
+revision 3.01
+forwarding of channel flags fixed
+----------------------------
+revision 3.00
+CONVERSHOST now settable in Makefile
+removed another warning for AIX...
+added -l option to convers (Configurable in Makefile !)
+added parsing of $ETC Environment on OS/2 version
+----------------------------
+revision 2.99
+renamed os2.h into pp_os2.h to avoid conflicts on OS/2 compiler
+fixed some more bugs I put in while merging in Walt's patches by hand :)
+online and cstat command accept convers type as first parameter (e.g.
+ "online kaconvers a" is possible now)
+----------------------------
+revision 2.98
+one more getargcs() instead of getarg() in /host command
+removed one space in /list
+included OS/2 support (thanks Walt, kz1f) - see README.OS2
+----------------------------
+revision 2.97
+/list command fixed to screen length
+more fixes for case sensitivity - should work now
+----------------------------
+revision 2.96
+if a user is logged in multiple cases, just send him /excl-messages once
+ (thanks DG3KCR)
+/topic #channel fixed. (tnks DG3KCR)
+strip /who output to screenwidth (away texts and personal info)
+----------------------------
+revision 2.95
+some work on sun compatibility...
+fixed README into FSSTND compatible style
+allow Upper case letters in remote hostnames in configuration file
+----------------------------
+revision 2.94
+moved files around to FSSTND-compatible positions
+added -pedantic flag to gcc-call
+made hostnames case-sensitive (as requestet by internet sites...)
+added new manual pages supplied by Michael
+/chan returns topic if set.
+----------------------------
+revision 2.93
+created in /who u username
+added /..OPER command, fixed a few bugs in /mode evaluation btw :-)
+new operator gains information who did the oper flag change.
+----------------------------
+revision 2.92
+fixed permission for man pages (tnx again Michael for the update !)
+another approach to avoid blocking on socket connection from other host
+fixed "mode -p -i" bug, tnx dg3kcr fer report
+no /mode commands for channel 0
+----------------------------
+revision 2.91
+mailer client now being updated to the distribution (still not working !)
+hpux should work now.
+don't write "localhost" connections into SYSLOG file
+----------------------------
+revision 2.90
+i'm starting the project of a mailer client. conversd's may be connected
+by using a mailer daemon doing the transport layer (i hate firewalls :-))
+fixed a slight bug in send_user_change_msg
+----------------------------
+revision 2.89
+fd_set stuff for hpux revised again - i have no hpux to test it... :)
+put in patches by Eddy van Loo, <eddy@eddy@HZeeland.nl> to save /pers
+modified /topic. It now displays the current's channel topic, if invoked
+without arguments. To clear a topic, use "/topic [#channel] @"
+----------------------------
+revision 2.88
+some more code cleanup (fixed printf format strings)
+added first steps to hpux and sun os support
+----------------------------
+revision 2.87
+Configure shell script fixed for no WAMPES on whole directory structure.
+invitaion text fixed from *conversd to *convers
+----------------------------
+revision 2.86
+again /quit blabla - Now you may say more than one word :-)
+changed some stuff to make it compilable under standard cc
+chan-timestamp now set to 0 on creation - no longer crazy time stamps
+----------------------------
+revision 2.85
+tiny fix to /quit without args :-)
+fixed SPECS - due to a wrong comment
+changed PCSP behaviour in convers.c - due to linux 0.99.14-q kernel
+which now includes pc-speaker support by default.
+man page by Michael Meifert, <mime@dk3hg.hanse.de> included
+----------------------------
+revision 2.84
+user may say /quit blabla now...
+----------------------------
+revision 2.83
+just inflating numbers... fixed latest created bug :-)
+----------------------------
+revision 2.82
+Don't display /pers settings on other chjannels than joined ones.
+----------------------------
+revision 2.81
+more changes to invisoble and secret channel handling
+fixed another MAJOR bug in update_destinations (tnx dl1xao)
+----------------------------
+revision 2.80
+some changes to the ax25 command embedded in convers.c
+inserted \n in /help beep
+----------------------------
+revision 2.79
+split README into README section and CHANGES (this file :-))
+now showing /pers info on local nodes for own channels again
+show leaving persons in secondary channels now fixed.
+"this hidden/secret channel" fixed to "hidden/secret channel #..."
+----------------------------
+revision 2.78
+fixed /dest forwarding (again and again fixes - wheres the time to rewrite ?)
+----------------------------
+revision 2.77
+bugfix to free_closed_connections()
+adapted to mips+LOGGING
+----------------------------
+revision 2.76
+added //q and //priv commands as aliases to the table
+added connas in /c list
+changed compare style in convers.c (due to a left bug in conversd :-()
+added ax25 command (derived from convers.c)
+----------------------------
+revision 2.75
+fixed manual link entry into table
+----------------------------
+revision 2.74
+disconnected links are now removed if non-permanent
+----------------------------
+revision 2.73
+#include <errno.h> now in conversd.c
+moved linked permlinks list into array of pointers
+some typos in help fixed
+----------------------------
+revision 2.72
+hacked some bits for less DEST-Traffic - please install this - URGENT !
+----------------------------
+revision 2.71
+added prototypes to the pcspeak version (I don't understand why patches
+always make new warnings and unused variables - GRRR)
+fixed /notify command. it now shows active users on command input
+now names must perfectly match to be notified
+added Linker Flag -s in Makefile and Configure (tnx dc1ik)
+made outgoing kernel tcp-connections nonblocking
+----------------------------
+revision 2.70
+reason for saying good bye fixed in /leave
+readline patches for mipos started
+----------------------------
+revision 2.69
+interactive adding and deleting of links implemented
+----------------------------
+revision 2.68
+conversd crashing bug in /channel removed
+----------------------------
+revision 2.67
+LOGGING support now on AIX - I hate its _rotten_ header files :-(
+minor changes to mtime setting at sign on/off stuff
+using uid as second criteria, if getlogin() fails
+----------------------------
+revision 2.66
+PC-Speaker feature added
+/w * now displays idle time instead of login time
+----------------------------
+revision 2.65
+heavy conversd crashing bug in mode_command removed
+----------------------------
+revision 2.64
+inspected DEST code, removed #if 0 again and cleaned up forwarding code
+new command /uptime
+added ttl for /..ROUT command
+----------------------------
+revision 2.63
+some #if 0 for buggy and obsolete (?) code in destinations
+LIBRL definition changed to RL in Configure & Makefile
+route query won't be sent any longer to the destination host
+one more fix to "extern" declarations for mips
+----------------------------
+revision 2.62
+operator status on local host displayed in /list command
+some extern declarations inspected
+Configure reinspected and modified to work with ksh(1) and zsh(1).
+Configure takes track about readline library completely now
+INSTALL cleaned up
+----------------------------
+revision 2.61
+operator forwarding is now recognized on receipt
+----------------------------
+revision 2.61
+hmmm there was a wrong implementation of the new /..AWAY, heehee - now it's ok.
+----------------------------
+revision 2.60
+oops - now /..ROUT works :-)
+----------------------------
+revision 2.59
+More docs in README
+Away-Messages now keep the correct time stamps. CHANGE to /..AWAY !!!
+User command /dest <aim> implemented
+fixed typo in conversd.h for NULLDESTINATION
+----------------------------
+revision 2.58
+cosmetic changes
+dont modify login time on /UDAT
+----------------------------
+revision 2.57
+amprnet flag now compiles :-)
+more cleanup on obsolete UDAT forwarding
+----------------------------
+revision 2.56
+operator status is now forwarded on /..HOST command
+amprnet flag site specific
+renamed stat command to cstat on type CT_UNKNOWN
+online command linked to cstat. minor change to support different
+output on diffenrent names
+----------------------------
+revision 2.55
+empty channel bug on link failure removed
+do not forward UDAT Messages which don't set up new text
+typo "Configrue" fixed in Configure shell script
+getdefs.c now also included in distribution files :)
+----------------------------
+revision 2.54
+fixed name_command
+another fix to list_command
+operator state cleanups
+----------------------------
+revision 2.53
+opermsg forwarding also on free channel login
+fix to list_command
+----------------------------
+revision 2.52
+sun support almost finished - needs some more minor changes in Configure
+/oper command implemented - change in *convers.conf (sysop secret number
+in the first line)
+some fixes to /who and /list
+new link structure planned - change in *convers.conf to get groups and
+qualities. its not yet implemented.
+----------------------------
+revision 2.51
+/last command message on search fail
+online structured anew.
+----------------------------
+revision 2.50
+converted most things for traditional c compilers run again
+fflush(NULL) only in POSIX environment !
+Configure shell script does shell test, since it is running under bash only
+tiny bugfix in /name command
+link-times are now reported definetely in 3 characters.
+issue feature now _really_ working together with convers.
+----------------------------
+revision 2.49
+info texts
+----------------------------
+revision 2.48
+AIX suppport
+minor cleanups
+----------------------------
+revision 2.47
+help texts revised
+bug in update_destinations hopefully fixed.
+statistics command
+----------------------------
+revision 2.46
+users count for /channel command
+help text for /topic
+/topic command now working corrctly on /top #channel
+----------------------------
+revision 2.45
+whois command - but weeded out per #if 0
+tiny bugfix in user.c - tnx dl1bjl. fixes lost /pers on channel changes
+----------------------------
+revision 2.44
+bugfix in destinations
+----------------------------
+revision 2.43
+improved redrawing for convers
+/width now in help text
+query command now documented.
+----------------------------
+revision 2.42
+readline support fixed for "umlaute",
+no longer sigalarm used
+no UDAT for channel leave
+permlinks not longer removed on exit
+online services: headers fixed
+----------------------------
+revision 2.41
+dest forwarding...
+----------------------------
+revision 2.40
+quitting reasons
+mips is not POSIX select
+----------------------------
+revision 2.39
+worked again on readline hook in convers.c
+new command /width
+help on notify and width (only one more help to do !)
+remote away nor stored in connection list
+----------------------------
+revision 2.38
+more help
+fixed incoming away messages
+who command accepts "*" as option
+----------------------------
+revision 2.37
+/..UDAT now _really_ works !
+----------------------------
+revision 2.36
+cleanup for non-readline compile :-)
+----------------------------
+revision 2.35
+topic command for nun-currentz channels
+help for topic command
+convers-readline improved
+----------------------------
+revision 2.34
+joined-bug fixed...
+----------------------------
+revision 2.33
+mips support
+unix domain sockets no longer default
+more bug fixes
+----------------------------
+revision 2.32
+readline improved - not yet complete
+cosmetic changes
+----------------------------
+revision 2.31
+readline library use included, mor bugfixes...
+----------------------------
+revision 2.30
+again cleanup and bugfixes - no new features :-)
+----------------------------
+revision 2.29
+again fixes - and cosmetics
+----------------------------
+revision 2.28
+minor cleanups
+----------------------------
+revision 2.27
+fix for outgoing /..USER command + h_user_command
+----------------------------
+revision 2.26
+bug in h_host_command removed
+timestamps in USER started
+----------------------------
+revision 2.25
+name_command fixed for private channels and channelop-forward.
+----------------------------
+revision 2.24
+/msg #channel implemented
+----------------------------
+revision 2.23
+bugfixes: join/leave h_host to work with multiple channel joins
+channelop status now forwarded correctly.
+----------------------------
+revision 2.22
+/leave added, /join now enters additional channes.
+----------------------------
+revision 2.21
+invisibility fixes
+ba_stubs.c
+Configure script
+more help texts
+flags are now also removed on host forwarding
+----------------------------
+revision 2.20
+important bugfix in send_topic()
+----------------------------
+revision 2.19
+tiny bugfix
+----------------------------
+revision 2.18
+LOGGING patches by Ole included
+----------------------------
+revision 2.17
+more Specs written
+OPER-command actively removed
+----------------------------
+revision 2.16
+reformatting, Specifications
+additional fix in /who
+Configure shell script
+----------------------------
+revision 2.15
+more help
+time stamp on channel topics
+----------------------------
+revision 2.14
+split the whole into user host and conversd part.
+/me and /action added
+again more help text
+/host extended to give revision and feature string
+/list shows neighbour revisions
+----------------------------
+revision 2.13
+private and moderated channels
+more help text
+version command
+minor cleanups
+----------------------------
+revision 2.12
+/user command fixed again for empty channels
+----------------------------
+revision 2.11
+online /q optimized, Revision >x.9 ...
+----------------------------
+revision 2.10
+help command + some texts, no longer open a "-1"-channel.
+----------------------------
+revision 2.9
+join command + channel op forward fix
+----------------------------
+revision 2.8
+invisible and secret channels + mode bugfixes
+----------------------------
+revision 2.7
+mode forward fixes + topics on +t channels
+----------------------------
+revision 2.6
+mode forward
+----------------------------
+revision 2.5
+/mode command fixed
+----------------------------
+revision 2.4
+Bug fixing release
+----------------------------
+revision 2.3
+internet UDAT type
+----------------------------
+revision 2.2
+mode command + channel op forward
+----------------------------
+revision 2.1
+channel operator and channel delete
+----------------------------
+revision 2.0
+completely RCS now
+----------------------------
+revision 1.2
+fixed Revision prompting
+----------------------------
+revision 1.1
+Startup Message converted
+----------------------------
+revision 1.0
+Initial revision
+=============================================================================

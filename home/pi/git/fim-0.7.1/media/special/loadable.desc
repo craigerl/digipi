@@ -1,0 +1,8 @@
+#!fim:desc
+#!fim:prime=yes
+1.pcx	uno
+2.pcx	due
+3.pcx	tre
+#!fim:prime=no
+4.pcx	44
+0.pcx	0

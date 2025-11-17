@@ -1,0 +1,25 @@
+
+                  LinPac - lista dostepnych komend
+                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  //Activity            - wyswietal info jak dawno byl aktywny SYSOP 
+  //Bell                - wyslanie sygnalu dzwiekowego do opertora
+  //RIng                - wyslanie sygnalu dzwiekowego do opertora
+  //CStatus             - lista podlaczonych stacji
+  //Disconnect          - koniec lacznosci
+  //Echo <text>         - wysyla tekst z powrotem
+  //Help                - pomoc
+  //Info                - informacja o stacji 
+  //MHeard              - lista slyszanych stacji na porcie radiowym
+  //Name <name>	        - zapisanie swojego imienia do bazy danych
+  //Quit                - koniec lacznosci
+  //Read <nazwa_pliku>  - pobranie tekstowego pliku
+  //RBin <nazwa_pliku>  - pobranie binarnego pliku
+  //RPrg <nazwa_pliku>  - wyslanie pliku przy uzyciu autobin protokolu
+  //RTt                 - determine round trip time
+  //Users               - lista podlaczonych stacji
+  //VERsion             - wersja programu LinPac
+  //Write <nazwa_pliku> - zapis pliku tekstowego (koniec zapisu "//W off")
+  //WBin <nazwa_pliku>  - Zapisywanie pliku binarnego 
+                          (zatrzymanie zapisu "//WBin off")
+  //YPUT <nazwa_pliku>   - wyslanie pliku przy pomocy protokolu YAPP

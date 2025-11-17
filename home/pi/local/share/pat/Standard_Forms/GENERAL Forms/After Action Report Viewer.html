@@ -1,0 +1,160 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>After Action Report-{var IncName}-{var Name}</title>
+
+<style type="text/css">
+@media print {
+
+#printPageButton {
+    display: none;
+  }
+  .form-control, .form-control.nobug {
+border: 0;
+outline: 0;
+box-shadow: none;
+font-size:12px;
+}
+.form-control.nobug {
+transition: none; /*-- THIS IS IMPORTANT -- */
+}
+ input {
+         outline: none !important;
+		box-shadow: none;
+		border: none;
+		}
+}
+
+body, td, th {
+font-family: Arial,Helvetica,sans-serif;
+font-size: 12px;
+font-weight: inherit;
+}
+.zentriert {
+font-size: 12px;
+font-weight: inherit;
+}
+input, select {
+padding: 1px;
+-moz-border-radius-topleft: 2px;
+-moz-border-radius-topright: 2px;
+-moz-border-radius-bottomright: 2px;
+-moz-border-radius-bottomleft: 2px;
+font-family: Arial,Helvetica,sans-serif;
+font-size: 12px;
+font-weight: inherit;
+}
+textarea {
+padding: 1px;
+-moz-border-radius-topleft: 2px;
+-moz-border-radius-topright: 2px;
+-moz-border-radius-bottomright: 2px;
+-moz-border-radius-bottomleft: 2px;
+font-family: Arial,Helvetica,sans-serif;
+font-size: 12px;
+font-weight: inherit;
+}
+.rechtsbuendig {
+font-size: 12px;
+font-weight: inherit;
+}
+.SubmitBtn {
+font-size: 12px;
+font-weight: inherit;
+}
+.version {
+color: #666666;
+position: relative;
+left: 0px;
+top: 3px;
+font-size: 12px;
+font-weight: inherit;
+}
+</style></head>
+<body>
+<div style="text-align: center;">
+<form action="http://{FormServer}:{FormPort}" enctype="multipart/form-data" id="AAR" method="post" pbzloc="1" onsubmit="return confirm('To complete your form submission, click OK and close the open browser window. You will return to the new message window so you can post your message to the outbox');" style="font-family: Arial Black;">
+<table style="height: 498px; width: 907px;" align="center" border="0">
+<tbody>
+<tr>
+<td>
+<table style="font-size: 14px; width: 752px; height: 589px;" border="3" bordercolor="#999999" cellpadding="4" cellspacing="0">
+<tbody>
+<tr>
+<td colspan="2" bgcolor="#dee9f9" style="text-align: center; vertical-align: top; white-space: nowrap; "><small><b> &nbsp; &nbsp;<big>&nbsp;</big></b><span style="font-size: 14px;"><big style="font-weight: bold;"><big>&nbsp;&nbsp;&nbsp;</big></big></span></small>&nbsp;<small><b><big>&nbsp;</big></b><span style="font-size: 14px;"><big style="font-weight: bold;"><big>&nbsp;&nbsp;&nbsp;</big></big></span></small>&nbsp;<small><b><big>&nbsp;</big></b><span style="font-size: 14px;"><big style="font-weight: bold;"><big>&nbsp;&nbsp;&nbsp;</big></big></span></small>&nbsp;<small><b><big>&nbsp;</big></b><span style="font-size: 14px;"><big style="font-weight: bold;"><big>&nbsp;&nbsp;&nbsp;</big></big></span></small><small><b> &nbsp;
+&nbsp;&nbsp; </b><b><big><big style="font-weight: bold;"><big><small>AFTER ACTION REPORT</small> </big>&nbsp;</big>&nbsp;&nbsp;</big></b><span style="font-size: 14px;"><big style="font-weight: bold;"><big>&nbsp;&nbsp;&nbsp;</big></big></span></small>&nbsp;<big>&nbsp;<small>&nbsp;</small></big><small><big>Ver 6.5</big><span style="font-size: 12px;"><br />
+</span><b>&nbsp;</b><b><big><big style="font-weight: bold;"><big><small> {var Title}</small></big></big></big></b><span style="font-size: 12px;"></span></small></td>
+</tr>
+
+<tr>
+<td style="vertical-align: top; white-space: nowrap;" colspan="2"><div align="left"><small><span style="font-size: 14px;">
+  <pbzloc ="1" style="font-weight: normal;">&nbsp;&nbsp;</pbzloc></span>&nbsp;
+&nbsp;&nbsp; <big><big><br />
+  Report Date/Time:&nbsp;</big><span style="font-size: 14px;"></span></big>&nbsp;
+  <input readonly="readonly" value="{var ActivityDateTime1}" id="From_Name" maxlength="23" name="ActivityDateTime1" size="24" />
+&nbsp; &nbsp; &nbsp;<big><big> <span style="color: rgb(0, 102, 0);">Incident - Event Date:</span>
+&nbsp;</big></big></small><small>
+  <input readonly="readonly" value="{var Date1}" title="Date of the incident - event." id="From_Name" maxlength="14" name="Date1" size="15" />
+  </small><small><big><big>
+</big></big></small></div></td>
+</tr>
+<tr>
+<td colspan="4" pbzloc="6" style="vertical-align: top; white-space: nowrap;"><div align="left"><small><big><big><br />
+  Incident - Event
+  Name:</big></big>
+&nbsp;<big>
+  <input readonly="readonly" value="{var IncName}" id="Subjectline" maxlength="70" name="IncName" required="required" size="75" />
+  <br />
+  <br />
+  </big></small><big>&nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp;Location: &nbsp;</big><big>
+  <input readonly="readonly" value="{var Loc}" maxlength="80" size="85" name="Loc" />
+</big></div></td>
+</tr>
+<tr>
+<td style="vertical-align: top; white-space: nowrap;" colspan="2"><div align="left"><big><br />
+        Name:&nbsp; </big>
+      <input readonly="readonly" value="{var Name}" maxlength="45" size="50" name="Name" />
+      <big> &nbsp;Call
+  Sign:</big>&nbsp;&nbsp;
+  <input readonly="readonly" value="{var Call}" maxlength="11" size="12" name="Call" />
+  <br />
+  <br />
+  <big>Internet Email: &nbsp;
+  <input readonly="readonly" value="{var Email}" maxlength="45" size="50" name="Email" />
+  <br />
+  <br />
+  Telephone (optional): 
+  <input readonly="readonly" value="{var Phone}" maxlength="35" size="40" name="Phone" />
+</big></div></td>
+</tr>
+<tr>
+<td bgcolor="#CCFFFF" style="vertical-align: top; background-color:#f8f8ff"><div align="left"><big>Assignment or role on this incident - event.</big></div></td>
+</tr>
+
+<tr><td colspan="2" style="vertical-align: top; text-align: justify;"><div align="left"><big><br />
+  <span style="width:700px; word-wrap:break-word; margin: 10px;  display:inline-block;">{var Comm1}</span></div></td></tr><tr>
+<td colspan="2" bgcolor="#f8f8ff" style="text-align: center; vertical-align: top; "><div align="left"><big>Brief re-cap of the incident - event and&nbsp;any major occurrences.</big></div></td>
+</tr>
+<tr>
+<td style="vertical-align: top; text-align: justify;"><div align="left"><big>&nbsp;</big><big><br />
+ <span style="width:700px; word-wrap:break-word; margin: 10px;  display:inline-block;"><span style="width:700px; word-wrap:break-word; display:inline-block;"> {var Comm2} </span></span><br />
+</big></div></td>
+</tr>
+<tr>
+<td colspan="2" bgcolor="#f8f8ff" style="background-color: "><div align="left"><big>FEEDBACK - </big><big>Recommendations&nbsp;</big><br />
+      <span style="font-style: italic;"></span></div></td>
+</tr>
+<tr>
+<td style="vertical-align: top; text-align: justify;" colspan="2"><div align="left"><big><br />
+ <span style="width:700px; word-wrap:break-word; margin: 10px; display:inline-block;"> {var Comm3}</span></div></td>
+</tr>
+</tbody>
+</table>
+<br />
+<small>&nbsp;</small></td>
+</tr>
+</tbody>
+</table>
+</form>
+</div>
+</body></html>

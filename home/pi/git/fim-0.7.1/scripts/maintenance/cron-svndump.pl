@@ -1,0 +1,31 @@
+#!/usr/bin/perl
+#
+# $Id: cron-svndump.pl.in 221 2009-02-26 21:23:28Z dezperado $
+#
+# A dirty script to backup via 'svnadmin dump' the fim repository.
+# I know this could be rewritten as a one liner.
+
+use POSIX qw(strftime);
+
+$R="http://svn.savannah.nongnu.org/svn/fbi-improved/";
+($D,$H,@PA)=split(/:\/\/|\//,$R) or die "failed splitting of $R!\n";
+$P="/".join("/",@PA),"\n";
+$U="dezperado";
+$C="ssh $U\@$H svnadmin dump $P";
+print STDERR $C."\n";
+$D=`$C` or die "failed while $C ..\n" ; 
+#$D="";
+$DF="~/fim-svn-dump";
+open(FD,"+>",$DF) or die ;
+#write(FD,$D);
+print FD $D;
+close(FD);
+# we should need a better check ..
+if( -z $DF or ! -f $DF ){ die "error while writing $FD! : refusing to continue\n";}
+$WD=strftime "%a", localtime;
+print STDERR "wrote successfully to $DF\n";
+$NF="$DF-$WD";
+print STDERR "will now rename $DF to $NF\n";
+rename $DF,$NF or die "error renaming $DF to $NF\n";
+print STDERR "ok, backup successful!\n";
+

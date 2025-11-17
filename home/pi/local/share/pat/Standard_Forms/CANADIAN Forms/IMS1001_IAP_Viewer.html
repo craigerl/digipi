@@ -1,0 +1,273 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>IMS1001-IAP-Sent-{var Incident_Name}</title>
+
+<style type="text/css">
+
+@media print {
+
+#printPageButton {
+    display: none;
+  }
+  .form-control, .form-control.nobug {
+border: 0;
+outline: 0;
+box-shadow: none;
+font-size:12px;
+}
+.form-control.nobug {
+transition: none; /*-- THIS IS IMPORTANT -- */
+}
+ input {
+         outline: none !important;
+		box-shadow: none;
+		border: none;
+		}
+}
+
+body, td, th {
+font-family: Arial,Helvetica,sans-serif;
+font-size: 12px;
+}
+.zentriert {
+font-size: 12px;
+font-family: Arial,Helvetica,sans-serif;
+}
+input, select {
+padding: 1px;
+font-family: Arial,Helvetica,sans-serif;
+font-size: 12px;
+}
+textarea {
+margin: 8px;
+padding: 8px;
+font-family: Arial,Helvetica,sans-serif;
+font-size: 12px;
+}
+.rechtsbuendig {
+font-size: 12px;
+font-family: Arial,Helvetica,sans-serif;
+}
+.SubmitBtn {
+font-size: 10px;
+font-family: Arial,Helvetica,sans-serif;
+}
+.version {
+margin: 5px;
+color: #666666;
+position: relative;
+left: 0px;
+top: 1px;
+font-family: Arial,Helvetica,sans-serif;
+font-size: 12px;
+}
+#TextHeader {
+background-color: #dddddd;
+font-size: 10px;
+font-family: Arial,Helvetica,sans-serif;
+}
+</style></head>
+<body style="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);" alink="#000099" link="#000099" vlink="#990099">
+<form action="http://{FormServer}:{FormPort}" enctype="multipart/form-data" id="IMS1001" method="post" pbzloc="0">
+  <table style="width: 836px; " border="0">
+<tbody>
+<tr>
+<td pbzloc="5">  <table width="860" border="2" cellpadding="6" cellspacing="2" bordercolor="#999999" style="background-color: rgb(250, 250, 255); width: 860px; h" pbzloc="11">
+  <tbody>
+    <tr>
+      <td style="text-align: center; vertical-align: middle; background-color: rgb(153, 255, 153); height: 2%;" colspan="2">&nbsp; &nbsp; &nbsp;<big>CONSOLIDATED INCIDENT ACTION PLAN <small>(IMS1001)</small><small>&nbsp;</small> </big>Emergency Management Ontario<big>&nbsp;&nbsp;&nbsp;</big><span =""></span> Vers 4 </td>
+    </tr>
+    <tr>
+      <td width="44%" style="text-align: left; vertical-align: top; height: 75px;"><div align="left"><span style="color: rgb(153, 51, 0);">1. Incident Name</span> </div>
+          <p align="left">&nbsp;
+              <input readonly="readonly" value="{var Incident_Name}" required="required" id="Incident_Name" maxlength="55" name="Incident_Name" size="60" />
+          </p>
+          <div align="left"><span style="color: rgb(0, 102, 0);"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Express Sender&nbsp;</span><b>
+          <input readonly="readonly" maxlength="16" size="16" name="MsgSender" value="{var MsgSender}" />
+          </b></div></td>
+      <td width="56%" style="text-align: left; vertical-align: top; height: 75px;"><span style="color: rgb(153, 51, 0);">2. Operational Period:</span><br />
+          <br />
+&nbsp;Date From &nbsp;<b>
+        <input readonly="readonly" value="{var DateFrom}" required="required" maxlength="12" id="DateFrom" name="DateFrom" size="12" />
+&nbsp;&nbsp; </b>Date To<b> &nbsp;</b><b>
+        <input readonly="readonly" value="{var DateTo}" required="required" maxlength="12" id="DateTo" name="DateTo" size="12" />
+        <br />
+        <br />
+        </b>Time From &nbsp;<b>
+        <input readonly="readonly" value="{var DateFrom}" required="required" maxlength="12" id="TimeFrom" name="TimeFrom" size="12" />
+&nbsp; </b>Time To &nbsp;<b>
+        <input readonly="readonly" value="{var TimeTo}" required="required" maxlength="12" id="TimeTo" name="TimeTo" size="12" />
+      </b></td>
+    </tr>
+    <tr>
+      <td colspan="2" style="text-align: center; vertical-align: middle;"><div align="left"> <span style="color: rgb(153, 51, 0);">3. Type of Incident Action Plan</span><span style="font-weight: bold;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span style="color: black;"> <br />
+                <span style="font-weight: bold;"><span style="font-weight: bold;"><span style="font-weight: bold;"><span style="font-weight: bold;">&nbsp; &nbsp; &nbsp; </span></span><span style="font-weight: bold;"><span style="font-weight: bold;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span></span><span style="font-weight: bold;"><span style="font-weight: bold;"> </span></span></span></span>Site Level IAP </span><span style="font-weight: bold;"><span style="font-weight: bold;">&nbsp; <span style="font-weight: bold;"><span style="font-weight: bold;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span></span><span style="font-weight: bold;"><span style="font-weight: bold;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span></span><span style="font-weight: bold;"><span style="font-weight: bold;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span></span><span style="font-weight: bold;"><span style="font-weight: bold;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span></span><span style="font-weight: bold;"><span style="font-weight: bold;"><span style="font-weight: bold;"><span style="font-weight: bold;">&nbsp; &nbsp; &nbsp; </span></span><span style="font-weight: bold;"><span style="font-weight: bold;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span></span><span style="font-weight: bold;"><span style="font-weight: bold;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span></span><span style="font-weight: bold;"><span style="font-weight: bold;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span></span></span></span><span style="font-weight: bold;"><span style="font-weight: bold;"><span style="font-weight: bold;"><span style="font-weight: bold;">&nbsp; &nbsp; &nbsp; </span></span><span style="font-weight: bold;"><span style="font-weight: bold;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span></span><span style="font-weight: bold;"><span style="font-weight: bold;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span></span><span style="font-weight: bold;"><span style="font-weight: bold;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span></span></span></span>&nbsp; </span> </span>EOC-Level IAP</div></td>
+    </tr>
+    <tr>
+      <td  style="text-align: center; vertical-align: top;  width: 50%;"><div align="left">Incident Command &nbsp; &nbsp;&nbsp;
+              <input readonly="readonly" maxlength="3" size="3" name="Inc" value="{var Inc}" />
+&nbsp;&nbsp; &nbsp;<br />
+          <br />
+          <span style="font-style: italic;">Additional Details</span><br />
+          <span style="width:350px; word-wrap:break-word;  margin: 10px; display:inline-block;">{var Add1}</span><br />
+      </div></td>
+      <td style="text-align: center; vertical-align: top; height: 70px; width: 50%;" colspan="2"><div align="left"><span style="font-weight: bold;">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; </span><b>
+          <input readonly="readonly" value="{var EOC}" required="required" maxlength="16" id="TimeFrom" name="EOC" size="16" />
+          </b><span style="font-weight: bold;"></span>&nbsp; <br />
+          <br />
+&nbsp; <span style="font-style: italic;">Additional Details</span><br />
+          <span style="width:350px; word-wrap:break-word;  margin: 10px; display:inline-block;">{var Add2}</span><br />
+      </div></td>
+    </tr>
+    <tr>
+      <td colspan="3" style="vertical-align: top; text-align: justify; height: 50px;"><span style="color: rgb(153, 51, 0);">4. Current Situation</span> &nbsp;<small>[From IMS 201]</small><br />
+          <br />
+          <span style="width:750px; word-wrap:break-word; margin: 10px;  display:inline-block;">{var C4}</span> </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; text-align: justify; height: 50px;" colspan="3"><span style="color: rgb(153, 51, 0);">5. Mission</span> <small>[From IMS 202]</small><br />
+          <br />
+          <span style="width:750px; word-wrap:break-word; margin: 10px;  display:inline-block;">{var M5}</span> </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; text-align: justify; height: 50px;" colspan="3"><span style="color: rgb(153, 51, 0);">6. Objectives for this Operational Period </span><small>[From IMS 202]</small><br />
+          <br />
+          <span style="width:750px; word-wrap:break-word; margin: 10px;  display:inline-block;">{var O6}</span><br />
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; text-align: justify; height: 50px;" colspan="3"><span style="color: rgb(153, 51, 0);">7. Strategies to Achieve Objectives</span> <small>[From IMS 215G]</small><br />
+          <br />
+          <span style="width:750px; word-wrap:break-word; margin: 10px;  display:inline-block;">{var S7}</span><br />
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; text-align: justify; height: 50px;" colspan="3"><span style="color: rgb(153, 51, 0);">8. Tactics</span> (Optional)<small> [From IMS 215G]</small><br />
+          <br />
+          <span style="width:750px; word-wrap:break-word; margin: 10px;   display:inline-block;">{var T8}</span><br />
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; text-align: justify; height: 50px;" colspan="3"><span style="color: rgb(153, 51, 0);">9. Weather Forecast for Operational Period</span><small> [From IMS 202]</small><br />
+          <br />
+          <span style="width:750px; word-wrap:break-word; margin: 10px;   display:inline-block;">{var W9}</span><br />
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; text-align: justify; height: 50px;" colspan="3"><span style="color: rgb(153, 51, 0);">10. General Safety Message</span> <small>[From IMS 215A or 202]</small><br />
+          <br />
+          <span style="width:750px; word-wrap:break-word; margin: 10px;   display:inline-block;">{var G10}</span><br />
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; text-align: justify; height: 50px;" colspan="3"><span style="color: rgb(153, 51, 0);">11. Key Media Messages</span> <small>[From IMS 202]</small><br />
+          <br />
+          <span style="width:750px; word-wrap:break-word; margin: 10px;   display:inline-block;">{var K11}</span><br />
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; text-align: justify; height: 50px;" colspan="3"><span style="color: rgb(153, 51, 0);">12. Future Outlook</span><br />
+          <br />
+          <span style="width:750px; word-wrap:break-word; margin: 10px;   display:inline-block;">{var F12}</span><br />
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; text-align: justify; height: 50px;" colspan="3"><span style="color: rgb(153, 51, 0);">13. Briefing / Planning Cycle</span><br />
+          <br />
+          <span style="width:750px; word-wrap:break-word; margin: 10px;   display:inline-block;">{var B13}</span><br />
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align: justify; vertical-align: middle;" colspan="3"><span style="color: rgb(153, 51, 0);">14. Organization Assignment </span><small>[From IMS 203]&nbsp;</small> &nbsp; <span style="color: rgb(153, 51, 0);"><span style="color: rgb(204, 0, 0);">Incident or EOC Commander</span> </span>&nbsp;
+          <input readonly="readonly" value="{var InCom}" maxlength="25" size="30" name="InCom" />
+&nbsp;&nbsp;&nbsp; Command Model &nbsp;&nbsp;
+        <input readonly="readonly" maxlength="16" size="16" name="CM" value="{var CM}" />
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; text-align: center;" colspan="3"><table style="text-align: left; width: 860px; height: 101px;" border="1" cellpadding="2" cellspacing="2">
+          <tbody>
+            <tr>
+              <td width="207" style="text-align: center;">Safety Officer</td>
+              <td width="182" style="text-align: center; vertical-align: top;"><input readonly="readonly" value="{var Safe}" maxlength="22" size="25" name="Safe" /></td>
+              <td width="245" style="text-align: center;">Information Officer</td>
+              <td width="190" style="text-align: center; vertical-align: top;"><input readonly="readonly" value="{Var Info}" maxlength="22" size="25" name="Info" /></td>
+            </tr>
+            <tr>
+              <td style="text-align: center;">Operations Section Chief</td>
+              <td style="text-align: center; vertical-align: top;"><input readonly="readonly" value="{var Ops}" maxlength="22" size="25" name="Ops" /></td>
+              <td style="text-align: center;">Planning Section Chief</td>
+              <td style="text-align: center; vertical-align: top;"><input readonly="readonly" value="{var Plan}" maxlength="22" size="25" name="Plan" /></td>
+            </tr>
+            <tr>
+              <td style="text-align: center;">Liaison Officer (s)</td>
+              <td style="text-align: center; vertical-align: top;"><input readonly="readonly" value="{var L1}" maxlength="22" size="25" name="L1" /></td>
+              <td style="text-align: center; vertical-align: top;"><input readonly="readonly" value="{var L2}" maxlength="22" size="25" name="L2" /></td>
+              <td style="text-align: center; vertical-align: top;"><input readonly="readonly" value="{var L3}" maxlength="22" size="25" name="L3" /></td>
+            </tr>
+            <tr>
+              <td style="text-align: center;">Logistics Section Chief</td>
+              <td style="text-align: center; vertical-align: top;"><input readonly="readonly" value="{var Log}" maxlength="22" size="25" name="Log" /></td>
+              <td style="text-align: center; vertical-align: middle;">Legal Advisory</td>
+              <td style="text-align: center; vertical-align: top;"><input readonly="readonly" value="{var Leg}" maxlength="22" size="25" name="Leg" /></td>
+            </tr>
+            <tr>
+              <td style="text-align: center;">Fin / Admin Section Chief</td>
+              <td style="text-align: center; vertical-align: middle;"><input readonly="readonly" value="{var Fin}" maxlength="22" size="25" name="Fin" /></td>
+              <td style="text-align: center; vertical-align: top;">Other
+                  <input readonly="readonly" value="{var Other}" maxlength="22" size="25" name="Other" /></td>
+              <td style="text-align: center; vertical-align: top;"><input readonly="readonly" value="{var Other1}" maxlength="22" size="25" name="Other1" /></td>
+            </tr>
+          </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td style="text-align: center; vertical-align: middle;" colspan="3">&nbsp; &nbsp; &nbsp; &nbsp;<span style="color: rgb(153, 51, 0);">15.
+Detailed Forms (are attached as necessary)</span></td>
+    </tr>
+    <tr>
+      <td style="text-align: center; vertical-align: middle;" colspan="3"><div align="left">Incident Objectives<small> [IMS 202}&nbsp; &nbsp;</small>
+              <input readonly="readonly" maxlength="3" size="3" name="IncObj" value="{var IncObj}" />
+              <small>&nbsp; &nbsp;&nbsp;&nbsp; <big>Organization Assignment List&nbsp;<small>[IMS 203]&nbsp;&nbsp;&nbsp;</small></big></small>
+              <input readonly="readonly" maxlength="3" size="3" name="OrgA" value="{var OrgA}" />
+              <small><big><small>&nbsp; &nbsp;&nbsp; &nbsp; &nbsp;<big>Resources Assignment List </big>[IMS 204] &nbsp;&nbsp;</small></big></small>
+              <input readonly="readonly" maxlength="3" size="3" name="ResA" value="{var ResA}" />
+      </div></td>
+    </tr>
+    <tr>
+      <td colspan="3" style="text-align: center; vertical-align: middle;"><div align="left">Incident Telecommunications Plan <small>[IMS 205]&nbsp;</small> &nbsp;&nbsp;
+              <input readonly="readonly" maxlength="3" size="3" name="IncT" value="{var IncT}" />
+&nbsp; &nbsp; &nbsp;Medical Plan<small> [IMS 206]&nbsp;</small>&nbsp;&nbsp;
+          <input readonly="readonly" maxlength="3" size="3" name="MedP" value="{var MedP}" />
+&nbsp; &nbsp;&nbsp; Incident Map&nbsp; &nbsp;
+          <input readonly="readonly" maxlength="3" size="3" name="Map" value="{var Map}" />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </div></td>
+    </tr>
+    <tr>
+      <td style="text-align: center; vertical-align: middle;" colspan="3">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;
+          <div align="left">Traffic Plan&nbsp;
+              <input readonly="readonly" maxlength="3" size="3" name="Traf" value="{var Traf}" />
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;Other Attachments&nbsp; &nbsp;<b>
+          <input readonly="readonly" value="{var OA}" required="required" maxlength="45" size="50" id="PreparedName" name="OA" />
+      </b></div></td>
+    </tr>
+    <tr>
+      <td style="text-align: justify;" colspan="3"><span style="color: rgb(153, 51, 0);">16. Prepared By</span> (Planning Section Chief) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;Name &nbsp;
+          <input readonly="readonly" value="{var PlanName}" maxlength="40" size="45" name="PlanName" />
+&nbsp; &nbsp;<span style="color: rgb(204, 102, 0);"> &nbsp; &nbsp;&nbsp;</span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </td>
+    </tr>
+    <tr>
+      <td colspan="3"><span style="color: rgb(153, 51, 0);">17. Approved By</span> (Incident or EOC Commander) &nbsp;&nbsp; Name&nbsp;
+          <input readonly="readonly" value="{var IC}" maxlength="40" size="45" name="IC" />
+&nbsp; &nbsp;Date /Time &nbsp;&nbsp;
+        <input readonly="readonly" value="{var DT}" maxlength="22" size="25" name="DT" /></td>
+    </tr>
+  </tbody>
+</table>
+  <br />
+</td>
+</tr>
+</tbody>
+</table>
+</form>
+</body></html>

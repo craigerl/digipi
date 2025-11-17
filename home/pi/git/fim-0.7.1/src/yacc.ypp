@@ -1,0 +1,342 @@
+/* $Id: yacc.ypp 2108 2024-03-09 16:19:26Z dezperado $ */
+/*
+ yacc.ypp : Parser source file template
+
+ (c) 2007-2024 Michele Martone
+
+    This program is free software; you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation; either version 2 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program; if not, write to the Free Software
+    Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
+*/
+
+/*
+ * There are conflicts in this grammar.
+ * Some of them are harmless (like the shift/reduce IF conflict), but some other can be a problem.
+ *
+ * Right now the problems is related to the unsuitability of strict Vim compliance to
+ * Fim's purposes.
+ * Therefore, a Bash-like grammar, with Vim-like terminal symbols operators seems to be the best mix right now.
+ */
+
+/*
+ * versions older than 1.875 (circa 2003) are known to be not working or give problems with C++
+ */
+/* note that some compatible versions fail interpreting this directive ! */
+/* (will be enabled in the future, as some old working versions don't support this ) */
+/*%require "1.875"*/
+
+/*
+ * we expect just a 'dangling else' shift/reduce ambiguity
+ */
+//%expect 1
+
+/*
+ * A GLR (Generalized Left Recursive) parser could be useful to deal better with disambiguation.
+
+%glr-parser
+%expect-rr 2
+
+ *
+ */
+
+%{
+
+#include <cstdio>
+#include <cstdlib>
+#include <cstdarg>
+#include "common.h"
+#include "lex.h"
+#include "fim_interpreter.h"
+#include "fim.h"
+
+#if HAVE_FLEXLEXER_H
+extern yyFlexLexer lexer;
+#endif /* HAVE_FLEXLEXER_H */
+#ifndef yylex
+#define  yylex lexer.yylex
+#endif
+
+/* See fim_interpreter.cpp for prototypes */
+%}
+
+%union {
+	fim_int   iValue; /* integer value */
+	float fValue; /* float   value */
+	fim_char_t* sValue;
+	nodeType *nPtr; /* node pointer */
+};
+
+%token <iValue> INTEGER
+//%token <sValue> PIPE
+%token <sValue> STRING
+%token <sValue> SLASH_AND_REGEXP
+%token <fValue> QUOTED_FLOAT
+%token <fValue> UNQUOTED_FLOAT
+%token <sValue> IDENTIFIER
+%token <sValue> FILE_PATH
+//%token <sValue> NEWLINE
+%token <sValue> COMMAND		//unimplemented yet
+%token WHILE IF DO ELSE SYSTEM AND BAND OR BOR NOT FESF
+//%token NEWLINE
+//%nonassoc IFX
+//%nonassoc FI
+//%nonassoc ELSE
+//%left '$'
+//lower priority
+%left ';'
+%nonassoc '}' '{'
+%left OR BOR
+%left AND BAND 
+%left GE LE EQ REGEXP_MATCH NE '>' '<'
+%left '.'
+%nonassoc '(' ')'
+%left '%'
+%left '+'
+%left '-'
+%left '*' '/'
+%left NOT
+//%nonassoc UMINUS
+%left UMINUS
+//higher priority
+%type <nPtr> statement expression statement_list statements_block arguments conditional_statement if_statement loop_statement atomic_statements_block non_atomic_statements_block
+// unused // %type <nPtr> error
+
+// func_dec
+
+%destructor {freeNode($$);} <nPtr>
+%destructor {fim_free($$);} <sValue>
+
+%%
+
+/*
+ * we explicitly specify the starting nonterminal symbol 
+ * (will be enabled in the future, as some old working versions don't support this )
+ */
+/*%start program;*/
+
+/*
+ * a whole program parse tree
+ */
+program:
+	//function { ; /*exit(0);*/ }
+	//statement { ex($1); FIM_FREENODE($1); }
+	  {}
+	| statement_list { ex($1); FIM_FREENODE($1); }//conflict
+//	| func_dec {  }
+	;
+
+/*
+ * a statement_list is a list of two or more statements concatenated by the ';' operator or separated by brackets or newlines
+ */
+statement_list:
+	  statement { $$ = $1; }
+	| statement ';' statement_list { $$ = FIM_OPR(';', 2, $1, $3); }
+	| non_atomic_statements_block statement_list{ $$ = FIM_OPR(';', 2, $1, $2); }
+	| statements_block { $$ = $1; }
+	;
+
+non_atomic_statements_block:
+	  '{' statement_list '}' { $$ = FIM_OPR(';', 2, $2, NULL); }
+	| INTEGER '{' statement_list '}' { if($1>0){$$ = FIM_OPR('r',2,FIM_OPR(';', 2, $3, NULL), FIM_ICON($1)); }}
+	| conditional_statement { $$ = $1; }
+	;
+/*
+ * a statements_block is a block of one or more statements/statement lists
+ */
+statements_block:
+	  atomic_statements_block { $$ = $1; }
+	| non_atomic_statements_block { $$ = $1; }
+	;
+
+/*
+ * a conditional statement
+ */
+conditional_statement:
+	  if_statement   { $$ = $1; }
+	| loop_statement { $$ = $1; }
+	;
+
+/*
+ * if statements
+ */
+/*
+ * here follows a 'dangling else' ambiguity ( dates back to Algol 60 :) )
+ */
+if_statement:
+	  IF '(' expression ')' statements_block { $$ = FIM_OPR(IF, 2, $3, $5); }
+	| IF '(' expression ')' statements_block ELSE statements_block { $$ = FIM_OPR(IF, 3, $3, $5, $7); } //<- causes shift-reduce conflict..
+//	| IF '(' expression ')' statement ';' ELSE statements_block { $$ = FIM_OPR(IF, 3, $3, $5, $8); } //<- causes shift-reduce conflict..
+//	| IF '(' expression ')' statements_block ELSE statement ';' { $$ = FIM_OPR(IF, 3, $3, $5, $7); } //<- causes shift-reduce conflict..
+	;
+
+/* 
+ * a loop statement
+ */
+loop_statement:
+	  WHILE '(' expression ')' statements_block { $$ = FIM_OPR(WHILE, 2, $3, $5); }
+	| DO statements_block WHILE '(' expression ')' { $$ = FIM_OPR(WHILE, 2, $5, $2); }
+	;
+
+atomic_statements_block:
+	statement ';' { $$ = FIM_OPR(';', 2, $1, NULL); }
+	| statement ';' ';' { $$ = FIM_OPR(';', 2, $1, NULL); /*a hack for handling redundancy */ }
+	| statement ';' ';' ';' { $$ = FIM_OPR(';', 2, $1, NULL); /*a hack for handling redundancy */ }
+	;
+
+
+/*
+ * function declaration
+ */
+//func_dec:
+//	"function"  IDENTIFIER '(' /*TODO: ARG_DECS */ ')' statements_block { ; }
+//	;
+
+/*
+ * function:
+ */
+	//function statement { ex($2); freeNode($2); }
+	//function statement_list { ex($2); freeNode($2); }
+//	function statement{ ex($2); freeNode($2); }
+//	| /* NULL */
+//	;
+
+/*
+ * a simple statement
+ */
+statement:
+	// ! 'shell-cmd'
+	   NOT arguments        { $$ = FIM_OPR('x',2,FIM_SCON(dupstr(FIM_FLT_SYSTEM)),$2); }
+//	|  SYSTEM arguments        { $$ = FIM_OPR('x',2,FIM_SCON(dupstr(FIM_FLT_SYSTEM)),$2); }
+	// [n]cmd
+	| INTEGER ',' INTEGER IDENTIFIER  { $$ = FIM_OPR(FESF,3,FIM_ICON($1),FIM_ICON($3),FIM_SCON($4)); }
+	| INTEGER ',' INTEGER IDENTIFIER arguments  { $$ = FIM_OPR(FESF,4,FIM_ICON($1),FIM_ICON($3),FIM_SCON($4),$5); }
+	| INTEGER IDENTIFIER { if($1>0){$$ = FIM_OPR('r',2,FIM_OPR('x',1,FIM_SCON($2)),FIM_ICON($1)); }}
+	// goto
+	| SLASH_AND_REGEXP { $$ = FIM_OPR('x',2,FIM_SCON(dupstr(FIM_FLT_GOTO)),FIM_OPR('a',1,FIM_OPR('a',1,FIM_SCON(dupsqstr ($1))))); fim_free($1); }
+	// magnification
+	| '+' UNQUOTED_FLOAT   '%' { $$ = FIM_OPR('x',2,FIM_SCON(dupstr(FIM_FLT_SCALE)),FIM_OPR('a',1,FIM_OPR('a',1,FIM_SCON(dupnstr('+',((float)$2),'%'))))); }
+	| '+' QUOTED_FLOAT   '%' { $$ = FIM_OPR('x',2,FIM_SCON(dupstr(FIM_FLT_SCALE)),FIM_OPR('a',1,FIM_OPR('a',1,FIM_SCON(dupnstr('+',((float)$2),'%'))))); }
+	| '+' INTEGER '%' { $$ = FIM_OPR('x',2,FIM_SCON(dupstr(FIM_FLT_SCALE)),FIM_OPR('a',1,FIM_OPR('a',1,FIM_SCON(dupnstr('+',((double)$2),'%'))))); }
+	| '*' UNQUOTED_FLOAT { $$ = FIM_OPR('x',2,FIM_SCON(dupstr(FIM_FLT_SCALE)),FIM_OPR('a',1,FIM_OPR('a',1,FIM_SCON(dupnstr('*',((float)$2)))))); }
+	| '*' QUOTED_FLOAT { $$ = FIM_OPR('x',2,FIM_SCON(dupstr(FIM_FLT_SCALE)),FIM_OPR('a',1,FIM_OPR('a',1,FIM_SCON(dupnstr('*',((float)$2)))))); }
+	| '*' INTEGER { $$ = FIM_OPR('x',2,FIM_SCON(dupstr(FIM_FLT_SCALE)),FIM_OPR('a',1,FIM_OPR('a',1,FIM_SCON(dupnstr('*',((float)$2)))))); }
+	| UNQUOTED_FLOAT  '%'{if($1>0.0){$$=FIM_OPR('x',2,FIM_SCON(dupstr(FIM_VID_SCALE)),FIM_OPR('a',1,FIM_OPR('a',1,FIM_SCON(dupnstr(((float)$1)/100.0f)))));}else { $$ = FIM_OPR('x',2,FIM_SCON(dupstr(FIM_FLT_SCALE)),FIM_OPR('a',1,FIM_OPR('a',1,FIM_SCON(dupnstr('-',-((float)$1),'%'))))); } }
+	| QUOTED_FLOAT  '%'{if($1>0.0){$$=FIM_OPR('x',2,FIM_SCON(dupstr(FIM_VID_SCALE)),FIM_OPR('a',1,FIM_OPR('a',1,FIM_SCON(dupnstr(((float)$1)/100.0f)))));}else { $$ = FIM_OPR('x',2,FIM_SCON(dupstr(FIM_FLT_SCALE)),FIM_OPR('a',1,FIM_OPR('a',1,FIM_SCON(dupnstr('-',-((float)$1),'%'))))); } }
+	| INTEGER'%'{{$$=FIM_OPR('x',2,FIM_SCON(dupstr(FIM_VID_SCALE)),FIM_OPR('a',1,FIM_OPR('a',1,FIM_SCON(dupnstr(((float)$1),'%')))));}}
+	// minification (yes, minification)
+	| '-' UNQUOTED_FLOAT   '%' { $$ = FIM_OPR('x',2,FIM_SCON(dupstr(FIM_FLT_SCALE)),FIM_OPR('a',1,FIM_OPR('a',1,FIM_SCON(dupnstr('-',((float)$2),'%'))))); }
+	| '-' QUOTED_FLOAT   '%' { $$ = FIM_OPR('x',2,FIM_SCON(dupstr(FIM_FLT_SCALE)),FIM_OPR('a',1,FIM_OPR('a',1,FIM_SCON(dupnstr('-',((float)$2),'%'))))); }
+	| '-' INTEGER '%' { $$ = FIM_OPR('x',2,FIM_SCON(dupstr(FIM_FLT_SCALE)),FIM_OPR('a',1,FIM_OPR('a',1,FIM_SCON(dupnstr('-',((float)$2),'%'))))); }
+	// $ and ^ work too (see lex.lex)
+	| INTEGER         { $$ = FIM_OPR('x',2,FIM_SCON(dupstr(FIM_FLT_GOTO)),FIM_OPR('a',1,FIM_OPR('a',1,FIM_SCON(dupnstr(    $1))))); }
+	| '-' INTEGER     { $$ = FIM_OPR('x',2,FIM_SCON(dupstr(FIM_FLT_GOTO)),FIM_OPR('a',1,FIM_OPR('a',1,FIM_SCON(dupnstr('-',$2))))); }
+	// cmd ..
+	| IDENTIFIER      { $$ = FIM_OPR('x',1,FIM_SCON($1));     }
+	| IDENTIFIER FILE_PATH {
+#ifdef	FIM_SMART_COMPLETION
+		/* This patch allows first filename argument unquoted. */
+		$$ = FIM_OPR('x',2,FIM_SCON($1),FIM_OPR('a',1,FIM_SCON(dupstr($2))));
+		fim_free($2);
+#else
+		$$ = FIM_OPR('x',2,FIM_SCON(dupstr(FIM_FLT_ECHO)),FIM_OPR('a',1,FIM_SCON(dupstr("Please quote or double-quote your argument or enable FIM_SMART_COMPLETION at compile time\n"))));
+#endif
+		}
+	| IDENTIFIER arguments { $$ = FIM_OPR('x',2,FIM_SCON($1),$2);  /* here I would like to use FIM_SMART_COMPLETION but for now it works with the FILE_PATH trick above. */ }
+	| INTEGER IDENTIFIER arguments { if($1>0){$$ = FIM_OPR('r',2,FIM_OPR('x',2,FIM_SCON($2),$3),FIM_ICON($1)); }}
+	// assignment
+	| IDENTIFIER '=' expression { $$ = FIM_OPR('=', 2, FIM_VSCON($1,'a'), $3); }
+	// semicolons can be added arbitrarily with no harm (not so Vim'ish, though)
+//	| statement ';' { $$ = $1; } // new
+//	| NEWLINE { /* this still doesn't work as we would like to */ }
+//	| error { yyerrok ;  /* can be evil */ }
+	;
+
+/*
+ * command arguments are separated arguments
+ *
+ * Here a reduce/reduce problem arise:
+ * IDENTIFIER STRING '-' STRING -> IDENTIFIER ARG ARG -> IDENTIFIER ARGS or
+ * IDENTIFIER STRING '-' STRING -> IDENTIFIER ARG ARG -> IDENTIFIER ARGS ?
+ *
+ * should be interpeted as a a single expression or as two arguments ?
+ *
+ * the same for :
+ *
+ * IDENTIFIER INTEGER '-' INTEGER -> IDENTIFIER ARG ARG -> IDENTIFIER ARGS or
+ * IDENTIFIER INTEGER '-' INTEGER -> IDENTIFIER EXPR -> IDENTIFIER ARGS ?
+ *
+ * Vim seems to handle this in a context (command) dependent way:
+ *
+ * :echo -1 -1
+ *  -2
+ *       vs
+ *
+ * :imap <C-e> <Esc>
+ */
+arguments:
+	  expression { $$ = FIM_OPR('a',1, $1 ); }
+	| expression arguments { $$ = FIM_OPR('a', 2, $1, $2); }
+	;
+
+/*
+ * a command argument is an expressionession or a concatenation of expressionessions
+ */
+//arg:
+//	  expression { $$ = FIM_OPR('a',1,  $1 ); }
+//	| expression '.' expression { $$ = FIM_OPR('.', 2, $1, $3); }
+//	;
+
+/*
+ * expressionessions (mostly numerical: strings are not well supported right now)
+ */
+expression:
+	  '(' expression ')' { $$ = $2; }
+	| expression '.' expression { $$ = FIM_OPR('.', 2, $1, $3); }
+	| NOT expression { $$ = FIM_OPR('!', 1, $2); }
+	| expression '%' expression { $$ = FIM_OPR('%', 2, $1, $3); }
+	| expression '+' expression { $$ = FIM_OPR('+', 2, $1, $3); }
+	| expression '-' expression { $$ = FIM_OPR('-', 2, $1, $3); }
+	| expression '*' expression { $$ = FIM_OPR('*', 2, $1, $3); }
+	| expression '/' expression { $$ = FIM_OPR('/', 2, $1, $3); }
+	| expression '<' expression { $$ = FIM_OPR('<', 2, $1, $3); }
+	| expression '>' expression { $$ = FIM_OPR('>', 2, $1, $3); }
+	| expression OR expression  { $$ = FIM_OPR( OR , 2, $1, $3); }
+	| expression BOR expression  { $$ = FIM_OPR( BOR , 2, $1, $3); }
+	| expression AND expression { $$ = FIM_OPR( AND, 2, $1, $3); }
+	| expression BAND expression { $$ = FIM_OPR( BAND, 2, $1, $3); }
+	| expression GE expression { $$ = FIM_OPR(GE, 2, $1, $3); }
+	| expression LE expression { $$ = FIM_OPR(LE, 2, $1, $3); }
+	| expression NE expression { $$ = FIM_OPR(NE, 2, $1, $3); }
+	| expression EQ expression { $$ = FIM_OPR(EQ, 2, $1, $3); }
+	| expression REGEXP_MATCH expression { $$ = FIM_OPR(REGEXP_MATCH, 2, $1, $3); }
+	/*
+	 * writing the same next rule with '-' instead UMINUS
+	 * would cause lots of conflicts, because UMINUS gets
+	 * caught by the lexer, contrarily to the lone '-' string.
+	 */
+//	| UMINUS expression { $$ = FIM_OPR('-', 1, $2); } // conflict
+//	| UMINUS expression { $$ = FIM_OPR('-', 1, $2); } // conflict
+	| '-' expression %prec UMINUS { $$ = FIM_OPR(UMINUS, 1, $2); } //conflicts
+//	| '(' '-' expression ')' %prec UMINUS { $$ = FIM_OPR('-', 1, $3); } // conflict
+//	| '`' IDENTIFIER '`' { $$ = FIM_OPR('x',1,FIM_SCON($2)); }
+	| IDENTIFIER { $$ = FIM_VSCON($1,'v');  }
+	| INTEGER { $$ =  FIM_ICON($1); }
+	| QUOTED_FLOAT   { $$ = FIM_FCON($1); }
+	| UNQUOTED_FLOAT   { $$ = FIM_FCON($1); }
+	| STRING  { $$ = FIM_SCON($1); }
+	;
+
+%%
+
+/* See fim_interpreter.cpp */
+

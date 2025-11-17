@@ -1,0 +1,483 @@
+# $LastChangedDate: 2024-05-15 01:34:42 +0200 (Wed, 15 May 2024) $
+# Contents of the default 'fimrc' file, hardcoded in the fim executable.
+# Read the documentation (man fimrc) to discover how to change this default hardcoded file and how to make your own.
+# Note that usually a ~/.fimrc file is read after these options take effect, so you could reset all of this with ease.
+# Lines beginning with a pound (#) are ignored by fim (they are treated as comments).
+#
+# Internal variables.
+# Some of these variables influence fim's behaviour (input variables), some are set by fim (output variables).
+# It is wise the input variables are set at the beginning of the file, so the bottom may issue commands correctly affected by them.
+if(_cache_control==''){_cache_control='m';}
+if(_debug_commands==''){_debug_commands='';}
+if(_command_expansion==''){_command_expansion=1;}
+if(_display_status==''){_display_status=0;}
+if(_max_cached_images==''){_max_cached_images=5;}
+if(_min_cached_images==''){_min_cached_images=4;}
+if(_max_cached_memory==''){_max_cached_memory=81920;}
+if(_max_iterated_commands==''){_max_iterated_commands=100;}
+if(_want_prefetch==''){_want_prefetch=1;}
+if(_no_external_loader_programs==''){_no_external_loader_programs=0;}
+if(_scale_style==''){_scale_style='b';}
+if(_save_fim_history==''){_save_fim_history=1;}
+if(_load_fim_history==''){_load_fim_history=1;}
+if(_verbose_keys==''){_verbose_keys=0;}
+if(_display_busy==''){_display_busy=1;}
+if(_ignorecase==''){_ignorecase=1;}
+if(_re_search_opts==''){_re_search_opts='biD';}
+if(_console_offset==''){_console_offset=0;}
+if(_console_key==''){_console_key=58;}
+if(_display_as_binary==''){_display_as_binary=0;}
+if(_push_checks==''){_push_checks=1;}
+#if(_want_wm_caption_status==''){_want_wm_caption_status=0;}
+if(_want_exif_orientation==''){_want_exif_orientation=1;}
+if(ascale==''){ascale="1.0";}
+if(_use_mipmaps==''){_use_mipmaps=1;}
+if(_downscale_huge_at_load==''){_downscale_huge_at_load=1;}
+if(_scroll_skip_page_fraction==''){_scroll_skip_page_fraction=0;}
+if(_want_wm_mouse_ctrl==''){_want_wm_mouse_ctrl="'pP+a-=nN";}
+if(_slideshow_sleep_time==''){_slideshow_sleep_time=1;}
+#
+# External variables (not used internally).
+if(allow_round_scroll==''){allow_round_scroll=0;}
+if(console_scroll_n==''){console_scroll_n=3;}
+#
+alias "toggleautoflip" "_autoflip=1-_autoflip" "";
+alias "toggleautonegate" "_autonegate=1-_autonegate" "";
+alias "toggleflip" "i:flipped=1-i:flipped" "toggles flipped property on the current image";
+alias "flip" "toggleflip;redisplay"        "flip the current image along the horizontal axis";
+alias "fliponce" "flip;toggleflip"         "flip, but just for one display";
+alias "toggleautomirror" "_automirror=1-_automirror" "";
+alias "togglemirror" "i:mirrored=1-i:mirrored" "toggles mirrored property on the current image";
+alias "mirror" "togglemirror;redisplay"         "mirror the image along the vertical axis" "";
+alias "mirroronce" "mirror;togglemirror"        "mirror, but just for one display";
+alias 'toggleLimitMarked' '__pre_limit_fileindex=_fileindex;_limit_mode=1-_limit_mode; if(_limit_mode==1){limit "!";} else { limit; } if(_filelistlen<1){_limit_mode=0;limit;goto __pre_limit_fileindex;} i:fresh=1;redisplay; ' "toggle between limiting file list to the marked files and the full list";
+alias "unlimit" "limit;i:fresh=1;reload;redisplay" "calling limit with no arguments restores the original list";
+#alias 'mark_current_file' '_markedfile=i:_filename';
+#alias 'goto_marked_file' 'goto "?"._markedfile';
+alias 'mark_current_file' '_markedfile=_fileindex'; # Note: temporary; _markedfile undocumented.
+alias 'goto_marked_file'  'goto _markedfile'; # Note: temporary.
+# Warning : binding to C-s, C-z and C-c won't make effect, as these
+# codes are get caught by the console driver and will have no effect in fim.
+# Moreover, C-z will crash fim and C-c will terminate it.
+# Some other combinations (e.g.:C-l) may have similar problems in your console.
+bind 'f' "flip";
+bind 'F' "fliponce";
+bind 'm' "mirror";
+bind 'M' "mirroronce";
+bind 'q'   "quit";
+bind 'Esc' "quit";
+#bind 'n' "next_file";
+#bind 'n' "next";
+bind 'C-h' "help";
+#bind '?' "help"; # assigned to back-search
+#bind '/' "help"; # assigned to forward-search
+bind '=' "scale '100%'";
+#bind 'p' "prev_file";
+#alias 'list_remove_and_reload' "list 'remove';reload"; # once menus commands can support ;, remove this
+bind 'Del' "list 'remove';reload"; # no quit on last file
+#bind 'Del' "list_remove_and_reload"; # no quit on last file
+#bind 'Del' "if(_filelistlen<2)quit;list 'remove';reload;"; # quit if no files left
+#bind 's' "list 'sort'";
+bind ' ' "scroll 'forward'";
+###bind 'C-s' "swap;redisplay";
+bind 'S' "toggleDisplayStatus";
+bind 'I' "toggleautonegate";
+bind 'i' "color 'negate';redisplay";
+bind 'g' "color 'desaturate';redisplay";
+###bind '[' "color 'colorblind'            ; redisplay";
+###bind ']' "color 'colorblind' 'daltonize'; redisplay";
+bind '[' 'font_reduce;redisplay';
+bind ']' 'font_magnify;redisplay';
+bind '|' 'toggle_font_auto_scale;redisplay';
+bind '{' 'font "prev";redisplay';                                                                                                         
+bind '}' 'font "next";redisplay';                                                                                                         
+bind 'G' "toggleDesaturate";
+####bind 'R' "reload";
+####bind 'R' "redisplay";
+bind 'r' "rotate90";
+bind 'R' "rotate270";
+####bind 'R' "rotate10;display";
+####bind 'r' "rotate10_ccw;display";
+####bind 'r' "reload";
+###bind 'C-d' "display";
+bind '+' "magnify";
+####bind 'C-+' "angle=angle+10.0;display";
+bind 'a' "scale 'a'";
+bind 'H' "scale 'H'";
+bind 'Tab'  "toggleVerbosity";
+bind 'Menu' "toggleVerbosity";
+####bind 'C-k' "_want_wm_caption_status=1-_want_wm_caption_status;status ' '";
+bind 'v' "toggleDisplayStatus";
+bind 'A' "A";
+#bind 'C-m' "list 'mark'";
+bind 'C-m' "mark_current_file";
+bind 'C-j' "goto_marked_file";
+bind 'u'   "list 'unmark'";
+####bind 'Enter' "list 'mark';next";
+bind 'Enter' "list 'mark';goto _lastgotodirection";
+bind '-' "reduce";
+bind "Up" "pan_up";
+bind 'k' "pan_up";
+###bind 'k' "pan 'up-'";
+####bind 'C-k' "pan_up";
+bind "Right" "pan_right";
+bind 'l' "pan_right";
+bind "Down" "pan_down";
+bind 'j' "pan_down";
+###bind 'j' "pan 'down+'";
+bind "Left" "pan_left";
+bind 'h' "pan_left";
+####bind ' ' "scroll 'down'";
+bind 't' "align 'top'";
+bind 'C-g' "system 'fbgrab' 'fim_'._device_string.'.png'"; # grab a screenshot
+#bind 'C-r' "recording 'start'";
+bind 'C-r' "reload ''";
+bind 'Q' "recording 'stop'";
+bind 'D' "recording 'dump'";
+bind 'E' "recording 'execute'";
+bind 'C-e' "recording 'execute'";
+bind 'C-x' "recording 'execute'";
+bind '.' "recording 'repeat_last'";
+bind '`' "toggleLimitMarked";
+alias "toggleVerbosity" "_display_console=1-_display_console;i:fresh=1;redisplay" "";
+alias "toggleKeyVerbosity" "_verbose_keys=1-_verbose_keys;redisplay" "";
+alias "toggleDesaturate" "_autodesaturate=1-_autodesaturate;redisplay" "";
+alias "idempotent_cmd" "goto ''";
+#
+# Autocommands examples:
+#autocmd "PostInteractiveCommand" "fim.png" "echo '\\nmatched an interactive command on fim.png\\n'";
+#autocmd "PostDisplay" ".*png" "echo 'this is a png file'";
+#autocmd "PostDisplay" ".*jpg" "echo 'this is a jpg file'";
+###autocmd "PostDisplay" ".*gif" "echo 'this is a gif file'";
+#autocmd "PostDisplay" "" "echo '\\nthis is a file\\n'";
+#autocmd "PostGoto"   "" "set_interactive_mode";
+autocmd "PostGoto"      "" "reload";
+###autocmd "PostGoto" "" "load";
+###autocmd "PostDisplay"  "" "i:fresh=1" ;
+###autocmd "PreWindow"  "" "";
+autocmd "PostWindow" ""   "i:fresh=1;redisplay;";
+autocmd "PreRedisplay"  "" "i:_will_display=1";
+autocmd "PreRedisplay"  "" "if(_scale_style!='' && i:fresh){i:fresh=0;scale _scale_style ;i:fresh=0;}";
+autocmd "PostRedisplay" ""   "i:_will_display=0";
+# Display device specific config
+alias "aalib_fix_do" "{if(aascale==''){ascale='2.0';}else{ascale=aascale;} i:fresh=1;display;if(_TERM=~'screen'){echo 'Detected screen+aalib: key bindings may not work as intended.'}}" "See aalib_fix.";
+alias "aalib_fix" "if(_device_string=~'^aa'){aalib_fix_do;scale 'a';}" "When using the aalib (ASCII art) library we face a problem: glyph proportions are seldom square (as pixels are), and are tricky to detect; for this reason, we need to reshape the image with respect to the font ratio, but we have to make a guess in the scaling factor to compensate. If at runtime a better value is known for the terminal font height/with ratio, it may be fed in the 'aascale' variable for an accurate scaling.";
+alias "cacalib_fix_do" "{if(cacascale==''){ascale='1.18';}else{scale=cacascale;} i:fresh=1;display;if(_TERM=~'screen'){echo 'Detected screen+cacalib: key bindings may not work as intended.'}}" "See cacalib_fix.";
+alias "cacalib_fix" "getenv 'DISPLAY';if(_device_string=~'^ca' && ENV_DISPLAY==''){cacalib_fix_do;scale 'a';}" "When using the libcaca (Coloured ASCII art) library we face a problem: glyph proportions are seldom square (as pixels are), and are tricky to detect; for this reason, we need to reshape the image with respect to the font ratio, but we have to make a guess in the scaling factor to compensate. If at runtime a better value is known for the terminal font height/with ratio, it may be fed in the 'cacascale' variable for an accurate scaling.";
+###alias "exif_fix" "i:_orientation=exif_orientation;exif_orientation='';i:mirrored=exif_mirrored;exif_mirrored='';i:flipped=exif_flipped;exif_flipped=''" "";
+###autocmd "PostReload"  "" "aalib_fix;exif_fix";
+###autocmd "PostLoad"    "" "aalib_fix;exif_fix";
+autocmd "PostReload"  "" "aalib_fix";
+autocmd "PostLoad"    "" "aalib_fix";
+autocmd "PostReload"  "" "cacalib_fix";
+autocmd "PostLoad"    "" "cacalib_fix";
+alias "refresh" "desc 'reload';redisplay;" "reloads and displays image description";
+bind "F5" "refresh";
+alias "toggle_fullscreen" "if( (_device_string=~'^sdl' || _device_string=~'^gtk' ) && !_fullscreen){_old_sw=_screen_width;_old_sh=_screen_height;display 'reinit' 'mW0:0';_fullscreen=1;}else if( (_device_string=~'^sdl' || _device_string=~'^gtk' ) && _old_sw*_old_sh*_fullscreen){display 'reinit' 'rwm'._old_sw.':'._old_sh;_fullscreen=0;}_gtk_fullscreen=_fullscreen;" "Toggles full screen. Will show mouse cursor in full screen.";
+alias "_gtk_check_for_toggle_fullscreen" "if( _device_string=~'^gtk' && _gtk_fullscreen != _fullscreen){toggle_fullscreen;}";
+alias "_gtk_check_for_toggle_gtk_menus" "if(_device_string=~'^gtk'){if(_hide_gtk_menus){display 'reinit' 'b';}else{display 'reinit' 'B';}}";
+bind "F11" "toggle_fullscreen";
+
+autocmd "PostReload"  "" "i:fresh=1" ;
+autocmd "PostScale"   "" "if(0==i:_will_display){i:fresh=1;display;}" ;
+###autocmd "PostScale"   "" "{i:fresh=1;display;}" ;
+autocmd "PostPan"     "" "{i:fresh=1;display;}" ;
+#autocmd "PostReload"   "pdf|ps|djvu|dvi" "scale 'w';align 'top'";
+autocmd "PostReload"   "" "if(i:fresh){redisplay;}";
+autocmd "PostInteractiveCommand"   "" "if(i:fresh){display;i:fresh=0;}";
+autocmd "PostInteractiveCommand"   "" "if(_want_prefetch>0){prefetch;}";
+autocmd "PostInteractiveCommand"   "" "if(_display_console==0 && i:fresh){redisplay;i:fresh=0;}";
+autocmd "PostInteractiveCommand"   "" "idempotent_cmd"; # Bug workaround: without it console scroll is broken.
+autocmd "PostInteractiveCommand"   "" "_gtk_check_for_toggle_gtk_menus;_gtk_check_for_toggle_fullscreen";
+
+#alias "next10" "i=0;while(i<10){i=i+1;next;display;sleep '1';}" "goes forward 10 images";
+#alias "prev10" "i=0;while(i<10){i=i+1;prev;display;sleep '1';}" "goes backward 10 images";
+bind 'N' "goto '+1p' '+museum|series|city|category|artist+' '+/S' '+10';" "goto by jump or category or directory or just ahead";
+bind 'P' "goto '-1p' '-museum|series|city|category|artist+' '-/S' '-10';" "goto by jump or category or directory or just back ";
+bind 'C-n' "goto '+//'";
+bind 'C-p' "goto '-//'";
+bind 'C-b' "goto '-//'"; # Warning: many configurations cannot detect C-b.
+bind 'W' "display 'resize'" "if supported, resizes the window to match the current image pixels size";
+#bind 'C-w' "scale '100%';display 'resize'" "if supported, scales the image to 100% and resizes the window to match its size (if fits)";
+bind 'C-w' "if(_scale_style!='w'){_scale_style='w';scale 'w';}else{_scale_style='';scale '100%';}" "scale to width";
+alias "endless_slideshow" "while(1){display;sleep _slideshow_sleep_time;next;}" "performs an automated slideshow, endlessly";
+alias "bookview"          "while(1){display;sleep '2';scroll 'down';}" "";
+alias "comicview"         "while(1){display;sleep '2';scroll 'down';}" "";
+alias "read"              "while(1){display;sleep '2';scroll 'forward';}" "";
+alias "slowread"          "while(_fileindex<=_filelistlen-1){display;sleep '2';scroll 'forward';}" "loop once slowly";
+alias "fastread"          "while(_fileindex<=_filelistlen-1){display;sleep '0.1';scroll 'forward';}" "proceeds like in a book but very fast, once";
+alias "pornview"          "echo 'press any key repeatedly to terminate' ;endless_slideshow" "enters an endless slideshow (alias name from an actual image viewer)";
+####bind  "C-p" "pornview";
+####bind  "C-b" "bookview";
+autocmd "PreExecutionCycle" "/fbps-" "_display_busy=0;_display_status=0" ;
+autocmd "PreExecutionCycle" "" "i:fresh=1;reload";
+####autocmd "PreExecutionCycle" "" "redisplay";
+autocmd "PreExecutionCycle" "/fbps-.*ps001.png" "i:fresh=1;redisplay";
+####autocmd "PostInteractiveCommand" "" "i:fresh=0";
+####autocmd "PostInteractiveCommand" "" "prefetch";
+## Example in imposing a file loader to an extension:
+#autocmd "PreReload"    ".*mtx.gz" "_file_loader='MatrixMarket'";
+#autocmd "PostReload"   ".*mtx.gz" "_file_loader=''";
+###bind '*' "scale '100%'";
+bind '*' "_display_console=0;toggleVerbosity;echo i:*";
+bind 'w' "scale 'w'";
+bind '<' "rotate10_ccw;display";
+bind '>' "rotate10;display";
+bind '_' "_scale_style='';scale '100%'";
+bind ',' "_display_console=1;echo _last_system_output";
+bind 'C-a' "if(_scale_style!='a'){_scale_style='a';scale 'a';}else{_scale_style='';scale '100%';}" "scale to height";
+####bind 'h' "scale 'h'";
+#
+alias "pan_nw" "pan 'nw'" "pans the image to the upper left";
+alias "pan_ne" "pan 'ne'" "pans the image to the upper right";
+alias "pan_se" "pan 'se'" "pans the image to the lower left";
+alias "pan_sw" "pan 'sw'" "pans the image to the lower right";
+alias "pan_down" "if(_display_console==0){pan 'down';}else{scd;}" "pans the image down / scrolls console down";
+alias "pan_up"   "if(_display_console==0){pan 'up'  ;}else{scu;}"   "pans the image up / scrolls console up";
+alias "pan_left" "pan 'left'" "pans the image left";
+alias "pan_right" "pan 'right'" "pans the image right";
+alias "diagonal_nw" "pan_nw" "pans the image to the upper left";
+alias "diagonal_ne" "pan_ne" "pans the image to the upper right";
+alias "diagonal_se" "pan_se" "pans the image to the lower left";
+alias "diagonal_sw" "pan_sw" "pans the image to the lower right";
+bind 'd' "diagonal_nw";
+bind 'D' "diagonal_se";
+bind 'x' "diagonal_ne";
+bind 'X' "diagonal_sw";
+alias "toggleDisplayStatus" "_display_status=1-_display_status;redisplay" "";
+alias "toggleDisplayBusy"   "_display_busy=1-_display_busy" "";
+alias "sort" "list 'sort'"  "sorts the files list ordered";
+####toggleVerbosity;
+####bind 'f' "next;display";
+####bind 'b' "prev;display";
+bind 'o' "sort";
+bind 'b' "prev";
+bind 'B' "toggleDisplayBusy";
+alias "random_slideshow" "while(1){display;sleep _slideshow_sleep_time; eval 'r=random';goto r;}" "performs a shuffled slideshow, endlessly";
+alias "rotate90_ccw" "i:_orientation=i:_orientation+3;i:fresh=1;redisplay" "rotate 90 degrees counter clockwise";
+alias "rotate90_cw"  "i:_orientation=i:_orientation+1;i:fresh=1;redisplay" "rotate 90 degrees clockwise";
+alias "rotate180"  "i:_orientation=i:_orientation+2;i:fresh=1;redisplay" "rotate 180 degrees";
+alias "rotate90" "rotate90_cw;display" "rotate 90 degrees clockwise";
+alias "rotate270" "rotate90_ccw;display" "rotate 90 degrees counter clockwise";
+alias "rotate10"     "rotate  '10';display" "rotate 10 degrees counter clockwise";
+alias "rotate10_ccw" "rotate -10  ;display" "rotate 10 degrees clockwise";
+
+#### window related aliases and commands
+###alias "wu" "window 'up'" "selects the window upwards the current";
+###alias "wd" "window 'down'" "selects the window under the current";
+###alias "wl" "window 'left'" "selects the window at left of the current";
+###alias "wr" "window 'right'" "selects the window at right of the current";
+####bind 'K' "wu";
+bind 'K' 'if(_display_console==0){echo i:_filename.": ".i:_comment;toggleVerbosity}else{toggleVerbosity;}';
+bind 'C-k' 'crop' # still experimental
+#### Note : on many consoles C-j is by default equivalent to Enter.. so this may not work :)
+####bind 'C-j' "wd";
+####bind 'J' "wd";
+####bind 'H' "wl";
+####bind 'L' "wr";
+####alias "split" "window 'split'" "split the current window horizontally";
+####alias "vsplit" "window 'vsplit'" "split the current window vertically";
+####alias "swap" "window 'swap'" "swap the enclosing window subwindows";
+####alias "ws " "window 'swap'" "see swap";
+####bind 'T' "split;redisplay";
+#####don't use C-s : it will be usually caught by the console driver, and fim won't get it!
+#####bind 'C-s' "split";
+####bind 'V' "vsplit;redisplay";
+####bind 'U' "swap;redisplay";
+####alias 'venlarge' 'window "venlarge"' "";
+####alias 'henlarge' 'window "henlarge"' "";
+####alias 'wnormalize' 'window "normalize"' "";
+####alias 'wclose' 'window "close"' "";
+####alias 'wc' 'window "close"' "closes the current window";
+####bind  'C' "wc;redisplay";
+
+alias 'cache' 'echo _cache_status' "displays cached images status";
+###bind 'c' 'cache';
+bind 'c' 'align "center"';
+alias 'widen'  'i:ascale=i:ascale*"1.1";*1.0' "widen the current image";
+alias 'narrow' 'i:ascale=i:ascale/"1.1";*1.0' "narrow the current image";
+###alias 'contract' 'narrow';
+bind  'y' "widen" "widen horizontally the image";
+bind  'Y' "narrow" "shrink horizontally the image";
+####alias 'scu'   'scroll_console_up'   "";
+####alias 'scd'   'scroll_console_down' "";
+####alias 'console_scroll_up'   'if(_console_offset<_console_lines){_console_offset=_console_offset+1;}';
+####alias 'console_scroll_down' 'if(_console_offset>0){_console_offset=_console_offset-1;}';
+alias 'console_scroll_up' 'if(_console_offset<_console_lines+console_scroll_n-_rows){_console_offset=_console_offset+console_scroll_n;}' "scrolls up the virtual console";
+alias 'console_scroll_down' 'if(allow_round_scroll || (_console_offset>=console_scroll_n)){_console_offset=_console_offset-console_scroll_n;}' "scrolls down the virtual console";
+alias 'console_scroll_reset' '{_console_offset=0;}';
+alias 'scu'    'console_scroll_up'   "";
+alias 'scd'    'console_scroll_down' "";
+alias 'scz'    'console_scroll_reset' "";
+alias 'center' 'align "center"';
+alias 'left'   'align "left"';
+alias 'right'  'align "right"';
+alias 'top'    'align "top"';
+alias 'bottom' 'align "bottom"';
+alias "font_magnify_auto" "if(_fbfont_as_screen_fraction>1){_fbfont_as_screen_fraction=_fbfont_as_screen_fraction-1;}else{_fbfont_as_screen_fraction=_screen_width/100+_screen_height/100;}" "";
+alias "font_magnify_manual"      "_fbfont_magnify_factor=_fbfont_magnify_factor+1" "";
+alias "font_reduce_auto"  "if(_fbfont_as_screen_fraction>1){_fbfont_as_screen_fraction=_fbfont_as_screen_fraction+1;}" "";
+alias "font_reduce_manual"       "_fbfont_magnify_factor=_fbfont_magnify_factor-1" "";
+alias "toggle_font_auto_scale" "if(_fbfont_as_screen_fraction<0){_fbfont_as_screen_fraction=0;echo 'Auto font scaling on.';}else{_fbfont_as_screen_fraction=-1;echo 'Auto font scaling off.';}" "toggles between manual and auto font scaling control";
+alias 'next_file_same_search'      "goto '+//';" "go to next file with same search criteria";
+alias 'next_file_dir_same'      "goto '+/s';" "go to next file in same dir";
+alias 'next_file_dir_other'     "goto '+/S';" "go to next file in other dir";
+alias 'next_file_dir_up'        "goto '+/u';" "go to next file up the dir hierarchy";
+alias 'next_file_dir_down'      "goto '+/d';" "go to next file down the dir hierarchy";
+alias 'next_file_same_basename' "goto '+/b';" "go to next file with same basename";
+alias 'prev_file_dir_same'      "goto '-/s';" "go to prev file in same dir";
+alias 'prev_file_dir_other'     "goto '-/S';" "go to prev file in other dir";
+alias 'prev_file_dir_up'        "goto '-/u';" "go to prev file up the dir hierarchy";
+alias 'prev_file_dir_down'      "goto '-/d';" "go to prev file down the dir hierarchy";
+alias 'prev_file_same_basename' "goto '-/b';" "go to prev file with same basename";
+#alias "font_magnify" "if(_fbfont_as_screen_fraction<0) {font_magnify_manual;}else{font_magnify_auto;}" "increase font size (either relative or absolute)";
+#alias "font_reduce"  "if(_fbfont_as_screen_fraction<0) {font_reduce_manual;} else{font_reduce_auto;}"  "increase font size (either relative or absolute)";
+alias "font_magnify" "_fbfont_as_screen_fraction=-1;font_magnify_manual" "increase absolute font size and set manual font control";
+alias "font_reduce"  "_fbfont_as_screen_fraction=-1;font_reduce_manual"  "decrease absolute font size and set manual font control";
+bind "PageUp" "if(_display_console==0){prev;}else{scu;}";
+bind "PageDown" "if(_display_console==0){next;}else{scd;}";
+bind "Home" "0;";
+bind "End" "$;";
+bind "^" "0;";
+bind "$" "$;";
+#bind "Backspace" "prev"; # console code for C-h and Backspace is the same :-)
+bind "'" "goto _lastfileindex.'f'.(_lastpageindex+1).'p'";
+bind '"' "scale 'shadow';i:fresh=1;redisplay;"; 
+bind '(' "goto '^p'";
+bind ')' "goto '$p'";
+bind 'Z' "sleep 1";
+_display_status=1; # lower status line
+_want_wm_caption_status="fim:%N@%p%%%L[%i/%l]";
+_caption_over_image_fmt="%?_comment?%:_comment:?";
+_info_fmt_str="%p%% %wx%h%L %i/%l%P %F %T %c"; # lower right line part
+#_display_status_fmt="%N:%k"; #
+_display_status_fmt="%N%?EXIF_DateTimeOriginal?[%:EXIF_DateTimeOriginal:]?%?EXIF_ExposureTime?[%:EXIF_ExposureTime:]?%?EXIF_FNumber?[%:EXIF_FNumber:]?%?EXIF_ApertureValue?[%:EXIF_ApertureValue:]?%?EXIF_ISOSpeedRatings?[ISO%:EXIF_ISOSpeedRatings:]?%?_markedfile?[mark on %:_markedfile:]?:%k"; # lower left line part
+# funny aliases:
+alias "webcam" "pread 'vgrabbj -d /dev/video0';$" "say cheese";
+alias 'espeak' 'system \'espeak\' i:_filename." ".i:_comment' 'say something';
+#_fbfont_as_screen_fraction=-1; # disable auto font scaling
+if( _device_string=~'^gtk[^e]*$' ) {
+	alias "man_fim"   "system 'man' 'fim';  _display_console=0;toggleVerbosity;";
+	alias "man_fimrc" "system 'man' 'fimrc';_display_console=0;toggleVerbosity;";
+	alias '_rebuild_menus' 'display "reinit" "f";';
+	alias '_rebuild_quieter_menus' '_debug_commands=_debug_commands-"m";display "reinit" "fV";'; # remove "m" occurrences from _debug_commands and rebuild
+	alias '_rebuild_verboser_menus' '_debug_commands=_debug_commands."m";_rebuild_menus;';
+	alias '_rebuild_verbosest_menus' '_debug_commands=_debug_commands."mm";_rebuild_menus;';
+	alias 'toggle_gtk_menus' 'if(!_hide_gtk_menus){_hide_gtk_menus=1;}else{_hide_gtk_menus=0;}';
+	autocmd "PreInteractiveCommand"  "" "if(__internal_state_changed){_rebuild_menus;__internal_state_changed=0;}";
+	autocmd "PostInteractiveCommand" "" "if(__internal_state_changed){_rebuild_menus;__internal_state_changed=0;}";
+	autocmd "PreExecutionCycle"      "" "if(__internal_state_changed){_rebuild_menus;__internal_state_changed=0;}";
+	display "menuadd" 
+		"_File/"
+		"_File/_Open file  open  C-o"
+		"_File/Open _directory  open_dir  "
+		"_File/_Next file or page  next  "
+		"_File/_Next file  next_file  "
+		"_File/_Next in other directory  next_file_dir_other"
+		"_File/_Next in this directory  next_file_dir_same"
+#		"_File/_Next as last search  goto +\/\/  " # Note that slashes are not supported currently.
+		"_File/_Next as last search  next_file_same_search  "
+		"_File/_Go back to last file  goto _lastfileindex  "
+		"_File/_Previous in list  prev  p"
+#		"_File/Remove from list  list 'pop'"
+#		"_File/Remove from list  list_remove_and_reload  "
+		"_File/Remove from list  list 'remove';reload  "
+		"_File/Mark  list 'mark'"
+		"_File/Unmark  list 'unmark'"
+		"_File/_Quit  quit  q"
+		"_List/Show  list"
+		"_List/_Limit  FimMenuLimit/"
+		"_List/Limit to.../files sized as current one  limit '~z'" # TODO: need a test listing effective menu defs
+		"_List/Limit to.../files dated as current one  limit '~d'"
+		"_List/Limit to.../files with duplicate basename  limit '~='"
+		"_List/_Unlimit list (reset)  unlimit  u"
+		"_List/Reverse  list 'reverse'  "
+		"_List/Sort by name  list 'sort'  "
+		"_List/Sort by size  list 'sort_fsize'  "
+		"_List/Sort by time  list 'sort_mtime'  "
+		"_List/Shuffle randomly  list 'random_shuffle'  "
+		"_List/Mark all  list 'markall'  "
+		"_List/Slideshow/Random  random_slideshow  "
+		"_List/Slideshow/Endless  endless_slideshow  "
+		"_List/Slideshow/Slideshow time: 0 s  _slideshow_sleep_time=0    0.5 s  _slideshow_sleep_time=0.5    1 s  _slideshow_sleep_time=1    2 s  _slideshow_sleep_time=2    3 s  _slideshow_sleep_time=3    "
+		"_List/Slideshow/Stop  _stop_slideshow=1  "
+		"_List/Slideshow/Slow read  slowread  "
+		"_List/Slideshow/Fast read  fastread  "
+		"_View/  Automirror  toggle||_automirror||1||0  " # '  ' as external separator, || as internal separator
+		"_View/||Autoflip||toggle.._autoflip..1..0||" # || as external separator, .. as internal separator
+#		"_View/Scale: _auto  _scale_style=a  a  Scale: by _hand (manual)  _scale_style=m  m  Scale: by _width  _scale_style=w  w  Scale: by _height  _scale_style=h  h"
+		"_View/**Scale: 1x**_scale_style= ** **Scale: _auto**_scale_style=a**a**Scale: _auto (till 100%)**_scale_style=b**b**Scale: by _hand (manual)**_scale_style=m**m**Scale: by window _width**_scale_style=w**w**Scale: by window _height**_scale_style=h**h"
+		"_View/Orientation: normal  _orientation=0    Orientation: 90'right  _orientation=1    Orientation: upside down  _orientation=2    Orientation: 90' left  _orientation=3  "
+		"_View/Desaturate  toggle___autodesaturate__1__0  "
+		"_View/Autonegate  toggle___autonegate__1__0  "
+		"_View/Vertical scroll/** Default steps: auto**_vsteps=****10%**_vsteps=10%****20%**_vsteps=20%****50%**_vsteps=50%****100%**_vsteps=100%**"
+		"_View/Vertical scroll/** Skip page fraction if smaller than ...auto**_scroll_skip_page_fraction=****disabled**_scroll_skip_page_fraction=-1****1/8**_scroll_skip_page_fraction=8****1/16**_scroll_skip_page_fraction=16**"
+		"_View/Refresh description & co  refresh  "
+		"_View/||Apply EXIF Orientation||toggle.._want_exif_orientation..1..0||"
+		"_Image/_Mirror  toggle__i:mirrored__1__0  m"
+		"_Image/_Flip  toggle&&i:flipped&&1&&0  f" # && as internal separator
+#		"_Image Extras/_Let's Flip again  toggle&&i:flipped&&1&&0  f" # && as internal separator TODO togli
+		"_Image/Orientation: normal  i:_orientation=0    Orientation: 90'right  i:_orientation=1    Orientation: upside down  i:_orientation=2    Orientation: 90' left  i:_orientation=3  "
+		"_Image/EXIF Orientation: normal  i:_exif_orientation=0    EXIF Orientation: 90'right  i:_exif_orientation=1    EXIF Orientation: upside down  i:_exif_orientation=2    EXIF Orientation: 90' left  i:_exif_orientation=3  " # previously __exif_orientation but renamed for the double-symbol-separator convention
+		"_Window/_Fullscreen  toggle**_gtk_fullscreen**1**0  F11"
+		"_Window/Hide the menu bar (press mouse button to restore)  toggle_gtk_menus"
+#		"_Window/Hide menu bar (press mouse button to restore)  toggle||_hide_gtk_menus||0||1" # not yet ready to replace toggle_gtk_menus
+		"_Window/Resize window to image size  display 'resize'"
+		"_Window/Text size reduce  font_reduce"
+		"_Window/Text size magnify  font_magnify"
+		"_Window/Text font: next  font 'next'"
+		"_Window/Text font: prev  font 'prev'"
+		"_Window/Show status line  toggle||_display_status||1||0  "
+		"_Window/Caption over image: None  _caption_over_image=0    Caption over image: No background  _caption_over_image=1    Caption over image: Black background  _caption_over_image=2    Caption over image: Above image, no overlap  _caption_over_image=3  "
+		"_Window/Window caption: minimal  _want_wm_caption_status=FIM    Window caption: reasonable  _want_wm_caption_status=fim:[%i/%l]    Window caption: rich  _want_wm_caption_status=fim:%N@%p%%%L[%i/%l]%?EXIF_DateTimeOriginal?[%:EXIF_DateTimeOriginal:]?  "
+		"_Window/Mouse click help grid: default  _want_wm_mouse_ctrl='pP+a-=nN    Mouse click help grid: simplified  _want_wm_mouse_ctrl=ppp+a-nnn  "
+		"_Advanced/Show output console (then hide with Tab)  toggleVerbosity  v"
+		"_Advanced/Verbose keys  toggle___verbose_keys__1__0  "
+		"_Advanced/Low execution verbosity  _debug_commands=0    Intermediate execution verbosity  _debug_commands=ackCm    High execution verbosity  _debug_commands=ackCmmi  "
+		"_Advanced/Rebuild menus with no verbosity  _rebuild_quieter_menus"
+		"_Advanced/Rebuild menus with tooltips  _rebuild_verboser_menus"
+		"_Advanced/Rebuild menus very verbosely  _rebuild_verbosest_menus"
+		"_Advanced/Verbose menu  toggle||_display_busy||1||0"
+		"_Advanced/Downscale huge images on load  toggle||_downscale_huge_at_load||1||0"
+		"_Advanced/Background prefetch  _want_prefetch=2    Foreground prefetch  _want_prefetch=1    No prefetch  _want_prefetch=0    "
+		"_Custom actions/_Mark current file  mark_current_file"
+		"_Custom actions/_Go to marked file  goto_marked_file"
+		"_Custom actions/Webcam shot (needs vgrabbj)  webcam"
+		"_Custom actions/Say something (needs espeak)  espeak"
+		"_Custom actions/Max cached memory: 256MiB  _max_cached_memory=262144    unlimited  _max_cached_memory=0    very little  _max_cached_memory=1    80MiB  _max_cached_memory=81920  "
+		"_Custom actions/Max cached images: unlimited  _max_cached_images=0    5  _max_cached_images=5    10  _max_cached_images=10    100  _max_cached_images=100  "
+		"_All actions/_Commands  FimMenuCommands/"
+		"_All actions/_Aliases  FimMenuAliases/"
+		"_All actions/_Key Bindings  FimMenuKeyBindings/"
+		"_All actions/_Variables  FimMenuVariables/"
+		"_Help/_Commands  FimMenuCommandsHelp/"
+		"_Help/_Aliases  FimMenuAliasesHelp/"
+		"_Help/_Key Bindings  FimMenuKeyBindingsHelp/"
+		"_Help/_Variables  FimMenuVariablesHelp/"
+		"_Help/_man FIM  man_fim"
+		"_Help/_man fimrc  man_fimrc";
+		#"_Custom actions/scaling: _auto  _scale_style=a  a  scaling: _auto to original  _scale_style=b  b  scaling: manual  _scale_style=m  m  scaling: by _width  _scale_style=w  w" # copy for demo purposes
+		#"_Custom actions/_Toggle flipped flag  toggle__i:flipped__1__0  f"
+		#"_Custom actions/_Submenu/_Frobnicate  unmapped_cmd  /"
+		#"_Custom actions/_Submenu/_Defrobnicate  unmapped_cmd  u"
+		#"_Custom actions/_Submenu/FimMenuLimit  FimMenuLimit/"
+		#"_Custom actions/_Submenu/_Do-frobnicate  unmapped_cmd *" # bad specification
+		#"_Custom actions/_Submenu/_Fribnikate  frobnicate  unmapped_cmd *" # bad specification
+		#"_Custom actions/_Submenu/_Next  next *" # bad specification
+		#"_Custom actions/_Add menu...  menu_dialog"
+		#"_Custom actions/_Toggle full screen view  toggle		_gtk_fullscreen		1		0"
+		if (_last_cmd_output!="") quit -1;
+}
+help ''; # WELCOME...
+# More examples:
+#alias "plisten" 'popen "nc -l -p 9999 "' "executes fim commands coming from port 9999 on this computer";
+#alias "wlisten" "while(1){sleep;plisten;}" "listen to a pipe, endlessly";
+#alias "musicplay"  "system 'mpc' 'play'" "";
+#alias "musicpause" "system 'mpc' 'pause'" "";
+#alias "rdjpgcom" 'system "rdjpgcom" i:_filename';
+# offsetscan usage : need a mechanism for popping all images before.
+#alias "offsetscan" "while(i:width<1){list 'push' 'blob.jpg';stdout _open_offset ;_open_offset=_open_offset+1;reload;}";
+#alias "webcam_cycle" "while(1){webcam;reload;sleep 1;}";
+# This is a FIM initialization file. 
+# Without it FIM cannot work like it should.
+# Feel free to modify it, but with caution!

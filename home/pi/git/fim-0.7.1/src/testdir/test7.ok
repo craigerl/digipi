@@ -1,0 +1,4 @@
+i:width==i:swidth  :1
+i:height==i:sheight:1
+i:autowidth=1 (should be 1)
+auto scaling test ok

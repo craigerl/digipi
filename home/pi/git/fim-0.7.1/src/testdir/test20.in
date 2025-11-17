@@ -1,0 +1,74 @@
+# A test for the help system (will fail if using pre-C++11 of --disable-readline).
+# Its results need update on each help system update.
+alias 'dump' "stdout _last_cmd_output; stdout '*';";
+echo "A test for the help system";
+dump;
+help;
+dump;
+help ''; # different depending on configuration
+if(_last_cmd_output=~"WELCOME")stdout "help '' good";else stdout "help '' bad";
+help '-';
+dump;
+help '-h';
+dump;
+help '--';
+dump;
+help '--help';
+dump;
+help '/cached'; # match on variable name
+dump;
+help '/given image'; # match on variable help, which will fail because __exif_flipped is not set
+dump;
+__exif_flipped=1;
+help '/given image'; # match on variable help, which will now work
+dump;
+help '/current image list length'; # match on variable help, which will pass because _filelistlen is set
+dump;
+#
+#help 'commands';
+#dump;
+commands;
+dump;
+#
+#help 'alias';
+#dump;
+alias;
+dump;
+alias "unassigned";
+dump;
+#
+#help 'variables';
+#dump;
+__internal_state_changed=0; # we don't want its printout, mostly to keep test ok on minimal configuration
+variables;
+dump;
+#
+# need also something like:
+#variables 'g:';
+#dump;
+#variables 'i:';
+#dump;
+#
+#help 'bind';
+#dump;
+bind;
+dump;
+bind '/' 'quit';
+dump;
+unbind '/';
+dump;
+unbind '?';
+dump;
+unbind ':';
+unbind_out=_last_cmd_output;
+if (_console_key!=-1 && !(unbind_out=~'special.key')) { stdout "problem!"; } else { stdout "ok :1"; }
+if (_console_key==-1 && !(unbind_out=~'no.such.bin')) { stdout "problem!"; } else { stdout "ok :2"; }
+help '/';
+dump;
+help '?';
+dump;
+help ':';
+help_out=_last_cmd_output;
+if (_console_key!=-1 && !(help_out=~'activate.co')) { stdout "problem!"; } else { stdout "ok :3"; }
+if (_console_key==-1 && !(help_out=~'no.such.com')) { stdout "problem!"; } else { stdout "ok :4"; }
+#

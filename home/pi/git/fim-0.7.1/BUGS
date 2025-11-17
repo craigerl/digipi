@@ -1,0 +1,128 @@
+$LastChangedDate: 2024-05-11 14:46:02 +0200 (Sat, 11 May 2024) $
+
+==== BUG REPORTING
+
+For sending a bug report, please drop me an email with a subject line beginning with '[FIM]'.
+Contact information is in the doc/FIM.TXT file, or in the bottom of this file.
+
+Please DO NOT dare sending bug reports about installation unless you have read the INSTALL
+file and you are sure all the dependencies on your system have been resolved.
+
+For example  "[FIM] problems with resolution 457x3778" would be a good, informative 
+subject for me.
+
+When submitting a bug report, please follow the following rules:
+
+ - be as much informative as possible when describing your experience.
+ - make a report about the current environment:
+   ( make ; make report ) 2>&1 | gzip  > fim.`date +%Y%m%d%H%M`.log.gz
+  and send me the created .tgz file
+ - please give me information about the exact way you experienced the problem
+ - please give me information about the resolution/video mode you are working with;
+   from the bash shell, execute the following and send me the output:
+   ( for f in  /sys/class/graphics/fb0/* ; do echo $f ; cat $f ; done )
+ - please send me the config.log file, too (especially if it is a build bug).
+   it is of vital importance!
+   (the config.log file is created by the configure script when you run the ./configure script)
+ - if you are using an ad hoc method for installing (say, the ebuild for the Gentoo Linux ),
+   consider sending the logfile created and named in the error messages.
+
+
+==== CORE DEBUGGING
+
+ Consider debugging with gdb or letting me do this for you!
+ by running
+
+	$ ulimit  -S -c unlimited
+
+ before Fim, in the case Fim should crash, it will generate a file called 'core'.
+ That file, if sent to me (but contact me before sending, because it could be big!),
+ will be helpful for debugging Fim and discover the causes of the crash.
+
+ p.s.: please compile the code configuring in this way:
+ ( use ./configure --help='-O0 -ggdb' ) 
+ and don't forget to send me the executable file, too :)
+
+==== CONTACT
+
+You can mail your report to dezperado_FOobAr_autistici_Baz_org, by replacing _FOobAr_
+with a '@' and _Baz_ with a '.'.
+
+==== KNOWN BUGS
+
+20240402	the search history and the command history are not properly separated
+20240322	if using libcaca (-o ca=W) mode with a version older than pre-0.99.beta20 (like 0.99.beta19), pressing continuously 'n' has been observed to lead to an endless loop
+20240320	in gtk (-o gtk) mode, pressing 'n' continuously has been observed failing to refresh the images along the way
+20240320	in gtk (-o gtk) mode, if terminating via the window system while in the console, --final-commands COMMANDS  will not be executed
+20150131	in aalib mode PageUp / PageDown do not seem to work.
+20150123
+
+   When in framebuffer mode, never, for ANY reason, press C-z (^Z) with the
+   intention of putting fim in the background. It will blind your console and
+   allow only blind typing, which is a very dangerous situation!
+
+20110603	Window splitting is disabled.
+
+==== MINOR ISSUES
+
+20091208	if fim is configured to take input from piped xfig (as xfig-3.2.5b), it could be - passively - subject to
+		xfig's buffer overflow on files like:
+ 0 1 2 3
+ 4
+ 1 2 3 4 5 6 7 ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ
+		( see http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=559274
+		  and http://bugs.debian.org/cgi-bin/bugreport.cgi?msg=5;filename=xfig_poc.f;att=1;bug=559274)
+		As long as xfig (fig2dev) is accessed through the popen() system call, there will be no harm to fim from xfig crash.
+20091015	In 16 bit graphics mode, some lines which should be white actually look blue (seems not fim' fault; happens on both on ARM and x86)
+20091013	fim -i < file.pdf # does not work on potentially multipage files
+20091009	fim does not support 1,2,4 bit modes
+20090328	problems with --std=c++98 in legacy src/FbiStuffJpeg.cpp code (now commented)
+20070919	while command suffers from being not interruptible in some cases (when the image is small and not 'panable')
+20070912	Debugging it with the framebuffer under gdb hangs the console (even with -p).
+20070904	problems could occur with the commands giving output when no std::cout << "" is returned soon after (see Commandconsole.cpp mehods for this..)
+20071128	tried:
+	Linux host 2.6.19-gentoo-r5 #1 SMP Mon Sep 24 15:08:36 CEST 2007 ppc 7447A, altivec supported PowerBook5,4 GNU/Linux
+	and gave problems with the PAGE_MASK macro, originally in /linux/include/asm-i386/page.h :)
+
+20080504	Seems like running the aalib driver under screen maps -3072 units down the arrow keys.
+		I do not see this problem in aalib under ssh.
+20080127	Under screen, Fim behaves well but it doesn't handle well console switching:
+		after a console switch, it doesn't redraw the image if not triggered to do so.
+20080106	keys 'Insert,Cancel' are not recognized in the commandline mode.
+		This issue will be fixed after the fbi core will be cleaned up and revised.
+20070811	On CENTOS 64 bit, i reported linking problems : -ltermcap is required, too.
+		I Don't know exactly how to fix this issue.
+2007*		Bugs shared with fbi, not fully solved:
+		- do not switch console or interrupt the program while it is busy: it could hang your console
+		  and force you to make tricks to get back the terminal (like typing blindly through consoles,
+		  or trying to get to some X instance via ALT-F7-like sequences, or even restart the computer),
+		  and blind typing could be dangerous, if you do now know what you are doing!
+
+==== OUTSTANDING FIXED ISSUES
+
+20110602	fim versions before svn version r373 segfault in 32 bit framebuffer mode, on 64 bit builds
+
+==== FIXED FBI/FBGS ORIGINATING BUGS
+
+ Replaced popen with pipe calls : http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=422034, in rev. 213.
+
+ Original typo in fbgsh :  http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-3119 fixed following the 
+ patch indicated on http://bugs.gentoo.org/show_bug.cgi?id=141684 :
+
+	-gs     -dSAVER -dNOPAUSE -dBATCH
+	+gs     -dSAFER -dNOPAUSE -dBATCH
+
+ It could let a PostScript file execute evil code, according to the advisory.
+
+
+==== UNFIXED EXTERNALLY ORIGINATING BUGS
+
+20090329	On my debian box's aalib, the ASCII art driver leaks 224 bytes of memory.
+Actually, it happens the same when compiling aalib-1.4.0's aafire.c program against debian aalib
+and running it in console mode (no X).
+After clean aalib recompilation, these problems vanish.
+
+==== SOLVED ISSUES
+
+20110712	in sdl (x11) mode, when fim is spawned in a non-terminal environment, the readline mode does not work in the proper way. detecting this situation may be helpful to disable the readline mode at all in these cases, until a readline-centric fix is found.   (seems fixed with r688)
+

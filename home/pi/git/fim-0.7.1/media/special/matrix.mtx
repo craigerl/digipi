@@ -1,0 +1,6 @@
+%%MatrixMarket matrix coordinate real symmetric
+% A Matrix of order 2, with 2 rows, 2 columns, and 2 nonzeroes.
+%
+2 2 2
+1 1 11
+2 2 22

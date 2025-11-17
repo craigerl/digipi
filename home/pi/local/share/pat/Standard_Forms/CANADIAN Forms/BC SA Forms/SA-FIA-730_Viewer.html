@@ -1,0 +1,968 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html;" charset="UTF-8" />
+    <style type="text/css">
+	
+	@media print {
+#printPageButton {
+    display: none;
+  } 
+      .form-control, .form-control.nobug {
+border: 0;
+outline: 0;
+box-shadow: none;
+font-size:12px;
+}
+.form-control.nobug {
+transition: none; /*-- THIS IS IMPORTANT -- */
+}
+ input {
+         outline: none !important;
+		box-shadow: none;
+		border: none;
+		}
+		.dontPrint {
+       display:none;
+    }		
+}
+  
+}}
+
+      @page 
+      { 
+        margin-left: 3px; 
+        margin-right: 3px; 
+        margin-top: 3px; 
+        margin-bottom: 10px; 
+     }
+      body  
+      {
+        font-family: 'DejaVu Sans Narrow',Helvetica, Tahoma,'Arial Narrow', Arial, sans-serif;
+        font-size: 16pt;
+        orphans: 2; 
+        widows: 2 
+      }
+
+      p { margin-bottom: 0; color: black; text-align: left; }
+
+      label 
+      { 
+        vertical-align: middle;
+        color: black; 
+        font-family: 'DejaVu Sans Narrow','Arial Narrow',Helvetica,Tahoma,Arial, sans-serif;
+      }
+
+      input
+      {
+        vertical-align: bottom;
+        height: 0.8rem;
+      }
+
+      table 
+      { 
+        border-collapse: collapse; 
+        border: 2px solid black; 
+        padding: 7px; 
+        margin: 0px; 
+        font-family: 'DejaVu Sans',Helvetica,Tahoma,Arial, sans-serif; 
+      }
+      
+      tr { height: 1.2rem; }
+      
+      td 
+      { 
+        text-align: left; 
+        color: black; 
+        padding-top: 0; 
+        padding-bottom: 0; 
+        padding-left: 6px; 
+        padding-right: 6px; 
+        font-size: 0.8rem;
+        line-height: .8rem;
+      }
+
+      .titleblklft
+      {
+        float: left; 
+        width: 40%; 
+        height: 0.6in; 
+        border: none; 
+        padding-left: 1.2em; 
+        padding-right: .5em; 
+        background-color: #ffffff; 
+        text-align: left; 
+        font-family: 'DejaVu Sans',Helvetica,Tahoma,Arial,sans-serif;
+        font-size: 0.8rem; 
+        color: black;
+      }
+      .titleblkrt
+      {
+        float: left; 
+        width: 40%; 
+        height: 0.6in; 
+        border: none; 
+        padding-left: 1.2em; 
+        padding-right: .5em; 
+        background-color: #ffffff; 
+        text-align: right; 
+        font-family: 'DejaVu Sans',Helvetica,Tahoma,Arial,sans-serif;
+        font-size: 0.8rem; 
+        color: black;
+      }
+      .grybox
+      {
+        background-color: #e0e0e0; 
+        border: 1px solid black; 
+        color: black; 
+        font-size: 0.8rem; 
+        text-align: right;
+      }
+      .gryboxlft
+      {
+        background-color: #e0e0e0; 
+        border-top: 1px solid black; 
+        border-bottom: 1px solid black; 
+        border-left: 1px solid black; 
+        border-right: none; 
+        padding-left: 6px; 
+        padding-right: 0;"
+ color: black; 
+        font-size: 0.8rem; 
+        text-align: right;
+      }
+      .gryboxrt
+      {
+        background-color: #e0e0e0; 
+        border-top: 1px solid black; 
+        border-bottom: 1px solid black; 
+        border-left: 0; 
+        border-right: 1px solid black; 
+        padding-left: 0; 
+        padding-right: 6px;
+        color: black; 
+        font-size: 0.8rem; 
+        text-align: right;
+      }
+      .gryboxnolr
+      {
+        background-color: #e0e0e0; 
+        border-top: 1px solid black; 
+        border-bottom: 1px solid black; 
+        border-left: 0; 
+        border-right: 0; 
+        padding-left: 0; 
+        padding-right: 6px;
+        color: black; 
+        font-size: 0.8rem; 
+        text-align: right;
+      }
+      .clrbox
+      {
+        vertical-align: middle; 
+        border: 1px solid black;
+        padding-left: 6px; 
+        padding-right: 6px;
+      }
+      .clrboxtop
+      {
+        vertical-align: middle; 
+        border-top: none; 
+        border-bottom: none; 
+        border-left: 1px solid black; 
+        border-right: 1px solid black;
+      }
+      .clrboxnolr
+      {
+        vertical-align: middle; 
+        border-top: 1px solid black; 
+        border-bottom: 1px solid black; 
+        border-left: none; 
+        border-right: none;
+      }
+      .clrboxlft
+      {
+        text-align: left; 
+        border-top: 1px solid black; 
+        border-bottom: 1px solid black; 
+        border-left: 1px solid black; 
+        border-right: none; 
+        padding-left: 6px; 
+        padding-right: 0;"
+      }
+      .clrboxrt
+      {
+        text-align: left; 
+        background-color: white; 
+        color: black; 
+        border-top: 1px solid black; 
+        border-bottom: 1px solid black; 
+        border-left: none; 
+        border-right: 1px solid black; 
+        padding-left: 0;
+      }
+      .clrboxnb
+      {
+        float: left; 
+        border: none; 
+        padding-left: 1.2em; 
+        padding-right: .5em; 
+        background-color: white; 
+        text-align: right; 
+        font-family: 'DejaVu Sans',Helvetica,Tahoma,Arial, serif; 
+        font-size: 11pt; 
+        color: black;
+      }
+      .smallnum { font-size: 5pt; text-align: center; }
+    </style>
+	<script>
+	
+	function Checkboxes(){
+// var x = document.getElementById('box').checked;
+var t1 = ''; t1 = t1+ '{var FeedingOps}';
+var t2 = ''; t2 = t2+ '{var CmdPost}';
+var t3 = ''; t3 = t3+ '{var AssistCtr}';
+var t4 = ''; t4 = t4+ '{var StagingArea}';
+var t5 = ''; t5 = t5+ '{var Shelter}';
+var t6 = ''; t6 = t6+ '{var Mobile}';
+var t7 = ''; t7 = t7+ '{var Fixed}';
+var t8 = ''; t8 = t8+ '{var PhoneBank}';
+var t9 = ''; t9 = t9+ '{var DistCtr}';
+var t10 = ''; t10 = t10+ '{var Warehouse}';
+
+
+if (t1 =="YES") { document.getElementById('FeedingOpsb').checked=true;}
+if (t2 =="YES") { document.getElementById('CmdPostb').checked=true;}
+if (t3 =="YES") { document.getElementById('AssistCtrb').checked=true;}
+if (t4 =="YES") { document.getElementById('StagingAreab').checked=true;}
+if (t5 =="YES") { document.getElementById('Shelterb').checked=true;}
+if (t6 =="YES") { document.getElementById('Mobileb').checked=true;}
+if (t7 =="YES") { document.getElementById('Fixedb').checked=true;}
+if (t8 =="YES") { document.getElementById('PhoneBankb').checked=true;}
+if (t9 =="YES") { document.getElementById('DistCtrb').checked=true;}
+if (t10 =="YES") { document.getElementById('Warehouseb').checked=true;}
+
+}
+
+</script>
+	
+	
+	
+    <title>Disaster Operations Statistical Report</title>
+  </head>
+  <body  onload = "Checkboxes();" lang="en-US" dir="ltr" style="width: 100%; font-size: 1rem;">
+    <div class="titleblklft" style="width: 40%; height: 0.6in;">
+      <strong>Disaster Operations Statistical Report</strong><br>
+      FIA #730&nbsp;&nbsp;&nbsp;<br>
+      REV 1/31/2019 Express</div>
+    <div class="titleblkrt" >
+      <strong>THE SALVATION ARMY</strong><br>
+      Southern Territory<br />
+      disaster.salvationarmyusa.org
+    </div>
+ 
+    <div style="width: 100%; text-align: center;">
+        <table width="93%" style="width: 95%;">
+          <colgroup>
+          <col style="width: 10%; background-color: white;">
+          </colgroup>
+          <colgroup>
+          <col style="width: 40%; background-color: white;">
+          <col style="width: 10%; background-color: white;">
+          </colgroup>
+          <colgroup>
+          <col style="width: 40%; background-color: white;">
+          </colgroup>
+          <tr>
+            <td width="11%" nowrap class="grybox"><strong>DISASTER:</strong></td>
+            <td width="37%" nowrap class="clrbox"><input name="Disaster" value="{var Disaster}" type="text" size="33" maxlength="33"> 
+              <strong>&nbsp;Task # <strong>
+              <input name="TaskNum" type="text" id="TaskNum" value="{var TaskNum}" size="15">
+              </strong></strong></td>
+            <td width="11%" class="grybox"><strong>COUNTRY:</strong></td>
+            <td width="41%" class="clrbox"><input name="Country" value="{var Country}" type="text" size="40" maxlength="40"></td>
+          </tr>
+          <tr>
+            <td class="grybox"><strong>UNIT:</strong></td>
+            <td class="clrbox"><input name="Unit" value="{var Unit}" type="text" size="55" maxlength="50">
+            </td>
+            <td class="grybox"><strong>COMMUNITY:</strong></td>
+            <td class="clrbox"><input name="Community" value="{var Community}" type="text" size="40" maxlength="40">
+            </td>
+          </tr>
+          <tr>
+            <td class="grybox"><strong>PERIOD:</strong></td>
+            <td colspan="3" class="clrboxlft"><label for="Single Day">Single Day</label>
+                <input  name="SingleDay" type="text" id="SingleDay" value="{var SingleDay}" size="30" maxlength="50">              <label for="Cumlative">Cumulative</label>
+                <input  name="Cumulative" value="{var Cumulative}" type="text" size="20" maxlength="20">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <label for="CumThru">thru</label>
+      <input  name="CumThru" value="{var CumThru}" type="text" size="20" maxlength="20">
+</td>
+          </tr>
+    </table>
+        <br>
+        <table width="91%" style="width: 95%;">
+        
+          <tr>
+            <td width="50%" class="grybox" style="text-align: center;">
+              <strong>LOCATION DETAILS</strong> <i>(building, address, route)</i>
+            </td>
+            <td width="2%"  rowspan="2" class="clrboxtop">&nbsp;</td>
+            <td width="48%"  class="grybox" style="text-align: center;">
+              <strong>CONTACT NUMBERS</strong>&nbsp;
+              <span style="font-size: 10pt; font-weight: normal;">
+                <i>(phone,fax, e-mail):</i>
+              </span>
+            </td>
+          </tr>
+          <tr>
+            <td class="clrbox">              <input  name="Location" value="{var Location}" type="text" size="65" maxlength="65"></td>
+            <td class="clrbox">              <input  name="ContactNumbers" value="{var ContactNumbers}" type="text" size="60" maxlength="60"></td>
+          </tr>
+    </table>
+        <br>
+        <table style="width: 95%; padding: 7px; margin: 0px;">
+        <col style="width: 8%;">
+        <col style="width: 12%;">
+        <col style="width: 12%;">
+        <col style="width: 12%;">
+        <col style="width: 12%;">
+        <col style="width: 18%">
+        <tr>
+          <td class="grybox" rowspan="2"><strong>FACILITY TYPE:</strong></td>
+          <td class="gryboxtop">
+            <label for="FeedingOps">Feeding Operations</label>
+            <input  name="FeedingOpsb" type="checkbox" id="FeedingOpsb" />
+</td>
+          <td class="clrbox">
+            <label for="CmdPost">Command Post</label>
+            <input  name="CmdPostb" type="checkbox" id="CmdPostb" value="">
+          </td>
+          <td class="clrbox">
+            <label for="AssistCtr">Assistance Center</label>
+            <input  name="AssistCtrb" type="checkbox" id="AssistCtrb">
+          </td>
+          <td class="clrbox">
+            <label for="StagingArea">Staging Area</label>
+            <input  name="StagingAreab" type="checkbox" id="StagingAreab">
+          </td>
+          <td class="clrbox">
+            <label for="Shelter">Shelter</label>
+            <input  name="Shelterb" type="checkbox" id="Shelterb">
+          </td>
+        </tr>
+        <tr>
+          <td class="clrbox">
+            <label for="Mobile">Mobile</label>
+            <input  name="Mobileb" type="checkbox" id="Mobileb">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <label for="Fixed">Fixed</label>
+            <input  name="Fixedb"  type="checkbox" id="Fixedb">
+          </td>
+          <td class="clrbox">
+            <label for="PhoneBank">Phone Bank</label>
+            <input  name="PhoneBankb"  type="checkbox" id="PhoneBankb">
+          </td>
+          <td class="clrbox">
+            <label for="DistCtr">Distribution Center</label>
+            <input  name="DistCtrb"  type="checkbox" id="DistCtrb">
+          </td>
+          <td class="clrbox">
+            <label for="Warehouse">Warehouse</label>
+            <input  name="Warehouseb"  type="checkbox" id="Warehouseb">
+          </td>
+          <td class="clrbox">
+            <label for="Other">Other</label>
+            <input  name="Other"  type="text" value="{var Other}" size="25" maxlength="30">
+          </td>
+        </tr>
+    </table>
+        <br>  
+        <table style="width: 95%; padding: 7px; margin: 0px;">
+        <colgroup>
+        <col style="width: 25%;">
+        </colgroup>
+        <colgroup>
+        <col style="width: 10%;">
+        <col style=" width: 5%;">
+        </colgroup>
+        <colgroup>
+        <col style="width: 1%;">
+        </colgroup>
+        <colgroup>
+        <col style="width: 25%;">
+        </colgroup>
+        <colgroup>
+        <col style="width: 10%;">
+        <col style="width: 5%">
+        </colgroup>
+        <tr>
+          <td class="grybox" colspan="3" style="text-align: center;"><strong>DISASTER FOOD SERVICES:</strong> </td>
+          <td width="3%" rowspan="5" class="clrbox" >&nbsp;</td>
+          <td class="grybox" colspan="3" style="text-align: center;"><strong>MASS SHELTERING:</strong> </td>
+        </tr>
+        <tr>
+          <td width="42%" class="clrbox">Prepared Meals (hot and cold)</td>
+          <td width="6%" class="clrboxlft"><input  name="Meals"  type="text" value="{var Meals}" size="4" min="0"  readonly   max="10000"  ></td>
+          <td width="5%" class="clrboxrt smallnum"><div align="left">5202</div></td>
+          <td width="32%" class="clrbox">Lodging Provided</td>
+          <td width="4%" class="clrbox"><input  name="Logging"  type="text" value="{var Logging}" size="4" min="0"  readonly  max="1000">
+          </td>
+          <td width="8%" class="clrboxlft smallnum"><div align="left">5221</div></td>
+        </tr>
+        <tr>
+          <td class="clrbox">Drinks (coffee, soda, juice, water)</td>
+          <td class="clrboxlft"><input  name="Drinks"  type="text" value="{var Drinks}" size="4" min="0"  readonly  max="10000">
+          </td>
+          <td class="clrboxrt">&nbsp;</td>
+          <td colspan="3" class="grybox" style="text-align: center;"><strong>MEDICAL / SANITATION:</strong> </td>
+        </tr>
+        <tr>
+          <td class="clrbox">Snacks (donuts, cakes, chips)</td>
+          <td class="clrboxlft"><input  name="Snacks"  type="text" value="{var Snacks}" size="4" min="0"  readonly  max="10000">
+          </td>
+          <td class="clrboxrt" style="font-size: 5pt">5206</td>
+          <td class="clrbox">Medical Services Provided</td>
+          <td class="clrboxlft"><input  name="MedSvc"  type="text" value="{var MedSvc}" size="4" min="0"  readonly  max="10000"></td>
+          <td class="clrboxrt">&nbsp;</td>
+        </tr>
+        <tr>
+          <td colspan="3" class="clrbox">&nbsp;</td>
+          <td class="clrbox">Showers Provided</td>
+          <td class="clrboxlft"><input  name="Showers"  type="text" value="{var Showers}" size="4" min="0"  readonly  max="10000">
+          </td>
+          <td class="clrboxrt">&nbsp;</td>
+        </tr>
+    </table>
+        <br>  
+      <table border="1" style="width: 95%; padding: 7px; margin: 0px;">
+        <!-- left side -->
+        <colgroup><col style="width: 33%;"></colgroup>
+        <colgroup><col style="width: 10%;"><col style="width: 5%;"></colgroup>
+        <colgroup><col style="width: 2%; "></colgroup>
+        <!-- spacer -->
+        <colgroup><col style="width: 32%;"><col style="width: 10%;"></colgroup>
+        <!-- right side -->
+        <colgroup><col style="width: 25%;"></colgroup>
+        <colgroup><col style="width: 5%;"></colgroup>
+        <colgroup><col style="width: 5%;"></colgroup>
+        <colgroup><col style="width: 20%;"></colgroup>
+        <colgroup><col style="width: 35%;"></colgroup>
+        <colgroup>
+          <col style="width: 25%;">
+          <col style="width: 20%;">
+          <col style="width: 10%;">
+        </colgroup>
+        <!-- tables definitions -->
+        <tr>
+          <td colspan="3" class="grybox" style="text-align: center;">
+            <strong>EMERGENCY FINANCIAL AID:</strong>
+          </td>
+          <td class="clrboxtop" rowspan="18" colspan="1">&nbsp;</td>
+          <td colspan="3"  class="grybox" style="text-align: center;">
+            <strong>IN-KIND DISTRIBUTION:</strong>
+          </td>
+        </tr>
+        <tr>
+          <td class="clrbox">Client Interviews</td>
+          <td class="clrbox">
+            <input  name="Interviews"  type="text" value="{var Interviews}" size="4" min="0"  readonly  max="10000">
+          </td>
+          <td class="clrbox smallnum"><div align="left">6310</div></td>
+          <td class="clrboxnolr">Blankets (per item)</td>
+          <td class="clrboxlft">
+            <input  name="Blankets"  type="text" value="{var Blankets}" size="4" min="0"  readonly  max="10000">
+          </td>
+          <td class="clrboxrt">&nbsp;</td>
+        </tr>
+        <tr>
+          <td class="clrbox">
+            Referrals to Other Agencies
+          </td>
+          <td class="clrbox">
+            <input  name="Referals"  type="text" value="{var Referals}" size="4" min="0"  readonly  max="10000">
+          </td>
+          <td class="clrbox smallnum"><div align="left">6410</div></td>
+          <td class="clrboxnolr">Bibles, Brochures, Tracts (per item)</td>
+          <td class="clrboxlft">
+            <input  name="BiblesEtc"  type="text" value="{var BiblesEtc}" size="4" min="0"  readonly  max="10000">
+</td>
+          <td class="clrboxrt">&nbsp;</td>
+        </tr>
+        <tr>
+          <td class="clrbox">Total Cases Opened</td>
+          <td class="clrbox">
+            <input  name="CasesOpened"  type="text" value="{var CasesOpened}" size="4" min="0"  readonly  max="10000">
+          </td>
+          <td class="clrbox"><div align="left"></div></td>
+          <td class="clrboxnolr">Cleanup Kits (per kit)</td>
+          <td class="clrboxlft">
+            <input  name="CleanupKits"  type="text" value="{var CleanupKits}" size="4" min="0"  readonly  max="10000">
+          </td>
+          <td class="clrboxrt smallnum"><div align="left">5236</div></td>
+        </tr>
+        <tr>
+          <td colspan="1" class="clrbox">Total Individuals Assisted</td>
+          <td class="clrboxlft">
+            <input  name="TotAssisted"  type="text" value="{var TotAssisted}" size="4" min="0"  readonly  max="10000">
+          </td>
+          <td class="clrbox smallnum"><div align="left">5125</div></td>
+          <td class="clrbox">Cleaning / Rebuild (per order)</td>
+          <td class="clrboxlft">
+            <input  name="CleanRebuild"  type="text" value="{var CleanRebuild}" size="4" min="0"  readonly  max="10000">
+</td>
+          <td class="clrboxrt"><div align="left"></div></td>
+        </tr>
+        <tr>
+          <td colspan="3" class="grybox" style="text-align: left"><strong>FINANCIAL ASSISTANCE:</strong></td>
+          <td class="clrbox">Comfort Kits (per kit)</td>
+          <td class="clrboxlft">
+            <input  name="ComfortKits"  type="text" value="{var ComfortKits}" size="4" min="0"  readonly  max="10000">
+          </td>
+          <td class="clrboxrt smallnum"><div align="left">5236</div></td>
+        </tr>
+        <tr>
+          <td class="clrbox" style="font-size: 10pt;"><strong>Vouchers</strong></td>
+          <td class="clrbox" style="font-size: 10pt;"><strong># Issued</strong></td>
+          <td class="clrbox" style="font-size: 9pt;"><strong>Total Cost</strong></td>
+          <td class="clrbox">Clothing (per item)</td>
+          <td clsas="clrboxlft">
+            <input  name="Clothing"  type="text" value="{var Clothing}" size="4" min="0"  readonly  max="10000">
+</td>
+          <td class="clrboxrt smallnum"><div align="left">5230</div></td>
+        </tr>
+        <tr>
+          <td class="clrbox">Cleanup / Reconstruction</td>
+          <td class="clrbox">
+            <input  name="CleanupRecons"  type="text" value="{var CleanupRecons}" size="4" min="0"  readonly  max="10000">
+          </td>
+          <td class="clrbox"><input  name="CleanupReconstot"  type="text" id="CleanupReconstot" value="{var CleanupReconstot}" size="5" min="0"  readonly  max="10000"></td>
+          <td class="clrbox">Furniture (per item)</td>
+          <td class="clrboxlft">
+            <input  name="Furniture"  type="text" value="{var Furniture}" size="4" min="0"  readonly  max="10000">
+          </td>
+          <td class="clrboxrt smallnum"><div align="left">5232</div></td>
+        </tr>
+        <tr>
+          <td class="clrbox">Clothing</td>
+          <td class="clrbox">
+            <input  name="ClothingVouchers"  type="text" value="{var ClothingVouchers}" size="5" min="0"  readonly  max="10000"></td>
+          <td nowrap class="clrbox smallnum"><div align="left">
+              <input  name="ClothingVoucherstot"  type="text" id="ClothingVoucherstot" value="{var ClothingVoucherstot}" size="5" min="0"  readonly  max="10000">
+          5231</div></td>
+          <td class="clrbox">Groceries / Food Boxes (per order)</td>
+          <td class="clrboxlft">
+            <input  name="FoodBoxes"  type="text" value="{var FoodBoxes}" size="5" min="0"  readonly  max="10000">
+          </td>
+          <td class="clrboxrt smallnum"><div align="left">5207</div></td>
+        </tr>
+        <tr>
+          <td class="clrbox">Energy</td>
+          <td class="clrbox">
+            <input  name="Energy"  type="text" value="{var Energy}" size="5" min="0"  readonly  max="10000">
+          </td>
+          <td class="clrbox smallnum"><div align="left">
+              <input  name="Energytot"  type="text" id="Energytot" value="{var Energytot}" size="5" min="0"  readonly  max="10000">
+          5238</div></td>
+          <td class="clrbox">Ice (per bag)</td>
+          <td class="clrboxlft">
+            <input  name="IceBags"  type="text" value="{var IceBags}" size="4" min="0"  readonly  max="10000">
+          </td>
+          <td class="clrboxrt"><div align="left"></div></td>
+        </tr>
+        <tr>
+          <td class="clrbox">Furniture</td>
+          <td class="clrboxlft">
+            <input name="FurnitureVouchers"  type="text" value="{var FurnitureVouchers}" size="4" min="0"  readonly  max="9999">
+</td>
+          <td class="clrbox smallnum"><div align="left">
+              <input  name="FurnitureVoucherstot"  type="text" id="FurnitureVoucherstot" value="{var FurnitureVoucherstot}" size="5" min="0"  readonly  max="10000">
+          5233</div></td>
+          <td class="clrbox">Infant Supplies (per order)</td>
+          <td class="clrboxlft">
+            <input  name="BabySupplyOrders"  type="text" value="{var BabySupplyOrders}" size="4" min="0"  readonly  max="10000">
+          </td>
+          <td class="clrboxrt"><div align="left"></div></td>
+        </tr>
+        <tr>
+          <td class="clrbox">Gift Cards / Debit Cards</td>
+          <td class="clrbox">
+            <input  name="GiftDbCards"  type="text" value="{var GiftDbCards}" size="4" min="0"  readonly  max="9999">
+          </td>
+          <td class="clrbox smallnum"><div align="left">
+              <input  name="GiftDbCardstot"  type="text" id="GiftDbCardstot" value="{var GiftDbCardstot}" size="5" min="0"  readonly  max="10000">
+          5245</div></td>
+          <td class="clrbox">Tarps / Plastic Sheeting (per item)</td>
+          <td class="clrboxlft">
+            <input  name="Tarps"  type="text" value="{var Tarps}" size="4" min="0"  readonly  max="10000">
+          </td>
+          <td class="clrboxrt"><div align="left"></div></td>
+        </tr>
+        <tr>
+          <td height="26" class="clrbox">Groceries</td>
+          <td class="clrboxlft">
+            <input  name="GroceryOrders"  type="text" value="{var GroceryOrders}" size="4" min="0"  readonly  max="9999">
+          </td>
+          <td class="clrbox smallnum"><div align="left">
+              <input  name="GroceryOrderstot"  type="text" id="GroceryOrderstot" value="{var GroceryOrderstot}" size="6" min="0"  readonly  max="10000">
+          5207</div></td>
+          <td class="clrbox">Toys (per order)</td>
+          <td class="clrboxlft">
+            <input  name="ToyOrders"  type="text" value="{var ToyOrders}" size="4" min="0"  readonly  max="10000">
+          </td>
+          <td class="clrboxrt smallnum"><div align="left">5250</div></td>
+        </tr>
+        <tr>
+          <td class="clrbox">Housing (Rent / Mortgage)</td>
+          <td class="clrbox">
+            <input  name="Rent"  type="text" value="{var Rent}" size="4" min="0"  readonly  max="10000">
+          </td>
+          <td class="clrbox smallnum"><div align="left">
+              <input  name="Renttot"  type="text" id="Renttot" value="{var Renttot}" size="6" min="0"  readonly  max="10000">
+           5223</div></td>
+          <td class="clrbox">Water (per gallon or case)</td>
+          <td class="clrboxlft">
+            <input  name="H2OGal"  type="text" value="{var H2OGal}" size="4" min="0"  readonly  max="10000">
+          </td>
+          <td class="clrboxrt">&nbsp;</td>
+        </tr>
+        <tr>
+          <td class="clrbox">Transient Lodging (Hotel)</td>
+          <td class="clrbox">
+            <input  name="LodgingVouchers"  type="text" value="{var LodgingVouchers}" size="4" min="0"  readonly  max="9999">
+          </td>
+          <td class="clrbox smallnum"><div align="left">
+              <input  name="LodgingVoucherstot"  type="text" id="LodgingVoucherstot" value="{var LodgingVoucherstot}" size="6" min="0"  readonly  max="10000">
+          5222</div></td>
+          <td colspan="3" class="grybox">&nbsp;</td>
+        </tr>
+        <tr>
+          <td class="clrbox">Transportation</td>
+          <td class="clrbox">
+            <input  name="TransportVouchers"  type="text" value="{var TransportVouchers}" size="4" min="0"  readonly  max="9999">
+          </td>
+          <td class="clrbox smallnum"><div align="left">
+              <input  name="TransportVoucherstot"  type="text" id="TransportVoucherstot" value="{var TransportVoucherstot}" size="6" min="0"  readonly  max="10000">
+           5241</div></td>
+          <td colspan="5" class="clrboxnolr">
+            <strong><label for="Notes">NOTES:</label></strong> (254 char max) <input  name="Notes1"  type="text" value="{var Notes1}" size="50" maxlength="54">
+          </td>
+        </tr>
+        <tr>
+          <td class="clrbox">Other (specify)</td>
+          <td class="clrbox">
+            <input  name="OtherVouchers"  type="text" value="{var OtherVouchers}" size="18" maxlength="100">
+          </td>
+          <td class="clrbox"><input  name="OtherVoucherstot"  type="text" id="OtherVoucherstot" value="{var OtherVoucherstot}" size="6" min="0"  readonly  max="10000"></td>
+          <td colspan="3">
+            <input  name="Notes2"  type="text" value="{var Notes2}" size="70" maxlength="100">
+          </td>
+        </tr>
+        <tr>
+          <td class="clrbox"><strong>TOTALS:</strong></td>
+          <td class="clrbox">
+            <input  name="TotalVouchers"  type="text" value="{var TotalVouchers}" size="4" min="0"  readonly  max="50000">
+          </td>
+          <td class="clrbox"><input  name="TotalVoucherstot"  type="text" id="TotalVoucherstot" value="{var TotalVoucherstot}" size="6" min="0"  readonly  max="10000"></td>
+          <td colspan="3" class="clrbox">
+            <input  name="Notes3"  type="text" value="{var Notes3}" size="70" maxlength="100">
+          </td>
+        </tr>
+      </table>
+      <br>
+      <table border="1" style="width: 95%;">
+        <!-- table rows -->
+        <tr>
+          <td colspan="3" class="grybox" style="text-align: center;"><strong>EMOTIONAL &amp; SPIRITUAL CARE</strong> </td>
+          <td class="clrboxtop" >&nbsp;</td>
+          <td colspan="4" class="grybox" style="text-align: center;"><strong>FINANCE ADMINISTRATION</strong> </td>
+        </tr>
+        <tr>
+          <td class="clrbox"> Spiritual&nbsp;Care&nbsp;Provided&nbsp;Prayer)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td>
+          <td class="clrbox"><input  name="Prayer"  type="text" value="{var Prayer}" size="4" min="0"  readonly  max="9999">
+          </td>
+          <td class="clrboxlft smallnum">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6310&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td>
+          <td class="clrboxtop">&nbsp;</td>
+          <td class="clrbox"><strong>Personnel&nbsp;&nbsp;&nbsp;</strong></td>
+          <td class="clrbox"><strong>Number&nbsp;on&nbsp;Site</strong></td>
+          <td class="clrbox">&nbsp;</td>
+          <td class="clrbox"><strong>Hours&nbsp;Served</strong></td>
+        </tr>
+        <tr>
+          <td class="clrbox">Adult Seekers</td>
+          <td class="clrbox"><input  name="AdultSeekers"  type="text" value="{var AdultSeekers}" size="4" min="0"  readonly  max="9999">
+          </td>
+          <td class="clrbox smallnum">2405</td>
+          <td class="clrboxtop">&nbsp;</td>
+          <td class="clrbox">Officers</td>
+          <td class="clrbox"><input  name="SiteOfficers"  type="text" value="{var SiteOfficers}" size="4" min="0"  readonly  max="1000"></td>
+          <td class="clrbox smallnum">4350</td>
+          <td class="clrbox"><input  name="OfficerHrs"  type="text" value="{var OfficerHrs}" size="4" min="0"  readonly  max="1000"></td>
+          <td class="clrbox smallnum">4350</td>
+        </tr>
+        <tr>
+          <td class="clrbox">Youth Seekers (Under Age 14)</td>
+          <td class="clrbox" ><input  name="Youths"  type="text" value="{var Youths}" size="4" min="0"  readonly  max="1000">
+          </td>
+          <td class="clrbox smallnum">2415</td>
+          <td class="clrboxtop">&nbsp;</td>
+          <td class="clrbox">Employees</td>
+          <td class="clrbox"><input  name="EmpOnSite"  type="text" value="{var EmpOnSite}" size="4" min="0"  readonly  max="1000"></td>
+          <td class="clrbox smallnum">4360</td>
+          <td class="clrbox" ><input  name="EmpHrs"  type="text" value="{var EmpHrs}" size="4" min="0"  readonly  max="1000">
+          </td>
+          <td class="clrbox smallnum">4360</td>
+        </tr>
+        <tr>
+          <td class="clrbox">Mental&nbsp;Health&nbsp;Care&nbsp;Provided&nbsp;(CISM)</td>
+          <td class="clrbox"><input  name="MentalHealth"  type="text" value="{var MentalHealth}" size="4" min="0"  readonly  max="1000">
+          </td>
+          <td class="clrbox smallnum">6310</td>
+          <td class="clrboxtop">&nbsp;</td>
+          <td class="clrbox">Volunteers</td>
+          <td class="clrbox"><input  name="VolOnSite"  type="text" value="{var VolOnSite}" size="4" min="0"  readonly  max="1000">
+          </td>
+          <td class="clrbox smallnum">4130</td>
+          <td class="clrbox"><input  name="VolunteerHrs"  type="text" value="{var VolunteerHrs}" size="4" min="0"  readonly  max="1000">
+          </td>
+          <td class="clrbox smallnum">4130</td>
+        </tr>
+        <tr>
+          <td class="clrbox">&nbsp;</td>
+          <td class="clrbox">&nbsp;</td>
+          <td class="clrbox">&nbsp;</td>
+          <td class="clrboxtop">&nbsp;</td>
+          <td class="clrbox"><strong>Totals</strong></td>
+          <td class="clrbox">&nbsp;</td>
+          <td class="clrbox">&nbsp;</td>
+        </tr>
+        <tr>
+          <td class="grybox">&nbsp;</td>
+          <td class="grybox" style="text-align: center;"><strong>#</strong></td>
+          <td class="grybox smallnum">&nbsp;</td>
+          <td class="grybox" style="text-align: center; font-size: .9rem;"><strong>ATTENDANCE</strong></td>
+          <td class="clrboxnolr">&nbsp;</td>
+          <td class="clrboxnolr">&nbsp;</td>
+          <td class="clrboxnolr">&nbsp;</td>
+          <td class="clrboxnolr">&nbsp;</td>
+          <td class="clrboxrt">&nbsp;</td>
+        </tr>
+        <tr>
+          <td class="clrbox">Worship&nbsp;Services</td>
+          <td class="clrbox"><input  name="WorshipServices"  type="text" value="{var WorshipServices}" size="4" min="0"  readonly  max="1000"></td>
+          <td class="clrbox smallnum">2360</td>
+          <td  class="clrbox"><input  name="Worshipers"  type="text" value="{var Worshipers}" size="4" min="0"  readonly  max="1000">
+          </td>
+          <td class="clrbox smallnum">2360</td>
+          <td  class="clrbox">&nbsp;</td>
+          <td colspan="4"  class="clrbox">&nbsp;</td>
+        </tr>
+        <tr>
+          <td class="clrbox">Memorial&nbsp;Services</td>
+          <td class="clrbox"><input  name="MemServices"  type="text" id="MemServices" value="{var OfficerHrs}" size="4" min="0"  readonly  max="1000"></td>
+          <td class="clrbox smallnum">2350</td>
+          <td class="clrbox"><input  name="MemServicesattend"  type="text" id="MemServicesattend" value="{var MemServicesattend}" size="4" min="0"  readonly  max="1000"></td>
+          <td class="clrbox smallnum">2350</td>
+        </tr>
+    </table>
+      <br>
+      <table style="width: 95%;" >
+        <col style="width: 27%;">
+        <col style="width: 25%;">
+        <col style="width: 10%;">
+        <tr>
+          <td class="gryboxlft"><strong>SUBMITTED BY:</strong></td>
+          <td colspan="3"  class="gryboxnolr">&nbsp;</td>
+          <td class="gryboxrt smallnum">&nbsp;</td>
+        </tr>
+        <tr>
+          <td  class="clrbox">
+            <label for="SubmittedName"><strong>NAME</strong></label>&nbsp;
+            <input  name="SubmittedName"  type="text" value="{var SubmittedName}" size="25" maxlength="50">
+          </td>
+          <td colspan="2"  class="clrbox">
+            <label for="SubmittedName"><strong>TITLE</strong></label>&nbsp;
+            <input  name="SubmittedTitle"  type="text" value="{var SubmittedTitle}" size="40" maxlength="50">
+          </td>
+          <td colspan="2"  class="clrboxrt">
+            &nbsp;<label for="SubmittedName"><strong>DATE SUBMITTED</strong></label>&nbsp;&nbsp;
+            <input  name="SubmittedDate"  type="date" value="{var SubmittedDate}">
+          </td>
+        </tr>
+    </table>
+  <table style="width: 45%;">
+          <col style="width: 15%">
+          <col style="width: 15%">
+          <col style="width: 15%">
+          <col style="width: 1%">
+          <tr>
+            <td colspan="4" style="text-align: center; background-color: black; border: 2px solid #00000a;"><span style="font-family: Arial, serif; font-size: 12pt; color: #aaaaaa;">FOR COMMAND USE ONLY:</span>    </td>
+          </tr>
+          <tr>
+            <td class="gryboxrt" style="text-align: center;">
+              <strong>Current</strong>
+            </td>
+            <td class="grybox" style="text-align: center;">
+              <strong>Operational Assets</strong>
+            </td>
+            <td class="grybox" style="text-align: center;">
+              <strong>Unduplicated Totals</strong>
+            </td>
+            <td class="gryboxrt">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+          </tr>
+          <tr>
+            <td class="grybox">
+              <input  name="CurTotCanteens"  type="text" value="{var CurTotCanteens}" size="4" min="0"  readonly  max="1000">
+            </td>
+            <td class="grybox" style="text-align: center;">Mobile Canteens</td>
+            <td  class="grybox">
+              <input  name="UndupTotCanteens"  type="text" value="{var UndupTotCanteens}" size="4" min="0"  readonly  max="1000">
+            </td>
+            <td class="gryboxrt smallnum">
+              &nbsp;&nbsp;&nbsp;&nbsp;4325&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+          </tr>
+          <tr>
+            <td class="grybox">
+              <input  name="CurTotVehicles"  type="text" value="{var CurTotVehicles}" size="4" min="0"  readonly  max="1000">
+            </td>
+            <td class="grybox" style="text-align: center;">Other&nbsp;S.A.&nbsp;Vehicles</td>
+            <td class="grybox">
+              <input  name="UnDupVehicles"  type="text" value="{var UnDupVehicles}" size="4" min="0"  readonly  max="1000">
+</td>
+            <td class="gryboxrt smallnum" style="text-align: center;">4320</td>
+          </tr>
+          <tr>
+            <td class="grybox">
+              <input  name="AssistCtrs"  type="text" value="{var AssistCtrs}" size="4" min="0"  readonly  max="1000">
+            </td>
+            <td class="grybox" style="text-align: center;">Assistance&nbsp;Centers</td>
+            <td class="grybox">
+              <input  name="UnDupAssistCtrs"  type="text" value="{var UnDupAssistCtrs}" size="4" min="0"  readonly  max="1000">
+            </td>
+            <td class="grybox smallnum" style="text-align: center;">&nbsp;</td>
+          </tr>
+          <tr>
+            <td class="grybox">
+              <input  name="CmdPosts"  type="text" value="{var CmdPosts}" size="4" min="0"  readonly  max="1000">
+            </td>
+            <td class="grybox" style="text-align: center;">Command&nbsp;Posts</td>
+            <td class="grybox">
+              <input  name="UnDupCmdPosts"  type="text" value="{var UnDupCmdPosts}" size="4" min="0"  readonly  max="1000">
+            </td>
+            <td class="grybox">&nbsp;</td>
+          </tr>
+          <tr>
+            <td  class="grybox">
+              <input  name="DistCtrs"  type="text" value="{var DistCtrs}" size="4" min="0"  readonly  max="1000">
+            </td>
+            <td  class="grybox" style="text-align: center;">Distribution&nbsp;Centers</td>
+            <td  class="grybox">
+              <input  name="UnDupDistCtrs"  type="text" value="{var UnDupDistCtrs}" size="4" min="0"  readonly  max="1000">
+</td>
+            <td class="grybox">&nbsp;</td>
+          </tr>
+          <tr>
+            <td class="grybox">
+              <input  name="FeedingFacilities"  type="text" value="{var FeedingFacilities}" size="4" min="0"  readonly  max="1000">
+            </td>
+            <td class="grybox" style="text-align: center;">Feeding&nbsp;Facilities</td>
+            <td class="grybox">
+              <input  name="UnDupFeedingFacilities"  type="text" value="{var UnDupFeedingFacilities}" size="4" min="0"  readonly  max="1000">
+            </td>
+            <td class="grybox">&nbsp;</td>
+          </tr>
+          <tr>
+            <td class="grybox">
+              <input  name="PhoneBanks"  type="text" value="{var PhoneBanks}" size="4" min="0"  readonly  max="1000">
+            </td>
+            <td class="grybox" style="text-align: center;">Phone&nbsp;Banks</td>
+            <td class="grybox">
+              <input  name="UnDupPhoneBanks"  type="text" value="{var UnDupPhoneBanks}" size="4" min="0"  readonly  max="1000">
+</td>
+            <td class="grybox">&nbsp;</td>
+          </tr>
+          <tr>
+            <td class="grybox">
+              <input  name="Shelters"  type="text" value="{var Shelters}" size="4" min="0"  readonly  max="1000">
+            </td>
+            <td class="grybox" style="text-align: center;">Shelters</td>
+            <td class="grybox">
+              <input  name="UnDupShelters"  type="text" value="{var UnDupShelters}" size="4" min="0"  readonly  max="1000">
+            </td>
+            <td class="grybox">&nbsp;</td>
+          </tr>
+          <tr>
+            <td class="grybox">
+              <input  name="StagiingAreas"  type="text" value="{var StagiingAreas}" size="4" min="0"  readonly  max="1000">
+            </td>
+            <td class="grybox" style="text-align: center;">Staging&nbsp;Areas</td>
+            <td class="grybox">
+              <input  name="UnDupStagingAreas"  type="text" value="{var UnDupStagingAreas}" size="4" min="0"  readonly  max="1000">
+            </td>
+            <td class="grybox">&nbsp;</td>
+          </tr>
+          <tr>
+            <td class="grybox">
+              <input  name="Warehouses"  type="text" value="{var Warehouses}" size="4" min="0"  readonly  max="1000">
+            </td>
+            <td class="grybox" style="text-align: center;">Warehouses</td>
+            <td class="grybox">
+              <input name="UnDupWarehouses" type="text" value="{var UnDupWarehouses}" size="4" min="0"  readonly  max="1000">
+            </td>
+            <td class="grybox">&nbsp;</td>
+          </tr>
+          <tr>
+            <td class="grybox">
+              <input  name="OtherSAFacilities"  type="text" value="{var OtherSAFacilities}" size="4" min="0"  readonly  max="1000">
+            </td>
+            <td class="grybox" style="text-align: center;">
+              Other&nbsp;S.A.&nbsp;Facilities
+            </td>
+            <td class="grybox">
+              <input  name="UnDupSAFacils"  type="text" value="{var UnDupSAFacils}" size="4" min="0"  readonly  max="1000">
+</td>
+            <td class="grybox">&nbsp;</td>
+          </tr>
+          <tr>
+            <td class="grybox">
+              <input  name="GovEOCs"  type="text" value="{var GovEOCs}" size="4" min="0"  readonly  max="1000">
+            </td>
+            <td class="grybox" style="text-align: center;">Govn&rsquo;t&nbsp;EOCs*</td>
+            <td class="grybox">
+              <input  name="UnDupGovEOCs"  type="text" value="{var UnDupGovEOCs}" size="4" min="0"  readonly  max="1000">
+            </td>
+            <td class="grybox smallnum" style="text-align: center;">4330</td>
+          </tr>
+          <tr>
+            <td class="grybox">
+              <input  name="GovDRCs"  type="text" value="{var GovDRCs}" size="4" min="0"  readonly  max="1000">
+            </td>
+            <td class="grybox" style="text-align: center;">Govn&rsquo;t&nbsp;DRCs*</td>
+            <td class="grybox">
+              <input  name="UnDupGovDRCs"  type="text" value="{var UnDupGovDRCs}" size="4" min="0"  readonly  max="1000">
+            </td>
+            <td class="grybox smallnum" style="text-align: center;">4340</td>
+          </tr>
+          <tr>
+            <td colspan="4"  class="grybox" style="text-align: center;">
+              <strong>* where The Salvation Army has representation</strong>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="4" class="grybox" style="text-align: left">
+              <label for="OficeNotes"><strong>Notes:</strong></label>
+            <input  name="OfficeNotes"  type="text" value="{var OfficeNotes}" size="60" maxlength="1256" placeholder="place your notes here">            </td>
+          </tr>
+    </table>
+        <p align="center">&nbsp; <big><big>
+        <big>        </big> </big></big><b><span style="font-weight: normal;"> </span></b></p>
+      </form>
+      <p align="center">&nbsp;</p>
+      <div class="smallnum">
+        &copy; Copyright 2018 The Salvation Army and SATERN<br>
+        Custom designed for by AD5XJ for SATERN Winlink version 1.2
+      </div>
+    </div>
+  </body>
+</html>

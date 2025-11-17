@@ -1,0 +1,81 @@
+@(#) $Id: README.saupp,v 1.5 2009/06/08 09:18:42 dl9sau Exp $
+
+This is saupp. It started as "1.6" in Sep 2001.
+
+You are welcome to send bug-reports to thomas@x-berg.in-berlin.de or
+DL9SAU @ DB0TUD.#SAX.DEU.EU
+
+This conversd has incorporated several patches from htppu-1.23,
+htppu1.4, and has fixed many race-conditions found in convers since
+tpp-convers (segfaults on "/dest", "/", "/name", "/name ", "/observ",
+access-protection (found by thomas <dg1rtf>) and some more - were too
+many to remember all of them..).
+
+Some other bugs (/whois privacy violation on secret channels, umask 000
+for files in /var/spool/conversd -> files got 666, ..) and great flaws
+in the //DEST behaviour (where //DEST 0 ist sent for rtt < 1s - which
+unfortunately means "dead link"; furthermore, //DEST is not sent anyway
+under certain conditions (once a link has broken), because of af malfunction
+since htppu).
+A problem, that we sent a command back to the permlink we received it from.
+And a great design flaw in the /mode command (sent only the newest changes,
+deleting old +Tags). cave: send_oper_msg made locks.
+
+I've added a few command extensions for more user-friendlyness, and
+the /link add command has been rewritten for more administrative
+convenience. We now have a better primary/secondary.. link connection
+algorithm, and could detect link-partners which have switched their
+name. We could speak of "loop avoidance" instead of just "loop detection".
+The help file has been updated accordingly.
+
+To be backward-compatible (someone introduced strcasecmp() for hostname
+check), you may not have two conversd's, the one named "db0zwi" and the
+other "DB0ZWI".
+
+The Unix-Users invitation code is fully reeimplemented.
+/invite got some new options.
+/notify, /who, /mode, etc.. too.
+
+Unfortunately, the convers client is not part of this package.
+
+The /link command should be updated in future versions.
+Some work may be investigated in the linux AX25/Netrom/Rose socket usage
+(this lead in a new /link syntax, too).
+I've made a suggestion to use ax25 sockets. see convers.c
+
+
+My patches will go to Brian <n1uro>'s htppu conversd soon, and hopefully
+will be patched to htppu, tnos, tpp and all the others.
+
+Please read INSTALL for installation instructions.
+Read ChangeLog for the latest changes.
+
+saupp sources could be found on
+
+ampr:
+  browseable CVS:
+    http://db0tud.ampr.org/cgi-bin/viewvc.cgi/ampr/conversd-saupp/
+  http download:
+    http://db0tud.ampr.org/cgi-bin/viewvc.cgi/ampr/conversd-saupp.tar.gz?view=tar
+  public ftp:
+    ftp://db0tud.ampr.org/pub/local/conversd-saupp/conversd-saupp.tar.gz
+  anon rsync:
+    rsync -auvz --delete rsync://db0tud.ampr.org/cvs/ampr/conversd-saupp .
+  anon cvspserver:
+    export CVSROOT=:pserver:cvs@db0tud.ampr.org:/var/cvs
+    cvs -z6 checkout ampr/conversd-saupp
+
+internet:
+  browseable CVS:
+    http://x-berg.in-berlin.de/cgi-bin/viewvc.cgi/ampr/conversd-saupp/
+  http download:
+    http://x-berg.in-berlin.de/cgi-bin/viewvc.cgi/ampr/conversd-saupp.tar.gz?view=tar
+  anon rsync:
+    rsync -auvz --delete rsync://x-berg.in-berlin.de/cvs/ampr/conversd-saupp .
+  anon cvspserver:
+    export CVSROOT=:pserver:cvs@x-berg.in-berlin.de:/var/cvs
+    cvs -z6 checkout ampr/conversd-saupp
+
+Historical versions (like the old 1.61, and the full development
+history for 1.62a (which is marked as branch DEVEL) are now in
+conversd-saupp-devel-history instead of this location).

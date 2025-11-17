@@ -1,0 +1,26 @@
+:macro comp
+;; Switch huffman compression on/off
+if (%R == 1) result %(compress)
+
+set CMD %(upcase %1)
+if "%CMD" == "ON"
+    if (%(compress) == "OFF") echo "//COMP 1"
+    flush
+    compress on
+else 
+if "%CMD" == "OFF"
+    if (%(compress) == "ON") echo "//COMP 0"
+    flush
+    compress off
+else 
+if "%CMD" == "1"
+    compress on
+else 
+if "%CMD" == "0" 
+    compress off
+else
+    result "Usage: comp on|off"
+endif
+endif
+endif
+endif

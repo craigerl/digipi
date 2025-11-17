@@ -1,0 +1,41 @@
+if( "aba"."a"=="a"."ba"."a" ){stdout "string collation comparison works";}
+else {stdout "string collation comparison does not work"; quit -1;}
+
+if( "aba"!="a"."sba"."a" ){stdout "string collation inequality works";}
+else {stdout "string collation inequality does not work"; quit -1;}
+
+if( "aba"=~"a.*a" ){stdout "regular expressions operator works";}
+else {stdout "regular expressions operator does not work"; quit -1;}
+
+if( !("aba"=~"a.*a") ) {stdout "single negations on regular expressions don't work"; quit -1;}
+else {stdout "single negations on regular expressions work";}
+
+# the following doesn't work in fim 0.3.
+if( !(!("aba"=~"a.*a")) ){stdout "double negations on regular expressions work";}
+else {stdout "double negations on regular expressions don't work"; }
+
+if( "baba" - "b" == 0 ){stdout "text subtraction test (on strings) is not yet ready";}
+else {stdout "text subtraction test (on strings) seems broken"; }
+
+a="baba";
+b="b";
+c = a - b;
+echo c;
+if( c == "aa" ){stdout "text subtraction test (on variables) is fine";}
+if( c =~ "aa" ){stdout "text subtraction test (on variables) is fine";}
+else {stdout "text subtraction (on variables) seems broken"; }
+if( c != "aa" ){stdout "text subtraction test (on variables) seems broken";}
+
+d="0";
+e="e";
+f = d - e;
+echo "" f;
+if( f == "0" ){stdout "text subtraction test (on string variables) is fine";}
+
+h=0;
+l="b";
+m = h - l;
+echo "m:" m;
+if( m == "" ){stdout "text subtraction test (on int variables) is fine";}
+
+stdout "string test success";

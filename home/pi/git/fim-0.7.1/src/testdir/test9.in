@@ -1,0 +1,10 @@
+# greatest common divisor
+autocmd "" "" "";
+unalias "-a";
+# this test (and 11,13 too) gives a pipe error when /dev/zero is fed as stdin to fim
+alias 'gcd' 'stdout "gcd(".p.",".q.")";stdout p;stdout q;while(p>q){p=p-q;if(p<q){r=p;p=q;q=r;}} stdout "the gcd is:"; stdout q; stdout p;';
+p=15; q=12;
+gcd;
+p=96; q=12;
+gcd;
+#quit;

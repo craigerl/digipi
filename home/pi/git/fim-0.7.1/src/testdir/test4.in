@@ -1,0 +1,15 @@
+
+stdout	"tab in expressions works";
+stdout
+	"newline in expressions works";
+
+if
+( 1==1 )
+{
+	stdout "multiline" " and multiarg constructs ".
+		"work"
+}
+else
+{ stdout "multiline and multiarg constructs don't work." ; quit -1; }
+
+stdout "muiltiline and tab-based test success";

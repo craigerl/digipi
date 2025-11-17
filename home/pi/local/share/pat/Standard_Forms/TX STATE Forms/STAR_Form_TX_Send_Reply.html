@@ -1,0 +1,761 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" /><title>STAR Message Form</title>
+
+<style type="text/css">
+body, td, th {
+font-family: Arial, Helvetica, sans-serif;
+}
+.zentriert {
+text-align: center;
+}
+input, select {
+padding: 1px;
+-moz-border-radius-topleft: 2px;
+-moz-border-radius-topright: 2px;
+-moz-border-radius-bottomright: 2px;
+-moz-border-radius-bottomleft: 2px;
+font-family: Arial, Helvetica, sans-serif;
+font-size: 12px;
+text-align: left;
+font-weight: normal;
+font-style: normal;
+}
+textarea {
+padding: 1px;
+-moz-border-radius-topleft: 2px;
+-moz-border-radius-topright: 2px;
+-moz-border-radius-bottomright: 2px;
+-moz-border-radius-bottomleft: 2px;
+font-family: Arial, Helvetica, sans-serif;
+font-size: 12px;
+font-weight: normal;
+font-style: normal;
+}
+.rechtsbuendig {
+text-align: right;
+}
+.SubmitBtn {
+text-align: right;
+}
+.version {
+font-size: 10px;
+color: #666666;
+position: relative;
+left: 0px;
+top: 3px;
+}
+.style4 {font-size: 10px}
+.style5 {
+	font-size: 12px;
+	font-weight: bold;
+}
+.style6 {font-size: 10}
+</style>
+
+<script type="text/javascript">
+function shortmonth(monthnum) {
+var monthname;
+shortmonths = ["JAN", "FEB", "MAR","APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"] ;
+monthname = shortmonths [monthnum];s
+return monthname; }
+
+function SetDateTime(TType,TheFld, FocusFld) {
+var txt;
+var myprompt;
+var d = new Date(),
+thisyear = d.getFullYear();
+thismonth= d.getMonth();
+thisday = d.getDate();
+var submonth = thismonth+1; ;
+if (submonth < 10) { submonth = "0"+submonth};
+var subday = thisday;
+if (thisday < 10) { thisday = "0"+thisday};
+var monname;
+h = (d.getHours()<10?'0':'') + d.getHours()
+m = (d.getMinutes()<10?'0':'') + d.getMinutes()
+s = (d.getSeconds()<10?'0':'') + d.getSeconds();
+var now = new Date();
+var utch = now.getUTCHours();
+if (utch < 10) { utch = "0"+utch};
+var utcs = now.getUTCMinutes();
+if (utcs < 10) { utcs = "0"+utcs};
+var myUTCtime = utch+":"+utcs+"Z";
+var utcstr = d.toUTCString();
+var localt = d.toLocaleTimeString();
+var isostr = d.toISOString();
+monthname = shortmonth (thismonth);
+thismonth = thismonth + 1;
+switch (TType) {
+case 'hms' :
+myprompt = h + ':' + m + ':' + s;
+var RightNow = prompt("Time:", myprompt);
+document.getElementById(TheFld).value = RightNow;
+break;
+case 'hm' :
+myprompt = h + ':' + m;
+var RightNow = prompt("Time:", myprompt);
+document.getElementById(TheFld).value = RightNow;
+break;
+case 'm-d-y': myprompt = thismonth+ '-' + thisday+ '-'+ thisyear;
+var RightNow = prompt("Date:", myprompt);
+document.getElementById(TheFld).value = RightNow;
+break;
+case 'm/d/y': myprompt = thismonth+ '/' + thisday+ '/'+ thisyear;
+var RightNow = prompt("Date:", myprompt);
+document.getElementById(TheFld).value = RightNow;
+break;
+case 'd mmm y': myprompt = thisday+ ' ' + monthname+ ' '+ thisyear;
+var RightNow = prompt("Date:", myprompt);
+document.getElementById(TheFld).value = RightNow;
+break;
+case 'mmm-d-y': myprompt = monthname+'-'+thisday+ '-' + thisyear;
+var RightNow = prompt("Date:", myprompt);
+document.getElementById(TheFld).value = RightNow;
+break;
+case 'localampm': var myprompt = localt;
+var RightNow = prompt("Local time:", myprompt);
+document.getElementById(TheFld).value = RightNow;
+break;
+case 'fulldate': var myprompt = thisyear+ '-'+thismonth+'-'+thisday;
+var RightNow = prompt("Date:", myprompt);
+document.getElementById(TheFld).value = RightNow;
+break;
+case 'fulldatetime': var myprompt = thisyear+'-'+thismonth+ '-'+thisday+' '+h + ':' + m ;
+var RightNow = prompt("Date time:", myprompt);
+document.getElementById(TheFld).value = RightNow;
+break;
+}//var ORTimestamp = thisyear+submonth+subday+h+m+s;
+//document.getElementById('TimeStampOR').value = ORTimestamp; break;
+
+}
+
+function AutoGrowTextArea(textField)
+{
+if (textField.clientHeight < textField.scrollHeight)
+{
+textField.style.height = textField.scrollHeight + "px";
+if (textField.clientHeight < textField.scrollHeight)
+{
+textField.style.height = (textField.scrollHeight * 2 - textField.clientHeight) + "px";
+}
+}
+}
+function Countthelines(f) { var text1 = f
+var text2 = text1.replace(/\s+$/,"");
+var split2 = text2.split("\n"); var mytotal = split2.length * 17;
+
+if (mytotal < 150) {
+mytotal = 150;
+}
+var tstr = mytotal.toString();
+return tstr;
+}
+function newfix(f){
+var ThisText = document.getElementById(f).value;
+var makeit = Countthelines(ThisText);
+document.getElementById(f).style.height = makeit+"px"; }
+function Fixarea() {
+//newfix("msg");
+//newfix("reply");
+//AutoGrowTextArea(document.getElementById("msg"));
+//AutoGrowTextArea(document.getElementById("reply"));
+}
+function RWS(str){
+var text2 = str.replace(/\s+$/,"");
+return text2.trim();
+}
+
+
+// add save load
+
+
+function saveTextAsFile(fileNameToSaveAs, textToWrite) {
+var textToWrite = document.getElementById('parseme').value; 
+var fileNameToSaveAs = "TX STAR Reply Data  " + DateforFile()+".txt";
+fileNameToSaveAs = prompt("", fileNameToSaveAs);
+
+  /* Saves a text string as a blob file*/  
+  var ie = navigator.userAgent.match(/MSIE\s([\d.]+)/),
+      ie11 = navigator.userAgent.match(/Trident\/7.0/) && navigator.userAgent.match(/rv:11/),
+      ieEDGE = navigator.userAgent.match(/Edge/g),
+      ieVer=(ie ? ie[1] : (ie11 ? 11 : (ieEDGE ? 12 : -1)));
+
+  if (ie && ieVer<10) {
+    console.log("No blobs on IE ver<10");
+    return;
+  }
+
+  var textFileAsBlob = new Blob([textToWrite], {
+    type: 'text/plain'
+  });
+
+  if (ieVer>-1) {
+    window.navigator.msSaveBlob(textFileAsBlob, fileNameToSaveAs);
+
+  } else {
+    var downloadLink = document.createElement("a");
+    downloadLink.download = fileNameToSaveAs;
+    downloadLink.href = window.URL.createObjectURL(textFileAsBlob);
+    downloadLink.onclick = function(e) { document.body.removeChild(e.target); };
+    downloadLink.style.display = "none";
+    document.body.appendChild(downloadLink);
+    downloadLink.click();
+  }
+}
+
+
+function destroyClickedElement(event)
+{
+    document.body.removeChild(event.target);
+}
+
+function loadFileAsText()
+{
+
+    var fileToLoad = document.getElementById("fileToLoad").files[0];
+ 
+    var fileReader = new FileReader();
+    fileReader.onload = function(fileLoadedEvent) 
+    {
+        var textFromFileLoaded = fileLoadedEvent.target.result;
+        document.getElementById("inputTextToSave").value = textFromFileLoaded;
+    };
+    fileReader.readAsText(fileToLoad, "UTF-8");
+}
+
+
+function DateforFile(RightNow) {
+var txt;
+var d = new Date(),
+thisyear = d.getFullYear();
+thismonth= d.getMonth();
+thismonth = thismonth+1;
+if (thismonth < 10) { thismonth = "0" + thismonth}
+
+thisday = d.getDate();
+if (thisday < 10) { thisday = "0" + thisday}
+
+h = (d.getHours()<10?'0':'') + d.getHours()
+m = (d.getMinutes()<10?'0':'') + d.getMinutes()
+var myprompt = thisyear+ '-'+thismonth+'-'+thisday+' '+h + '_' + m ;
+return myprompt;
+}
+
+function isObject(arg) {
+  return Object.prototype.toString.call(arg)==='[object Object]';
+}
+
+function formDataToObject(elForm) {
+  if (!elForm instanceof Element) return;
+  var fields = elForm.querySelectorAll('input, select, textarea'),
+    o = {};
+  for (var i=0, imax=fields.length; i<imax; ++i) {
+    var field = fields[i],
+      sKey = field.name || field.id;
+    if (field.type==='button' || field.type==='image' || field.type==='submit' || !sKey) continue;
+    switch (field.type) {
+      case 'checkbox':
+        o[sKey] = +field.checked;
+        break;
+      case 'radio':
+        if (o[sKey]===undefined) o[sKey] = '';
+        if (field.checked) o[sKey] = field.value;
+        break;
+      case 'select-multiple':
+        var a = [];
+        for (var j=0, jmax=field.options.length; j<jmax; ++j) {
+          if (field.options[j].selected) a.push(field.options[j].value);
+        }
+        o[sKey] = a;
+        break;
+      default:
+        o[sKey] = field.value;
+    }
+  }
+//alert('Form data:\n\n' + JSON.stringify(o, null, 2));
+ document.getElementById('parseme').value = JSON.stringify(o, null, 2);
+//  return o;
+}
+
+function populateForm(o) {
+
+o =  JSON.parse(document.getElementById('parseme').value);
+ //if (!isObject(o)) return;
+if (!isObject(o)) return;
+  for (var i in o) {
+    var el = document.getElementById(i) || document.querySelector('[name=' + i + ']');
+    if (el.type==='radio') el = document.querySelectorAll('[name=' + i + ']');
+    switch (typeof o[i]) {
+      case 'number':
+        el.checked = o[i];
+        break;
+      case 'object':
+        if (el.options && o[i] instanceof Array) {
+          for (var j=0, jmax=el.options.length; j<jmax; ++j) {
+            if (o[i].indexOf(el.options[j].value)>-1) el.options[j].selected = true;
+          }
+        }
+        break;
+      default:
+        if (el instanceof NodeList) {
+          for (var j=0, jmax=el.length; j<jmax; ++j) {
+            if (el[j].value===o[i]) el[j].checked = true;
+          }
+        } else {
+          el.value = o[i];
+        }
+    }
+  }
+    Fixfields();
+
+
+}
+
+function SaveData() {
+	
+			formDataToObject(document.getElementById('myform'))
+			saveTextAsFile();
+			
+			//saveTextAsFile();
+			}
+
+//-------
+ function readBlob(opt_startByte, opt_stopByte) {
+  
+    var files = document.getElementById('files').files;
+    if (!files.length) {
+      alert('Please select a file!');
+      return;
+    }
+
+    var file = files[0];
+    var start = parseInt(opt_startByte) || 0;
+    var stop = parseInt(opt_stopByte) || file.size - 1;
+
+    var reader = new FileReader();
+
+    // If we use onloadend, we need to check the readyState.
+    reader.onloadend = function(evt) {
+      if (evt.target.readyState == FileReader.DONE) { // DONE == 2
+        document.getElementById('byte_content').textContent = evt.target.result;
+        document.getElementById('byte_range').textContent = 
+            ['Read bytes: ', start + 1, ' - ', stop + 1,
+             ' of ', file.size, ' byte file'].join('');
+      }
+    };
+
+    var blob = file.slice(start, stop + 1);
+    reader.readAsBinaryString(blob);
+  }
+    	
+  window.onload = function () { 
+ 
+ //Check the support for the File API support 
+ if (window.File && window.FileReader && window.FileList && window.Blob) {
+    var fileSelected = document.getElementById('txtfiletoread');
+	
+    fileSelected.addEventListener('change', function (e) { 
+         //Set the extension for the file 
+         var fileExtension = /text.*/; 
+         //Get the file object 
+         var fileTobeRead = fileSelected.files[0];
+        //Check of the extension match 
+         if (fileTobeRead.type.match(fileExtension)) { 
+             //Initialize the FileReader object to read the 2file 
+			
+             var fileReader = new FileReader(); 
+             fileReader.onload = function (e) { 
+                 var fileContents = document.getElementById('filecontents'); 
+                
+				document.getElementById('parseme').value =fileReader.result;
+				populateForm(obj = document.getElementById('parseme').value);
+					 } 
+             fileReader.readAsText(fileTobeRead); 
+         } 
+         else { 
+             alert("Please select text file"); 
+         }
+ 
+    }, false);
+} 
+ else { 
+     alert("Files are not supported"); 
+ } 
+ Fixfields();
+ }
+ 
+ function Fixfields() {  
+ AutoGrowTextArea(document.getElementById("AddNotes2"));
+//AutoGrowTextArea(document.getElementById("FacIns"));
+//AutoGrowTextArea(document.getElementById("FacIns1"));
+
+
+
+
+}
+// function setcolors() {
+
+
+</script></head>
+<body>
+<form  style="font-family: Arial;" pbzloc="3" onsubmit="return confirm('To complete your form submission, click OK and close the open browser window. You will return to the new message window so you can post your message to the outbox');" method="post" id="myform" enctype="multipart/form-data" action="http://{FormServer}:{FormPort}">
+<table style="height: 498px; width: 907px;" align="center" border="0">
+<tbody>
+<tr>
+<td>
+<table style="font-size: 14px; width: 896px; height: 1397px;" border="1" bordercolor="#999999" cellpadding="4" cellspacing="0">
+<tbody>
+<tr>
+<td height="68" colspan="2" valign="top" style="text-align: justify; background-color: rgb(153, 255, 255);"><small>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</small><small pbzloc="3"><span class="style5"><big>STATE OF TEXAS ASSISTANCE REQUEST (STAR)</big></span><span style="font-size: 12;"><big style="font-weight: bold;"><big> &nbsp;<span class="style4"> &nbsp;&nbsp;</span></big></big></span></small><span class="style4"><small><b>&nbsp;&nbsp;&nbsp;</b></small>&nbsp;<span class="style6"><big>&nbsp;<small>Vers 9</small></big></span><small><big>&nbsp;</big></small>
+</p>
+</span>
+<p align="center"><small><span style="font-size: 12px;"><big style="font-weight: bold;"><big>  <input type="button" value=" Load TX STAR Reply data " onclick="document.getElementById('txtfiletoread').click();" />
+    <input type="file" id="txtfiletoread" accept=".txt"  style="display: none;"/>&nbsp;&nbsp;&nbsp;&nbsp;</big></big></span></small></p></td>
+</tr>
+<tr>
+<td colspan="2" style="vertical-align: top; text-align: center; background-color: rgb(255, 255, 204);"><div align="left"><small><big><big>&nbsp; &nbsp;Incident
+  Name</big></big></small><small><span style="font-size: 14px;"><big>&nbsp;</big> &nbsp;&nbsp;
+&nbsp; &nbsp;</span><big>
+  <input style="color: rgb(204, 0, 0);" readonly="readonly" value="{var IncName}" id="To_Name" maxlength="40" name="IncName" size="50" /> 
+&nbsp;<big>&nbsp;</big>&nbsp;<big>&nbsp;</big><big>Initial
+  Request Date/Time</big></big>&nbsp;</small><small>
+  </small><small>&nbsp;&nbsp;
+  <input readonly="readonly" maxlength="22" size="22" name="time" value="{var time}" />
+  </small><br />
+  <small> <big><big><br />
+  &nbsp; Requesting
+  County&nbsp; </big></big></small><small>
+  <input style="color: rgb(204, 0, 0);" readonly="readonly" value="{var ReqCnty}" id="To_Name" maxlength="40" name="ReqCnty" size="50" />
+  </small><small><big><big>&nbsp;&nbsp;
+&nbsp;Request #&nbsp; </big></big></small><small>
+  <input style="color: rgb(204, 0, 0);" readonly="readonly" value="{var ReqNum}" id="To_Name" maxlength="25" name="ReqNum" size="30" />
+  </small> <textarea name="parseme" cols="60" id="parseme" style="display: none;"></textarea><br />
+  <big><br />
+  <small><big><big>&nbsp; </big></big></small>Is this
+  RR Tied to Another Request? &nbsp;
+  <input readonly="readonly" maxlength="18" size="18" name="OtherRR" value="{var OtherRR}" />
+&nbsp;<small><big>&nbsp;<big>&nbsp;</big></big></small><small><big>&nbsp;<big>&nbsp;</big></big></small><small><big>&nbsp;<big>&nbsp;</big></big></small></big><small>&nbsp;</small><big>Other
+  Tracking
+  Numbers&nbsp;</big>&nbsp;
+  <input readonly="readonly" value="{var OtherNum}" maxlength="35" size="40" name="OtherNum" />
+&nbsp;<small><big><big>&nbsp;</big></big></small></div></td>
+</tr>
+<tr>
+<td colspan="2" style="text-align: center; background-color: white;"><div align="center"><big><span style="color: rgb(204, 0, 0);"><br />
+          <span style="color: rgb(0, 102, 0);">
+  Requested Item Description</span></span></big>
+</div>
+  <table style="text-align: left; width: 874px; height: 144px;" border="1" cellpadding="2" cellspacing="0">
+<tbody>
+<tr>
+<td style="text-align: center; width: 8%;">Qty</td>
+<td style="text-align: center; width: 8%;">Unit</td>
+<td style="text-align: center; width: 26%;">Item
+Name</td>
+<td style="text-align: center;">Item
+Description</td>
+<td style="text-align: center; width: 5%;">Cost</td>
+<td style="text-align: center; width: 5px; color: rgb(0, 102, 0);">Demob?</td>
+</tr>
+<tr>
+<td style="text-align: center;"><input readonly="readonly" value="{var Qty}" maxlength="6" size="6" name="Qty" /></td>
+<td style="text-align: center;"><input readonly="readonly" value="{var Unit}" maxlength="6" size="6" name="Unit" /></td>
+<td style="text-align: center;"><input readonly="readonly" value="{var ItemName}" maxlength="30" size="35" name="ItemName" /></td>
+<td style="text-align: center;"><input readonly="readonly" value="{var ItemDes}" maxlength="55" size="62" name="ItemDes" /></td>
+<td style="text-align: center;"><input readonly="readonly" value="{var Cost}" maxlength="8" size="8" name="Cost" /></td>
+<td align="undefined" valign="undefined"><input readonly="readonly" maxlength="4" size="4" name="Demob" value="{var Demob}" /></td>
+</tr>
+<tr valign="top">
+<td colspan="6" style="text-align: center;"><div align="left"><span style="color: black;">&nbsp;Justification
+  - Purpose for Request?</span><br />
+ &nbsp;
+  <input readonly="readonly" value="{var Justify}" maxlength="140" size="160" name="Justify" />
+</div>
+</td>
+</tr>
+<tr>
+<td style="text-align: center;" colspan="6"><div align="left"><small><big><big>&nbsp;</big></big></small>When is this Resource Needed? &nbsp;
+      <input readonly="readonly" value="{var Need}" maxlength="25" size="30" name="Need" />
+&nbsp; Estimated Needed Time Frame of Item?&nbsp;  <input value="{var Time}" input readonly="readonly" maxlength="25" size="30" name="Time" />
+</div></td>
+</tr>
+</tbody>
+</table>
+<big><span style="color: rgb(204, 0, 0);"><br /><span style="color: rgb(0, 102, 0);">
+Delivery
+Information -
+Way Point Information</span></span></big><br />
+<table style="text-align: left; width: 874px; height: 129px;" border="1" cellpadding="2" cellspacing="0">
+<tbody>
+<tr>
+<td style="text-align: center;">Point
+of Contact Name</td>
+<td style="text-align: center;">Phone
+# (s)</td>
+<td style="text-align: center;">Facility
+Name</td>
+<td style="text-align: center;">Zip</td>
+</tr>
+<tr>
+<td style="text-align: center;"><input readonly="readonly" value="{var POC}" maxlength="35" size="40" name="POC" /></td>
+<td style="text-align: center;"><input readonly="readonly" value="{var POCPhone}" maxlength="35" size="40" name="POCPhone" /></td>
+<td style="text-align: center;"><input readonly="readonly" value="{var FacName}" maxlength="35" size="40" name="FacName" /></td>
+<td style="text-align: center;"><input readonly="readonly" value="{var FacZip}" maxlength="6" size="6" name="FacZip" /></td>
+</tr>
+<tr>
+<td colspan="4" style="text-align: center;"><div align="left">Facility Address &nbsp;
+      <input readonly="readonly" value="{var FacAd}" maxlength="45" size="55" name="FacAd" />
+&nbsp; &nbsp;City &nbsp;
+  <input readonly="readonly" value="{var FacCity}" maxlength="30" size="35" name="FacCity" />
+&nbsp; State &nbsp;
+  <input readonly="readonly" value="{var FacState}" maxlength="2" size="2" name="FacState" />
+</div></td>
+</tr>
+<tr valign="top">
+<td colspan="4" style="text-align: center;"><div align="left"><small><big><big>&nbsp;</big></big></small>Additional Instructions <br />
+    <small><big><big>&nbsp;</big></big></small>
+    <input readonly="readonly" value="{var FacIns}" maxlength="140" size="160" name="FacIns" />
+</div></td>
+</tr>
+</tbody>
+</table>
+<big><span style="color: rgb(204, 0, 0);"><br /><span style="color: rgb(0, 102, 0);">
+Final
+Destination</span></span></big><br />
+<table style="text-align: left; width: 873px; height: 129px;" border="1" cellpadding="2" cellspacing="0">
+<tbody>
+<tr>
+<td style="text-align: center;">Point
+of Contact Name</td>
+<td style="text-align: center;">Phone
+# (s)</td>
+<td style="text-align: center;">Facility
+Name</td>
+<td style="text-align: center;">Zip</td>
+</tr>
+<tr>
+<td style="text-align: center;"><input readonly="readonly" value="{var POC1}" maxlength="35" size="40" name="POC1" /></td>
+<td style="text-align: center;"><input readonly="readonly" value="{var POCPhone1}" maxlength="35" size="40" name="POCPhone1" /></td>
+<td style="text-align: center;"><input readonly="readonly" value="{var FacName1}" maxlength="35" size="40" name="FacName1" /></td>
+<td style="text-align: center;"><input readonly="readonly" value="{var FacZip1}" maxlength="6" size="6" name="FacZip1" /></td>
+</tr>
+<tr>
+<td style="text-align: center;" colspan="4">&nbsp;&nbsp;&nbsp; &nbsp;
+  <div align="left"><small><big><big>&nbsp;</big></big></small>Facility Address 
+      <input readonly="readonly" value="{var FacAd1}" maxlength="45" size="55" name="FacAd1" />
+    &nbsp;
+&nbsp;City&nbsp;&nbsp;  <input readonly="readonly" value="{var FacCity1}" maxlength="30" size="35" name="FacCity1" />
+&nbsp;
+&nbsp;State&nbsp;  <input readonly="readonly" value="{var FacState1}" maxlength="2" size="2" name="FacState1" />
+  </div></td>
+</tr>
+<tr valign="top">
+<td colspan="4" style="text-align: left;"><p><small><big><big>&nbsp;</big></big></small>Additional Instructions <br />
+    <small><big><big>&nbsp;</big></big></small>
+    <input readonly="readonly" value="{var FacIns1}" maxlength="140" size="160" name="FacIns1" />
+</p>
+  </td>
+</tr>
+</tbody>
+</table>
+<big><span style="color: rgb(204, 0, 0);"><br /><span style="color: rgb(0, 102, 0);">
+Requester
+Information</span></span></big><br />
+<table style="text-align: left; width: 873px; height: 43px;" border="1" cellpadding="2" cellspacing="0">
+<tbody>
+<tr>
+<td style="text-align: center;"><div align="left">&nbsp;&nbsp;Requested
+  by Position &nbsp;/ Name</div></td>
+<td style="text-align: center;">Email</td>
+<td style="text-align: center;">Phone
+# (s)</td>
+</tr>
+<tr>
+<td style="text-align: center;"><div align="left">
+  <input title="A name here indicates approval since this is a radio delivery form." readonly="readonly" value="{var ReqName}" maxlength="35" size="40" name="ReqName" />
+</div></td>
+<td style="text-align: center;"><input readonly="readonly" value="{var ReqEmail}" maxlength="45" size="50" name="ReqEmail" /></td>
+<td style="text-align: center;"><input readonly="readonly" value="{var ReqPhone}" maxlength="35" size="40" name="ReqPhone" /></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top" style="text-align: justify;"><big><span style="color: rgb(204, 0, 0);"><small><big><big>&nbsp; </big></big></small>Updating
+Agency</span> &nbsp;<span style="color: rgb(204, 0, 0); font-weight: bold;">
+</span><span style="color: rgb(204, 0, 0);">FILL
+1</span></big>
+<br style="color: rgb(204, 0, 0);" />
+<table width="880" border="-" cellpadding="0" cellspacing="8" bordercolor="#FFFFFF">
+  <tr>
+    <td width="443" height="31"><small><big><big> </big></big></small>POC Name / Position &nbsp; &nbsp;
+      <input maxlength="35" size="40" name="NameFill1" />
+      &nbsp; &nbsp; &nbsp; &nbsp;</td>
+    <td width="413"> Qty Filled &nbsp;
+      <input maxlength="6" size="6" name="QtyFill1" /></td>
+  </tr>
+  <tr>
+    <td><small><big><big> </big></big></small>Phone (s)&nbsp; &nbsp;
+      <input maxlength="35" size="40" name="PhoneFill1" />
+&nbsp;</td>
+    <td>ETA &nbsp;
+      <input maxlength="25" size="25" name="ETAFill1" /></td>
+  </tr>
+  <tr>
+    <td>Email &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+      <input maxlength="45" size="50" name="EmailFill1" /></td>
+    <td>&nbsp;Est. Cost &nbsp;
+      <input maxlength="10" size="10" name="CostFill1" /></td>
+  </tr>
+  <tr>
+    <td colspan="2"><div align="left">Provider Notes &nbsp;
+          <input maxlength="120" size="140" name="NotesFill1" onkeydown="return (event.keyCode!=13);" />
+    </div></td>
+    </tr>
+</table>
+<br />
+<table style="text-align: left; width: 873px; height: 14px;" border="1" cellpadding="2" cellspacing="0">
+<tbody>
+<tr>
+<td style="text-align: center;" colspan="3">&nbsp; &nbsp;
+  <div align="left"><small><big><big>&nbsp; </big></big></small>Approver Name &nbsp;
+      <input title="A name here indicates approval since this is a radio delivery form." maxlength="35" size="40" name="AppFill1" />
+&nbsp;&nbsp; Date &amp;
+  Time&nbsp; &nbsp;
+  <input maxlength="22" size="22" name="TimeFill1" id="TimeFill1"placeholder="Click to Add Date/Time"  onclick="SetDateTime('fulldatetime',this.id)" />
+  </div></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top" style="text-align: justify;"><big><span style="color: rgb(204, 0, 0);"><small><big><big>&nbsp; </big></big></small>Updating
+Agency</span> &nbsp;<span style="color: rgb(204, 0, 0);">
+FILL 2</span></big><br />
+<small><big><big>&nbsp; </big></big></small>
+<table width="880" border="-" cellpadding="0" cellspacing="8" bordercolor="#FFFFFF">
+  <tr>
+    <td width="448">POC Name / Position &nbsp; &nbsp;
+      <input maxlength="35" size="40" name="NameFill2" />
+      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </td>
+    <td width="408"> Qty Filled &nbsp;
+      <input maxlength="6" size="6" name="QtyFill2" /></td>
+  </tr>
+  <tr>
+    <td><small><big><big> </big></big></small>Phone (s)&nbsp; &nbsp;
+      <input maxlength="35" size="40" name="PhoneFill2" /></td>
+    <td>ETA &nbsp;
+      <input maxlength="25" size="25" name="ETAFill2" /></td>
+  </tr>
+  <tr>
+    <td><small><big><big>&nbsp; </big></big></small>Email &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+      <input maxlength="45" size="50" name="EmailFill2" />
+&nbsp;</td>
+    <td>Est. Cost&nbsp; &nbsp;
+      <input maxlength="10" size="10" name="CostFill2" /></td>
+  </tr>
+  <tr>
+    <td colspan="2"><div align="left">Provider Notes&nbsp; &nbsp;
+          <input maxlength="120" size="140" name="NotesFill2" onkeydown="return (event.keyCode!=13);" />
+&nbsp; &nbsp;</div></td>
+    </tr>
+</table>
+<br />
+<table style="text-align: left; width: 861px; height: 14px;" border="1" cellpadding="2" cellspacing="0">
+<tbody>
+<tr>
+<td style="text-align: center;" colspan="3">&nbsp;
+  <div align="left"><small><big><big>&nbsp; </big></big></small>Approver Name &nbsp;
+      <input title="A name here indicates approval since this is a radio delivery form." maxlength="35" size="40" name="AppFill2" />
+&nbsp;&nbsp; Date &amp;
+  Time&nbsp; &nbsp;
+  <input maxlength="22" size="22" name="TimeFill2" id="TimeFill2"placeholder="Click to Add Date/Time"  onclick="SetDateTime('fulldatetime',this.id)"/>
+  </div></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr>
+<td colspan="2" style="text-align: justify; vertical-align: top;">
+<table style="font-size: 14px; width: 880px; height: 149px;" 2="" border="0" bordercolor="#999999" cellpadding="2">
+<tbody>
+<tr>
+<td colspan="2" valign="top" style="text-align: justify;"><big><span style="color: rgb(204, 0, 0);"><small><big><big>&nbsp; </big></big></small>Updating Agency </span>&nbsp;<span style="color: rgb(204, 0, 0);"> FILL 3</span></big><br />
+  <br style="color: rgb(204, 0, 0);" />
+  <table width="880" border="-" cellpadding="0" cellspacing="8" bordercolor="#FFFFFF">
+    <tr>
+      <td width="456">POC Name / Position &nbsp; &nbsp;
+        <input maxlength="35" size="40" name="NameFill3" />
+        &nbsp; &nbsp; </td>
+      <td width="400">Qty Filled &nbsp;
+        <input maxlength="6" size="6" name="QtyFill3" /></td>
+    </tr>
+    <tr>
+      <td>Phone (s)&nbsp; &nbsp;
+        <input maxlength="35" size="40" name="PhoneFill3" /></td>
+      <td>ETA &nbsp;
+        <input maxlength="25" size="25" name="ETAFill3" /></td>
+    </tr>
+    <tr>
+      <td>Email &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+        <input maxlength="45" size="50" name="EmailFill3" /></td>
+      <td>Est. Cost&nbsp; &nbsp;
+        <input maxlength="10" size="10" name="CostFill3" /></td>
+    </tr>
+    <tr>
+      <td colspan="2"><div align="left">Provider Notes&nbsp; &nbsp;
+            <input maxlength="120" size="140" name="NotesFill3" onkeydown="return (event.keyCode!=13);" />
+&nbsp;&nbsp;</div></td>
+      </tr>
+  </table>
+  <table style="text-align: left; width: 861px; height: 14px;" border="1" cellpadding="2" cellspacing="0">
+<tbody>
+<tr>
+<td style="text-align: center;" colspan="3">&nbsp;
+  <div align="left"><small><big><big>&nbsp; </big></big></small>Approver Name &nbsp;
+      <input title="A name here indicates approval since this is a radio delivery form." maxlength="35" size="40" name="AppFill3" />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Date &amp;
+  Time&nbsp; &nbsp;
+  <input maxlength="22" size="22" name="TimeFill3" id="TimeFill3" placeholder="Click to Add Date/Time"  onclick="SetDateTime('fulldatetime',this.id)"/>
+  </div></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr>
+<td style="text-align: center;" colspan="2"><div align="left"><span style="color: rgb(0, 102, 0);">Additional
+  Notes</span> <br />
+  <textarea cols="120" rows="2" name="AddNotes2" id="AddNotes2"onkeyup="AutoGrowTextArea(this)" onchange="this.value=RWS(this.value)"></textarea>
+  <br />
+  <br />
+</div></td>
+</tr>
+<tr>
+  <td style="text-align: justify;" colspan="2"><small>
+    <input type="button" value="Save TX STAR Reply data "  style="color: blue;"onclick="SaveData()" />
+    <span style="color: rgb(128, 0, 0);"><span style="font-size: 12px;">&nbsp;</span>&nbsp;</span></small>
+    <input class="SubmitBtn" enctype="multipart/form-data" id="Submit" method="Post" name="Submit" style="height: 28px;color: green;" title="After submitting, close browser, then address message for posting" value="Submit" type="submit" /> &nbsp; <input class="BtnFormat2" value="Reset Form " name="ResetForm" style="color: rgb(204, 0, 0);" type="reset" />&nbsp;
+&nbsp;&nbsp;<small><span style="color: rgb(128, 0, 0);"></span></small>&nbsp;
+&nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp;
+&nbsp; &nbsp;<small><span style="color: rgb(128, 0, 0);"><span style="color: black;"></span><span style="color: black;">&nbsp;</span></span></small></td></tr>
+</tbody>
+</table>
+<br />
+<small>&nbsp;</small></td>
+</tr>
+</tbody>
+</table>
+</form>
+</body></html>
