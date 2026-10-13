@@ -1,0 +1,22 @@
+:macro COLOR_TNT
+;; This macro sets the default color scheme of TNT
+;; (channel line is different)
+
+;; QSO-Window
+defcolor QSO_RX WHITE BLACK
+defcolor QSO_TX CYAN BLACK
+defcolor QSO_INFO WHITE BLACK
+defcolor QSO_CTRL RED BLACK
+;; Editor
+defcolor ED_TEXT WHITE BLACK
+defcolor ED_INFO WHITE BLACK
+defcolor ED_CTRL RED BLACK
+;; Channel info
+defcolor CI_NORM BLACK RED
+defcolor CI_SLCT YELLOW MAGENTA
+defcolor CI_NCHN WHITE BLACK
+defcolor CI_PRVT YELLOW BLACK
+;; Main info line
+defcolor IL_TEXT WHITE RED
+
+redraw

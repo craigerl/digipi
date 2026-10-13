@@ -1,0 +1,18 @@
+[Unit]
+Description=webchat
+#Requires=tnc.service
+
+[Service]
+ExecStartPre=sleep 1
+ExecStart=/home/pi/webchat.sh
+WorkingDirectory=/home/pi/
+StandardOutput=inherit
+StandardError=inherit
+#Environment=FLASK_CONFIG=development
+#Environment=FLASK_ENV=development
+Restart=no
+User=pi
+KillSignal=SIGINT
+
+[Install]
+WantedBy=multi-user.target

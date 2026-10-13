@@ -1,0 +1,7 @@
+#!/bin/sh
+# $Id: post-rmsgw_aci-version-update 176 2014-10-27 09:07:54Z eckertb $
+
+CONFIG_FILE=$1; shift
+STAT_FILE=$1; shift
+
+exit 0

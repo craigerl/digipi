@@ -1,0 +1,27 @@
+data_dir: /home/pi/.local/share/direwolf-dashboard
+station:
+  latitude: 39.9999
+  longitude: -140.9999
+  zoom: 12
+direwolf:
+  agw_host: localhost
+  agw_port: 8000
+  log_file: /run/direwolf.log
+server:
+  host: 0.0.0.0
+  port: 8088
+storage:
+  db_path: /home/pi/.local/share/direwolf-dashboard/packets.db
+  retention_days: 2
+tiles:
+  cache_dir: /home/pi/.local/share/direwolf-dashboard/tiles
+  cache_mode: lazy
+  tile_url: https://tile.openstreetmap.org/{z}/{x}/{y}.png
+  max_cache_mb: 5
+display:
+  show_route_distances: false
+  show_gpx_overlay: false
+  show_stats_overlay: false
+  show_my_location_overlay: false
+packet_log:
+  show_timestamps: false

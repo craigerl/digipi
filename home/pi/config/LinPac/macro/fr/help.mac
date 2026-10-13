@@ -1,0 +1,23 @@
+                  LinPac - commandes disponibles
+                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  //Activity		- Affiche le temps écoulé depuis la dernière action du SysOp  
+  //Bell		- Appel le SysOp par un signal sonore
+  //CStatus		- Liste des stations connectées
+  //Disconnect		- Fin immédiate du QSO
+  //Echo <texte>	- Renvoie le texte défini en retour
+  //Help		- Cette aide
+  //Info		- Affiche les infos de la station
+  //MHeard		- Liste des stations entendues
+  //Name <nom>		- Enregistre votre nom
+  //Quit		- Fin normale du QSO
+  //Read <fichier>	- Envoi le fichier texte
+  //RBin <fichier>	- Envoi le fichier binaire
+  //RPrg <fichier>	- Envoi le fichier en utilisant le protocole autobin
+  //RTt			- Détermine la durée aller-retour d'une trame
+  //Users		- Liste des stations connectées
+  //VERsion		- Affiche la version de LinPac
+  //Write <fichier>	- Débute l'écriture du fichier texte	( arrêt avec "//W off" )
+  //WBin <fichier>	- Débute l'écriture du fichier binaire	( arrêt avec "//WBin off" )
+  //YPUT <fichier>	- Envoie le fichier en utilisant le protocole YAPP
+
+

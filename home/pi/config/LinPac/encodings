@@ -1,0 +1,52 @@
+#
+# The encodings known to the :translate command
+#
+# Format:
+# encoding_alias  encoding_name  encoding_table_w/o_.ctt(optional)
+#
+# encoding_alias - the name of encoding used with the :translate command.
+#                  Any encoding may have more than one alias (one line for
+#                  each alias).
+# encoding_name  - the official name of encoding that will be send to
+#                  applications by the :translate command
+# encoding_table - the encoding table used for decoding data displayed
+#                  on the console and encoding outgoing data.
+#                  When no table is specified, the encoding takes no effect
+#                  on LinPac console and works with applications only
+#                  (e.g. with QLinPac).
+#
+# NOTE: The standard configuration expects that you have the Linux console
+#       properly configured to iso-8859-1 font for using the western
+#       encodings (iso-8859-1, cp437, cp850) and to iso-8859-2 font for
+#       using the central european encodings (iso-8859-2, cp852, cp895,
+#       cp1250)
+#
+
+# Standard encodings
+iso-8859-1	iso-8859-1	void
+iso-8859-2	iso-8859-2	void
+iso-8859-3	iso-8859-3
+iso-8859-4	iso-8859-4
+iso-8859-5	iso-8859-5
+iso-8859-6	iso-8859-6
+iso-8859-6-I	iso-8859-6-I
+iso-8859-7	iso-8859-7
+iso-8859-8	iso-8859-8
+iso-8859-8-I	iso-8859-8-I
+iso-8859-9	iso-8859-9
+iso-8859-15	iso-8859-15
+koi8-R		koi8-R
+
+# Western codepages (iso-8859-1 console is expected)
+iso1		iso-8859-1	void
+cp437		CP437		cp437
+cp850		CP850		cp850
+
+# Central european codepages (iso-8859-2 console is expected)
+iso2		iso-8859-2	void
+win		CP1250		cp1250
+cp1250		CP1250		cp1250
+lat		CP852		cp852
+cp852		CP852		cp852
+kam		CP895		cp895
+cp895		CP895		cp895

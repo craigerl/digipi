@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	   targetNamespace="http://www.w3sg.org/rmschannels"
+	   xmlns="http://www.w3sg.org/rmschannels"
+	   elementFormDefault="qualified">
+  <xs:element name="rmschannels">
+    <xs:complexType>
+      <xs:choice>
+        <xs:element maxOccurs="unbounded" ref="channel" />
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="channel">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="basecall" type="xs:string" />
+        <xs:element name="callsign" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="gridsquare" type="xs:string" />
+        <xs:element name="frequency" type="xs:integer" />
+        <xs:element name="mode" default="0">
+	  <xs:simpleType>
+	    <xs:restriction base="xs:integer">
+	      <xs:minInclusive value="0" />
+	      <xs:maxInclusive value="99" />
+	    </xs:restriction>
+	  </xs:simpleType>
+	</xs:element>
+        <xs:element name="autoonly" default="0">
+	  <xs:simpleType>
+	    <xs:restriction base="xs:integer">
+	      <xs:minInclusive value="0" />
+	      <xs:maxInclusive value="1" />
+	    </xs:restriction>
+	  </xs:simpleType>
+	</xs:element>
+        <xs:element name="baud" type="xs:integer" default="1200" />
+        <xs:element name="power" type="xs:integer" />
+        <xs:element name="height" type="xs:integer" />
+        <xs:element name="gain" type="xs:integer" />
+        <xs:element name="direction" default="0">
+	  <xs:simpleType>
+	    <xs:restriction base="xs:integer">
+	      <xs:minInclusive value="0" />
+	      <xs:maxInclusive value="360" />
+	    </xs:restriction>
+	  </xs:simpleType>
+	</xs:element>
+        <xs:element name="hours" type="xs:string" />
+        <xs:element name="groupreference" default="1"> 
+	  <xs:simpleType>
+	    <xs:restriction base="xs:integer">
+	       <xs:minInclusive value="0" />
+	       <xs:maxInclusive value="4" />
+	    </xs:restriction>
+	  </xs:simpleType>
+	</xs:element>
+        <xs:element name="servicecode" default="PUBLIC">
+	  <xs:simpleType>
+	    <xs:restriction base="xs:string">
+	      <xs:pattern value="[a-zA-Z0-9]*" />
+	      <xs:minLength value="0" />
+	      <xs:maxLength value="16" />
+	    </xs:restriction>
+	  </xs:simpleType>
+	</xs:element>
+        <xs:element name="statuschecker" type="xs:string" />
+      </xs:sequence>
+      <xs:attribute name="name" type="xs:string" use="required" />
+      <xs:attribute name="type" type="xs:string" use="required" />
+      <xs:attribute name="active" use="required">
+	<xs:simpleType>
+	  <xs:restriction base="xs:string">
+	    <xs:enumeration value="yes" />
+	    <xs:enumeration value="no" />
+	  </xs:restriction>
+	</xs:simpleType>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,12 @@
+adafruit_bus_device/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+adafruit_bus_device/__pycache__/__init__.cpython-311.pyc,,
+adafruit_bus_device/__pycache__/i2c_device.cpython-311.pyc,,
+adafruit_bus_device/__pycache__/spi_device.cpython-311.pyc,,
+adafruit_bus_device/i2c_device.py,sha256=BN_qGuMVCeFGpOISVvtocN8zu2bPW7tscuAzR96ovUY,6409
+adafruit_bus_device/spi_device.py,sha256=AB9I6ZiywQMdV57YDPxBV6LpVcV_fOcWxl6-o8COpWM,3946
+adafruit_circuitpython_busdevice-5.2.6.dist-info/INSTALLER,sha256=zuuue4knoyJ-UwPPXg8fezS7VCrXJQrAP7zeNuwvFQg,4
+adafruit_circuitpython_busdevice-5.2.6.dist-info/LICENSE,sha256=9gQ2ZE4GYwHUwujx8GdKFXsfYOT9VYZxe5nd4lXMGM0,1076
+adafruit_circuitpython_busdevice-5.2.6.dist-info/METADATA,sha256=NZcwxoHLyalsUznlHc00c_daQjoo0VAJfolIt20NluQ,4018
+adafruit_circuitpython_busdevice-5.2.6.dist-info/RECORD,,
+adafruit_circuitpython_busdevice-5.2.6.dist-info/WHEEL,sha256=pkctZYzUS4AYVn6dJ-7367OJZivF2e8RA9b_ZBjif18,92
+adafruit_circuitpython_busdevice-5.2.6.dist-info/top_level.txt,sha256=RKvOxnVyFHh0cijS4daukt1_Cph3YhfkDZF-tRNZ-oo,20

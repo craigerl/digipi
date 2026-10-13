@@ -1,0 +1,3 @@
+[stream-properties]
+Audio/Sink:node.name:auto_null={"channelMap":["FL", "FR"], "mute":false, "volume":1.000000, "channelVolumes":[1.000000, 1.000000]}
+Input/Audio:application.name:JS8Call={"channelMap":["MONO"], "mute":false, "volume":1.000000, "channelVolumes":[1.000000]}

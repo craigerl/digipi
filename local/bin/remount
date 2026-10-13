@@ -1,0 +1,2 @@
+sudo mount / -orw -oremount  2> /dev/null > /dev/null
+echo "Filesystem is now writeable."

@@ -1,0 +1,2 @@
+
+#. "$HOME/.local/bin/env"

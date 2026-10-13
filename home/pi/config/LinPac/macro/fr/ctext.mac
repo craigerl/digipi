@@ -1,0 +1,12 @@
+LinPac version %V canal %K
+Tapez //I pour les infos, //H pour la liste des commandes.
+
+:IF %(exist STN_NICKNAME) = 1
+Bienvenue, %STN_NICKNAME !
+:ELSE
+Bienvenue, %N !
+:ENDIF
+:IF %A >= 120
+Dernière activité du SysOp il y a %A sec. . Essayez //B s'il ne réponds pas.
+:ENDIF
+

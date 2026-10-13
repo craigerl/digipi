@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://earth.google.com/kml/2.1">
+<Document>
+<name>User</name>
+<Folder><name>CM98</name><Placemark id="KM6LYW:2021-09-03 16:59:1">
+<Point><coordinates>-121,38.5,0</coordinates></Point>
+<name>KM6LYW</name>
+<styleUrl>styles.kml#CM98</styleUrl>
+<Snippet maxLines="1">Cool, CA</Snippet>
+<description><![CDATA[<table border="1"><tr><td></td><td bgcolor=#0099CC>2038-01-19 03:14</td></tr><tr><td bgcolor=#FF9933>Antenna</td><td>Dipole</td></tr><tr><td bgcolor=#FF9933>Locator</td><td>CM98</td></tr><tr><td bgcolor=#FF9933>Name</td><td>Craig</td></tr><tr><td bgcolor=#FF9933>QTH</td><td>Cool, CA</td></tr></table>]]>
+</description>
+<ExtendedData xmlns:fldigi="http://www.w1hkj.com">
+<fldigi:evt ts="Permanent">
+<fldigi:itm k="QTH" v="Cool, CA" /><fldigi:itm k="Locator" v="CM98" /><fldigi:itm k="Antenna" v="Dipole" /><fldigi:itm k="Name" v="Craig" /></fldigi:evt>
+</ExtendedData>
+</Placemark>
+</Folder></Document>
+</kml>

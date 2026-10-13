@@ -1,0 +1,18 @@
+<sysops vcsRevision="$Revision: 157 $" vcsAuthor="$Author: eckertb $" vcsId="$Id: sysop-template.xml 157 2013-12-07 12:29:28Z eckertb $">
+  <sysop>
+    <Callsign></Callsign>
+    <Password></Password>
+    <GridSquare></GridSquare>
+    <SysopName></SysopName>
+    <StreetAddress1></StreetAddress1>
+    <StreetAddress2></StreetAddress2>
+    <City></City>
+    <State></State>
+    <Country></Country>
+    <PostalCode></PostalCode>
+    <Email></Email>
+    <Phones></Phones>
+    <Website></Website>
+    <Comments></Comments>
+  </sysop>
+</sysops>

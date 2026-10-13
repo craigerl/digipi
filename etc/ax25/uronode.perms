@@ -1,0 +1,28 @@
+# /etc/ax25/uronode.perms - URONode example permissions file
+#
+# see uronode.perms(5)
+#
+# Note: The flags have been changed as of 2014/08/23
+#
+# user	type	port	passwd	perms
+
+# User oh2bns can login without password from anywhere else but 'inet'.
+#
+#xx0xx	inet	*	qwerty	95
+#xx0xx	*	*	*	95
+n1uro	*	*	*	255
+
+# OH2RBI is a bbs so it needs escape disabled.
+#
+#xx0xx	*	*	*	287
+
+# Default permissions per connection type.
+#
+*	ax25	*	*	31
+*	netrom	*	*	31
+*	local	*	*	31
+*	ampr	*	*	31
+*	inet	*	*	0
+*	host	*	*	31
+
+KX6XXX * * abc123 255

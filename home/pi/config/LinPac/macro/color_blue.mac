@@ -1,0 +1,21 @@
+:macro COLOR_BLUE
+;; This macro sets some other color scheme of LinPac
+
+;; QSO-Window
+defcolor QSO_RX WHITE BLACK
+defcolor QSO_TX YELLOW BLACK
+defcolor QSO_INFO LIGHTCYAN BLACK
+defcolor QSO_CTRL RED WHITE
+;; Editor
+defcolor ED_TEXT YELLOW CYAN
+defcolor ED_INFO BLUE CYAN
+defcolor ED_CTRL RED CYAN
+;; Channel info
+defcolor CI_NORM RED LIGHTGRAY
+defcolor CI_SLCT YELLOW MAGENTA
+defcolor CI_NCHN YELLOW LIGHTGRAY
+defcolor CI_PRVT RED LIGHTGRAY
+;; Main info line
+defcolor IL_TEXT WHITE LIGHTGRAY
+
+redraw

@@ -1,0 +1,12 @@
+adafruit_bus_device/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+adafruit_bus_device/__pycache__/__init__.cpython-313.pyc,,
+adafruit_bus_device/__pycache__/i2c_device.cpython-313.pyc,,
+adafruit_bus_device/__pycache__/spi_device.cpython-313.pyc,,
+adafruit_bus_device/i2c_device.py,sha256=lW2JO1HpkoSvbajXldT6pQ6GUBL6DL3ztlxqn3Vw7JM,6188
+adafruit_bus_device/spi_device.py,sha256=96uF64Xkc416mDRg9Zj5yuIMXKlJmUmBGvfe8MxGihk,3904
+adafruit_circuitpython_busdevice-5.2.13.dist-info/INSTALLER,sha256=zuuue4knoyJ-UwPPXg8fezS7VCrXJQrAP7zeNuwvFQg,4
+adafruit_circuitpython_busdevice-5.2.13.dist-info/METADATA,sha256=idTAIjxpyFG-810yWbfb5pz48dq-kb1hNOJnafLzSvc,4094
+adafruit_circuitpython_busdevice-5.2.13.dist-info/RECORD,,
+adafruit_circuitpython_busdevice-5.2.13.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+adafruit_circuitpython_busdevice-5.2.13.dist-info/licenses/LICENSE,sha256=9gQ2ZE4GYwHUwujx8GdKFXsfYOT9VYZxe5nd4lXMGM0,1076
+adafruit_circuitpython_busdevice-5.2.13.dist-info/top_level.txt,sha256=RKvOxnVyFHh0cijS4daukt1_Cph3YhfkDZF-tRNZ-oo,20

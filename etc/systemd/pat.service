@@ -1,0 +1,16 @@
+[Unit]
+Description=pat
+Requires=rigctld.service
+
+[Service]
+ExecStartPre=+systemctl stop fldigi sstv wsjtx tnc300b digipeater js8call tracker
+ExecStartPre=sleep 1
+ExecStart=/home/pi/pat.sh
+WorkingDirectory=/home/pi/
+StandardOutput=inherit
+StandardError=inherit
+Restart=no
+User=pi
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,57 @@
+# LinPac - Linux Packet Radio Terminal
+# This file defines LinPac commands to run external programs
+# Each line belongs to one command
+#
+# Fields:
+# command_name	LinPac_command	flags
+#
+# Each LinPac command is recognized by the capital letters, lower-case
+# letters are optional.
+#
+# Flags:
+# A - run in ascii mode (CR/LF conversion) [default]
+# B - run in binary mode (no character conversion)
+# D - DOS conversion (throw out LF chars)
+# C - let stdout on console and redirect stderr (full screen apps)
+# S - redirect both stderr and stdout
+# L - can be run from local console only
+# R - run always as remote command
+# P - remove file paths from parametres when FIXPATH is on
+# 
+#
+autobin	AUTOBIN	BR
+autotx	RPrg	BRP
+bell	Bell	A
+compose COMPOSE A
+delmsg	DELMSG	A
+forward FORWARD BR
+w	WHo	A
+lpbck	LPBCK	A
+name	Name	A
+mheard	MHeard	A
+rtt	RTt	AR
+shell	SHell	AS
+testapp	TESTApp AL
+yapp	YAPP	BR
+yapptx	YPUT    BRP
+save7pl	BSave	BR
+rawio	Write	R
+rawtx	Read	RP
+rawio	WBin	BR
+rawtx	RBin	BRP
+mail	MAIL	CL
+getmsg	GETMsg	BR
+getmail	GETMAil	A
+logbook LOGbook A
+kill_chn	KILL	A
+flexpwd	FLEXPWD	AR
+md2pwd	MD2PWD	AR
+md5pwd	MD5PWD	AR
+tnpwd	TNPWD	AR
+pack	PACK	A
+catch	CATCH	A
+sendfile	SENDFile	A
+join	JOIN	A
+ipcontrol	IPControl	A
+finger	Finger	AS
+telnet	Telnet	DS

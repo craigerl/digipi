@@ -1,0 +1,375 @@
+#!/bin/bash
+# $Id: fimgs 1921 2023-03-25 14:49:04Z dezperado $
+
+# (c) 2007-2023 Michele Martone
+
+# This is a modified version of the original fbgs script by Gerd Hoffman.
+# Note: it probably won't work on bash version < 3.0.
+
+# This script uses a temporary directory to stores rendered/wget'ed files
+# This directory is named after the process ID
+
+# Possible improvements:
+# - regexp usage
+# - adapt to work withour rar or unzip
+# - give option to wget
+# - may add a "-o" option to specify $FIMTDPFX
+
+FIMSHMEM=/dev/shm
+FIMVARTD=/var/tmp
+if test -d ${FIMSHMEM} -a -w ${FIMSHMEM} ; then
+	FIMTMPDIR=$FIMSHMEM
+else
+	FIMTMPDIR=$FIMVARTD
+fi
+FIMTDPFX=fbps
+DIR="${TMPDIR-$FIMTMPDIR}/${FIMTDPFX}-$$"
+#GSRESOLUTION=""
+#GSRESOLUTION=${GSRESOLUTION:--r240x240}
+GSRESOLUTION=${GSRESOLUTION:-120x120}
+shopt  -s nocasematch
+
+
+# we must have write permissions in that directory
+mkdir -p "$DIR"	|| exit 1
+
+# we want that directory clean after this script execution, no matter what happens
+trap 'rm -rf $DIR' EXIT
+
+# useless for now :)
+# declare -f 
+
+# useless, too
+# export -f
+
+# as advised in man which, for mysterious reasons ( C compatible )
+# which ()
+# {
+# 	( alias; declare -f ; ) | /usr/bin/which --tty-only --read-alias --read-functions --show-tilde --show-dot $@
+# }
+
+#export -f which
+FIMERRCV=255
+
+# checks if the first supplied argument is in the current $PATH
+function check_in_path()
+{
+	local cmd="$1";
+	[[ -z "$cmd" ]] && return 0
+	[[ -z $(which "$cmd" 2>/dev/null) ]] && return ${FIMERRCV}
+	return 0
+}
+
+# output functions
+function info()  { echo '  [+]' "$@" 1>&2 ;  }
+function einfo() { echo '  [-]' "$@" 1>&2 ;  }
+function die() { einfo "ERROR : $*" 1>&2 ; exit ${FIMERRCV}; }
+
+# our favourite framebuffer viewing program :)
+FBI=fim
+
+check_in_path sort  || die "no sort in \$PATH"
+check_in_path echo  || die "no echo in \$PATH"
+check_in_path find  || die "no find in \$PATH"
+#check_in_path wget  || die "no wget in \$PATH"
+check_in_path gs    || die "no gs (ghostscript) in \$PATH"
+#check_in_path xz    || die "no xz               in \$PATH"
+#check_in_path bunzip2 || die "no bunzip2 in \$PATH"
+check_in_path tar   || die "no tar in \$PATH"
+check_in_path basename   || die "no basename in \$PATH"
+check_in_path md5sum   || die "no md5sum in \$PATH"
+#check_in_path rar   || die "no rar in \$PATH"
+#check_in_path unzip || die "no unzip in \$PATH"
+#check_in_path scp  || die "no scp in \$PATH"
+
+
+# parse options
+fbi_read_opts="--autotop --autowidth"
+fbi_default_opts="--autozoom"
+fbiopts="$fbi_default_opts"
+gsopts="-q"
+#passwd=""
+opt=1
+
+# in this way odd filenames are kept intact, be WARNED
+while test "$opt" = "1"
+#set -- `getopt "" "$@"`
+#while [ ! -z "$1" ]
+do
+	case "$1" in
+#		-l)	gsopts="$gsopts -r100x100"
+#			shift
+#			;;
+#		-xl)	gsopts="$gsopts -r120x120"
+#			shift
+#			;;
+#		-xxl)	gsopts="$gsopts -r150x150"
+#			shift
+#			;;
+#		-q | -a)
+#			fbiopts="$fbiopts $1"
+#			shift
+#			;;
+#		-d | -m | -t | -g | -f)
+#			fbiopts="$fbiopts $1 $2"
+#			shift; shift
+#			;;
+		# explicit option passing
+#		-t)	fbiopts="$fbiopts --no-framebuffer"
+#			shift
+#			;;
+		-r)	GSRESOLUTION="$2";
+			shift ; shift
+			;;
+#		-c)	fbiopts="$fbiopts --execute-commands $2"
+#			shift; shift
+#			;;
+#		-F)	fbiopts="$fbiopts --final-commands $2"
+#			shift; shift
+#			;;
+		-p)	GSPASSWORD="$2"
+			shift; shift
+			;;
+		-m)	shift
+cat << EOF
+.TH fimgs 1 "(c) 2007-2023 Michele Martone"
+.SH NAME
+fimgs - poor man's [http://]PostScript/pdf/dvi/cbr/rar/cbz/zip viewer based on fim
+.SH SYNOPSIS
+.B fimgs [ {fimgs-options} ] file [-- [{fim-options}]]
+.SH DESCRIPTION
+.B fimgs  
+is a wrapper script which takes a PostScript or pdf or .cbr or .rar or .cbz or .zip or .dvi or any of the above prefixed with http:// or https:// or ssh: as input, renders the pages using ghostscript into a temporary directory and finally calls \fB $FBI\fP to display them.
+
+In case of compressed archives (in ZIP or RAR formats), the images are decompressed into a directory and displayed using \fB fim\fP.
+In this case, only images contained in the archive will be displayed (no nested archives or pdf's or ps's or dvi's).
+
+The temporary directory name will be of the form \$TMPDIR/$FIMTDPFX-\$\$.
+If the \$TMPDIR environment variable is unset, $FIMSHMEM and $FIMVARTD will be checked for existence and permissions. 
+The \$\$ above is the script process ID.
+The script deletes the temporary directory when \fB fim\fP terminates.
+
+In order to uncompress RAR archives, fimgs will use 'unrar-nonfree' or 'rar' or 'unrar-free'.
+
+In order to uncompress ZIP archives, fimgs will use 'zip'.
+
+In order to uncompress BZ2 files, 'bunzip2' will be used, if present.
+
+In order to uncompress TAR.GZ or TAR.BZ2 or TAR.XZ archives, fimgs will use 'tar'.
+
+In order to fetch http:// or https:// prefixed URLS, 'wget' will be used, if present.
+
+In order to fetch ssh: prefixed host:path locations, 'scp' will be used.
+
+In case of a CBZ, CBR, PDF, PS, or DVI file, will invoke \fB fim\fP with '$fbi_read_opts'.
+
+.SH OPTIONS
+To pass through options to \fB fim\fP, you may specify them after "--".
+
+Default options are '$fbi_default_opts'.
+
+.B -r {resolution}
+Specify resolution for the 'gs' -r option (e.g.: 96x96; default $GSRESOLUTION). 
+.TP
+
+.B -m
+Dump a man page for fimgs.
+.TP
+
+.B -p {password}
+Specify password for the 'gs' -p (password) option.
+.TP
+
+.B -h
+Will display a help message.
+.\" Additionally you can specify -l, -xl or -xxl to get the pages
+.\" rendered with 100, 120 or 150 dpi (default is 75).
+.SH SEE ALSO
+fim(1), fimrc(1), gs(1), fbi(1), fbgs(1), bash(1)
+,zip(1), rar(1), rar-free(1), unrar-free(1), tar(1), gzip(1)
+.SH AUTHOR
+Michele Martone <dezperado _ GUESS _ autistici.org>. 
+EOF
+			exit;
+			;;
+		-h)	
+			#help text
+			echo "$0 [{fimgs-options}] {files} [-- [fim-options]] "
+			echo -e "\nNote that any file in {files} may be a (appropriately named) :"
+			echo -e " PDF (.pdf) file"
+			echo -e " Postscript (.ps) file"
+			echo -e " Encapsulated Postscript (.eps) file"
+			echo -e " DeVice Independent (.dvi) file"
+			echo -e " TAR (.tar) archive"
+			echo -e " BZ2 (.bz2) archive"
+			echo -e " XZ (.xz) archive"
+			echo -e " GZIP (.gz) archive"
+			echo -e " https://  resource (web resource)"
+			echo -e " http://  resource (web resource)"
+			echo -e "\nNote that you cannot view files named like options (no -- meta-option apply to fimgs)."
+			echo -e "\n \`man fimgs\`   will give you more info."
+			exit 1
+			;;
+	        --)	
+			break;; # -- is *not* to be passed to fim
+	        *)	
+			[[ "$1" =~ ^-.* ]] && fbiopts="$fbiopts $1";
+			break;;
+#		-*)	echo "unknown option: $1"
+#			exit 1
+#			;;
+#		*)	opt=0
+#			;;
+	esac
+#	shift
+done
+###############################################################################
+check_in_path $FBI  || die "no fim in \$PATH"
+###############################################################################
+##		HANDLING OF CBR AND CBZ ARCHIVES
+###############################################################################
+UNCBZ="unzip" ;
+# shellcheck disable=SC2089
+ZOPT="-x '*/*'" # suits for Info-ZIP implementation
+#UNRAR="unrar-free"
+#UNRAR="rar"
+UNRAR="unrar-nonfree"
+check_in_path $UNRAR || UNRAR="rar"
+check_in_path $UNRAR || UNRAR="unrar-free"
+#check_in_path $UNRAR || UNRAR="unrar-nonfree"
+UNCBR="$UNRAR x"                   # suits for Alexander Roshal's RAR 3.51
+UNTAR="tar xf"
+UNTGZ="tar xzf"
+UNBZ="tar xjf"
+UNXZ="tar xJf"
+#while [[ "$1" != "" ]]
+#while [[ "$#" -gt "0" ]]
+while test x"$opt" = x"1"
+#while shift
+do
+	f="$1";
+	if test x"$f" = x"--" ; then shift; while test "$#" -gt "0" ; do f="$1"; fbiopts="$fbiopts $1" ; shift; done; f=/dev/null  ; fi 
+	shift;
+	[[ "$f" =~ 'https://' ]] && check_in_path wget && { fn="$DIR"/"`basename $f`" && wget "$f" -O "$fn"; f="$fn"; }
+	[[ "$f" =~ 'http://' ]] && check_in_path wget && { fn="$DIR"/"`basename $f`" && wget "$f" -O "$fn"; f="$fn"; }
+	[[ "$f" =~ 'ssh:' ]] && { bfn="`basename ${f/#ssh:/}`" && fn="$DIR"/"`echo $bfn | sed s/^.*://`" && scp "${f/#ssh:/}" "$fn" ; f="$fn"; }
+	[[ -z "$f" ]] && break ;
+	if ! [[ -e "$f" ]] ; then exit 255; fi
+	#while [[ ! -f "$f" ]] ; do shift ; [[ "$#" -lt 0 ]] && break 2 ; done
+###############################################################################
+##		HANDLING OF DVI,PS AND PDF FILES
+###############################################################################
+#[[ "$f" =~ .dvi$ ]] && f="/tmp/$$.ps" && dvips -q "$f" -o "$f" ; rm -fR $DIR" EXIT
+#[[ -f "$f" ]] || { echo "an option!" ;  fbiopts="$fbiopts $f" ; break ; } # not a file, but an option
+
+
+[[ "$f" =~ .dvi$ ]] && fbiopts=" -P $fbiopts"
+[[ "$f" =~ .pdf$ ]] && fbiopts=" -P $fbiopts"
+[[ "$f" =~ .ps$  ]] && fbiopts=" -P $fbiopts"
+[[ "$f" =~ .eps$  ]] && fbiopts=" -P $fbiopts"
+
+if ( [[ "$f" =~ .ps$  ]] || [[ "$f" =~ .pdf$  ]] ) || ( [[ "$f" =~ .eps$  ]] || [[ "$f" =~ .dvi$  ]] )
+then 
+
+BDIR=''
+if check_in_path md5sum
+then
+	DIRS=$(echo "$f" | md5sum )
+	DIRS=${DIRS// /}
+	DIRS=${DIRS//-/}
+	BDIR="$DIR/$DIRS"
+	# this means that giving duplicate input files will overwrite the original render directory...
+else
+	BDIR="$DIR/"$(basename "$f")
+fi
+mkdir -p $BDIR  	|| die "failed mkdir $BDIR"
+info "rendering $f to $BDIR.."
+
+#this is a workaround for gs's .. bug ..
+
+[[ "$f" =~ ^\.\.  ]] && f="$PWD/$f"
+
+# note : we cannot render gs renderable documents with more than 1000 pages...
+gs	-dSAFER -dNOPAUSE -dBATCH			\
+	-sPDFPassword="$GSPASSWORD"			\
+	-sDEVICE=png256 -r${GSRESOLUTION} -sOutputFile=$BDIR/ps%03d.png	\
+	$gsopts						\
+	"$f" || die "ghostscript failed rendering!"
+# still unused options :
+#	-sDEVICE=tiffpack				\
+#	-sOutputFile=$DIR/ps%03d.tiff
+
+# tell the user we are done :-)
+#echo -ne "\\007"
+#echo stuff : `ls -l $DIR`
+#echo "contents of $DIR:"
+#$FBI $fbiopts -P $DIR/ps*.png
+#$FBI $fbiopts -P $DIR/ps*.png 2>/dev/null
+#fbi $fbiopts -P $DIR/ps*.tiff
+# sanity check
+#pages=`ls $DIR/ 2>/dev/null | wc -l`
+#if test "$pages" -eq "0"; then
+#	echo
+#	echo "Oops: ghostscript wrote no pages ($pages)?"
+#	echo
+#	exit 1
+#elif ( ( [[ "$f" =~ \\.cbr$  ]] || [[ "$f" =~ \\.cbz$  ]] ) || ( [[ "$f" =~ \\.rar$  ]] || [[ "$f" =~ \\.zip$  ]] ) || ( [[ "$f" =~ \\.tgz$  ]] || [[ "$f" =~ \\.tar.gz$  ]] ) || ( [[ "$f" =~ \\.tar$  ]] || [[ "$f" =~ \\.tar.bz2$  ]] ) )  && ! [[ "$f" =~ '^http://' ]]
+elif ( ( [[ "$f" =~ .CBR$  ]] || [[ "$f" =~ .CBZ$  ]] || [[ "$f" =~ .cbr$  ]] || [[ "$f" =~ .cbz$  ]] ) || ( [[ "$f" =~ .rar$  ]] || [[ "$f" =~ .zip$  ]] ) || ( [[ "$f" =~ .tgz$  ]] || [[ "$f" =~ .tar.gz$  ]] ) || ( [[ "$f" =~ .tar$  ]] || [[ "$f" =~ .tar.bz2$  ]] || [[ "$f" =~ .tar.xz$  ]] ) )  && ! [[ "$f" =~ 'http://' ]] && ! [[ "$f" =~ 'https://' ]]
+then
+# in the case of an archive ...
+# an ideal fimgs script would unpack recursively in search for interesting files..
+
+
+# 20070925 there were problems with '\\.' so i put '.' only :/
+[[ "$f" =~ .cbr$    ]] && ( $UNCBR "$f"    "$DIR"  ) 
+#[[ "$f" =~ .CBR$    ]] && ( $UNCBR "$f"    "$DIR"  ) 
+[[ "$f" =~ .rar$    ]] && ( $UNCBR "$f"    "$DIR"  ) 
+# shellcheck disable=SC2086,SC2090
+[[ "$f" =~ .cbz$    ]] && ( $UNCBZ "$f" $ZOPT -d "$DIR" ) 
+# shellcheck disable=SC2086,SC2090
+#[[ "$f" =~ .CBZ$    ]] && ( $UNCBZ "$f" $ZOPT -d "$DIR" ) 
+[[ "$f" =~ .zip$    ]] && ( $UNCBZ "$f" $ZOPT -d "$DIR" ) 
+[[ "$f" =~ .tgz$    ]] && ( $UNTGZ "$f" -C "$DIR" ) 
+[[ "$f" =~ .tar.gz$ ]] && ( $UNTGZ "$f" -C "$DIR" ) 
+[[ "$f" =~ .tar$    ]] && ( $UNTAR "$f" -C "$DIR" ) 
+check_in_path bunzip2 && [[ "$f" =~ .tar.bz2$ ]] && ( $UNBZ "$f" -C "$DIR" ) 
+check_in_path xz && [[ "$f" =~ .tar.xz$ ]] && ( $UNXZ "$f" -C "$DIR" ) 
+
+function add_fbi_read_opts() { fbiopts="$fbiopts $fbi_read_opts"; }
+[[ "$f" =~ .cbr$    ]] && add_fbi_read_opts;
+[[ "$f" =~ .cbz$    ]] && add_fbi_read_opts;
+[[ "$f" =~ .ps$     ]] && add_fbi_read_opts;
+[[ "$f" =~ .dvi$    ]] && add_fbi_read_opts;
+[[ "$f" =~ .pdf$    ]] && add_fbi_read_opts;
+
+# ... but this fimgs script is lazy and it gets satisfied with a bare decompress !
+
+# lone file handling..
+#[[ "$?" = 0 ]] || echo "this script is not suited for file $f" 
+else
+	[[ -f "$DIR/`basename $f`" ]] || cp -- "$f" "$DIR" || die "problems copying $f to $DIR"
+fi
+#fi
+done
+# show pages
+#fbiopts=
+#$FBI $fbiopts -P -- $DIR/* $DIR/*/* $DIR/*/*/* $DIR/*/*/*/* $DIR/*/*/*/*/* $DIR/*/*/*/*/*/* $DIR/*/*/*/*/*/*/*
+#echo "options are $fbiopts"
+
+# there should be some filter to avoid feed garbage to fim ... 
+# shellcheck disable=SC2086
+find "$DIR/" -type f -iname '*.bmp' -or -iname '*.gif' -or -iname '*.jpg' -or -iname '*.jpeg' -or -iname '*.pcx' -or -iname '*.pbm' -or -iname '*.pgm' -or -iname '*.ppm' -or -iname '*.png' -or -iname '*.tif' -or -iname '*.tiff' -or -iname '*.webp' | sort -n | $FBI $fbiopts  -- -
+
+# when no framebuffer device is available, we could invoke another console viewer, couldn't we ?
+# cacaview $DIR/*
+
+# the old syntax
+# $FBI $fbiopts -P  `find $DIR -iname '*.png' -or -iname '*.jpg' -or -iname '*.gif' -or -iname '*.jpeg' -or -iname '*.tiff' -or -iname '*.bmp'`
+
+# or the older one ..
+#$FBI $fbiopts -P -- $files
+
+# or the ancient one
+#fbi $fbiopts -P $DIR/ps*.tiff
+
+

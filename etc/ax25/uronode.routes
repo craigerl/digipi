@@ -1,0 +1,21 @@
+# /etc/ax25/uronode.routes     URONode example configuration file
+# This is used for quick ax25 connects so users need not add an interface
+# when making a connect. You also need a statement in here for flexd to
+# poll your flexnet neighbor.
+
+# URONode shows links with this order. Examples below:
+
+# Direct Routing 
+# route <call> <alias> <port> d 'description'
+#
+#route 	n1uro-1	fxuro	ax0 	d 	'N1URO FlexNet Hub'
+
+# Routing across another node with sending a string "C <call>"
+# route <call> 		<alias> 	<port> n 	'description' 	<node>
+#
+#route 	n1uro-14 	WMASS		ax0 	n 	'N1URO-NOS' 	n1uro-1 
+
+# Routing via digipeaters
+# route <call> 		<alias>		<port> 	v 	'description' 	<digipeaters>
+#
+#route 	n1uro-9 	MACTFX		ax0 	v 	'N1URO Xnet' 	n1uro-1

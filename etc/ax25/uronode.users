@@ -1,0 +1,6 @@
+# /etc/ax25/uronode.users	URONode example configuration file
+# Shell access for Sysop users
+
+# callsign:password:local linux username:shell
+# xx#xx:password:xx#xx:shell
+# yy#yy:password:thomas:shell

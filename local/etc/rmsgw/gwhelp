@@ -1,0 +1,13 @@
+Usage:
+
+To display this help:
+   rmsgw -h
+
+Normal AX.25 usage:
+   rmsgw [ -c configfile ] [ -p packlen ] [ -l logmask ] [ -g gwcallsign ] \
+         [-b bannertextfile ] [ -P AX.25port ] usercall
+
+The rmsgw program is run by AX.25 as configured in /etc/ax25/ax25d.conf when
+there is an incoming connection on a TNC configured for AX.25.
+
+See the rmsgw man page for more information.

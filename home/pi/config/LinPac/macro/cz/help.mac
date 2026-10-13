@@ -1,0 +1,25 @@
+
+                    LinPac - seznam pøíkazù
+                    ~~~~~~~~~~~~~~~~~~~~~~~
+
+  //Activity            - vypi¹ èas od poslední reakce operátora
+  //Bell                - pøivolej operátora zvukovým signálem
+  //CStatus             - vypi¹ seznam pøipojených u¾ivatelù
+  //Disconnect          - okam¾ité ukonèení spojení
+  //Echo <text>         - po¹li zadaný text zpìt
+  //Help                - tato nápovìda
+  //Info                - vypi¹ informace o stanici
+  //MHeard              - vypi¹ seznam stanic sly¹ených v poslední dobì
+  //Name <name>	      - ulo¾ení tvého jména
+  //Quit                - normální ukonèení spojení
+  //Read <filename>     - po¹li textový soubor
+  //RBin <filename>     - po¹li binární soubor
+  //RPrg <filename>     - po¹li soubor protokolem autobin
+  //RTt                 - zjisti èas kruhové cesty paketu
+  //Users               - vypi¹ seznam pøipojených u¾ivatelù
+  //VERsion             - vypi¹ verzi software
+  //Write <filename>    - zaèni zapisovat do zadaného souboru
+                          (konec pøíkazem "//W off")
+  //WBin <filename>     - zaèni zapisovat do binárního souboru
+                          (konec pøíkazem "//WBin off")
+  //YPUT <filename>     - po¹li soubor protokolem YAPP

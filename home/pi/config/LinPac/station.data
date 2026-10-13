@@ -1,0 +1,45 @@
+[OK0NMA]
+NAME=PC/FlexNet Brno - Zabovresky
+TYPE=FLEXNET
+LOC=JN89HE
+
+[OK0PAB]
+NAME=FBB BBS Brno - Zabovresky
+TYPE=FBB
+LOC=JN89HE
+PWD=sysoppwdifiamsysop
+
+[OK0PMU]
+NAME=TNOS Brno
+TYPE=TNOS
+TERM=ANSI
+
+[OK0NMU]
+NAME=PC/FlexNet Kravi hora
+TYPE=FLEXNET
+
+[OK0XXX]
+NAME=BBS with login password
+TYPE=FBB
+LOGINPW=myownloginpasswordstring
+PWPROMPT=Password>
+
+[OK2JBG]
+NAME=Radek
+NICKNAME=Radku
+LOC=jn89hf
+LANG=cz
+LEVEL=5
+ENC=iso
+TERM=none
+RCMD=*
+
+[NODE]
+NAME= Accès au commutateur ROSE/FPAC
+TYPE=FPAC
+
+[F1TVE-8]
+NAME=FPAC 192502
+TYPE=FPAC
+PWD=password_of_fpac_switch
+

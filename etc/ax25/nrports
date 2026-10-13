@@ -1,0 +1,8 @@
+# /etc/ax25/nrports
+#
+# The format of this file is:
+#
+# name callsign alias paclen description
+#
+#netrom KX6XXX-4 #DIGI  255     145.730 Linux Node
+netrom KX6XXX-4 #DIGI 255     145.730 Linux Node

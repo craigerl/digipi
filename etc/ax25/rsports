@@ -1,0 +1,8 @@
+# /etc/ax25/rsports
+#
+# The format of this file is:
+#
+# name address description
+#
+
+#rose	2080192203	Rose port

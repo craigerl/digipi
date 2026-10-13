@@ -1,0 +1,10 @@
+[Unit]
+Description=Automatically generates an internet Hotspot when a valid ssid is not in range
+After=multi-user.target
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStartPre=sleep 30
+ExecStart=/usr/local/bin/digihotspot.sh
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,24 @@
+[main]
+ui_enabled = true
+ui_port = 10000
+ui_protocol = ws
+waterfall_enabled = true
+radio_model = RIGNUMBER
+radio_device = /dev/DEVICEFILE
+radio_serial_speed = BAUDRATE
+input_device = "plughw:0,0"
+output_device = "plughw:0,0"
+capture_channel = left
+sound_system = alsa
+arq_tcp_base_port = 8300
+broadcast_tcp_port = 8100
+verbose = false
+freedv_verbosity = 0
+hamlib_log_level = 0
+
+[arq]
+no_progress_timeout_s = 180
+disconnect_drain_timeout_s = 30
+
+[audio]
+tx_gain_db = -6.00

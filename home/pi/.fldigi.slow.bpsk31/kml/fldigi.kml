@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://earth.google.com/kml/2.1">
+<Document>
+<name>Fldigi</name>
+<NetworkLink>
+	<name>User</name>
+	<Link>
+		<href>User.kml</href>
+		<refreshMode>onInterval</refreshMode>
+		<refreshInterval>120</refreshInterval>
+	</Link>
+</NetworkLink>
+<NetworkLink>
+	<name>Synop</name>
+	<Link>
+		<href>Synop.kml</href>
+		<refreshMode>onInterval</refreshMode>
+		<refreshInterval>120</refreshInterval>
+	</Link>
+</NetworkLink>
+<NetworkLink>
+	<name>Navtex</name>
+	<Link>
+		<href>Navtex.kml</href>
+		<refreshMode>onInterval</refreshMode>
+		<refreshInterval>120</refreshInterval>
+	</Link>
+</NetworkLink>
+</Document>
+</kml>

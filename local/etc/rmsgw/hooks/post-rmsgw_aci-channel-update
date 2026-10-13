@@ -1,0 +1,24 @@
+#!/bin/sh
+# $Id: post-rmsgw_aci-channel-update 176 2014-10-27 09:07:54Z eckertb $
+
+CONFIG_FILE=$1; shift
+CHANNEL_FILE=$1; shift
+STAT_FILE=$1; shift
+BASECALL=$1; shift
+CALLSIGN=$1; shift
+GRID_SQUARE=$1; shift
+FREQ=$1; shift
+MODE=$1; shift
+AUTO_ONLY=$1; shift
+BAUD=$1; shift
+POWER=$1; shift
+HEIGHT=$1; shift
+GAIN=$1; shift
+DIRECTION=$1; shift
+HOURS=$1; shift
+GROUP_REFERENCE=$1; shift
+SERVICE_CODE=$1; shift
+STATUS_CHECKER=$1; shift
+UPDATED=$1; shift
+
+exit 0
