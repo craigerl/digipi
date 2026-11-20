@@ -4,6 +4,7 @@ Description=digipeater
 [Service]
 ExecStartPre=+systemctl stop fldigi sstv wsjtx mercury ardop tnc300b tnc node winlinkrms pat js8call tracker
 ExecStart=/home/pi/direwolf.digipeater.sh
+ExecStartPost=+/home/pi/webchat-reconnect.sh %n
 WorkingDirectory=/home/pi/
 StandardOutput=inherit
 StandardError=inherit

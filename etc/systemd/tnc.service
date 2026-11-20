@@ -6,6 +6,7 @@ After=graphical.target
 ExecStartPre=+systemctl stop fldigi sstv wsjtx mercury ardop tnc300b digipeater node winlinkrms js8call tracker
 Type=simple
 ExecStart=/home/pi/direwolf.tnc.sh
+ExecStartPost=+/home/pi/webchat-reconnect.sh %n
 Restart=no
 WorkingDirectory=/home/pi/
 User=pi
