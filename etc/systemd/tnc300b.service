@@ -5,6 +5,7 @@ After=network.target sound.target
 [Service]
 ExecStartPre=+systemctl stop fldigi sstv mercury wsjtx ardop digipeater tnc winlinkrms node js8call tracker
 ExecStart=/home/pi/direwolf.tnc300b.sh
+ExecStartPost=+/home/pi/webchat-reconnect.sh %n
 WorkingDirectory=/home/pi/
 StandardOutput=inherit
 StandardError=inherit
